@@ -1,6 +1,6 @@
 ---
-title: "Statistische Verfahren"
-
+title: "Analyse quantitativer Daten"
+subtitle: "Statistische Verfahren in der Geographie"
 author:
   - name: Till Straube
     url: https://user.uni-frankfurt.de/~tstraube
