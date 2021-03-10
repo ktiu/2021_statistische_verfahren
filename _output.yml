@@ -4,6 +4,8 @@ bookdown::gitbook:
   config:
     toc:
       collapse: section
+  includes:
+    in_header: header.html
 
 bookdown::pdf_book:
   keep_tex: true
