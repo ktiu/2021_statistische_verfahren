@@ -1,8 +1,9 @@
 bookdown::gitbook:
-  css: style.css
+  css: custom.css
+  split-by: chapter
   config:
     toc:
-      before: |
-        <li><a href="./">SHORT TITLE HERE</a></li>
-      after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+      collapse: section
+
+bookdown::pdf_book:
+  keep_tex: true

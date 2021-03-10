@@ -1,9 +1,60 @@
---- 
-title: "YOUR TITLE HERE"
-author: "YOUR NAME HERE"
-date: "`r Sys.Date()`"
+---
+title: "Statistische Verfahren"
+
+author:
+  - name: Till Straube
+    url: https://user.uni-frankfurt.de/~tstraube
+    email: straube@geo.uni-frankfurt.de
+    affiliation: |
+      | Institut für Humangeographie
+      | Goethe-Universität Frankfurt
+date: "Sommersemester 2021"
 site: bookdown::bookdown_site
+documentclass: article
+bibliography: ["statistik.bib"]
+link-citations: yes
+lang: de
+description: "Projektseminar"
+output:
+  html_document:
+    df_print: paged
+  pdf_document:
+    template: template.tex
+csl: chicago-author-date-de.csl
 ---
 
-# Down the rabbit-hole
+```{r setup, include=F}
+knitr::opts_chunk$set(cache = T,
+                      warning = F,
+                      message = F,
+                      collapse = T,
+                      dev = 'png')
+
+solutions <- knitr::opts_knit$get("rmarkdown.pandoc.to") == "html"
+
+library(knitr)
+library(kableExtra)
+library(tidyverse)
+library(cowplot)
+#library(pubIHG)
+options(OutDec = ",")
+knitr::opts_chunk$set(fig.align='center', out.width='.49\\linewidth', fig.width=5, fig.height=3, echo=FALSE, warning=FALSE, message=FALSE, fig.pos = 'h')
+```
+
+# Terminüberblick {-}
+
+*Alle Sitzungen finden von XX bis XXh c.t. statt*
+
+Datum                 | Sitzung | Inhalt
+--------------------: | ------: | :-----------------------------------
+XX. April 2021        | 1       | [Datenerhebung und Häufigkeiten]
+XX. April 2021        | 2       | [Maßzahlen]
+XX. April 2021        | 3       | [z-Werte und Normalverteilung]
+XX. April 2021        | 4       | [Schätzstatistik]
+XX. April 2021        | 5       | [Grundlagen der Teststatistik]
+XX. April 2021        | 6       | [Testverfahren mit zwei Stichproben]
+XX. April 2021        | 7       | [Korrelation]
+XX. April 2021        | 8       | [Lineare Regression]
+XX. April 2021        | 9       | [Kreuztabellen]
+XX. April 2021        | 10      | [Chi-Quadrat-Tests]
 

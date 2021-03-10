@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="de" xml:lang="de">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Sitzung 4 Schätzstatistik | Statistische Verfahren</title>
+  <meta name="description" content="Projektseminar" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Sitzung 4 Schätzstatistik | Statistische Verfahren" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Projektseminar" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Sitzung 4 Schätzstatistik | Statistische Verfahren" />
+  
+  <meta name="twitter:description" content="Projektseminar" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="z-werte-und-normalverteilung.html"/>
+<link rel="next" href="grundlagen-der-teststatistik.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Terminüberblick</a></li>
+<li class="chapter" data-level="1" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html"><i class="fa fa-check"></i><b>1</b> Datenerhebung und Häufigkeiten</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#lernziele-dieser-sitzung"><i class="fa fa-check"></i><b>1.1</b> Lernziele dieser Sitzung</a></li>
+<li class="chapter" data-level="1.2" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#statistische-praxis"><i class="fa fa-check"></i><b>1.2</b> Statistische Praxis</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#grundbegriffe-der-statistik"><i class="fa fa-check"></i><b>1.2.1</b> Grundbegriffe der Statistik</a></li>
+<li class="chapter" data-level="1.2.2" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#taxonomien-statistischer-verfahren"><i class="fa fa-check"></i><b>1.2.2</b> Taxonomien statistischer Verfahren</a></li>
+<li class="chapter" data-level="1.2.3" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#ablauf-einer-statistischen-untersuchung"><i class="fa fa-check"></i><b>1.2.3</b> Ablauf einer statistischen Untersuchung</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#grundlagen-der-datenerhebung"><i class="fa fa-check"></i><b>1.3</b> Grundlagen der Datenerhebung</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#typen-von-stichproben"><i class="fa fa-check"></i><b>1.3.1</b> Typen von Stichproben</a></li>
+<li class="chapter" data-level="1.3.2" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#variablentypen"><i class="fa fa-check"></i><b>1.3.2</b> Variablentypen</a></li>
+<li class="chapter" data-level="1.3.3" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#skalenniveaus"><i class="fa fa-check"></i><b>1.3.3</b> Skalenniveaus</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#häufigkeitsverteilungen"><i class="fa fa-check"></i><b>1.4</b> Häufigkeitsverteilungen</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#urliste"><i class="fa fa-check"></i><b>1.4.1</b> Urliste</a></li>
+<li class="chapter" data-level="1.4.2" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#geordnete-liste"><i class="fa fa-check"></i><b>1.4.2</b> Geordnete Liste</a></li>
+<li class="chapter" data-level="1.4.3" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#häufigkeiten"><i class="fa fa-check"></i><b>1.4.3</b> Häufigkeiten</a></li>
+<li class="chapter" data-level="1.4.4" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#stabdiagramme"><i class="fa fa-check"></i><b>1.4.4</b> Stabdiagramme</a></li>
+<li class="chapter" data-level="1.4.5" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#quantitative-variablen-1"><i class="fa fa-check"></i><b>1.4.5</b> Quantitative Variablen</a></li>
+<li class="chapter" data-level="1.4.6" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#polygone"><i class="fa fa-check"></i><b>1.4.6</b> Polygone</a></li>
+<li class="chapter" data-level="1.4.7" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#eigenschaften-von-häufigkeitsverteilungen"><i class="fa fa-check"></i><b>1.4.7</b> Eigenschaften von Häufigkeitsverteilungen</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#aufgaben"><i class="fa fa-check"></i><b>1.5</b> Aufgaben</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#aufgabe-1"><i class="fa fa-check"></i><b>1.5.1</b> Aufgabe 1</a></li>
+<li class="chapter" data-level="1.5.2" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#aufgabe-2"><i class="fa fa-check"></i><b>1.5.2</b> Aufgabe 2</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#tipps-zur-vertiefung"><i class="fa fa-check"></i><b>1.6</b> Tipps zur Vertiefung</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#grundbegriffe"><i class="fa fa-check"></i><b>1.6.1</b> Grundbegriffe</a></li>
+<li class="chapter" data-level="1.6.2" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#stichproben"><i class="fa fa-check"></i><b>1.6.2</b> Stichproben</a></li>
+<li class="chapter" data-level="1.6.3" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#skalenniveaus-1"><i class="fa fa-check"></i><b>1.6.3</b> Skalenniveaus</a></li>
+<li class="chapter" data-level="1.6.4" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#häufigkeiten-und-diagramme"><i class="fa fa-check"></i><b>1.6.4</b> Häufigkeiten und Diagramme</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#quellen"><i class="fa fa-check"></i><b>1.7</b> Quellen</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="maßzahlen.html"><a href="maßzahlen.html"><i class="fa fa-check"></i><b>2</b> Maßzahlen</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="maßzahlen.html"><a href="maßzahlen.html#lernziele-dieser-sitzung-1"><i class="fa fa-check"></i><b>2.1</b> Lernziele dieser Sitzung</a></li>
+<li class="chapter" data-level="2.2" data-path="maßzahlen.html"><a href="maßzahlen.html#einleitende-bemerkungen"><i class="fa fa-check"></i><b>2.2</b> Einleitende Bemerkungen</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="maßzahlen.html"><a href="maßzahlen.html#beispielverteilung"><i class="fa fa-check"></i><b>2.2.1</b> Beispielverteilung</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="maßzahlen.html"><a href="maßzahlen.html#lagemaße"><i class="fa fa-check"></i><b>2.3</b> Lagemaße</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="maßzahlen.html"><a href="maßzahlen.html#median"><i class="fa fa-check"></i><b>2.3.1</b> Median</a></li>
+<li class="chapter" data-level="2.3.2" data-path="maßzahlen.html"><a href="maßzahlen.html#modalwert"><i class="fa fa-check"></i><b>2.3.2</b> Modalwert</a></li>
+<li class="chapter" data-level="2.3.3" data-path="maßzahlen.html"><a href="maßzahlen.html#arithmetisches-mittel"><i class="fa fa-check"></i><b>2.3.3</b> Arithmetisches Mittel</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="maßzahlen.html"><a href="maßzahlen.html#streumaße"><i class="fa fa-check"></i><b>2.4</b> Streumaße</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="maßzahlen.html"><a href="maßzahlen.html#spannweite"><i class="fa fa-check"></i><b>2.4.1</b> Spannweite</a></li>
+<li class="chapter" data-level="2.4.2" data-path="maßzahlen.html"><a href="maßzahlen.html#quartilsabstand"><i class="fa fa-check"></i><b>2.4.2</b> Quartilsabstand</a></li>
+<li class="chapter" data-level="2.4.3" data-path="maßzahlen.html"><a href="maßzahlen.html#varianz"><i class="fa fa-check"></i><b>2.4.3</b> Varianz</a></li>
+<li class="chapter" data-level="2.4.4" data-path="maßzahlen.html"><a href="maßzahlen.html#standardabweichung"><i class="fa fa-check"></i><b>2.4.4</b> Standardabweichung</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="maßzahlen.html"><a href="maßzahlen.html#boxplot"><i class="fa fa-check"></i><b>2.5</b> Boxplot</a></li>
+<li class="chapter" data-level="2.6" data-path="maßzahlen.html"><a href="maßzahlen.html#aufgaben-1"><i class="fa fa-check"></i><b>2.6</b> Aufgaben</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="maßzahlen.html"><a href="maßzahlen.html#aufgabe-1-1"><i class="fa fa-check"></i><b>2.6.1</b> Aufgabe 1</a></li>
+<li class="chapter" data-level="2.6.2" data-path="maßzahlen.html"><a href="maßzahlen.html#aufgabe-2-1"><i class="fa fa-check"></i><b>2.6.2</b> Aufgabe 2</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="maßzahlen.html"><a href="maßzahlen.html#tipps-zur-vertiefung-1"><i class="fa fa-check"></i><b>2.7</b> Tipps zur Vertiefung</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="maßzahlen.html"><a href="maßzahlen.html#lagemaße-1"><i class="fa fa-check"></i><b>2.7.1</b> Lagemaße</a></li>
+<li class="chapter" data-level="2.7.2" data-path="maßzahlen.html"><a href="maßzahlen.html#streumaße-1"><i class="fa fa-check"></i><b>2.7.2</b> Streumaße</a></li>
+<li class="chapter" data-level="2.7.3" data-path="maßzahlen.html"><a href="maßzahlen.html#boxplot-1"><i class="fa fa-check"></i><b>2.7.3</b> Boxplot</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="maßzahlen.html"><a href="maßzahlen.html#quellen-1"><i class="fa fa-check"></i><b>2.8</b> Quellen</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="z-werte-und-normalverteilung.html"><a href="z-werte-und-normalverteilung.html"><i class="fa fa-check"></i><b>3</b> z-Werte und Normalverteilung</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="z-werte-und-normalverteilung.html"><a href="z-werte-und-normalverteilung.html#lernziele-dieser-sitzung-2"><i class="fa fa-check"></i><b>3.1</b> Lernziele dieser Sitzung</a></li>
+<li class="chapter" data-level="3.2" data-path="z-werte-und-normalverteilung.html"><a href="z-werte-und-normalverteilung.html#variationskoeffizient"><i class="fa fa-check"></i><b>3.2</b> Variationskoeffizient</a></li>
+<li class="chapter" data-level="3.3" data-path="z-werte-und-normalverteilung.html"><a href="z-werte-und-normalverteilung.html#z-transformation"><i class="fa fa-check"></i><b>3.3</b> <span class="math inline">\(z\)</span>-Transformation</a></li>
+<li class="chapter" data-level="3.4" data-path="z-werte-und-normalverteilung.html"><a href="z-werte-und-normalverteilung.html#normalverteilung"><i class="fa fa-check"></i><b>3.4</b> Normalverteilung</a></li>
+<li class="chapter" data-level="3.5" data-path="z-werte-und-normalverteilung.html"><a href="z-werte-und-normalverteilung.html#standardnormalverteilung"><i class="fa fa-check"></i><b>3.5</b> Standardnormalverteilung</a></li>
+<li class="chapter" data-level="3.6" data-path="z-werte-und-normalverteilung.html"><a href="z-werte-und-normalverteilung.html#crash-kurs-wahrscheinlichkeitsrechnung"><i class="fa fa-check"></i><b>3.6</b> Crash-Kurs Wahrscheinlichkeitsrechnung</a></li>
+<li class="chapter" data-level="3.7" data-path="z-werte-und-normalverteilung.html"><a href="z-werte-und-normalverteilung.html#wahrscheinlichkeitsdichtefunktionen"><i class="fa fa-check"></i><b>3.7</b> Wahrscheinlichkeitsdichtefunktionen</a></li>
+<li class="chapter" data-level="3.8" data-path="z-werte-und-normalverteilung.html"><a href="z-werte-und-normalverteilung.html#wahrscheinlichkeitsrechnung-mit-standardnormalverteilung"><i class="fa fa-check"></i><b>3.8</b> Wahrscheinlichkeitsrechnung mit Standardnormalverteilung</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="z-werte-und-normalverteilung.html"><a href="z-werte-und-normalverteilung.html#unter"><i class="fa fa-check"></i><b>3.8.1</b> Unterschreitungswahrscheinlichkeit</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="z-werte-und-normalverteilung.html"><a href="z-werte-und-normalverteilung.html#aufgaben-2"><i class="fa fa-check"></i><b>3.9</b> Aufgaben</a>
+<ul>
+<li class="chapter" data-level="3.9.1" data-path="z-werte-und-normalverteilung.html"><a href="z-werte-und-normalverteilung.html#aufgabe-1-2"><i class="fa fa-check"></i><b>3.9.1</b> Aufgabe 1</a></li>
+<li class="chapter" data-level="3.9.2" data-path="z-werte-und-normalverteilung.html"><a href="z-werte-und-normalverteilung.html#aufgabe-2-2"><i class="fa fa-check"></i><b>3.9.2</b> Aufgabe 2</a></li>
+<li class="chapter" data-level="3.9.3" data-path="z-werte-und-normalverteilung.html"><a href="z-werte-und-normalverteilung.html#aufgabe-3"><i class="fa fa-check"></i><b>3.9.3</b> Aufgabe 3</a></li>
+<li class="chapter" data-level="3.9.4" data-path="z-werte-und-normalverteilung.html"><a href="z-werte-und-normalverteilung.html#aufgabe-4"><i class="fa fa-check"></i><b>3.9.4</b> Aufgabe 4</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="z-werte-und-normalverteilung.html"><a href="z-werte-und-normalverteilung.html#tipps-zur-vertiefung-2"><i class="fa fa-check"></i><b>3.10</b> Tipps zur Vertiefung</a>
+<ul>
+<li class="chapter" data-level="3.10.1" data-path="z-werte-und-normalverteilung.html"><a href="z-werte-und-normalverteilung.html#variationskoeffizient-1"><i class="fa fa-check"></i><b>3.10.1</b> Variationskoeffizient</a></li>
+<li class="chapter" data-level="3.10.2" data-path="z-werte-und-normalverteilung.html"><a href="z-werte-und-normalverteilung.html#z-transformation-1"><i class="fa fa-check"></i><b>3.10.2</b> z-Transformation</a></li>
+<li class="chapter" data-level="3.10.3" data-path="z-werte-und-normalverteilung.html"><a href="z-werte-und-normalverteilung.html#normalverteilung-1"><i class="fa fa-check"></i><b>3.10.3</b> Normalverteilung</a></li>
+<li class="chapter" data-level="3.10.4" data-path="z-werte-und-normalverteilung.html"><a href="z-werte-und-normalverteilung.html#wahrscheinlichkeitsdichtefunktion"><i class="fa fa-check"></i><b>3.10.4</b> Wahrscheinlichkeitsdichtefunktion</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="z-werte-und-normalverteilung.html"><a href="z-werte-und-normalverteilung.html#ptab"><i class="fa fa-check"></i><b>3.11</b> Anhang: Tabelle Standardnormalverteilung</a></li>
+<li class="chapter" data-level="3.12" data-path="z-werte-und-normalverteilung.html"><a href="z-werte-und-normalverteilung.html#quellen-2"><i class="fa fa-check"></i><b>3.12</b> Quellen</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="schätzstatistik-1.html"><a href="schätzstatistik-1.html"><i class="fa fa-check"></i><b>4</b> Schätzstatistik</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="schätzstatistik-1.html"><a href="schätzstatistik-1.html#lernziele-dieser-sitzung-3"><i class="fa fa-check"></i><b>4.1</b> Lernziele dieser Sitzung</a></li>
+<li class="chapter" data-level="4.2" data-path="schätzstatistik-1.html"><a href="schätzstatistik-1.html#stichprobenverteilung"><i class="fa fa-check"></i><b>4.2</b> Stichprobenverteilung</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="schätzstatistik-1.html"><a href="schätzstatistik-1.html#szenario-1-normalverteilte-grundgesamtheit"><i class="fa fa-check"></i><b>4.2.1</b> Szenario 1: Normalverteilte Grundgesamtheit</a></li>
+<li class="chapter" data-level="4.2.2" data-path="schätzstatistik-1.html"><a href="schätzstatistik-1.html#szenario-2-nicht-normalverteilte-grundgesamtheit"><i class="fa fa-check"></i><b>4.2.2</b> Szenario 2: Nicht normalverteilte Grundgesamtheit</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="schätzstatistik-1.html"><a href="schätzstatistik-1.html#punktschätzung"><i class="fa fa-check"></i><b>4.3</b> Punktschätzung</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="schätzstatistik-1.html"><a href="schätzstatistik-1.html#punktschätzung-des-arithmetischen-mittels"><i class="fa fa-check"></i><b>4.3.1</b> Punktschätzung des arithmetischen Mittels</a></li>
+<li class="chapter" data-level="4.3.2" data-path="schätzstatistik-1.html"><a href="schätzstatistik-1.html#schätzung-des-standardfehlers"><i class="fa fa-check"></i><b>4.3.2</b> Schätzung des Standardfehlers</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="schätzstatistik-1.html"><a href="schätzstatistik-1.html#intervallschätzung"><i class="fa fa-check"></i><b>4.4</b> Intervallschätzung</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="schätzstatistik-1.html"><a href="schätzstatistik-1.html#gesuchtes-alpha"><i class="fa fa-check"></i><b>4.4.1</b> Gesuchtes <span class="math inline">\(\alpha\)</span></a></li>
+<li class="chapter" data-level="4.4.2" data-path="schätzstatistik-1.html"><a href="schätzstatistik-1.html#gesuchtes-konfidenzintervall"><i class="fa fa-check"></i><b>4.4.2</b> Gesuchtes Konfidenzintervall</a></li>
+<li class="chapter" data-level="4.4.3" data-path="schätzstatistik-1.html"><a href="schätzstatistik-1.html#gesuchtes-n"><i class="fa fa-check"></i><b>4.4.3</b> Gesuchtes <span class="math inline">\(n\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="schätzstatistik-1.html"><a href="schätzstatistik-1.html#aufgaben-3"><i class="fa fa-check"></i><b>4.5</b> Aufgaben</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="schätzstatistik-1.html"><a href="schätzstatistik-1.html#aufgabe-1-3"><i class="fa fa-check"></i><b>4.5.1</b> Aufgabe 1</a></li>
+<li class="chapter" data-level="4.5.2" data-path="schätzstatistik-1.html"><a href="schätzstatistik-1.html#aufgabe-2-3"><i class="fa fa-check"></i><b>4.5.2</b> Aufgabe 2</a></li>
+<li class="chapter" data-level="4.5.3" data-path="schätzstatistik-1.html"><a href="schätzstatistik-1.html#aufgabe-3-1"><i class="fa fa-check"></i><b>4.5.3</b> Aufgabe 3</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="schätzstatistik-1.html"><a href="schätzstatistik-1.html#tipps-zur-vertiefung-3"><i class="fa fa-check"></i><b>4.6</b> Tipps zur Vertiefung</a></li>
+<li class="chapter" data-level="4.7" data-path="schätzstatistik-1.html"><a href="schätzstatistik-1.html#quellen-3"><i class="fa fa-check"></i><b>4.7</b> Quellen</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html"><i class="fa fa-check"></i><b>5</b> Grundlagen der Teststatistik</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html#lernziele-dieser-sitzung-4"><i class="fa fa-check"></i><b>5.1</b> Lernziele dieser Sitzung</a></li>
+<li class="chapter" data-level="5.2" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html#statistische-tests"><i class="fa fa-check"></i><b>5.2</b> Statistische Tests</a></li>
+<li class="chapter" data-level="5.3" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html#z-test"><i class="fa fa-check"></i><b>5.3</b> <span class="math inline">\(z\)</span>-Test</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html#test-wählen-und-voraussetzungen-prüfen"><i class="fa fa-check"></i><b>5.3.1</b> Test wählen und Voraussetzungen prüfen</a></li>
+<li class="chapter" data-level="5.3.2" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html#hypothesen-formulieren"><i class="fa fa-check"></i><b>5.3.2</b> Hypothesen formulieren</a></li>
+<li class="chapter" data-level="5.3.3" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html#signifikanzniveau-entscheiden"><i class="fa fa-check"></i><b>5.3.3</b> Signifikanzniveau entscheiden</a></li>
+<li class="chapter" data-level="5.3.4" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html#ablehnungsbereich-bestimmen"><i class="fa fa-check"></i><b>5.3.4</b> Ablehnungsbereich bestimmen</a></li>
+<li class="chapter" data-level="5.3.5" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html#prüfgröße-berechnen"><i class="fa fa-check"></i><b>5.3.5</b> Prüfgröße berechnen</a></li>
+<li class="chapter" data-level="5.3.6" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html#ergebnis-inerpretieren"><i class="fa fa-check"></i><b>5.3.6</b> Ergebnis inerpretieren</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html#die-t-verteilung"><i class="fa fa-check"></i><b>5.4</b> Die <span class="math inline">\(t\)</span>-Verteilung</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html#freiheitsgrade"><i class="fa fa-check"></i><b>5.4.1</b> Freiheitsgrade</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html#stichproben-t-test"><i class="fa fa-check"></i><b>5.5</b> 1-Stichproben-<span class="math inline">\(t\)</span>-Test</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html#test-wählen-und-voraussetzungen-prüfen-1"><i class="fa fa-check"></i><b>5.5.1</b> Test wählen und Voraussetzungen prüfen</a></li>
+<li class="chapter" data-level="5.5.2" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html#hypothesen-formulieren-1"><i class="fa fa-check"></i><b>5.5.2</b> Hypothesen formulieren</a></li>
+<li class="chapter" data-level="5.5.3" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html#signifikanzniveau-entscheiden-1"><i class="fa fa-check"></i><b>5.5.3</b> Signifikanzniveau entscheiden</a></li>
+<li class="chapter" data-level="5.5.4" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html#ablehnungsbereich-bestimmen-1"><i class="fa fa-check"></i><b>5.5.4</b> Ablehnungsbereich bestimmen</a></li>
+<li class="chapter" data-level="5.5.5" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html#prüfgröße-berechnen-1"><i class="fa fa-check"></i><b>5.5.5</b> Prüfgröße berechnen</a></li>
+<li class="chapter" data-level="5.5.6" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html#ergebnis-interpretieren"><i class="fa fa-check"></i><b>5.5.6</b> Ergebnis interpretieren</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html#aufgaben-4"><i class="fa fa-check"></i><b>5.6</b> Aufgaben</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html#aufgabe-1-4"><i class="fa fa-check"></i><b>5.6.1</b> Aufgabe 1</a></li>
+<li class="chapter" data-level="5.6.2" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html#aufgabe-2-4"><i class="fa fa-check"></i><b>5.6.2</b> Aufgabe 2</a></li>
+<li class="chapter" data-level="5.6.3" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html#aufgabe-3-2"><i class="fa fa-check"></i><b>5.6.3</b> Aufgabe 3</a></li>
+<li class="chapter" data-level="5.6.4" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html#aufgabe-4-1"><i class="fa fa-check"></i><b>5.6.4</b> Aufgabe 4</a></li>
+<li class="chapter" data-level="5.6.5" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html#aufgabe-5"><i class="fa fa-check"></i><b>5.6.5</b> Aufgabe 5</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html#tipps-zur-vertiefung-4"><i class="fa fa-check"></i><b>5.7</b> Tipps zur Vertiefung</a></li>
+<li class="chapter" data-level="5.8" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html#anhang-tabelle-t-verteilungen"><i class="fa fa-check"></i><b>5.8</b> Anhang: Tabelle <span class="math inline">\(t\)</span>-Verteilungen</a></li>
+<li class="chapter" data-level="5.9" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html#quellen-4"><i class="fa fa-check"></i><b>5.9</b> Quellen</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html"><i class="fa fa-check"></i><b>6</b> Testverfahren mit zwei Stichproben</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#lernziele-dieser-sitzung-5"><i class="fa fa-check"></i><b>6.1</b> Lernziele dieser Sitzung</a></li>
+<li class="chapter" data-level="6.2" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#statistische-tests-1"><i class="fa fa-check"></i><b>6.2</b> Statistische Tests</a></li>
+<li class="chapter" data-level="6.3" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#stichproben-t-test-1"><i class="fa fa-check"></i><b>6.3</b> 2-Stichproben-<span class="math inline">\(t\)</span>-Test</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#test-wählen-und-voraussetzungen-prüfen-2"><i class="fa fa-check"></i><b>6.3.1</b> Test wählen und Voraussetzungen prüfen</a></li>
+<li class="chapter" data-level="6.3.2" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#hypothesen-formulieren-2"><i class="fa fa-check"></i><b>6.3.2</b> Hypothesen formulieren</a></li>
+<li class="chapter" data-level="6.3.3" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#signifikanzniveau-entscheiden-2"><i class="fa fa-check"></i><b>6.3.3</b> Signifikanzniveau entscheiden</a></li>
+<li class="chapter" data-level="6.3.4" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#ablehnungsbereich-bestimmen-2"><i class="fa fa-check"></i><b>6.3.4</b> Ablehnungsbereich bestimmen</a></li>
+<li class="chapter" data-level="6.3.5" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#prüfgröße-berechnen-2"><i class="fa fa-check"></i><b>6.3.5</b> Prüfgröße berechnen</a></li>
+<li class="chapter" data-level="6.3.6" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#ergebnis-interpretieren-1"><i class="fa fa-check"></i><b>6.3.6</b> Ergebnis interpretieren</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#die-f-verteilung"><i class="fa fa-check"></i><b>6.4</b> Die <span class="math inline">\(F\)</span>-Verteilung</a></li>
+<li class="chapter" data-level="6.5" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#f"><i class="fa fa-check"></i><b>6.5</b> <span class="math inline">\(F\)</span>-Test</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#test-wählen-und-voraussetzungen-prüfen-3"><i class="fa fa-check"></i><b>6.5.1</b> Test wählen und Voraussetzungen prüfen</a></li>
+<li class="chapter" data-level="6.5.2" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#hypothesen-formulieren-3"><i class="fa fa-check"></i><b>6.5.2</b> Hypothesen formulieren</a></li>
+<li class="chapter" data-level="6.5.3" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#signifikanzniveau-entscheiden-3"><i class="fa fa-check"></i><b>6.5.3</b> Signifikanzniveau entscheiden</a></li>
+<li class="chapter" data-level="6.5.4" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#ablehnungsbereich-bestimmen-3"><i class="fa fa-check"></i><b>6.5.4</b> Ablehnungsbereich bestimmen</a></li>
+<li class="chapter" data-level="6.5.5" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#prüfgröße-berechnen-3"><i class="fa fa-check"></i><b>6.5.5</b> Prüfgröße berechnen</a></li>
+<li class="chapter" data-level="6.5.6" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#nullhypothese-ablehnen-oder-beibehalten"><i class="fa fa-check"></i><b>6.5.6</b> Nullhypothese ablehnen oder beibehalten</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#fehlerarten"><i class="fa fa-check"></i><b>6.6</b> Fehlerarten</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#fehler-1.-art"><i class="fa fa-check"></i><b>6.6.1</b> Fehler 1. Art</a></li>
+<li class="chapter" data-level="6.6.2" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#fehler-2.-art"><i class="fa fa-check"></i><b>6.6.2</b> Fehler 2. Art</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#aufgaben-5"><i class="fa fa-check"></i><b>6.7</b> Aufgaben</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#aufgabe-1-5"><i class="fa fa-check"></i><b>6.7.1</b> Aufgabe 1</a></li>
+<li class="chapter" data-level="6.7.2" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#aufgabe-2-5"><i class="fa fa-check"></i><b>6.7.2</b> Aufgabe 2</a></li>
+<li class="chapter" data-level="6.7.3" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#aufgabe-3-3"><i class="fa fa-check"></i><b>6.7.3</b> Aufgabe 3</a></li>
+<li class="chapter" data-level="6.7.4" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#aufgabe-4-2"><i class="fa fa-check"></i><b>6.7.4</b> Aufgabe 4</a></li>
+<li class="chapter" data-level="6.7.5" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#aufgabe-5-1"><i class="fa fa-check"></i><b>6.7.5</b> Aufgabe 5</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#tipps-zur-vertiefung-5"><i class="fa fa-check"></i><b>6.8</b> Tipps zur Vertiefung</a></li>
+<li class="chapter" data-level="6.9" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#anhang-tabelle-t-verteilungen-1"><i class="fa fa-check"></i><b>6.9</b> Anhang: Tabelle <span class="math inline">\(t\)</span>-Verteilungen</a></li>
+<li class="chapter" data-level="6.10" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#anhang-tabelle-f-verteilungen"><i class="fa fa-check"></i><b>6.10</b> Anhang: Tabelle F-Verteilungen</a></li>
+<li class="chapter" data-level="6.11" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#quellen-5"><i class="fa fa-check"></i><b>6.11</b> Quellen</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="korrelation.html"><a href="korrelation.html"><i class="fa fa-check"></i><b>7</b> Korrelation</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="korrelation.html"><a href="korrelation.html#lernziele-dieser-sitzung-6"><i class="fa fa-check"></i><b>7.1</b> Lernziele dieser Sitzung</a></li>
+<li class="chapter" data-level="7.2" data-path="korrelation.html"><a href="korrelation.html#bivariate-statistik"><i class="fa fa-check"></i><b>7.2</b> Bivariate Statistik</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="korrelation.html"><a href="korrelation.html#beispiel-23"><i class="fa fa-check"></i><b>7.2.1</b> Beispiel</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="korrelation.html"><a href="korrelation.html#kovarianz"><i class="fa fa-check"></i><b>7.3</b> Kovarianz</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="korrelation.html"><a href="korrelation.html#beispiel-24"><i class="fa fa-check"></i><b>7.3.1</b> Beispiel</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="korrelation.html"><a href="korrelation.html#korrelationskoeffizient"><i class="fa fa-check"></i><b>7.4</b> Korrelationskoeffizient</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="korrelation.html"><a href="korrelation.html#beispiel-25"><i class="fa fa-check"></i><b>7.4.1</b> Beispiel</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="korrelation.html"><a href="korrelation.html#aufgaben-6"><i class="fa fa-check"></i><b>7.5</b> Aufgaben</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="korrelation.html"><a href="korrelation.html#aufgabe-1-6"><i class="fa fa-check"></i><b>7.5.1</b> Aufgabe 1</a></li>
+<li class="chapter" data-level="7.5.2" data-path="korrelation.html"><a href="korrelation.html#aufgabe-2-6"><i class="fa fa-check"></i><b>7.5.2</b> Aufgabe 2</a></li>
+<li class="chapter" data-level="7.5.3" data-path="korrelation.html"><a href="korrelation.html#aufgabe-3-4"><i class="fa fa-check"></i><b>7.5.3</b> Aufgabe 3</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="korrelation.html"><a href="korrelation.html#tipps-zur-vertiefung-6"><i class="fa fa-check"></i><b>7.6</b> Tipps zur Vertiefung</a></li>
+<li class="chapter" data-level="7.7" data-path="korrelation.html"><a href="korrelation.html#quellen-6"><i class="fa fa-check"></i><b>7.7</b> Quellen</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="lineare-regression.html"><a href="lineare-regression.html"><i class="fa fa-check"></i><b>8</b> Lineare Regression</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="lineare-regression.html"><a href="lineare-regression.html#lernziele-dieser-sitzung-7"><i class="fa fa-check"></i><b>8.1</b> Lernziele dieser Sitzung</a></li>
+<li class="chapter" data-level="8.2" data-path="lineare-regression.html"><a href="lineare-regression.html#regresssionsanalyse"><i class="fa fa-check"></i><b>8.2</b> Regresssionsanalyse</a></li>
+<li class="chapter" data-level="8.3" data-path="lineare-regression.html"><a href="lineare-regression.html#bestimmung-der-regressionsgeraden"><i class="fa fa-check"></i><b>8.3</b> Bestimmung der Regressionsgeraden</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="lineare-regression.html"><a href="lineare-regression.html#beispiel-26"><i class="fa fa-check"></i><b>8.3.1</b> Beispiel</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="lineare-regression.html"><a href="lineare-regression.html#residuen"><i class="fa fa-check"></i><b>8.4</b> Residuen</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="lineare-regression.html"><a href="lineare-regression.html#beispiel-27"><i class="fa fa-check"></i><b>8.4.1</b> Beispiel</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="lineare-regression.html"><a href="lineare-regression.html#determinationskoeffizient"><i class="fa fa-check"></i><b>8.5</b> Determinationskoeffizient</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="lineare-regression.html"><a href="lineare-regression.html#beispiel-28"><i class="fa fa-check"></i><b>8.5.1</b> Beispiel</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="lineare-regression.html"><a href="lineare-regression.html#aufgaben-7"><i class="fa fa-check"></i><b>8.6</b> Aufgaben</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="lineare-regression.html"><a href="lineare-regression.html#aufgabe-1-7"><i class="fa fa-check"></i><b>8.6.1</b> Aufgabe 1</a></li>
+<li class="chapter" data-level="8.6.2" data-path="lineare-regression.html"><a href="lineare-regression.html#aufgabe-2-7"><i class="fa fa-check"></i><b>8.6.2</b> Aufgabe 2</a></li>
+<li class="chapter" data-level="8.6.3" data-path="lineare-regression.html"><a href="lineare-regression.html#aufgabe-3-5"><i class="fa fa-check"></i><b>8.6.3</b> Aufgabe 3</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="lineare-regression.html"><a href="lineare-regression.html#tipps-zur-vertiefung-7"><i class="fa fa-check"></i><b>8.7</b> Tipps zur Vertiefung</a></li>
+<li class="chapter" data-level="8.8" data-path="lineare-regression.html"><a href="lineare-regression.html#quellen-7"><i class="fa fa-check"></i><b>8.8</b> Quellen</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="kreuztabellen.html"><a href="kreuztabellen.html"><i class="fa fa-check"></i><b>9</b> Kreuztabellen</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="kreuztabellen.html"><a href="kreuztabellen.html#lernziele-dieser-sitzung-8"><i class="fa fa-check"></i><b>9.1</b> Lernziele dieser Sitzung</a></li>
+<li class="chapter" data-level="9.2" data-path="kreuztabellen.html"><a href="kreuztabellen.html#bivariate-verteilungen-mit-nominalen-variablen"><i class="fa fa-check"></i><b>9.2</b> Bivariate Verteilungen mit nominalen Variablen</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="kreuztabellen.html"><a href="kreuztabellen.html#beispiel-29"><i class="fa fa-check"></i><b>9.2.1</b> Beispiel</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="kreuztabellen.html"><a href="kreuztabellen.html#kreuztabelle"><i class="fa fa-check"></i><b>9.3</b> Kreuztabelle</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="kreuztabellen.html"><a href="kreuztabellen.html#beispiel-30"><i class="fa fa-check"></i><b>9.3.1</b> Beispiel</a></li>
+<li class="chapter" data-level="9.3.2" data-path="kreuztabellen.html"><a href="kreuztabellen.html#verallgemeinerung"><i class="fa fa-check"></i><b>9.3.2</b> Verallgemeinerung</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="kreuztabellen.html"><a href="kreuztabellen.html#berechnung-der-erwarteten-werte"><i class="fa fa-check"></i><b>9.4</b> Berechnung der erwarteten Werte</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="kreuztabellen.html"><a href="kreuztabellen.html#beispiel-31"><i class="fa fa-check"></i><b>9.4.1</b> Beispiel</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="kreuztabellen.html"><a href="kreuztabellen.html#berechnung-des-kontingenzkoeffizenten-chi2"><i class="fa fa-check"></i><b>9.5</b> Berechnung des Kontingenzkoeffizenten <span class="math inline">\(\chi^2\)</span></a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="kreuztabellen.html"><a href="kreuztabellen.html#beispiel-32"><i class="fa fa-check"></i><b>9.5.1</b> Beispiel</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="kreuztabellen.html"><a href="kreuztabellen.html#berechnung-des-phi-koeffizienten"><i class="fa fa-check"></i><b>9.6</b> Berechnung des <span class="math inline">\(\phi\)</span>-Koeffizienten</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="kreuztabellen.html"><a href="kreuztabellen.html#beispiel-33"><i class="fa fa-check"></i><b>9.6.1</b> Beispiel</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="kreuztabellen.html"><a href="kreuztabellen.html#berechnung-des-cramér-index"><i class="fa fa-check"></i><b>9.7</b> Berechnung des Cramér-Index</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="kreuztabellen.html"><a href="kreuztabellen.html#beispiel-34"><i class="fa fa-check"></i><b>9.7.1</b> Beispiel</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="kreuztabellen.html"><a href="kreuztabellen.html#aufgaben-8"><i class="fa fa-check"></i><b>9.8</b> Aufgaben</a>
+<ul>
+<li class="chapter" data-level="9.8.1" data-path="kreuztabellen.html"><a href="kreuztabellen.html#aufgabe-1-8"><i class="fa fa-check"></i><b>9.8.1</b> Aufgabe 1</a></li>
+<li class="chapter" data-level="9.8.2" data-path="kreuztabellen.html"><a href="kreuztabellen.html#aufgabe-2-8"><i class="fa fa-check"></i><b>9.8.2</b> Aufgabe 2</a></li>
+<li class="chapter" data-level="9.8.3" data-path="kreuztabellen.html"><a href="kreuztabellen.html#aufgabe-3-6"><i class="fa fa-check"></i><b>9.8.3</b> Aufgabe 3</a></li>
+</ul></li>
+<li class="chapter" data-level="9.9" data-path="kreuztabellen.html"><a href="kreuztabellen.html#tipps-zur-vertiefung-8"><i class="fa fa-check"></i><b>9.9</b> Tipps zur Vertiefung</a></li>
+<li class="chapter" data-level="9.10" data-path="kreuztabellen.html"><a href="kreuztabellen.html#quellen-8"><i class="fa fa-check"></i><b>9.10</b> Quellen</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="chi-quadrat-tests.html"><a href="chi-quadrat-tests.html"><i class="fa fa-check"></i><b>10</b> Chi-Quadrat-Tests</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="chi-quadrat-tests.html"><a href="chi-quadrat-tests.html#lernziele-dieser-sitzung-9"><i class="fa fa-check"></i><b>10.1</b> Lernziele dieser Sitzung</a></li>
+<li class="chapter" data-level="10.2" data-path="chi-quadrat-tests.html"><a href="chi-quadrat-tests.html#anwendungsbereich"><i class="fa fa-check"></i><b>10.2</b> Anwendungsbereich</a></li>
+<li class="chapter" data-level="10.3" data-path="chi-quadrat-tests.html"><a href="chi-quadrat-tests.html#chi2-unabhängigkeitstest"><i class="fa fa-check"></i><b>10.3</b> <span class="math inline">\(\chi^2\)</span>-Unabhängigkeitstest</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="chi-quadrat-tests.html"><a href="chi-quadrat-tests.html#test-wählen-und-voraussetzungen-prüfen-4"><i class="fa fa-check"></i><b>10.3.1</b> Test wählen und Voraussetzungen prüfen</a></li>
+<li class="chapter" data-level="10.3.2" data-path="chi-quadrat-tests.html"><a href="chi-quadrat-tests.html#hypothesen-formulieren-4"><i class="fa fa-check"></i><b>10.3.2</b> Hypothesen formulieren</a></li>
+<li class="chapter" data-level="10.3.3" data-path="chi-quadrat-tests.html"><a href="chi-quadrat-tests.html#signifikanzniveau-entscheiden-4"><i class="fa fa-check"></i><b>10.3.3</b> Signifikanzniveau entscheiden</a></li>
+<li class="chapter" data-level="10.3.4" data-path="chi-quadrat-tests.html"><a href="chi-quadrat-tests.html#kritischen-wert-bestimmen"><i class="fa fa-check"></i><b>10.3.4</b> Kritischen Wert bestimmen</a></li>
+<li class="chapter" data-level="10.3.5" data-path="chi-quadrat-tests.html"><a href="chi-quadrat-tests.html#prüfgröße-berechnen-4"><i class="fa fa-check"></i><b>10.3.5</b> Prüfgröße berechnen</a></li>
+<li class="chapter" data-level="10.3.6" data-path="chi-quadrat-tests.html"><a href="chi-quadrat-tests.html#ergebnis-interpretieren-2"><i class="fa fa-check"></i><b>10.3.6</b> Ergebnis interpretieren</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="chi-quadrat-tests.html"><a href="chi-quadrat-tests.html#chi2-anpassungstest"><i class="fa fa-check"></i><b>10.4</b> <span class="math inline">\(\chi^2\)</span>-Anpassungstest</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="chi-quadrat-tests.html"><a href="chi-quadrat-tests.html#test-wählen-und-voraussetzungen-prüfen-5"><i class="fa fa-check"></i><b>10.4.1</b> Test wählen und Voraussetzungen prüfen</a></li>
+<li class="chapter" data-level="10.4.2" data-path="chi-quadrat-tests.html"><a href="chi-quadrat-tests.html#hypothesen-formulieren-5"><i class="fa fa-check"></i><b>10.4.2</b> Hypothesen formulieren</a></li>
+<li class="chapter" data-level="10.4.3" data-path="chi-quadrat-tests.html"><a href="chi-quadrat-tests.html#signifikanzniveau-entscheiden-5"><i class="fa fa-check"></i><b>10.4.3</b> Signifikanzniveau entscheiden</a></li>
+<li class="chapter" data-level="10.4.4" data-path="chi-quadrat-tests.html"><a href="chi-quadrat-tests.html#kritischen-wert-bestimmen-1"><i class="fa fa-check"></i><b>10.4.4</b> Kritischen Wert bestimmen</a></li>
+<li class="chapter" data-level="10.4.5" data-path="chi-quadrat-tests.html"><a href="chi-quadrat-tests.html#prüfgröße-berechnen-5"><i class="fa fa-check"></i><b>10.4.5</b> Prüfgröße berechnen</a></li>
+<li class="chapter" data-level="10.4.6" data-path="chi-quadrat-tests.html"><a href="chi-quadrat-tests.html#ergebnis-interpretieren-3"><i class="fa fa-check"></i><b>10.4.6</b> Ergebnis interpretieren</a></li>
+<li class="chapter" data-level="10.4.7" data-path="chi-quadrat-tests.html"><a href="chi-quadrat-tests.html#andere-verteilungen"><i class="fa fa-check"></i><b>10.4.7</b> Andere Verteilungen</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="chi-quadrat-tests.html"><a href="chi-quadrat-tests.html#aufgaben-9"><i class="fa fa-check"></i><b>10.5</b> Aufgaben</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="chi-quadrat-tests.html"><a href="chi-quadrat-tests.html#aufgabe-1-9"><i class="fa fa-check"></i><b>10.5.1</b> Aufgabe 1</a></li>
+<li class="chapter" data-level="10.5.2" data-path="chi-quadrat-tests.html"><a href="chi-quadrat-tests.html#aufgabe-2-9"><i class="fa fa-check"></i><b>10.5.2</b> Aufgabe 2</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="chi-quadrat-tests.html"><a href="chi-quadrat-tests.html#tipps-zur-vertiefung-9"><i class="fa fa-check"></i><b>10.6</b> Tipps zur Vertiefung</a></li>
+<li class="chapter" data-level="10.7" data-path="chi-quadrat-tests.html"><a href="chi-quadrat-tests.html#anhang-chi2-verteilungen"><i class="fa fa-check"></i><b>10.7</b> Anhang: <span class="math inline">\(\chi^2\)</span>-Verteilungen</a></li>
+<li class="chapter" data-level="10.8" data-path="chi-quadrat-tests.html"><a href="chi-quadrat-tests.html#quellen-9"><i class="fa fa-check"></i><b>10.8</b> Quellen</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistische Verfahren</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="schätzstatistik-1" class="section level1" number="4">
+<h1><span class="header-section-number">Sitzung 4</span> Schätzstatistik</h1>
+<div id="lernziele-dieser-sitzung-3" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Lernziele dieser Sitzung</h2>
+<p>Sie können…</p>
+<ul>
+<li>eine Punktschätzung für <span class="math inline">\(\mu\)</span> und <span class="math inline">\(\sigma\)</span> durchführen.</li>
+<li>den Standardfehler der Stichprobenverteilung von <span class="math inline">\(\bar{x}\)</span> bestimmen.</li>
+<li>eine Intervallschätzung für <span class="math inline">\(\mu\)</span> durchführen.</li>
+</ul>
+</div>
+<div id="stichprobenverteilung" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Stichprobenverteilung</h2>
+<blockquote>
+<p>Die Stichprobenverteilung ist eine theoretische Verteilung, welche die möglichen Ausprägungen eines statistischen Kennwertes (z.B. <span class="math inline">\(\bar{x}\)</span>) sowie deren Auftretenswahrscheinlichkeit beim Ziehen von Zufallsstichproben des Umfanges <span class="math inline">\(n\)</span> beschreibt. <span class="citation">(<a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">Bortz und Schuster 2010</a>: 83)</span></p>
+</blockquote>
+<p>Hier ist zunächst die theoretische Verteilung des Mittelwerts einer Stichprobe relevant. Insbesondere interessiert uns, wie sich die theoretische Verteilung des Mittelwerts abhängig von der Stichprobengröße verhält.</p>
+<div id="szenario-1-normalverteilte-grundgesamtheit" class="section level3" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Szenario 1: Normalverteilte Grundgesamtheit</h3>
+<p>Die Grundgesamtheit (Population) einer Variable <span class="math inline">\(x\)</span> sei normalverteilt mit <span class="math inline">\(\mu=50\)</span> und <span class="math inline">\(\sigma^2=25\)</span>. Wir können also schreiben:</p>
+<p><span class="math display">\[ x \sim N(50,25) \]</span></p>
+<p>Die Standardabweichung der Population beträgt entsprechend:</p>
+<p><span class="math display">\[\begin{aligned}
+\sigma&amp;=\sqrt{\sigma^2}\\[4pt]
+&amp;=\sqrt{25}=5\end{aligned}\]</span></p>
+<p>Graphisch ist die Dichtefunktion der Verteilung in  veranschaulicht.</p>
+<div class="figure" style="text-align: center"><span id="fig:pop"></span>
+<img src="bookdownproj_files/figure-html/pop-1.png" alt="Dichtefunktion der Grundgesamtheit" width=".49\linewidth" />
+<p class="caption">
+Figure 4.1: Dichtefunktion der Grundgesamtheit
+</p>
+</div>
+<p>Wenn eine einzelne Stichprobe der Größe <span class="math inline">\(n=3\)</span> aus dieser Verteilung gezogen würde, hätte sie drei konkrete Werte (<span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span> und <span class="math inline">\(x_3\)</span>) sowie ein konkretes arithmetisches Mittel (<span class="math inline">\(\bar{x}\)</span>).</p>
+<p>Es lässt sich jedoch auch eine Wahrscheinlichkeitsdichtefunktion der Mittelwerte <em>aller theoretisch möglichen Stichproben</em> der Größe <span class="math inline">\(n=3\)</span> (und zusätzlich der Größe <span class="math inline">\(n=6\)</span>) zeichnen (s. ).</p>
+<div class="figure" style="text-align: center"><span id="fig:stich"></span>
+<img src="bookdownproj_files/figure-html/stich-1.png" alt="Dichtefunktionen der Stichprobenverteilungen" width=".49\linewidth" />
+<p class="caption">
+Figure 4.2: Dichtefunktionen der Stichprobenverteilungen
+</p>
+</div>
+<div id="erwartungswert" class="section level4" number="4.2.1.1">
+<h4><span class="header-section-number">4.2.1.1</span> Erwartungswert</h4>
+<p>Es fällt auf, dass die Stichprobenverteilungen für <span class="math inline">\(\bar{x}\)</span> normalverteilt sind und um das arithmetische Mittel der Grundgesamtheit (<span class="math inline">\(\mu\)</span>) symmetrisch sind.</p>
+<p>Das arithmetische Mittel der Stichprobenverteilung <span class="math inline">\(\mu_{\bar{x}}\)</span> wird auch als <strong>Erwartungswert</strong> (engl. <em>expected value</em>) von <span class="math inline">\(\bar{x}\)</span> bezeichnet. Es gilt:</p>
+<p><span class="math display">\[
+\mu_{\bar{x}} = \mu
+\]</span>{#eq:mean}</p>
+<p>Wir können auch sagen: <span class="math inline">\(\bar{x}\)</span> ist ein “ertwartungstreuer” Schätzparameter für <span class="math inline">\(\mu\)</span>; nicht weil er in der Empirie zwangsläufig identisch mit <span class="math inline">\(\mu\)</span> wäre, sondern weil er mit zunehmender Stichprobengröße immer stärker zu <span class="math inline">\(\mu\)</span> tendiert.</p>
+</div>
+<div id="standardfehler" class="section level4" number="4.2.1.2">
+<h4><span class="header-section-number">4.2.1.2</span> Standardfehler</h4>
+<p>Zusätzlich fällt in  auf: Je größer die Stichprobe, desto gestauchter die Dichtekurve der Stichprobenverteilung: Die theoretische Verteilung von <span class="math inline">\(\bar{x}\)</span> bei <span class="math inline">\(n=6\)</span> weist eine kleinere Varianz auf als bei <span class="math inline">\(n=3\)</span>. Das ist einigermaßen intuitiv, denn wir können uns vorstellen, dass das arithmetische Mittel <span class="math inline">\(\bar{x}\)</span> bei steigender Stichprobengröße ein immer präziserer Schätzwert für <span class="math inline">\(\mu\)</span> wird.</p>
+<p>Die Varianz der Stichprobenverteilung für <span class="math inline">\(\bar{x}\)</span> bezeichnen wir mit <span class="math inline">\(\sigma^2_{\bar{x}}\)</span>. Sie hängt von der Varianz der Population ab und ist invers proportional zur Stichprobengröße. Es gilt:</p>
+<p><span class="math display">\[
+\sigma^2_{\bar{x}} = \frac{\sigma^2}{n}
+\]</span> {#eq:var}</p>
+<p>Die Standardabweichung der Stichprobenverteilung (<span class="math inline">\(\sigma_{\bar{x}}\)</span>) wird auch Standardfehler (engl. <em>standard error</em>) genannt. Durch Wurzelziehen ergibt sich:</p>
+<p><span class="math display">\[
+\sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}}
+\]</span>{#eq:sd}</p>
+<p>Zusammenfassend lässt sich sagen:</p>
+<p><span class="math display">\[\begin{aligned}
+\bar{x} \sim N(\mu, {\textstyle \frac{\sigma^2}{n}}) \quad \textrm{für} \quad x\sim N(\mu, \sigma^2)
+\end{aligned}\]</span>{#eq:norm}</p>
+</div>
+</div>
+<div id="szenario-2-nicht-normalverteilte-grundgesamtheit" class="section level3" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Szenario 2: Nicht normalverteilte Grundgesamtheit</h3>
+<p>Die Gleichungen ,  und  gelten uneingeschränkt auch für die Stichprobenverteilungen von nicht normalverteilten Populationen. Nur die Normalverteilung der Stichprobenverteilung () ist bei nicht normalverteilten Grundgesamtheiten grundsätzlich nicht gegeben.</p>
+<p>Das zentrale Grenzwerttheorem (engl. <em>central limit theorem</em>) besagt jedoch:</p>
+<blockquote>
+<p>Die Verteilung von Mittelwerten aus Stichproben des Umfangs <span class="math inline">\(n\)</span>, die derselben Grundgesamtheit entnommen wurden, geht mit wachsendem Stichprobenumfang in eine Normalverteilung über. <span class="citation">(<a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">Bortz und Schuster 2010</a>: 86)</span></p>
+</blockquote>
+<p> veranschaulicht diesen Effekt für eine nicht normalverteilte Grundgesamtheit.</p>
+<div class="figure" style="text-align: center"><span id="fig:beta"></span>
+<img src="bookdownproj_files/figure-html/beta-1.png" alt="Stichprobenverteilung bei nicht normalverteilter Population" width=".49\linewidth" />
+<p class="caption">
+Figure 4.3: Stichprobenverteilung bei nicht normalverteilter Population
+</p>
+</div>
+<p>In der Praxis gilt die Faustregel: Ab einer Stichprobengröße von <span class="math inline">\(n=30\)</span> können wir statistische Verfahren anwenden, die von einer theoretischen Normalverteilung von <span class="math inline">\(\bar{x}\)</span> ausgehen – und zwar <em>unabhängig</em> von der Verteilung der Grundgesamtheit.</p>
+</div>
+</div>
+<div id="punktschätzung" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Punktschätzung</h2>
+<p>Bei statistischen Untersuchungen geht es oft darum, ausgehend von der empirischen Verteilung einer Stichprobe auf Parameter der Grundgesamtheit zu schließen.</p>
+<p>Die Punktschätzung (engl. <em>point estimation</em>) ist dabei eine vergleichsweise einfache und intuitive Vorgehensweise.</p>
+<div id="punktschätzung-des-arithmetischen-mittels" class="section level3" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Punktschätzung des arithmetischen Mittels</h3>
+<p>Wenn eine Stichprobe vorliegt, dann ist ihr arithmetisches Mittel (<span class="math inline">\(\bar{x}\)</span>) als erwartungstreuer Punktschätzer der wahrscheinlichste Wert für das arithmetische Mittel der Grundgesamtheit (<span class="math inline">\(\mu\)</span>).</p>
+<p>Beispiel:</p>
+<ul>
+<li>Zehn Studierende der Humangeographie werden zufällig ausgewählt, um ihre Pendelzeit zum IG-Farben-Campus zu erfassen.</li>
+<li>Die Angaben in Minuten lauten:
+<code>22 26 12 23 48 31 15 71 17 35</code></li>
+<li>Das arithmetische Mittel der Messreihe lässt sich – wie in Sitzung 2 ausführlich besprochen – berechnen: <span class="math inline">\(\bar{x}=30\)</span></li>
+<li>Da es sich um eine erwartungstreue Schätzgröße (und eine valide Zufallsstichprobe) handelt, kann die durchschnittliche Pendelzeit <em>aller</em> Studierenden der Humangeographie auf <span class="math inline">\(\mu=30\)</span> Minuten geschätzt werden.</li>
+</ul>
+<p>Gleichzeitig wissen wir jedoch, dass diese Punktschätzung des arithmetischen Mittels vermutlich nicht ganz präzise ist, sondern einem Standardfehler (<span class="math inline">\(\sigma_{\bar{x}}\)</span>) unterliegt. Woher wissen wir, wie groß dieser Standardfehler ist (und wie unpräzise damit unsere Schätzung)?</p>
+</div>
+<div id="schätzung-des-standardfehlers" class="section level3" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Schätzung des Standardfehlers</h3>
+<p>Wir führen das obige Beispiel fort:</p>
+<ul>
+<li>Die Varianz der Stichprobe können wir berechnen: <span class="math inline">\(s^2\approx319{,}78\)</span> (s. Sitzung 2).</li>
+<li>Dabei handelt es sich ebenfalls um einen erwartungstreuen Punktschätzer für die Varianz der Grundgesamtheit (<span class="math inline">\(\sigma^2\)</span>).</li>
+<li>Die Varianz der Grundgesamtheit kann also auch auf <span class="math inline">\(\sigma^2=s^2\approx319{,}78\)</span> geschätzt werden.</li>
+<li>Analog können wir die Standardabweichung der Population auf <span class="math inline">\(\sigma=s\approx17,88\)</span> schätzen.</li>
+<li>Den Standardfehler können wir mit diesem Schätzwert anhand  berechnen. Allerdings benutzen wir statt <span class="math inline">\(\sigma_{\bar{x}}\)</span> das Symbol <span class="math inline">\(s_{\bar{x}}\)</span>, da es sich um einen Schätzwert handelt:</li>
+</ul>
+<p><span class="math display">\[\begin{aligned}
+s_{\bar{x}} &amp;= \frac{s}{\sqrt{n}}\\[4pt]
+&amp;\approx \frac{17{,}88}{\sqrt{10}}\approx5{,}65
+\end{aligned}\]</span></p>
+<p>Je größer die Stichprobe, desto genauer lassen sich also Parameter der Population schätzen. Die statistische Antwort auf die Frage, wie groß die Stichprobe denn sein müsse, lautet demnach zunächst immer: Möglichst groß!</p>
+<p>Bemerkernswert ist jedoch, dass dabei die Größe der Grundgesamtheit (<span class="math inline">\(N\)</span>, im Beispiel die Anzahl aller Studierenden der Humangeographie) bei diesen Überlegungen überhaupt keine Rolle spielt.</p>
+</div>
+</div>
+<div id="intervallschätzung" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Intervallschätzung</h2>
+<p>Um eine Intervallschätzung durchführen zu können, muss:</p>
+<ul>
+<li>die Standardabweichung der Grundgesamtheit <span class="math inline">\(\sigma\)</span> bekannt und</li>
+<li>die theoretische Verteilung von <span class="math inline">\(\bar{x}\)</span> normalverteilt sein. Das bedeutet:
+<ul>
+<li><em>Entweder</em> es ist bekannt, dass die Grundgesamtheit normalverteilt ist</li>
+<li><em>Und/oder</em> die Stichprobengröße ist <span class="math inline">\(n\geq30\)</span></li>
+</ul></li>
+</ul>
+<p>Für das obige Beispiel der Pendelzeiten wissen wir nicht, wie die Verteilung der Grundgesamtheit aussieht, und die Stichprobengröße (<span class="math inline">\(n=10\)</span>) ist kleiner als 30. Eine Intervallschätzung können wir hier also nicht durchführen!</p>
+<p>Auch bei der Intervallschätzung (engl. <em>interval estimation</em>) geht es darum, das arithmetische Mittel der Population (<span class="math inline">\(\mu\)</span>) zu schätzen. Allerdings geben wir nicht einfach nur den wahrscheinlichsten Wert an, sondern einen Bereich (ein <em>Intervall</em>), in dem <span class="math inline">\(\mu\)</span> mit einer bestimmten Wahrscheinlichkeit liegt.</p>
+<p>Die Grundüberlegung ist dabei folgende:</p>
+<ul>
+<li>Wir haben eine <em>empirische</em> Stichprobe vorliegen (und können ihren Mittelwert <span class="math inline">\(\bar{x}\)</span> und ihre Standardabweichung <span class="math inline">\(s\)</span> berechnen).</li>
+<li>Wir wissen dass die <em>theoretische</em> Verteilung aller möglichen Stichproben normalverteilt ist, und um den gesuchten Wert <span class="math inline">\(\mu\)</span> symmetrisch ist.</li>
+<li>Den Mittelwert unserer empirischen Stichprobe <span class="math inline">\(\bar{x}\)</span> können wir uns als zufälligen Wert der theoretischen Stichprobenverteilung von <span class="math inline">\(\bar{x}\)</span> vorstellen.</li>
+<li>Wo genau in dieser theoretischen Verteilung wir mit unserem empirischen Wert “gelandet” sind, wissen wir nicht.</li>
+<li>Wenn wir den Wert <span class="math inline">\(\mu\)</span> kennen würden, könnten wir (mit den Methoden aus Sitzung 3) die Wahrscheinlichkeit für einen beliebeigen Bereich angeben, in den ein zufälliges <span class="math inline">\(\bar{x}\)</span> fällt.</li>
+<li>Der entscheidende Trick: Weil die Normalverteilung symmetrisch ist, sind diese Wahrscheinlichkeiten analog anzuwenden auf die Bereiche einer konstruierten Verteilung mit gleichem <span class="math inline">\(\sigma_{\bar{x}}\)</span> um unser <span class="math inline">\(\bar{x}\)</span>, in die der wirkliche Wert <span class="math inline">\(\mu\)</span> fällt. (s. ).</li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:double"></span>
+<img src="bookdownproj_files/figure-html/double-1.png" alt="Konstruierte Verteilung um $\bar{x}$" width=".49\linewidth" />
+<p class="caption">
+Figure 4.4: Konstruierte Verteilung um <span class="math inline">\(\bar{x}\)</span>
+</p>
+</div>
+<p>Dabei heißt der Bereich Konfidenzintervall (engl. <em>confidence interval</em>), und seine Breite wird mit <span class="math inline">\(\textrm{KIB}\)</span> abgekürzt. Die Wahrscheinlichkeit, dass wir mit unserer Schätzung <em>außerhalb</em> des Konfidenzintervalls liegen wird mit <span class="math inline">\(\alpha\)</span> gekennzeichnet. Ein 95%-Konfidenzintervall hat also ein <span class="math inline">\(\alpha\)</span> von 0,05 (s. ).</p>
+<div class="figure" style="text-align: center"><span id="fig:konf"></span>
+<img src="bookdownproj_files/figure-html/konf-1.png" alt="Konfidenzintervall" width=".49\linewidth" />
+<p class="caption">
+Figure 4.5: Konfidenzintervall
+</p>
+</div>
+<p>Ein Beispiel soll dies verdeutlichen: Wir wissen, dass die jährliche Niederschlagsmenge in Hessen normalverteilt ist mit <span class="math inline">\(\sigma=10{,}23\)</span>. Wir haben die Messwerte in Tabelle 1 erhoben und möchten den Mittelwert (<span class="math inline">\(\mu\)</span>) per Intervallschätzung angeben.</p>
+<p>Zunächst errechnen wir den Mittelwert unserer empirischen Stichprobe:</p>
+<p><span class="math display">\[\begin{aligned}
+  \bar{x}&amp;\approx856{,}47
+\end{aligned}\]</span></p>
+<p>Dann errechnen wir anhand  den Standardfehler der theoretischen Verteilung von <span class="math inline">\(\bar{x}\)</span>:</p>
+<p><span class="math display">\[\begin{aligned}
+\sigma_{\bar{x}}&amp;=\frac{\sigma}{\sqrt{n}}\\[4pt]
+           &amp;\approx\frac{10{,}23}{\sqrt{7}}\approx3,86
+\end{aligned}\]</span></p>
+<div id="gesuchtes-alpha" class="section level3" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> Gesuchtes <span class="math inline">\(\alpha\)</span></h3>
+<p>Nun könnte eine Fragerichtung lauten: Wie groß ist die Wahrscheinlichkeit, dass der Mittelwert der Population <span class="math inline">\(\mu\)</span> in einem Korridor von ± 5 l/m² um <span class="math inline">\(\bar{x}\)</span> liegt?<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+<p>Gesucht ist bei einer Konfidenzintervallbreite von <span class="math inline">\(\textit{KIB}=10\)</span> also die Wahrscheinlichkeit:</p>
+<p><span class="math display">\[1-\alpha\approx P(851{,}47 &lt; \mu &lt; 861{,}47)\]</span></p>
+<p>Generalisierend lässt sich schreiben:</p>
+<p><span class="math display">\[
+1-\alpha=P(x_{\alpha/2} &lt; \mu &lt; x_{(1-\alpha/2)})
+\]</span></p>
+<p>…wobei <span class="math inline">\(x_{\alpha/2}\)</span> die Untergrenze darstellt und <span class="math inline">\(x_{(1-\alpha/2)}\)</span> die Obergrenze.</p>
+<p>In <span class="math inline">\(z\)</span>-Werten ausgedrückt:</p>
+<p><span class="math display">\[
+1-\alpha=P(z_{\alpha/2} &lt; z_{\mu} &lt; z_{(1-\alpha/2)})
+\]</span>{#eq:konf}</p>
+<p>In Sitzung 3 haben wir bereits gelernt, wie diese Wahrscheinlichkeit berechnet werden kann. Im Folgenden wird der Rechenweg noch einmal am Beispiel dargelegt.</p>
+<div id="die-umständliche-variante" class="section level4" number="4.4.1.1">
+<h4><span class="header-section-number">4.4.1.1</span> Die umständliche Variante</h4>
+<p>Zunächst müssen wir die Intervallgrenzen in<span class="math inline">\(z\)</span>-Werte umwandeln, um die Unter- bzw. Überschreitungswahrscheinlichkeiten ermitteln zu können. Die z-Transformation muss hier jedoch anhand des Standardfehlers <span class="math inline">\(\sigma_{\bar{x}}\)</span> geschehen, da wir ja an der Stichprobenverteilung interessiert sind. Durch <span class="math inline">\(z\)</span>-Transformation mit <span class="math inline">\(\bar{x}\)</span> und dem Standardfehler <span class="math inline">\(\sigma_{\bar{x}}\)</span> erhalten wir die standardisierten Intervallgrenzen.</p>
+<p>Untergrenze:</p>
+<p><span class="math display">\[\begin{aligned}
+z_{\alpha/2} &amp;= \frac{x_{\alpha/2}-\bar{x}}{\sigma_{\bar{x}}}\\[4pt]
+&amp;\approx\frac{851{,}47-856,47}{3,86}\approx-1,30
+\end{aligned}\]</span></p>
+<p>Obergrenze:</p>
+<p><span class="math display">\[\begin{aligned}
+z_{(1-\alpha/2)} &amp;= \frac{x_{(1-\alpha/2)}-\bar{x}}{\sigma_{\bar{x}}}\\[4pt]
+&amp;\approx\frac{861{,}47-856,47}{3,86}\approx1,30
+\end{aligned}\]</span></p>
+<p>Es ist wenig überraschend, dass die <span class="math inline">\(z\)</span>-transformierten Werte symmetrisch sind. Wir setzen in  ein:</p>
+<p><span class="math display">\[
+1-\alpha\approx P(-1{,}30 &lt;z_{\mu} &lt; 1{,}30)
+\]</span></p>
+<p>Dies lässt sich umformen in:</p>
+<p><span class="math display">\[
+1-\alpha\approx P(z_{\mu}&lt;1{,}08) - P(z_{\mu}&lt;-1{,}08) 
+\]</span></p>
+<p>Die jeweiligen Wahrscheinlichkeiten lassen sich in der Tabelle für <span class="math inline">\(p\)</span>-Werte der Normalverteilung nachschauen (bzw. für den negativen <span class="math inline">\(z\)</span>-Wert errechnen, s. Sitzung 3):</p>
+<p><span class="math display">\[\begin{aligned}
+1-\alpha&amp;\approx 0,9032 - 0,0968\\[4pt]
+&amp;=0,8064
+\end{aligned}\]</span></p>
+<p>Die Wahrscheinlichkeit, dass <span class="math inline">\(\mu\)</span> im Konfidenzintervalls 856,47 ± 5 l/m² liegt, beträgt also 80,64%.</p>
+</div>
+<div id="die-schnelle-variante" class="section level4" number="4.4.1.2">
+<h4><span class="header-section-number">4.4.1.2</span> Die schnelle Variante</h4>
+<p>Wir können den <span class="math inline">\(z\)</span>-Wert für die Obergrenze des Konfidenzintervalls ganz einfach ausrechnen, weil wir wissen, dass die Obergrenze um 5 größer ist als <span class="math inline">\(\bar{x}\)</span> und dass <span class="math inline">\(z_{\bar{x}}=0\)</span>:</p>
+<p><span class="math display">\[\begin{aligned}
+z_{(1-\alpha/2)}&amp;=\frac{5}{\sigma_{\bar{x}}}\\[4pt]
+&amp;\approx\frac{5}{3,86}\\[4pt]
+&amp;\approx1{,}30
+\end{aligned}\]</span></p>
+<p>Oberhalb dieses Werts liegt bekanntermaßen der Anteil <span class="math inline">\(\frac{\alpha}{2}\)</span>, woraus sich mit Blick auf die Tabelle ergibt:</p>
+<p><span class="math display">\[\begin{aligned}
+\frac{\alpha}{2}&amp;=1-0,9032\\[4pt]
+\alpha&amp;=0,1936
+\end{aligned}\]</span></p>
+</div>
+</div>
+<div id="gesuchtes-konfidenzintervall" class="section level3" number="4.4.2">
+<h3><span class="header-section-number">4.4.2</span> Gesuchtes Konfidenzintervall</h3>
+<p>Eine weitere Möglichkeit der Fragestellung lautet: In welchem Bereich liegt das arithmetische Mittel <span class="math inline">\(\mu\)</span> mit einer Wahscheinlichkeit von 90%?</p>
+<p>Vorgegeben ist also <span class="math inline">\(\alpha=0{,}1\)</span>, und gesucht sind die Unter- und die Obergrenze des Konfidenzintervalls.</p>
+<p>Wir setzen ein:</p>
+<p><span class="math display">\[\begin{aligned}
+1-\alpha&amp;=P(z_{\alpha/2} &lt; z_{\mu} &lt; z_{(1-\alpha/2)})\\[4pt]
+0{,}9 &amp;= P(z_{5\%} &lt; z_{\mu} &lt; z_{95\%})
+\end{aligned}\]</span></p>
+<p>Die entsprechenden <span class="math inline">\(z\)</span>-Werte der Intervallgrenzen lassen sich (in umgekehrter Suchrichtung) aus der Tabelle ablesen:</p>
+<p><span class="math display">\[\begin{aligned}
+z_{5\%}&amp;\approx-1{,}64\\[4pt]
+z_{95\%}&amp;\approx 1{,}64
+\end{aligned}\]</span></p>
+<p>Durch umgekehrte z-Transformation – auch hier weider mit <span class="math inline">\(\bar{x}\)</span> und <span class="math inline">\(\sigma_{\bar{x}}\)</span> – ergeben sich die Intervallgrenzen.</p>
+<p>Untergrenze:</p>
+<p><span class="math display">\[\begin{aligned}
+x_{5\%} &amp;= z_{5\%} \cdot \sigma_{\bar{x}} + \bar{x}\\[4pt]
+&amp;\approx -1{,}64 \cdot 3,86 + 856{,}47\\[4pt]
+&amp;\approx 850,14\\[6pt]
+\end{aligned}\]</span></p>
+<p>Obergrenze:</p>
+<p><span class="math display">\[\begin{aligned}
+x_{95\%}&amp;= z_{95\%} \cdot \sigma_{\bar{x}} + \bar{x}\\[4pt]
+&amp;\approx 1{,}64 \cdot 3,86 + 856{,}47\\[4pt]
+&amp;\approx 862,80
+\end{aligned}\]</span></p>
+<p>Auch hier gibt es wieder eine kleine Abkürzung: Aufgrund der Symmetrie unserer theoretischen Verteilung gilt für die Konfidenzintervallbreite generell:</p>
+<p><span class="math display">\[
+\frac{\mathit{KIB}}{2} = z_{(1-\alpha/2)} \cdot \sigma_{\bar{x}}
+\]</span>{#eq:kib}</p>
+<p>Wir setzen einfach unsere Werte ein:</p>
+<p><span class="math display">\[\begin{aligned}
+\frac{\mathit{KIB}}{2} &amp;= z_{95\%} \cdot s_{\bar{x}}\\[4pt]
+&amp;\approx1{,}64 \cdot 3,86\\[4pt]
+&amp;\approx 6,33
+\end{aligned}\]</span></p>
+<p>Die Intervallgrenzen ergeben sich dann trivial aus <span class="math inline">\(\bar{x} \pm \frac{\mathit{KIB}}{2}\)</span>.</p>
+</div>
+<div id="gesuchtes-n" class="section level3" number="4.4.3">
+<h3><span class="header-section-number">4.4.3</span> Gesuchtes <span class="math inline">\(n\)</span></h3>
+<p>Eine letzte Fragerichtung lautet: Wie viele Messwerte müssten vorliegen, um den durchschnittlichen Niederschlag mit einem Konfidenzniveau von 99% und einer Genauigkeit von ± 5 l/m² schätzen zu können?</p>
+<p>Gegeben sind also das Konfidenzintervall und <span class="math inline">\(\alpha=0{,}01\)</span>, gesucht wird <span class="math inline">\(n\)</span>. Wir wissen, dass die Stichprobengröße <span class="math inline">\(n\)</span> den Standardfehler <span class="math inline">\(\sigma_{\bar{x}}\)</span> bestimmt. Also benutzen wir zunächst  und formen um:</p>
+<p><span class="math display">\[\begin{aligned}
+\frac{\mathit{KIB}}{2} &amp;= z_{(1-\alpha/2)} \cdot \sigma_{\bar{x}}\\[4pt]
+\sigma_{\bar{x}} &amp;= \frac{\mathit{KIB}}{2\cdot z_{(1-\alpha/2)}} 
+\end{aligned}\]</span></p>
+<p>Durch Einsetzen und mit Blick auf die Tabelle erhalten wir:</p>
+<p><span class="math display">\[\begin{aligned}
+\sigma_{\bar{x}} &amp;= \frac{10}{2\cdot z_{99{,}5\%}}\\[4pt]
+ &amp;\approx \frac{10}{2\cdot 2{,}58}\\[4pt]
+ &amp;\approx 1{,}94
+\end{aligned}\]</span></p>
+<p>Dieser Standardfehler <span class="math inline">\(\sigma_{\bar{x}}\approx1{,}94\)</span> würde unseren Anforderungen genügen. Welches <span class="math inline">\(n\)</span> ist nötig, um diesen Standardfehler zu erreichen? Wir formen  um…</p>
+<p><span class="math display">\[\begin{aligned}
+\sigma_{\bar{x}} &amp;= \frac{\sigma}{\sqrt{n}}\\[4pt]
+               n &amp;= \Big(\frac{\sigma}{\sigma_{\bar{x}}}\Big)^2
+\end{aligned}\]</span></p>
+<p>…und setzen den angestrebten Standardfehler sowie die Standardabweichung der Population (<span class="math inline">\(\sigma=10{,}23\)</span>) ein:</p>
+<p><span class="math display">\[\begin{aligned}
+n&amp;=\Big(\frac{\sigma}{\sigma_{\bar{x}}}\Big)^2\\[4pt]
+n&amp;\approx\bigg(\frac{10{,}23}{1{,}94}\bigg)^2\\[4pt]
+&amp;\approx27{,}80
+\end{aligned}\]</span></p>
+<p>Wir müssten also 28 Stichproben vorliegen haben.</p>
+</div>
+</div>
+<div id="aufgaben-3" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Aufgaben</h2>
+<p>Die folgenden Aufgaben sind zur eigenständigen Überprüfung Ihrer Lernleistung gedacht (als Vor- oder Nachbereitung der Vorlesung, oder als Klausurübung) und nicht etwa als Hausaufgabe.</p>
+<div id="aufgabe-1-3" class="section level3" number="4.5.1">
+<h3><span class="header-section-number">4.5.1</span> Aufgabe 1</h3>
+<p>Eine Messreihe habe die Werte:
+<code>165 173 155 179 158 142</code></p>
+<ol style="list-style-type: lower-alpha">
+<li>Führen Sie eine Punktschätzung für <span class="math inline">\(\mu\)</span> und <span class="math inline">\(\sigma\)</span> der Grundgesamtheit durch.</li>
+<li>Welcher Standardfehler für <span class="math inline">\(\bar{x}\)</span> ist zu erwarten?</li>
+</ol>
+</div>
+<div id="aufgabe-2-3" class="section level3" number="4.5.2">
+<h3><span class="header-section-number">4.5.2</span> Aufgabe 2</h3>
+<p>Die Sonnenstunden auf einer Ferieninsel (pro Tag, im Jahresdurschnitt) sind annähernd normalverteilt mit einer Standardabweichung von vier Minuten. Der Mittelwert <span class="math inline">\(\mu\)</span> ist unbekannt, es liegen neun Messwerte vor.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Welcher Standardfehler für <span class="math inline">\(\bar{x}\)</span> ist zu erwarten?</li>
+<li>Welche Konfidenzintervallbreite korrespondiert mit einem Konfidenzniveau von 95%?</li>
+<li>Mit welchem Konfidenzniveau lässt sich <span class="math inline">\(\mu\)</span> “auf die Minute genau” (± 30 Sekunden) schätzen?</li>
+<li>Welche Stichprobengröße ist nötig um den Mittelwert mit einer Konfidenzintervallbreite von zwei Minuten und -niveau von 90% zu schätzen?</li>
+</ol>
+</div>
+<div id="aufgabe-3-1" class="section level3" number="4.5.3">
+<h3><span class="header-section-number">4.5.3</span> Aufgabe 3</h3>
+<p>Sie intressieren sich für das Durchschnittseinkommen (in EUR) der Haushalte eines Stadtteils. Die Varianz ist mit <span class="math inline">\(\sigma^2=4096\)</span> bekannt. Eine Zufallsstichprobe von 40 befragten Haushalten weist einen Mittelwert von <span class="math inline">\(\bar{x}=2650\)</span> auf.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Wie lautet das 90%-Konfidenzintervall?</li>
+<li>Mit welcher Wahrscheinlichkeit liegt das Durchschnittseinkommen zwischen 2640 und 2660 EUR?</li>
+</ol>
+</div>
+</div>
+<div id="tipps-zur-vertiefung-3" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> Tipps zur Vertiefung</h2>
+<ul>
+<li>YouTube-Kanal “Kurzes Tutorium Statistik”: <a href="https://www.youtube.com/watch?v=DdwTa28W4Os">Intervallschätzungen - Konfidenzintervalle</a></li>
+<li>Kapitel 8 in <span class="citation"><a href="chi-quadrat-tests.html#ref-klemm" role="doc-biblioref">Klemm</a> (<a href="chi-quadrat-tests.html#ref-klemm" role="doc-biblioref">2002</a>)</span></li>
+<li>Kapitel 6.2–6.4 in <span class="citation"><a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">Bortz und Schuster</a> (<a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">2010</a>)</span></li>
+<li>Kapitel 5.3.1 in <span class="citation"><a href="chi-quadrat-tests.html#ref-bahrenberg" role="doc-biblioref">Bahrenberg, Giese und Nipper</a> (<a href="chi-quadrat-tests.html#ref-bahrenberg" role="doc-biblioref">2010</a>)</span></li>
+</ul>
+</div>
+<div id="quellen-3" class="section level2" number="4.7">
+<h2><span class="header-section-number">4.7</span> Quellen</h2>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="3">
+<li id="fn3"><p>Genau genommen ist das nicht ganz korrekt, “denn tatsächlich kann der Parameter nur innerhalb oder außerhalb des gefundenen Bereichs liegen. Die Wahrscheinlichkeit, dass ein Parameter in einen bestimmten Bereich fällt, ist damit entweder 0 oder 1.” <span class="citation">(<a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">Bortz und Schuster 2010</a>: 93)</span>. Mathematisch korrekt müsste es heißen: “Die Wahrscheinlichkeit, dass <span class="math inline">\(\bar{x}\)</span> zu einer Population gehört, deren Parameter <span class="math inline">\(\mu\)</span> in diesem Bereich liegt…”<a href="schätzstatistik-1.html#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="z-werte-und-normalverteilung.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="grundlagen-der-teststatistik.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/s2742970/2021_statistische_verfahren/edit/master/Skript_04.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/s2742970/2021_statistische_verfahren/blob/master/Skript_04.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

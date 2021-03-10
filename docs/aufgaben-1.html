@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="de" xml:lang="de">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Sitzung 7 Aufgaben | Statistische Verfahren</title>
+  <meta name="description" content="Projektseminar" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Sitzung 7 Aufgaben | Statistische Verfahren" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Projektseminar" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Sitzung 7 Aufgaben | Statistische Verfahren" />
+  
+  <meta name="twitter:description" content="Projektseminar" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="boxplot.html"/>
+<link rel="next" href="tipps-zur-vertiefung-1.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Terminüberblick</a></li>
+<li class="chapter" data-level="1" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html"><i class="fa fa-check"></i><b>1</b> Datenerhebung und Häufigkeiten</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#lernziele-dieser-sitzung"><i class="fa fa-check"></i><b>1.1</b> Lernziele dieser Sitzung</a></li>
+<li class="chapter" data-level="1.2" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#statistische-praxis"><i class="fa fa-check"></i><b>1.2</b> Statistische Praxis</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#grundbegriffe-der-statistik"><i class="fa fa-check"></i><b>1.2.1</b> Grundbegriffe der Statistik</a></li>
+<li class="chapter" data-level="1.2.2" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#taxonomien-statistischer-verfahren"><i class="fa fa-check"></i><b>1.2.2</b> Taxonomien statistischer Verfahren</a></li>
+<li class="chapter" data-level="1.2.3" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#ablauf-einer-statistischen-untersuchung"><i class="fa fa-check"></i><b>1.2.3</b> Ablauf einer statistischen Untersuchung</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#grundlagen-der-datenerhebung"><i class="fa fa-check"></i><b>1.3</b> Grundlagen der Datenerhebung</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#typen-von-stichproben"><i class="fa fa-check"></i><b>1.3.1</b> Typen von Stichproben</a></li>
+<li class="chapter" data-level="1.3.2" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#variablentypen"><i class="fa fa-check"></i><b>1.3.2</b> Variablentypen</a></li>
+<li class="chapter" data-level="1.3.3" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#skalenniveaus"><i class="fa fa-check"></i><b>1.3.3</b> Skalenniveaus</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#häufigkeitsverteilungen"><i class="fa fa-check"></i><b>1.4</b> Häufigkeitsverteilungen</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#urliste"><i class="fa fa-check"></i><b>1.4.1</b> Urliste</a></li>
+<li class="chapter" data-level="1.4.2" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#geordnete-liste"><i class="fa fa-check"></i><b>1.4.2</b> Geordnete Liste</a></li>
+<li class="chapter" data-level="1.4.3" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#häufigkeiten"><i class="fa fa-check"></i><b>1.4.3</b> Häufigkeiten</a></li>
+<li class="chapter" data-level="1.4.4" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#stabdiagramme"><i class="fa fa-check"></i><b>1.4.4</b> Stabdiagramme</a></li>
+<li class="chapter" data-level="1.4.5" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#quantitative-variablen-1"><i class="fa fa-check"></i><b>1.4.5</b> Quantitative Variablen</a></li>
+<li class="chapter" data-level="1.4.6" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#polygone"><i class="fa fa-check"></i><b>1.4.6</b> Polygone</a></li>
+<li class="chapter" data-level="1.4.7" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#eigenschaften-von-häufigkeitsverteilungen"><i class="fa fa-check"></i><b>1.4.7</b> Eigenschaften von Häufigkeitsverteilungen</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#aufgaben"><i class="fa fa-check"></i><b>1.5</b> Aufgaben</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#aufgabe-1"><i class="fa fa-check"></i><b>1.5.1</b> Aufgabe 1</a></li>
+<li class="chapter" data-level="1.5.2" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#aufgabe-2"><i class="fa fa-check"></i><b>1.5.2</b> Aufgabe 2</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#tipps-zur-vertiefung"><i class="fa fa-check"></i><b>1.6</b> Tipps zur Vertiefung</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#grundbegriffe"><i class="fa fa-check"></i><b>1.6.1</b> Grundbegriffe</a></li>
+<li class="chapter" data-level="1.6.2" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#stichproben"><i class="fa fa-check"></i><b>1.6.2</b> Stichproben</a></li>
+<li class="chapter" data-level="1.6.3" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#skalenniveaus-1"><i class="fa fa-check"></i><b>1.6.3</b> Skalenniveaus</a></li>
+<li class="chapter" data-level="1.6.4" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#häufigkeiten-und-diagramme"><i class="fa fa-check"></i><b>1.6.4</b> Häufigkeiten und Diagramme</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#quellen"><i class="fa fa-check"></i><b>1.7</b> Quellen</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="lernziele-dieser-sitzung-1.html"><a href="lernziele-dieser-sitzung-1.html"><i class="fa fa-check"></i><b>2</b> Lernziele dieser Sitzung</a></li>
+<li class="chapter" data-level="3" data-path="einleitende-bemerkungen.html"><a href="einleitende-bemerkungen.html"><i class="fa fa-check"></i><b>3</b> Einleitende Bemerkungen</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="einleitende-bemerkungen.html"><a href="einleitende-bemerkungen.html#beispielverteilung"><i class="fa fa-check"></i><b>3.1</b> Beispielverteilung</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="lagemaße.html"><a href="lagemaße.html"><i class="fa fa-check"></i><b>4</b> Lagemaße</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="lagemaße.html"><a href="lagemaße.html#median"><i class="fa fa-check"></i><b>4.1</b> Median</a></li>
+<li class="chapter" data-level="4.2" data-path="lagemaße.html"><a href="lagemaße.html#modalwert"><i class="fa fa-check"></i><b>4.2</b> Modalwert</a></li>
+<li class="chapter" data-level="4.3" data-path="lagemaße.html"><a href="lagemaße.html#arithmetisches-mittel"><i class="fa fa-check"></i><b>4.3</b> Arithmetisches Mittel</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="streumaße.html"><a href="streumaße.html"><i class="fa fa-check"></i><b>5</b> Streumaße</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="streumaße.html"><a href="streumaße.html#spannweite"><i class="fa fa-check"></i><b>5.1</b> Spannweite</a></li>
+<li class="chapter" data-level="5.2" data-path="streumaße.html"><a href="streumaße.html#quartilsabstand"><i class="fa fa-check"></i><b>5.2</b> Quartilsabstand</a></li>
+<li class="chapter" data-level="5.3" data-path="streumaße.html"><a href="streumaße.html#varianz"><i class="fa fa-check"></i><b>5.3</b> Varianz</a></li>
+<li class="chapter" data-level="5.4" data-path="streumaße.html"><a href="streumaße.html#standardabweichung"><i class="fa fa-check"></i><b>5.4</b> Standardabweichung</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="boxplot.html"><a href="boxplot.html"><i class="fa fa-check"></i><b>6</b> Boxplot</a></li>
+<li class="chapter" data-level="7" data-path="aufgaben-1.html"><a href="aufgaben-1.html"><i class="fa fa-check"></i><b>7</b> Aufgaben</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="aufgaben-1.html"><a href="aufgaben-1.html#aufgabe-1-1"><i class="fa fa-check"></i><b>7.1</b> Aufgabe 1</a></li>
+<li class="chapter" data-level="7.2" data-path="aufgaben-1.html"><a href="aufgaben-1.html#aufgabe-2-1"><i class="fa fa-check"></i><b>7.2</b> Aufgabe 2</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="tipps-zur-vertiefung-1.html"><a href="tipps-zur-vertiefung-1.html"><i class="fa fa-check"></i><b>8</b> Tipps zur Vertiefung</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="tipps-zur-vertiefung-1.html"><a href="tipps-zur-vertiefung-1.html#lagemaße-1"><i class="fa fa-check"></i><b>8.1</b> Lagemaße</a></li>
+<li class="chapter" data-level="8.2" data-path="tipps-zur-vertiefung-1.html"><a href="tipps-zur-vertiefung-1.html#streumaße-1"><i class="fa fa-check"></i><b>8.2</b> Streumaße</a></li>
+<li class="chapter" data-level="8.3" data-path="tipps-zur-vertiefung-1.html"><a href="tipps-zur-vertiefung-1.html#boxplot-1"><i class="fa fa-check"></i><b>8.3</b> Boxplot</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="quellen-1.html"><a href="quellen-1.html"><i class="fa fa-check"></i><b>9</b> Quellen</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistische Verfahren</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="aufgaben-1" class="section level1" number="7">
+<h1><span class="header-section-number">Sitzung 7</span> Aufgaben</h1>
+<p>Die folgenden Aufgaben sind zur eigenständigen Überprüfung Ihrer Lernleistung gedacht (als Vor- oder Nachbereitung der Vorlesung, oder als Klausurübung) und nicht etwa als Hausaufgabe.</p>
+<div id="aufgabe-1-1" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Aufgabe 1</h2>
+<p>Bei einer Befragung jedes 500. Studierenden im Matrikel einer privaten Hochschule wurden folgende Angaben zur Haushaltsgröße gemacht:</p>
+<p><code>1 4 4 2 3 2 3 5 2 7 2 1 1</code></p>
+<ol style="list-style-type: lower-alpha">
+<li>Welches Skalenniveau liegt vor? (Sitzung 1)</li>
+<li>Berechnen Sie Modalwert,</li>
+<li>Median und</li>
+<li>arithmetisches Mittel der Stichprobe.</li>
+<li>Berechnen Sie außerdem die Spannweite,</li>
+<li>den Quartilsabstand,</li>
+<li>die Varianz und</li>
+<li>die Standardabweichung der Stichprobe.</li>
+<li>Zeichnen Sie einen Boxplot der Stichprobenverteilung.</li>
+</ol>
+</div>
+<div id="aufgabe-2-1" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Aufgabe 2</h2>
+In Australien betrug die durchnittliche Niederschlagsmenge in den 1970er und 80er Jahren:<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>
+
+<ol style="list-style-type: lower-alpha">
+<li>Welches Skalenniveau liegt vor? (Sitzung 1)</li>
+<li>Legen Sie eine klassierte Häufigkeitstabelle an. Begründen Sie die Wahl der Klassen. (Sitzung 1)</li>
+<li>Was ist der Modalwert der klassierten Verteilung?</li>
+<li>Wie groß ist der Quartilsabstand?</li>
+<li>Bestimmen Sie das arithmetische Mittel der klassierten Verteilung.</li>
+<li>Berechnen Sie die Standardabweichung.</li>
+<li>Zeichnen Sie einen Boxplot für die Verteilung.</li>
+</ol>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Auszug aus dem Datensatz <code>bomsoi</code> in <span class="citation">(<a href="#ref-daag" role="doc-biblioref"><strong>daag?</strong></a>)</span><a href="aufgaben-1.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="boxplot.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tipps-zur-vertiefung-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/s2742970/2021_statistische_verfahren/edit/master/Skript_02.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/s2742970/2021_statistische_verfahren/blob/master/Skript_02.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

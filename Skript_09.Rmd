@@ -1,0 +1,429 @@
+# Kreuztabellen
+
+## Lernziele dieser Sitzung
+
+Sie können...
+
+- eine Kreuztabelle erstellen und interpretieren.
+- den Kontingenzkoeffizienten $\chi^2$ errechnen.
+- die Maßzahlen $\phi$ bzw. $\mathit{CI}$ errechnen und interpretieren.
+ 
+## Bivariate Verteilungen mit nominalen Variablen
+
+In der bivariaten Statistik (Sitzungen 7 und 8) ging es bisher um Zusammenhänge zwischen zwei metrischen Variablen. In dieser Sitzung geht es um statistische Verfahren der bivariaten Statistik, bei denen für beide Variablen nur das Nominalskalenniveau vorausgesetzt ist. (Für Skalenniveaus s. Sitzung&nbsp;1.)
+
+Mit den Werten von nominalen Variablen lassen sich die in Sitzung 7 und 8 besprochenen Parameter (z.B. Kovarianz) nicht errechnen, weil wir mit ihnen nicht die notwendigen Rechenoperationen (Addition, Subtraktion) durchführen können. Stattdessen sind die beobachteten Häufigkeiten Ausgangslage für die im Folgenden besprochenen Verfahren.
+
+### Beispiel
+
+Wir fragen uns, ob es einen Zusammenhang zwischen dem Studienfach von Studierenden an einer Universität und ihrem präferierten Transportmittel für den Pendelweg zum Campus gibt. Insbesondere interessiert uns, ob ein Zusammenhang zwischen dem Studium der Geistes- und Sozialwissenschaften und der Fahrradnutzung besteht.
+
+Beide Variablen sind nominalskaliert: die erhobenen Werte können in Kategorien eingeordnet werden (Studienfach: Geographie, Politikwissenschaft, BWL, ...; Transportmittel: Bus, Fahrrad, zu Fuß, ...).
+
+Um die Variablen im Sinne unserer Fragestellung zu vereinfachen, wandeln wir beide Variablen in *dichotome* Variablen um (die dann nur zwei Werte annehmen können). Wir beschränken uns auf die Erhebung von "Fahrrad" oder "anderes Transportmittel" einerseits und "Geistes-/Sozialwissenschaft" oder "anderes Studienfach" andererseits. Die (verkürzte) Tabelle der Rohdaten einer Zufallsstichprobe der Größe $n=90$ könnte dann so aussehen wie \autoref{tab:roh}.
+
+```{r}
+rad <- read.table("img/9_rad_dt", as.is = T)
+kable(rbind(head(rad), data.frame(x=c("..."="..."), y=c("..."="...")), tail(rad)), "latex", row.names=T, booktabs=T, longtable=F, linesep="", caption = "\\label{tab:roh}Ungeordnete Rohdaten der Erhebung", col.names = c("Studienfach", "Transportmittel")) %>%
+  kable_styling(latex_options = c("striped"))
+```
+
+## Kreuztabelle
+
+Die Kreuztabelle (auch Kontingenztabelle, Kontingenztafel, engl. *contingency table*) ist eine übersichtliche Zusammenfassung der Rohdaten. Sie spannt die beiden Variablen in Spalten- und Zeilenrichtung auf, so dass in jeder Zelle die Häufigkeit einer bestimmten Wertekombination steht.
+
+Bei zwei dichotomen Variablen ergeben sich zwei Spalten und zwei Zeilen, also vier Tabellenfelder. Wir sprechen in diesem Fall auch von einer $2\times2$-Tabelle.
+
+### Beispiel
+
+Die Kreuztabelle für unser Beispiel ist in \autoref{tab:crossrad} dargestellt. Die Spaltenüberschriften sind die beiden Werte der dichotomen Variable "Transportmittel", und die Zeilennamen sind die beiden Werte für "Studienfach". In den Zellen stehen die Häufigkeiten. Es lässt sich also z.B. ablesen, dass die Kombination "Fahrrad" und "anderes Studienfach" neun mal vorkommt.
+
+```{r crossrad}
+crosstable <- function(x, format, sums=T, expected=F, chisq=F, varnames=T, row.order=NULL, col.order=NULL, caption=NULL, df.only=F){
+  sink("nul")
+  xt <- gmodels::CrossTable(x[,1],x[,2], expected = T)
+  sink()
+  ts <- ""
+  chisq.contribs <- c()
+  if(is.null(row.order)){row.order <- rownames(xt$t)}
+  if(is.null(col.order)){col.order <- colnames(xt$t)}
+  first.col <- row.order
+  if(format=="latex") {
+    nbsp <- "~"
+  } else {
+    nbsp <- "&nbsp;"
+  }
+  col.names <- c(ifelse(varnames, paste0(colnames(x)[1], nbsp, "$\\downarrow$"), ""), col.order)
+  if (format == "latex"){
+    building <- list(
+        begin_cell = "\\makecell[tr]{",
+        end_cell = "}",
+        begin_expected = "(",
+        end_expected = ")",
+        begin_chisq = "\\textcolor{goethe_blue}{",
+        end_chisq = "}",
+        linebreak = "\\\\"
+      )
+  } else if (format == "html") {
+    if(is.numeric(expected)) {
+      begin_expected <- sprintf('<span class="fragment" data-fragment-index=%s>(', expected)
+    } else {
+      begin_expected <- "<span>("
+    }
+    if(is.numeric(chisq)) {
+       begin_chisq = sprintf('<span class="blue-text fragment" data-fragment-index=%s>', chisq)
+    } else {
+      begin_chisq = "<span class='blue-text'>"
+    }
+    building = list(
+      begin_cell = "",
+      end_cell = "",
+      begin_expected = begin_expected,
+      end_expected = ")<span>",
+      begin_chisq = begin_chisq,
+      end_chisq = "</span>",
+      linebreak = "<br>"
+    )
+  } else { stop("Invalid format.") }
+  kable.out <- function(df){
+    kable.params <- list(
+      x = df,
+      format = format,
+      align = "r",
+      escape = F)
+    if(format=="latex"){
+      kable.params$booktabs = T
+      kable.params$longtable = F
+    }
+    if(!is.null(caption)) kable.params$caption=caption
+    k <- do.call(kable, kable.params)
+    if(varnames){
+      header.above <- c(1,2)
+      if(sums) header.above <- c(header.above, 1)
+      header.names <- c(" ", colnames(x)[2])
+      if(sums) header.names <- c(header.names, " ")
+      names(header.above) <- header.names
+      k <- k %>%
+               add_header_above(header = header.above, line = F) %>%
+               column_spec(1, border_right = T)
+    }
+    if(format == "html"){
+      return(k %>%
+             column_spec(1, extra_css = "background:var(--sand_gray); color:var(--goethe_blue);font-weight:600") %>%
+             row_spec(nrow(xt$t)+1, bold = T) %>%
+             column_spec(ncol(xt$t)+2, bold=T))
+    }
+    if(sums){
+      k <- k %>%
+        column_spec(1 + ncol(xt$t), border_right = T) %>%
+        row_spec(nrow(xt$t), hline_after = T)
+    }
+    return(k %>%
+             column_spec(1, border_right=T) %>%
+             kable_styling())
+  }
+  for(row in row.order){
+    for(col in col.order){
+      obs <- xt$t[row,col]
+      exp <- round(xt$chisq$expected[row,col],2)
+      chisq.contrib <- round((obs-exp)^2/exp,3)
+      chisq.contribs <- c(chisq.contribs, chisq.contrib)
+      ts <- paste0(ts, building$begin_cell, obs )
+      if(expected){ ts <- paste0(ts, building$linebreak, building$begin_expected, format(exp, nsmall=2), building$end_expected)}
+      if(chisq){ ts <- paste0(ts, building$linebreak, building$begin_chisq, format(chisq.contrib,nsmall=3), building$end_chisq)}
+      ts <- paste0(ts, building$end_cell, "|")
+    }
+    if(sums){ts <- paste0(ts, sum(xt$t[row,]))}
+    ts <- paste0(ts, "
+")
+  }
+  if(sums){
+    for(col in col.order){
+      ts <- paste0(ts, sum(xt$t[,col]),"|")
+    }
+    ts <- paste0(ts, sum(xt$t))
+    col.names <-c(col.names, "")
+    first.col <- c(first.col, "")
+  }
+  df <- cbind(data.frame(first.col), read.table(text = ts, stringsAsFactors = F, quote = "", sep="|"))
+  colnames(df) <- col.names
+  if(df.only){
+    return(df)
+  } else {
+    return(list(df=kable.out(df), contrib=chisq.contribs))
+  }
+}
+
+radxt <- crosstable(rad, format="latex", varnames = F, row.order = c("Geistes-/Sozialwissenschaft", "anderes Studienfach"), col.order = c("Fahrrad", "anderes Transportmittel"), caption = "Kreuztabelle der Beispieldaten")
+radxt$df
+```
+
+
+Am rechten Rand der Tabelle stehen die Summen für die Zeilen, am unteren Rand die Summen der Spalten. Ganz unten rechts steht die Gesamtsumme (Größe der Stichprobe).
+
+\begin{rtip}
+In R kann eine einfache Kreuztabelle mit dem Befehl {\tt table()} ausgegeben werden.
+\end{rtip}
+
+### Verallgemeinerung
+
+In \autoref{tab:crossalg} ist das allgemeingültige Format für Kreuztabellen festgehalten. Dabei sind folgende Besonderheiten zu beachten:
+
+- Das Symbol $k$ steht für die Anzahl der Zeilen, $\ell$ für die Anzahl der Spalten.
+- Die Häufigkeiten für Merkmalskombinationen in den Tabellenfeldern werden durch $n_{ij}$ symbolisiert, wobei $i$ für die laufende Nummer der Zeile steht, und $j$ für die laufende Nummer der Spalte.
+- Die Teilsummen an den Rändern werden mit Punktnotation bezeichnet. Dabei steht die Zeilensumme $n_{i\cdot}$ für die Summe *aller* Felder in Zeile $i$ (Zeilensumme) und $n_{\cdot j}$ für die Summe *aller* Felder in Spalte $j$ (Spaltensumme).
+- Die Gesamtsumme unten rechts wird hier mit $n$ gekennzeichnet und steht wie gewohnt für die Gesamtgröße der Stichprobe.
+
+```{r crossalg}
+t <-read.table(text="
+$n_{11}$ $n_{12}$ ... $n_{1\\ell}$ $n_{1\\cdot}$
+$n_{21}$ $n_{22}$ ... $n_{2\\ell}$ $n_{2\\cdot}$
+... ... ... ... ...
+$n_{k1}$ $n_{k2}$ ... $n_{k\\ell}$ $n_{k\\cdot}$
+$n_{\\cdot1}$ $n_{\\cdot2}$ ... $n_{\\cdot\\ell}$ $n$")
+row.names(t) <- c("Zeile 1", "Zeile 2", "...", "Zeile $k$", "")
+kable(t, "latex", booktabs=T, escape=F, longtable=F, col.names = c("Spalte 1","Spalte 2", "...", "Spalte $\\ell$", ""), caption = "Allgemeine Bezeichnungen in der Kreuztabelle") %>%
+  kable_styling() %>%
+  row_spec(4, hline_after = T) %>%
+  column_spec(1, border_right = T) %>%
+  column_spec(5, border_right = T)
+```
+
+## Berechnung der erwarteten Werte
+
+Bestünde *kein* Zusammenhang zwischen den Variablen, dann wäre zu erwarten, dass sich die Kombinationen gleichmäßig auf die Tabellenfelder aufteilen, und zwar ausgehend von den Teilsummen für die Zeilen und Spalten.
+
+Der Erwartungswert für ein Tabellenfeld (also der "durchschnittliche" Wert, wenn es keinen Zusammenhang zwischen den beiden Variablen gibt) berechnet sich durch die Formel:
+
+\nopagebreak
+\[
+m_{ij}=\frac{n_{i\cdot}\cdot n_{\cdot j}}{n}
+\]{#eq:m}
+
+Es wird also das Produkt der Zeilen- und der Spaltensumme geteilt durch die Gesamtsumme.
+
+### Beispiel
+
+Die beobachtete Häufigkeit für die Kombination "Geistes-/Sozialwissenschaft" (Zeile 1) und "anderes Transportmittel" (Spalte 2) ist 28. Aber was wäre der Erwartungswert bei den gegebenen Summen? Wir setzen einfach die entsprechenden Werte in die \autoref{eq:m} ein:
+
+\nopagebreak
+\[\begin{aligned}
+m_{12}&=\frac{n_{1\cdot}\cdot n_{\cdot 2}}{n}\\[5pt]
+&=\frac{39\cdot 70}{90}\\[4pt]
+&\approx 30,33
+\end{aligned}\]
+
+Diese Rechnung lässt sich für alle Tabellenfelder durchführen. Die Kreuztabelle kann dann um diese erwarteten Werte in Klammern ergänzt werden (s. \autoref{tab:expected}).
+
+```{r expected}
+radxt <- crosstable(rad, format="latex", varnames = F, expected = T, row.order = c("Geistes-/Sozialwissenschaft", "anderes Studienfach"), col.order = c("Fahrrad", "anderes Transportmittel"), caption = "Kreuztabelle der Beispieldaten")
+radxt$df
+```
+
+## Berechnung des Kontingenzkoeffizenten $\chi^2$
+
+Sind für alle Tabellenfelder die Beobachtungs- und Erwartungswerte gegeben, lässt sich für jedes Tabellenfeld ein Wert berechnen, der diese Werte in Relation setzt. Die Summe dieser Werte über die gesamte Tabelle hinweg wird Kontingenzkoeffizient genannt und mit $\chi^2$ ("Chi-Quadrat") abgekürzt.
+
+\nopagebreak
+\[
+\chi^2= \sum_{i=1}^{k}\sum_{j=1}^{\ell}\frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}
+\]{#eq:chisq}
+
+Bei der Formel steht $k$ wieder für die Anzahl der Zeilen (und $i$ für ihre laufende Nummer) und $\ell$ für die Anzahl der Spalten (und $j$ für ihre laufende Nummer).
+
+Das doppelte Summenzeichen mag etwas verwirrend sein, bedeutet aber nur, dass die Zeilen spaltenweise summiert werden, und dann die Summe dieser Zeilensumme genommen wird -- d.h. dass einfach alle Tabellenfelder aufsummiert werden.
+
+Der $\chi^2$-Wert kann (ähnlich wie der $F$-Wert aus Sitzung 6) nur positive Werte annehmen. Er bildet die Grundlage für die im Folgenden besprochenen Kennwerte $\phi$ und $\mathit{CI}$ sowie für den in Sitzung 10 zu besprechenden $\chi^2$-Test.
+
+### Beispiel
+
+Ein möglicher Zwischenschritt ist es, diese Teilwerte von $\chi^2$ für die einzelnen Tabellenfelder auszurechnen und in der Kreuztabelle zu notieren. Die Teilwerte werden dann für jedes Tabellenfeld mit der Formel 
+
+\nopagebreak
+\[
+\frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}
+\]{#eq:contrib}
+
+berechnet und sind in \autoref{tab:radchisq} in blau dargestellt.
+
+```{r radchisq}
+radxt <- crosstable(rad, format="latex", varnames = F, expected = T, chisq = T, row.order = c("Geistes-/Sozialwissenschaft", "anderes Studienfach"), col.order = c("Fahrrad", "anderes Transportmittel"), caption = "Kreuztabelle der Beispieldaten mit Teilwerten für $\\chi^2$")
+radxt$df
+```
+
+Zum Beispiel ergibt sich der Teilwert für $\chi^2$ für die Kombination "anderes Studienfach" -- "Fahrrad" durch Einsetzen in \autoref{eq:contrib}:
+
+\nopagebreak
+\[\begin{aligned}
+\frac{(n_{21}-m_{21})^{2}}{m_{21}} &\approx \frac{(9-11,33)^2}{11,33}\\
+&=\frac{-2,33^2}{11,33}\\
+&\approx\frac{5,43}{11,33}\\
+&\approx0,479
+\end{aligned}\]
+
+Der $\chi^2$-Wert lässt sich nun bestimmen, indem diese Teilwerte aufsummiert werden:
+
+\[\begin{aligned}
+\chi^2&= \sum_{i=1}^{k}\sum_{j=1}^{\ell}\frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}\\[4pt]
+&\approx 0,626 + 0,179 + 0,479 + 0,137\\
+& =1,421
+\end{aligned}\]
+
+Mit diesem Wert $\chi^2\approx1,421$ können wir noch nicht so viel anfangen -- wir wissen aber, dass er ein Maß dafür ist, wie sehr unsere beobachtete Verteilung von einer zu erwarteten Verteilung (vorausgesetzt, es gibt keinen Zusammenhang) abweicht.
+
+## Berechnung des $\phi$-Koeffizienten
+
+Der $\phi$-Koeffizient ist der Korrelationskoeffizient für zwei dichotome Variablen (wobei er in der hier besprochenen Version nur positive Werte annehmen kann). Er ist jedoch *nicht* ohne weiteres mit dem Korrelationskoeffizienten $r$ (aus Sitzung 7) vergleichbar.
+
+Der Wert für $\phi$ kann aus $\chi^2$ berechnet werden mit:
+
+\nopagebreak
+\[
+\phi=\sqrt{\frac{\chi^2}{n}}
+\]{#eq:phi}
+
+### Beispiel
+
+In unserem Beispiel ergibt sich also für $\phi$ durch Einsetzung in \autoref{eq:phi}:
+
+\nopagebreak
+\[\begin{aligned}
+\phi&=\sqrt{\frac{\chi^2}{n}}\\[6pt]
+    &\approx\sqrt{\frac{1,421}{90}}\\[4pt]
+    &\approx0,126
+\end{aligned}\]
+
+Es wird ersichtlich, dass es eine leichte Korrelation der Variablen gibt. Aber in welche Richtung? Dafür müssen wir auf die Kreuztabelle blicken: Der beobachtete Wert für die Wertekombination "Fahrrad" und "Geistes-/Sozialwissenschaft" beträgt $n_{11}=11$ und liegt über dem Erwartungswert $m_{11}=8,67$. Damit ist klar: Das Studium von Geistes- und Sozialwissenschaften korreliert *positiv* mit der Fahrradnutzung für den Pendelweg.
+
+Ob diese Korrelation auch statistisch relevant ist, kann mit dem $\chi^2$-Test (Sitzung 10) überprüft werden.
+
+## Berechnung des Cramér-Index
+
+Bisher wurden in dieser Sitzung nur Verteilungen von zwei dichotomen Variablen besprochen. Nun gibt es aber auch nominalskalierte bivariate Verteilungen, in denen die Merkmale mehr als zwei Werte annehmen können (also nicht dichotom sind). In diesem Fall ist der Cramér-Index (auch Cramérs $v$, engl. *Cramér index*) ein geeigneter Kennwert für die Abhängigkeit der Variablen.
+
+Die Formel für den Cramér-Index lautet
+
+\[
+\mathit{CI}=\sqrt{\frac{\chi^2}{n\cdot (\mathrm{min}(k, \ell)-1)}}
+\]{#eq:ci}
+
+wobei der Ausdruck $\mathrm{min}(k,\ell)$ für den *kleineren* Wert aus Zeilenanzahl $k$ und Spaltenanzahl $\ell$ steht.
+
+In einer $2\times2$-Tabelle ist dieser Wert identisch mit dem $\phi$-Koeffizienten.
+
+### Beispiel
+
+Hätten wir im Beispiel die Erhebung nicht auf dichotome Variablen reduziert, sondern die Wissenschaftsdisziplinen und Verkehrsmittel direkt erhoben, so würde sich die Kreuztabelle vielleicht wie in \autoref{tab:ci} darstellen.
+
+Dabei werden die Erwartungswerte wie gehabt mit \autoref{eq:m} und die Teilwerte für $\chi^2$ mit der \autoref{eq:contrib} errechnet.
+
+
+```{r ci}
+verkehrsmittel <- data.frame(
+  Studienfach = c(replicate(19, "Geisteswissenschaft"),
+                  replicate(20, "Sozialwissenschaft"),
+                  replicate(23, "Naturwissenschaft"),
+                  replicate(28, "Ingenieurswissenschaft")),
+  Transportmittel = c(
+                      c(replicate(5,"Fahrrad"),
+                        replicate(5,"Auto"),
+                        replicate(9,"Öffentliche")),
+                      c(replicate(6,"Fahrrad"),
+                        replicate(6,"Auto"),
+                        replicate(8,"Öffentliche")),
+                      c(replicate(5,"Fahrrad"),
+                        replicate(9,"Auto"),
+                        replicate(9,"Öffentliche")),
+                      c(replicate(4,"Fahrrad"),
+                        replicate(18,"Auto"),
+                        replicate(6,"Öffentliche"))))
+  
+crosstable(verkehrsmittel, "latex", expected=T, chisq=T, col.order=c("Fahrrad", "Auto", "Öffentliche"), row.order=c("Geisteswissenschaft", "Sozialwissenschaft", "Naturwissenschaft", "Ingenieurswissenschaft"))$df
+```
+
+
+Der $\chi^2$-Wert ergibt sich wieder aus der Summe (s. \autoref{eq:chisq}):
+
+\nopagebreak
+\[\begin{aligned}
+\chi^2&= \sum_{i=1}^{k}\sum_{j=1}^{\ell}\frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}\\[4pt]
+&\approx 0,144+1,137+0,742+0,548+0,705+0,111\\&\quad+0,002+0,052+0,082+0,792+3,231+1,574 \\
+& =9,120
+\end{aligned}\]
+
+Mit diesem Wert kann der Cramér-Index anhand von \autoref{eq:ci} berechnet werden.
+
+Die Zeilenanzahl ist $k=4$ und die Spaltenanzahl $\ell=3$. Der Ausdruck $\mathrm{min}(k,\ell)$ ergibt den kleineren dieser Werte, also 3:
+
+\[\begin{aligned}
+\mathit{CI}&=\sqrt{\frac{\chi^2}{n\cdot (\mathrm{min}(k, \ell)-1)}}\\[6pt]
+&\approx\sqrt{\frac{9,122}{90\cdot(3-1)}}\\[4pt]
+&\approx0,225
+\end{aligned}\]
+
+Dieser Wert ist größer als der oben berechnete $\phi$-Koeffizient. Das ist nicht besonders überraschend: Eine detailliertere Erfassung der Variablen führt zu einem deutlicheren Zusammenhang.
+
+## Aufgaben
+
+### Aufgabe 1
+
+Sie fragen sich, wie die Wohnumgebung einer Person (Stadt oder Land) damit zusammenhängt, ob die Person ein eigenes Auto besitzt. Sie erheben die folgende Messreihe:
+
+```{r}
+ex1 <- read.table("img/9_ex1_dt")
+kable(ex1, "latex", booktabs=T) %>% 
+  kable_styling(latex_options=c("striped", "hold_position"))
+```
+
+a) Überführen Sie die Daten in eine Kreuztabelle.
+
+b) Berechnen Sie die Erwartungswerte für jedes Tabellenfeld.
+
+c) Berechnen Sie $\chi^2$.
+
+d) Berechnen Sie den $\phi$-Koeffizienten.
+
+e) Besteht eine Korrelation? In welche Richtung?
+
+### Aufgabe 2
+
+Sie interessieren sich dafür, ob zwei "Ja/Nein"-Fragen auf einem Fragebogen korrelieren.
+
+Sie ermittlen folgende Häufigkeiten:
+
+```{r}
+ex2 <- read.table("img/9_ex2_dt")
+colnames(ex2) <- c("Frage 1", "Frage 2")
+xt <- crosstable(ex2, format = "latex", sums=F)
+xt$df %>% kable_styling(latex_options = c("hold_position"))
+
+```
+
+a) Vervollständigen Sie die Kreuztabelle um ihre Summen und die Erwartungswerte.
+
+b) Berechnen Sie $\chi^2$ und den $\phi$-Koeffizienten.
+
+e) Wie würden Sie den Zusammenhang beschreiben?
+
+### Aufgabe 3
+
+Sie möchten überprüfen, ob auf dem Arbeitsmarkt anhand von Namen diskriminiert wird, die auf einen Migrationshintergrund schließen lassen. Sie antworten als fiktive Bewerber\*innen mit vergleichbaren Qualifikationen auf zufällige Stellenanzeigen und halten fest, ob die jeweilige Bewerbung in einer Einladung zum Vorstellungsgespräch resultiert.
+
+Sie erheben diese Daten:
+
+```{r}
+ex3 <- read.table("img/9_ex3_dt")
+colnames(ex3) <- c("Herkunft des Namens", "Ergebnis")
+xt <- crosstable(ex3, format="latex", sums=F)
+xt$df
+```
+
+Können Sie einen Zusammenhang zwischen Namensherkunft und Erfolg der Bewerbung feststellen? Begründen Sie Ihre Antwort.
+
+## Tipps zur Vertiefung
+
+- Kapitel 9.1, 10.3.4 und 10.3.7 in @bortz
+- Kapitel 6.7.2 in @bahrenberg
+- Kapitel 2.3 in @klemm
+
+## Quellen

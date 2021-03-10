@@ -1,0 +1,510 @@
+# Schätzstatistik
+
+## Lernziele dieser Sitzung
+
+Sie können...
+
+- eine Punktschätzung für $\mu$ und $\sigma$ durchführen.
+- den Standardfehler der Stichprobenverteilung von $\bar{x}$ bestimmen.
+- eine Intervallschätzung für $\mu$ durchführen.
+
+## Stichprobenverteilung
+
+> Die Stichprobenverteilung ist eine theoretische Verteilung, welche die möglichen Ausprägungen eines statistischen Kennwertes (z.B. $\bar{x}$) sowie deren Auftretenswahrscheinlichkeit beim Ziehen von Zufallsstichproben des Umfanges $n$ beschreibt. [@bortz: 83]
+
+Hier ist zunächst die theoretische Verteilung des Mittelwerts einer Stichprobe relevant. Insbesondere interessiert uns, wie sich die theoretische Verteilung des Mittelwerts abhängig von der Stichprobengröße verhält.
+
+### Szenario 1: Normalverteilte Grundgesamtheit
+
+Die Grundgesamtheit (Population) einer Variable $x$ sei normalverteilt mit $\mu=50$ und $\sigma^2=25$. Wir können also schreiben:
+
+\nopagebreak
+
+\[ x \sim N(50,25) \]
+
+Die Standardabweichung der Population beträgt entsprechend: 
+
+\nopagebreak
+
+\[\begin{aligned}
+\sigma&=\sqrt{\sigma^2}\\[4pt]
+&=\sqrt{25}=5\end{aligned}\]
+
+Graphisch ist die Dichtefunktion der Verteilung in \autoref{fig:pop} veranschaulicht.
+
+```{r pop, fig.cap="Dichtefunktion der Grundgesamtheit", cache=T}
+mu=50
+sigma=5
+fun<-function(x){dnorm(x,mu,sigma)}
+ggplot(data.frame(x=c(mu-(2*sigma),mu+(2*sigma))), aes(x))+
+  stat_function(fun=fun, color=goethe_blue) +
+  scale_y_continuous(expand = c(0,0), limits = c(0,dnorm(mu,mu,sigma/sqrt(6))*1.05), name=NULL)
+```
+
+Wenn eine einzelne Stichprobe der Größe $n=3$ aus dieser Verteilung gezogen würde, hätte sie drei konkrete Werte ($x_1$, $x_2$ und $x_3$) sowie ein konkretes arithmetisches Mittel ($\bar{x}$).
+
+Es lässt sich jedoch auch eine Wahrscheinlichkeitsdichtefunktion der Mittelwerte *aller theoretisch möglichen Stichproben* der Größe $n=3$ (und zusätzlich der Größe $n=6$) zeichnen (s. \autoref{fig:stich}).
+
+```{r stich, cache=T, fig.cap="Dichtefunktionen der Stichprobenverteilungen"}
+mu=50
+sigma=5
+fun<-function(x){dnorm(x,mu,sigma)}
+ggplot(data.frame(x=c(mu-(2*sigma),mu+(2*sigma))), aes(x))+
+  stat_function(n=250,fun=fun, aes(color="blue")) +
+  stat_function(n=250,fun=function(x){dnorm(x,mu,sigma/sqrt(3))}, aes(color="green")) +
+  stat_function(n=250,fun=function(x){dnorm(x,mu,sigma/sqrt(6))}, aes(color="orange")) +
+  scale_colour_manual(NULL, values = c("blue"=goethe_blue, "green"=green, "orange"= orange), breaks=c("blue", "green", "orange"), labels = expression(x, bar(x)~für~n==3, bar(x)~für~n==6)) +
+  scale_y_continuous(expand = c(0,0), limits = c(0,dnorm(mu,mu,sigma/sqrt(6))*1.05), name=NULL) +
+  xlab(NULL) +
+  theme(legend.position = c(0.7, 0.8),
+        legend.text.align = 0)
+```
+
+#### Erwartungswert
+
+Es fällt auf, dass die Stichprobenverteilungen für $\bar{x}$ normalverteilt sind und um das arithmetische Mittel der Grundgesamtheit ($\mu$) symmetrisch sind.
+
+Das arithmetische Mittel der Stichprobenverteilung $\mu_{\bar{x}}$ wird auch als **Erwartungswert** (engl. *expected value*) von $\bar{x}$ bezeichnet. Es gilt:
+
+\nopagebreak
+
+\[
+\mu_{\bar{x}} = \mu
+\]{#eq:mean}
+
+Wir können auch sagen: $\bar{x}$ ist ein "ertwartungstreuer" Schätzparameter für $\mu$; nicht weil er in der Empirie zwangsläufig identisch mit $\mu$ wäre, sondern weil er mit zunehmender Stichprobengröße immer stärker zu $\mu$ tendiert.
+
+#### Standardfehler
+
+Zusätzlich fällt in \autoref{fig:stich} auf: Je größer die Stichprobe, desto gestauchter die Dichtekurve der Stichprobenverteilung: Die theoretische Verteilung von $\bar{x}$ bei $n=6$ weist eine kleinere Varianz auf als bei $n=3$. Das ist einigermaßen intuitiv, denn wir können uns vorstellen, dass das arithmetische Mittel $\bar{x}$ bei steigender Stichprobengröße ein immer präziserer Schätzwert für $\mu$ wird.
+
+Die Varianz der Stichprobenverteilung für $\bar{x}$ bezeichnen wir mit $\sigma^2_{\bar{x}}$. Sie hängt von der Varianz der Population ab und ist invers proportional zur Stichprobengröße. Es gilt:
+
+\nopagebreak
+
+\[
+\sigma^2_{\bar{x}} = \frac{\sigma^2}{n}
+\] {#eq:var}
+
+Die Standardabweichung der Stichprobenverteilung ($\sigma_{\bar{x}}$) wird auch Standardfehler (engl. *standard error*) genannt. Durch Wurzelziehen ergibt sich:
+
+\nopagebreak
+
+\[
+\sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}}
+\]{#eq:sd}
+
+Zusammenfassend lässt sich sagen:
+
+\nopagebreak
+
+\[\begin{aligned}
+\bar{x} \sim N(\mu, {\textstyle \frac{\sigma^2}{n}}) \quad \textrm{für} \quad x\sim N(\mu, \sigma^2)
+\end{aligned}\]{#eq:norm}
+
+### Szenario 2: Nicht normalverteilte Grundgesamtheit
+
+Die Gleichungen \ref{eq:mean}, \ref{eq:var} und \ref{eq:sd} gelten uneingeschränkt auch für die Stichprobenverteilungen von nicht normalverteilten Populationen. Nur die Normalverteilung der Stichprobenverteilung (\autoref{eq:norm}) ist bei nicht normalverteilten Grundgesamtheiten grundsätzlich nicht gegeben.
+
+Das zentrale Grenzwerttheorem (engl. *central limit theorem*) besagt jedoch:
+
+> Die Verteilung von Mittelwerten aus Stichproben des Umfangs $n$, die derselben Grundgesamtheit entnommen wurden, geht mit wachsendem Stichprobenumfang in eine Normalverteilung über. [@bortz: 86]
+
+\autoref{fig:beta} veranschaulicht diesen Effekt für eine nicht normalverteilte Grundgesamtheit.
+
+```{r beta, fig.cap="Stichprobenverteilung bei nicht normalverteilter Population", cache=T}
+fun <- function(x){dbeta(x,1,3)}
+m = 50000
+ggplot(data.frame(x=c(0,0.75)), aes(x)) +
+  stat_function(fun=fun, aes(color="blue")) +
+  stat_density(data=data.frame(x=replicate(m, rbeta(3, 1, 3) %>% mean)), adjust=3, aes(color="green"), geom="line") +
+  stat_density(data=data.frame(x=replicate(m, rbeta(10, 1, 3) %>% mean)), adjust=3, aes(color="orange"), geom="line") +
+  stat_density(data=data.frame(x=replicate(m, rbeta(30, 1, 3) %>% mean)), adjust=3, aes(color="purple"), geom="line") + 
+  scale_colour_manual(NULL, values = c("blue"=goethe_blue, "green"=green, "orange"=orange, "purple"=purple), breaks=c("blue", "green", "orange", "purple"), labels = expression(x, bar(x)~für~n==3, bar(x)~für~n==10, bar(x)~für~n==30)) +
+  scale_x_continuous(expand = c(0,0), name=NULL) +
+  scale_y_continuous(expand = c(0,0), limits=c(0, 11), name=NULL) +
+  theme(legend.position = c(0.7, 0.8),
+        legend.text.align = 0)
+  
+```
+
+In der Praxis gilt die Faustregel: Ab einer Stichprobengröße von $n=30$ können wir statistische Verfahren anwenden, die von einer theoretischen Normalverteilung von $\bar{x}$ ausgehen -- und zwar *unabhängig* von der Verteilung der Grundgesamtheit.
+
+## Punktschätzung
+
+Bei statistischen Untersuchungen geht es oft darum, ausgehend von der empirischen Verteilung einer Stichprobe auf Parameter der Grundgesamtheit zu schließen.
+
+Die Punktschätzung (engl. *point estimation*) ist dabei eine vergleichsweise einfache und intuitive Vorgehensweise.
+
+### Punktschätzung des arithmetischen Mittels
+
+Wenn eine Stichprobe vorliegt, dann ist ihr arithmetisches Mittel ($\bar{x}$) als erwartungstreuer Punktschätzer der wahrscheinlichste Wert für das arithmetische Mittel der Grundgesamtheit ($\mu$).
+
+Beispiel:
+
+- Zehn Studierende der Humangeographie werden zufällig ausgewählt, um ihre Pendelzeit zum IG-Farben-Campus zu erfassen.
+- Die Angaben in Minuten lauten:
+```{r, comment=NA, results='asis'}
+xs <- c(22, 26, 12, 23, 48, 31, 15, 71, 17, 35) 
+cat("`", paste(xs, collapse = " "), "`")
+```
+- Das arithmetische Mittel der Messreihe lässt sich -- wie in Sitzung 2 ausführlich besprochen -- berechnen: $\bar{x}=30$
+- Da es sich um eine erwartungstreue Schätzgröße (und eine valide Zufallsstichprobe) handelt, kann die durchschnittliche Pendelzeit *aller* Studierenden der Humangeographie auf $\mu=30$ Minuten geschätzt werden.
+
+Gleichzeitig wissen wir jedoch, dass diese Punktschätzung des arithmetischen Mittels vermutlich nicht ganz präzise ist, sondern einem Standardfehler ($\sigma_{\bar{x}}$) unterliegt. Woher wissen wir, wie groß dieser Standardfehler ist (und wie unpräzise damit unsere Schätzung)?
+
+### Schätzung des Standardfehlers
+
+Wir führen das obige Beispiel fort:
+
+- Die Varianz der Stichprobe können wir berechnen: $s^2\approx319{,}78$ (s. Sitzung 2).
+- Dabei handelt es sich ebenfalls um einen erwartungstreuen Punktschätzer für die Varianz der Grundgesamtheit ($\sigma^2$).
+- Die Varianz der Grundgesamtheit kann also auch auf $\sigma^2=s^2\approx319{,}78$ geschätzt werden.
+- Analog können wir die Standardabweichung der Population auf $\sigma=s\approx17,88$ schätzen.
+- Den Standardfehler können wir mit diesem Schätzwert anhand \autoref{eq:sd} berechnen. Allerdings benutzen wir statt $\sigma_{\bar{x}}$ das Symbol $s_{\bar{x}}$, da es sich um einen Schätzwert handelt:
+
+\nopagebreak
+
+\[\begin{aligned}
+s_{\bar{x}} &= \frac{s}{\sqrt{n}}\\[4pt]
+&\approx \frac{17{,}88}{\sqrt{10}}\approx5{,}65
+\end{aligned}\]
+
+Je größer die Stichprobe, desto genauer lassen sich also Parameter der Population schätzen. Die statistische Antwort auf die Frage, wie groß die Stichprobe denn sein müsse, lautet demnach zunächst immer: Möglichst groß!
+
+Bemerkernswert ist jedoch, dass dabei die Größe der Grundgesamtheit ($N$, im Beispiel die Anzahl aller Studierenden der Humangeographie) bei diesen Überlegungen überhaupt keine Rolle spielt.
+
+## Intervallschätzung
+
+Um eine Intervallschätzung durchführen zu können, muss:
+
+- die Standardabweichung der Grundgesamtheit $\sigma$ bekannt und
+- die theoretische Verteilung von $\bar{x}$ normalverteilt sein. Das bedeutet:
+  - *Entweder* es ist bekannt, dass die Grundgesamtheit normalverteilt ist
+  - *Und/oder* die Stichprobengröße ist $n\geq30$
+
+Für das obige Beispiel der Pendelzeiten wissen wir nicht, wie die Verteilung der Grundgesamtheit aussieht, und die Stichprobengröße ($n=10$) ist kleiner als 30. Eine Intervallschätzung können wir hier also nicht durchführen!
+
+Auch bei der Intervallschätzung (engl. *interval estimation*) geht es darum, das arithmetische Mittel der Population ($\mu$) zu schätzen. Allerdings geben wir nicht einfach nur den wahrscheinlichsten Wert an, sondern einen Bereich (ein *Intervall*), in dem $\mu$ mit einer bestimmten Wahrscheinlichkeit liegt.
+
+Die Grundüberlegung ist dabei folgende:
+
+- Wir haben eine *empirische* Stichprobe vorliegen (und können ihren Mittelwert $\bar{x}$ und ihre Standardabweichung $s$ berechnen).
+- Wir wissen dass die *theoretische* Verteilung aller möglichen Stichproben normalverteilt ist, und um den gesuchten Wert $\mu$ symmetrisch ist.
+- Den Mittelwert unserer empirischen Stichprobe $\bar{x}$ können wir uns als zufälligen Wert der theoretischen Stichprobenverteilung von $\bar{x}$ vorstellen.
+- Wo genau in dieser theoretischen Verteilung wir mit unserem empirischen Wert "gelandet" sind, wissen wir nicht.
+- Wenn wir den Wert $\mu$ kennen würden, könnten wir (mit den Methoden aus Sitzung 3) die Wahrscheinlichkeit für einen beliebeigen Bereich angeben, in den ein zufälliges $\bar{x}$ fällt.
+- Der entscheidende Trick: Weil die Normalverteilung symmetrisch ist, sind diese Wahrscheinlichkeiten analog anzuwenden auf die Bereiche einer konstruierten Verteilung mit gleichem $\sigma_{\bar{x}}$ um unser $\bar{x}$, in die der wirkliche Wert $\mu$ fällt. (s. \autoref{fig:double}).
+
+```{r double, cache=T, fig.cap="Konstruierte Verteilung um $\\bar{x}$"}
+mu=50
+sigma=50/sqrt(6)
+fun<-function(x){dnorm(x,mu,sigma)}
+ggplot(data.frame(x=c(25,80)), aes(x))+
+  stat_function(n=250,fun=function(x){dnorm(x,mu,sigma/sqrt(6))}, aes(color="blue")) +
+  stat_function(n=250,fun=function(x){dnorm(x,55,sigma/sqrt(6))}, aes(color="orange")) +
+  geom_vline(xintercept=50, linetype="dashed", color=orange) +
+  geom_vline(xintercept=55, linetype="dashed", color=goethe_blue) +
+  scale_colour_manual(NULL, values = c("blue"= goethe_blue, "orange"=orange), breaks=c("blue", "orange"), labels = expression(bar(x), mu)) +
+  scale_y_continuous(expand = c(0,0), limits = c(0,dnorm(mu,mu,sigma/sqrt(6))*1.05), breaks=NULL, name=NULL) +
+  scale_x_continuous(breaks=c(50,55), expand=c(0,0), labels = expression(mu, bar(x))) +
+  xlab(NULL) +
+  theme(legend.position = c(0.7, 0.8),
+        legend.text.align = 0)
+```
+
+Dabei heißt der Bereich Konfidenzintervall (engl. *confidence interval*), und seine Breite wird mit $\textrm{KIB}$ abgekürzt. Die Wahrscheinlichkeit, dass wir mit unserer Schätzung *außerhalb* des Konfidenzintervalls liegen wird mit $\alpha$ gekennzeichnet. Ein 95%-Konfidenzintervall hat also ein $\alpha$ von 0,05 (s. \autoref{fig:konf}).
+
+```{r konf, fig.cap="Konfidenzintervall"}
+ggplot(data.frame(x=c(-3,3)), aes(x)) +
+  stat_function(geom="area", fun=dnorm, fill=light_blue, xlim=c(-1,1)) +
+  stat_function(fun=dnorm, color=goethe_blue) +
+  annotate(geom="text", x=-1.5, y=0.05, label="alpha/2", parse=T)+
+  annotate(geom="text", x=1.5, y=0.05, label="alpha/2", parse=T)+
+  annotate(geom="text", x=0, y=0.05, label="1-alpha", parse=T)+
+  annotate(geom="text", x=0, y=dnorm(1), label="KIB\n")+
+  geom_segment(aes(x=-1, xend=1, y=dnorm(-1), yend=dnorm(1)), arrow=arrow(ends="both", type="closed", angle=10), color=goethe_blue) +
+  scale_x_continuous(breaks=c(-1,0,1), labels = c("Untergrenze", bquote(bar(x)), "Obergrenze"), name=NULL, expand = c(0,0)) +
+  scale_y_continuous(breaks = NULL, name=NULL, expand=c(0,0), limits = c(0,dnorm(0)*1.05))
+
+```
+
+
+
+
+```{r tab}
+df <- data.frame(Jahr=2011:2017, Niederschlag=c(855.3, 839.5, 850.6, 873.1, 858.3, 857.1, 861.4))
+colnames(df) <- c("Jahr", "Niederschlag (l/m²)")
+kable(df,"latex", linesep = "",booktabs=T, caption = "Jahresniederschlag in Hessen")
+```
+
+Ein Beispiel soll dies verdeutlichen: Wir wissen, dass die jährliche Niederschlagsmenge in Hessen normalverteilt ist mit $\sigma=10{,}23$. Wir haben die Messwerte in Tabelle 1 erhoben und möchten den Mittelwert ($\mu$) per Intervallschätzung angeben.
+
+Zunächst errechnen wir den Mittelwert unserer empirischen Stichprobe:
+
+\nopagebreak
+
+\[\begin{aligned}
+  \bar{x}&\approx856{,}47
+\end{aligned}\]
+
+Dann errechnen wir anhand \autoref{eq:sd} den Standardfehler der theoretischen Verteilung von $\bar{x}$:
+
+\nopagebreak
+
+\[\begin{aligned}
+\sigma_{\bar{x}}&=\frac{\sigma}{\sqrt{n}}\\[4pt]
+           &\approx\frac{10{,}23}{\sqrt{7}}\approx3,86
+\end{aligned}\]
+
+### Gesuchtes $\alpha$
+
+Nun könnte eine Fragerichtung lauten: Wie groß ist die Wahrscheinlichkeit, dass der Mittelwert der Population $\mu$ in einem Korridor von ± 5 l/m² um $\bar{x}$ liegt? ^[Genau genommen ist das nicht ganz korrekt, "denn tatsächlich kann der Parameter nur innerhalb oder außerhalb des gefundenen Bereichs liegen. Die Wahrscheinlichkeit, dass ein Parameter in einen bestimmten Bereich fällt, ist damit entweder 0 oder 1." [@bortz: 93]. Mathematisch korrekt müsste es heißen: "Die Wahrscheinlichkeit, dass $\bar{x}$ zu einer Population gehört, deren Parameter $\mu$ in diesem Bereich liegt..."]
+
+Gesucht ist bei einer Konfidenzintervallbreite von $\textit{KIB}=10$ also die Wahrscheinlichkeit:
+
+\nopagebreak
+
+\[1-\alpha\approx P(851{,}47 < \mu < 861{,}47)\]
+
+Generalisierend lässt sich schreiben:
+
+\nopagebreak
+
+\[
+1-\alpha=P(x_{\alpha/2} < \mu < x_{(1-\alpha/2)})
+\]
+
+\nopagebreak
+
+...wobei $x_{\alpha/2}$ die Untergrenze darstellt und $x_{(1-\alpha/2)}$ die Obergrenze.
+
+In $z$-Werten ausgedrückt:
+
+\nopagebreak
+
+\[
+1-\alpha=P(z_{\alpha/2} < z_{\mu} < z_{(1-\alpha/2)})
+\]{#eq:konf}
+
+In Sitzung 3 haben wir bereits gelernt, wie diese Wahrscheinlichkeit berechnet werden kann. Im Folgenden wird der Rechenweg noch einmal am Beispiel dargelegt. 
+
+#### Die umständliche Variante
+
+Zunächst müssen wir die Intervallgrenzen in$z$-Werte umwandeln, um die Unter- bzw. Überschreitungswahrscheinlichkeiten ermitteln zu können. Die z-Transformation muss hier jedoch anhand des Standardfehlers $\sigma_{\bar{x}}$ geschehen, da wir ja an der Stichprobenverteilung interessiert sind. Durch $z$-Transformation mit $\bar{x}$ und dem Standardfehler $\sigma_{\bar{x}}$ erhalten wir die standardisierten Intervallgrenzen.
+
+Untergrenze:
+
+\nopagebreak
+
+\[\begin{aligned}
+z_{\alpha/2} &= \frac{x_{\alpha/2}-\bar{x}}{\sigma_{\bar{x}}}\\[4pt]
+&\approx\frac{851{,}47-856,47}{3,86}\approx-1,30
+\end{aligned}\]
+
+Obergrenze:
+
+\nopagebreak
+
+\[\begin{aligned}
+z_{(1-\alpha/2)} &= \frac{x_{(1-\alpha/2)}-\bar{x}}{\sigma_{\bar{x}}}\\[4pt]
+&\approx\frac{861{,}47-856,47}{3,86}\approx1,30
+\end{aligned}\]
+
+Es ist wenig überraschend, dass die $z$-transformierten Werte symmetrisch sind. Wir setzen in \autoref{eq:konf} ein:
+
+\nopagebreak
+
+\[
+1-\alpha\approx P(-1{,}30 <z_{\mu} < 1{,}30)
+\]
+
+Dies lässt sich umformen in:
+
+\nopagebreak
+
+\[
+1-\alpha\approx P(z_{\mu}<1{,}08) - P(z_{\mu}<-1{,}08) 
+\]
+
+Die jeweiligen Wahrscheinlichkeiten lassen sich in der Tabelle für $p$-Werte der Normalverteilung nachschauen (bzw. für den negativen $z$-Wert errechnen, s. Sitzung 3):
+
+\nopagebreak
+
+\[\begin{aligned}
+1-\alpha&\approx 0,9032 - 0,0968\\[4pt]
+&=0,8064
+\end{aligned}\]
+
+Die Wahrscheinlichkeit, dass $\mu$ im Konfidenzintervalls 856,47 ± 5 l/m² liegt, beträgt also 80,64%.
+
+#### Die schnelle Variante
+
+Wir können den $z$-Wert für die Obergrenze des Konfidenzintervalls ganz einfach ausrechnen, weil wir wissen, dass die Obergrenze um 5 größer ist als $\bar{x}$ und dass $z_{\bar{x}}=0$:
+
+\nopagebreak
+
+\[\begin{aligned}
+z_{(1-\alpha/2)}&=\frac{5}{\sigma_{\bar{x}}}\\[4pt]
+&\approx\frac{5}{3,86}\\[4pt]
+&\approx1{,}30
+\end{aligned}\]
+
+Oberhalb dieses Werts liegt bekanntermaßen der Anteil $\frac{\alpha}{2}$, woraus sich mit Blick auf die Tabelle ergibt:
+
+\nopagebreak
+
+\[\begin{aligned}
+\frac{\alpha}{2}&=1-0,9032\\[4pt]
+\alpha&=0,1936
+\end{aligned}\]
+
+### Gesuchtes Konfidenzintervall
+
+Eine weitere Möglichkeit der Fragestellung lautet: In welchem Bereich liegt das arithmetische Mittel $\mu$ mit einer Wahscheinlichkeit von 90%?
+
+Vorgegeben ist also $\alpha=0{,}1$, und gesucht sind die Unter- und die Obergrenze des Konfidenzintervalls.
+
+Wir setzen ein:
+
+\nopagebreak
+
+\[\begin{aligned}
+1-\alpha&=P(z_{\alpha/2} < z_{\mu} < z_{(1-\alpha/2)})\\[4pt]
+0{,}9 &= P(z_{5\%} < z_{\mu} < z_{95\%})
+\end{aligned}\]
+
+Die entsprechenden $z$-Werte der Intervallgrenzen lassen sich (in umgekehrter Suchrichtung) aus der Tabelle ablesen:
+
+\nopagebreak
+
+\[\begin{aligned}
+z_{5\%}&\approx-1{,}64\\[4pt]
+z_{95\%}&\approx 1{,}64
+\end{aligned}\]
+
+Durch umgekehrte z-Transformation -- auch hier weider mit $\bar{x}$ und $\sigma_{\bar{x}}$ -- ergeben sich die Intervallgrenzen.
+
+Untergrenze:
+
+\nopagebreak
+
+\[\begin{aligned}
+x_{5\%} &= z_{5\%} \cdot \sigma_{\bar{x}} + \bar{x}\\[4pt]
+&\approx -1{,}64 \cdot 3,86 + 856{,}47\\[4pt]
+&\approx 850,14\\[6pt]
+\end{aligned}\]
+
+Obergrenze:
+
+\nopagebreak
+
+\[\begin{aligned}
+x_{95\%}&= z_{95\%} \cdot \sigma_{\bar{x}} + \bar{x}\\[4pt]
+&\approx 1{,}64 \cdot 3,86 + 856{,}47\\[4pt]
+&\approx 862,80
+\end{aligned}\]
+
+Auch hier gibt es wieder eine kleine Abkürzung: Aufgrund der Symmetrie unserer theoretischen Verteilung gilt für die Konfidenzintervallbreite generell:
+
+\nopagebreak
+
+\[
+\frac{\mathit{KIB}}{2} = z_{(1-\alpha/2)} \cdot \sigma_{\bar{x}}
+\]{#eq:kib}
+
+Wir setzen einfach unsere Werte ein:
+
+\nopagebreak
+
+\[\begin{aligned}
+\frac{\mathit{KIB}}{2} &= z_{95\%} \cdot s_{\bar{x}}\\[4pt]
+&\approx1{,}64 \cdot 3,86\\[4pt]
+&\approx 6,33
+\end{aligned}\]
+
+Die Intervallgrenzen ergeben sich dann trivial aus $\bar{x} \pm \frac{\mathit{KIB}}{2}$.
+
+### Gesuchtes $n$
+
+Eine letzte Fragerichtung lautet: Wie viele Messwerte müssten vorliegen, um den durchschnittlichen Niederschlag mit einem Konfidenzniveau von 99% und einer Genauigkeit von ± 5 l/m² schätzen zu können?
+
+Gegeben sind also das Konfidenzintervall und $\alpha=0{,}01$, gesucht wird $n$. Wir wissen, dass die Stichprobengröße $n$ den Standardfehler $\sigma_{\bar{x}}$ bestimmt. Also benutzen wir zunächst \autoref{eq:kib} und formen um:
+
+\nopagebreak
+
+\[\begin{aligned}
+\frac{\mathit{KIB}}{2} &= z_{(1-\alpha/2)} \cdot \sigma_{\bar{x}}\\[4pt]
+\sigma_{\bar{x}} &= \frac{\mathit{KIB}}{2\cdot z_{(1-\alpha/2)}} 
+\end{aligned}\]
+
+Durch Einsetzen und mit Blick auf die Tabelle erhalten wir:
+
+\nopagebreak
+
+\[\begin{aligned}
+\sigma_{\bar{x}} &= \frac{10}{2\cdot z_{99{,}5\%}}\\[4pt]
+ &\approx \frac{10}{2\cdot 2{,}58}\\[4pt]
+ &\approx 1{,}94
+\end{aligned}\]
+
+Dieser Standardfehler $\sigma_{\bar{x}}\approx1{,}94$ würde unseren Anforderungen genügen. Welches $n$ ist nötig, um diesen Standardfehler zu erreichen? Wir formen \autoref{eq:sd} um...
+
+\nopagebreak
+
+\[\begin{aligned}
+\sigma_{\bar{x}} &= \frac{\sigma}{\sqrt{n}}\\[4pt]
+               n &= \Big(\frac{\sigma}{\sigma_{\bar{x}}}\Big)^2
+\end{aligned}\]
+
+...und setzen den angestrebten Standardfehler sowie die Standardabweichung der Population ($\sigma=10{,}23$) ein:
+
+\nopagebreak
+
+\[\begin{aligned}
+n&=\Big(\frac{\sigma}{\sigma_{\bar{x}}}\Big)^2\\[4pt]
+n&\approx\bigg(\frac{10{,}23}{1{,}94}\bigg)^2\\[4pt]
+&\approx27{,}80
+\end{aligned}\]
+
+Wir müssten also 28 Stichproben vorliegen haben.
+
+## Aufgaben
+
+Die folgenden Aufgaben sind zur eigenständigen Überprüfung Ihrer Lernleistung gedacht (als Vor- oder Nachbereitung der Vorlesung, oder als Klausurübung) und nicht etwa als Hausaufgabe.
+
+### Aufgabe 1
+
+Eine Messreihe habe die Werte:
+```{r, results='asis', comment=NA}
+xs <- c(165, 173, 155, 179, 158, 142)
+cat("`", paste(xs, collapse = " "), "`")
+```
+
+a) Führen Sie eine Punktschätzung für $\mu$ und $\sigma$ der Grundgesamtheit durch.
+b) Welcher Standardfehler für $\bar{x}$ ist zu erwarten?
+
+### Aufgabe 2
+
+Die Sonnenstunden auf einer Ferieninsel (pro Tag, im Jahresdurschnitt) sind annähernd normalverteilt mit einer Standardabweichung von vier Minuten. Der Mittelwert $\mu$ ist unbekannt, es liegen neun Messwerte vor.
+
+a) Welcher Standardfehler für $\bar{x}$ ist zu erwarten?
+c) Welche Konfidenzintervallbreite korrespondiert mit einem Konfidenzniveau von 95%?
+b) Mit welchem Konfidenzniveau lässt sich $\mu$ "auf die Minute genau" (± 30 Sekunden) schätzen?
+d) Welche Stichprobengröße ist nötig um den Mittelwert mit einer Konfidenzintervallbreite von zwei Minuten und -niveau von 90% zu schätzen?
+
+### Aufgabe 3
+
+Sie intressieren sich für das Durchschnittseinkommen (in EUR) der Haushalte eines Stadtteils. Die Varianz ist mit $\sigma^2=4096$ bekannt. Eine Zufallsstichprobe von 40 befragten Haushalten weist einen Mittelwert von $\bar{x}=2650$ auf.
+
+a) Wie lautet das 90%-Konfidenzintervall?
+b) Mit welcher Wahrscheinlichkeit liegt das Durchschnittseinkommen zwischen 2640 und 2660 EUR?
+
+## Tipps zur Vertiefung
+
+- YouTube-Kanal "Kurzes Tutorium Statistik": [Intervallschätzungen - Konfidenzintervalle](https://www.youtube.com/watch?v=DdwTa28W4Os)
+- Kapitel 8 in @klemm
+- Kapitel 6.2--6.4 in @bortz
+- Kapitel 5.3.1 in @bahrenberg
+
+## Quellen

@@ -1,0 +1,150 @@
+:root {
+  --goethe_blue:#00618F;
+  --light_gray:#f8f6f5;
+  --sand_gray:#e4e3dd;
+  --dark_gray:#4d4b46;
+  --purple:#860047;
+  --emo_red:#b3062c;
+  --mustard_yellow:#e3ba0f;
+  --green:#737c45;
+  --magenta:#ad3b76;
+  --orange:#c96215;
+  --sun_yellow:#f7d926;
+  --light_green:#a5ab52;
+  --light_blue:#48a9da;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,600;1,600;1,700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
+.book .book-header, .book .book-summary,
+.book.font-family-1 {
+    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.book.font-family-0 {
+    font-family: "Source Serif Pro",Georgia, serif;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal code, .book .book-body .page-wrapper .page-inner section.normal pre {
+    font-family: "Source Code Pro",Consolas,"Liberation Mono",Menlo,Courier,monospace;
+  }
+
+q {
+  quotes: auto
+}
+
+/************
+*  Titles  *
+************/
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+}
+
+h1.title {
+  font-weight: 700;
+}
+
+.header-section-number {
+  display: none;
+}
+
+.level1 h1 .header-section-number {
+  font-weight: 600;
+  display: inline-block;
+  padding: 0;
+}
+
+.level1 h1 .header-section-number::after {
+  content: "◼";
+  font-style: italic;
+  font-size: 0.7em;
+  margin-left: 0.5em;
+  margin-right: 0.3em;
+  color: var(--emo_red);
+}
+
+.level1 h1 {
+  border-bottom: 1px solid var(--sand_gray);
+  font-weight: normal;
+}
+
+/***********
+*  Links  *
+***********/
+
+.book .book-body .page-wrapper .page-inner section.normal a {
+  color: var(--goethe_blue);
+}
+
+.book .book-body .page-wrapper .page-inner section.normal a:hover {
+  color: var(--light_blue);
+}
+
+/*********
+*  TOC  *
+*********/
+
+
+.book .book-summary ul.summary li a:hover {
+  color: var(--light_blue); 
+}
+
+.book .book-summary ul.summary li.active > a {
+  color: var(--goethe_blue); 
+  font-weight: 600;
+}
+.book .book-summary {
+  color: var(--dark_gray);
+  background: var(--light_gray);
+  border-right-color: var(--sand_gray);
+}
+.book .book-summary ul.summary li.divider {
+  background: var(--sand_gray);
+}
+
+/***********
+*  table  *
+***********/
+
+.book .book-body .page-wrapper .page-inner section.normal table td, .book .book-body .page-wrapper .page-inner section.normal table th {
+  border-color: var(--sand_gray);
+}
+
+.book .book-body .page-wrapper .page-inner section.normal table tr:nth-child(2n) {
+  background-color: var(--light_gray);
+}
+.book .book-body .page-wrapper .page-inner section.normal table tr {
+  border-color: var(--sand_gray);
+}
+
+/************
+*  Header  *
+************/
+
+.book .book-header .btn,
+.book .book-body .navigation {
+  color: var(--sand_gray);
+}
+.book .book-header .btn:hover,
+.book .book-body .navigation:hover {
+  color: var(--dark_gray);
+}
+
+.book .book-header h1 {
+  color: var(--goethe_blue);
+  font-weight: 600;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal {
+  color: black;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal strong {
+  font-weight: 600;
+}
+
+nav ul.summary ul b {
+  display: none;
+}
