@@ -43,18 +43,18 @@ knitr::opts_chunk$set(fig.align='center', out.width='.49\\linewidth', fig.width=
 
 # Terminüberblick {-}
 
-*Alle Sitzungen finden von XX bis XXh c.t. statt*
+*Alle Sitzungen finden von 14 bis 16h c.t. statt*
 
 Datum                 | Sitzung | Inhalt
 --------------------: | ------: | :-----------------------------------
-XX. April 2021        | 1       | [Datenerhebung und Häufigkeiten]
-XX. April 2021        | 2       | [Maßzahlen]
-XX. April 2021        | 3       | [z-Werte und Normalverteilung]
-XX. April 2021        | 4       | [Schätzstatistik]
-XX. April 2021        | 5       | [Grundlagen der Teststatistik]
-XX. April 2021        | 6       | [Testverfahren mit zwei Stichproben]
-XX. April 2021        | 7       | [Korrelation]
-XX. April 2021        | 8       | [Lineare Regression]
-XX. April 2021        | 9       | [Kreuztabellen]
-XX. April 2021        | 10      | [Chi-Quadrat-Tests]
+13. April 2021        | 1       | [Datenerhebung und Häufigkeiten]
+20. April 2021        | 2       | [Maßzahlen]
+27. April 2021        | 3       | [z-Werte und Normalverteilung]
+04. Mai 2021          | 4       | [Schätzstatistik]
+11. Mai 2021          | 5       | [Grundlagen der Teststatistik]
+18. Mai 2021          | 6       | [Testverfahren mit zwei Stichproben]
+25. Mai 2021          | 7       | [Korrelation]
+01. Juni 2021         | 8       | [Lineare Regression]
+08. Juni 2021         | 9       | [Kreuztabellen]
+15. Juni 2021         | 10      | [Chi-Quadrat-Tests]
 
