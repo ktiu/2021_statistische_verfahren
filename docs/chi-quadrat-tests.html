@@ -31,15 +31,15 @@
   
 <link rel="prev" href="kreuztabellen.html"/>
 
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+<script src="assets/header-attrs-2.7/header-attrs.js"></script>
+<script src="assets/jquery-2.2.3/jquery.min.js"></script>
+<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -49,6 +49,8 @@
 
 
 
+<link rel="icon" href="https://www.uni-frankfurt.de/favicon.ico" type="image/x-icon">
+<script src="solutions.js"></script>
 
 
 
@@ -431,8 +433,8 @@
 <div id="chi2-unabhängigkeitstest" class="section level2" number="10.3">
 <h2><span class="header-section-number">10.3</span> <span class="math inline">\(\chi^2\)</span>-Unabhängigkeitstest</h2>
 <p>Grundlage sind bivariate Häufigkeiten, die in einer Kreuztabelle dargestellt werden können (s. ). Wie Kreuztabellen erstellt werden, haben wir bereits in Sitzung 9 behandelt.</p>
-<p>Unser Beispieldatensatz beschäftigt sich mit Kriegsdienstverweigerern. Zwischen 1956 und 2011 galt in der BRD die Wehrpflicht, d.h. alle vom Staat als “männlich” erfassten und als “tauglich” gemusterte jungen Menschen mussten Dienst an der Waffe leisten – es sei denn, sie verweigerten den Kriegsdienst und leisteten stattdessen Zivildienst (z.B. in sozialen Einrichtungen).</p>
-<p>Zusätzlich zur Frage der Kriegsdienstverweigerung sei in einer Zufallsstichprobe von als tauglich gemusterten erhoben, ob der Wohnort eine Gemeinde mit über oder unter 20000 Einwohner*innen (“Stadt” oder “Land”) ist.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> Die Ergebnisse sind in  zusammengefasst.</p>
+<p>Unser Beispieldatensatz beschäftigt sich mit Kriegsdienstverweigerern. Zwischen 1956 und 2011 galt in der BRD die Wehrpflicht, d.h. alle vom Staat als <q>männlich</q> erfassten und als <q>tauglich</q> gemusterte jungen Menschen mussten Dienst an der Waffe leisten – es sei denn, sie verweigerten den Kriegsdienst und leisteten stattdessen Zivildienst (z.B. in sozialen Einrichtungen).</p>
+<p>Zusätzlich zur Frage der Kriegsdienstverweigerung sei in einer Zufallsstichprobe von als tauglich gemusterten erhoben, ob der Wohnort eine Gemeinde mit über oder unter 20000 Einwohner*innen (<q>Stadt</q> oder <q>Land</q>) ist.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> Die Ergebnisse sind in  zusammengefasst.</p>
 <p>Wir interessieren uns für den statistischen Zusammenhang dieser beiden Variablen, und zwar möchten wir die Hypothese prüfen, dass Menschen aus der Stadt eher den Kriegsdienst verweigerten als Menschen vom Land. Der Test wird entlang der bekannten sechs Schritte ausgeführt.</p>
 <div id="test-wählen-und-voraussetzungen-prüfen-4" class="section level3" number="10.3.1">
 <h3><span class="header-section-number">10.3.1</span> Test wählen und Voraussetzungen prüfen</h3>
@@ -488,7 +490,7 @@ H_1 &amp;: \textrm{Es gibt einen positiven Zusammenhang zwischen Wohnort in der 
 \chi^2 &amp;\geq \chi^2_{1;95\%}\\
 \chi^2 &amp;\geq 3,841
 \end{aligned}\]</span></p>
-<p>Für unsere gerichtete Alternativhypothese “dürfen” wir den Ablehnungsbereich jedoch verdoppeln (müssen aber im nächsten Schritt auch prüfen, ob die Richtung auch stimmt):</p>
+<p>Für unsere gerichtete Alternativhypothese <q>dürfen</q> wir den Ablehnungsbereich jedoch verdoppeln (müssen aber im nächsten Schritt auch prüfen, ob die Richtung auch stimmt):</p>
 <p><span class="math display">\[\begin{aligned}
 \chi^2 &amp;\geq \chi^2_{df;(1-2\cdot\alpha)}\\
 \chi^2 &amp;\geq \chi^2_{1;90\%}\\
@@ -619,7 +621,7 @@ H_1 &amp;: \textrm{Starke Verspätungen sind an manchen Wertkagen wahrscheinlich
 <div id="aufgabe-1-9" class="section level3" number="10.5.1">
 <h3><span class="header-section-number">10.5.1</span> Aufgabe 1</h3>
 <p>Sie interessieren sich dafür, ob in einem Unternehmen der Tätigkeitsbereich mit dem Geschlecht der Angestellten zusammenhängt.</p>
-<p>In den Personalakten sind Angestellte als “männlich” oder “weiblich” erfasst und ihre Tätigkeitsfelder in “Leitende Tätigkeit”, “Administration” und “Fertigung” unterteilt.</p>
+<p>In den Personalakten sind Angestellte als <q>männlich</q> oder <q>weiblich</q> erfasst und ihre Tätigkeitsfelder in <q>Leitende Tätigkeit</q>, <q>Administration</q> und <q>Fertigung</q> unterteilt.</p>
 <p>Folgende Häufigkeiten sind erfasst:</p>
 <ol style="list-style-type: lower-alpha">
 <li>Welchen Test führen Sie durch?</li>
@@ -632,7 +634,7 @@ H_1 &amp;: \textrm{Starke Verspätungen sind an manchen Wertkagen wahrscheinlich
 </div>
 <div id="aufgabe-2-9" class="section level3" number="10.5.2">
 <h3><span class="header-section-number">10.5.2</span> Aufgabe 2</h3>
-<p>Eine Ihner Bekannten behauptet, dass beim Elfmeterschießen – “statistisch gesehen” – in 60% der Fälle das Team gewinnt, das zuerst den Strafstoß ausführt.</p>
+<p>Eine Ihner Bekannten behauptet, dass beim Elfmeterschießen – <q>statistisch gesehen</q> – in 60% der Fälle das Team gewinnt, das zuerst den Strafstoß ausführt.</p>
 <p>Sie möchten das empirisch überprüfen und schauen sich in Archiven siebzig Partien bei Fußballturnieren an, die durch Elfmeterschießen entschieden wurden. Tatsächlich stellen Sie fest, dass in genau 60% der Fälle das zuerst ausführende Team gewann.</p>
 <p>Prüfen Sie, ob diese Beobachtung auch statistisch relevant ist. Wählen Sie 5% als Signifikanzniveau.</p>
 </div>
@@ -689,7 +691,7 @@ R Core Team. 2018. R: A Language and Environment for Statistical Computing. Wien
 <div class="footnotes">
 <hr />
 <ol start="5">
-<li id="fn5"><p>Hier wird also eine verhältnisskalierte Variable (Bevölkerungszahl der Gemeinde) in eine nominalskalierte Variable transformiert. In Fällen wie diesen, wo die Variable nach der Transformation nur zwei Werte annehmen kann, sprechen wir auch von der “Dichotomisierung” einer Variable.<a href="chi-quadrat-tests.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>Hier wird also eine verhältnisskalierte Variable (Bevölkerungszahl der Gemeinde) in eine nominalskalierte Variable transformiert. In Fällen wie diesen, wo die Variable nach der Transformation nur zwei Werte annehmen kann, sprechen wir auch von der <q>Dichotomisierung</q> einer Variable.<a href="chi-quadrat-tests.html#fnref5" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -701,15 +703,15 @@ R Core Team. 2018. R: A Language and Environment for Statistical Computing. Wien
 
     </div>
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
+<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({

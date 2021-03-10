@@ -6,6 +6,8 @@ bookdown::gitbook:
       collapse: section
   includes:
     in_header: header.html
+  lib_dir: "assets"
+  pandoc_args: ["--html-q-tags"]
 
 bookdown::pdf_book:
   keep_tex: true

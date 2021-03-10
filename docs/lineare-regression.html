@@ -31,15 +31,15 @@
   
 <link rel="prev" href="korrelation.html"/>
 <link rel="next" href="kreuztabellen.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+<script src="assets/header-attrs-2.7/header-attrs.js"></script>
+<script src="assets/jquery-2.2.3/jquery.min.js"></script>
+<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -49,6 +49,8 @@
 
 
 
+<link rel="icon" href="https://www.uni-frankfurt.de/favicon.ico" type="image/x-icon">
+<script src="solutions.js"></script>
 
 
 
@@ -432,7 +434,7 @@
 <p><span class="math display">\[
 y=a+b\cdot x
 \]</span>{#eq:lin}</p>
-<p>ausgedrückt, wobei <span class="math inline">\(a\)</span> der Achsenabschnitt ist und <span class="math inline">\(b\)</span> die Steigung. Ist die Gleichung bekannt, so können wir für jeden Wert <span class="math inline">\(x\)</span> einen entsprechenden Wert <span class="math inline">\(y\)</span> “vorhersagen”.</p>
+<p>ausgedrückt, wobei <span class="math inline">\(a\)</span> der Achsenabschnitt ist und <span class="math inline">\(b\)</span> die Steigung. Ist die Gleichung bekannt, so können wir für jeden Wert <span class="math inline">\(x\)</span> einen entsprechenden Wert <span class="math inline">\(y\)</span> <q>vorhersagen</q>.</p>
 <p> zeigt ein solches lineares Regressionsmodell als Gerade durch ein Streudiagramm.</p>
 <div class="figure" style="text-align: center"><span id="fig:lin"></span>
 <img src="bookdownproj_files/figure-html/lin-1.png" alt="Regressionslinie durch ein Streudiagramm" width=".49\linewidth" />
@@ -447,7 +449,7 @@ Figure 8.1: Regressionslinie durch ein Streudiagramm
    &amp;\approx2,2+1,7\cdot20\\
    &amp;=36,2
 \end{aligned}\]</span></p>
-<p>Bei solchen Schätzungen <em>außerhalb</em> des bekannten Wertebereichs spricht man auch vom “Extrapolieren”, sonst – für fehlende Werte innerhalb des bekannten Wertebereich – vom “Interpolieren”.</p>
+<p>Bei solchen Schätzungen <em>außerhalb</em> des bekannten Wertebereichs spricht man auch vom <q>Extrapolieren</q>, sonst – für fehlende Werte innerhalb des bekannten Wertebereich – vom <q>Interpolieren</q>.</p>
 <p>Umgekehrt könnte die Frage lauten: Wie groß muss ein <span class="math inline">\(x_i\)</span> sein, damit (im Modell) <span class="math inline">\(\hat{y}_i=12\)</span> beträgt? Dies lässt sich durch eine einfache Umformung der  berechnen:</p>
 <p><span class="math display">\[\begin{aligned}
 \hat{y}_i&amp;=a+b\cdot x_i\\[5pt]
@@ -455,7 +457,7 @@ x_i&amp;=\frac{\hat{y}_i-a}{b}\\[5pt]
 &amp;=\frac{12-2,2}{1,7}\\
    &amp;\approx5,8
 \end{aligned}\]</span></p>
-<p>Bei der Regressionsanalyse wird ein gerichtetes Abhängigkeitsverhältnis der Variablen impliziert: <span class="math inline">\(y\)</span> hängt hier von <span class="math inline">\(x\)</span> ab. Daher wird <span class="math inline">\(x\)</span> auch die “Prädiktorvariable” und <span class="math inline">\(y\)</span> die “Kriteriumsvariable” genannt.</p>
+<p>Bei der Regressionsanalyse wird ein gerichtetes Abhängigkeitsverhältnis der Variablen impliziert: <span class="math inline">\(y\)</span> hängt hier von <span class="math inline">\(x\)</span> ab. Daher wird <span class="math inline">\(x\)</span> auch die <q>Prädiktorvariable</q> und <span class="math inline">\(y\)</span> die <q>Kriteriumsvariable</q> genannt.</p>
 <p>Es ist also für derartige Fragestellungen nötig, die Gleichung der Regressionsgeraden zu kennen. Im Folgenden wird gezeigt, wie diese anhand einer bivariaten Verteilung bestimmt werden kann.</p>
 </div>
 <div id="bestimmung-der-regressionsgeraden" class="section level2" number="8.3">
@@ -513,7 +515,7 @@ Figure 8.2: Regressionslinie durch ein Streudiagramm
 <p><span class="math display">\[
 e_i=y_i-\hat{y}_i
 \]</span>{#eq:res}</p>
-<p>Residuen sind also – auch dem Wortstamm nach – das, was nach der Vorhersage durch das Modell “übrig bleibt” von den tatsächlich beobachteten Werten (also der Teil des Werts, der <em>nicht</em> durch das Regressionsmodell erklärt wird).</p>
+<p>Residuen sind also – auch dem Wortstamm nach – das, was nach der Vorhersage durch das Modell <q>übrig bleibt</q> von den tatsächlich beobachteten Werten (also der Teil des Werts, der <em>nicht</em> durch das Regressionsmodell erklärt wird).</p>
 <div id="beispiel-27" class="section level3" number="8.4.1">
 <h3><span class="header-section-number">8.4.1</span> Beispiel</h3>
 <p>Graphisch sind die Residuen für unser Beispiel in  dargestellt (positive Werte in grün, negative Werte in rot), tabellarisch in .</p>
@@ -628,15 +630,15 @@ s_{xy}&amp;=869,83
 <a href="kreuztabellen.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
+<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({

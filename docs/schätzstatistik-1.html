@@ -31,15 +31,15 @@
   
 <link rel="prev" href="z-werte-und-normalverteilung.html"/>
 <link rel="next" href="grundlagen-der-teststatistik.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+<script src="assets/header-attrs-2.7/header-attrs.js"></script>
+<script src="assets/jquery-2.2.3/jquery.min.js"></script>
+<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -49,6 +49,8 @@
 
 
 
+<link rel="icon" href="https://www.uni-frankfurt.de/favicon.ico" type="image/x-icon">
+<script src="solutions.js"></script>
 
 
 
@@ -458,7 +460,7 @@ Figure 4.2: Dichtefunktionen der Stichprobenverteilungen
 <p><span class="math display">\[
 \mu_{\bar{x}} = \mu
 \]</span>{#eq:mean}</p>
-<p>Wir können auch sagen: <span class="math inline">\(\bar{x}\)</span> ist ein “ertwartungstreuer” Schätzparameter für <span class="math inline">\(\mu\)</span>; nicht weil er in der Empirie zwangsläufig identisch mit <span class="math inline">\(\mu\)</span> wäre, sondern weil er mit zunehmender Stichprobengröße immer stärker zu <span class="math inline">\(\mu\)</span> tendiert.</p>
+<p>Wir können auch sagen: <span class="math inline">\(\bar{x}\)</span> ist ein <q>ertwartungstreuer</q> Schätzparameter für <span class="math inline">\(\mu\)</span>; nicht weil er in der Empirie zwangsläufig identisch mit <span class="math inline">\(\mu\)</span> wäre, sondern weil er mit zunehmender Stichprobengröße immer stärker zu <span class="math inline">\(\mu\)</span> tendiert.</p>
 </div>
 <div id="standardfehler" class="section level4" number="4.2.1.2">
 <h4><span class="header-section-number">4.2.1.2</span> Standardfehler</h4>
@@ -547,7 +549,7 @@ s_{\bar{x}} &amp;= \frac{s}{\sqrt{n}}\\[4pt]
 <li>Wir haben eine <em>empirische</em> Stichprobe vorliegen (und können ihren Mittelwert <span class="math inline">\(\bar{x}\)</span> und ihre Standardabweichung <span class="math inline">\(s\)</span> berechnen).</li>
 <li>Wir wissen dass die <em>theoretische</em> Verteilung aller möglichen Stichproben normalverteilt ist, und um den gesuchten Wert <span class="math inline">\(\mu\)</span> symmetrisch ist.</li>
 <li>Den Mittelwert unserer empirischen Stichprobe <span class="math inline">\(\bar{x}\)</span> können wir uns als zufälligen Wert der theoretischen Stichprobenverteilung von <span class="math inline">\(\bar{x}\)</span> vorstellen.</li>
-<li>Wo genau in dieser theoretischen Verteilung wir mit unserem empirischen Wert “gelandet” sind, wissen wir nicht.</li>
+<li>Wo genau in dieser theoretischen Verteilung wir mit unserem empirischen Wert <q>gelandet</q> sind, wissen wir nicht.</li>
 <li>Wenn wir den Wert <span class="math inline">\(\mu\)</span> kennen würden, könnten wir (mit den Methoden aus Sitzung 3) die Wahrscheinlichkeit für einen beliebeigen Bereich angeben, in den ein zufälliges <span class="math inline">\(\bar{x}\)</span> fällt.</li>
 <li>Der entscheidende Trick: Weil die Normalverteilung symmetrisch ist, sind diese Wahrscheinlichkeiten analog anzuwenden auf die Bereiche einer konstruierten Verteilung mit gleichem <span class="math inline">\(\sigma_{\bar{x}}\)</span> um unser <span class="math inline">\(\bar{x}\)</span>, in die der wirkliche Wert <span class="math inline">\(\mu\)</span> fällt. (s. ).</li>
 </ul>
@@ -717,7 +719,7 @@ n&amp;\approx\bigg(\frac{10{,}23}{1{,}94}\bigg)^2\\[4pt]
 <ol style="list-style-type: lower-alpha">
 <li>Welcher Standardfehler für <span class="math inline">\(\bar{x}\)</span> ist zu erwarten?</li>
 <li>Welche Konfidenzintervallbreite korrespondiert mit einem Konfidenzniveau von 95%?</li>
-<li>Mit welchem Konfidenzniveau lässt sich <span class="math inline">\(\mu\)</span> “auf die Minute genau” (± 30 Sekunden) schätzen?</li>
+<li>Mit welchem Konfidenzniveau lässt sich <span class="math inline">\(\mu\)</span> <q>auf die Minute genau</q> (± 30 Sekunden) schätzen?</li>
 <li>Welche Stichprobengröße ist nötig um den Mittelwert mit einer Konfidenzintervallbreite von zwei Minuten und -niveau von 90% zu schätzen?</li>
 </ol>
 </div>
@@ -733,7 +735,7 @@ n&amp;\approx\bigg(\frac{10{,}23}{1{,}94}\bigg)^2\\[4pt]
 <div id="tipps-zur-vertiefung-3" class="section level2" number="4.6">
 <h2><span class="header-section-number">4.6</span> Tipps zur Vertiefung</h2>
 <ul>
-<li>YouTube-Kanal “Kurzes Tutorium Statistik”: <a href="https://www.youtube.com/watch?v=DdwTa28W4Os">Intervallschätzungen - Konfidenzintervalle</a></li>
+<li>YouTube-Kanal <q>Kurzes Tutorium Statistik</q>: <a href="https://www.youtube.com/watch?v=DdwTa28W4Os">Intervallschätzungen - Konfidenzintervalle</a></li>
 <li>Kapitel 8 in <span class="citation"><a href="chi-quadrat-tests.html#ref-klemm" role="doc-biblioref">Klemm</a> (<a href="chi-quadrat-tests.html#ref-klemm" role="doc-biblioref">2002</a>)</span></li>
 <li>Kapitel 6.2–6.4 in <span class="citation"><a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">Bortz und Schuster</a> (<a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">2010</a>)</span></li>
 <li>Kapitel 5.3.1 in <span class="citation"><a href="chi-quadrat-tests.html#ref-bahrenberg" role="doc-biblioref">Bahrenberg, Giese und Nipper</a> (<a href="chi-quadrat-tests.html#ref-bahrenberg" role="doc-biblioref">2010</a>)</span></li>
@@ -747,7 +749,7 @@ n&amp;\approx\bigg(\frac{10{,}23}{1{,}94}\bigg)^2\\[4pt]
 <div class="footnotes">
 <hr />
 <ol start="3">
-<li id="fn3"><p>Genau genommen ist das nicht ganz korrekt, “denn tatsächlich kann der Parameter nur innerhalb oder außerhalb des gefundenen Bereichs liegen. Die Wahrscheinlichkeit, dass ein Parameter in einen bestimmten Bereich fällt, ist damit entweder 0 oder 1.” <span class="citation">(<a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">Bortz und Schuster 2010</a>: 93)</span>. Mathematisch korrekt müsste es heißen: “Die Wahrscheinlichkeit, dass <span class="math inline">\(\bar{x}\)</span> zu einer Population gehört, deren Parameter <span class="math inline">\(\mu\)</span> in diesem Bereich liegt…”<a href="schätzstatistik-1.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Genau genommen ist das nicht ganz korrekt, <q>denn tatsächlich kann der Parameter nur innerhalb oder außerhalb des gefundenen Bereichs liegen. Die Wahrscheinlichkeit, dass ein Parameter in einen bestimmten Bereich fällt, ist damit entweder 0 oder 1.</q> <span class="citation">(<a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">Bortz und Schuster 2010</a>: 93)</span>. Mathematisch korrekt müsste es heißen: <q>Die Wahrscheinlichkeit, dass <span class="math inline">\(\bar{x}\)</span> zu einer Population gehört, deren Parameter <span class="math inline">\(\mu\)</span> in diesem Bereich liegt…</q><a href="schätzstatistik-1.html#fnref3" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -759,15 +761,15 @@ n&amp;\approx\bigg(\frac{10{,}23}{1{,}94}\bigg)^2\\[4pt]
 <a href="grundlagen-der-teststatistik.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
+<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({

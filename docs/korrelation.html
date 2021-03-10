@@ -31,15 +31,15 @@
   
 <link rel="prev" href="testverfahren-mit-zwei-stichproben.html"/>
 <link rel="next" href="lineare-regression.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+<script src="assets/header-attrs-2.7/header-attrs.js"></script>
+<script src="assets/jquery-2.2.3/jquery.min.js"></script>
+<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -49,6 +49,8 @@
 
 
 
+<link rel="icon" href="https://www.uni-frankfurt.de/favicon.ico" type="image/x-icon">
+<script src="solutions.js"></script>
 
 
 
@@ -430,7 +432,7 @@
 <div id="beispiel-23" class="section level3" number="7.2.1">
 <h3><span class="header-section-number">7.2.1</span> Beispiel</h3>
 <p>Die statistischen Verfahren dieser Sitzung sollen wieder an einem Beispiel illustriert werden.</p>
-<p>Wir fragen uns, ob der jährliche Ertrag in einem bestimmten Anbaugebiet für Klebreis in Nordostthailand mit dem jährlichen Niederschlag zusammenhängt. Die erfassten Werte sind in  festgehalten (“Rai” ist ein <a href="https://de.wikipedia.org/wiki/Rai_(Einheit)">in Thailand übliches Flächenmaß</a>).</p>
+<p>Wir fragen uns, ob der jährliche Ertrag in einem bestimmten Anbaugebiet für Klebreis in Nordostthailand mit dem jährlichen Niederschlag zusammenhängt. Die erfassten Werte sind in  festgehalten (<q>Rai</q> ist ein <a href="https://de.wikipedia.org/wiki/Rai_(Einheit)">in Thailand übliches Flächenmaß</a>).</p>
 <p>In einem Streudiagramm können diese Werte veranschaulicht werden. Dabei ist es üblich, die unabhängige Variable auf der <span class="math inline">\(x\)</span>-Achse und die abhängige Variable auf der <span class="math inline">\(y\)</span>-Achse einzutragen. Im Beispiel liegt nahe, dass der Ertrag vom Regen abhängt, und nicht etwa umgekehrt.</p>
 <p> ist das Streudiagramm für unser Beispiel. Es fällt schon rein optisch auf, dass ein Zusammenhang zu bestehen scheint: Je mehr Regen, desto reicher die Ernte. Doch wie lässt sich dieser Zusammenhang beziffern?</p>
 <div class="figure" style="text-align: center"><span id="fig:scatter"></span>
@@ -465,7 +467,7 @@ s_{xy}=\frac{\sum\limits^n_{i=1}(x_i-\bar{x})\cdot(y_i-\bar{y})}{n-1}
 s_{xy}&amp;=\frac{\sum\limits^n_{i=1}(x_i-\bar{x})\cdot(y_i-\bar{y})}{n-1}\\[5pt]
 &amp;\approx\frac{362038,5}{9}=40226,5
 \end{aligned}\]</span></p>
-<p>Die Kovarianz ist also <span class="math inline">\(s_{xy}=40226,5\)</span>. Was sagt uns diese Zahl? Zunächst ist sie positiv, womit wir von einer positiven Korrelation (je mehr Regen, desto mehr Ertrag) ausgehen können. Sie ist auch “irgendwie” ziemlich groß, was einen deutlichen Zusammenhang nahelegt. Aber die Kovarianz ist abhängig vom Maßstab – wäre der Ertrag nicht in Kilogramm pro Rai, sondern (wie in Deutschland üblich) in Dezitonnen pro Hektar angegeben, dann wäre die Zahl deutlich kleiner (2514,156 um genau zu sein). Wie lässt sich die Stärke der Korrelation also unabhängig von den Maßeinheiten angeben?</p>
+<p>Die Kovarianz ist also <span class="math inline">\(s_{xy}=40226,5\)</span>. Was sagt uns diese Zahl? Zunächst ist sie positiv, womit wir von einer positiven Korrelation (je mehr Regen, desto mehr Ertrag) ausgehen können. Sie ist auch <q>irgendwie</q> ziemlich groß, was einen deutlichen Zusammenhang nahelegt. Aber die Kovarianz ist abhängig vom Maßstab – wäre der Ertrag nicht in Kilogramm pro Rai, sondern (wie in Deutschland üblich) in Dezitonnen pro Hektar angegeben, dann wäre die Zahl deutlich kleiner (2514,156 um genau zu sein). Wie lässt sich die Stärke der Korrelation also unabhängig von den Maßeinheiten angeben?</p>
 </div>
 </div>
 <div id="korrelationskoeffizient" class="section level2" number="7.4">
@@ -530,8 +532,8 @@ r&amp;=\frac{s_{xy}}{s_x\cdot s_y}\\[4pt]
 <div id="tipps-zur-vertiefung-6" class="section level2" number="7.6">
 <h2><span class="header-section-number">7.6</span> Tipps zur Vertiefung</h2>
 <ul>
-<li>YouTube-Kanal “Kurzes Tutorium Statistik”: <a href="https://www.youtube.com/watch?v=IwJ7RPIAxUo">Streudiagramm und Korrelation</a></li>
-<li>YouTube-Kanal “Methodenlehre Mainz”: <a href="https://www.youtube.com/playlist?list=PLJ-Cm_fyeZdwUkkeXkl2D1Czukhhl-9B2">Bivariate Daten (Playlist)</a></li>
+<li>YouTube-Kanal <q>Kurzes Tutorium Statistik</q>: <a href="https://www.youtube.com/watch?v=IwJ7RPIAxUo">Streudiagramm und Korrelation</a></li>
+<li>YouTube-Kanal <q>Methodenlehre Mainz</q>: <a href="https://www.youtube.com/playlist?list=PLJ-Cm_fyeZdwUkkeXkl2D1Czukhhl-9B2">Bivariate Daten (Playlist)</a></li>
 <li>Kapitel 10 in <span class="citation"><a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">Bortz und Schuster</a> (<a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">2010</a>)</span></li>
 <li>Kapitel 6.1, 6.3 und 6.4 in <span class="citation"><a href="chi-quadrat-tests.html#ref-bahrenberg" role="doc-biblioref">Bahrenberg, Giese und Nipper</a> (<a href="chi-quadrat-tests.html#ref-bahrenberg" role="doc-biblioref">2010</a>)</span></li>
 <li>Kapitel 16 in <span class="citation"><a href="chi-quadrat-tests.html#ref-klemm" role="doc-biblioref">Klemm</a> (<a href="chi-quadrat-tests.html#ref-klemm" role="doc-biblioref">2002</a>)</span></li>
@@ -551,15 +553,15 @@ r&amp;=\frac{s_{xy}}{s_x\cdot s_y}\\[4pt]
 <a href="lineare-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
+<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({

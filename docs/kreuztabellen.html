@@ -31,15 +31,15 @@
   
 <link rel="prev" href="lineare-regression.html"/>
 <link rel="next" href="chi-quadrat-tests.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+<script src="assets/header-attrs-2.7/header-attrs.js"></script>
+<script src="assets/jquery-2.2.3/jquery.min.js"></script>
+<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -49,6 +49,8 @@
 
 
 
+<link rel="icon" href="https://www.uni-frankfurt.de/favicon.ico" type="image/x-icon">
+<script src="solutions.js"></script>
 
 
 
@@ -430,7 +432,7 @@
 <h3><span class="header-section-number">9.2.1</span> Beispiel</h3>
 <p>Wir fragen uns, ob es einen Zusammenhang zwischen dem Studienfach von Studierenden an einer Universität und ihrem präferierten Transportmittel für den Pendelweg zum Campus gibt. Insbesondere interessiert uns, ob ein Zusammenhang zwischen dem Studium der Geistes- und Sozialwissenschaften und der Fahrradnutzung besteht.</p>
 <p>Beide Variablen sind nominalskaliert: die erhobenen Werte können in Kategorien eingeordnet werden (Studienfach: Geographie, Politikwissenschaft, BWL, …; Transportmittel: Bus, Fahrrad, zu Fuß, …).</p>
-<p>Um die Variablen im Sinne unserer Fragestellung zu vereinfachen, wandeln wir beide Variablen in <em>dichotome</em> Variablen um (die dann nur zwei Werte annehmen können). Wir beschränken uns auf die Erhebung von “Fahrrad” oder “anderes Transportmittel” einerseits und “Geistes-/Sozialwissenschaft” oder “anderes Studienfach” andererseits. Die (verkürzte) Tabelle der Rohdaten einer Zufallsstichprobe der Größe <span class="math inline">\(n=90\)</span> könnte dann so aussehen wie .</p>
+<p>Um die Variablen im Sinne unserer Fragestellung zu vereinfachen, wandeln wir beide Variablen in <em>dichotome</em> Variablen um (die dann nur zwei Werte annehmen können). Wir beschränken uns auf die Erhebung von <q>Fahrrad</q> oder <q>anderes Transportmittel</q> einerseits und <q>Geistes-/Sozialwissenschaft</q> oder <q>anderes Studienfach</q> andererseits. Die (verkürzte) Tabelle der Rohdaten einer Zufallsstichprobe der Größe <span class="math inline">\(n=90\)</span> könnte dann so aussehen wie .</p>
 </div>
 </div>
 <div id="kreuztabelle" class="section level2" number="9.3">
@@ -439,7 +441,7 @@
 <p>Bei zwei dichotomen Variablen ergeben sich zwei Spalten und zwei Zeilen, also vier Tabellenfelder. Wir sprechen in diesem Fall auch von einer <span class="math inline">\(2\times2\)</span>-Tabelle.</p>
 <div id="beispiel-30" class="section level3" number="9.3.1">
 <h3><span class="header-section-number">9.3.1</span> Beispiel</h3>
-<p>Die Kreuztabelle für unser Beispiel ist in  dargestellt. Die Spaltenüberschriften sind die beiden Werte der dichotomen Variable “Transportmittel”, und die Zeilennamen sind die beiden Werte für “Studienfach”. In den Zellen stehen die Häufigkeiten. Es lässt sich also z.B. ablesen, dass die Kombination “Fahrrad” und “anderes Studienfach” neun mal vorkommt.</p>
+<p>Die Kreuztabelle für unser Beispiel ist in  dargestellt. Die Spaltenüberschriften sind die beiden Werte der dichotomen Variable <q>Transportmittel</q>, und die Zeilennamen sind die beiden Werte für <q>Studienfach</q>. In den Zellen stehen die Häufigkeiten. Es lässt sich also z.B. ablesen, dass die Kombination <q>Fahrrad</q> und <q>anderes Studienfach</q> neun mal vorkommt.</p>
 <p>Am rechten Rand der Tabelle stehen die Summen für die Zeilen, am unteren Rand die Summen der Spalten. Ganz unten rechts steht die Gesamtsumme (Größe der Stichprobe).</p>
 </div>
 <div id="verallgemeinerung" class="section level3" number="9.3.2">
@@ -456,14 +458,14 @@
 <div id="berechnung-der-erwarteten-werte" class="section level2" number="9.4">
 <h2><span class="header-section-number">9.4</span> Berechnung der erwarteten Werte</h2>
 <p>Bestünde <em>kein</em> Zusammenhang zwischen den Variablen, dann wäre zu erwarten, dass sich die Kombinationen gleichmäßig auf die Tabellenfelder aufteilen, und zwar ausgehend von den Teilsummen für die Zeilen und Spalten.</p>
-<p>Der Erwartungswert für ein Tabellenfeld (also der “durchschnittliche” Wert, wenn es keinen Zusammenhang zwischen den beiden Variablen gibt) berechnet sich durch die Formel:</p>
+<p>Der Erwartungswert für ein Tabellenfeld (also der <q>durchschnittliche</q> Wert, wenn es keinen Zusammenhang zwischen den beiden Variablen gibt) berechnet sich durch die Formel:</p>
 <p><span class="math display">\[
 m_{ij}=\frac{n_{i\cdot}\cdot n_{\cdot j}}{n}
 \]</span>{#eq:m}</p>
 <p>Es wird also das Produkt der Zeilen- und der Spaltensumme geteilt durch die Gesamtsumme.</p>
 <div id="beispiel-31" class="section level3" number="9.4.1">
 <h3><span class="header-section-number">9.4.1</span> Beispiel</h3>
-<p>Die beobachtete Häufigkeit für die Kombination “Geistes-/Sozialwissenschaft” (Zeile 1) und “anderes Transportmittel” (Spalte 2) ist 28. Aber was wäre der Erwartungswert bei den gegebenen Summen? Wir setzen einfach die entsprechenden Werte in die  ein:</p>
+<p>Die beobachtete Häufigkeit für die Kombination <q>Geistes-/Sozialwissenschaft</q> (Zeile 1) und <q>anderes Transportmittel</q> (Spalte 2) ist 28. Aber was wäre der Erwartungswert bei den gegebenen Summen? Wir setzen einfach die entsprechenden Werte in die  ein:</p>
 <p><span class="math display">\[\begin{aligned}
 m_{12}&amp;=\frac{n_{1\cdot}\cdot n_{\cdot 2}}{n}\\[5pt]
 &amp;=\frac{39\cdot 70}{90}\\[4pt]
@@ -474,7 +476,7 @@ m_{12}&amp;=\frac{n_{1\cdot}\cdot n_{\cdot 2}}{n}\\[5pt]
 </div>
 <div id="berechnung-des-kontingenzkoeffizenten-chi2" class="section level2" number="9.5">
 <h2><span class="header-section-number">9.5</span> Berechnung des Kontingenzkoeffizenten <span class="math inline">\(\chi^2\)</span></h2>
-<p>Sind für alle Tabellenfelder die Beobachtungs- und Erwartungswerte gegeben, lässt sich für jedes Tabellenfeld ein Wert berechnen, der diese Werte in Relation setzt. Die Summe dieser Werte über die gesamte Tabelle hinweg wird Kontingenzkoeffizient genannt und mit <span class="math inline">\(\chi^2\)</span> (“Chi-Quadrat”) abgekürzt.</p>
+<p>Sind für alle Tabellenfelder die Beobachtungs- und Erwartungswerte gegeben, lässt sich für jedes Tabellenfeld ein Wert berechnen, der diese Werte in Relation setzt. Die Summe dieser Werte über die gesamte Tabelle hinweg wird Kontingenzkoeffizient genannt und mit <span class="math inline">\(\chi^2\)</span> (<q>Chi-Quadrat</q>) abgekürzt.</p>
 <p><span class="math display">\[
 \chi^2= \sum_{i=1}^{k}\sum_{j=1}^{\ell}\frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}
 \]</span>{#eq:chisq}</p>
@@ -488,7 +490,7 @@ m_{12}&amp;=\frac{n_{1\cdot}\cdot n_{\cdot 2}}{n}\\[5pt]
 \frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}
 \]</span>{#eq:contrib}</p>
 <p>berechnet und sind in  in blau dargestellt.</p>
-<p>Zum Beispiel ergibt sich der Teilwert für <span class="math inline">\(\chi^2\)</span> für die Kombination “anderes Studienfach” – “Fahrrad” durch Einsetzen in :</p>
+<p>Zum Beispiel ergibt sich der Teilwert für <span class="math inline">\(\chi^2\)</span> für die Kombination <q>anderes Studienfach</q> – <q>Fahrrad</q> durch Einsetzen in :</p>
 <p><span class="math display">\[\begin{aligned}
 \frac{(n_{21}-m_{21})^{2}}{m_{21}} &amp;\approx \frac{(9-11,33)^2}{11,33}\\
 &amp;=\frac{-2,33^2}{11,33}\\
@@ -519,7 +521,7 @@ m_{12}&amp;=\frac{n_{1\cdot}\cdot n_{\cdot 2}}{n}\\[5pt]
     &amp;\approx\sqrt{\frac{1,421}{90}}\\[4pt]
     &amp;\approx0,126
 \end{aligned}\]</span></p>
-<p>Es wird ersichtlich, dass es eine leichte Korrelation der Variablen gibt. Aber in welche Richtung? Dafür müssen wir auf die Kreuztabelle blicken: Der beobachtete Wert für die Wertekombination “Fahrrad” und “Geistes-/Sozialwissenschaft” beträgt <span class="math inline">\(n_{11}=11\)</span> und liegt über dem Erwartungswert <span class="math inline">\(m_{11}=8,67\)</span>. Damit ist klar: Das Studium von Geistes- und Sozialwissenschaften korreliert <em>positiv</em> mit der Fahrradnutzung für den Pendelweg.</p>
+<p>Es wird ersichtlich, dass es eine leichte Korrelation der Variablen gibt. Aber in welche Richtung? Dafür müssen wir auf die Kreuztabelle blicken: Der beobachtete Wert für die Wertekombination <q>Fahrrad</q> und <q>Geistes-/Sozialwissenschaft</q> beträgt <span class="math inline">\(n_{11}=11\)</span> und liegt über dem Erwartungswert <span class="math inline">\(m_{11}=8,67\)</span>. Damit ist klar: Das Studium von Geistes- und Sozialwissenschaften korreliert <em>positiv</em> mit der Fahrradnutzung für den Pendelweg.</p>
 <p>Ob diese Korrelation auch statistisch relevant ist, kann mit dem <span class="math inline">\(\chi^2\)</span>-Test (Sitzung 10) überprüft werden.</p>
 </div>
 </div>
@@ -567,7 +569,7 @@ m_{12}&amp;=\frac{n_{1\cdot}\cdot n_{\cdot 2}}{n}\\[5pt]
 </div>
 <div id="aufgabe-2-8" class="section level3" number="9.8.2">
 <h3><span class="header-section-number">9.8.2</span> Aufgabe 2</h3>
-<p>Sie interessieren sich dafür, ob zwei “Ja/Nein”-Fragen auf einem Fragebogen korrelieren.</p>
+<p>Sie interessieren sich dafür, ob zwei <q>Ja/Nein</q>-Fragen auf einem Fragebogen korrelieren.</p>
 <p>Sie ermittlen folgende Häufigkeiten:</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>Vervollständigen Sie die Kreuztabelle um ihre Summen und die Erwartungswerte.</p></li>
@@ -604,15 +606,15 @@ m_{12}&amp;=\frac{n_{1\cdot}\cdot n_{\cdot 2}}{n}\\[5pt]
 <a href="chi-quadrat-tests.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
+<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({

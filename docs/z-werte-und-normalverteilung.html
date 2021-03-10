@@ -31,15 +31,15 @@
   
 <link rel="prev" href="maßzahlen.html"/>
 <link rel="next" href="schätzstatistik-1.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+<script src="assets/header-attrs-2.7/header-attrs.js"></script>
+<script src="assets/jquery-2.2.3/jquery.min.js"></script>
+<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -49,6 +49,8 @@
 
 
 
+<link rel="icon" href="https://www.uni-frankfurt.de/favicon.ico" type="image/x-icon">
+<script src="solutions.js"></script>
 
 
 
@@ -454,7 +456,7 @@ z=\frac{x-\bar{x}}{s}
 \]</span>{#eq:z}</p>
 <p>Der <span class="math inline">\(z\)</span>-Wert eines Werts <span class="math inline">\(x\)</span> ist also der Abstand des Werts zum arithmetischen Mittel <span class="math inline">\(\bar{x}\)</span> der Verteilung, ausgedrückt im Verhältnis zu ihrer Standardabweichung <span class="math inline">\(s\)</span>.</p>
 <p>Die einzelnen <span class="math inline">\(z\)</span>-Werte für die Luftdruckmessungen ergeben sich wie in  dargestellt.</p>
-<p>Eine so <span class="math inline">\(z\)</span>-transformierte Verteilung hat <em>immer</em> automatisch das arithmetische Mittel <span class="math inline">\(\bar{z}=0\)</span> und die Standardabweichung <span class="math inline">\(s_z=1\)</span>. Außerdem haben <span class="math inline">\(z\)</span>-Werte keine Maßeinheit. So kann jede Verteilung “standardisiert” und systematisch vergleichbar gemacht werden.</p>
+<p>Eine so <span class="math inline">\(z\)</span>-transformierte Verteilung hat <em>immer</em> automatisch das arithmetische Mittel <span class="math inline">\(\bar{z}=0\)</span> und die Standardabweichung <span class="math inline">\(s_z=1\)</span>. Außerdem haben <span class="math inline">\(z\)</span>-Werte keine Maßeinheit. So kann jede Verteilung <q>standardisiert</q> und systematisch vergleichbar gemacht werden.</p>
 <p>Andersherum lassen sich <span class="math inline">\(z\)</span>-Werte folgendermaßen wieder umwandeln in <span class="math inline">\(x\)</span>-Werte:</p>
 <p><span class="math display">\[
   x=s\cdot z+\bar{x}
@@ -471,12 +473,12 @@ Figure 3.1: Dichtefunktionen verschiedener Normalverteilungen
 <p>Die Normalverteilung (auch: Gaußverteilung, engl. <em>normal distribution</em>) ist unimodal und symmetrisch. Die Normalverteilung ist eine theoretische Verteilung, für die bekannt ist, mit welcher Wahrscheinlichkeit bestimmte Werte unter- und überschritten werden bzw. mit welcher Wahrscheinlichkeit Werte in einem bestimmten Intervall liegen.</p>
 <p>Die Dichtefunktion einer Normalverteilung hat eine markante Glockenform (s. Abbildungen  und ). Die beiden Wendepunkte einer Normalverteilung (also dort, wo die Steigung zwischen zu- und abnehmend wechselt; oder mathematisch: wo die Ableitung der Dichtefunktion einen Extremwert annimmt) sind je eine Standardabweichung vom Mittelwert entfernt.</p>
 <p>Die Dichtefunktion nimmt nie den Wert Null an – Extremwerte sind also sehr selten bzw. unwahrscheinlich, aber nie unmöglich. Perfekte Normalverteilungen kommen in empirischen Beobachtungen nicht vor, sondern nur Annäherungen.</p>
-<p>Da es sich um eine <em>theoretische</em> Verteilung handelt, ist die Normalverteilung zunächst insbesondere in Bezug auf die Grundgesamtheit interessant. Im Kontext der Grundgesamtheit wird das arithmetische Mittel mit <span class="math inline">\(\mu\)</span> (“Mü”) und die Standardabweichung mit <span class="math inline">\(\sigma\)</span> (“Sigma”) bezeichnet (s. ).</p>
+<p>Da es sich um eine <em>theoretische</em> Verteilung handelt, ist die Normalverteilung zunächst insbesondere in Bezug auf die Grundgesamtheit interessant. Im Kontext der Grundgesamtheit wird das arithmetische Mittel mit <span class="math inline">\(\mu\)</span> (<q>Mü</q>) und die Standardabweichung mit <span class="math inline">\(\sigma\)</span> (<q>Sigma</q>) bezeichnet (s. ).</p>
 <p>Jede Normalverteilung lässt sich anhand von zwei Parametern beschreiben: ihr arithmetisches Mittel und ihre Standardabweichung. Normalverteilte Grundgesamtheiten werden so notiert:</p>
 <p><span class="math display">\[\begin{aligned}
 x \sim N(\mu,\enspace\sigma^2)
 \end{aligned}\]</span>{#eq:norm}</p>
-<p>Der Mittelwert <span class="math inline">\(\mu\)</span> bestimmt die Lage der Kurve auf der x-Achse, die Varianz <span class="math inline">\(\sigma^2\)</span> bestimmt die “Stauchung” der Kurve (je größer desto flacher). Es gibt also unendlich viele verschiedene Normalverteilungen (s. ).</p>
+<p>Der Mittelwert <span class="math inline">\(\mu\)</span> bestimmt die Lage der Kurve auf der x-Achse, die Varianz <span class="math inline">\(\sigma^2\)</span> bestimmt die <q>Stauchung</q> der Kurve (je größer desto flacher). Es gibt also unendlich viele verschiedene Normalverteilungen (s. ).</p>
 </div>
 <div id="standardnormalverteilung" class="section level2" number="3.5">
 <h2><span class="header-section-number">3.5</span> Standardnormalverteilung</h2>
@@ -492,7 +494,7 @@ Figure 3.2: Dichtefunktion der Standardnormalverteilung
 <div id="crash-kurs-wahrscheinlichkeitsrechnung" class="section level2" number="3.6">
 <h2><span class="header-section-number">3.6</span> Crash-Kurs Wahrscheinlichkeitsrechnung</h2>
 <p>Ein Zufallsexperiment ist ein beliebig oft wiederholbarer, nach bestimmten Vorschriften ausgeführter Versuch, dessen Ergebnis zufallsbedingt ist (d. h. nicht eindeutig voraussagbar ist).</p>
-<p>Jedem zufälligen Ereignis <span class="math inline">\(A\)</span> ist eine bestimmte “Wahrscheinlichkeit des Auftretens” (engl. <em>probability</em>) <span class="math inline">\(P(A)\)</span> zugeordnet, die der Ungleichung <span class="math inline">\(0 \leq P(A) \leq 1\)</span> genügt (d. h. zwischen 0 und 1 liegt).</p>
+<p>Jedem zufälligen Ereignis <span class="math inline">\(A\)</span> ist eine bestimmte <q>Wahrscheinlichkeit des Auftretens</q> (engl. <em>probability</em>) <span class="math inline">\(P(A)\)</span> zugeordnet, die der Ungleichung <span class="math inline">\(0 \leq P(A) \leq 1\)</span> genügt (d. h. zwischen 0 und 1 liegt).</p>
 <p>Die Wahrscheinlichkeit eines sicheren Ergebnisses A ist <span class="math inline">\(P(A) = 1\)</span>. Hingegen würde <span class="math inline">\(P(B) = 0\)</span> bedeuten, dass das Ereignis B nicht eintreten kann. Die Summe der Wahrscheinlichkeiten aller möglichen Ereignisse beträgt 1.</p>
 <p>Der <em>Additionssatz</em> besagt: Die Wahrscheinlichkeit, dass eins von verschiedenen zufälligen, sich gegenseitig ausschließenden Ereignissen eintritt, ist die Summe ihrer Wahrscheinlichkeiten.</p>
 <p>Der <em>Multiplikationssatz</em> besagt: Die Wahrscheinlichkeit für das Eintreten zweier voneinander unabhängiger Ereignisse ist gleich dem Produkt der Einzelwahrscheinlichkeiten.</p>
@@ -647,7 +649,7 @@ Figure 3.7: Messwertintervall
 <h4><span class="header-section-number">3.8.1.4</span> Gesuchter Wert bei gegebener Wahrscheinlichkeit</h4>
 <p>Die Fragerichtung lässt sich umdrehen: Welche Marke wird beim Messen des Luftdrucks nur in 5% der Fälle überschritten?</p>
 <p>5% Überschreitungswahrscheinlichkeit entsprechen einer Unterschreitungswahrscheinlichkeit von 95%. Welcher Wert wird also mit 95% Wahrscheinlichkeit unterschritten?</p>
-<p>Der Tabelle entnehmen wir, dass einer Unterschreitungswahrscheinlichkeit von 0,95 ein <span class="math inline">\(z\)</span>-Wert zwischen 1,64 und 1,65 entspricht. Da es bei dieser Fragestellungen oft darum geht, einen “kritischen” Wert zu nennen, der nur in Ausnahmefällen überschritten wird, nehmen wir hier üblicherweise den extremeren Wert, also <span class="math inline">\(z_{95\%}\approx 1,65\)</span>.</p>
+<p>Der Tabelle entnehmen wir, dass einer Unterschreitungswahrscheinlichkeit von 0,95 ein <span class="math inline">\(z\)</span>-Wert zwischen 1,64 und 1,65 entspricht. Da es bei dieser Fragestellungen oft darum geht, einen <q>kritischen</q> Wert zu nennen, der nur in Ausnahmefällen überschritten wird, nehmen wir hier üblicherweise den extremeren Wert, also <span class="math inline">\(z_{95\%}\approx 1,65\)</span>.</p>
 <p>Mit der umgekehrten <span class="math inline">\(z\)</span>-Transformation erhalten wir:</p>
 <p><span class="math display">\[
   \begin{aligned}
@@ -724,7 +726,7 @@ Figure 3.8: Die mittleren 85% der Normalverteilung
 <h3><span class="header-section-number">3.9.3</span> Aufgabe 3</h3>
 <p>Es ist ein neuer Deich zu bauen, der so sicher sein soll, dass er nur alle 200 Jahre vom Hochwasser übertreten wird.</p>
 <ol style="list-style-type: lower-alpha">
-<li>Welcher Wahrscheinlichkeitswert <span class="math inline">\(p=P(x &lt; x_p)\)</span> ist anzuwenden, d.h. wie wahrscheinlich ist die <em>Unterschreitung</em> eines “zweihundertjähriges Hochwassers”?</li>
+<li>Welcher Wahrscheinlichkeitswert <span class="math inline">\(p=P(x &lt; x_p)\)</span> ist anzuwenden, d.h. wie wahrscheinlich ist die <em>Unterschreitung</em> eines <q>zweihundertjähriges Hochwassers</q>?</li>
 <li>Mit welchem <span class="math inline">\(z\)</span>-Wert korrespondiert der gesuchte Wert <span class="math inline">\(x_p\)</span>?</li>
 <li>Wie hoch muss dieser Deich sein? (Welcher Wert <span class="math inline">\(x_p\)</span> entspricht diesem <span class="math inline">\(z_p\)</span>?)</li>
 </ol>
@@ -747,7 +749,7 @@ Figure 3.8: Die mittleren 85% der Normalverteilung
 <h3><span class="header-section-number">3.10.1</span> Variationskoeffizient</h3>
 <ul>
 <li>Kapitel 4.2.2 in <span class="citation"><a href="chi-quadrat-tests.html#ref-bahrenberg" role="doc-biblioref">Bahrenberg, Giese und Nipper</a> (<a href="chi-quadrat-tests.html#ref-bahrenberg" role="doc-biblioref">2010</a>)</span></li>
-<li>YouTube-Kanal “Kurzes Tutorium Statistik”: <a href="https://www.youtube.com/watch?v=3oZrS3ZWVcA">Streumaße - Varianz, Standardabweichung, Variationskoeffizient und mehr!</a></li>
+<li>YouTube-Kanal <q>Kurzes Tutorium Statistik</q>: <a href="https://www.youtube.com/watch?v=3oZrS3ZWVcA">Streumaße - Varianz, Standardabweichung, Variationskoeffizient und mehr!</a></li>
 </ul>
 </div>
 <div id="z-transformation-1" class="section level3" number="3.10.2">
@@ -756,7 +758,7 @@ Figure 3.8: Die mittleren 85% der Normalverteilung
 <li>Kapitel 2.4 in <span class="citation"><a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">Bortz und Schuster</a> (<a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">2010</a>)</span></li>
 <li>Kapitel 4.2.2 in <span class="citation"><a href="chi-quadrat-tests.html#ref-bahrenberg" role="doc-biblioref">Bahrenberg, Giese und Nipper</a> (<a href="chi-quadrat-tests.html#ref-bahrenberg" role="doc-biblioref">2010</a>)</span></li>
 <li>Kapitel 3.3.3 in <span class="citation"><a href="chi-quadrat-tests.html#ref-benninghaus" role="doc-biblioref">Benninghaus</a> (<a href="chi-quadrat-tests.html#ref-benninghaus" role="doc-biblioref">2007</a>)</span></li>
-<li>YouTube-Kanal “Methodenlehre Mainz”: <a href="https://www.youtube.com/watch?v=AiucvUlIP8k">WT.012.09 Äpfel mit Birnen vergleichen: Die z-Standardisierung</a></li>
+<li>YouTube-Kanal <q>Methodenlehre Mainz</q>: <a href="https://www.youtube.com/watch?v=AiucvUlIP8k">WT.012.09 Äpfel mit Birnen vergleichen: Die z-Standardisierung</a></li>
 </ul>
 </div>
 <div id="normalverteilung-1" class="section level3" number="3.10.3">
@@ -764,7 +766,7 @@ Figure 3.8: Die mittleren 85% der Normalverteilung
 <ul>
 <li>Kapitel 5.4 in <span class="citation"><a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">Bortz und Schuster</a> (<a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">2010</a>)</span></li>
 <li>Kapitel 5.2.2 in <span class="citation"><a href="chi-quadrat-tests.html#ref-bahrenberg" role="doc-biblioref">Bahrenberg, Giese und Nipper</a> (<a href="chi-quadrat-tests.html#ref-bahrenberg" role="doc-biblioref">2010</a>)</span></li>
-<li>YouTube-Kanal “Mathe by Daniel Jung”: <a href="https://www.youtube.com/watch?v=_f1vgWUiavY">Was ist die Normalverteilung, Gauß-Verteilung, Schaubilder, Übersicht</a></li>
+<li>YouTube-Kanal <q>Mathe by Daniel Jung</q>: <a href="https://www.youtube.com/watch?v=_f1vgWUiavY">Was ist die Normalverteilung, Gauß-Verteilung, Schaubilder, Übersicht</a></li>
 </ul>
 </div>
 <div id="wahrscheinlichkeitsdichtefunktion" class="section level3" number="3.10.4">
@@ -772,7 +774,7 @@ Figure 3.8: Die mittleren 85% der Normalverteilung
 <ul>
 <li>Kapitel 5.3 in <span class="citation"><a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">Bortz und Schuster</a> (<a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">2010</a>)</span></li>
 <li>Kapitel 5.2.2 in <span class="citation"><a href="chi-quadrat-tests.html#ref-bahrenberg" role="doc-biblioref">Bahrenberg, Giese und Nipper</a> (<a href="chi-quadrat-tests.html#ref-bahrenberg" role="doc-biblioref">2010</a>)</span></li>
-<li>YouTube-Kanal “Kurzes Tutorium Statistik”: <a href="https://www.youtube.com/watch?v=DoHTsDrzAQk">Zufallsvariable, Massenfunktion, Dichtefunktion und Verteilungsfunktion</a></li>
+<li>YouTube-Kanal <q>Kurzes Tutorium Statistik</q>: <a href="https://www.youtube.com/watch?v=DoHTsDrzAQk">Zufallsvariable, Massenfunktion, Dichtefunktion und Verteilungsfunktion</a></li>
 </ul>
 <div style="page-break-after: always;"></div>
 </div>
@@ -802,15 +804,15 @@ Figure 3.8: Die mittleren 85% der Normalverteilung
 <a href="schätzstatistik-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
+<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({

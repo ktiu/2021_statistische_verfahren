@@ -31,15 +31,15 @@
   
 <link rel="prev" href="datenerhebung-und-häufigkeiten.html"/>
 <link rel="next" href="z-werte-und-normalverteilung.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+<script src="assets/header-attrs-2.7/header-attrs.js"></script>
+<script src="assets/jquery-2.2.3/jquery.min.js"></script>
+<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -49,6 +49,8 @@
 
 
 
+<link rel="icon" href="https://www.uni-frankfurt.de/favicon.ico" type="image/x-icon">
+<script src="solutions.js"></script>
 
 
 
@@ -510,7 +512,7 @@
 <div id="quartilsabstand" class="section level3" number="2.4.2">
 <h3><span class="header-section-number">2.4.2</span> Quartilsabstand</h3>
 <p>Der Quartilsabstand (auch Interquartilsabstand, engl. <em>interquartile range / IQR</em>) gibt die Größe des Wertebereichs der mittleren 50% einer Verteilung an.</p>
-<p>Genau so wie der Median eine Messwertreihe in zwei gleich große Hälften “schneidet”, schneiden die Quartile die Werte in Viertel. Dabei liegt der so genannte untere Angelpunkt <span class="math inline">\(Q_1\)</span> genau über 25% der Werte, <span class="math inline">\(Q_2\)</span> ist identisch mit dem Median und der obere Angelpunkt <span class="math inline">\(Q_3\)</span> liegt genau über 75% der Werte.</p>
+<p>Genau so wie der Median eine Messwertreihe in zwei gleich große Hälften <q>schneidet</q>, schneiden die Quartile die Werte in Viertel. Dabei liegt der so genannte untere Angelpunkt <span class="math inline">\(Q_1\)</span> genau über 25% der Werte, <span class="math inline">\(Q_2\)</span> ist identisch mit dem Median und der obere Angelpunkt <span class="math inline">\(Q_3\)</span> liegt genau über 75% der Werte.</p>
 <p>Der Angelpunkt <span class="math inline">\(Q_1\)</span> wird ermittelt, indem der Median für die unteren 50% (<span class="math inline">\(Q_3\)</span>: die oberen 50%) der Werte bestimmt wird – also jener Werte, die theoretisch unterhalb des Medians der Gesamtverteilung liegen.</p>
 <p>Dabei folgen wir <span class="citation"><a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">Bortz und Schuster</a> (<a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">2010</a>)</span> und nehmen im Fall eines ungeraden <span class="math inline">\(n\)</span> den Median auf beiden Seiten hinzu.</p>
 <p>Die Formel für den Quartilsabstand lautet:</p>
@@ -559,7 +561,7 @@
     s=\sqrt{s^2}
   \end{aligned}
 \]</span>{#eq:sd}</p>
-<p>Indem hier die Wurzel gezogen wird, wird in gewisser Weise die Quadrierung der Differenzen für die Varianz wieder “korrigiert”. Insbesondere wird die Quadrierung der Maßeinheit wieder aufgehoben – die Standardabweichung hat also die gleiche Einheit wie die Messreihe selbst.</p>
+<p>Indem hier die Wurzel gezogen wird, wird in gewisser Weise die Quadrierung der Differenzen für die Varianz wieder <q>korrigiert</q>. Insbesondere wird die Quadrierung der Maßeinheit wieder aufgehoben – die Standardabweichung hat also die gleiche Einheit wie die Messreihe selbst.</p>
 <p>In unserem Beispiel beträgt die Standardabweichung also:</p>
 <p><span class="math display">\[
   \begin{aligned}
@@ -578,7 +580,7 @@
 Figure 2.1: Boxplot der Beispielverteilung
 </p>
 </div>
-<p>Die Höhe der “Box” definiert sich durch den Quartilsabstand, der mittlere Strich markiert den Median und die “Whisker” markieren den Wertebereich insgesamt – wobei Ausreißer, deren Abstand zur Box mehr als das 1,5-Fache des Quartilsabstands beträgt, üblicherweise gar nicht oder (wie hier) gesondert mit Punkten markiert werden.</p>
+<p>Die Höhe der <q>Box</q> definiert sich durch den Quartilsabstand, der mittlere Strich markiert den Median und die <q>Whisker</q> markieren den Wertebereich insgesamt – wobei Ausreißer, deren Abstand zur Box mehr als das 1,5-Fache des Quartilsabstands beträgt, üblicherweise gar nicht oder (wie hier) gesondert mit Punkten markiert werden.</p>
 </div>
 <div id="aufgaben-1" class="section level2" number="2.6">
 <h2><span class="header-section-number">2.6</span> Aufgaben</h2>
@@ -622,8 +624,8 @@ In Australien betrug die durchnittliche Niederschlagsmenge in den 1970er und 80e
 <li>Kapitel 3.3.1 in <span class="citation"><a href="chi-quadrat-tests.html#ref-benninghaus" role="doc-biblioref">Benninghaus</a> (<a href="chi-quadrat-tests.html#ref-benninghaus" role="doc-biblioref">2007</a>)</span></li>
 <li>Kapitel 2.1 in <span class="citation"><a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">Bortz und Schuster</a> (<a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">2010</a>)</span></li>
 <li>Kapitel 4.2.1 in <span class="citation"><a href="chi-quadrat-tests.html#ref-bahrenberg" role="doc-biblioref">Bahrenberg, Giese und Nipper</a> (<a href="chi-quadrat-tests.html#ref-bahrenberg" role="doc-biblioref">2010</a>)</span></li>
-<li>YouTube-Kanal “Kurzes Tutorium Statistik”: <a href="https://www.youtube.com/watch?v=Kx9aHOMVPEg">Arithmetisches, harmonisches und geometrisches Mittel</a></li>
-<li>YouTube-Kanal “Kurzes Tutorium Statistik”: <a href="https://www.youtube.com/watch?v=HsDeAoBOyS4">Boxplots, Median, Quartile</a></li>
+<li>YouTube-Kanal <q>Kurzes Tutorium Statistik</q>: <a href="https://www.youtube.com/watch?v=Kx9aHOMVPEg">Arithmetisches, harmonisches und geometrisches Mittel</a></li>
+<li>YouTube-Kanal <q>Kurzes Tutorium Statistik</q>: <a href="https://www.youtube.com/watch?v=HsDeAoBOyS4">Boxplots, Median, Quartile</a></li>
 </ul>
 </div>
 <div id="streumaße-1" class="section level3" number="2.7.2">
@@ -632,14 +634,14 @@ In Australien betrug die durchnittliche Niederschlagsmenge in den 1970er und 80e
 <li>Kapitel 3.1.2 in <span class="citation"><a href="chi-quadrat-tests.html#ref-benninghaus" role="doc-biblioref">Benninghaus</a> (<a href="chi-quadrat-tests.html#ref-benninghaus" role="doc-biblioref">2007</a>)</span></li>
 <li>Kapitel 2.2 in <span class="citation"><a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">Bortz und Schuster</a> (<a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">2010</a>)</span></li>
 <li>Kapitel 4.2.2 in <span class="citation"><a href="chi-quadrat-tests.html#ref-bahrenberg" role="doc-biblioref">Bahrenberg, Giese und Nipper</a> (<a href="chi-quadrat-tests.html#ref-bahrenberg" role="doc-biblioref">2010</a>)</span></li>
-<li>YouTube-Kanal “Kurzes Tutorium Statistik”: <a href="https://www.youtube.com/watch?v=3oZrS3ZWVcA">Streumaße - Varianz, Standardabweichung, Variationskoeffizient und mehr!</a></li>
+<li>YouTube-Kanal <q>Kurzes Tutorium Statistik</q>: <a href="https://www.youtube.com/watch?v=3oZrS3ZWVcA">Streumaße - Varianz, Standardabweichung, Variationskoeffizient und mehr!</a></li>
 </ul>
 </div>
 <div id="boxplot-1" class="section level3" number="2.7.3">
 <h3><span class="header-section-number">2.7.3</span> Boxplot</h3>
 <ul>
 <li>Kapitel 3.4 in <span class="citation"><a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">Bortz und Schuster</a> (<a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">2010</a>)</span></li>
-<li>YouTube-Kanal “Kurzes Tutorium Statistik”: <a href="https://www.youtube.com/watch?v=HsDeAoBOyS4">Boxplots, Median, Quartile</a></li>
+<li>YouTube-Kanal <q>Kurzes Tutorium Statistik</q>: <a href="https://www.youtube.com/watch?v=HsDeAoBOyS4">Boxplots, Median, Quartile</a></li>
 </ul>
 </div>
 </div>
@@ -663,15 +665,15 @@ In Australien betrug die durchnittliche Niederschlagsmenge in den 1970er und 80e
 <a href="z-werte-und-normalverteilung.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
+<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({

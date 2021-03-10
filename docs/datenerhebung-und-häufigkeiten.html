@@ -31,15 +31,15 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="maßzahlen.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+<script src="assets/header-attrs-2.7/header-attrs.js"></script>
+<script src="assets/jquery-2.2.3/jquery.min.js"></script>
+<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -49,6 +49,8 @@
 
 
 
+<link rel="icon" href="https://www.uni-frankfurt.de/favicon.ico" type="image/x-icon">
+<script src="solutions.js"></script>
 
 
 
@@ -428,7 +430,7 @@
 <p>Was ist Statistik? Je nach Perspektive kann Statistik vieles sein: ein Teilgebiet der Mathematik, ein Untersuchungsobjekt kritischer Forschung oder ein unbeliebtes Studienfach.</p>
 <p>Im Rahmen dieser Veranstaltung soll Statistik als eine Zusammenstellung von Praktiken in der quantitativen Forschung verstanden werden, wobei ihre Anwendung stets im Mittelpunkt steht. Eine hilfreiche Definition findet sich bei <span class="citation"><a href="chi-quadrat-tests.html#ref-haseloff" role="doc-biblioref">Haseloff et al.</a> (<a href="chi-quadrat-tests.html#ref-haseloff" role="doc-biblioref">1968</a>)</span>:</p>
 <blockquote>
-<p>“Allgemein kann gesagt werden: Die Statistik hat es mit Zahlen zu tun, die entweder aus Abzählvorgängen oder aus Messungen gewonnen wurden. Ihre Aufgabe ist es, ein solches Zahlenmaterial in eine optimal übersichtliche und informationsreiche Form zu bringen, aus ihnen methodische Schlußfolgerungen zu ziehen und gegebenfalls auch die Ursachen der analysierten Zahlenverhältnisse mit sachlichen Methoden aufzudecken.” <span class="citation">(<a href="chi-quadrat-tests.html#ref-haseloff" role="doc-biblioref">Haseloff et al. 1968</a>: 27)</span></p>
+<p><q>Allgemein kann gesagt werden: Die Statistik hat es mit Zahlen zu tun, die entweder aus Abzählvorgängen oder aus Messungen gewonnen wurden. Ihre Aufgabe ist es, ein solches Zahlenmaterial in eine optimal übersichtliche und informationsreiche Form zu bringen, aus ihnen methodische Schlußfolgerungen zu ziehen und gegebenfalls auch die Ursachen der analysierten Zahlenverhältnisse mit sachlichen Methoden aufzudecken.</q> <span class="citation">(<a href="chi-quadrat-tests.html#ref-haseloff" role="doc-biblioref">Haseloff et al. 1968</a>: 27)</span></p>
 </blockquote>
 <div id="grundbegriffe-der-statistik" class="section level3" number="1.2.1">
 <h3><span class="header-section-number">1.2.1</span> Grundbegriffe der Statistik</h3>
@@ -446,15 +448,15 @@
 </div>
 <div id="variable" class="section level4" number="1.2.1.4">
 <h4><span class="header-section-number">1.2.1.4</span> Variable</h4>
-<p>Variablen (auch Merkmale, engl. <em>variable</em>) sind Informationen über die Untersuchungselemente, die in einer Untersuchung von Interesse sind. Typischerweise unterscheiden sie sich von Untersuchungselement zu Untersuchungseelement, sind also variabel. Bei einer Hochrechnung ist dies die Antwort auf die Frage: “Welche Partei haben Sie gerade gewählt?”</p>
+<p>Variablen (auch Merkmale, engl. <em>variable</em>) sind Informationen über die Untersuchungselemente, die in einer Untersuchung von Interesse sind. Typischerweise unterscheiden sie sich von Untersuchungselement zu Untersuchungseelement, sind also variabel. Bei einer Hochrechnung ist dies die Antwort auf die Frage: <q>Welche Partei haben Sie gerade gewählt?</q></p>
 </div>
 <div id="wert" class="section level4" number="1.2.1.5">
 <h4><span class="header-section-number">1.2.1.5</span> Wert</h4>
-<p>Ein Wert (auch Merkmalsausprägung, engl. <em>observation</em>) ist die erfasste Ausprägung einer Variable bei einem Untersuchungselement. In Formeln werden Werte mit <span class="math inline">\(x_1, x_2, x_3, ..., x_n\)</span> durchnummeriert. Bei einer Hochrechnung kann die Variable “gewählte Partei” für ein Untersuchungselement z.B. den Wert “CDU” annehmen.</p>
+<p>Ein Wert (auch Merkmalsausprägung, engl. <em>observation</em>) ist die erfasste Ausprägung einer Variable bei einem Untersuchungselement. In Formeln werden Werte mit <span class="math inline">\(x_1, x_2, x_3, ..., x_n\)</span> durchnummeriert. Bei einer Hochrechnung kann die Variable <q>gewählte Partei</q> für ein Untersuchungselement z.B. den Wert <q>CDU</q> annehmen.</p>
 </div>
 <div id="kennwert" class="section level4" number="1.2.1.6">
 <h4><span class="header-section-number">1.2.1.6</span> Kennwert</h4>
-<p>Kennwerte (auch Maßzahlen, Kennzahlen, engl. <em>summary statistics</em>) sind Zahlen, die aus den beobachteten Werten errechnet werden. Sie können beispielsweise Aufschluss über Mittelwerte und Verteilung einer Variable oder den Zusammenhang mehrerer Variablen geben. Bei einer Hochrechnung sind z.B. die relativen Häufigkeiten (in Prozent) der Variable “gewählte Partei” von besonderem Interesse.</p>
+<p>Kennwerte (auch Maßzahlen, Kennzahlen, engl. <em>summary statistics</em>) sind Zahlen, die aus den beobachteten Werten errechnet werden. Sie können beispielsweise Aufschluss über Mittelwerte und Verteilung einer Variable oder den Zusammenhang mehrerer Variablen geben. Bei einer Hochrechnung sind z.B. die relativen Häufigkeiten (in Prozent) der Variable <q>gewählte Partei</q> von besonderem Interesse.</p>
 </div>
 </div>
 <div id="taxonomien-statistischer-verfahren" class="section level3" number="1.2.2">
@@ -539,9 +541,9 @@
 </div>
 <div id="klumpenstichprobe" class="section level4" number="1.3.1.4">
 <h4><span class="header-section-number">1.3.1.4</span> Klumpenstichprobe</h4>
-<p>Hier ist die Grundgesamtheit schon in “natürliche” Gruppen aufgeteilt (z.B. Schulklassen) und es werden mehrere dieser Gruppen (Klumpen, engl. <em>cluster</em>) nach einem Zufallsverfahren als Stichprobe gewählt.</p>
+<p>Hier ist die Grundgesamtheit schon in <q>natürliche</q> Gruppen aufgeteilt (z.B. Schulklassen) und es werden mehrere dieser Gruppen (Klumpen, engl. <em>cluster</em>) nach einem Zufallsverfahren als Stichprobe gewählt.</p>
 <blockquote>
-<p>“Man beachte, dass ein einzelner Klumpen (…) keine Klumpenstichprobe darstellt, sondern eine Ad-hoc-Stichprobe, bei der zufällige Auswahlkriterien praktisch keine Rolle spielen. Die Bezeichnung „Klumpenstichprobe“ ist nur zu rechtfertigen, wenn mehrere zufällig ausgewählte Klumpen vollständig untersucht werden.” <span class="citation">(<a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">Bortz und Schuster 2010</a>: 81)</span></p>
+<p><q>Man beachte, dass ein einzelner Klumpen (…) keine Klumpenstichprobe darstellt, sondern eine Ad-hoc-Stichprobe, bei der zufällige Auswahlkriterien praktisch keine Rolle spielen. Die Bezeichnung „Klumpenstichprobe“ ist nur zu rechtfertigen, wenn mehrere zufällig ausgewählte Klumpen vollständig untersucht werden.</q> <span class="citation">(<a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">Bortz und Schuster 2010</a>: 81)</span></p>
 </blockquote>
 </div>
 </div>
@@ -549,8 +551,8 @@
 <h3><span class="header-section-number">1.3.2</span> Variablentypen</h3>
 <div id="qualitative-variablen" class="section level4" number="1.3.2.1">
 <h4><span class="header-section-number">1.3.2.1</span> Qualitative Variablen</h4>
-<p>Qualitative Variablen können nicht der Größe nach, sondern nur im Hinblick auf ihre Eigenschaft/Art (“Qualität”) unterschieden werden (z.B. Parteizugehörigkeit, Telefonnummer, Automarke).</p>
-<p>Qualitative Variablen, die nur zwei mögliche Werte annehmen können, nennt man “dichotome” Variablen (etwa Antworten auf Ja-Nein-Fragen).</p>
+<p>Qualitative Variablen können nicht der Größe nach, sondern nur im Hinblick auf ihre Eigenschaft/Art (<q>Qualität</q>) unterschieden werden (z.B. Parteizugehörigkeit, Telefonnummer, Automarke).</p>
+<p>Qualitative Variablen, die nur zwei mögliche Werte annehmen können, nennt man <q>dichotome</q> Variablen (etwa Antworten auf Ja-Nein-Fragen).</p>
 </div>
 <div id="quantitative-variablen" class="section level4" number="1.3.2.2">
 <h4><span class="header-section-number">1.3.2.2</span> Quantitative Variablen</h4>
@@ -571,10 +573,10 @@
 <p>Eine Variable lässt sich aufgrund ihrer Eigenschaften einem Skalenniveau (auch Skalentyp, Messinveau, Datenniveau, engl. <em>level of measurement</em>) zuordnen. Bestimmte Rechenoperationen und statistische Verfahren setzen bestimmte Skalenniveaus voraus. Deshalb ist es wichtig zu wissen, welchem Skalenniveau eine Variable zuzuordnen ist.</p>
 <p>Variablen lassen sich immer auch einem niedrigeren Skalenniveau zuordnen. Dies geht allerdings mit Informationsverlust einher.</p>
 <p>Die im Folgenden beschriebenen Skalenniveaus sind nicht deckungsgleich mit den o.g. Variablentypen. Intervall- und Verhältnisskalen können z.B. jeweils diskret oder stetig sein.</p>
-<p>In Tabelle  sind die wichtigsten Skalenniveaus im Überblick aufgeführt. “Gültige Lagemaße” sind dabei als Zusatzinformation aufgelistet und werden erst in der nächsten Sitzung behandelt.</p>
+<p>In Tabelle  sind die wichtigsten Skalenniveaus im Überblick aufgeführt. <q>Gültige Lagemaße</q> sind dabei als Zusatzinformation aufgelistet und werden erst in der nächsten Sitzung behandelt.</p>
 <div id="nominalskala" class="section level4" number="1.3.3.1">
 <h4><span class="header-section-number">1.3.3.1</span> Nominalskala</h4>
-<p>Die Merkmalsausprägungen einer Variable stehen je ‘für sich’; sie lassen sich nicht sinnvoll in eine Rangordnung bringen oder gar miteinander verrechnen.</p>
+<p>Die Merkmalsausprägungen einer Variable stehen je <q>für sich</q>; sie lassen sich nicht sinnvoll in eine Rangordnung bringen oder gar miteinander verrechnen.</p>
 <p>Die einzige Aussage, die sich über zwei Werte in einer Nominalskala treffen lässt, ist dass sie gleich oder nicht gleich sind.</p>
 <p>Beispiele: Postleitzahlen, Telefonnummern, Staatsangehörigkeit, Krankheitsklassifikationen</p>
 </div>
@@ -592,12 +594,12 @@
 <div id="intervallskala" class="section level5" number="1.3.3.3.1">
 <h5><span class="header-section-number">1.3.3.3.1</span> Intervallskala</h5>
 <p>Maßeinheit und Wahl des Nullpunktes sind willkürlich gewählt.</p>
-<p>Beispiele: Grad Celsius, Geburtsjahr als Jahreszahl (“1961”), in der Praxis häufig: subjektive Bewertung auf einer Skala von 1 bis 10.</p>
+<p>Beispiele: Grad Celsius, Geburtsjahr als Jahreszahl (<q>1961</q>), in der Praxis häufig: subjektive Bewertung auf einer Skala von 1 bis 10.</p>
 </div>
 <div id="verhältnisskala-auch-ratioskala" class="section level5" number="1.3.3.3.2">
 <h5><span class="header-section-number">1.3.3.3.2</span> Verhältnisskala (auch Ratioskala)</h5>
 <p>Es gibt einen invarianten (absoluten, natürlichen) Nullpunkt.</p>
-<p>In einer Verhältnisskala lassen sich über alle o.a. Möglichkeiten hinaus auch Aussagen über Verhältnisse zwischen Werten treffen (z.B. “<span class="math inline">\(x_1\)</span> ist doppelt so groß wie <span class="math inline">\(x_2\)</span>”).</p>
+<p>In einer Verhältnisskala lassen sich über alle o.a. Möglichkeiten hinaus auch Aussagen über Verhältnisse zwischen Werten treffen (z.B. <q><span class="math inline">\(x_1\)</span> ist doppelt so groß wie <span class="math inline">\(x_2\)</span></q>).</p>
 <p>Beispiele: Lebensalter in Jahren, Haushaltsgröße, Köpergröße,
 Körpergewicht</p>
 </div>
@@ -609,7 +611,7 @@ Körpergewicht</p>
 <div id="urliste" class="section level3" number="1.4.1">
 <h3><span class="header-section-number">1.4.1</span> Urliste</h3>
 <p>Die Urliste ist eine ungeordnete Liste aller erfassten Werte.</p>
-<p>Für die statistische Erhebung “Anfangsbuchstaben der Vornamen von Teilnehmenden an einer Statistikvorlesung” könnte die Urliste z.B. so aussehen:</p>
+<p>Für die statistische Erhebung <q>Anfangsbuchstaben der Vornamen von Teilnehmenden an einer Statistikvorlesung</q> könnte die Urliste z.B. so aussehen:</p>
 <p><code>T J D T E N D F F M A J V T T V A L V P J K P M F M A J N A C I T P B A P H T L N S P C K J K L J R E Y M K H M N L A A L L M L J G P L B F L J J V M P C J M J S A M M M P A A L L O C J L P L V F J R M A V K S B B B N C A A T J P C F L E B L C A K A L T V Y P F L J S T T N R J A S E L M L T A E B M N M V D P P L N L B A A J M L N N S H M</code></p>
 </div>
 <div id="geordnete-liste" class="section level3" number="1.4.2">
@@ -648,7 +650,7 @@ Figure 1.1: Stabdiagramm
 <li>Alle Klassen sollten besetzt sein.</li>
 <li>Klassengrenzen sollten möglichst glatte Zahlen sein.</li>
 <li>Aus Gründen der Übersichtlichkeit sollten nicht mehr als 20 Klassen gewählt werden.</li>
-<li>Klassengrenzen sollten “Klumpen” mit ähnlichen Werten nicht trennen.</li>
+<li>Klassengrenzen sollten <q>Klumpen</q> mit ähnlichen Werten nicht trennen.</li>
 </ul>
 <p>Die Darstellung erfolgt in so genannten Histogrammen (engl. <em>histogram</em>). Abbildung  enthält ein Beispiel für ein Histogramm.</p>
 <div class="figure" style="text-align: center"><span id="fig:hist"></span>
@@ -723,7 +725,7 @@ Figure 1.3: Polygonzug
 <div id="grundbegriffe" class="section level3" number="1.6.1">
 <h3><span class="header-section-number">1.6.1</span> Grundbegriffe</h3>
 <ul>
-<li>YouTube-Kanal “Kurzes Tutorium Statistik”: <a href="https://www.youtube.com/watch?v=bJsBcLjke3Q">Statistische Grundbegriffe</a></li>
+<li>YouTube-Kanal <q>Kurzes Tutorium Statistik</q>: <a href="https://www.youtube.com/watch?v=bJsBcLjke3Q">Statistische Grundbegriffe</a></li>
 <li>Kapitel 1.1 in <span class="citation"><a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">Bortz und Schuster</a> (<a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">2010</a>)</span></li>
 <li>Kapitel 1.1 in <span class="citation"><a href="chi-quadrat-tests.html#ref-benninghaus" role="doc-biblioref">Benninghaus</a> (<a href="chi-quadrat-tests.html#ref-benninghaus" role="doc-biblioref">2007</a>)</span></li>
 <li>Kapitel 2.1 in <span class="citation"><a href="chi-quadrat-tests.html#ref-bahrenberg" role="doc-biblioref">Bahrenberg, Giese und Nipper</a> (<a href="chi-quadrat-tests.html#ref-bahrenberg" role="doc-biblioref">2010</a>)</span></li>
@@ -742,13 +744,13 @@ Figure 1.3: Polygonzug
 <li>Kapitel 1.2 in <span class="citation"><a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">Bortz und Schuster</a> (<a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">2010</a>)</span></li>
 <li>Kapitel 2.1 in <span class="citation"><a href="chi-quadrat-tests.html#ref-benninghaus" role="doc-biblioref">Benninghaus</a> (<a href="chi-quadrat-tests.html#ref-benninghaus" role="doc-biblioref">2007</a>)</span></li>
 <li>Kapitel 2.2 in <span class="citation"><a href="chi-quadrat-tests.html#ref-bahrenberg" role="doc-biblioref">Bahrenberg, Giese und Nipper</a> (<a href="chi-quadrat-tests.html#ref-bahrenberg" role="doc-biblioref">2010</a>)</span></li>
-<li>YouTube-Kanal “Kurzes Tutorium Statistik”: <a href="https://www.youtube.com/watch?v=TV4tTtW4UBU">Skalenniveaus</a></li>
+<li>YouTube-Kanal <q>Kurzes Tutorium Statistik</q>: <a href="https://www.youtube.com/watch?v=TV4tTtW4UBU">Skalenniveaus</a></li>
 </ul>
 </div>
 <div id="häufigkeiten-und-diagramme" class="section level3" number="1.6.4">
 <h3><span class="header-section-number">1.6.4</span> Häufigkeiten und Diagramme</h3>
 <ul>
-<li>YouTube-Kanal “Kurzes Tutorium Statistik”: <a href="https://www.youtube.com/watch?v=LkOBRWXnTRQ">Stabdiagramme und Histogramme</a></li>
+<li>YouTube-Kanal <q>Kurzes Tutorium Statistik</q>: <a href="https://www.youtube.com/watch?v=LkOBRWXnTRQ">Stabdiagramme und Histogramme</a></li>
 <li>Kapitel 3.1 und 3.2 in <span class="citation"><a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">Bortz und Schuster</a> (<a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">2010</a>)</span></li>
 <li>Kapitel 1.2 in <span class="citation"><a href="chi-quadrat-tests.html#ref-benninghaus" role="doc-biblioref">Benninghaus</a> (<a href="chi-quadrat-tests.html#ref-benninghaus" role="doc-biblioref">2007</a>)</span></li>
 <li>Kapitel 4.1 in <span class="citation"><a href="chi-quadrat-tests.html#ref-bahrenberg" role="doc-biblioref">Bahrenberg, Giese und Nipper</a> (<a href="chi-quadrat-tests.html#ref-bahrenberg" role="doc-biblioref">2010</a>)</span></li>
@@ -769,15 +771,15 @@ Figure 1.3: Polygonzug
 <a href="maßzahlen.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
+<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
