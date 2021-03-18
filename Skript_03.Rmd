@@ -19,7 +19,8 @@ Eine Möglichkeit, unabhängig hiervon eine Aussage über die *relative* Streuun
 \[\begin{aligned}
 v=\frac{s}{|\bar{x}|}\cdot 100\%
 \end{aligned}
-\]{#eq:cv}
+(\#eq:cv)
+\]
 
 Zur Illustration: An zufälligen Tagen hat die Wetterstation auf dem Feldberg folgende Luftdruckwerte gemessen (in hPa):
 
@@ -29,7 +30,7 @@ xs <- c(1007.1, 1003.4, 990.7, 994.2, 1000.9, 993, 1016, 983.9, 1007.4,
 cat('`', format(xs, nsmall=1), '`')
 ```
 
-Mit den bekannten Methoden (Sitzung 2) können wir das arithmetische Mittel $\bar{x}\approx 999,37$ und die Standardabweichung $s\approx8,56$ der Stichprobe bestimmen. Durch einsetzen dieser Werte in \autoref{eq:cv} ergibt sich:
+Mit den bekannten Methoden (Sitzung 2) können wir das arithmetische Mittel $\bar{x}\approx 999,37$ und die Standardabweichung $s\approx8,56$ der Stichprobe bestimmen. Durch einsetzen dieser Werte in \@ref(eq:cv) ergibt sich:
 
 \[\begin{aligned}
 v&\approx\frac{8,56}{999,37}\cdot 100\%\\[4pt]
@@ -49,7 +50,8 @@ Für jeden der Messwerte lässt sich ein entsprechender $z$-Wert mit dieser Form
 
 \[
 z=\frac{x-\bar{x}}{s}
-\]{#eq:z}
+(\#eq:z)
+\]
 
 Der $z$-Wert eines Werts $x$ ist also der Abstand des Werts zum arithmetischen Mittel $\bar{x}$ der Verteilung, ausgedrückt im Verhältnis zu ihrer Standardabweichung $s$.
 
@@ -75,7 +77,8 @@ Andersherum lassen sich $z$-Werte folgendermaßen wieder umwandeln in $x$-Werte:
 
 \[
   x=s\cdot z+\bar{x}
-\]{#eq:zrev}
+  (\#eq:zrev)
+\]
 
 ## Normalverteilung
 
@@ -106,7 +109,7 @@ ggplot(data = data.frame(x = c(-7,22)), aes(x)) +
 
 Die Normalverteilung (auch: Gaußverteilung, engl. *normal distribution*) ist unimodal und symmetrisch. Die Normalverteilung ist eine theoretische Verteilung, für die bekannt ist, mit welcher Wahrscheinlichkeit bestimmte Werte unter- und überschritten werden bzw. mit welcher Wahrscheinlichkeit Werte in einem bestimmten Intervall liegen.
 
-Die Dichtefunktion einer Normalverteilung hat eine markante Glockenform (s. Abbildungen \ref{fig:norms} und \ref{fig:stdnorm}). Die beiden Wendepunkte einer Normalverteilung (also dort, wo die Steigung zwischen zu- und abnehmend wechselt; oder mathematisch: wo die Ableitung der Dichtefunktion einen Extremwert annimmt) sind je eine Standardabweichung vom Mittelwert entfernt.
+Die Dichtefunktion einer Normalverteilung hat eine markante Glockenform (s. Abbildungen \@ref(fig:norms) und \@ref(fig:stdnorm)). Die beiden Wendepunkte einer Normalverteilung (also dort, wo die Steigung zwischen zu- und abnehmend wechselt; oder mathematisch: wo die Ableitung der Dichtefunktion einen Extremwert annimmt) sind je eine Standardabweichung vom Mittelwert entfernt.
 
 Die Dichtefunktion nimmt nie den Wert Null an -- Extremwerte sind also sehr selten bzw. unwahrscheinlich, aber nie unmöglich. Perfekte Normalverteilungen kommen in empirischen Beobachtungen nicht vor, sondern nur Annäherungen.
 
@@ -128,13 +131,14 @@ Jede Normalverteilung lässt sich anhand von zwei Parametern beschreiben: ihr ar
 \nopagebreak
 \[\begin{aligned}
 x \sim N(\mu,\enspace\sigma^2)
-\end{aligned}\]{#eq:norm}
+\end{aligned}
+(\#eq:norm)\]
 
-Der Mittelwert $\mu$ bestimmt die Lage der Kurve auf der x-Achse, die Varianz $\sigma^2$ bestimmt die "Stauchung" der Kurve (je größer desto flacher). Es gibt also unendlich viele verschiedene Normalverteilungen (s. \autoref{fig:norms}).
+Der Mittelwert $\mu$ bestimmt die Lage der Kurve auf der x-Achse, die Varianz $\sigma^2$ bestimmt die "Stauchung" der Kurve (je größer desto flacher). Es gibt also unendlich viele verschiedene Normalverteilungen (s. \@ref(fig:norms)).
 
 ## Standardnormalverteilung
 
-Die Standardnormalverteilung (engl. *standard normal distribution*) ist sozusagen das Grundmuster aller Normalverteilungen. Sie hat den Mittelwert $\mu=0$ und die Standardabweichung $\sigma=1$ (s. \autoref{fig:stdnorm}).
+Die Standardnormalverteilung (engl. *standard normal distribution*) ist sozusagen das Grundmuster aller Normalverteilungen. Sie hat den Mittelwert $\mu=0$ und die Standardabweichung $\sigma=1$ (s. \@ref(fig:stdnorm).
 
 Alle Normalverteilungen lassen sich durch die $z$-Transformation auf die Standardnormalverteilung standardisieren.
 
@@ -180,7 +184,7 @@ Für die im Rest dieser Sitzung vorgestellten Verfahren müssen folgende Vorauss
 - Die Grundgesamtheit ist (annähernd) normalverteilt.
 - Arithmetisches Mittel $\mu$ und Standardabweichung $\sigma$ der Grundgesamtheit sind bekannt.
 
-Die Verfahren sollen anhand eines Beispiels illustriert werden: Es sei bekannt, dass der Luftdruck auf dem Feldberg annähernd normalverteilt ist, und zwar mit dem arithmetischen Mittel $\mu=1003$ und Varianz $\sigma^2=73$. Graphisch stellt sich die Wahrscheinlichkeitsdichtefunktion wie in \autoref{fig:dens} dar.
+Die Verfahren sollen anhand eines Beispiels illustriert werden: Es sei bekannt, dass der Luftdruck auf dem Feldberg annähernd normalverteilt ist, und zwar mit dem arithmetischen Mittel $\mu=1003$ und Varianz $\sigma^2=73$. Graphisch stellt sich die Wahrscheinlichkeitsdichtefunktion wie in \@ref(fig:dens) dar.
 
 ```{r dens, cache=T, fig.pos='t', fig.cap="Theoretische Wahrscheinlichkeitsdichtefunktion des Luftdrucks"}
 ggplot(data.frame(x=c(1003-3*sqrt(73),1003+3*sqrt(73))), aes(x)) +
@@ -191,7 +195,7 @@ ggplot(data.frame(x=c(1003-3*sqrt(73),1003+3*sqrt(73))), aes(x)) +
   ylab(NULL)
 ```
 
-Wir können auch (analog zu \autoref{eq:norm}) schreiben:
+Wir können auch (analog zu \@ref(eq:norm)) schreiben:
 
 \[
 x \sim N(1003, 73)
@@ -208,7 +212,7 @@ $$\begin{aligned}
 
 Die einfachste Art der Fragestellung ist nun, mit welcher Wahrscheinlichkeit ein bestimmter Wert $x_p$ unterschritten wird.
 
-Nehmen wir an, es sei gefragt, mit welcher Wahrscheinlichkeit zu einem beliebigen Zeitpunkt der Luftdruck weniger als 1015 hpa beträgt. Anders gesagt interessiert uns der Anteil der Fläche unter der Verteilung, der zwischen $-\infty$ und $x_p=1015$ liegt (s. \autoref{fig:unter}).
+Nehmen wir an, es sei gefragt, mit welcher Wahrscheinlichkeit zu einem beliebigen Zeitpunkt der Luftdruck weniger als 1015 hpa beträgt. Anders gesagt interessiert uns der Anteil der Fläche unter der Verteilung, der zwischen $-\infty$ und $x_p=1015$ liegt (s. \@ref(fig:unter)).
 
 ```{r unter, fig.pos='H', cache=T, fig.cap="Unterschreitung eines Messwerts"}
 mu = 1003
@@ -237,7 +241,7 @@ Um den entsprechenden Wert für $P(x < x_p)$ (also die Wahrscheinlichkeit, dass 
   \end{aligned}
 \]
 
-Graphisch ist das standardisierte Perzentil in \autoref{fig:z} dargestellt.
+Graphisch ist das standardisierte Perzentil in \@ref(fig:z) dargestellt.
 
 ```{r z, cache=T, fig.pos='H', fig.cap="Standardnormalverteilung des Luftdrucks"}
 ggplot(data.frame(x=c(-3,3)), aes(x)) +
@@ -263,7 +267,7 @@ In R lässt sich die Unterschreitungswahrscheinlichkeit eines $z$-Werts mit dem 
 
 #### Überschreitungswahrscheinlichkeit
 
-Wird nach der Wahrscheinlichkeit der Überschreitung eines Werts gefragt, ist in anderen Worten die Fläche unter der Wahrscheinlichkeitsdichtefunktion zwischen $x_p$ und $\infty$ gemeint. Wir bleiben bei unserem Beispiel $x_p=1015$ (s. \autoref{fig:ueber}).
+Wird nach der Wahrscheinlichkeit der Überschreitung eines Werts gefragt, ist in anderen Worten die Fläche unter der Wahrscheinlichkeitsdichtefunktion zwischen $x_p$ und $\infty$ gemeint. Wir bleiben bei unserem Beispiel $x_p=1015$ (s. \@ref(fig:ueber)).
 
 
 ```{r ueber, cache=T, fig.cap="Überschreitung eines Messwerts"}
@@ -287,7 +291,8 @@ Hieraus ergibt sich ganz allgemein:
   \begin{aligned}
     P(x \geq x_p) = 1-P(x<x_p)
   \end{aligned}
-\]{#eq:ueber}
+  (\#eq:ueber)
+\]
 
 Und für unser Beispiel:
 
@@ -320,7 +325,8 @@ Die [Tabelle im Anhang](#ptab) enthält keine $p$ für negative $z_p$. Da die St
   \begin{aligned}
     P(z < -z_p) = 1 - P(z < z_p)
   \end{aligned}
-\]{#eq:neg}
+  (\#eq:neg)
+\]
 
 Für unser Beispiel ergibt sich (mit dem Wert $P(z < 1,52) = 0,9357$ aus der Tabelle):
 
@@ -340,7 +346,7 @@ Der Befehl {\tt pnorm()} funktioniert auch mit negativen $z$-Werten.
 
 #### Wert in einem Intervall
 
-Nun wollen wir wissen, mit welcher Wahrscheinlichkeit ein zufälliger Meßwert zwischen 1005 und 1015 hPa liegt. Graphisch ist dies in \autoref{fig:intervall} aufbereitet.
+Nun wollen wir wissen, mit welcher Wahrscheinlichkeit ein zufälliger Meßwert zwischen 1005 und 1015 hPa liegt. Graphisch ist dies in \@ref(fig:intervall) aufbereitet.
 
 ```{r intervall, cache=T, fig.cap="Messwertintervall"}
 xu=1005
@@ -364,7 +370,8 @@ Ganz allgemein heißt das für die Untergrenze $x_u$ und die Obergrenze $x_o$:
   \begin{aligned}
     P(x_{u} \leq x < x_{o}) = P(x < x_{o}) - P(x < x_{u})
   \end{aligned}
-\]{#eq:intervall}
+  (\#eq:intervall)
+\]
 
 Für unseren Fall ist $x_u=1005$ und $x_o=1015$. In den [vorherigen Aufgaben](#unter) haben wir $z_o\approx1,41$ bereits ermittelt. Wir müssen aber noch $z_u$ ermitteln:
 
@@ -415,7 +422,7 @@ Das Perzentil für eine gegebene Unterschreitungswahrscheinlichkeit lässt sich 
 
 #### Gesuchte Grenzwerte eines Intervalls
 
-Eine übliche Art der Fragestellung ist auch: Zwischen welchen beiden Werten liegen die mittleren 85% der Fälle (s. Abbiddung \ref{fig:mitte})?
+Eine übliche Art der Fragestellung ist auch: Zwischen welchen beiden Werten liegen die mittleren 85% der Fälle (s. Abbiddung \@ref(fig:mitte))?
 
 ```{r mitte, cache = T, fig.cap="Die mittleren 85\\% der Normalverteilung"}
 xu=qnorm(.925, mu,sigma)

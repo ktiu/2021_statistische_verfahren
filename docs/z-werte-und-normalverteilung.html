@@ -432,13 +432,14 @@
 <h2><span class="header-section-number">3.2</span> Variationskoeffizient</h2>
 <p>Die Berechnung von Maßzahlen (Sitzung 2) vereinfacht es uns, auch große Verteilungen miteinander zu vergleichen. Voraussetzung dafür ist jedoch, dass die Kennwerte (wie arithmetisches Mittel, Standardabweichung) in derselben Maßeinheit (kg, cm, °C, etc.) vorliegen und einen vergleichbaren Maßstab haben.</p>
 <p>Eine Möglichkeit, unabhängig hiervon eine Aussage über die <em>relative</em> Streuung zu treffen, ist der Variationskoeffizient (engl. <em>coefficient of variation</em>) <span class="math inline">\(v\)</span>. Er ist definiert als das (prozentuale) Verhältnis von Standardabweichung zu Mittelwert:</p>
-<p><span class="math display">\[\begin{aligned}
+<p><span class="math display" id="eq:cv">\[\begin{aligned}
 v=\frac{s}{|\bar{x}|}\cdot 100\%
 \end{aligned}
-\]</span>{#eq:cv}</p>
+\tag{3.1}
+\]</span></p>
 <p>Zur Illustration: An zufälligen Tagen hat die Wetterstation auf dem Feldberg folgende Luftdruckwerte gemessen (in hPa):</p>
 <p><code>1007,1 1003,4  990,7  994,2 1000,9  993,0 1016,0  983,9 1007,4  997,8  997,9 1000,2</code></p>
-<p>Mit den bekannten Methoden (Sitzung 2) können wir das arithmetische Mittel <span class="math inline">\(\bar{x}\approx 999,37\)</span> und die Standardabweichung <span class="math inline">\(s\approx8,56\)</span> der Stichprobe bestimmen. Durch einsetzen dieser Werte in  ergibt sich:</p>
+<p>Mit den bekannten Methoden (Sitzung 2) können wir das arithmetische Mittel <span class="math inline">\(\bar{x}\approx 999,37\)</span> und die Standardabweichung <span class="math inline">\(s\approx8,56\)</span> der Stichprobe bestimmen. Durch einsetzen dieser Werte in <a href="z-werte-und-normalverteilung.html#eq:cv">(3.1)</a> ergibt sich:</p>
 <p><span class="math display">\[\begin{aligned}
 v&amp;\approx\frac{8,56}{999,37}\cdot 100\%\\[4pt]
  &amp;\approx0,86\%
@@ -451,16 +452,18 @@ v&amp;\approx\frac{8,56}{999,37}\cdot 100\%\\[4pt]
 <h2><span class="header-section-number">3.3</span> <span class="math inline">\(z\)</span>-Transformation</h2>
 <p>Ein weiterer Ansatz, Verteilungsmuster vergleichbar zu machen, ist die <span class="math inline">\(z\)</span>-Transformation (auch Standardisierung, engl. <em>standardization</em>).</p>
 <p>Für jeden der Messwerte lässt sich ein entsprechender <span class="math inline">\(z\)</span>-Wert mit dieser Formel errechnen:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:z">\[
 z=\frac{x-\bar{x}}{s}
-\]</span>{#eq:z}</p>
+\tag{3.2}
+\]</span></p>
 <p>Der <span class="math inline">\(z\)</span>-Wert eines Werts <span class="math inline">\(x\)</span> ist also der Abstand des Werts zum arithmetischen Mittel <span class="math inline">\(\bar{x}\)</span> der Verteilung, ausgedrückt im Verhältnis zu ihrer Standardabweichung <span class="math inline">\(s\)</span>.</p>
 <p>Die einzelnen <span class="math inline">\(z\)</span>-Werte für die Luftdruckmessungen ergeben sich wie in  dargestellt.</p>
 <p>Eine so <span class="math inline">\(z\)</span>-transformierte Verteilung hat <em>immer</em> automatisch das arithmetische Mittel <span class="math inline">\(\bar{z}=0\)</span> und die Standardabweichung <span class="math inline">\(s_z=1\)</span>. Außerdem haben <span class="math inline">\(z\)</span>-Werte keine Maßeinheit. So kann jede Verteilung <q>standardisiert</q> und systematisch vergleichbar gemacht werden.</p>
 <p>Andersherum lassen sich <span class="math inline">\(z\)</span>-Werte folgendermaßen wieder umwandeln in <span class="math inline">\(x\)</span>-Werte:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:zrev">\[
   x=s\cdot z+\bar{x}
-\]</span>{#eq:zrev}</p>
+  \tag{3.3}
+\]</span></p>
 </div>
 <div id="normalverteilung" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> Normalverteilung</h2>
@@ -471,18 +474,19 @@ Figure 3.1: Dichtefunktionen verschiedener Normalverteilungen
 </p>
 </div>
 <p>Die Normalverteilung (auch: Gaußverteilung, engl. <em>normal distribution</em>) ist unimodal und symmetrisch. Die Normalverteilung ist eine theoretische Verteilung, für die bekannt ist, mit welcher Wahrscheinlichkeit bestimmte Werte unter- und überschritten werden bzw. mit welcher Wahrscheinlichkeit Werte in einem bestimmten Intervall liegen.</p>
-<p>Die Dichtefunktion einer Normalverteilung hat eine markante Glockenform (s. Abbildungen  und ). Die beiden Wendepunkte einer Normalverteilung (also dort, wo die Steigung zwischen zu- und abnehmend wechselt; oder mathematisch: wo die Ableitung der Dichtefunktion einen Extremwert annimmt) sind je eine Standardabweichung vom Mittelwert entfernt.</p>
+<p>Die Dichtefunktion einer Normalverteilung hat eine markante Glockenform (s. Abbildungen <a href="z-werte-und-normalverteilung.html#fig:norms">3.1</a> und <a href="z-werte-und-normalverteilung.html#fig:stdnorm">3.2</a>). Die beiden Wendepunkte einer Normalverteilung (also dort, wo die Steigung zwischen zu- und abnehmend wechselt; oder mathematisch: wo die Ableitung der Dichtefunktion einen Extremwert annimmt) sind je eine Standardabweichung vom Mittelwert entfernt.</p>
 <p>Die Dichtefunktion nimmt nie den Wert Null an – Extremwerte sind also sehr selten bzw. unwahrscheinlich, aber nie unmöglich. Perfekte Normalverteilungen kommen in empirischen Beobachtungen nicht vor, sondern nur Annäherungen.</p>
 <p>Da es sich um eine <em>theoretische</em> Verteilung handelt, ist die Normalverteilung zunächst insbesondere in Bezug auf die Grundgesamtheit interessant. Im Kontext der Grundgesamtheit wird das arithmetische Mittel mit <span class="math inline">\(\mu\)</span> (<q>Mü</q>) und die Standardabweichung mit <span class="math inline">\(\sigma\)</span> (<q>Sigma</q>) bezeichnet (s. ).</p>
 <p>Jede Normalverteilung lässt sich anhand von zwei Parametern beschreiben: ihr arithmetisches Mittel und ihre Standardabweichung. Normalverteilte Grundgesamtheiten werden so notiert:</p>
-<p><span class="math display">\[\begin{aligned}
+<p><span class="math display" id="eq:norm">\[\begin{aligned}
 x \sim N(\mu,\enspace\sigma^2)
-\end{aligned}\]</span>{#eq:norm}</p>
-<p>Der Mittelwert <span class="math inline">\(\mu\)</span> bestimmt die Lage der Kurve auf der x-Achse, die Varianz <span class="math inline">\(\sigma^2\)</span> bestimmt die <q>Stauchung</q> der Kurve (je größer desto flacher). Es gibt also unendlich viele verschiedene Normalverteilungen (s. ).</p>
+\end{aligned}
+\tag{3.4}\]</span></p>
+<p>Der Mittelwert <span class="math inline">\(\mu\)</span> bestimmt die Lage der Kurve auf der x-Achse, die Varianz <span class="math inline">\(\sigma^2\)</span> bestimmt die <q>Stauchung</q> der Kurve (je größer desto flacher). Es gibt also unendlich viele verschiedene Normalverteilungen (s. <a href="z-werte-und-normalverteilung.html#fig:norms">3.1</a>).</p>
 </div>
 <div id="standardnormalverteilung" class="section level2" number="3.5">
 <h2><span class="header-section-number">3.5</span> Standardnormalverteilung</h2>
-<p>Die Standardnormalverteilung (engl. <em>standard normal distribution</em>) ist sozusagen das Grundmuster aller Normalverteilungen. Sie hat den Mittelwert <span class="math inline">\(\mu=0\)</span> und die Standardabweichung <span class="math inline">\(\sigma=1\)</span> (s. ).</p>
+<p>Die Standardnormalverteilung (engl. <em>standard normal distribution</em>) ist sozusagen das Grundmuster aller Normalverteilungen. Sie hat den Mittelwert <span class="math inline">\(\mu=0\)</span> und die Standardabweichung <span class="math inline">\(\sigma=1\)</span> (s. <a href="z-werte-und-normalverteilung.html#fig:stdnorm">3.2</a>.</p>
 <p>Alle Normalverteilungen lassen sich durch die <span class="math inline">\(z\)</span>-Transformation auf die Standardnormalverteilung standardisieren.</p>
 <div class="figure" style="text-align: center"><span id="fig:stdnorm"></span>
 <img src="bookdownproj_files/figure-html/stdnorm-1.png" alt="Dichtefunktion der Standardnormalverteilung" width=".49\linewidth" />
@@ -513,14 +517,14 @@ Für die Standardnormalverteilung finden sich die <span class="math inline">\(p\
 <li>Die Grundgesamtheit ist (annähernd) normalverteilt.</li>
 <li>Arithmetisches Mittel <span class="math inline">\(\mu\)</span> und Standardabweichung <span class="math inline">\(\sigma\)</span> der Grundgesamtheit sind bekannt.</li>
 </ul>
-<p>Die Verfahren sollen anhand eines Beispiels illustriert werden: Es sei bekannt, dass der Luftdruck auf dem Feldberg annähernd normalverteilt ist, und zwar mit dem arithmetischen Mittel <span class="math inline">\(\mu=1003\)</span> und Varianz <span class="math inline">\(\sigma^2=73\)</span>. Graphisch stellt sich die Wahrscheinlichkeitsdichtefunktion wie in  dar.</p>
+<p>Die Verfahren sollen anhand eines Beispiels illustriert werden: Es sei bekannt, dass der Luftdruck auf dem Feldberg annähernd normalverteilt ist, und zwar mit dem arithmetischen Mittel <span class="math inline">\(\mu=1003\)</span> und Varianz <span class="math inline">\(\sigma^2=73\)</span>. Graphisch stellt sich die Wahrscheinlichkeitsdichtefunktion wie in <a href="z-werte-und-normalverteilung.html#fig:dens">3.3</a> dar.</p>
 <div class="figure" style="text-align: center"><span id="fig:dens"></span>
 <img src="bookdownproj_files/figure-html/dens-1.png" alt="Theoretische Wahrscheinlichkeitsdichtefunktion des Luftdrucks" width=".49\linewidth" />
 <p class="caption">
 Figure 3.3: Theoretische Wahrscheinlichkeitsdichtefunktion des Luftdrucks
 </p>
 </div>
-<p>Wir können auch (analog zu ) schreiben:</p>
+<p>Wir können auch (analog zu <a href="z-werte-und-normalverteilung.html#eq:norm">(3.4)</a>) schreiben:</p>
 <p><span class="math display">\[
 x \sim N(1003, 73)
 \]</span></p>
@@ -533,7 +537,7 @@ x \sim N(1003, 73)
 <div id="unter" class="section level3" number="3.8.1">
 <h3><span class="header-section-number">3.8.1</span> Unterschreitungswahrscheinlichkeit</h3>
 <p>Die einfachste Art der Fragestellung ist nun, mit welcher Wahrscheinlichkeit ein bestimmter Wert <span class="math inline">\(x_p\)</span> unterschritten wird.</p>
-<p>Nehmen wir an, es sei gefragt, mit welcher Wahrscheinlichkeit zu einem beliebigen Zeitpunkt der Luftdruck weniger als 1015 hpa beträgt. Anders gesagt interessiert uns der Anteil der Fläche unter der Verteilung, der zwischen <span class="math inline">\(-\infty\)</span> und <span class="math inline">\(x_p=1015\)</span> liegt (s. ).</p>
+<p>Nehmen wir an, es sei gefragt, mit welcher Wahrscheinlichkeit zu einem beliebigen Zeitpunkt der Luftdruck weniger als 1015 hpa beträgt. Anders gesagt interessiert uns der Anteil der Fläche unter der Verteilung, der zwischen <span class="math inline">\(-\infty\)</span> und <span class="math inline">\(x_p=1015\)</span> liegt (s. <a href="z-werte-und-normalverteilung.html#fig:unter">3.4</a>).</p>
 <div class="figure" style="text-align: center"><span id="fig:unter"></span>
 <img src="bookdownproj_files/figure-html/unter-1.png" alt="Unterschreitung eines Messwerts" width=".49\linewidth" />
 <p class="caption">
@@ -547,7 +551,7 @@ Figure 3.4: Unterschreitung eines Messwerts
         &amp;\approx 1,41
   \end{aligned}
 \]</span></p>
-<p>Graphisch ist das standardisierte Perzentil in  dargestellt.</p>
+<p>Graphisch ist das standardisierte Perzentil in <a href="z-werte-und-normalverteilung.html#fig:z">3.5</a> dargestellt.</p>
 <div class="figure" style="text-align: center"><span id="fig:z"></span>
 <img src="bookdownproj_files/figure-html/z-1.png" alt="Standardnormalverteilung des Luftdrucks" width=".49\linewidth" />
 <p class="caption">
@@ -558,7 +562,7 @@ Figure 3.5: Standardnormalverteilung des Luftdrucks
 <p>Der <a href="z-werte-und-normalverteilung.html#ptab">Tabelle im Anhang</a> können wir den Wert <span class="math inline">\(P(z &lt; 1,41) \approx 0,9207\)</span> entnehmen. Die Wahrscheinlichkeit, dass der Luftdruck zu einem zufälligen Zeitpunkt weniger als 1015 hPA beträgt, ist somit 92,07%.</p>
 <div id="überschreitungswahrscheinlichkeit" class="section level4" number="3.8.1.1">
 <h4><span class="header-section-number">3.8.1.1</span> Überschreitungswahrscheinlichkeit</h4>
-<p>Wird nach der Wahrscheinlichkeit der Überschreitung eines Werts gefragt, ist in anderen Worten die Fläche unter der Wahrscheinlichkeitsdichtefunktion zwischen <span class="math inline">\(x_p\)</span> und <span class="math inline">\(\infty\)</span> gemeint. Wir bleiben bei unserem Beispiel <span class="math inline">\(x_p=1015\)</span> (s. ).</p>
+<p>Wird nach der Wahrscheinlichkeit der Überschreitung eines Werts gefragt, ist in anderen Worten die Fläche unter der Wahrscheinlichkeitsdichtefunktion zwischen <span class="math inline">\(x_p\)</span> und <span class="math inline">\(\infty\)</span> gemeint. Wir bleiben bei unserem Beispiel <span class="math inline">\(x_p=1015\)</span> (s. <a href="z-werte-und-normalverteilung.html#fig:ueber">3.6</a>).</p>
 <div class="figure" style="text-align: center"><span id="fig:ueber"></span>
 <img src="bookdownproj_files/figure-html/ueber-1.png" alt="Überschreitung eines Messwerts" width=".49\linewidth" />
 <p class="caption">
@@ -568,11 +572,12 @@ Figure 3.6: Überschreitung eines Messwerts
 <p>Hier können wir genauso wie bei der Unterschreitung <span class="math inline">\(z_p=1,41\)</span> errechnen.</p>
 <p>Jetzt stehen wir zunächst vor dem Problem, dass die <span class="math inline">\(p\)</span>-Werte in der Tabelle immer die Wahrscheinlichkeit der Unterschreitung darstellen. Wir wissen jedoch: Die gesamte Fläche unter der Verteilung ist 1, und die Wahrscheinlichkeiten der Unter- und Überschreitung sind komplementär, d.h. einer von beiden Fällen tritt sicher (mit einer Wahrscheinlichkeit von 100%) ein. (Den Sonderfall <span class="math inline">\(x=x_p\)</span> können wir bei stetigen Variablen vernachlässigen.)</p>
 <p>Hieraus ergibt sich ganz allgemein:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:ueber">\[
   \begin{aligned}
     P(x \geq x_p) = 1-P(x&lt;x_p)
   \end{aligned}
-\]</span>{#eq:ueber}</p>
+  \tag{3.5}
+\]</span></p>
 <p>Und für unser Beispiel:</p>
 <p><span class="math display">\[
   \begin{aligned}
@@ -595,11 +600,12 @@ Figure 3.6: Überschreitung eines Messwerts
   \end{aligned}
 \end{equation}\]</span></p>
 <p>Die <a href="z-werte-und-normalverteilung.html#ptab">Tabelle im Anhang</a> enthält keine <span class="math inline">\(p\)</span> für negative <span class="math inline">\(z_p\)</span>. Da die Standardnormalverteilung jedoch um <span class="math inline">\(z=0\)</span> symmetrisch ist, gilt ganz allgemein:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:neg">\[
   \begin{aligned}
     P(z &lt; -z_p) = 1 - P(z &lt; z_p)
   \end{aligned}
-\]</span>{#eq:neg}</p>
+  \tag{3.6}
+\]</span></p>
 <p>Für unser Beispiel ergibt sich (mit dem Wert <span class="math inline">\(P(z &lt; 1,52) = 0,9357\)</span> aus der Tabelle):</p>
 <p><span class="math display">\[
   \begin{aligned}
@@ -612,7 +618,7 @@ Figure 3.6: Überschreitung eines Messwerts
 </div>
 <div id="wert-in-einem-intervall" class="section level4" number="3.8.1.3">
 <h4><span class="header-section-number">3.8.1.3</span> Wert in einem Intervall</h4>
-<p>Nun wollen wir wissen, mit welcher Wahrscheinlichkeit ein zufälliger Meßwert zwischen 1005 und 1015 hPa liegt. Graphisch ist dies in  aufbereitet.</p>
+<p>Nun wollen wir wissen, mit welcher Wahrscheinlichkeit ein zufälliger Meßwert zwischen 1005 und 1015 hPa liegt. Graphisch ist dies in <a href="z-werte-und-normalverteilung.html#fig:intervall">3.7</a> aufbereitet.</p>
 <div class="figure" style="text-align: center"><span id="fig:intervall"></span>
 <img src="bookdownproj_files/figure-html/intervall-1.png" alt="Messwertintervall" width=".49\linewidth" />
 <p class="caption">
@@ -621,11 +627,12 @@ Figure 3.7: Messwertintervall
 </div>
 <p>Rechnerisch müssen wir also von den (günstigen) Fällen, in denen 1015 hPA unterschritten werden, noch jene (ungünstige) Fälle abziehen, in denen die 1005 hPA <em>ebenfalls</em> unterschritten werden.</p>
 <p>Ganz allgemein heißt das für die Untergrenze <span class="math inline">\(x_u\)</span> und die Obergrenze <span class="math inline">\(x_o\)</span>:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:intervall">\[
   \begin{aligned}
     P(x_{u} \leq x &lt; x_{o}) = P(x &lt; x_{o}) - P(x &lt; x_{u})
   \end{aligned}
-\]</span>{#eq:intervall}</p>
+  \tag{3.7}
+\]</span></p>
 <p>Für unseren Fall ist <span class="math inline">\(x_u=1005\)</span> und <span class="math inline">\(x_o=1015\)</span>. In den <a href="z-werte-und-normalverteilung.html#unter">vorherigen Aufgaben</a> haben wir <span class="math inline">\(z_o\approx1,41\)</span> bereits ermittelt. Wir müssen aber noch <span class="math inline">\(z_u\)</span> ermitteln:</p>
 <p><span class="math display">\[
   \begin{aligned}5
@@ -662,7 +669,7 @@ Figure 3.7: Messwertintervall
 </div>
 <div id="gesuchte-grenzwerte-eines-intervalls" class="section level4" number="3.8.1.5">
 <h4><span class="header-section-number">3.8.1.5</span> Gesuchte Grenzwerte eines Intervalls</h4>
-<p>Eine übliche Art der Fragestellung ist auch: Zwischen welchen beiden Werten liegen die mittleren 85% der Fälle (s. Abbiddung )?</p>
+<p>Eine übliche Art der Fragestellung ist auch: Zwischen welchen beiden Werten liegen die mittleren 85% der Fälle (s. Abbiddung <a href="z-werte-und-normalverteilung.html#fig:mitte">3.8</a>)?</p>
 <div class="figure" style="text-align: center"><span id="fig:mitte"></span>
 <img src="bookdownproj_files/figure-html/mitte-1.png" alt="Die mittleren 85\% der Normalverteilung" width=".49\linewidth" />
 <p class="caption">

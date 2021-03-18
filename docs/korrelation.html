@@ -428,13 +428,13 @@
 <h2><span class="header-section-number">7.2</span> Bivariate Statistik</h2>
 <p>Grundlage der bivariaten Statistik ist es, dass für eine Reihe von Untersuchungsheinheiten jeweils zwei Merkmale erfasst sind.</p>
 <p>Diese Merkmale werden üblicherweise mit <span class="math inline">\(x\)</span> und <span class="math inline">\(y\)</span> gekennzeichnet. Für jedes <span class="math inline">\(i\)</span> (laufende Nummer der Merkmalsträger*innen) gibt es dann ein <span class="math inline">\(x_i\)</span> (Ausprägung des Merkmals <span class="math inline">\(x\)</span>) und ein <span class="math inline">\(y_i\)</span> (Ausprägung des Merkmals <span class="math inline">\(y\)</span>).</p>
-<p>Das Streudiagramm (engl. <em>scatter plot</em>) stellt alle erfassten Werte dar, indem es die Untersuchungseinheiten als Punkte arrangiert – und zwar anhand ihres jeweiligen Werts der Variable <span class="math inline">\(x\)</span> entlang der <span class="math inline">\(x\)</span>-Achse und entlang der <span class="math inline">\(y\)</span>-Achse anhand des <span class="math inline">\(y\)</span>-Werts (s. ).</p>
+<p>Das Streudiagramm (engl. <em>scatter plot</em>) stellt alle erfassten Werte dar, indem es die Untersuchungseinheiten als Punkte arrangiert – und zwar anhand ihres jeweiligen Werts der Variable <span class="math inline">\(x\)</span> entlang der <span class="math inline">\(x\)</span>-Achse und entlang der <span class="math inline">\(y\)</span>-Achse anhand des <span class="math inline">\(y\)</span>-Werts (s. <a href="korrelation.html#fig:scatter">7.1</a>).</p>
 <div id="beispiel-23" class="section level3" number="7.2.1">
 <h3><span class="header-section-number">7.2.1</span> Beispiel</h3>
 <p>Die statistischen Verfahren dieser Sitzung sollen wieder an einem Beispiel illustriert werden.</p>
 <p>Wir fragen uns, ob der jährliche Ertrag in einem bestimmten Anbaugebiet für Klebreis in Nordostthailand mit dem jährlichen Niederschlag zusammenhängt. Die erfassten Werte sind in  festgehalten (<q>Rai</q> ist ein <a href="https://de.wikipedia.org/wiki/Rai_(Einheit)">in Thailand übliches Flächenmaß</a>).</p>
 <p>In einem Streudiagramm können diese Werte veranschaulicht werden. Dabei ist es üblich, die unabhängige Variable auf der <span class="math inline">\(x\)</span>-Achse und die abhängige Variable auf der <span class="math inline">\(y\)</span>-Achse einzutragen. Im Beispiel liegt nahe, dass der Ertrag vom Regen abhängt, und nicht etwa umgekehrt.</p>
-<p> ist das Streudiagramm für unser Beispiel. Es fällt schon rein optisch auf, dass ein Zusammenhang zu bestehen scheint: Je mehr Regen, desto reicher die Ernte. Doch wie lässt sich dieser Zusammenhang beziffern?</p>
+<p><a href="korrelation.html#fig:scatter">7.1</a> ist das Streudiagramm für unser Beispiel. Es fällt schon rein optisch auf, dass ein Zusammenhang zu bestehen scheint: Je mehr Regen, desto reicher die Ernte. Doch wie lässt sich dieser Zusammenhang beziffern?</p>
 <div class="figure" style="text-align: center"><span id="fig:scatter"></span>
 <img src="bookdownproj_files/figure-html/scatter-1.png" alt="Streudiagramm zum Reisanbau" width=".49\linewidth" />
 <p class="caption">
@@ -446,10 +446,11 @@ Figure 7.1: Streudiagramm zum Reisanbau
 <div id="kovarianz" class="section level2" number="7.3">
 <h2><span class="header-section-number">7.3</span> Kovarianz</h2>
 <p>Die Kovarianz (engl. <em>covariance</em>) <span class="math inline">\(s_{xy}\)</span> gibt an, inwiefern die beiden Variablen <span class="math inline">\(x\)</span> und <span class="math inline">\(y\)</span> <em>gemeinsam variieren</em>. Die Kovarianz ergibt sich durch die Summe der jeweiligen Produkte der Differenzen zu den Mittelwerten <span class="math inline">\((x_i-\bar{x})\)</span> und <span class="math inline">\((y_i-\bar{y})\)</span>, geteilt durch <span class="math inline">\((n-1)\)</span>. Die Formel lautet also:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:cov">\[
 s_{xy}=\frac{\sum\limits^n_{i=1}(x_i-\bar{x})\cdot(y_i-\bar{y})}{n-1}
-\]</span>{#eq:cov}</p>
-<p> lässt erahnen: Wenn sowohl <span class="math inline">\(x\)</span> als auch <span class="math inline">\(y\)</span> in die gleiche Richtung vom jeweiligen Mittelwert abweichen (also beide Differenzen positiv oder beide Differenzen negativ), dann ist das Produkt positiv, sonst ist es negativ. Eine positive Kovarianz lässt also auf einen positiven Zusammenhang schließen (je größer <span class="math inline">\(x\)</span>, desto größer auch <span class="math inline">\(y\)</span>), eine negative Kovarianz auf einen negativen Zusammenhang (je größer <span class="math inline">\(x\)</span>, desto <em>kleiner</em> <span class="math inline">\(y\)</span>).</p>
+\tag{7.1}
+\]</span></p>
+<p><a href="korrelation.html#eq:cov">(7.1)</a> lässt erahnen: Wenn sowohl <span class="math inline">\(x\)</span> als auch <span class="math inline">\(y\)</span> in die gleiche Richtung vom jeweiligen Mittelwert abweichen (also beide Differenzen positiv oder beide Differenzen negativ), dann ist das Produkt positiv, sonst ist es negativ. Eine positive Kovarianz lässt also auf einen positiven Zusammenhang schließen (je größer <span class="math inline">\(x\)</span>, desto größer auch <span class="math inline">\(y\)</span>), eine negative Kovarianz auf einen negativen Zusammenhang (je größer <span class="math inline">\(x\)</span>, desto <em>kleiner</em> <span class="math inline">\(y\)</span>).</p>
 <div id="beispiel-24" class="section level3" number="7.3.1">
 <h3><span class="header-section-number">7.3.1</span> Beispiel</h3>
 <p>Es macht Sinn, eine Tabelle anzulgen, in der Teilrechenschritte durchgeführt werden.  veranschaulicht dies.</p>
@@ -462,7 +463,7 @@ s_{xy}=\frac{\sum\limits^n_{i=1}(x_i-\bar{x})\cdot(y_i-\bar{y})}{n-1}
        &amp;=\frac{22495}{10}=2249,5
 \end{aligned}
 \]</span></p>
-<p>Schließlich ergibt Einsetzen der Produktsumme in  die Kovarianz:</p>
+<p>Schließlich ergibt Einsetzen der Produktsumme in <a href="korrelation.html#eq:cov">(7.1)</a> die Kovarianz:</p>
 <p><span class="math display">\[\begin{aligned}
 s_{xy}&amp;=\frac{\sum\limits^n_{i=1}(x_i-\bar{x})\cdot(y_i-\bar{y})}{n-1}\\[5pt]
 &amp;\approx\frac{362038,5}{9}=40226,5
@@ -473,10 +474,11 @@ s_{xy}&amp;=\frac{\sum\limits^n_{i=1}(x_i-\bar{x})\cdot(y_i-\bar{y})}{n-1}\\[5pt
 <div id="korrelationskoeffizient" class="section level2" number="7.4">
 <h2><span class="header-section-number">7.4</span> Korrelationskoeffizient</h2>
 <p>Der Korrelationskoeffizent <span class="math inline">\(r\)</span> (auch Produkt-Moment-Korrelation, Bravais-Pearson-Korrelation, Pearsons <span class="math inline">\(r\)</span>, engl. <em>correlation coefficient</em>) standardisiert die Kovarianz <span class="math inline">\(s_{xy}\)</span> anhand der Standardabweichungen <span class="math inline">\(s_x\)</span> und <span class="math inline">\(s_y\)</span>. Die Formel lautet:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:cor">\[
 r=\frac{s_{xy}}{s_x\cdot s_y}
-\]</span>{#eq:cor}</p>
-<p>Durch diese Standardisierung kann der Korrelationskoeffizient nur noch Werte zwischen <span class="math inline">\(r=-1\)</span> (perfekte negative Korrelation) und <span class="math inline">\(r=1\)</span> (perfekte positive Korrelation) annehmen. Ein Korrelationskoeffizient nahe <span class="math inline">\(r=0\)</span> bedeutet, dass es keinen Zusammenhang zwischen den Variablen <span class="math inline">\(x\)</span> und <span class="math inline">\(y\)</span> gibt (s. ).</p>
+\tag{7.2}
+\]</span></p>
+<p>Durch diese Standardisierung kann der Korrelationskoeffizient nur noch Werte zwischen <span class="math inline">\(r=-1\)</span> (perfekte negative Korrelation) und <span class="math inline">\(r=1\)</span> (perfekte positive Korrelation) annehmen. Ein Korrelationskoeffizient nahe <span class="math inline">\(r=0\)</span> bedeutet, dass es keinen Zusammenhang zwischen den Variablen <span class="math inline">\(x\)</span> und <span class="math inline">\(y\)</span> gibt (s. <a href="korrelation.html#fig:corrs">7.2</a>).</p>
 <div class="figure" style="text-align: center"><span id="fig:corrs"></span>
 <img src="bookdownproj_files/figure-html/corrs-1.png" alt="Verschiedene Korrelationskoeffizienten" width=".26\linewidth" /><img src="bookdownproj_files/figure-html/corrs-2.png" alt="Verschiedene Korrelationskoeffizienten" width=".26\linewidth" /><img src="bookdownproj_files/figure-html/corrs-3.png" alt="Verschiedene Korrelationskoeffizienten" width=".26\linewidth" /><img src="bookdownproj_files/figure-html/corrs-4.png" alt="Verschiedene Korrelationskoeffizienten" width=".26\linewidth" /><img src="bookdownproj_files/figure-html/corrs-5.png" alt="Verschiedene Korrelationskoeffizienten" width=".26\linewidth" /><img src="bookdownproj_files/figure-html/corrs-6.png" alt="Verschiedene Korrelationskoeffizienten" width=".26\linewidth" /><img src="bookdownproj_files/figure-html/corrs-7.png" alt="Verschiedene Korrelationskoeffizienten" width=".26\linewidth" /><img src="bookdownproj_files/figure-html/corrs-8.png" alt="Verschiedene Korrelationskoeffizienten" width=".26\linewidth" /><img src="bookdownproj_files/figure-html/corrs-9.png" alt="Verschiedene Korrelationskoeffizienten" width=".26\linewidth" />
 <p class="caption">
@@ -485,7 +487,7 @@ Figure 7.2: Verschiedene Korrelationskoeffizienten
 </div>
 <div id="beispiel-25" class="section level3" number="7.4.1">
 <h3><span class="header-section-number">7.4.1</span> Beispiel</h3>
-<p>In der Formel für den Korrelationskoeffizienten <span class="math inline">\(r\)</span> () werden die Standardabweichungen <span class="math inline">\(s_x\)</span> und <span class="math inline">\(s_y\)</span> benötigt. Es ist daher sinnvoll, die Hilfstabelle um die Quadrate der Differenzen (und deren Summen) zu erweitern (s. ).</p>
+<p>In der Formel für den Korrelationskoeffizienten <span class="math inline">\(r\)</span> (<a href="korrelation.html#eq:cor">(7.2)</a>) werden die Standardabweichungen <span class="math inline">\(s_x\)</span> und <span class="math inline">\(s_y\)</span> benötigt. Es ist daher sinnvoll, die Hilfstabelle um die Quadrate der Differenzen (und deren Summen) zu erweitern (s. ).</p>
 <p>Die Standardabweichungen ergeben sich nun wie gewohnt aus:</p>
 <p><span class="math display">\[\begin{aligned}
 s_{x}&amp;=\sqrt{\frac{\sum\limits^n_{i=1}(x_i-\bar{x})^2}{n-1}}\\[5pt]
@@ -493,7 +495,7 @@ s_{x}&amp;=\sqrt{\frac{\sum\limits^n_{i=1}(x_i-\bar{x})^2}{n-1}}\\[5pt]
 s_{y}&amp;=\sqrt{\frac{\sum\limits^n_{i=1}(y_i-\bar{y})^2}{n-1}}\\[5pt]
      &amp;=\sqrt{\frac{646556,5}{9}}=\sqrt{71839,61} \approx268,03
 \end{aligned}\]</span></p>
-<p>Nun lassen sich die errechneten Werte in  einsetzen:</p>
+<p>Nun lassen sich die errechneten Werte in <a href="korrelation.html#eq:cor">(7.2)</a> einsetzen:</p>
 <p><span class="math display">\[\begin{aligned}
 r&amp;=\frac{s_{xy}}{s_x\cdot s_y}\\[4pt]
 &amp;\approx\frac{40226,5}{161,09\cdot268,03}\approx0,93

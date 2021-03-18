@@ -193,7 +193,8 @@ Wie in anderen Tests ist ein Signifikanzniveau von $\alpha=0,05$ üblich, wofür
 
 Bei $\chi^2$-Tests gibt es immer nur einen kritischen Wert. Zunächst müssen beim $\chi^2$-Unabhängigkeitstest die Freiheitsgrade bestimmt werden mit der Formel:
 
-\[\mathit{df} = (k - 1) \cdot (\ell - 1) \]{#eq:dfu}
+\[\mathit{df} = (k - 1) \cdot (\ell - 1)
+(\#eq:dfu)\]
 
 wobei auch hier wieder $k$ für die Zeilenanzahl und $\ell$ für die Spaltenanzahl steht.
 
@@ -228,7 +229,8 @@ Wie in Sitzung 9 besprochen, wird die Prüfgröße $\chi^2$ anhand der Formel
 
 \[
 \chi^2= \sum_{i=1}^{k}\sum_{j=1}^{\ell}\frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}
-\]{#eq:chisq}
+(\#eq:chisq)
+\]
 
 errechnet. Dabei ist die Ermittlung der Erwartungswerte $m_{ij}$ ein notwendiger Schritt, und auch die Teilwerte für $\chi^2$ können wieder direkt in die Kreuztabelle eingetragen werden.
 
@@ -302,7 +304,8 @@ Gerichtete Hypothesen dürfen hier nur bei dichotomen Variablen formuliert werde
 
 Die Freiheitsgrade bestimmen sich aus
 
-\[\mathit{df}=k-1\]{#eq:dfe}
+\[\mathit{df}=k-1
+(\#eq:dfe)\]
 
 wobei $k$ hier einfach die Anzahl der Katorien ist.
 

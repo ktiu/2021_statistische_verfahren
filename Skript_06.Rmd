@@ -53,7 +53,8 @@ Die Nullhypothese geht davon aus, dass es keinen Unterschied zwischen den beiden
 
 \[
 H_0 : \mu_1 = \mu_2
-\]{#eq: h20}
+(\#eq:h20)
+\]
 
 #### Alternativhypothese
 
@@ -65,7 +66,8 @@ Die ungerichtete Alternativhypothese besagt nur, *dass* es einen Unterschied zwi
 
 \[
 H_1 : \mu_1 \neq \mu_2
-\]{#eq:h21u}
+(\#eq:h21u)
+\]
 
 ##### Gerichtete Alternativhypothese
 
@@ -73,13 +75,15 @@ Die gerichtete Alternativhyptothese gibt eine Richtung des vermuteten Unterschie
 
 \[
 H_1 : \mu_1 < \mu_2
-\]{#eq:h21l}
+(\#eq:h21l)
+\]
 
 oder:
 
 \[
 H_1 : \mu_1 > \mu_2
-\]{#eq:h21g}
+(\#eq:h21g)
+\]
 
 #### Beispiel
 
@@ -104,7 +108,8 @@ Der kritische Wert wird genau wie bei dem 1-Stichproben-$t$-Test aus der Tabelle
 
 \[
 \mathit{df}=2\cdot n -2
-\]{#eq:df2sp}
+(\#eq:df2sp)
+\]
 
 #### Beispiel
 
@@ -129,7 +134,8 @@ Bei zwei Stichproben mit Mittelwert $\bar{x}_1$ bzw. $\bar{x}_1$ und Varianz $s^
 
 \[
 t=\frac{\bar{x}_1-\bar{x}_2}{\sqrt{\frac{s^2_1+s^2_2}{n}}}
-\]{#eq:t2sp}
+(\#eq:t2sp)
+\]
 
 #### Beispiel
 
@@ -160,7 +166,7 @@ Andererseits sind ja auch die Stichprobenvarianzen zu einem gewissen Grad Zufall
 
 Wir entscheiden uns zunächst dazu, den Test fortzuführen und lernen gleich eine Methode kennen, wie wir überprüfen können, ob das auch gerechtfertigt ist.
 
-Um die Prüfgröße $t$ zu bestimmen, setzen wir einfach unsere Stichprobenwerte in die Formel aus \autoref{eq:t2sp} ein:
+Um die Prüfgröße $t$ zu bestimmen, setzen wir einfach unsere Stichprobenwerte in die Formel aus \@ref(eq:t2sp) ein:
 
 \[\begin{aligned}
 t&=\frac{\bar{x}_1-\bar{x}_2}{\sqrt{\frac{s^2_1+s^2_2}{n}}}\\[6pt]
@@ -182,7 +188,7 @@ In R wird auch der 2-Stichproben-$t$-Test mit dem Befehl {\tt t.test()} durchgef
 
 ## Die $F$-Verteilung
 
-Die Prüfgröße $F$ im $F$-Test ist unter Annahme der Nullhypothese $F$-verteilt. Im Gegensatz zu den Verteilungen von $z$ und $t$ ist die $F$-Verteilung nicht symmetrisch und nimmt nur positive Werte an (s. \autoref{fig:fdf}).
+Die Prüfgröße $F$ im $F$-Test ist unter Annahme der Nullhypothese $F$-verteilt. Im Gegensatz zu den Verteilungen von $z$ und $t$ ist die $F$-Verteilung nicht symmetrisch und nimmt nur positive Werte an (s. \@ref(fig:fdf)).
 
 Dazu ist die $F$-Verteilung nicht wie $t$ von einem, sondern von zwei Freiheitsgraden abhängig. Die Reihenfolge dieser Freiheitsgrade ist auch wichtig: Wir sprechen vom Zähler-Freiheitsgrad ($\mathit{df}_1$) und vom Nenner-Freiheitsgrad ($\mathit{df}_2$). Die $F$-Verteilung wird also notiert mit: $F_{\mathit{df}_1;\mathit{df}_2}$
 
@@ -233,7 +239,8 @@ Alles wie gehabt -- nur, dass es um die Varianz $\sigma^2$ der jewiligen Populat
 
 \[
 H_0: \sigma^2_1=\sigma^2_2
-\]{#eq:h0f}
+(\#eq:h0f)
+\]
 
 #### Alternativhypothesen
 
@@ -241,17 +248,20 @@ H_0: \sigma^2_1=\sigma^2_2
 
 \[
 H_1: \sigma^2_1\neq\sigma^2_2
-\]{#eq:h1uf}
+(\#eq:h1uf)
+\]
 
 ##### Gerichtet
 
 \[
 H_1: \sigma^2_1>\sigma^2_2
-\]{#eq:h1gf}
+(\#eq:h1gf)
+\]
 oder
 \[
 H_1: \sigma^2_1<\sigma^2_2
-\]{#eq:h1lf}
+(\#eq:h1lf)
+\]
 
 #### Beispiel
 
@@ -283,18 +293,21 @@ Für die ungerichtete Alternativhypothese sind die kritischen Werte:
 
 \[
 F \leq F_{\mathit{df}_1;\mathit{df}_2;\alpha/2} \quad \textrm{und} \quad F \geq F_{\mathit{df}_1;\mathit{df}_2;(1-\alpha/2)}
-\]{#eq:kritFu}
+(\#eq:kritFu)
+\]
 
 Für die gerichtete Alternativhypothese:
 \[
 F \leq F_{\mathit{df}_1;\mathit{df}_2;\alpha}
-\]{#eq:kritFl}
+(\#eq:kritFl)
+\]
 
 bzw.
 
 \[
 F \geq F_{\mathit{df}_1;\mathit{df}_2;(1-\alpha)}
-\]{#eq:kritFg}
+(\#eq:kritFg)
+\]
 
 Die Besonderheit der $F$-Verteilung ist, dass sie gleich von zwei Freiheitsgraden abhängt: dem Zähler-Freiheitsgrad $\mathit{df}_1$ und dem Nenner-Freiheitsgrad $\mathit{df}_2$.
 
@@ -303,13 +316,15 @@ Dabei bestimmen sich die Freiheitsgrade wieder durch die Stichprobengrößen:
 \[\begin{aligned}
 \mathit{df}_1=n_1-1\\
 \mathit{df}_2=n_2-1
-\end{aligned}\]{#eq:Fdfs}
+\end{aligned}
+(\#eq:Fdfs)\]
 
-In der Tabelle im Anhang sind nur die Werte für Flächenanteile von 0,95 vermerkt. Die Werte für Flächenanteile von 0,05 (also am linken Rand) können durch \autoref{eq:Frev} bestimmt werden:
+In der Tabelle im Anhang sind nur die Werte für Flächenanteile von 0,95 vermerkt. Die Werte für Flächenanteile von 0,05 (also am linken Rand) können durch \@ref(eq:Frev) bestimmt werden:
 
 \[
-F_{\mathit{df}_1;\mathit{df}_2;\alpha}=\frac{1}{F_{\mathit{df}_2;\mathit{df}_1;(1-\alpha)}} 
-\]{#eq:Frev}
+F_{\mathit{df}_1;\mathit{df}_2;\alpha}=\frac{1}{F_{\mathit{df}_2;\mathit{df}_1;(1-\alpha)}}
+(\#eq:Frev)
+\]
 
 Dabei ist zu beachten, dass im Nenner die Reihenfolge der Freiheitsgrade getauscht wird!
 
@@ -322,14 +337,14 @@ F_{13;20;5\%}&=\frac{1}{F_{20;13;95\%}} \\[5pt]
 
 #### Beispiel
 
-Die Freiheitsgrade berechnen sich durch \autoref{eq:Fdfs}:
+Die Freiheitsgrade berechnen sich durch \@ref(eq:Fdfs):
 
 \[\begin{aligned}
 \mathit{df}_1=n_1-1=5\\[4pt]
 \mathit{df}_2=n_2-1=5
 \end{aligned}\]
 
-Durch unsere gerichtete Alternativhypothese ergibt sich der kritische Wert aus \autoref{eq:kritFl} (unter Anwendung des Tricks aus \autoref{eq:Frev}):
+Durch unsere gerichtete Alternativhypothese ergibt sich der kritische Wert aus \@ref(eq:kritFl) (unter Anwendung des Tricks aus \@ref(eq:Frev)):
 
 \[\begin{aligned}
 F &\leq F_{\mathit{df}_1;\mathit{df}_2;\alpha}\\
@@ -339,7 +354,7 @@ F &\leq \frac{1}{5{,}05}\\[4pt]
 F &\leq 0{,}20\\[4pt]
 \end{aligned}\]
 
-Der so berechnete Ablehnungsbereich ist grafisch in \autoref{fig:falpha} aufbereitet.
+Der so berechnete Ablehnungsbereich ist grafisch in \@ref(fig:falpha) aufbereitet.
 
 ```{r falpha, fig.cap="Ablehnungsbereich für $F \\leq F_{5;5;5\\%}$"}
 fun=function(x){df(x,5,5)}
@@ -357,7 +372,8 @@ Die Formel für die Prüfgröße $F$ ist denkbar einfach:
 
 \[\begin{aligned}
 F=\frac{s^2_1}{s^2_2}
-\end{aligned}\]{#eq:formelf}
+\end{aligned}
+(\#eq:formelf)\]
 
 #### Beispiel
 
@@ -368,7 +384,7 @@ s^2_1\approx0{,}41\\
 s^2_2\approx1{,}59
 \end{aligned}\]
 
-Einsetzen in die Formel aus \autoref{eq:formelf} ergibt:
+Einsetzen in die Formel aus \@ref(eq:formelf) ergibt:
 
 \[\begin{aligned}
 F&=\frac{s^2_1}{s^2_2}\\[6pt]

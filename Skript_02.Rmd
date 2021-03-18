@@ -29,12 +29,12 @@ td <- c(
 )
 table <- data.frame(t(matrix(td, nrow=length(th))))
 colnames(table) <- th
-knitr::kable(table, "latex", booktabs=T, escape=F, caption = "Die wichtigsten Maßzahlen") %>% kable_styling(latex_options = c("hold_position")) 
+knitr::kable(table, "latex", booktabs=T, escape=F, caption = "Die wichtigsten Maßzahlen") %>% kable_styling(latex_options = c("hold_position"))
 ```
 
 ### Beispielverteilung
 
-Alle Berechnungen von Maßzahlen werden am folgenden Beispiel illustriert: Für die 14 Gemeinden im Landkreis Rothenberge wurde die jeweilige Anzahl an Gaststätten erhoben. Die Zählung ergab die Wertereihe in Tabelle \ref{tab:werte}.
+Alle Berechnungen von Maßzahlen werden am folgenden Beispiel illustriert: Für die 14 Gemeinden im Landkreis Rothenberge wurde die jeweilige Anzahl an Gaststätten erhoben. Die Zählung ergab die Wertereihe in Tabelle \ref(tab:werte).
 
 ```{r werte}
 xs <- c(4, 1, 4, 1, 5, 5, 0, 1, 8, 5, 1, 25, 3, 3)
@@ -59,7 +59,7 @@ Da dies eine Größer-kleiner-Relation der Werte voraussetzt, kann der Median nu
 
 Im Folgenden wird die (einfachere) Bestimmung des Medians nach @bortz verwendet. @benninghaus beschreibt ein anderes Verfahren, welches zu anderen Ergebnissen kommen kann.
 
-Um den Median zu bestimmen, wird zunächst eine geordnete Liste angefertigt, indem die Werte aufsteigend sortiert werden. Diese sortierten Werte werden mit $x_{(1)}, x_{(2)}, x_{(3)}, ..., x_{(n)}$ bezeichnet (also mit Klammern). Für unsere Beispielverteilung ergibt sich Tabelle \ref{tab:sort}.
+Um den Median zu bestimmen, wird zunächst eine geordnete Liste angefertigt, indem die Werte aufsteigend sortiert werden. Diese sortierten Werte werden mit $x_{(1)}, x_{(2)}, x_{(3)}, ..., x_{(n)}$ bezeichnet (also mit Klammern). Für unsere Beispielverteilung ergibt sich Tabelle \@ref(tab:sort).
 
 ```{r sort}
 matrix(sort(xs), nrow = 1, dimnames = list(c(), sprintf("$x_{(%s)}$", 1:14)))%>% as_tibble %>%
@@ -71,15 +71,17 @@ Bei einer ungeraden Stichprobengröße $n$ teilt der $(\frac{n+1}{2})$-te Wert (
 
 \[
   \mathit{Md} = x_{(\frac{n+1}{2})} \quad \text{falls }n\text{ ungerade.}
-\]{#eq:med1}
+  (\#eq:med1)
+\]
 
 Bei geradem $n$ entstehen zwei gleich große Hälften der Stichprobe: $x_{(1)}$ bis $x_{(\frac{n}{2})}$ einerseits, und $x_{(\frac{n}{2}+1)}$ bis $x_{(n)}$ andererseits. Der Durchschnitt zwischen $x_{(\frac{n}{2})}$ und $x_{(\frac{n}{2}+1)}$ teilt die Stichprobe in zwei Hälften. Es gilt:
 
 \[
   \mathit{Md} = \frac{x_{(\frac{n}{2})} + x_{(\frac{n}{2}+1)}}{2} \quad \text{falls } n \text{ gerade.}
-\]{#eq:med2}
+  (\#eq:med2)
+\]
 
-In unserem Beispiel ist $n=14$ und damit gerade. Der Median errechnet also nach Formel \ref{eq:med2} wie folgt:
+In unserem Beispiel ist $n=14$ und damit gerade. Der Median errechnet also nach Formel \@ref(eq:med2) wie folgt:
 
 \[
   \begin{aligned}
@@ -104,7 +106,7 @@ Bei ordinalen und metrischen Skalenniveaus sind folgende Besonderheiten zu beach
 - Wird der Modus einer Verteilung durch unmittelbar benachbarte Werte gebildet, wird er als Kombination (bei metrischen Variablen als arithmetisches Mittel) dieser Werte angegeben.
 - Bei bimodalen (multimodalen) Verteilungen werden beide (alle) Modalwerte angegeben.
 
-Hierzu müssen die Häufigkeiten der Werte bekannt sein, bzw. bestimmt werden (s. Tabelle \ref{tab:mod}).
+Hierzu müssen die Häufigkeiten der Werte bekannt sein, bzw. bestimmt werden (s. Tabelle \@ref(tab:mod)).
 
 ```{r mod}
 df <- as.data.frame(table(xs))
@@ -125,9 +127,10 @@ Die Berechnung des arithmetischen Mittels einer Stichprobe erfolgt durch die For
 
 \[
  \bar{x}=\frac{\sum\limits _{i=1}^{n}x_{i}}{n}
-\]{#eq:am}
+ (\#eq:am)
+\]
 
-Für unsere Beispielverteilung ergibt sich durch einsetzen in Formel \ref{eq:am}:
+Für unsere Beispielverteilung ergibt sich durch einsetzen in Formel \@ref(eq:am):
 \[
   \begin{aligned}
      \bar{x}&=\frac{\sum\limits _{i=1}^{14}x_{i}}{14} \\[4pt]
@@ -151,9 +154,10 @@ Die Spannweite (engl. *range*) gibt Auskunft darüber, wie groß der Wertebereic
 
 \[
  R=x_{(n)} - x_{(1)}
-\]{#eq:range}
+ (\#eq:range)
+\]
 
-Für unsere Beispielstichprobe ergibt sich (mit Blick auf Tabelle \ref{tab:sort}):
+Für unsere Beispielstichprobe ergibt sich (mit Blick auf Tabelle \@ref(tab:sort)):
 
 \nopagebreak
 
@@ -185,7 +189,8 @@ Die Formel für den Quartilsabstand lautet:
   \begin{aligned}
     \mathit{IQR}=Q_3-Q_1
   \end{aligned}
-\]{#eq:iqr}
+  (\#eq:iqr)
+\]
 
 Der Quartilsabstand ist Ausreißern gegenüber stabiler als die Spannweite, da extreme hohe oder niedrige Wert nicht in die Berechnung einfließen.
 
@@ -209,7 +214,7 @@ matrix(sort(xs)[8:14], nrow = 1, dimnames = list(c(), sprintf("$x_{(%s)}$", 8:14
 
 $Q_3$ ist also $x_{(11)} = 5$.
 
-Für den Quartilsabstand ergibt sich durch einsetzen in Formel \ref{eq:iqr}:
+Für den Quartilsabstand ergibt sich durch einsetzen in Formel \@ref(eq:iqr):
 
 \[
   \begin{aligned}
@@ -232,13 +237,16 @@ Die Varianz einer Messwertreihe (engl. *variance*) kann verstanden werden als de
 
 Die Formel lautet:
 
-\[s^2=\frac{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})^2}{n-1}\]{#eq:var}
+\[
+  s^2=\frac{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})^2}{n-1}
+  (\#eq:var)
+\]
 
 Die Quadrierung der Differenz hat dabei einen doppelten Effekt: Zum einen bekommen auch negative Differenzen ein positives Vorzeichen, so dass sich positive und negative Differenzen nicht neutralisieren. Zum anderen werden hierdurch besonders große Abweichungen zum arithmetischen Mittel stärker gewichtet als dies ohne Quadrierung der Fall wäre.
 
 Zudem fällt auf, dass im Gegensatz zur Formel für das arithmetische Mittel im Nenner $n-1$ steht und nicht etwa $n$. Dies hat mit so genannten Freiheitsgraden zu tun, die wir allerdings erst in Sitzung 6 genauer kennenlernen.
 
-Für unsere Beispielstichprobe wird die Berechnung für alle einzelnen $(x_i-\bar{x})^2$ schnell aufwendig und unübersichtich. Deshalb berechnen wir ihre Summe hier mit Hilfe einer Häufigkeitstabelle (s. Tabelle \ref{tab:freq}). Dabei werden alle distinkten Werte einzeln transformiert und in der letzten Spalte mit ihrer Häufigkeit multipliziert.
+Für unsere Beispielstichprobe wird die Berechnung für alle einzelnen $(x_i-\bar{x})^2$ schnell aufwendig und unübersichtich. Deshalb berechnen wir ihre Summe hier mit Hilfe einer Häufigkeitstabelle (s. Tabelle \@ref(tab:freq)). Dabei werden alle distinkten Werte einzeln transformiert und in der letzten Spalte mit ihrer Häufigkeit multipliziert.
 
 ```{r freq, results='asis'}
 df <- as.data.frame(table(xs))
@@ -254,7 +262,7 @@ kable_styling()
 
 ```
 
-Schließlich werden die Werte in Formel \ref{eq:var} eingesetzt:
+Schließlich werden die Werte in Formel \@ref(eq:var) eingesetzt:
 
 \nopagebreak
 
@@ -283,7 +291,8 @@ Die Standardabweichung einer Messwertreihe ist definiert als die Quadraturzel ih
   \begin{aligned}
     s=\sqrt{s^2}
   \end{aligned}
-\]{#eq:sd}
+  (\#eq:sd)
+\]
 
 Indem hier die Wurzel gezogen wird, wird in gewisser Weise die Quadrierung der Differenzen für die Varianz wieder "korrigiert". Insbesondere wird die Quadrierung der Maßeinheit wieder aufgehoben -- die Standardabweichung hat also die gleiche Einheit wie die Messreihe selbst.
 
@@ -302,7 +311,7 @@ Die Standardabweichung wird in R mit der Funktion {\tt sd()} berechnet.
 
 ## Boxplot
 
-Der Boxplot (auch Box-and-whisker-plot) kombiniert einige der gebräuchlichsten Maßzahlen in einer übersichtlichen Grafik (s. Abbildung \ref{fig:box}).
+Der Boxplot (auch Box-and-whisker-plot) kombiniert einige der gebräuchlichsten Maßzahlen in einer übersichtlichen Grafik (s. Abbildung \@ref(fig:box)).
 
 ```{r box, fig.height=5, fig.width=3, out.width='.3\\linewidth', fig.cap="Boxplot der Beispielverteilung"}
 ggplot(data.frame(xs), aes(y=xs)) +

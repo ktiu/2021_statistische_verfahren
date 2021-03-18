@@ -14,7 +14,7 @@ Grundlage der bivariaten Statistik ist es, dass für eine Reihe von Untersuchung
 
 Diese Merkmale werden üblicherweise mit $x$ und $y$ gekennzeichnet. Für jedes $i$ (laufende Nummer der Merkmalsträger\*innen) gibt es dann ein $x_i$ (Ausprägung des Merkmals $x$) und ein $y_i$ (Ausprägung des Merkmals $y$).
 
-Das Streudiagramm (engl. *scatter plot*) stellt alle erfassten Werte dar, indem es die Untersuchungseinheiten als Punkte arrangiert -- und zwar anhand ihres jeweiligen Werts der Variable $x$ entlang der $x$-Achse und entlang der $y$-Achse anhand des $y$-Werts (s. \autoref{fig:scatter}).
+Das Streudiagramm (engl. *scatter plot*) stellt alle erfassten Werte dar, indem es die Untersuchungseinheiten als Punkte arrangiert -- und zwar anhand ihres jeweiligen Werts der Variable $x$ entlang der $x$-Achse und entlang der $y$-Achse anhand des $y$-Werts (s. \@ref(fig:scatter)).
 
 ### Beispiel
 
@@ -32,7 +32,7 @@ kable(reis, "latex", caption = "\\label{tab:reis}Niederschlag und Ertrag im Reis
 
 In einem Streudiagramm können diese Werte veranschaulicht werden. Dabei ist es üblich, die unabhängige Variable auf der $x$-Achse und die abhängige Variable auf der $y$-Achse einzutragen. Im Beispiel liegt nahe, dass der Ertrag vom Regen abhängt, und nicht etwa umgekehrt.
 
-\autoref{fig:scatter} ist das Streudiagramm für unser Beispiel. Es fällt schon rein optisch auf, dass ein Zusammenhang zu bestehen scheint: Je mehr Regen, desto reicher die Ernte. Doch wie lässt sich dieser Zusammenhang beziffern?
+\@ref(fig:scatter) ist das Streudiagramm für unser Beispiel. Es fällt schon rein optisch auf, dass ein Zusammenhang zu bestehen scheint: Je mehr Regen, desto reicher die Ernte. Doch wie lässt sich dieser Zusammenhang beziffern?
 
 ```{r scatter, cache=T, fig.cap="Streudiagramm zum Reisanbau"}
 ggplot(reis, aes(rain, yield)) +
@@ -48,9 +48,10 @@ Die Kovarianz (engl. *covariance*) $s_{xy}$ gibt an, inwiefern die beiden Variab
 
 \[
 s_{xy}=\frac{\sum\limits^n_{i=1}(x_i-\bar{x})\cdot(y_i-\bar{y})}{n-1}
-\]{#eq:cov}
+(\#eq:cov)
+\]
 
-\autoref{eq:cov} lässt erahnen: Wenn sowohl $x$ als auch $y$ in die gleiche Richtung vom jeweiligen Mittelwert abweichen (also beide Differenzen positiv oder beide Differenzen negativ), dann ist das Produkt positiv, sonst ist es negativ. Eine positive Kovarianz lässt also auf einen positiven Zusammenhang schließen (je größer $x$, desto größer auch $y$), eine negative Kovarianz auf einen negativen Zusammenhang (je größer $x$, desto *kleiner* $y$).
+\@ref(eq:cov) lässt erahnen: Wenn sowohl $x$ als auch $y$ in die gleiche Richtung vom jeweiligen Mittelwert abweichen (also beide Differenzen positiv oder beide Differenzen negativ), dann ist das Produkt positiv, sonst ist es negativ. Eine positive Kovarianz lässt also auf einen positiven Zusammenhang schließen (je größer $x$, desto größer auch $y$), eine negative Kovarianz auf einen negativen Zusammenhang (je größer $x$, desto *kleiner* $y$).
 
 \begin{rtip}
 Der Befehl {\tt cov()} berechnet die Kovarianz einer bivariaten Verteilung in R.
@@ -85,7 +86,7 @@ Als Zwischenschritt müssen die Mittelwerte $\bar{x}$ und $\bar{y}$ berechnet we
 \end{aligned}
 \]
 
-Schließlich ergibt Einsetzen der Produktsumme in \autoref{eq:cov} die Kovarianz:
+Schließlich ergibt Einsetzen der Produktsumme in \@ref(eq:cov) die Kovarianz:
 
 \[\begin{aligned}
 s_{xy}&=\frac{\sum\limits^n_{i=1}(x_i-\bar{x})\cdot(y_i-\bar{y})}{n-1}\\[5pt]
@@ -100,9 +101,10 @@ Der Korrelationskoeffizent $r$ (auch Produkt-Moment-Korrelation, Bravais-Pearson
 
 \[
 r=\frac{s_{xy}}{s_x\cdot s_y}
-\]{#eq:cor}
+(\#eq:cor)
+\]
 
-Durch diese Standardisierung kann der Korrelationskoeffizient nur noch Werte zwischen $r=-1$ (perfekte negative Korrelation) und $r=1$ (perfekte positive Korrelation) annehmen. Ein Korrelationskoeffizient nahe $r=0$ bedeutet, dass es keinen Zusammenhang zwischen den Variablen $x$ und $y$ gibt (s. \autoref{fig:corrs}).
+Durch diese Standardisierung kann der Korrelationskoeffizient nur noch Werte zwischen $r=-1$ (perfekte negative Korrelation) und $r=1$ (perfekte positive Korrelation) annehmen. Ein Korrelationskoeffizient nahe $r=0$ bedeutet, dass es keinen Zusammenhang zwischen den Variablen $x$ und $y$ gibt (s. \@ref(fig:corrs)).
 
 ```{r corrs, cache=T, fig.cap="Verschiedene Korrelationskoeffizienten", echo=FALSE, out.width='.26\\linewidth', fig.width=3, fig.height=3, fig.show='hold', fig.align='center'} 
 corex <- read.table("img/7_corex_dt")
@@ -168,7 +170,7 @@ In R kann der Korrelationskoeffizient von zwei Merkmalen mit dem Befehl {\tt cor
 
 ### Beispiel
 
-In der Formel für den Korrelationskoeffizienten $r$ (\autoref{eq:cor}) werden die Standardabweichungen $s_x$ und $s_y$ benötigt. Es ist daher sinnvoll, die Hilfstabelle um die Quadrate der Differenzen (und deren Summen) zu erweitern (s. \autoref{tab:mathcor}).
+In der Formel für den Korrelationskoeffizienten $r$ (\@ref(eq:cor)) werden die Standardabweichungen $s_x$ und $s_y$ benötigt. Es ist daher sinnvoll, die Hilfstabelle um die Quadrate der Differenzen (und deren Summen) zu erweitern (s. \autoref{tab:mathcor}).
 
 ```{r, cache=T}
 reis <- reis.copy
@@ -192,7 +194,7 @@ s_{y}&=\sqrt{\frac{\sum\limits^n_{i=1}(y_i-\bar{y})^2}{n-1}}\\[5pt]
      &=\sqrt{\frac{646556,5}{9}}=\sqrt{71839,61} \approx268,03
 \end{aligned}\]
 
-Nun lassen sich die errechneten Werte in \autoref{eq:cor} einsetzen:
+Nun lassen sich die errechneten Werte in \@ref(eq:cor) einsetzen:
 
 \[\begin{aligned}
 r&=\frac{s_{xy}}{s_x\cdot s_y}\\[4pt]

@@ -17,11 +17,12 @@ Es gibt viele Möglichkeiten, Regressionen zu modellieren. Im Rahmen dieser Vera
 
 \[
 y=a+b\cdot x
-\]{#eq:lin}
+(\#eq:lin)
+\]
 
 ausgedrückt, wobei $a$ der Achsenabschnitt ist und $b$ die Steigung. Ist die Gleichung bekannt, so können wir für jeden Wert $x$ einen entsprechenden Wert $y$ "vorhersagen".
 
-\autoref{fig:lin} zeigt ein solches lineares Regressionsmodell als Gerade durch ein Streudiagramm.
+\@ref(fig:lin) zeigt ein solches lineares Regressionsmodell als Gerade durch ein Streudiagramm.
 
 ```{r lin, cache=T, fig.cap="Regressionslinie durch ein Streudiagramm"}
 df <- read.table("img/8_lin_dt")
@@ -50,7 +51,7 @@ Wenn die Regressionsgleichung bekannt ist, kann für jedes gültige (grundsätzl
 
 Bei solchen Schätzungen *außerhalb* des bekannten Wertebereichs spricht man auch vom "Extrapolieren", sonst -- für fehlende Werte innerhalb des bekannten Wertebereich -- vom "Interpolieren".
 
-Umgekehrt könnte die Frage lauten: Wie groß muss ein $x_i$ sein, damit (im Modell) $\hat{y}_i=12$ beträgt? Dies lässt sich durch eine einfache Umformung der \autoref{eq:lin} berechnen:
+Umgekehrt könnte die Frage lauten: Wie groß muss ein $x_i$ sein, damit (im Modell) $\hat{y}_i=12$ beträgt? Dies lässt sich durch eine einfache Umformung der \@ref(eq:lin) berechnen:
 
 \[\begin{aligned}
 \hat{y}_i&=a+b\cdot x_i\\[5pt]
@@ -73,7 +74,8 @@ Der Koeffizient $b$ (also die Steigung der Regressionsgeraden) lässt sich berec
 
 \[
 b=\frac{s_{xy}}{s^2_x}
-\]{#eq:b}
+(\#eq:b)
+\]
 
 Der Koeffizient $a$ (also der Achsenabschnitt) ergibt sich wiederum aus $b$ und den Mittelwerten $\bar{x}$ und $\bar{y}$:
 
@@ -81,7 +83,8 @@ Der Koeffizient $a$ (also der Achsenabschnitt) ergibt sich wiederum aus $b$ und 
 
 \[
 a=\bar{y}-b\cdot\bar{x}
-\]{#eq:a}
+(\#eq:a)
+\]
 
 \begin{rtip}
 In R lässt sich ein lineares Regressionsmodell mit dem Befehl {\tt lm() } erstellen.
@@ -109,7 +112,7 @@ s^2_{x}&\approx9340,93\\
 s_{xy}&\approx 1062,50
 \end{aligned}\]
 
-Für die Steigung der Regressionsgeraden $b$ setzen wir die entsprechenden Werte in \autoref{eq:b} ein:
+Für die Steigung der Regressionsgeraden $b$ setzen wir die entsprechenden Werte in \@ref(eq:b) ein:
 
 \nopagebreak
 \[\begin{aligned}
@@ -120,7 +123,7 @@ b&=\frac{s_{xy}}{s^2_x}\\[5pt]
 
 Die Steigung von 0,114 bedeutet, dass -- im linearen Regressionsmodell -- Passagiere in jeder zusätzlichen Minute, die sie am Flughafen verbringen, in etwa 11,4 zusätzliche Cent ausgeben.
 
-Der Achsenabschnitt $a$ berechnet sich dann gemäß \autoref{eq:a}:
+Der Achsenabschnitt $a$ berechnet sich dann gemäß \@ref(eq:a):
 
 \nopagebreak
 
@@ -132,14 +135,14 @@ a&=\bar{y}-b\cdot\bar{x}\\
 
 Dieser Wert ergibt nur einen abstrakt-mathematischen Sinn -- es dürfte in der Praxis wohl kaum Passagiere geben, die 0 Minuten am Flughafen verbringen und € 3,35 ausgeben.
 
-Mit dem Achsenabschnitt $a$ und der Steigung $b$ lässt sich folgende Gleichung für die Regressionsgerade aufstellen (s. \autoref{eq:lin}):
+Mit dem Achsenabschnitt $a$ und der Steigung $b$ lässt sich folgende Gleichung für die Regressionsgerade aufstellen (s. \ref(eq:lin)):
 
 \[\begin{aligned}
 y&=a+b\cdot x\\
 y&\approx3,35 + 0,114 \cdot x
 \end{aligned}\]
 
-Graphisch ist diese lineare Regression in \autoref{fig:duty} dargestellt.
+Graphisch ist diese lineare Regression in \@ref(fig:duty) dargestellt.
 
 ```{r duty, cache=T, fig.cap="Regressionslinie durch ein Streudiagramm"}
 model <- lm(duty$y~duty$x)
@@ -158,7 +161,8 @@ Residuen (engl. *residuals*) werden mit $e$ bezeichnet und sind die Differenzen 
 \nopagebreak
 \[
 e_i=y_i-\hat{y}_i
-\]{#eq:res}
+(\#eq:res)
+\]
 
 Residuen sind also -- auch dem Wortstamm nach -- das, was nach der Vorhersage durch das Modell "übrig bleibt" von den tatsächlich beobachteten Werten (also der Teil des Werts, der *nicht* durch das Regressionsmodell erklärt wird).
 
@@ -168,7 +172,7 @@ Residuen lassen sich in R durch den Befehl {\tt resid() } errechnen.
 
 ### Beispiel
 
-Graphisch sind die Residuen für unser Beispiel in \autoref{fig:res} dargestellt (positive Werte in grün, negative Werte in rot), tabellarisch in \autoref{tab:res}.
+Graphisch sind die Residuen für unser Beispiel in \@ref(fig:res) dargestellt (positive Werte in grün, negative Werte in rot), tabellarisch in \autoref{tab:res}.
 
 ```{r res, cache=T, fig.cap="Graphische Darstellung der Residuen"}
 model <- lm(duty$y~duty$x)
@@ -199,7 +203,8 @@ Der Determinationskoeffizient $R^2$ (engl. *coefficient of determination*) ist f
 
 \[
 R^2=\frac{\sum\limits^n_{i=1}(\hat{y}_i-\bar{y})^2}{\sum\limits^n_{i=1}(y_i-\bar{y})^2}
-\]{#eq:rsqformal}
+(\#eq:rsqformal)
+\]
 
 Da Zähler und Nenner als Quadratsummen stets positiv sind und die Varianz der $\hat{y}$-Werte immer *kleiner oder gleich* der Varianz der $y$-Werte ist, nimmt der Determinationskoeffizient immer einen Wert zwischen 0 und 1 an.
 
@@ -209,7 +214,8 @@ Für lineare Regressionsmodelle (also für die einzige Regression, die im Rahmen
 
 \[
 R^2=r^2
-\]{#eq:rsq}
+(\#eq:rsq)
+\]
 
 \begin{rtip}
 In R wird mit dem Befehl {\tt summary()} unter anderem der Determinationskoeffizient eines linearen Regressionsmodells ausgegeben.
@@ -226,7 +232,7 @@ r&=\frac{s_{xy}}{s_x\cdot s_y}\\[6pt]
 &\approx0,804
 \end{aligned}\]
 
-Der Determinationskoeffizient ergibt sich dann mit \autoref{eq:rsq}:
+Der Determinationskoeffizient ergibt sich dann mit \@ref(eq:rsq):
 
 \[\begin{aligned}
 R^2&=r^2\\

@@ -430,7 +430,7 @@
 <p>Die Möglichkeit der Angabe statistischer Maßzahlen ist abhängig vom Skalenniveau der Daten, wie der Überblick in Tabelle  zeigt.</p>
 <div id="beispielverteilung" class="section level3" number="2.2.1">
 <h3><span class="header-section-number">2.2.1</span> Beispielverteilung</h3>
-<p>Alle Berechnungen von Maßzahlen werden am folgenden Beispiel illustriert: Für die 14 Gemeinden im Landkreis Rothenberge wurde die jeweilige Anzahl an Gaststätten erhoben. Die Zählung ergab die Wertereihe in Tabelle .</p>
+<p>Alle Berechnungen von Maßzahlen werden am folgenden Beispiel illustriert: Für die 14 Gemeinden im Landkreis Rothenberge wurde die jeweilige Anzahl an Gaststätten erhoben. Die Zählung ergab die Wertereihe in Tabelle (tab:werte).</p>
 </div>
 </div>
 <div id="lagemaße" class="section level2" number="2.3">
@@ -442,16 +442,18 @@
 <p>Der Median (engl. <em>median</em>) einer Verteilung ist der Wert, der größer als genau 50% aller Werte ist.</p>
 <p>Da dies eine Größer-kleiner-Relation der Werte voraussetzt, kann der Median nur für ordinale und metrische Skalenniveaus angegeben werden.</p>
 <p>Im Folgenden wird die (einfachere) Bestimmung des Medians nach <span class="citation"><a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">Bortz und Schuster</a> (<a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">2010</a>)</span> verwendet. <span class="citation"><a href="chi-quadrat-tests.html#ref-benninghaus" role="doc-biblioref">Benninghaus</a> (<a href="chi-quadrat-tests.html#ref-benninghaus" role="doc-biblioref">2007</a>)</span> beschreibt ein anderes Verfahren, welches zu anderen Ergebnissen kommen kann.</p>
-<p>Um den Median zu bestimmen, wird zunächst eine geordnete Liste angefertigt, indem die Werte aufsteigend sortiert werden. Diese sortierten Werte werden mit <span class="math inline">\(x_{(1)}, x_{(2)}, x_{(3)}, ..., x_{(n)}\)</span> bezeichnet (also mit Klammern). Für unsere Beispielverteilung ergibt sich Tabelle .</p>
+<p>Um den Median zu bestimmen, wird zunächst eine geordnete Liste angefertigt, indem die Werte aufsteigend sortiert werden. Diese sortierten Werte werden mit <span class="math inline">\(x_{(1)}, x_{(2)}, x_{(3)}, ..., x_{(n)}\)</span> bezeichnet (also mit Klammern). Für unsere Beispielverteilung ergibt sich Tabelle <a href="#tab:sort"><strong>??</strong></a>.</p>
 <p>Bei einer ungeraden Stichprobengröße <span class="math inline">\(n\)</span> teilt der <span class="math inline">\((\frac{n+1}{2})\)</span>-te Wert (also der Wert genau in der Mitte) die Stichprobe in zwei Hälften, weshalb gilt:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:med1">\[
   \mathit{Md} = x_{(\frac{n+1}{2})} \quad \text{falls }n\text{ ungerade.}
-\]</span>{#eq:med1}</p>
+  \tag{2.1}
+\]</span></p>
 <p>Bei geradem <span class="math inline">\(n\)</span> entstehen zwei gleich große Hälften der Stichprobe: <span class="math inline">\(x_{(1)}\)</span> bis <span class="math inline">\(x_{(\frac{n}{2})}\)</span> einerseits, und <span class="math inline">\(x_{(\frac{n}{2}+1)}\)</span> bis <span class="math inline">\(x_{(n)}\)</span> andererseits. Der Durchschnitt zwischen <span class="math inline">\(x_{(\frac{n}{2})}\)</span> und <span class="math inline">\(x_{(\frac{n}{2}+1)}\)</span> teilt die Stichprobe in zwei Hälften. Es gilt:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:med2">\[
   \mathit{Md} = \frac{x_{(\frac{n}{2})} + x_{(\frac{n}{2}+1)}}{2} \quad \text{falls } n \text{ gerade.}
-\]</span>{#eq:med2}</p>
-<p>In unserem Beispiel ist <span class="math inline">\(n=14\)</span> und damit gerade. Der Median errechnet also nach Formel  wie folgt:</p>
+  \tag{2.2}
+\]</span></p>
+<p>In unserem Beispiel ist <span class="math inline">\(n=14\)</span> und damit gerade. Der Median errechnet also nach Formel <a href="maßzahlen.html#eq:med2">(2.2)</a> wie folgt:</p>
 <p><span class="math display">\[
   \begin{aligned}
     \mathit{Md} &amp; = \frac{x_{(7)} + x_{(8)}}{2} \\[4pt]
@@ -469,7 +471,7 @@
 <li>Wird der Modus einer Verteilung durch unmittelbar benachbarte Werte gebildet, wird er als Kombination (bei metrischen Variablen als arithmetisches Mittel) dieser Werte angegeben.</li>
 <li>Bei bimodalen (multimodalen) Verteilungen werden beide (alle) Modalwerte angegeben.</li>
 </ul>
-<p>Hierzu müssen die Häufigkeiten der Werte bekannt sein, bzw. bestimmt werden (s. Tabelle ).</p>
+<p>Hierzu müssen die Häufigkeiten der Werte bekannt sein, bzw. bestimmt werden (s. Tabelle <a href="#tab:mod"><strong>??</strong></a>).</p>
 <p>Der Modalwert der Beispielverteilung beträgt 1, da der Wert 1 am häufigsten (viermal) vorkommt.</p>
 </div>
 <div id="arithmetisches-mittel" class="section level3" number="2.3.3">
@@ -477,10 +479,11 @@
 <p>Das arithmetische Mittel (auch Mittelwert, Durchschnitt, engl. <em>mean</em>) ist das gebräuchlichste Lagemaß und Grundlage für viele statistische Verfahren.</p>
 <p>Das arithmetische Mittel setzt ein metrisches Skalenniveau voraus.</p>
 <p>Die Berechnung des arithmetischen Mittels einer Stichprobe erfolgt durch die Formel:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:am">\[
  \bar{x}=\frac{\sum\limits _{i=1}^{n}x_{i}}{n}
-\]</span>{#eq:am}</p>
-<p>Für unsere Beispielverteilung ergibt sich durch einsetzen in Formel :
+ \tag{2.3}
+\]</span></p>
+<p>Für unsere Beispielverteilung ergibt sich durch einsetzen in Formel <a href="maßzahlen.html#eq:am">(2.3)</a>:
 <span class="math display">\[
   \begin{aligned}
      \bar{x}&amp;=\frac{\sum\limits _{i=1}^{14}x_{i}}{14} \\[4pt]
@@ -497,10 +500,11 @@
 <div id="spannweite" class="section level3" number="2.4.1">
 <h3><span class="header-section-number">2.4.1</span> Spannweite</h3>
 <p>Die Spannweite (engl. <em>range</em>) gibt Auskunft darüber, wie groß der Wertebereich ist, der von einer Verteilung abgedeckt wird. Sie wird (für metrische Skalen) als die Differenz vom größten zum kleinsten Wert (also vom letzten zum ersten Wert einer geordneten Werteliste) angegeben:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:range">\[
  R=x_{(n)} - x_{(1)}
-\]</span>{#eq:range}</p>
-<p>Für unsere Beispielstichprobe ergibt sich (mit Blick auf Tabelle ):</p>
+ \tag{2.4}
+\]</span></p>
+<p>Für unsere Beispielstichprobe ergibt sich (mit Blick auf Tabelle <a href="#tab:sort"><strong>??</strong></a>):</p>
 <p><span class="math display">\[
   \begin{aligned}
      R&amp;=x_{(14)} - x_{(1)} \\[4pt]
@@ -516,17 +520,18 @@
 <p>Der Angelpunkt <span class="math inline">\(Q_1\)</span> wird ermittelt, indem der Median für die unteren 50% (<span class="math inline">\(Q_3\)</span>: die oberen 50%) der Werte bestimmt wird – also jener Werte, die theoretisch unterhalb des Medians der Gesamtverteilung liegen.</p>
 <p>Dabei folgen wir <span class="citation"><a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">Bortz und Schuster</a> (<a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">2010</a>)</span> und nehmen im Fall eines ungeraden <span class="math inline">\(n\)</span> den Median auf beiden Seiten hinzu.</p>
 <p>Die Formel für den Quartilsabstand lautet:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:iqr">\[
   \begin{aligned}
     \mathit{IQR}=Q_3-Q_1
   \end{aligned}
-\]</span>{#eq:iqr}</p>
+  \tag{2.5}
+\]</span></p>
 <p>Der Quartilsabstand ist Ausreißern gegenüber stabiler als die Spannweite, da extreme hohe oder niedrige Wert nicht in die Berechnung einfließen.</p>
 <p>In unserem Beispiel (mit <span class="math inline">\(n=14\)</span>) ist die untere Hälfte der Verteilung:</p>
 <p><span class="math inline">\(Q_1\)</span> ist der Median dieser Werte, also <span class="math inline">\(x_{(4)}=1\)</span>.</p>
 <p>Die oberen 7 Werte lauten:</p>
 <p><span class="math inline">\(Q_3\)</span> ist also <span class="math inline">\(x_{(11)} = 5\)</span>.</p>
-<p>Für den Quartilsabstand ergibt sich durch einsetzen in Formel :</p>
+<p>Für den Quartilsabstand ergibt sich durch einsetzen in Formel <a href="maßzahlen.html#eq:iqr">(2.5)</a>:</p>
 <p><span class="math display">\[
   \begin{aligned}
     \mathit{IQR}&amp;=5-1 \\[4pt]
@@ -538,11 +543,14 @@
 <h3><span class="header-section-number">2.4.3</span> Varianz</h3>
 <p>Die Varianz einer Messwertreihe (engl. <em>variance</em>) kann verstanden werden als der durschnittliche quadrierte Abstand der Werte zum arithmetischen Mittel.</p>
 <p>Die Formel lautet:</p>
-<p><span class="math display">\[s^2=\frac{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})^2}{n-1}\]</span>{#eq:var}</p>
+<p><span class="math display" id="eq:var">\[
+  s^2=\frac{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})^2}{n-1}
+  \tag{2.6}
+\]</span></p>
 <p>Die Quadrierung der Differenz hat dabei einen doppelten Effekt: Zum einen bekommen auch negative Differenzen ein positives Vorzeichen, so dass sich positive und negative Differenzen nicht neutralisieren. Zum anderen werden hierdurch besonders große Abweichungen zum arithmetischen Mittel stärker gewichtet als dies ohne Quadrierung der Fall wäre.</p>
 <p>Zudem fällt auf, dass im Gegensatz zur Formel für das arithmetische Mittel im Nenner <span class="math inline">\(n-1\)</span> steht und nicht etwa <span class="math inline">\(n\)</span>. Dies hat mit so genannten Freiheitsgraden zu tun, die wir allerdings erst in Sitzung 6 genauer kennenlernen.</p>
-<p>Für unsere Beispielstichprobe wird die Berechnung für alle einzelnen <span class="math inline">\((x_i-\bar{x})^2\)</span> schnell aufwendig und unübersichtich. Deshalb berechnen wir ihre Summe hier mit Hilfe einer Häufigkeitstabelle (s. Tabelle ). Dabei werden alle distinkten Werte einzeln transformiert und in der letzten Spalte mit ihrer Häufigkeit multipliziert.</p>
-<p>Schließlich werden die Werte in Formel  eingesetzt:</p>
+<p>Für unsere Beispielstichprobe wird die Berechnung für alle einzelnen <span class="math inline">\((x_i-\bar{x})^2\)</span> schnell aufwendig und unübersichtich. Deshalb berechnen wir ihre Summe hier mit Hilfe einer Häufigkeitstabelle (s. Tabelle <a href="#tab:freq"><strong>??</strong></a>). Dabei werden alle distinkten Werte einzeln transformiert und in der letzten Spalte mit ihrer Häufigkeit multipliziert.</p>
+<p>Schließlich werden die Werte in Formel <a href="maßzahlen.html#eq:var">(2.6)</a> eingesetzt:</p>
 <p><span class="math display">\[\begin{aligned}
     s^2&amp;=\frac{\sum\limits_{i=1}^{14}(x_{i}-\bar{x})^2}{14-1} \\[4pt]
        &amp;\approx\frac{22,18+55,04+5,84+1+0,24+10,82+411,68}{13} \\[4pt]
@@ -556,11 +564,12 @@
 <h3><span class="header-section-number">2.4.4</span> Standardabweichung</h3>
 <p>Die Standardabweichung (engl. <em>standard deviation</em>) ist das gebräuchlichste Streumaß und spielt eine herausragende Rolle in den allermeisten statistischen Verfahren.</p>
 <p>Die Standardabweichung einer Messwertreihe ist definiert als die Quadraturzel ihrer Varianz:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:sd">\[
   \begin{aligned}
     s=\sqrt{s^2}
   \end{aligned}
-\]</span>{#eq:sd}</p>
+  \tag{2.7}
+\]</span></p>
 <p>Indem hier die Wurzel gezogen wird, wird in gewisser Weise die Quadrierung der Differenzen für die Varianz wieder <q>korrigiert</q>. Insbesondere wird die Quadrierung der Maßeinheit wieder aufgehoben – die Standardabweichung hat also die gleiche Einheit wie die Messreihe selbst.</p>
 <p>In unserem Beispiel beträgt die Standardabweichung also:</p>
 <p><span class="math display">\[
@@ -573,7 +582,7 @@
 </div>
 <div id="boxplot" class="section level2" number="2.5">
 <h2><span class="header-section-number">2.5</span> Boxplot</h2>
-<p>Der Boxplot (auch Box-and-whisker-plot) kombiniert einige der gebräuchlichsten Maßzahlen in einer übersichtlichen Grafik (s. Abbildung ).</p>
+<p>Der Boxplot (auch Box-and-whisker-plot) kombiniert einige der gebräuchlichsten Maßzahlen in einer übersichtlichen Grafik (s. Abbildung <a href="maßzahlen.html#fig:box">2.1</a>).</p>
 <div class="figure" style="text-align: center"><span id="fig:box"></span>
 <img src="bookdownproj_files/figure-html/box-1.png" alt="Boxplot der Beispielverteilung" width=".3\linewidth" />
 <p class="caption">

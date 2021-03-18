@@ -246,7 +246,7 @@ kable(df, "latex", booktabs=T, escape=F, caption = "Tabelle mit kumulierten Häu
 
 ### Stabdiagramme
 
-Die so ermittelten Häufigkeiten lassen sich als Stabdiagramm (auch Säulen-, Streifen-, Balkendiagramm, engl. *bar chart*) darstellen (s. Abbildung \ref{fig:stab}).
+Die so ermittelten Häufigkeiten lassen sich als Stabdiagramm (auch Säulen-, Streifen-, Balkendiagramm, engl. *bar chart*) darstellen (s. Abbildung \@ref(fig:stab)).
 
 \begin{rtip}
 In R lautet der Standardbefehl zur Erstellung eines Stabdiagramms {\tt barplot()}.
@@ -302,7 +302,7 @@ Zusätzlich sollten folgende Konventionen nach Möglichkeit befolgt werden:
 - Aus Gründen der Übersichtlichkeit sollten nicht mehr als 20 Klassen gewählt werden.
 - Klassengrenzen sollten "Klumpen" mit ähnlichen Werten nicht trennen.
 
-Die Darstellung erfolgt in so genannten Histogrammen (engl. *histogram*). Abbildung \ref{fig:hist} enthält ein Beispiel für ein Histogramm.
+Die Darstellung erfolgt in so genannten Histogrammen (engl. *histogram*). Abbildung \@ref(fig:hist) enthält ein Beispiel für ein Histogramm.
 
 \begin{rtip}
 In R können Histogramme mit {\tt hist()} erstellt werden.
@@ -321,7 +321,7 @@ ggplot(data=trees, aes(x=trees$Girth)) +
 
 ### Polygone
 
-Statt ausgefüllten Flächen wie im Histogramm lassen sich für die Häufigkeiten auch Punkte setzen, die dann mit Linien verbunden werden. So entsteht ein Häufigkeitspolygon (s. Abbildung \ref{fig:poly}).
+Statt ausgefüllten Flächen wie im Histogramm lassen sich für die Häufigkeiten auch Punkte setzen, die dann mit Linien verbunden werden. So entsteht ein Häufigkeitspolygon (s. Abbildung \@ref(fig:poly)).
 
 ```{r poly, fig.cap="Polygonzug"}
 ggplot(data=trees, aes(x=trees$Girth)) +

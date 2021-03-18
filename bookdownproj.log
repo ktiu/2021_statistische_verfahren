@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.3.10)  10 MAR 2021 17:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.3.10)  12 MAR 2021 03:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -397,19 +397,133 @@ Package graphics Info: Driver file: pdftex.def on input line 105.
 )
 \Gin@req@height=\dimen169
 \Gin@req@width=\dimen170
+) (c:/Users/Ben/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/array.sty
+Package: array 2020/10/01 v2.5c Tabular extension package (FMi)
+\col@sep=\dimen171
+\ar@mcellbox=\box54
+\extrarowheight=\dimen172
+\NC@list=\toks24
+\extratabsurround=\skip60
+\backup@length=\skip61
+\ar@cellbox=\box55
+)
+(c:/Users/Ben/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/multirow/multirow.st
+y
+Package: multirow 2021/01/29 v2.7 Span multiple rows of a table
+\multirow@colwidth=\skip62
+\multirow@cntb=\count288
+\multirow@dima=\skip63
+\bigstrutjot=\dimen173
+) (c:/Users/Ben/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/wrapfig/wrapfig.st
+y
+\wrapoverhang=\dimen174
+\WF@size=\dimen175
+\c@WF@wrappedlines=\count289
+\WF@box=\box56
+\WF@everypar=\toks25
+Package: wrapfig 2003/01/31  v 3.6
+) (c:/Users/Ben/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count290
+\float@exts=\toks26
+\float@box=\box57
+\@float@everytoks=\toks27
+\@floatcapt=\box58
+)
+(c:/Users/Ben/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/colortbl/colortbl.st
+y
+Package: colortbl 2020/01/04 v1.0e Color table columns (DPC)
+\everycr=\toks28
+\minrowclearance=\skip64
+)
+(c:/Users/Ben/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pdflscape/pdflscape.
+sty
+Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
+(c:/Users/Ben/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+) (c:/Users/Ben/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tabu/tabu.sty
+Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
+
+(c:/Users/Ben/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/varwidth/varwidth.st
+y
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box59
+\sift@deathcycles=\count291
+\@vwid@loff=\dimen176
+\@vwid@roff=\dimen177
+)
+\c@taburow=\count292
+\tabu@nbcols=\count293
+\tabu@cnt=\count294
+\tabu@Xcol=\count295
+\tabu@alloc=\count296
+\tabu@nested=\count297
+\tabu@target=\dimen178
+\tabu@spreadtarget=\dimen179
+\tabu@naturalX=\dimen180
+\tabucolX=\dimen181
+\tabu@Xsum=\dimen182
+\extrarowdepth=\dimen183
+\abovetabulinesep=\dimen184
+\belowtabulinesep=\dimen185
+\tabustrutrule=\dimen186
+\tabu@thebody=\toks29
+\tabu@footnotes=\toks30
+\tabu@box=\box60
+\tabu@arstrutbox=\box61
+\tabu@hleads=\box62
+\tabu@vleads=\box63
+\tabu@cellskip=\skip65
+)
+(c:/Users/Ben/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/threeparttable/three
+parttable.sty
+Package: threeparttable 2003/06/13  v 3.0
+\@tempboxb=\box64
+)
+(c:/Users/Ben/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/threeparttablex/thre
+eparttablex.sty
+Package: threeparttablex 2013/07/23 v0.3 by daleif
+(c:/Users/Ben/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/environ/environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+
+(c:/Users/Ben/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/trimspaces/trimspace
+s.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+\TPTL@width=\skip66
+) (c:/Users/Ben/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box65
+\UL@hyphenbox=\box66
+\UL@skip=\skip67
+\UL@hook=\toks31
+\UL@height=\dimen187
+\UL@pe=\count298
+\UL@pixel=\dimen188
+\ULC@box=\box67
+Package: ulem 2019/11/18
+\ULdepth=\dimen189
+)
+(c:/Users/Ben/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/makecell/makecell.st
+y
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+\rotheadsize=\dimen190
+\c@nlinenum=\count299
+\TeXr@lab=\toks32
 ) (c:/Users/Ben/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2021/03/03 3.55 The Babel package
 (c:/Users/Ben/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2021/03/03 3.55 Babel common definitions
-\babel@savecnt=\count288
-\U@D=\dimen171
+\babel@savecnt=\count300
+\U@D=\dimen191
 \l@babelnohyphens=\language3
 
 (c:/Users/Ben/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/txtbabel.def
 )
 \bbl@readstream=\read2
 )
-\bbl@dirlevel=\count289
+\bbl@dirlevel=\count301
 
 (c:/Users/Ben/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel-german/ngerm
 an.ldf
@@ -436,36 +550,36 @@ an.ldf
 Language: ngerman 2021/02/27 v2.13 German support for babel (post-1996 orthogra
 phy)
 ))
-\cslhangindent=\skip60
-\csllabelwidth=\skip61
+\cslhangindent=\skip68
+\csllabelwidth=\skip69
 
 (c:/Users/Ben/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-
 pdftex.def
 File: l3backend-pdftex.def 2021-03-02 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count290
-\l__pdf_internal_box=\box54
+\l__color_backend_stack_int=\count302
+\l__pdf_internal_box=\box68
 )
 No file bookdownproj.aux.
 \openout1 = `bookdownproj.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 122.
+LaTeX Font Info:    ... okay on input line 122.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 122.
+LaTeX Font Info:    ... okay on input line 122.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 122.
+LaTeX Font Info:    ... okay on input line 122.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 122.
+LaTeX Font Info:    ... okay on input line 122.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 122.
+LaTeX Font Info:    ... okay on input line 122.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 122.
+LaTeX Font Info:    ... okay on input line 122.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 122.
+LaTeX Font Info:    ... okay on input line 122.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 122.
+LaTeX Font Info:    ... okay on input line 122.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 122.
+LaTeX Font Info:    ... okay on input line 122.
 
 (c:/Users/Ben/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopd
 f-base.sty
@@ -485,7 +599,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 115.
+Package hyperref Info: Link coloring OFF on input line 122.
 
 (c:/Users/Ben/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -498,46 +612,46 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 titlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count291
+\c@section@level=\count303
 )
-LaTeX Info: Redefining \ref on input line 115.
-LaTeX Info: Redefining \pageref on input line 115.
-LaTeX Info: Redefining \nameref on input line 115.
+LaTeX Info: Redefining \ref on input line 122.
+LaTeX Info: Redefining \pageref on input line 122.
+LaTeX Info: Redefining \nameref on input line 122.
 \@outlinefile=\write3
 \openout3 = `bookdownproj.out'.
 
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-17.
+24.
 (c:/Users/Ben/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-17.
+24.
 (c:/Users/Ben/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-117.
+124.
 (c:/Users/Ben/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-117.
+124.
 (c:/Users/Ben/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 117.
+(Font)              <12> on input line 124.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 117.
+(Font)              <8> on input line 124.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 117.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 117
+(Font)              <6> on input line 124.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 124
 .
 (c:/Users/Ben/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 117
+LaTeX Font Info:    Trying to load font information for U+msb on input line 124
 .
 (c:/Users/Ben/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -545,18 +659,181 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write4
 \openout4 = `bookdownproj.toc'.
 
-! Undefined control sequence.
-\GenericError  ...                                
-                                                    #4  \errhelp \@err@     ...
-l.136 ...pril 2021 & 4 & \href{SchaÌˆtzstatistik4}
-                                                  {SchaÌˆtzstatistik}\tabula...
- 
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 1 on input line 151.
+
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
+64.
+(c:/Users/Ben/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [1
+
+{c:/Users/Ben/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.
+map}]
+Underfull \hbox (badness 10000) in paragraph at lines 190--191
+ \T1/lmr/bx/n/10 1.2.1.1 Un-ter-suchungse-le-ment[] \T1/lmr/m/n/10 Un-ter-suchu
+ngse-le-mente (auch Un-ter-
+ []
+
+
+Underfull \hbox (badness 4859) in paragraph at lines 190--191
+\T1/lmr/m/n/10 suchung-sein-heit-en, Merk-mal-sträger, bei Per-so-n-en: Proband
+*innen, en-gl.
+ []
+
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 195.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 195.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 195.
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 237--238
+ \T1/lmr/bx/n/10 1.2.2.2.1 Deskrip-tive Statis-tik[] \T1/lmr/m/n/10 Die deskrip
+-tive Statis-tik (auch:
+ []
+
+[3]
+Underfull \hbox (badness 1077) in paragraph at lines 252--253
+[]\T1/lmr/m/n/10 Die Test-statis-tik über-prüft, als wie wahrschein-lich oder u
+n-wahrschein-lich
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 317--318
+ \T1/lmr/bx/n/10 1.3.1.1 Reine Zu-fallsstich-probe[] \T1/lmr/m/n/10 Bei endlich
+en Grundge-samtheit-en
+ []
+
+
+Underfull \hbox (badness 3815) in paragraph at lines 327--328
+\T1/lmr/m/n/10 Grundge-samtheit wer-den in Schicht-en (Klassen) zusam-menge-fas
+st. An-
+ []
+
+
+Underfull \hbox (badness 1231) in paragraph at lines 327--328
+\T1/lmr/m/n/10 Stich-proben set-zen die Ken-nt-nis einiger Pa-ram-e-ter der Gru
+ndge-samtheit
+ []
+
+
+Underfull \hbox (badness 2846) in paragraph at lines 332--333
+ \T1/lmr/bx/n/10 1.3.1.4 Klumpen-stich-probe[] \T1/lmr/m/n/10 Hi-er ist die Gru
+ndge-samtheit schon in
+ []
+
+[5]
+
+LaTeX Warning: Reference `tab:skalen' on page 6 undefined on input line 374.
+
+
+Overfull \hbox (90.95998pt too wide) in paragraph at lines 380--390
+ [][] 
+ []
+
+[6]
+Underfull \hbox (badness 1137) in paragraph at lines 399--400
+[]\T1/lmr/m/n/10 Beispiele: Postleitzahlen, Tele-fon-num-mern, Staat-sange-höri
+gkeit, Krankheit-
+ []
+
+
+Underfull \hbox (badness 2809) in paragraph at lines 422--423
+ \T1/lmr/bx/n/10 1.3.3.3.1 In-ter-vall-skala[] \T1/lmr/m/n/10 Maÿein-heit und W
+ahl des Nullpunk-tes sind
+ []
+
+[7pdfTeX warning (ext4): destination with the same identifier (name{table.2}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.432 
+      ]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
+46.
+(c:/Users/Ben/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Underfull \hbox (badness 10000) in paragraph at lines 446--447
+[]\T1/lmtt/m/n/10 T J D T E N D F F M A J V T T V A L V P J K P M F M A J N A C
+ I T
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 446--447
+\T1/lmtt/m/n/10 P B A P H T L N S P C K J K L J R E Y M K H M N L A A L L M L J
+ G
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 446--447
+\T1/lmtt/m/n/10 P L B F L J J V M P C J M J S A M M M P A A L L O C J L P L V F
+ J
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 446--447
+\T1/lmtt/m/n/10 R M A V K S B B B N C A A T J P C F L E B L C A K A L T V Y P F
+ L
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 446--447
+\T1/lmtt/m/n/10 J S T T N R J A S E L M L T A E B M N M V D P P L N L B A A J M
+ L
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 453--454
+[]\T1/lmtt/m/n/10 A A A A A A A A A A A A A A A A A A A B B B B B B B B C C C C
+ C C
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 453--454
+\T1/lmtt/m/n/10 C D D D E E E E E F F F F F F F G H H H I J J J J J J J J J J J
+ J
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 453--454
+\T1/lmtt/m/n/10 J J J J J K K K K K K L L L L L L L L L L L L L L L L L L L L L
+ L
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 453--454
+\T1/lmtt/m/n/10 M M M M M M M M M M M M M M M M M N N N N N N N N N N O P P P P
+ P
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 453--454
+\T1/lmtt/m/n/10 P P P P P P P P R R R S S S S S S T T T T T T T T T T T V V V V
+ V
+ []
+
+
+LaTeX Warning: Reference `tab:haeufkum' on page 8 undefined on input line 458.
+
+
+! LaTeX Error: Environment rtip undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.460 \begin{rtip}
+                   
 Here is how much of TeX's memory you used:
- 10739 strings out of 480971
- 155820 string characters out of 5906426
- 470225 words of memory out of 5000000
- 27776 multiletter control sequences out of 15000+600000
- 434954 words of font info for 49 fonts, out of 8000000 for 9000
+ 12340 strings out of 480971
+ 180332 string characters out of 5905996
+ 506707 words of memory out of 5000000
+ 29200 multiletter control sequences out of 15000+600000
+ 453768 words of font info for 69 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 71i,6n,74p,331b,303s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,9n,74p,619b,408s stack positions out of 5000i,500n,10000p,200000b,80000s
+
 !  ==> Fatal error occurred, no output PDF file produced!

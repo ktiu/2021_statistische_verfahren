@@ -459,13 +459,14 @@
 <h2><span class="header-section-number">9.4</span> Berechnung der erwarteten Werte</h2>
 <p>Bestünde <em>kein</em> Zusammenhang zwischen den Variablen, dann wäre zu erwarten, dass sich die Kombinationen gleichmäßig auf die Tabellenfelder aufteilen, und zwar ausgehend von den Teilsummen für die Zeilen und Spalten.</p>
 <p>Der Erwartungswert für ein Tabellenfeld (also der <q>durchschnittliche</q> Wert, wenn es keinen Zusammenhang zwischen den beiden Variablen gibt) berechnet sich durch die Formel:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:m">\[
 m_{ij}=\frac{n_{i\cdot}\cdot n_{\cdot j}}{n}
-\]</span>{#eq:m}</p>
+\tag{9.1}
+\]</span></p>
 <p>Es wird also das Produkt der Zeilen- und der Spaltensumme geteilt durch die Gesamtsumme.</p>
 <div id="beispiel-31" class="section level3" number="9.4.1">
 <h3><span class="header-section-number">9.4.1</span> Beispiel</h3>
-<p>Die beobachtete Häufigkeit für die Kombination <q>Geistes-/Sozialwissenschaft</q> (Zeile 1) und <q>anderes Transportmittel</q> (Spalte 2) ist 28. Aber was wäre der Erwartungswert bei den gegebenen Summen? Wir setzen einfach die entsprechenden Werte in die  ein:</p>
+<p>Die beobachtete Häufigkeit für die Kombination <q>Geistes-/Sozialwissenschaft</q> (Zeile 1) und <q>anderes Transportmittel</q> (Spalte 2) ist 28. Aber was wäre der Erwartungswert bei den gegebenen Summen? Wir setzen einfach die entsprechenden Werte in die <a href="kreuztabellen.html#eq:m">(9.1)</a> ein:</p>
 <p><span class="math display">\[\begin{aligned}
 m_{12}&amp;=\frac{n_{1\cdot}\cdot n_{\cdot 2}}{n}\\[5pt]
 &amp;=\frac{39\cdot 70}{90}\\[4pt]
@@ -477,20 +478,22 @@ m_{12}&amp;=\frac{n_{1\cdot}\cdot n_{\cdot 2}}{n}\\[5pt]
 <div id="berechnung-des-kontingenzkoeffizenten-chi2" class="section level2" number="9.5">
 <h2><span class="header-section-number">9.5</span> Berechnung des Kontingenzkoeffizenten <span class="math inline">\(\chi^2\)</span></h2>
 <p>Sind für alle Tabellenfelder die Beobachtungs- und Erwartungswerte gegeben, lässt sich für jedes Tabellenfeld ein Wert berechnen, der diese Werte in Relation setzt. Die Summe dieser Werte über die gesamte Tabelle hinweg wird Kontingenzkoeffizient genannt und mit <span class="math inline">\(\chi^2\)</span> (<q>Chi-Quadrat</q>) abgekürzt.</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:chisq">\[
 \chi^2= \sum_{i=1}^{k}\sum_{j=1}^{\ell}\frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}
-\]</span>{#eq:chisq}</p>
+\tag{9.2}
+\]</span></p>
 <p>Bei der Formel steht <span class="math inline">\(k\)</span> wieder für die Anzahl der Zeilen (und <span class="math inline">\(i\)</span> für ihre laufende Nummer) und <span class="math inline">\(\ell\)</span> für die Anzahl der Spalten (und <span class="math inline">\(j\)</span> für ihre laufende Nummer).</p>
 <p>Das doppelte Summenzeichen mag etwas verwirrend sein, bedeutet aber nur, dass die Zeilen spaltenweise summiert werden, und dann die Summe dieser Zeilensumme genommen wird – d.h. dass einfach alle Tabellenfelder aufsummiert werden.</p>
 <p>Der <span class="math inline">\(\chi^2\)</span>-Wert kann (ähnlich wie der <span class="math inline">\(F\)</span>-Wert aus Sitzung 6) nur positive Werte annehmen. Er bildet die Grundlage für die im Folgenden besprochenen Kennwerte <span class="math inline">\(\phi\)</span> und <span class="math inline">\(\mathit{CI}\)</span> sowie für den in Sitzung 10 zu besprechenden <span class="math inline">\(\chi^2\)</span>-Test.</p>
 <div id="beispiel-32" class="section level3" number="9.5.1">
 <h3><span class="header-section-number">9.5.1</span> Beispiel</h3>
 <p>Ein möglicher Zwischenschritt ist es, diese Teilwerte von <span class="math inline">\(\chi^2\)</span> für die einzelnen Tabellenfelder auszurechnen und in der Kreuztabelle zu notieren. Die Teilwerte werden dann für jedes Tabellenfeld mit der Formel</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:contrib">\[
 \frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}
-\]</span>{#eq:contrib}</p>
+\tag{9.3}
+\]</span></p>
 <p>berechnet und sind in  in blau dargestellt.</p>
-<p>Zum Beispiel ergibt sich der Teilwert für <span class="math inline">\(\chi^2\)</span> für die Kombination <q>anderes Studienfach</q> – <q>Fahrrad</q> durch Einsetzen in :</p>
+<p>Zum Beispiel ergibt sich der Teilwert für <span class="math inline">\(\chi^2\)</span> für die Kombination <q>anderes Studienfach</q> – <q>Fahrrad</q> durch Einsetzen in <a href="kreuztabellen.html#eq:contrib">(9.3)</a>:</p>
 <p><span class="math display">\[\begin{aligned}
 \frac{(n_{21}-m_{21})^{2}}{m_{21}} &amp;\approx \frac{(9-11,33)^2}{11,33}\\
 &amp;=\frac{-2,33^2}{11,33}\\
@@ -510,12 +513,13 @@ m_{12}&amp;=\frac{n_{1\cdot}\cdot n_{\cdot 2}}{n}\\[5pt]
 <h2><span class="header-section-number">9.6</span> Berechnung des <span class="math inline">\(\phi\)</span>-Koeffizienten</h2>
 <p>Der <span class="math inline">\(\phi\)</span>-Koeffizient ist der Korrelationskoeffizient für zwei dichotome Variablen (wobei er in der hier besprochenen Version nur positive Werte annehmen kann). Er ist jedoch <em>nicht</em> ohne weiteres mit dem Korrelationskoeffizienten <span class="math inline">\(r\)</span> (aus Sitzung 7) vergleichbar.</p>
 <p>Der Wert für <span class="math inline">\(\phi\)</span> kann aus <span class="math inline">\(\chi^2\)</span> berechnet werden mit:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:phi">\[
 \phi=\sqrt{\frac{\chi^2}{n}}
-\]</span>{#eq:phi}</p>
+\tag{9.4}
+\]</span></p>
 <div id="beispiel-33" class="section level3" number="9.6.1">
 <h3><span class="header-section-number">9.6.1</span> Beispiel</h3>
-<p>In unserem Beispiel ergibt sich also für <span class="math inline">\(\phi\)</span> durch Einsetzung in :</p>
+<p>In unserem Beispiel ergibt sich also für <span class="math inline">\(\phi\)</span> durch Einsetzung in <a href="kreuztabellen.html#eq:phi">(9.4)</a>:</p>
 <p><span class="math display">\[\begin{aligned}
 \phi&amp;=\sqrt{\frac{\chi^2}{n}}\\[6pt]
     &amp;\approx\sqrt{\frac{1,421}{90}}\\[4pt]
@@ -529,22 +533,23 @@ m_{12}&amp;=\frac{n_{1\cdot}\cdot n_{\cdot 2}}{n}\\[5pt]
 <h2><span class="header-section-number">9.7</span> Berechnung des Cramér-Index</h2>
 <p>Bisher wurden in dieser Sitzung nur Verteilungen von zwei dichotomen Variablen besprochen. Nun gibt es aber auch nominalskalierte bivariate Verteilungen, in denen die Merkmale mehr als zwei Werte annehmen können (also nicht dichotom sind). In diesem Fall ist der Cramér-Index (auch Cramérs <span class="math inline">\(v\)</span>, engl. <em>Cramér index</em>) ein geeigneter Kennwert für die Abhängigkeit der Variablen.</p>
 <p>Die Formel für den Cramér-Index lautet</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:ci">\[
 \mathit{CI}=\sqrt{\frac{\chi^2}{n\cdot (\mathrm{min}(k, \ell)-1)}}
-\]</span>{#eq:ci}</p>
+\tag{9.5}
+\]</span></p>
 <p>wobei der Ausdruck <span class="math inline">\(\mathrm{min}(k,\ell)\)</span> für den <em>kleineren</em> Wert aus Zeilenanzahl <span class="math inline">\(k\)</span> und Spaltenanzahl <span class="math inline">\(\ell\)</span> steht.</p>
 <p>In einer <span class="math inline">\(2\times2\)</span>-Tabelle ist dieser Wert identisch mit dem <span class="math inline">\(\phi\)</span>-Koeffizienten.</p>
 <div id="beispiel-34" class="section level3" number="9.7.1">
 <h3><span class="header-section-number">9.7.1</span> Beispiel</h3>
 <p>Hätten wir im Beispiel die Erhebung nicht auf dichotome Variablen reduziert, sondern die Wissenschaftsdisziplinen und Verkehrsmittel direkt erhoben, so würde sich die Kreuztabelle vielleicht wie in  darstellen.</p>
-<p>Dabei werden die Erwartungswerte wie gehabt mit  und die Teilwerte für <span class="math inline">\(\chi^2\)</span> mit der  errechnet.</p>
-<p>Der <span class="math inline">\(\chi^2\)</span>-Wert ergibt sich wieder aus der Summe (s. ):</p>
+<p>Dabei werden die Erwartungswerte wie gehabt mit <a href="kreuztabellen.html#eq:m">(9.1)</a> und die Teilwerte für <span class="math inline">\(\chi^2\)</span> mit der <a href="kreuztabellen.html#eq:contrib">(9.3)</a> errechnet.</p>
+<p>Der <span class="math inline">\(\chi^2\)</span>-Wert ergibt sich wieder aus der Summe (s. <a href="kreuztabellen.html#eq:chisq">(9.2)</a>):</p>
 <p><span class="math display">\[\begin{aligned}
 \chi^2&amp;= \sum_{i=1}^{k}\sum_{j=1}^{\ell}\frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}\\[4pt]
 &amp;\approx 0,144+1,137+0,742+0,548+0,705+0,111\\&amp;\quad+0,002+0,052+0,082+0,792+3,231+1,574 \\
 &amp; =9,120
 \end{aligned}\]</span></p>
-<p>Mit diesem Wert kann der Cramér-Index anhand von  berechnet werden.</p>
+<p>Mit diesem Wert kann der Cramér-Index anhand von <a href="kreuztabellen.html#eq:ci">(9.5)</a> berechnet werden.</p>
 <p>Die Zeilenanzahl ist <span class="math inline">\(k=4\)</span> und die Spaltenanzahl <span class="math inline">\(\ell=3\)</span>. Der Ausdruck <span class="math inline">\(\mathrm{min}(k,\ell)\)</span> ergibt den kleineren dieser Werte, also 3:</p>
 <p><span class="math display">\[\begin{aligned}
 \mathit{CI}&amp;=\sqrt{\frac{\chi^2}{n\cdot (\mathrm{min}(k, \ell)-1)}}\\[6pt]

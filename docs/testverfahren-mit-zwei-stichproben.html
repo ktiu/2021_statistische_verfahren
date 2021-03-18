@@ -463,9 +463,10 @@
 <div id="nullhypothese-2" class="section level4" number="6.3.2.1">
 <h4><span class="header-section-number">6.3.2.1</span> Nullhypothese</h4>
 <p>Die Nullhypothese geht davon aus, dass es keinen Unterschied zwischen den beiden Populationen gibt. Sie lautet daher:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:h20">\[
 H_0 : \mu_1 = \mu_2
-\]</span>{#eq: h20}</p>
+\tag{6.1}
+\]</span></p>
 </div>
 <div id="alternativhypothese-2" class="section level4" number="6.3.2.2">
 <h4><span class="header-section-number">6.3.2.2</span> Alternativhypothese</h4>
@@ -473,20 +474,23 @@ H_0 : \mu_1 = \mu_2
 <div id="ungerichtete-alternativhypothese-1" class="section level5" number="6.3.2.2.1">
 <h5><span class="header-section-number">6.3.2.2.1</span> Ungerichtete Alternativhypothese</h5>
 <p>Die ungerichtete Alternativhypothese besagt nur, <em>dass</em> es einen Unterschied zwischen <span class="math inline">\(\mu_1\)</span> und <span class="math inline">\(\mu_2\)</span> gibt, aber nicht in welche Richtung (größer oder kleiner). Sie lautet daher:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:h21u">\[
 H_1 : \mu_1 \neq \mu_2
-\]</span>{#eq:h21u}</p>
+\tag{6.2}
+\]</span></p>
 </div>
 <div id="gerichtete-alternativhypothese-1" class="section level5" number="6.3.2.2.2">
 <h5><span class="header-section-number">6.3.2.2.2</span> Gerichtete Alternativhypothese</h5>
 <p>Die gerichtete Alternativhyptothese gibt eine Richtung des vermuteten Unterschieds vor. Sie lautet entweder:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:h21l">\[
 H_1 : \mu_1 &lt; \mu_2
-\]</span>{#eq:h21l}</p>
+\tag{6.3}
+\]</span></p>
 <p>oder:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:h21g">\[
 H_1 : \mu_1 &gt; \mu_2
-\]</span>{#eq:h21g}</p>
+\tag{6.4}
+\]</span></p>
 </div>
 </div>
 <div id="beispiel-12" class="section level4" number="6.3.2.3">
@@ -509,9 +513,10 @@ H_1 : \mu_1 \neq \mu_2
 <div id="ablehnungsbereich-bestimmen-2" class="section level3" number="6.3.4">
 <h3><span class="header-section-number">6.3.4</span> Ablehnungsbereich bestimmen</h3>
 <p>Der kritische Wert wird genau wie bei dem 1-Stichproben-<span class="math inline">\(t\)</span>-Test aus der Tabelle abgelesen. Der einzige (wichtige!) Unterschied ist die Bestimmung der Freiheitsgrade: Bei zwei Stichproben der Größe <span class="math inline">\(n\)</span> werden die Freiheitsgrade bestimmt durch:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:df2sp">\[
 \mathit{df}=2\cdot n -2
-\]</span>{#eq:df2sp}</p>
+\tag{6.5}
+\]</span></p>
 <div id="beispiel-14" class="section level4" number="6.3.4.1">
 <h4><span class="header-section-number">6.3.4.1</span> Beispiel</h4>
 <p>Wir planen mit je 6 Stichproben. Deswegen berechnen wir die Freiheitsgrade:</p>
@@ -530,9 +535,10 @@ t &amp;\leq -2{,}228 \quad \textrm{und} \quad t \geq 2{,}228
 <div id="prüfgröße-berechnen-2" class="section level3" number="6.3.5">
 <h3><span class="header-section-number">6.3.5</span> Prüfgröße berechnen</h3>
 <p>Bei zwei Stichproben mit Mittelwert <span class="math inline">\(\bar{x}_1\)</span> bzw. <span class="math inline">\(\bar{x}_1\)</span> und Varianz <span class="math inline">\(s^2_1\)</span> bzw. <span class="math inline">\(s^2_2\)</span> lautet die Formel zur Bestimmung der Prüfgröße <span class="math inline">\(t\)</span>:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:t2sp">\[
 t=\frac{\bar{x}_1-\bar{x}_2}{\sqrt{\frac{s^2_1+s^2_2}{n}}}
-\]</span>{#eq:t2sp}</p>
+\tag{6.6}
+\]</span></p>
 <div id="beispiel-15" class="section level4" number="6.3.5.1">
 <h4><span class="header-section-number">6.3.5.1</span> Beispiel</h4>
 <p>Wir erheben folgende Werte für die Kaltmiete pro m²:</p>
@@ -553,7 +559,7 @@ s^2_2\approx1{,}59
 <p>Diese Varianzen sehen auf den ersten Blick sehr unterschiedlich aus, was ein Problem ist: Der 2-Stichproben-<span class="math inline">\(t\)</span>-Test hat ja zur Annahme, dass die Varianzen in den beiden Populationen gleich sind.</p>
 <p>Andererseits sind ja auch die Stichprobenvarianzen zu einem gewissen Grad Zufallsprodukte, und diese beiden Varianzen bewegen sich auch irgendwie noch in der selben Größenordnung – schließlich könnten sie auch 0,1 und 20 lauten.</p>
 <p>Wir entscheiden uns zunächst dazu, den Test fortzuführen und lernen gleich eine Methode kennen, wie wir überprüfen können, ob das auch gerechtfertigt ist.</p>
-<p>Um die Prüfgröße <span class="math inline">\(t\)</span> zu bestimmen, setzen wir einfach unsere Stichprobenwerte in die Formel aus  ein:</p>
+<p>Um die Prüfgröße <span class="math inline">\(t\)</span> zu bestimmen, setzen wir einfach unsere Stichprobenwerte in die Formel aus <a href="testverfahren-mit-zwei-stichproben.html#eq:t2sp">(6.6)</a> ein:</p>
 <p><span class="math display">\[\begin{aligned}
 t&amp;=\frac{\bar{x}_1-\bar{x}_2}{\sqrt{\frac{s^2_1+s^2_2}{n}}}\\[6pt]
 &amp;\approx\frac{8{,}06-6{,}84}{\sqrt{\frac{0{,}41+1{,}59}{6}}}\\[4pt]
@@ -572,7 +578,7 @@ t&amp;=\frac{\bar{x}_1-\bar{x}_2}{\sqrt{\frac{s^2_1+s^2_2}{n}}}\\[6pt]
 </div>
 <div id="die-f-verteilung" class="section level2" number="6.4">
 <h2><span class="header-section-number">6.4</span> Die <span class="math inline">\(F\)</span>-Verteilung</h2>
-<p>Die Prüfgröße <span class="math inline">\(F\)</span> im <span class="math inline">\(F\)</span>-Test ist unter Annahme der Nullhypothese <span class="math inline">\(F\)</span>-verteilt. Im Gegensatz zu den Verteilungen von <span class="math inline">\(z\)</span> und <span class="math inline">\(t\)</span> ist die <span class="math inline">\(F\)</span>-Verteilung nicht symmetrisch und nimmt nur positive Werte an (s. ).</p>
+<p>Die Prüfgröße <span class="math inline">\(F\)</span> im <span class="math inline">\(F\)</span>-Test ist unter Annahme der Nullhypothese <span class="math inline">\(F\)</span>-verteilt. Im Gegensatz zu den Verteilungen von <span class="math inline">\(z\)</span> und <span class="math inline">\(t\)</span> ist die <span class="math inline">\(F\)</span>-Verteilung nicht symmetrisch und nimmt nur positive Werte an (s. <a href="testverfahren-mit-zwei-stichproben.html#fig:fdf">6.1</a>).</p>
 <p>Dazu ist die <span class="math inline">\(F\)</span>-Verteilung nicht wie <span class="math inline">\(t\)</span> von einem, sondern von zwei Freiheitsgraden abhängig. Die Reihenfolge dieser Freiheitsgrade ist auch wichtig: Wir sprechen vom Zähler-Freiheitsgrad (<span class="math inline">\(\mathit{df}_1\)</span>) und vom Nenner-Freiheitsgrad (<span class="math inline">\(\mathit{df}_2\)</span>). Die <span class="math inline">\(F\)</span>-Verteilung wird also notiert mit: <span class="math inline">\(F_{\mathit{df}_1;\mathit{df}_2}\)</span></p>
 <div class="figure" style="text-align: center"><span id="fig:fdf"></span>
 <img src="bookdownproj_files/figure-html/fdf-1.png" alt="$F$-Verteilungen mit verschiedenen Freiheitsgraden" width=".49\linewidth" />
@@ -604,27 +610,31 @@ Figure 6.1: <span class="math inline">\(F\)</span>-Verteilungen mit verschiedene
 <p>Alles wie gehabt – nur, dass es um die Varianz <span class="math inline">\(\sigma^2\)</span> der jewiligen Populationen geht.</p>
 <div id="nullhypothese-3" class="section level4" number="6.5.2.1">
 <h4><span class="header-section-number">6.5.2.1</span> Nullhypothese</h4>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:h0f">\[
 H_0: \sigma^2_1=\sigma^2_2
-\]</span>{#eq:h0f}</p>
+\tag{6.7}
+\]</span></p>
 </div>
 <div id="alternativhypothesen" class="section level4" number="6.5.2.2">
 <h4><span class="header-section-number">6.5.2.2</span> Alternativhypothesen</h4>
 <div id="ungerichtet" class="section level5" number="6.5.2.2.1">
 <h5><span class="header-section-number">6.5.2.2.1</span> Ungerichtet</h5>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:h1uf">\[
 H_1: \sigma^2_1\neq\sigma^2_2
-\]</span>{#eq:h1uf}</p>
+\tag{6.8}
+\]</span></p>
 </div>
 <div id="gerichtet" class="section level5" number="6.5.2.2.2">
 <h5><span class="header-section-number">6.5.2.2.2</span> Gerichtet</h5>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:h1gf">\[
 H_1: \sigma^2_1&gt;\sigma^2_2
-\]</span>{#eq:h1gf}
+\tag{6.9}
+\]</span>
 oder
-<span class="math display">\[
+<span class="math display" id="eq:h1lf">\[
 H_1: \sigma^2_1&lt;\sigma^2_2
-\]</span>{#eq:h1lf}</p>
+\tag{6.10}
+\]</span></p>
 </div>
 </div>
 <div id="beispiel-18" class="section level4" number="6.5.2.3">
@@ -651,27 +661,32 @@ H_1: \sigma^2_1&lt;\sigma^2_2
 <div id="ablehnungsbereich-bestimmen-3" class="section level3" number="6.5.4">
 <h3><span class="header-section-number">6.5.4</span> Ablehnungsbereich bestimmen</h3>
 <p>Für die ungerichtete Alternativhypothese sind die kritischen Werte:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:kritFu">\[
 F \leq F_{\mathit{df}_1;\mathit{df}_2;\alpha/2} \quad \textrm{und} \quad F \geq F_{\mathit{df}_1;\mathit{df}_2;(1-\alpha/2)}
-\]</span>{#eq:kritFu}</p>
+\tag{6.11}
+\]</span></p>
 <p>Für die gerichtete Alternativhypothese:
-<span class="math display">\[
+<span class="math display" id="eq:kritFl">\[
 F \leq F_{\mathit{df}_1;\mathit{df}_2;\alpha}
-\]</span>{#eq:kritFl}</p>
+\tag{6.12}
+\]</span></p>
 <p>bzw.</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:kritFg">\[
 F \geq F_{\mathit{df}_1;\mathit{df}_2;(1-\alpha)}
-\]</span>{#eq:kritFg}</p>
+\tag{6.13}
+\]</span></p>
 <p>Die Besonderheit der <span class="math inline">\(F\)</span>-Verteilung ist, dass sie gleich von zwei Freiheitsgraden abhängt: dem Zähler-Freiheitsgrad <span class="math inline">\(\mathit{df}_1\)</span> und dem Nenner-Freiheitsgrad <span class="math inline">\(\mathit{df}_2\)</span>.</p>
 <p>Dabei bestimmen sich die Freiheitsgrade wieder durch die Stichprobengrößen:</p>
-<p><span class="math display">\[\begin{aligned}
+<p><span class="math display" id="eq:Fdfs">\[\begin{aligned}
 \mathit{df}_1=n_1-1\\
 \mathit{df}_2=n_2-1
-\end{aligned}\]</span>{#eq:Fdfs}</p>
-<p>In der Tabelle im Anhang sind nur die Werte für Flächenanteile von 0,95 vermerkt. Die Werte für Flächenanteile von 0,05 (also am linken Rand) können durch  bestimmt werden:</p>
-<p><span class="math display">\[
-F_{\mathit{df}_1;\mathit{df}_2;\alpha}=\frac{1}{F_{\mathit{df}_2;\mathit{df}_1;(1-\alpha)}} 
-\]</span>{#eq:Frev}</p>
+\end{aligned}
+\tag{6.14}\]</span></p>
+<p>In der Tabelle im Anhang sind nur die Werte für Flächenanteile von 0,95 vermerkt. Die Werte für Flächenanteile von 0,05 (also am linken Rand) können durch <a href="testverfahren-mit-zwei-stichproben.html#eq:Frev">(6.15)</a> bestimmt werden:</p>
+<p><span class="math display" id="eq:Frev">\[
+F_{\mathit{df}_1;\mathit{df}_2;\alpha}=\frac{1}{F_{\mathit{df}_2;\mathit{df}_1;(1-\alpha)}}
+\tag{6.15}
+\]</span></p>
 <p>Dabei ist zu beachten, dass im Nenner die Reihenfolge der Freiheitsgrade getauscht wird!</p>
 <p>Zur Verdeutlichung könnte – losgelöst von unserem Beispiel – ein unterer kritischer Wert berechnet werden durch:</p>
 <p><span class="math display">\[\begin{aligned}
@@ -680,12 +695,12 @@ F_{13;20;5\%}&amp;=\frac{1}{F_{20;13;95\%}} \\[5pt]
 \end{aligned}\]</span></p>
 <div id="beispiel-20" class="section level4" number="6.5.4.1">
 <h4><span class="header-section-number">6.5.4.1</span> Beispiel</h4>
-<p>Die Freiheitsgrade berechnen sich durch :</p>
+<p>Die Freiheitsgrade berechnen sich durch <a href="testverfahren-mit-zwei-stichproben.html#eq:Fdfs">(6.14)</a>:</p>
 <p><span class="math display">\[\begin{aligned}
 \mathit{df}_1=n_1-1=5\\[4pt]
 \mathit{df}_2=n_2-1=5
 \end{aligned}\]</span></p>
-<p>Durch unsere gerichtete Alternativhypothese ergibt sich der kritische Wert aus  (unter Anwendung des Tricks aus ):</p>
+<p>Durch unsere gerichtete Alternativhypothese ergibt sich der kritische Wert aus <a href="testverfahren-mit-zwei-stichproben.html#eq:kritFl">(6.12)</a> (unter Anwendung des Tricks aus <a href="testverfahren-mit-zwei-stichproben.html#eq:Frev">(6.15)</a>):</p>
 <p><span class="math display">\[\begin{aligned}
 F &amp;\leq F_{\mathit{df}_1;\mathit{df}_2;\alpha}\\
 F &amp;\leq F_{5;5;5\%}\\[5pt]
@@ -693,7 +708,7 @@ F &amp;\leq \frac{1}{F_{5;5;95\%}}\\[5pt]
 F &amp;\leq \frac{1}{5{,}05}\\[4pt]
 F &amp;\leq 0{,}20\\[4pt]
 \end{aligned}\]</span></p>
-<p>Der so berechnete Ablehnungsbereich ist grafisch in  aufbereitet.</p>
+<p>Der so berechnete Ablehnungsbereich ist grafisch in <a href="testverfahren-mit-zwei-stichproben.html#fig:falpha">6.2</a> aufbereitet.</p>
 <div class="figure" style="text-align: center"><span id="fig:falpha"></span>
 <img src="bookdownproj_files/figure-html/falpha-1.png" alt="Ablehnungsbereich für $F \leq F_{5;5;5\%}$" width=".49\linewidth" />
 <p class="caption">
@@ -705,9 +720,10 @@ Figure 6.2: Ablehnungsbereich für <span class="math inline">\(F \leq F_{5;5;5\%
 <div id="prüfgröße-berechnen-3" class="section level3" number="6.5.5">
 <h3><span class="header-section-number">6.5.5</span> Prüfgröße berechnen</h3>
 <p>Die Formel für die Prüfgröße <span class="math inline">\(F\)</span> ist denkbar einfach:</p>
-<p><span class="math display">\[\begin{aligned}
+<p><span class="math display" id="eq:formelf">\[\begin{aligned}
 F=\frac{s^2_1}{s^2_2}
-\end{aligned}\]</span>{#eq:formelf}</p>
+\end{aligned}
+\tag{6.16}\]</span></p>
 <div id="beispiel-21" class="section level4" number="6.5.5.1">
 <h4><span class="header-section-number">6.5.5.1</span> Beispiel</h4>
 <p>Wir hatten die Varianzen der Stichproben berechnet mit:</p>
@@ -715,7 +731,7 @@ F=\frac{s^2_1}{s^2_2}
 s^2_1\approx0{,}41\\
 s^2_2\approx1{,}59
 \end{aligned}\]</span></p>
-<p>Einsetzen in die Formel aus  ergibt:</p>
+<p>Einsetzen in die Formel aus <a href="testverfahren-mit-zwei-stichproben.html#eq:formelf">(6.16)</a> ergibt:</p>
 <p><span class="math display">\[\begin{aligned}
 F&amp;=\frac{s^2_1}{s^2_2}\\[6pt]
 &amp;=\frac{0{,}41}{1{,}59}\approx0{,}26

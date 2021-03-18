@@ -198,13 +198,14 @@ Der Erwartungswert für ein Tabellenfeld (also der "durchschnittliche" Wert, wen
 \nopagebreak
 \[
 m_{ij}=\frac{n_{i\cdot}\cdot n_{\cdot j}}{n}
-\]{#eq:m}
+(\#eq:m)
+\]
 
 Es wird also das Produkt der Zeilen- und der Spaltensumme geteilt durch die Gesamtsumme.
 
 ### Beispiel
 
-Die beobachtete Häufigkeit für die Kombination "Geistes-/Sozialwissenschaft" (Zeile 1) und "anderes Transportmittel" (Spalte 2) ist 28. Aber was wäre der Erwartungswert bei den gegebenen Summen? Wir setzen einfach die entsprechenden Werte in die \autoref{eq:m} ein:
+Die beobachtete Häufigkeit für die Kombination "Geistes-/Sozialwissenschaft" (Zeile 1) und "anderes Transportmittel" (Spalte 2) ist 28. Aber was wäre der Erwartungswert bei den gegebenen Summen? Wir setzen einfach die entsprechenden Werte in die \@ref(eq:m) ein:
 
 \nopagebreak
 \[\begin{aligned}
@@ -227,7 +228,8 @@ Sind für alle Tabellenfelder die Beobachtungs- und Erwartungswerte gegeben, lä
 \nopagebreak
 \[
 \chi^2= \sum_{i=1}^{k}\sum_{j=1}^{\ell}\frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}
-\]{#eq:chisq}
+(\#eq:chisq)
+\]
 
 Bei der Formel steht $k$ wieder für die Anzahl der Zeilen (und $i$ für ihre laufende Nummer) und $\ell$ für die Anzahl der Spalten (und $j$ für ihre laufende Nummer).
 
@@ -242,7 +244,8 @@ Ein möglicher Zwischenschritt ist es, diese Teilwerte von $\chi^2$ für die ein
 \nopagebreak
 \[
 \frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}
-\]{#eq:contrib}
+(\#eq:contrib)
+\]
 
 berechnet und sind in \autoref{tab:radchisq} in blau dargestellt.
 
@@ -251,7 +254,7 @@ radxt <- crosstable(rad, format="latex", varnames = F, expected = T, chisq = T, 
 radxt$df
 ```
 
-Zum Beispiel ergibt sich der Teilwert für $\chi^2$ für die Kombination "anderes Studienfach" -- "Fahrrad" durch Einsetzen in \autoref{eq:contrib}:
+Zum Beispiel ergibt sich der Teilwert für $\chi^2$ für die Kombination "anderes Studienfach" -- "Fahrrad" durch Einsetzen in \@ref(eq:contrib):
 
 \nopagebreak
 \[\begin{aligned}
@@ -280,11 +283,12 @@ Der Wert für $\phi$ kann aus $\chi^2$ berechnet werden mit:
 \nopagebreak
 \[
 \phi=\sqrt{\frac{\chi^2}{n}}
-\]{#eq:phi}
+(\#eq:phi)
+\]
 
 ### Beispiel
 
-In unserem Beispiel ergibt sich also für $\phi$ durch Einsetzung in \autoref{eq:phi}:
+In unserem Beispiel ergibt sich also für $\phi$ durch Einsetzung in \@ref(eq:phi):
 
 \nopagebreak
 \[\begin{aligned}
@@ -305,7 +309,8 @@ Die Formel für den Cramér-Index lautet
 
 \[
 \mathit{CI}=\sqrt{\frac{\chi^2}{n\cdot (\mathrm{min}(k, \ell)-1)}}
-\]{#eq:ci}
+(\#eq:ci)
+\]
 
 wobei der Ausdruck $\mathrm{min}(k,\ell)$ für den *kleineren* Wert aus Zeilenanzahl $k$ und Spaltenanzahl $\ell$ steht.
 
@@ -315,7 +320,7 @@ In einer $2\times2$-Tabelle ist dieser Wert identisch mit dem $\phi$-Koeffizient
 
 Hätten wir im Beispiel die Erhebung nicht auf dichotome Variablen reduziert, sondern die Wissenschaftsdisziplinen und Verkehrsmittel direkt erhoben, so würde sich die Kreuztabelle vielleicht wie in \autoref{tab:ci} darstellen.
 
-Dabei werden die Erwartungswerte wie gehabt mit \autoref{eq:m} und die Teilwerte für $\chi^2$ mit der \autoref{eq:contrib} errechnet.
+Dabei werden die Erwartungswerte wie gehabt mit \@ref(eq:m) und die Teilwerte für $\chi^2$ mit der \@ref(eq:contrib) errechnet.
 
 
 ```{r ci}
@@ -342,7 +347,7 @@ crosstable(verkehrsmittel, "latex", expected=T, chisq=T, col.order=c("Fahrrad", 
 ```
 
 
-Der $\chi^2$-Wert ergibt sich wieder aus der Summe (s. \autoref{eq:chisq}):
+Der $\chi^2$-Wert ergibt sich wieder aus der Summe (s. \@ref(eq:chisq)):
 
 \nopagebreak
 \[\begin{aligned}
@@ -351,7 +356,7 @@ Der $\chi^2$-Wert ergibt sich wieder aus der Summe (s. \autoref{eq:chisq}):
 & =9,120
 \end{aligned}\]
 
-Mit diesem Wert kann der Cramér-Index anhand von \autoref{eq:ci} berechnet werden.
+Mit diesem Wert kann der Cramér-Index anhand von \@ref(eq:ci) berechnet werden.
 
 Die Zeilenanzahl ist $k=4$ und die Spaltenanzahl $\ell=3$. Der Ausdruck $\mathrm{min}(k,\ell)$ ergibt den kleineren dieser Werte, also 3:
 

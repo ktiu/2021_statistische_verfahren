@@ -36,8 +36,27 @@ library(kableExtra)
 library(tidyverse)
 library(cowplot)
 #library(pubIHG)
+
 options(OutDec = ",")
 knitr::opts_chunk$set(fig.align='center', out.width='.49\\linewidth', fig.width=5, fig.height=3, echo=FALSE, warning=FALSE, message=FALSE, fig.pos = 'h')
+
+goethe_blue <- "#00618F"
+light_gray <- "#f8f6f5"
+sand_gray <- "#e4e3dd"
+dark_gray <- "#4d4b46"
+purple <- "#860047"
+emo_red <- "#b3062c"
+mustard_yellow <- "#e3ba0f"
+green <- "#737c45"
+magenta <- "#ad3b76"
+orange <- "#c96215"
+sun_yellow <- "#f7d926"
+light_green <- "#a5ab52"
+light_blue <- "#48a9da"
+
+th_css <- "background-color: var(--sand_gray);
+  color: var(--goethe_blue);
+  font-weight: 600"
 ```
 
 # Terminüberblick {-}

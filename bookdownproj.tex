@@ -38,7 +38,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={Statistische Verfahren},
+  pdftitle={Statistische Verfahren in der Geographie},
   pdflang={de},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
@@ -70,6 +70,20 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
 \ifxetex
   % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
   \usepackage{polyglossia}
@@ -101,14 +115,7 @@
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
-\title{Statistische Verfahren}
-\usepackage{etoolbox}
-\makeatletter
-\providecommand{\subtitle}[1]{% add subtitle to \maketitle
-  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
-}
-\makeatother
-\subtitle{Statistische Verfahren in der Geographie}
+\title{Statistische Verfahren in der Geographie}
 \author{true}
 \date{Sommersemester 2021}
 
@@ -123,23 +130,23 @@
 \section*{Terminüberblick}\label{terminuxfcberblick}}
 \addcontentsline{toc}{section}{Terminüberblick}
 
-\emph{Alle Sitzungen finden von XX bis XXh c.t. statt}
+\emph{Alle Sitzungen finden von 14 bis 16h c.t. statt}
 
 \begin{longtable}[]{@{}rrl@{}}
 \toprule
 Datum & Sitzung & Inhalt\tabularnewline
 \midrule
 \endhead
-XX. April 2021 & 1 & \protect\hyperlink{Datenerhebungux5cux2520undux5cux2520Huxe4ufigkeiten}{Datenerhebung und Häufigkeiten}\tabularnewline
-XX. April 2021 & 2 & \protect\hyperlink{Mauxdfzahlen}{Maßzahlen}\tabularnewline
-XX. April 2021 & 3 & \protect\hyperlink{z-Werteux5cux2520undux5cux2520Normalverteilung}{z-Werte und Normalverteilung}\tabularnewline
-XX. April 2021 & 4 & \href{Schätzstatistik4}{Schätzstatistik}\tabularnewline
-XX. April 2021 & 5 & \protect\hyperlink{Grundlagenux5cux2520derux5cux2520Teststatistik}{Grundlagen der Teststatistik}\tabularnewline
-XX. April 2021 & 6 & \protect\hyperlink{Testverfahrenux5cux2520mitux5cux2520zweiux5cux2520Stichproben}{Testverfahren mit zwei Stichproben}\tabularnewline
-XX. April 2021 & 7 & \protect\hyperlink{Korrelation}{Korrelation}\tabularnewline
-XX. April 2021 & 8 & \protect\hyperlink{Lineareux5cux2520Regression}{Lineare Regression}\tabularnewline
-XX. April 2021 & 9 & \protect\hyperlink{Kreuztabellen}{Kreuztabellen}\tabularnewline
-XX. April 2021 & 10 & \protect\hyperlink{Chi-Quadrat-Tests}{Chi-Quadrat-Tests}\tabularnewline
+13. April 2021 & 1 & \protect\hyperlink{datenerhebung-und-huxe4ufigkeiten}{Datenerhebung und Häufigkeiten}\tabularnewline
+20. April 2021 & 2 & \protect\hyperlink{mauxdfzahlen}{Maßzahlen}\tabularnewline
+27. April 2021 & 3 & \protect\hyperlink{z-werte-und-normalverteilung}{z-Werte und Normalverteilung}\tabularnewline
+04. Mai 2021 & 4 & \protect\hyperlink{schuxe4tzstatistik-1}{Schätzstatistik}\tabularnewline
+11. Mai 2021 & 5 & \protect\hyperlink{grundlagen-der-teststatistik}{Grundlagen der Teststatistik}\tabularnewline
+18. Mai 2021 & 6 & \protect\hyperlink{testverfahren-mit-zwei-stichproben}{Testverfahren mit zwei Stichproben}\tabularnewline
+25. Mai 2021 & 7 & \protect\hyperlink{korrelation}{Korrelation}\tabularnewline
+01. Juni 2021 & 8 & \protect\hyperlink{lineare-regression}{Lineare Regression}\tabularnewline
+08. Juni 2021 & 9 & \protect\hyperlink{kreuztabellen}{Kreuztabellen}\tabularnewline
+15. Juni 2021 & 10 & \protect\hyperlink{chi-quadrat-tests}{Chi-Quadrat-Tests}\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -4756,7 +4763,7 @@ Sie können\ldots{}
 \end{itemize}
 
 \hypertarget{bivariate-verteilungen-mit-nominalen-variablen}{%
-\section{Bivariate Verteilungen mit nominalen Variablen}\label{bivariate-verteilungen-mit-nominalen-variablen}}
+\subsection{Bivariate Verteilungen mit nominalen Variablen}\label{bivariate-verteilungen-mit-nominalen-variablen}}
 
 In der bivariaten Statistik (Sitzungen 7 und 8) ging es bisher um Zusammenhänge zwischen zwei metrischen Variablen. In dieser Sitzung geht es um statistische Verfahren der bivariaten Statistik, bei denen für beide Variablen nur das Nominalskalenniveau vorausgesetzt ist. (Für Skalenniveaus s. Sitzung~1.)
 
@@ -5193,6 +5200,448 @@ Können Sie einen Zusammenhang zwischen Namensherkunft und Erfolg der Bewerbung 
 
 \hypertarget{quellen-8}{%
 \subsection{Quellen}\label{quellen-8}}
+
+\hypertarget{chi-quadrat-tests}{%
+\section{Chi-Quadrat-Tests}\label{chi-quadrat-tests}}
+
+\hypertarget{lernziele-dieser-sitzung-9}{%
+\subsection{Lernziele dieser Sitzung}\label{lernziele-dieser-sitzung-9}}
+
+Sie können\ldots{}
+
+\begin{itemize}
+\tightlist
+\item
+  einen \(\chi^2\)-Unabhängigkeitstest durchführen.
+\item
+  einen \(\chi^2\)-Anpassungstest durchführen.
+\end{itemize}
+
+\hypertarget{anwendungsbereich}{%
+\subsection{Anwendungsbereich}\label{anwendungsbereich}}
+
+In Sitzung 9 haben wir gelernt, wie für bivariate Verteilungen Korrelationen beschrieben werden können, wenn beide Variablen nominalskaliert sind. Grundlage dafür waren die Häufigkeiten von Wertekombinationen in der Kreuztabelle.
+
+Auch für \(\chi^2\)-Tests sind beobachtete Häufigkeiten in einer Kreuztabelle unser Ausgangspunkt. Wir fragen jedoch nicht nach einem Kennwert für die Stärke der Korrelation, sondern wollen wissen, ob es einen statistisch signifikanten Zusammenhang zwischen den beiden Variablen gibt -- also einen Zusammenhang, der nur mit einer Wahrscheinlichkeit \(\alpha\) zufällig zustande gekommen ist.
+
+Um den Unterschied zu verdeutlichen: Bei sehr großen Fallzahlen kann auch eine leichte Korrelation statistisch signifikant sein, bei kleinen Fallzahlen wird es es selbst für starke Korrelationen schwierig, eine statistische Signifikanz nachzuweisen.
+
+Mit dem \(\chi^2\)-Unabhängigkeitstest und dem \(\chi^2\)-Anpassungstest lernen wir im Folgenden zwei leicht unterschiedliche Varianten des \(\chi^2\)-Tests kennen. Beide sollen direkt an Beispielen ausgeführt werden.
+
+\hypertarget{chi2-unabhuxe4ngigkeitstest}{%
+\subsection{\texorpdfstring{\(\chi^2\)-Unabhängigkeitstest}{\textbackslash chi\^{}2-Unabhängigkeitstest}}\label{chi2-unabhuxe4ngigkeitstest}}
+
+Grundlage sind bivariate Häufigkeiten, die in einer Kreuztabelle dargestellt werden können (s. \autoref{tab:zivi1}). Wie Kreuztabellen erstellt werden, haben wir bereits in Sitzung 9 behandelt.
+
+\begin{table}
+
+\caption{\label{tab:zivi1}Kreuztabelle der Beispieldaten}
+\centering
+\begin{tabular}[t]{>{}r|r>{}r|r}
+\toprule
+ & Grundwehrdienst & Zivildienst & \\
+\midrule
+Land & \makecell[tr]{18} & \makecell[tr]{11} & 29\\
+Stadt & \makecell[tr]{10} & \makecell[tr]{23} & 33\\
+\midrule
+ & 28 & 34 & 62\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Unser Beispieldatensatz beschäftigt sich mit Kriegsdienstverweigerern. Zwischen 1956 und 2011 galt in der BRD die Wehrpflicht, d.h. alle vom Staat als ``männlich'' erfassten und als ``tauglich'' gemusterte jungen Menschen mussten Dienst an der Waffe leisten -- es sei denn, sie verweigerten den Kriegsdienst und leisteten stattdessen Zivildienst (z.B. in sozialen Einrichtungen).
+
+Zusätzlich zur Frage der Kriegsdienstverweigerung sei in einer Zufallsstichprobe von als tauglich gemusterten erhoben, ob der Wohnort eine Gemeinde mit über oder unter 20000 Einwohner*innen (``Stadt'' oder ``Land'') ist.\footnote{Hier wird also eine verhältnisskalierte Variable (Bevölkerungszahl der Gemeinde) in eine nominalskalierte Variable transformiert. In Fällen wie diesen, wo die Variable nach der Transformation nur zwei Werte annehmen kann, sprechen wir auch von der ``Dichotomisierung'' einer Variable.} Die Ergebnisse sind in \autoref{tab:zivi1} zusammengefasst.
+
+Wir interessieren uns für den statistischen Zusammenhang dieser beiden Variablen, und zwar möchten wir die Hypothese prüfen, dass Menschen aus der Stadt eher den Kriegsdienst verweigerten als Menschen vom Land. Der Test wird entlang der bekannten sechs Schritte ausgeführt.
+
+\hypertarget{test-wuxe4hlen-und-voraussetzungen-pruxfcfen-4}{%
+\subsubsection{Test wählen und Voraussetzungen prüfen}\label{test-wuxe4hlen-und-voraussetzungen-pruxfcfen-4}}
+
+Für den \(\chi^2\)-Unabhängigkeitstest müssen folgende Voraussetzungen erfüllt sein:
+
+\begin{itemize}
+\tightlist
+\item
+  Ziel ist die Überprüfung einer bivariaten Verteilung auf einen statistisch signifikanten Zusammenhang zwischen zwei nominalskalierten Variablen.
+\item
+  Grundlage sind beobachtete Häufigkeiten aus einer einfachen, unabhängigen Zufallsstichprobe.
+\item
+  Alle Tabellenfelder enthalten beobachtete Häufigkeiten \((n_{ij}\geq 5)\).
+\end{itemize}
+
+Für unsere Beispieldaten sind diese Voraussetzungen gegeben.
+
+\hypertarget{hypothesen-formulieren-4}{%
+\subsubsection{Hypothesen formulieren}\label{hypothesen-formulieren-4}}
+
+Wir haben wieder zwei Möglichkeiten: die gerichtete und die ungerichtete Alternativhypothese.
+
+\hypertarget{ungerichtete-alternativhyptothese}{%
+\paragraph{Ungerichtete Alternativhyptothese}\label{ungerichtete-alternativhyptothese}}
+
+Wir verzichten an dieser Stelle auf mathematische Notationen und würden bei ungerichteter Alternativhypothese im Klartext schreiben:
+
+\[\begin{aligned}
+H_0 &: \textrm{Es gibt keinen Zusammenhang zwischen Wohnort und Verweigerungsentscheidung.}\\
+H_1 &: \textrm{Es gibt einen Zusammenhang zwischen Wohnort und Verweigerungsentscheidung.}
+\end{aligned}\]
+
+\hypertarget{gerichtete-alternativhyptothese}{%
+\paragraph{Gerichtete Alternativhyptothese}\label{gerichtete-alternativhyptothese}}
+
+Im Falle einer gerichteteten Alternativhypothese bleibt die Nullhypothese bestehen, aber die Alternativhypothese gibt eine bestimmte Richtung des Zusammenhangs vor.
+
+\[\begin{aligned}
+H_0 &: \textrm{Es gibt keinen Zusammenhang zwischen Wohnort und Verweigerungsentscheidung.}\\
+H_1 &: \textrm{Es gibt einen positiven Zusammenhang zwischen Wohnort in der Stadt} \\
+&\quad\textrm{und Kriegsdienstverweigerung.}
+\end{aligned}\]
+
+Gerichtete Alternativhypothesen sind im \(\chi^2\)-Unabhängigkeitstest \emph{nur} für \(2\times2\)-Tabellen möglich.
+
+Im Beispiel entscheiden wir uns für die gerichtete Alternativhypothese, denn wir vermuten einen Zusammenhang in diese bestimmte Richtung.
+
+\hypertarget{signifikanzniveau-entscheiden-4}{%
+\subsubsection{Signifikanzniveau entscheiden}\label{signifikanzniveau-entscheiden-4}}
+
+Wie in anderen Tests ist ein Signifikanzniveau von \(\alpha=0,05\) üblich, wofür wir uns auch im Beispiel entscheiden.
+
+\hypertarget{kritischen-wert-bestimmen}{%
+\subsubsection{Kritischen Wert bestimmen}\label{kritischen-wert-bestimmen}}
+
+Bei \(\chi^2\)-Tests gibt es immer nur einen kritischen Wert. Zunächst müssen beim \(\chi^2\)-Unabhängigkeitstest die Freiheitsgrade bestimmt werden mit der Formel:
+
+\[\mathit{df} = (k - 1) \cdot (\ell - 1) \]\{\#eq:dfu\}
+
+wobei auch hier wieder \(k\) für die Zeilenanzahl und \(\ell\) für die Spaltenanzahl steht.
+
+Im Beispiel also:
+
+\[\begin{aligned}
+\mathit{df} &= (k - 1) \cdot (\ell - 1)\\
+&=(2-1)\cdot (2 - 1) = 1
+\end{aligned}\]
+
+Damit lässt sich der kritische Wert an der Tabelle im Anhang ablesen, die allerdings für \emph{ungerichtete} Alternativhypothesen ausgelegt ist.
+
+Hätten wir eine ungerichtete Alternativhypothese gewählt, würde der Ablehnungsbereich also definiert durch:
+
+\[\begin{aligned}
+\chi^2 &\geq \chi^2_{df;(1-\alpha)}\\
+\chi^2 &\geq \chi^2_{1;95\%}\\
+\chi^2 &\geq 3,841
+\end{aligned}\]
+
+Für unsere gerichtete Alternativhypothese ``dürfen'' wir den Ablehnungsbereich jedoch verdoppeln (müssen aber im nächsten Schritt auch prüfen, ob die Richtung auch stimmt):
+
+\[\begin{aligned}
+\chi^2 &\geq \chi^2_{df;(1-2\cdot\alpha)}\\
+\chi^2 &\geq \chi^2_{1;90\%}\\
+\chi^2 &\geq 2,706
+\end{aligned}\]
+
+\hypertarget{pruxfcfgruxf6uxdfe-berechnen-4}{%
+\subsubsection{Prüfgröße berechnen}\label{pruxfcfgruxf6uxdfe-berechnen-4}}
+
+Wie in Sitzung 9 besprochen, wird die Prüfgröße \(\chi^2\) anhand der Formel
+
+\[
+\chi^2= \sum_{i=1}^{k}\sum_{j=1}^{\ell}\frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}
+\]\{\#eq:chisq\}
+
+errechnet. Dabei ist die Ermittlung der Erwartungswerte \(m_{ij}\) ein notwendiger Schritt, und auch die Teilwerte für \(\chi^2\) können wieder direkt in die Kreuztabelle eingetragen werden.
+
+\begin{table}
+
+\caption{\label{tab:zivi2}Kreuztabelle mit Erwartungswerten und Teilwerten für $\chi^2$}
+\centering
+\begin{tabular}[t]{>{}r|r>{}r|r}
+\toprule
+ & Grundwehrdienst & Zivildienst & \\
+\midrule
+Land & \makecell[tr]{18\\(13,10)\\\textcolor{goethe_blue}{1,833}} & \makecell[tr]{11\\(15,90)\\\textcolor{goethe_blue}{1,510}} & 29\\
+Stadt & \makecell[tr]{10\\(14,90)\\\textcolor{goethe_blue}{1,611}} & \makecell[tr]{23\\(18,10)\\\textcolor{goethe_blue}{1,327}} & 33\\
+\midrule
+ & 28 & 34 & 62\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Für unser Beispiel erfolgt die Berechnung anhand \autoref{tab:zivi2}.
+
+Zunächst muss dabei geprüft werden, ob die Richtung unserer Alternativhypothese stimmt. Die beobachtete Häufigkeit der Zivildienstleistenden in der Stadt \(n_{22}=23\) ist größer als der Erwartungswert \(m_{22}=18,1\). Wenn eine Signifikanz nachgewiesen werden kann, dann also für den \emph{positiven} Zusammenhang zwischen Wohnort in der Stadt und Kriegsdienstverweigerung (wie in unserer Alternativhypothese spezifiziert).
+
+Für \(\chi^2\) ergibt sich im Beispiel:
+
+\[\begin{aligned}
+\chi^2 &= \sum_{i=1}^{k}\sum_{j=1}^{\ell}\frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}\\[4pt]
+&=1,833+1,51+1,611+1,327\\
+&=6,281
+\end{aligned}\]
+
+\hypertarget{ergebnis-interpretieren-2}{%
+\subsubsection{Ergebnis interpretieren}\label{ergebnis-interpretieren-2}}
+
+Der Wert der Prüfgröße \(\chi^2=6,281\) liegt deutlich im Ablehnungsbereich \(\chi^2\geq 2,706\). Die Nullhypothese kann abgelehnt werden. Es wurde ein statistisch signifikanter positiver Zusammenhang zwischen Wohnort in Gemeinden mit über 20000 Einwohner*innen und Kriegsdienstverweigerung festgestellt (\(\alpha=0,05\)).
+
+\begin{rtip}
+In R lässt sich ein $\chi^2$-Unabhängigkeitstest mit dem Befehl {\tt chisq.test()} durchführen.
+\end{rtip}
+
+\hypertarget{chi2-anpassungstest}{%
+\subsection{\texorpdfstring{\(\chi^2\)-Anpassungstest}{\textbackslash chi\^{}2-Anpassungstest}}\label{chi2-anpassungstest}}
+
+Beim \(\chi^2\)-Anpassungsest geht es um die Häufigkeiten \emph{eines} nominalskalierten Merkmals -- er ist deshalb der univariaten Teststatistik zuzuordnen. Der Test überprüft, ob das Merkmal entlang einer vorgegebenen Verteilung (im Normalfall gleichmäßig) verteilt ist, oder ob es signifikante Abweichungen von dieser erwarteten Verteilung gibt.
+
+Ein Beispiel: Für größere Verspätungen (\(\geq\) 10 Minuten) beim ÖPNV einer Großstadt wird festgehalten, an welchen Wochentagen sie auftreten. Wir ignorieren Wochenden und Feiertage und fragen uns, ob sich die Verzögerungen gleichmäßig auf Werktage verteilen, oder ob es signifikante Abweichungen in Bezug auf den Wochentag gibt. Die Werte in \autoref{tab:late} seien über drei Monate hinweg erhoben worden.
+
+\begin{longtable}[]{@{}lr@{}}
+\caption{\label{tab:late}Häufigkeiten größerer Verspätungen im ÖPNV}\tabularnewline
+\toprule
+Wochentag & Häufigkeit\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+Wochentag & Häufigkeit\tabularnewline
+\midrule
+\endhead
+Montag & 459\tabularnewline
+Dienstag & 409\tabularnewline
+Mittwoch & 414\tabularnewline
+Donnerstag & 387\tabularnewline
+Freitag & 437\tabularnewline
+\bottomrule
+\end{longtable}
+
+Wir befolgen wieder die sechs Schritte für statistische Testverfahren.
+
+\hypertarget{test-wuxe4hlen-und-voraussetzungen-pruxfcfen-5}{%
+\subsubsection{Test wählen und Voraussetzungen prüfen}\label{test-wuxe4hlen-und-voraussetzungen-pruxfcfen-5}}
+
+Für den \(\chi^2\)-Anpassungstest müssen folgende Voraussetzungen erfüllt sein:
+
+\begin{itemize}
+\tightlist
+\item
+  Ziel ist die Überprüfung einer nominalskalierten Variable auf eine statistisch signifikante Abweichung von einer vorgegebenen Verteilung.
+\item
+  Grundlage sind beobachtete Häufigkeiten aus einer einfachen, unabhängigen Zufallsstichprobe.
+\item
+  Alle Tabellenfelder enthalten beobachtete Häufigkeiten \((n_{i}\geq 5)\).
+\end{itemize}
+
+In unserem Beispiel sind diese Voraussetzungen gegeben.
+
+\hypertarget{hypothesen-formulieren-5}{%
+\subsubsection{Hypothesen formulieren}\label{hypothesen-formulieren-5}}
+
+\[\begin{aligned}
+H_0 &: \textrm{Starke Verspätungen sind an allen Werktagen gleich wahrscheinlich.}\\
+H_1 &: \textrm{Starke Verspätungen sind an manchen Wertkagen wahrscheinlicher als an anderen.}
+\end{aligned}\]
+
+Gerichtete Hypothesen dürfen hier nur bei dichotomen Variablen formuliert werden (also bei zwei Tabellenfeldern).
+
+\hypertarget{signifikanzniveau-entscheiden-5}{%
+\subsubsection{Signifikanzniveau entscheiden}\label{signifikanzniveau-entscheiden-5}}
+
+Üblich: \(\alpha=0,05\)
+
+\hypertarget{kritischen-wert-bestimmen-1}{%
+\subsubsection{Kritischen Wert bestimmen}\label{kritischen-wert-bestimmen-1}}
+
+Die Freiheitsgrade bestimmen sich aus
+
+\[\mathit{df}=k-1\]\{\#eq:dfe\}
+
+wobei \(k\) hier einfach die Anzahl der Katorien ist.
+
+In unserem Beispiel (bei fünf Werktagen) also:
+
+\[\begin{aligned}
+\mathit{df}&=k-1\\
+&=5-1=4
+\end{aligned}\]
+
+Der kritische Wert für den Ablehnungsbereich ist der Tabelle im Anhang zu entnehmen.
+
+\[\begin{aligned}
+\chi^2 &\geq \chi^2_{\mathit{df};(1-\alpha)}\\
+\chi^2 &\geq \chi^2_{4;95\%}\\
+\chi^2 &\geq 9,488
+\end{aligned}\]
+
+Auch hier wäre bei einer gerichteten Hypothese der kritische Wert \(\chi^2_{\mathit{df};(1-2\cdot \alpha)}\) anzuwenden -- dies ist allerdings wie bereits erwähnt nur für dichotome Variablen möglich.
+
+\hypertarget{pruxfcfgruxf6uxdfe-berechnen-5}{%
+\subsubsection{Prüfgröße berechnen}\label{pruxfcfgruxf6uxdfe-berechnen-5}}
+
+Die Prüfgröße \(\chi^2\) berechnet sich analog zu vorherigen Beispielen. Einzige Besonderheit: Die Erwartungswerte werden direkt anhand der zu erwartenden (im Regelfall: gleichmäßigen) Verteilung bestimmt.
+
+Im Beispiel ergibt sich in den fünf Kategorien jeweils ein Erwartungswert von
+
+\[\frac{n}{k}=\frac{2106}{5}=421,2\]
+
+\begin{table}
+
+\caption{\label{tab:xtlate}Tabelle für den $\chi^2$-Anpassungstest}
+\centering
+\begin{tabular}[t]{llll>{}l|r}
+\toprule
+Montag & Dienstag & Mittwoch & Donnerstag & Freitag &  \\
+\midrule
+\makecell[tr]{459\\(421,2)\\\color{goethe_blue}{3,392}} & \makecell[tr]{409\\(421,2)\\\color{goethe_blue}{0,353}} & \makecell[tr]{414\\(421,2)\\\color{goethe_blue}{0,123}} & \makecell[tr]{387\\(421,2)\\\color{goethe_blue}{2,777}} & \makecell[tr]{437\\(421,2)\\\color{goethe_blue}{0,593}} & 2106\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Dann nehmen wir wieder eine Tebelle zu Hilfe um die Prüfgröße \(\chi^2\) zu berechnen (s. \autoref{tab:xtlate}). Wie gehabt werden einfach die Teilwerte zusammengezählt:
+
+\[\begin{aligned}
+\chi^2 &= \sum_{i=1}^{k}\frac{(n_{i}-m_{i})^{2}}{m_{i}}\\[4pt]
+&=3,392 +  0,353 +  0,123 +  2,777 + 0,593\\
+&=7,238
+\end{aligned}\]
+
+\hypertarget{ergebnis-interpretieren-3}{%
+\subsubsection{Ergebnis interpretieren}\label{ergebnis-interpretieren-3}}
+
+Der Ablehnungsbereich \(\chi^2 \geq 9,488\) wurde nicht erreicht. Die Nullhypothese muss beibehalten werden. Eine statistisch signifikante Abweichung von einer gleichmäßigen Verteilung konnte nicht nachgewiesen werden (\(\alpha=0,05\)).
+
+\begin{rtip}
+Mit einer univariaten Verteilung als Eingabe führt der Befehl {\tt chisq.test()} einen $\chi^2$-Anpassungstest durch.
+\end{rtip}
+
+\hypertarget{andere-verteilungen}{%
+\subsubsection{Andere Verteilungen}\label{andere-verteilungen}}
+
+Die theoretische Verteilung, von der eine signifikante Abweichung festgestellt werden soll, ist im obigen Beispiel uniform, d.h. gleichmäßig. Allerdings kann beim Anpassungstest auch von anderen Verteilungen ausgegangen werden -- so könnte eine (begründete) Nullhypothese auch lauten, dass Kategorie A doppelt so viele Fallzahlen aufweist wie Kategorie B und C.
+
+In der Praxis wird der \(\chi^2\)-Anpassungstest auch oft verwendet, um nachzuweisen, dass \emph{keine} signifikante Abweichung von der Normalverteilung zu beobachten ist -- nur dann dürfen nämlich viele statistische Verfahren durchgeführt werden.
+
+\hypertarget{aufgaben-9}{%
+\subsection{Aufgaben}\label{aufgaben-9}}
+
+\hypertarget{aufgabe-1-9}{%
+\subsubsection{Aufgabe 1}\label{aufgabe-1-9}}
+
+Sie interessieren sich dafür, ob in einem Unternehmen der Tätigkeitsbereich mit dem Geschlecht der Angestellten zusammenhängt.
+
+In den Personalakten sind Angestellte als ``männlich'' oder ``weiblich'' erfasst und ihre Tätigkeitsfelder in ``Leitende Tätigkeit'', ``Administration'' und ``Fertigung'' unterteilt.
+
+Folgende Häufigkeiten sind erfasst:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Welchen Test führen Sie durch?
+\item
+  Formulieren Sie die Hypothesen.
+\item
+  Das Thema wird in der Unternehmensleitung bereits kontrovers diskutiert, weshalb Sie einen Fehler 1. Art zu 99\% ausschließen möchten. Wie lautet das Signifikanzniveau?
+\item
+  Bestimmen Sie die Freiheitsgrade und den kritischen Wert.
+\item
+  Berechnen Sie die Prüfgröße.
+\item
+  Wie interpretieren Sie das Ergebnis?
+\end{enumerate}
+
+\hypertarget{aufgabe-2-9}{%
+\subsubsection{Aufgabe 2}\label{aufgabe-2-9}}
+
+Eine Ihner Bekannten behauptet, dass beim Elfmeterschießen -- ``statistisch gesehen'' -- in 60\% der Fälle das Team gewinnt, das zuerst den Strafstoß ausführt.
+
+Sie möchten das empirisch überprüfen und schauen sich in Archiven siebzig Partien bei Fußballturnieren an, die durch Elfmeterschießen entschieden wurden. Tatsächlich stellen Sie fest, dass in genau 60\% der Fälle das zuerst ausführende Team gewann.
+
+Prüfen Sie, ob diese Beobachtung auch statistisch relevant ist. Wählen Sie 5\% als Signifikanzniveau.
+
+\hypertarget{tipps-zur-vertiefung-9}{%
+\subsection{Tipps zur Vertiefung}\label{tipps-zur-vertiefung-9}}
+
+\begin{itemize}
+\tightlist
+\item
+  Kapitel 9 in \protect\hyperlink{ref-bortz}{Bortz und Schuster} (\protect\hyperlink{ref-bortz}{2010})
+\item
+  Kapitel 5.3.4 in \protect\hyperlink{ref-bahrenberg}{Bahrenberg, Giese und Nipper} (\protect\hyperlink{ref-bahrenberg}{2010})
+\item
+  Kapitel 13 in \protect\hyperlink{ref-klemm}{Klemm} (\protect\hyperlink{ref-klemm}{2002})
+\end{itemize}
+
+\pagebreak
+
+\hypertarget{anhang-chi2-verteilungen}{%
+\subsection{\texorpdfstring{Anhang: \(\chi^2\)-Verteilungen}{Anhang: \textbackslash chi\^{}2-Verteilungen}}\label{anhang-chi2-verteilungen}}
+
+\begin{center}\includegraphics[width=.49\linewidth]{bookdownproj_files/figure-latex/unnamed-chunk-33-1} \end{center}
+
+\begin{table}[!h]
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tabular}{>{}r|rrrrrrrrrrr}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{11}{c}{Fläche} \\
+\cmidrule(l{3pt}r{3pt}){2-12}
+$df$ & 0,6 & 0,7 & 0,8 & 0,85 & 0,9 & 0,95 & 0,975 & 0,99 & 0,995 & 0,999 & 0,9995\\
+\midrule
+\cellcolor{gray!6}{1} & \cellcolor{gray!6}{0,708} & \cellcolor{gray!6}{1,074} & \cellcolor{gray!6}{1,642} & \cellcolor{gray!6}{2,072} & \cellcolor{gray!6}{2,706} & \cellcolor{gray!6}{3,841} & \cellcolor{gray!6}{5,024} & \cellcolor{gray!6}{6,635} & \cellcolor{gray!6}{7,879} & \cellcolor{gray!6}{10,828} & \cellcolor{gray!6}{12,116}\\
+2 & 1,833 & 2,408 & 3,219 & 3,794 & 4,605 & 5,991 & 7,378 & 9,210 & 10,597 & 13,816 & 15,202\\
+\cellcolor{gray!6}{3} & \cellcolor{gray!6}{2,946} & \cellcolor{gray!6}{3,665} & \cellcolor{gray!6}{4,642} & \cellcolor{gray!6}{5,317} & \cellcolor{gray!6}{6,251} & \cellcolor{gray!6}{7,815} & \cellcolor{gray!6}{9,348} & \cellcolor{gray!6}{11,345} & \cellcolor{gray!6}{12,838} & \cellcolor{gray!6}{16,266} & \cellcolor{gray!6}{17,730}\\
+4 & 4,045 & 4,878 & 5,989 & 6,745 & 7,779 & 9,488 & 11,143 & 13,277 & 14,860 & 18,467 & 19,997\\
+\cellcolor{gray!6}{5} & \cellcolor{gray!6}{5,132} & \cellcolor{gray!6}{6,064} & \cellcolor{gray!6}{7,289} & \cellcolor{gray!6}{8,115} & \cellcolor{gray!6}{9,236} & \cellcolor{gray!6}{11,070} & \cellcolor{gray!6}{12,833} & \cellcolor{gray!6}{15,086} & \cellcolor{gray!6}{16,750} & \cellcolor{gray!6}{20,515} & \cellcolor{gray!6}{22,105}\\
+\addlinespace
+6 & 6,211 & 7,231 & 8,558 & 9,446 & 10,645 & 12,592 & 14,449 & 16,812 & 18,548 & 22,458 & 24,103\\
+\cellcolor{gray!6}{7} & \cellcolor{gray!6}{7,283} & \cellcolor{gray!6}{8,383} & \cellcolor{gray!6}{9,803} & \cellcolor{gray!6}{10,748} & \cellcolor{gray!6}{12,017} & \cellcolor{gray!6}{14,067} & \cellcolor{gray!6}{16,013} & \cellcolor{gray!6}{18,475} & \cellcolor{gray!6}{20,278} & \cellcolor{gray!6}{24,322} & \cellcolor{gray!6}{26,018}\\
+8 & 8,351 & 9,524 & 11,030 & 12,027 & 13,362 & 15,507 & 17,535 & 20,090 & 21,955 & 26,124 & 27,868\\
+\cellcolor{gray!6}{9} & \cellcolor{gray!6}{9,414} & \cellcolor{gray!6}{10,656} & \cellcolor{gray!6}{12,242} & \cellcolor{gray!6}{13,288} & \cellcolor{gray!6}{14,684} & \cellcolor{gray!6}{16,919} & \cellcolor{gray!6}{19,023} & \cellcolor{gray!6}{21,666} & \cellcolor{gray!6}{23,589} & \cellcolor{gray!6}{27,877} & \cellcolor{gray!6}{29,666}\\
+10 & 10,473 & 11,781 & 13,442 & 14,534 & 15,987 & 18,307 & 20,483 & 23,209 & 25,188 & 29,588 & 31,420\\
+\addlinespace
+\cellcolor{gray!6}{11} & \cellcolor{gray!6}{11,530} & \cellcolor{gray!6}{12,899} & \cellcolor{gray!6}{14,631} & \cellcolor{gray!6}{15,767} & \cellcolor{gray!6}{17,275} & \cellcolor{gray!6}{19,675} & \cellcolor{gray!6}{21,920} & \cellcolor{gray!6}{24,725} & \cellcolor{gray!6}{26,757} & \cellcolor{gray!6}{31,264} & \cellcolor{gray!6}{33,137}\\
+12 & 12,584 & 14,011 & 15,812 & 16,989 & 18,549 & 21,026 & 23,337 & 26,217 & 28,300 & 32,909 & 34,821\\
+\cellcolor{gray!6}{13} & \cellcolor{gray!6}{13,636} & \cellcolor{gray!6}{15,119} & \cellcolor{gray!6}{16,985} & \cellcolor{gray!6}{18,202} & \cellcolor{gray!6}{19,812} & \cellcolor{gray!6}{22,362} & \cellcolor{gray!6}{24,736} & \cellcolor{gray!6}{27,688} & \cellcolor{gray!6}{29,819} & \cellcolor{gray!6}{34,528} & \cellcolor{gray!6}{36,478}\\
+14 & 14,685 & 16,222 & 18,151 & 19,406 & 21,064 & 23,685 & 26,119 & 29,141 & 31,319 & 36,123 & 38,109\\
+\cellcolor{gray!6}{15} & \cellcolor{gray!6}{15,733} & \cellcolor{gray!6}{17,322} & \cellcolor{gray!6}{19,311} & \cellcolor{gray!6}{20,603} & \cellcolor{gray!6}{22,307} & \cellcolor{gray!6}{24,996} & \cellcolor{gray!6}{27,488} & \cellcolor{gray!6}{30,578} & \cellcolor{gray!6}{32,801} & \cellcolor{gray!6}{37,697} & \cellcolor{gray!6}{39,719}\\
+\addlinespace
+16 & 16,780 & 18,418 & 20,465 & 21,793 & 23,542 & 26,296 & 28,845 & 32,000 & 34,267 & 39,252 & 41,308\\
+\cellcolor{gray!6}{17} & \cellcolor{gray!6}{17,824} & \cellcolor{gray!6}{19,511} & \cellcolor{gray!6}{21,615} & \cellcolor{gray!6}{22,977} & \cellcolor{gray!6}{24,769} & \cellcolor{gray!6}{27,587} & \cellcolor{gray!6}{30,191} & \cellcolor{gray!6}{33,409} & \cellcolor{gray!6}{35,718} & \cellcolor{gray!6}{40,790} & \cellcolor{gray!6}{42,879}\\
+18 & 18,868 & 20,601 & 22,760 & 24,155 & 25,989 & 28,869 & 31,526 & 34,805 & 37,156 & 42,312 & 44,434\\
+\cellcolor{gray!6}{19} & \cellcolor{gray!6}{19,910} & \cellcolor{gray!6}{21,689} & \cellcolor{gray!6}{23,900} & \cellcolor{gray!6}{25,329} & \cellcolor{gray!6}{27,204} & \cellcolor{gray!6}{30,144} & \cellcolor{gray!6}{32,852} & \cellcolor{gray!6}{36,191} & \cellcolor{gray!6}{38,582} & \cellcolor{gray!6}{43,820} & \cellcolor{gray!6}{45,973}\\
+20 & 20,951 & 22,775 & 25,038 & 26,498 & 28,412 & 31,410 & 34,170 & 37,566 & 39,997 & 45,315 & 47,498\\
+\addlinespace
+\cellcolor{gray!6}{25} & \cellcolor{gray!6}{26,143} & \cellcolor{gray!6}{28,172} & \cellcolor{gray!6}{30,675} & \cellcolor{gray!6}{32,282} & \cellcolor{gray!6}{34,382} & \cellcolor{gray!6}{37,652} & \cellcolor{gray!6}{40,646} & \cellcolor{gray!6}{44,314} & \cellcolor{gray!6}{46,928} & \cellcolor{gray!6}{52,620} & \cellcolor{gray!6}{54,947}\\
+30 & 31,316 & 33,530 & 36,250 & 37,990 & 40,256 & 43,773 & 46,979 & 50,892 & 53,672 & 59,703 & 62,162\\
+\cellcolor{gray!6}{35} & \cellcolor{gray!6}{36,475} & \cellcolor{gray!6}{38,859} & \cellcolor{gray!6}{41,778} & \cellcolor{gray!6}{43,640} & \cellcolor{gray!6}{46,059} & \cellcolor{gray!6}{49,802} & \cellcolor{gray!6}{53,203} & \cellcolor{gray!6}{57,342} & \cellcolor{gray!6}{60,275} & \cellcolor{gray!6}{66,619} & \cellcolor{gray!6}{69,199}\\
+40 & 41,622 & 44,165 & 47,269 & 49,244 & 51,805 & 55,758 & 59,342 & 63,691 & 66,766 & 73,402 & 76,095\\
+\cellcolor{gray!6}{45} & \cellcolor{gray!6}{46,761} & \cellcolor{gray!6}{49,452} & \cellcolor{gray!6}{52,729} & \cellcolor{gray!6}{54,810} & \cellcolor{gray!6}{57,505} & \cellcolor{gray!6}{61,656} & \cellcolor{gray!6}{65,410} & \cellcolor{gray!6}{69,957} & \cellcolor{gray!6}{73,166} & \cellcolor{gray!6}{80,077} & \cellcolor{gray!6}{82,876}\\
+\addlinespace
+50 & 51,892 & 54,723 & 58,164 & 60,346 & 63,167 & 67,505 & 71,420 & 76,154 & 79,490 & 86,661 & 89,561\\
+\cellcolor{gray!6}{60} & \cellcolor{gray!6}{62,135} & \cellcolor{gray!6}{65,227} & \cellcolor{gray!6}{68,972} & \cellcolor{gray!6}{71,341} & \cellcolor{gray!6}{74,397} & \cellcolor{gray!6}{79,082} & \cellcolor{gray!6}{83,298} & \cellcolor{gray!6}{88,379} & \cellcolor{gray!6}{91,952} & \cellcolor{gray!6}{99,607} & \cellcolor{gray!6}{102,695}\\
+70 & 72,358 & 75,689 & 79,715 & 82,255 & 85,527 & 90,531 & 95,023 & 100,425 & 104,215 & 112,317 & 115,578\\
+\cellcolor{gray!6}{80} & \cellcolor{gray!6}{82,566} & \cellcolor{gray!6}{86,120} & \cellcolor{gray!6}{90,405} & \cellcolor{gray!6}{93,106} & \cellcolor{gray!6}{96,578} & \cellcolor{gray!6}{101,879} & \cellcolor{gray!6}{106,629} & \cellcolor{gray!6}{112,329} & \cellcolor{gray!6}{116,321} & \cellcolor{gray!6}{124,839} & \cellcolor{gray!6}{128,261}\\
+90 & 92,761 & 96,524 & 101,054 & 103,904 & 107,565 & 113,145 & 118,136 & 124,116 & 128,299 & 137,208 & 140,782\\
+\addlinespace
+\cellcolor{gray!6}{100} & \cellcolor{gray!6}{102,946} & \cellcolor{gray!6}{106,906} & \cellcolor{gray!6}{111,667} & \cellcolor{gray!6}{114,659} & \cellcolor{gray!6}{118,498} & \cellcolor{gray!6}{124,342} & \cellcolor{gray!6}{129,561} & \cellcolor{gray!6}{135,807} & \cellcolor{gray!6}{140,169} & \cellcolor{gray!6}{149,449} & \cellcolor{gray!6}{153,167}\\
+110 & 113,121 & 117,269 & 122,250 & 125,376 & 129,385 & 135,480 & 140,917 & 147,414 & 151,948 & 161,581 & 165,435\\
+\cellcolor{gray!6}{120} & \cellcolor{gray!6}{123,289} & \cellcolor{gray!6}{127,616} & \cellcolor{gray!6}{132,806} & \cellcolor{gray!6}{136,062} & \cellcolor{gray!6}{140,233} & \cellcolor{gray!6}{146,567} & \cellcolor{gray!6}{152,211} & \cellcolor{gray!6}{158,950} & \cellcolor{gray!6}{163,648} & \cellcolor{gray!6}{173,617} & \cellcolor{gray!6}{177,603}\\
+130 & 133,450 & 137,949 & 143,340 & 146,719 & 151,045 & 157,610 & 163,453 & 170,423 & 175,278 & 185,571 & 189,682\\
+\cellcolor{gray!6}{140} & \cellcolor{gray!6}{143,604} & \cellcolor{gray!6}{148,269} & \cellcolor{gray!6}{153,854} & \cellcolor{gray!6}{157,352} & \cellcolor{gray!6}{161,827} & \cellcolor{gray!6}{168,613} & \cellcolor{gray!6}{174,648} & \cellcolor{gray!6}{181,840} & \cellcolor{gray!6}{186,847} & \cellcolor{gray!6}{197,451} & \cellcolor{gray!6}{201,683}\\
+\addlinespace
+150 & 153,753 & 158,577 & 164,349 & 167,962 & 172,581 & 179,581 & 185,800 & 193,208 & 198,360 & 209,265 & 213,613\\
+\cellcolor{gray!6}{200} & \cellcolor{gray!6}{204,434} & \cellcolor{gray!6}{209,985} & \cellcolor{gray!6}{216,609} & \cellcolor{gray!6}{220,744} & \cellcolor{gray!6}{226,021} & \cellcolor{gray!6}{233,994} & \cellcolor{gray!6}{241,058} & \cellcolor{gray!6}{249,445} & \cellcolor{gray!6}{255,264} & \cellcolor{gray!6}{267,541} & \cellcolor{gray!6}{272,423}\\
+300 & 305,574 & 312,346 & 320,397 & 325,409 & 331,789 & 341,395 & 349,874 & 359,906 & 366,844 & 381,425 & 387,203\\
+\cellcolor{gray!6}{400} & \cellcolor{gray!6}{406,535} & \cellcolor{gray!6}{414,335} & \cellcolor{gray!6}{423,590} & \cellcolor{gray!6}{429,340} & \cellcolor{gray!6}{436,649} & \cellcolor{gray!6}{447,632} & \cellcolor{gray!6}{457,305} & \cellcolor{gray!6}{468,724} & \cellcolor{gray!6}{476,606} & \cellcolor{gray!6}{493,132} & \cellcolor{gray!6}{499,666}\\
+500 & 507,382 & 516,087 & 526,401 & 532,803 & 540,930 & 553,127 & 563,852 & 576,493 & 585,207 & 603,446 & 610,648\\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\pagebreak
+
+\hypertarget{quellen-9}{%
+\subsection{Quellen}\label{quellen-9}}
 
 \hypertarget{refs}{}
 \begin{CSLReferences}{1}{0}

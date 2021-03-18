@@ -35,7 +35,7 @@ Ein illustrierendes Beispiel: Wir wissen, dass die Anzahl der täglichen Besuche
 
 An fünf zufälligen bewölkten Tagen zählen wir die Besucher\*innen und kommen auf einen Mittelwert der Stichprobe von $\bar{x} = 103{,}0$.
 
-Dieser Wert ist höher als das arithmetische Mittel der Grundgesamtheit ($\mu$). Aber heißt das auch, dass unsere Vermutung stimmt? Wir wissen aus Sitzung 4, dass die Stichprobenverteilung einem Standardfehler ($\sigma_{\bar{x}}$) unterliegt (s. \autoref{fig:eis}).
+Dieser Wert ist höher als das arithmetische Mittel der Grundgesamtheit ($\mu$). Aber heißt das auch, dass unsere Vermutung stimmt? Wir wissen aus Sitzung 4, dass die Stichprobenverteilung einem Standardfehler ($\sigma_{\bar{x}}$) unterliegt (s. \@ref(fig:eis)).
 
 Ist das Ergebnis also nur zufällig zustande gekommen, oder liegt ein *statistisch signifikantes* Ergebnis vor? Mit anderen Worten: Ist die Stichprobe überhaupt der Verteilung $x_0$ um $\mu_0$ entnommen, oder gibt es eine *andere* Verteilung ($x$ um ein anderes $\mu$) für bewölkte Tage, denen unser Stichprobenmittelwert $\bar{x}$ entstammt? Genau diese Art von Frage versuchen statistische Tests zu beantworten.
 
@@ -93,7 +93,8 @@ Die Nullhypothese (engl. *null hypothesis*) geht immer davon aus, das die forsch
 
 \[
 H_0 : \mu = \mu_0
-\]{#eq: h0}
+(\#eq:h0)
+\]
 
 #### Alternativhypothese
 
@@ -105,7 +106,8 @@ Die ungerichtete Alternativhypothese besagt nur, *dass* es einen Unterschied zwi
 
 \[
 H_1 : \mu \neq \mu_0
-\]{#eq:h1u}
+(\#eq:h1u)
+\]
 
 ##### Gerichtete Alternativhypothese
 
@@ -113,13 +115,15 @@ Die gerichtete Alternativhyptothese gibt eine Richtung des vermuteten Unterschie
 
 \[
 H_1 : \mu < \mu_0 \quad \textrm{(abwärts gerichtet)}
-\]{#eq:h1l}
+(\#eq:h1l)
+\]
 
 oder:
 
 \[
 H_1 : \mu > \mu_0 \quad \textrm{(aufwärts gerichtet)}
-\]{#eq:h1g}
+(\#eq:h1g)
+\]
 
 #### Beispiel 
 
@@ -148,11 +152,12 @@ Ein Irrtum in der statistischen Signifikanz der Besucherzahl hat vermutlich kein
 
 Zusammen mit der (Un-)Gerichtetheit der Alternativhypothese bestimmt das Signifikanzniveau $\alpha$ den *Ablehnungsbereich* -- also den Bereich für die zu errechnende Prüfgröße $z$, in dem die Nullhypothese abgelehnt würde.
 
-Der Ablehnungsbereich für die ungerichtete Alternativhypothese ist $\frac{\alpha}{2}$ auf beiden Seiten (s. \autoref{fig:ablung}). Die kritischen Werte sind dann die Schwellen des Ablehnungsbereich auf beiden Seiten:
+Der Ablehnungsbereich für die ungerichtete Alternativhypothese ist $\frac{\alpha}{2}$ auf beiden Seiten (s. \@ref(fig:ablung)). Die kritischen Werte sind dann die Schwellen des Ablehnungsbereich auf beiden Seiten:
 
 \[
 z \leq z_{\alpha/2} \quad \textrm{und} \quad z \geq z_{(1-\alpha/2)} \quad \textrm{für} \quad H_1: \mu \neq \mu_0
-\]{#eq: kritneq}
+(\#eq:kritneq)
+\]
 
 ```{r ablung, fig.cap="Kritische Werte für $z$ bei ungerichteter Alternativhypothese und $\\alpha=0{,}05$"}
 ggplot(data.frame(x=c(-3, 3)), aes(x)) +
@@ -162,14 +167,16 @@ ggplot(data.frame(x=c(-3, 3)), aes(x)) +
   scale_x_continuous("z", breaks=c(qnorm(0.025), 0, qnorm(0.975)), labels=c(paste0("~",round(qnorm(0.025),2)), 0, paste0("~",round(qnorm(0.975),2))), expand = c(0,0)) +
   scale_y_continuous(NULL, expand = c(0,0), limits=c(0,dnorm(0)*1.05))
 ```
-Bei den gerichteten Alternativhypothesen ist der Ablehnungsbereich jeweils nur auf einer Seite (s. Abbildungen \ref{fig:ablger1} und \ref{fig:ablger2}). Die kritischen Werte ergeben sich aus:
+Bei den gerichteten Alternativhypothesen ist der Ablehnungsbereich jeweils nur auf einer Seite (s. Abbildungen \@ref(fig:ablger1) und \@ref(fig:ablger2)). Die kritischen Werte ergeben sich aus:
 
 \[
 z \leq z_{\alpha} \quad \textrm{für} \quad H_1: \mu < \mu_0
-\]{#eq: kritless}
+(\#eq:kritless)
+\]
 \[
 z \geq z_{(1-\alpha)} \quad \textrm{für} \quad H_1: \mu > \mu_0
-\]{#eq: kritless}
+(\#eq:kritless)
+\]
 
 ```{r ablger1, fig.cap="Kritischer Wert für $z$ bei gerichteter Alternativhypothese nach unten und $\\alpha=0{,}05$"}
 ggplot(data.frame(x=c(-3, 3)), aes(x)) +
@@ -204,19 +211,22 @@ Für den $z$-Test ist die Prüfgröße der $z$-Wert der Stichprobe, und zwar sta
 
 \[
 z=\frac{\bar{x}-\mu_0}{\sigma_{\bar{x}}}
-\]{#eq:trans}
+(\#eq:trans)
+\]
 
 Wie wir bereits wissen, ergibt sich der Standardfehler ($\sigma_{\bar{x}}$) wiederum aus der Stichprobengröße ($n$) und der Standardabweichung der Grundgesamtheit ($\sigma$):
 
 \[
 \sigma_{\bar{x}}=\frac{\sigma}{\sqrt{n}}
-\]{#eq:serr}
+(\#eq:serr)
+\]
 
 Durch einsetzen ergibt sich die generelle Formel für die Prüfgröße des $z$-Tests:
 
 \[
 z=\sqrt{n}\cdot\frac{\bar{x}-\mu_0}{\sigma}
-\]{#eq:z}
+(\#eq:z)
+\]
 
 Das grundsätzliche Schema dieser Formel werden wir in anderen Tests wiedererkennen.
 
@@ -226,7 +236,7 @@ An dieser Stelle (also *nachdem* wir uns für einen Test und ein Signifikanznive
 
 Diese ergibt bei $n=5$ den Mittelwert $\bar{x}=103{,}0$. Die Verteilung $x_0$ (also unter Annahme der Nullhypothese) hatte die Kennwerte $\mu_0=94{,}2$ und $\sigma=11{,}8$.
 
-Wir setzen ein in die Formel aus \autoref{eq:z}:
+Wir setzen ein in die Formel aus \@ref(eq:z):
 
 \[\begin{aligned}
 z&=\sqrt{n}\cdot\frac{\bar{x}-\mu_0}{\sigma}\\[4pt]
@@ -256,7 +266,7 @@ R hat in der Grundversion keinen dezidierten Befehl für einen $z$-Test. Mit der
 
 Wenn die Standardabweichung $\sigma$ eines Merkmals in der Grundgesamtheit *unbekannt* ist, kann sie durch die Standardabweichung $s$ der Stichprobe geschätzt werden (s. Sitzung 4). Dann ist die Stichprobenverteilung für $\bar{x}$ jedoch nicht mehr normalverteilt, sondern sie folgt einer $t$-Verteilung.
 
-Im Gegensatz zur Standardnormalverteilung (die wir für den $z$-Test benutzen) gibt es aber nicht nur eine $t$-Verteilung, sondern die Form der $t$-Verteilung hängt von so genannten Freiheitsgraden (engl. *degrees of freedom*) ab. Mit steigender Zahl der Freiheitsgrade nähert sich die $t$-Verteilung einer Standardnormalverteilung an (s. \autoref{fig:tdf}).
+Im Gegensatz zur Standardnormalverteilung (die wir für den $z$-Test benutzen) gibt es aber nicht nur eine $t$-Verteilung, sondern die Form der $t$-Verteilung hängt von so genannten Freiheitsgraden (engl. *degrees of freedom*) ab. Mit steigender Zahl der Freiheitsgrade nähert sich die $t$-Verteilung einer Standardnormalverteilung an (s. \@ref(fig:tdf)).
 
 ```{r tdf, cache=T, fig.cap="$t$-Verteilungen mit verschiedenen Freiheitsgraden"}
 t3 <- function(x){dt(x,3)}
@@ -311,25 +321,29 @@ Die Hypothesen werden genauso wie beim $z$-Test formuliert:
 
 \[
 H_0 : \mu = \mu_0
-\]{#eq: h0}
+(\#eq:h0)
+\]
 
 #### Alternativhypothese
 
 \[
 H_1 : \mu \neq \mu_0 \quad \textrm{(ungerichtet)}
-\]{#eq:h1u}
+(\#eq:h1u)
+\]
 
 oder
 
 \[
 H_1 : \mu < \mu_0 \quad \textrm{(abwärts gerichtet)}
-\]{#eq:h1l}
+(\#eq:h1l)
+\]
 
 oder
 
 \[
 H_1 : \mu > \mu_0 \quad \textrm{(aufwärts gerichtet)}
-\]{#eq:h1g}
+(\#eq:h1g)
+\]
 
 #### Beispiel 
 
@@ -358,22 +372,26 @@ Der Ablehnungsbereich für die ungerichtete Alternativhypothese ist $\frac{\alph
 
 \[
 t \leq t_{\mathit{df};\alpha/2} \quad \textrm{und} \quad t \geq t_{\mathit{df};(1-\alpha/2)} \quad \textrm{für} \quad H_1: \mu \neq \mu_0
-\]{#eq: kritneq}
+(\#eq:kritneq)
+\]
 
 Bei den gerichteten Alternativhypothesen ist der Ablehnungsbereich jeweils nur auf einer Seite. Die kritischen Werte ergeben sich aus:
 
 \[
 t \leq t_{\mathit{df};\alpha} \quad \textrm{für} \quad H_1: \mu < \mu_0
-\]{#eq: kritless}
+(\#eq:kritless)
+\]
 \[
 t \geq t_{\mathit{df};(1-\alpha)} \quad \textrm{für} \quad H_1: \mu > \mu_0
-\]{#eq: kritless}
+(\#eq:kritless)
+\]
 
 Die kritischen Werte für $t$ bei gegebenem Freiheitsgrad $(n-1)$ und Flächenabschnitt lassen sich aus der Tabelle im Anhang ablesen. Dabei ist zu beachten, dass aufgrund der Symmetrie die Werte für Flächenanteile unter 50% nicht in der Tabelle verzeichnet sind. Es gilt die Formel:
 
 \[
 P(-t_\mathit{df})=1-P(t_\mathit{df})
-\]{#eq:negt}
+(\#eq:negt)
+\]
 
 So ist zum Beispiel der Wert für $t_{5;1\%}=-t_{5;99\%}=-3{,}365$.
 
@@ -389,7 +407,7 @@ t &\geq t_{11;99\%}\\[4pt]
 t &\geq 2,718
 \end{aligned}\]
 
-Graphisch ist der Ablehnungsbereich für unser Beispiel in \autoref{fig:tkrit} dargestellt.
+Graphisch ist der Ablehnungsbereich für unser Beispiel in \@ref(fig:tkrit) dargestellt.
 
 ```{r tkrit, cache=T, fig.cap="Ablehnungsbereich bei gerichteter Alternativhypothese nach oben, $n=12$ und $\\alpha=0{,}01$"}
 t11 <- function(x){dt(x,11)}
@@ -410,7 +428,8 @@ Die Formel für die Berechnung der Prüfgröße $t$ im 1-Stichproben-$t$-Test la
 
 \[
 t=\sqrt{n}\cdot\frac{\bar{x}-\mu_0}{s}
-\]{#eq:t}
+(\#eq:t)
+\]
 
 Zum direkten Vergleich noch einmal die Prüfgröße im $z$-Test:
 
@@ -442,7 +461,7 @@ s&=\sqrt{\frac{\sum\limits_{i=1}^n(x_i-\bar{x})^2}{n-1}}\\[6pt]
 &\approx 3{,}67
 \end{aligned}\]
 
-Schließlich setzen wir diese Werte in die Formel für die Prüfgröße $t$ (\autoref{eq:t}) ein:
+Schließlich setzen wir diese Werte in die Formel für die Prüfgröße $t$ (\@ref(eq:t)) ein:
 
 \[\begin{aligned}
 t&=\sqrt{n}\cdot\frac{\bar{x}-\mu_0}{s}\\[6pt]
