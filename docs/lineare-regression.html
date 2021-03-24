@@ -49,6 +49,8 @@
 
 
 
+<script src="assets/kePrint-0.0.1/kePrint.js"></script>
+<link href="assets/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link rel="icon" href="https://www.uni-frankfurt.de/favicon.ico" type="image/x-icon">
 <script src="solutions.js"></script>
 
@@ -67,7 +69,11 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Terminüberblick</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Inhalt</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#terminüberblick"><i class="fa fa-check"></i>Terminüberblick</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#formelsammlung-und-wertetabellen"><i class="fa fa-check"></i>Formelsammlung und Wertetabellen</a></li>
+</ul></li>
 <li class="chapter" data-level="1" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html"><i class="fa fa-check"></i><b>1</b> Datenerhebung und Häufigkeiten</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#lernziele-dieser-sitzung"><i class="fa fa-check"></i><b>1.1</b> Lernziele dieser Sitzung</a></li>
@@ -476,7 +482,132 @@ a=\bar{y}-b\cdot\bar{x}
 <p>Die Bestimmung der Regressionsgeraden soll nun mit einem Beispiel illustriert werden.</p>
 <div id="beispiel-26" class="section level3" number="8.3.1">
 <h3><span class="header-section-number">8.3.1</span> Beispiel</h3>
-<p>Wir fragen uns, wie die Aufenthaltszeit von Passagieren am Frankfurter Flughafen mit dem Betrag zusammenhängt, den sie in den dortigen Geschäften ausgeben. Eine Zufallserhebung habe die Werte in  ergeben.</p>
+<p>Wir fragen uns, wie die Aufenthaltszeit von Passagieren am Frankfurter Flughafen mit dem Betrag zusammenhängt, den sie in den dortigen Geschäften ausgeben. Eine Zufallserhebung habe die Werte in <a href="#tab:duty"><strong>??</strong></a> ergeben.</p>
+<table>
+<caption>
+<span id="tab:unnamed-chunk-24">Table 8.1: </span>Messwerte am Frankfurter Flughafen
+</caption>
+<thead>
+<tr>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="1">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Aufenthaltszeit (min)
+</div>
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="1">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Ausgaben (€)
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:right;">
+<span class="math inline">\(x_i\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(y_i\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+121
+</td>
+<td style="text-align:right;">
+17,94
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+125
+</td>
+<td style="text-align:right;">
+23,15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+293
+</td>
+<td style="text-align:right;">
+44,31
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+370
+</td>
+<td style="text-align:right;">
+42,46
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+246
+</td>
+<td style="text-align:right;">
+35,51
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+281
+</td>
+<td style="text-align:right;">
+28,46
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+169
+</td>
+<td style="text-align:right;">
+18,47
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+328
+</td>
+<td style="text-align:right;">
+56,77
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+388
+</td>
+<td style="text-align:right;">
+40,11
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+131
+</td>
+<td style="text-align:right;">
+12,64
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+299
+</td>
+<td style="text-align:right;">
+24,54
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+324
+</td>
+<td style="text-align:right;">
+46,37
+</td>
+</tr>
+</tbody>
+</table>
 <p>Mit den Methoden aus Sitzung 2 und 7 können wir folgende Werte für die Mittelwerte <span class="math inline">\(\bar{x}\)</span> und <span class="math inline">\(\bar{y}\)</span>, die Varianz <span class="math inline">\(s^2_x\)</span> sowie die Kovarianz <span class="math inline">\(s_{xy}\)</span> berechnen:</p>
 <p><span class="math display">\[\begin{aligned}
 \bar{x}&amp;=256,25\\
@@ -522,13 +653,226 @@ e_i=y_i-\hat{y}_i
 <p>Residuen sind also – auch dem Wortstamm nach – das, was nach der Vorhersage durch das Modell <q>übrig bleibt</q> von den tatsächlich beobachteten Werten (also der Teil des Werts, der <em>nicht</em> durch das Regressionsmodell erklärt wird).</p>
 <div id="beispiel-27" class="section level3" number="8.4.1">
 <h3><span class="header-section-number">8.4.1</span> Beispiel</h3>
-<p>Graphisch sind die Residuen für unser Beispiel in <a href="lineare-regression.html#fig:res">8.3</a> dargestellt (positive Werte in grün, negative Werte in rot), tabellarisch in .</p>
+<p>Graphisch sind die Residuen für unser Beispiel in <a href="lineare-regression.html#fig:res">8.3</a> dargestellt (positive Werte in grün, negative Werte in rot), tabellarisch in <a href="#tab:res"><strong>??</strong></a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:res"></span>
 <img src="bookdownproj_files/figure-html/res-1.png" alt="Graphische Darstellung der Residuen" width=".49\linewidth" />
 <p class="caption">
 Figure 8.3: Graphische Darstellung der Residuen
 </p>
 </div>
+<table>
+<caption>
+<span id="tab:unnamed-chunk-25">Table 8.2: </span>Residuen der Beispielwerte
+</caption>
+<thead>
+<tr>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="1">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Aufenthaltszeit (min)
+</div>
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="1">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Ausgaben (€)
+</div>
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="1">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Erwartete Ausgaben (€)
+</div>
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="1">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Residuen (€)
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:right;">
+<span class="math inline">\(x_i\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(y_i\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(\hat{y}_i\approx3,35+0,114\cdot x_i\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(e_i=y_i-\hat{y}_i\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+121
+</td>
+<td style="text-align:right;">
+17,94
+</td>
+<td style="text-align:right;">
+17,144
+</td>
+<td style="text-align:right;">
+0,796
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+125
+</td>
+<td style="text-align:right;">
+23,15
+</td>
+<td style="text-align:right;">
+17,600
+</td>
+<td style="text-align:right;">
+5,550
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+293
+</td>
+<td style="text-align:right;">
+44,31
+</td>
+<td style="text-align:right;">
+36,752
+</td>
+<td style="text-align:right;">
+7,558
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+370
+</td>
+<td style="text-align:right;">
+42,46
+</td>
+<td style="text-align:right;">
+45,530
+</td>
+<td style="text-align:right;">
+-3,070
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+246
+</td>
+<td style="text-align:right;">
+35,51
+</td>
+<td style="text-align:right;">
+31,394
+</td>
+<td style="text-align:right;">
+4,116
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+281
+</td>
+<td style="text-align:right;">
+28,46
+</td>
+<td style="text-align:right;">
+35,384
+</td>
+<td style="text-align:right;">
+-6,924
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+169
+</td>
+<td style="text-align:right;">
+18,47
+</td>
+<td style="text-align:right;">
+22,616
+</td>
+<td style="text-align:right;">
+-4,146
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+328
+</td>
+<td style="text-align:right;">
+56,77
+</td>
+<td style="text-align:right;">
+40,742
+</td>
+<td style="text-align:right;">
+16,028
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+388
+</td>
+<td style="text-align:right;">
+40,11
+</td>
+<td style="text-align:right;">
+47,582
+</td>
+<td style="text-align:right;">
+-7,472
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+131
+</td>
+<td style="text-align:right;">
+12,64
+</td>
+<td style="text-align:right;">
+18,284
+</td>
+<td style="text-align:right;">
+-5,644
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+299
+</td>
+<td style="text-align:right;">
+24,54
+</td>
+<td style="text-align:right;">
+37,436
+</td>
+<td style="text-align:right;">
+-12,896
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+324
+</td>
+<td style="text-align:right;">
+46,37
+</td>
+<td style="text-align:right;">
+40,286
+</td>
+<td style="text-align:right;">
+6,084
+</td>
+</tr>
+</tbody>
+</table>
 <p>Residuen spielen in vielen statistischen Verfahren eine Rolle, z.B. in der Residuenanalyse. Diese Verfahren werden im Rahmen dieser Veranstaltung jedoch nicht behandelt.</p>
 </div>
 </div>
@@ -585,6 +929,84 @@ y=-1,48-0,975\cdot x
 <ol start="3" style="list-style-type: lower-alpha">
 <li>Bestimmen Sie die Residuen für die tatsächlich beobachtete Messreihe:</li>
 </ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+<span class="math inline">\(x_i\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(y_i\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+-11,49
+</td>
+<td style="text-align:right;">
+6,82
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8,22
+</td>
+<td style="text-align:right;">
+-8,59
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+-25,66
+</td>
+<td style="text-align:right;">
+25,92
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+23,81
+</td>
+<td style="text-align:right;">
+-26,91
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+-3,14
+</td>
+<td style="text-align:right;">
+4,41
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+-1,52
+</td>
+<td style="text-align:right;">
+-3,39
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+20,15
+</td>
+<td style="text-align:right;">
+-19,89
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+-10,22
+</td>
+<td style="text-align:right;">
+9,30
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="aufgabe-2-7" class="section level3" number="8.6.2">
 <h3><span class="header-section-number">8.6.2</span> Aufgabe 2</h3>
@@ -605,6 +1027,68 @@ s_{xy}&amp;=869,83
 <h3><span class="header-section-number">8.6.3</span> Aufgabe 3</h3>
 <p><em>Diese Aufgabe erfordert auch Verfahren aus Sitzung 6.</em></p>
 <p>Sie fragen sich, wie die erreichte Punktzahl in einer Klausur mit der Vorbereitungszeit der geprüften Studierenden zusammenhängt. Sie erheben die folgende Messreihe:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+Vorbereitungszeit (min)
+</th>
+<th style="text-align:right;">
+Erreichte Punktzahl
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+834
+</td>
+<td style="text-align:right;">
+88
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+41
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+519
+</td>
+<td style="text-align:right;">
+75
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+253
+</td>
+<td style="text-align:right;">
+39
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+739
+</td>
+<td style="text-align:right;">
+77
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+844
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+</tbody>
+</table>
 <ol style="list-style-type: lower-alpha">
 <li><p>Welche Punktzahl ist mit einer Vorbereitunszeit von sechs Stunden zu erwarten?</p></li>
 <li><p>Ab welcher Vorbereitungszeit ist im Modell zu erwarten, dass ein Studierende*r die Klausur besteht (<span class="math inline">\(\geq\)</span> 50 Punkte)?</p></li>
@@ -648,16 +1132,7 @@ s_{xy}&amp;=869,83
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
+"sharing": false,
 "fontsettings": {
 "theme": "white",
 "family": "sans",

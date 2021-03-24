@@ -15,10 +15,14 @@ link-citations: yes
 lang: de
 description: "Projektseminar"
 output:
+  bookdown::gitbook:
+    config:
+      sharing: false
   html_document:
     df_print: paged
   pdf_document:
     template: template.tex
+  
 csl: chicago-author-date-de.csl
 ---
 
@@ -59,7 +63,9 @@ th_css <- "background-color: var(--sand_gray);
   font-weight: 600"
 ```
 
-# Terminüberblick {-}
+# Inhalt {-}
+
+## Terminüberblick {-}
 
 *Alle Sitzungen finden von 14 bis 16h c.t. statt*
 
@@ -76,3 +82,6 @@ Datum                 | Sitzung | Inhalt
 08. Juni 2021         | 9       | [Kreuztabellen]
 15. Juni 2021         | 10      | [Chi-Quadrat-Tests]
 
+## Formelsammlung und Wertetabellen {-}
+
+- [Formelsammlung und Wertetabellen (PDF)](Formelsammlung und Wertetabellen.pdf)

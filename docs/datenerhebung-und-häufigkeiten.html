@@ -49,6 +49,8 @@
 
 
 
+<script src="assets/kePrint-0.0.1/kePrint.js"></script>
+<link href="assets/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link rel="icon" href="https://www.uni-frankfurt.de/favicon.ico" type="image/x-icon">
 <script src="solutions.js"></script>
 
@@ -67,7 +69,11 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Terminüberblick</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Inhalt</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#terminüberblick"><i class="fa fa-check"></i>Terminüberblick</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#formelsammlung-und-wertetabellen"><i class="fa fa-check"></i>Formelsammlung und Wertetabellen</a></li>
+</ul></li>
 <li class="chapter" data-level="1" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html"><i class="fa fa-check"></i><b>1</b> Datenerhebung und Häufigkeiten</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#lernziele-dieser-sitzung"><i class="fa fa-check"></i><b>1.1</b> Lernziele dieser Sitzung</a></li>
@@ -573,7 +579,102 @@
 <p>Eine Variable lässt sich aufgrund ihrer Eigenschaften einem Skalenniveau (auch Skalentyp, Messinveau, Datenniveau, engl. <em>level of measurement</em>) zuordnen. Bestimmte Rechenoperationen und statistische Verfahren setzen bestimmte Skalenniveaus voraus. Deshalb ist es wichtig zu wissen, welchem Skalenniveau eine Variable zuzuordnen ist.</p>
 <p>Variablen lassen sich immer auch einem niedrigeren Skalenniveau zuordnen. Dies geht allerdings mit Informationsverlust einher.</p>
 <p>Die im Folgenden beschriebenen Skalenniveaus sind nicht deckungsgleich mit den o.g. Variablentypen. Intervall- und Verhältnisskalen können z.B. jeweils diskret oder stetig sein.</p>
-<p>In Tabelle  sind die wichtigsten Skalenniveaus im Überblick aufgeführt. <q>Gültige Lagemaße</q> sind dabei als Zusatzinformation aufgelistet und werden erst in der nächsten Sitzung behandelt.</p>
+<p>In Tabelle <a href="datenerhebung-und-häufigkeiten.html#tab:skalen">1.1</a> sind die wichtigsten Skalenniveaus im Überblick aufgeführt. <q>Gültige Lagemaße</q> sind dabei als Zusatzinformation aufgelistet und werden erst in der nächsten Sitzung behandelt.</p>
+<table>
+<caption>
+<span id="tab:skalen">Table 1.1: </span>Die vier wichtigsten Skalenniveaus.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Skalenart
+</th>
+<th style="text-align:left;">
+Beispiel
+</th>
+<th style="text-align:left;">
+Mögliche Aussagen
+</th>
+<th style="text-align:left;">
+gültige Lagemaße
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Nominalskala
+</td>
+<td style="text-align:left;">
+Postleitzahl
+</td>
+<td style="text-align:left;">
+<ul>
+<li>Gleichheit, Verschiedenheit
+</td>
+<td style="text-align:left;">
+<ul>
+<li>Modus
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ordinalskala
+</td>
+<td style="text-align:left;">
+Militärischer Rang
+</td>
+<td style="text-align:left;">
+<ul>
+<li>Größer-kleiner-Relationen
+</td>
+<td style="text-align:left;">
+<ul>
+<li>Median
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Intervallskala
+</td>
+<td style="text-align:left;">
+Temperatur in °C
+</td>
+<td style="text-align:left;">
+<ul>
+<li>Gleichheit von Differenzen
+</td>
+<td style="text-align:left;">
+<ul>
+<li>arithmetisches Mittel
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Verhältnisskala
+</td>
+<td style="text-align:left;">
+Körpergröße
+</td>
+<td style="text-align:left;">
+<ul>
+<li>Gleichheit von Verhältnissen
+</td>
+<td style="text-align:left;">
+<ul>
+<li>geometrisches Mittel
+</td>
+</tr>
+</tbody>
+</table></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
 <div id="nominalskala" class="section level4" number="1.3.3.1">
 <h4><span class="header-section-number">1.3.3.1</span> Nominalskala</h4>
 <p>Die Merkmalsausprägungen einer Variable stehen je <q>für sich</q>; sie lassen sich nicht sinnvoll in eine Rangordnung bringen oder gar miteinander verrechnen.</p>
@@ -621,7 +722,390 @@ Körpergewicht</p>
 </div>
 <div id="häufigkeiten" class="section level3" number="1.4.3">
 <h3><span class="header-section-number">1.4.3</span> Häufigkeiten</h3>
-<p>Die absoluten Häufigkeiten erhält man durch einfaches Abzählen der jeweiligen Werte. Für die relativen Häufigkeiten teilt man diese Zahl durch <span class="math inline">\(n\)</span>. Kumulierte Häufigkeiten zählen die bisherigen Summen bzw. Anteile zusammen (s. Tabelle ).</p>
+<p>Die absoluten Häufigkeiten erhält man durch einfaches Abzählen der jeweiligen Werte. Für die relativen Häufigkeiten teilt man diese Zahl durch <span class="math inline">\(n\)</span>. Kumulierte Häufigkeiten zählen die bisherigen Summen bzw. Anteile zusammen (s. Tabelle <a href="datenerhebung-und-häufigkeiten.html#tab:haeufkum">1.2</a>).</p>
+<table>
+<caption>
+<span id="tab:haeufkum">Table 1.2: </span>Tabelle mit kumulierten Häufigkeiten
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Buchstabe
+</th>
+<th style="text-align:right;">
+Absolute Häufigkeit <span class="math inline">\(f\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(f_{kum}\)</span>
+</th>
+<th style="text-align:right;">
+Relative Häufigkeit
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(\%_{kum}\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+11,2%
+</td>
+<td style="text-align:right;">
+11,2%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+B
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+4,7%
+</td>
+<td style="text-align:right;">
+15,9%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:right;">
+4,1%
+</td>
+<td style="text-align:right;">
+20%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+D
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+1,8%
+</td>
+<td style="text-align:right;">
+21,8%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+E
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+2,9%
+</td>
+<td style="text-align:right;">
+24,7%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+49
+</td>
+<td style="text-align:right;">
+4,1%
+</td>
+<td style="text-align:right;">
+28,8%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+0,6%
+</td>
+<td style="text-align:right;">
+29,4%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+H
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+53
+</td>
+<td style="text-align:right;">
+1,8%
+</td>
+<td style="text-align:right;">
+31,2%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+I
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+54
+</td>
+<td style="text-align:right;">
+0,6%
+</td>
+<td style="text-align:right;">
+31,8%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+J
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+71
+</td>
+<td style="text-align:right;">
+10%
+</td>
+<td style="text-align:right;">
+41,8%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+K
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+77
+</td>
+<td style="text-align:right;">
+3,5%
+</td>
+<td style="text-align:right;">
+45,3%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+L
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+99
+</td>
+<td style="text-align:right;">
+12,9%
+</td>
+<td style="text-align:right;">
+58,2%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+M
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+116
+</td>
+<td style="text-align:right;">
+10%
+</td>
+<td style="text-align:right;">
+68,2%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+N
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+126
+</td>
+<td style="text-align:right;">
+5,9%
+</td>
+<td style="text-align:right;">
+74,1%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+O
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+127
+</td>
+<td style="text-align:right;">
+0,6%
+</td>
+<td style="text-align:right;">
+74,7%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+P
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+140
+</td>
+<td style="text-align:right;">
+7,6%
+</td>
+<td style="text-align:right;">
+82,4%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+143
+</td>
+<td style="text-align:right;">
+1,8%
+</td>
+<td style="text-align:right;">
+84,1%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+S
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+149
+</td>
+<td style="text-align:right;">
+3,5%
+</td>
+<td style="text-align:right;">
+87,6%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+160
+</td>
+<td style="text-align:right;">
+6,5%
+</td>
+<td style="text-align:right;">
+94,1%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+V
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+168
+</td>
+<td style="text-align:right;">
+4,7%
+</td>
+<td style="text-align:right;">
+98,8%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Y
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+170
+</td>
+<td style="text-align:right;">
+1,2%
+</td>
+<td style="text-align:right;">
+100%
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="stabdiagramme" class="section level3" number="1.4.4">
 <h3><span class="header-section-number">1.4.4</span> Stabdiagramme</h3>
@@ -638,7 +1122,152 @@ Figure 1.1: Stabdiagramm
 <p>Das oben beschriebene Verfahren funktioniert gut für qualitative Variablen (und diskrete Variablen mit wenigen unterschiedlichen Werten). Für quantitative Variablen wird ein anderes Verfahren empfohlen.</p>
 <p>Zur Veranschaulichung soll diese geordnete Liste von Messwerten des Stammdurchmessers von Schwarzkirschen <span class="citation">(Beispieldatensatz <code>trees</code> aus <a href="chi-quadrat-tests.html#ref-r" role="doc-biblioref">R Core Team 2018</a>)</span> dienen:</p>
 <p><code>8,3  8,6  8,8 10,5 10,7 10,8 11,0 11,0 11,1 11,2 11,3 11,4 11,4 11,7 12,0 12,9 12,9 13,3 13,7 13,8 14,0 14,2 14,5 16,0 16,3 17,3 17,5 17,9 18,0 18,0 20,6</code></p>
-<p>Für solche Verteilungen müssen zuerst Klassen (engl. <em>bins</em>) gebildet werden, in denen die Werte dann zusammengefasst werden (s. Tabelle ).</p>
+<p>Für solche Verteilungen müssen zuerst Klassen (engl. <em>bins</em>) gebildet werden, in denen die Werte dann zusammengefasst werden (s. Tabelle <a href="datenerhebung-und-häufigkeiten.html#tab:haeufklass">1.3</a>).</p>
+<table>
+<caption>
+<span id="tab:haeufklass">Table 1.3: </span>Häufigkeitstabelle mit klassierten Werten
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Durchmesser
+</th>
+<th style="text-align:right;">
+Absolute Häufigkeit <span class="math inline">\(f\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(f_{kum}\)</span>
+</th>
+<th style="text-align:right;">
+Relative Häufigkeit
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(\%_{kum}\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+über 8 bis 10 Zoll
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+9,7%
+</td>
+<td style="text-align:right;">
+9,7%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+über 10 bis 12 Zoll
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+38,7%
+</td>
+<td style="text-align:right;">
+48,4%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+über 12 bis 14 Zoll
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+19,4%
+</td>
+<td style="text-align:right;">
+67,7%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+über 14 bis 16 Zoll
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
+9,7%
+</td>
+<td style="text-align:right;">
+77,4%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+über 16 bis 18 Zoll
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+19,4%
+</td>
+<td style="text-align:right;">
+96,8%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+über 18 bis 20 Zoll
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+0%
+</td>
+<td style="text-align:right;">
+96,8%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+über 20 bis 22 Zoll
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+3,2%
+</td>
+<td style="text-align:right;">
+100%
+</td>
+</tr>
+</tbody>
+</table>
 <p>Für die Wahl der Klassengrenzen gibt es zwei feste Regeln:</p>
 <ul>
 <li>Alle Werte müssen abgedeckt sein.</li>
@@ -783,16 +1412,7 @@ Figure 1.3: Polygonzug
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
+"sharing": false,
 "fontsettings": {
 "theme": "white",
 "family": "sans",

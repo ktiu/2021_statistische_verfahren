@@ -524,8 +524,7 @@ m <- rbind(m, c(1, qnorm(area)))
 colnames(m) <- c("$df$", format(area, decimal.mark = ",", drop0trailing = T))
 m <- as.data.frame(m)
 m[nrow(m), 1] <- "$z$"
-knitr::kable(m, "latex", format.args = list(digits = 3, nsmall=3, decimal.mark = ","), booktabs = T, escape = F, align = "r") %>%
-  kable_styling(latex_options = c("striped", "scale_down", "hold_position")) %>%
+knitr::kable(m, "html", format.args = list(digits = 3, nsmall=3, decimal.mark = ","), escape = F, align = "r") %>%
   add_header_above(c(" " = 1, "Fläche" = ncol(m)-1), escape = F) %>%
   column_spec(1, border_right = T)
 ```
@@ -560,8 +559,7 @@ df2 <- c(1:20,seq(25,50,5),seq(60,150,10),200,300,400,500,1000)
 m <- outer(df2,df1,FUN=function(df2,df1){qf(0.95,df1,df2)})
 m <- cbind(df2,m)
 colnames(m) <- c("$df_2$", format(df1, digits = 2, decimal.mark = ","))
-knitr::kable(m, "latex", format.args = list(digits = 3, decimal.mark = ","), escape = F, booktabs = T) %>%
-  kable_styling(latex_options = c("striped", "scale_down", "hold_position")) %>%
+knitr::kable(m, "html", format.args = list(digits = 3, decimal.mark = ","), escape = F)  %>%
   add_header_above(c(" " = 1, "$df_1$" = ncol(m)-1), escape = F) %>%
   column_spec(1, border_right = T)
 ```

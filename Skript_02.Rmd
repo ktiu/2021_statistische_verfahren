@@ -12,7 +12,7 @@ Sie können...
 
 Die im Folgenden besprochenen Maßzahlen (oder Kennzahlen, Parameter) verdichten (oder aggregieren) Häufigkeitsverteilungen einer Variable. Durch diese Parameter kann das Charakteristische einer Verteilung schnell erfasst und vergleichbar gemacht werden. Die Verdichtung auf Maßzahlen geht jedoch immer auch mit Informationsverlust einher.
 
-Die Möglichkeit der Angabe statistischer Maßzahlen ist abhängig vom Skalenniveau der Daten, wie der Überblick in Tabelle \ref{tab:mass} zeigt.
+Die Möglichkeit der Angabe statistischer Maßzahlen ist abhängig vom Skalenniveau der Daten, wie der Überblick in Tabelle \@ref(tab:mass) zeigt.
 
 ```{r mass}
 th <- c(
@@ -29,7 +29,7 @@ td <- c(
 )
 table <- data.frame(t(matrix(td, nrow=length(th))))
 colnames(table) <- th
-knitr::kable(table, "latex", booktabs=T, escape=F, caption = "Die wichtigsten Maßzahlen") %>% kable_styling(latex_options = c("hold_position"))
+knitr::kable(table, "html", escape=F, caption = "Die wichtigsten Maßzahlen")
 ```
 
 ### Beispielverteilung
@@ -40,8 +40,7 @@ Alle Berechnungen von Maßzahlen werden am folgenden Beispiel illustriert: Für 
 xs <- c(4, 1, 4, 1, 5, 5, 0, 1, 8, 5, 1, 25, 3, 3)
 
 matrix(xs, nrow = 1, dimnames = list(c(), sprintf("$x_{%s}$", 1:14)))%>% as_tibble %>%
-  kable("latex", booktabs=T, escape=F, caption="Beispielverteilung") %>%
-  kable_styling(latex_options = c("hold_position"))
+  kable("html", escape=F, caption="Beispielverteilung")
 ```
 
 
@@ -63,8 +62,7 @@ Um den Median zu bestimmen, wird zunächst eine geordnete Liste angefertigt, ind
 
 ```{r sort}
 matrix(sort(xs), nrow = 1, dimnames = list(c(), sprintf("$x_{(%s)}$", 1:14)))%>% as_tibble %>%
-  kable("latex", booktabs=T, escape=F, caption="Sortierte Wertereihe") %>%
-  kable_styling(latex_options = c("hold_position"))
+  kable("html", escape=F, caption="Sortierte Wertereihe")
 ```
 
 Bei einer ungeraden Stichprobengröße $n$ teilt der $(\frac{n+1}{2})$-te Wert (also der Wert genau in der Mitte) die Stichprobe in zwei Hälften, weshalb gilt:
@@ -111,8 +109,7 @@ Hierzu müssen die Häufigkeiten der Werte bekannt sein, bzw. bestimmt werden (s
 ```{r mod}
 df <- as.data.frame(table(xs))
 colnames(df) <- c("Wert $x_i$", "Häufigkeit $f_i$")
-knitr::kable(df, "latex", escape=F, booktabs=T, align="r", caption = "Häufigkeiten der Beispielverteilung", linesep=c("")) %>%
-  kable_styling(latex_options = c("HOLD_position"))
+knitr::kable(df, "html", escape=F, align="r", caption = "Häufigkeiten der Beispielverteilung", linesep=c(""))
 ```
 
 Der Modalwert der Beispielverteilung beträgt 1, da der Wert 1 am häufigsten (viermal) vorkommt.
@@ -198,8 +195,7 @@ In unserem Beispiel (mit $n=14$) ist die untere Hälfte der Verteilung:
 
 ```{r lower}
 matrix(sort(xs)[1:7], nrow = 1, dimnames = list(c(), sprintf("$x_{(%s)}$", 1:7)))%>% as_tibble %>%
-  kable("latex", booktabs=T, escape=F) %>%
-  kable_styling(latex_options = c("HOLD_position"))
+  kable("html", escape=F)
 ```
 
 $Q_1$ ist der Median dieser Werte, also $x_{(4)}=1$.
@@ -208,8 +204,7 @@ Die oberen 7 Werte lauten:
 
 ```{r upper}
 matrix(sort(xs)[8:14], nrow = 1, dimnames = list(c(), sprintf("$x_{(%s)}$", 8:14)))%>% as_tibble %>%
-  kable("latex", booktabs=T, escape=F) %>%
-  kable_styling(latex_options = c("HOLD_position"))
+  kable("html", escape=F)
 ```
 
 $Q_3$ ist also $x_{(11)} = 5$.
@@ -256,10 +251,8 @@ df$`Quadrat der Abweichung` <- round(df$`Abweichung vom arithmetischen Mittel`^2
 df$`Produkt mit Häufigkeit` <- df$Freq*df$`Quadrat der Abweichung`
 mem<- df$`Produkt mit Häufigkeit`
 colnames(df)<-c("$x_i$", "$f_i$", "$(x_i- \\bar{x})$", "$(x_i- \\bar{x})^2$", "$f_i\\cdot(x_i -\\bar{x})^2$")
-kable(df, "latex", booktabs=T, escape = F, linesep=c(""), caption="Häufigkeitstabelle zur Berechnung der Varianz") %>% 
-  add_header_above(c("Wert", "Häufigkeit", "Abweichung vom Mittel", "Quadrat der Abweichung", "Produkt mit Häufigkeit")) %>%
-kable_styling()
-
+kable(df, "html", escape = F, linesep=c(""), caption="Häufigkeitstabelle zur Berechnung der Varianz") %>% 
+  add_header_above(c("Wert", "Häufigkeit", "Abweichung vom Mittel", "Quadrat der Abweichung", "Produkt mit Häufigkeit"))
 ```
 
 Schließlich werden die Werte in Formel \@ref(eq:var) eingesetzt:
@@ -356,13 +349,12 @@ i) Zeichnen Sie einen Boxplot der Stichprobenverteilung.
 
 ### Aufgabe 2
 
-In Australien betrug die durchnittliche Niederschlagsmenge in den 1970er und 80er Jahren ^[Auszug aus dem Datensatz `bomsoi` in @daag]:
+In Australien betrug die durchnittliche Niederschlagsmenge in den 1970er und 80er Jahren ^[Auszug aus dem Datensatz `bomsoi` in @haseloff]:
 \nopagebreak
 ```{r}
 DAAG::bomsoi[71:90,c(1,15)] %>%
   as_tibble(rownames = NULL) %>%
-  kable("latex", booktabs=T, linesep=c(""), col.names = c("Jahr", "Niederschlag (mm)")) %>%
-  kable_styling(font_size = 8)
+  kable("html", linesep=c(""), col.names = c("Jahr", "Niederschlag (mm)"))
 ```
 
 a) Welches Skalenniveau liegt vor?  (Sitzung 1)

@@ -49,6 +49,8 @@
 
 
 
+<script src="assets/kePrint-0.0.1/kePrint.js"></script>
+<link href="assets/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link rel="icon" href="https://www.uni-frankfurt.de/favicon.ico" type="image/x-icon">
 <script src="solutions.js"></script>
 
@@ -67,7 +69,11 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Terminüberblick</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Inhalt</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#terminüberblick"><i class="fa fa-check"></i>Terminüberblick</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#formelsammlung-und-wertetabellen"><i class="fa fa-check"></i>Formelsammlung und Wertetabellen</a></li>
+</ul></li>
 <li class="chapter" data-level="1" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html"><i class="fa fa-check"></i><b>1</b> Datenerhebung und Häufigkeiten</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#lernziele-dieser-sitzung"><i class="fa fa-check"></i><b>1.1</b> Lernziele dieser Sitzung</a></li>
@@ -570,6 +576,79 @@ Figure 4.4: Konstruierte Verteilung um <span class="math inline">\(\bar{x}\)</sp
 Figure 4.5: Konfidenzintervall
 </p>
 </div>
+<table>
+<caption>
+<span id="tab:tab">Table 4.1: </span>Jahresniederschlag in Hessen
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+Jahr
+</th>
+<th style="text-align:right;">
+Niederschlag (l/m²)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+2011
+</td>
+<td style="text-align:right;">
+855,3
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2012
+</td>
+<td style="text-align:right;">
+839,5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2013
+</td>
+<td style="text-align:right;">
+850,6
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2014
+</td>
+<td style="text-align:right;">
+873,1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2015
+</td>
+<td style="text-align:right;">
+858,3
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2016
+</td>
+<td style="text-align:right;">
+857,1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:right;">
+861,4
+</td>
+</tr>
+</tbody>
+</table>
 <p>Ein Beispiel soll dies verdeutlichen: Wir wissen, dass die jährliche Niederschlagsmenge in Hessen normalverteilt ist mit <span class="math inline">\(\sigma=10{,}23\)</span>. Wir haben die Messwerte in Tabelle 1 erhoben und möchten den Mittelwert (<span class="math inline">\(\mu\)</span>) per Intervallschätzung angeben.</p>
 <p>Zunächst errechnen wir den Mittelwert unserer empirischen Stichprobe:</p>
 <p><span class="math display">\[\begin{aligned}
@@ -779,16 +858,7 @@ n&amp;\approx\bigg(\frac{10{,}23}{1{,}94}\bigg)^2\\[4pt]
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
+"sharing": false,
 "fontsettings": {
 "theme": "white",
 "family": "sans",

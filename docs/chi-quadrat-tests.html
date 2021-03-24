@@ -49,6 +49,8 @@
 
 
 
+<script src="assets/kePrint-0.0.1/kePrint.js"></script>
+<link href="assets/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link rel="icon" href="https://www.uni-frankfurt.de/favicon.ico" type="image/x-icon">
 <script src="solutions.js"></script>
 
@@ -67,7 +69,11 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Terminüberblick</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Inhalt</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#terminüberblick"><i class="fa fa-check"></i>Terminüberblick</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#formelsammlung-und-wertetabellen"><i class="fa fa-check"></i>Formelsammlung und Wertetabellen</a></li>
+</ul></li>
 <li class="chapter" data-level="1" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html"><i class="fa fa-check"></i><b>1</b> Datenerhebung und Häufigkeiten</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#lernziele-dieser-sitzung"><i class="fa fa-check"></i><b>1.1</b> Lernziele dieser Sitzung</a></li>
@@ -432,9 +438,71 @@
 </div>
 <div id="chi2-unabhängigkeitstest" class="section level2" number="10.3">
 <h2><span class="header-section-number">10.3</span> <span class="math inline">\(\chi^2\)</span>-Unabhängigkeitstest</h2>
-<p>Grundlage sind bivariate Häufigkeiten, die in einer Kreuztabelle dargestellt werden können (s. ). Wie Kreuztabellen erstellt werden, haben wir bereits in Sitzung 9 behandelt.</p>
+<p>Grundlage sind bivariate Häufigkeiten, die in einer Kreuztabelle dargestellt werden können (s. <a href="chi-quadrat-tests.html#tab:zivi1">10.1</a>). Wie Kreuztabellen erstellt werden, haben wir bereits in Sitzung 9 behandelt.</p>
+<table>
+<caption>
+<span id="tab:zivi1">Table 10.1: </span>Kreuztabelle der Beispieldaten
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+</th>
+<th style="text-align:right;">
+Grundwehrdienst
+</th>
+<th style="text-align:right;">
+Zivildienst
+</th>
+<th style="text-align:right;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;background:var(--sand_gray); color:var(--goethe_blue);font-weight:600">
+Land
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;font-weight: bold;">
+29
+</td>
+</tr>
+<tr>
+<td style="text-align:right;background:var(--sand_gray); color:var(--goethe_blue);font-weight:600">
+Stadt
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;font-weight: bold;">
+33
+</td>
+</tr>
+<tr>
+<td style="text-align:right;background:var(--sand_gray); color:var(--goethe_blue);font-weight:600font-weight: bold;">
+</td>
+<td style="text-align:right;font-weight: bold;">
+28
+</td>
+<td style="text-align:right;font-weight: bold;">
+34
+</td>
+<td style="text-align:right;font-weight: bold;font-weight: bold;">
+62
+</td>
+</tr>
+</tbody>
+</table>
 <p>Unser Beispieldatensatz beschäftigt sich mit Kriegsdienstverweigerern. Zwischen 1956 und 2011 galt in der BRD die Wehrpflicht, d.h. alle vom Staat als <q>männlich</q> erfassten und als <q>tauglich</q> gemusterte jungen Menschen mussten Dienst an der Waffe leisten – es sei denn, sie verweigerten den Kriegsdienst und leisteten stattdessen Zivildienst (z.B. in sozialen Einrichtungen).</p>
-<p>Zusätzlich zur Frage der Kriegsdienstverweigerung sei in einer Zufallsstichprobe von als tauglich gemusterten erhoben, ob der Wohnort eine Gemeinde mit über oder unter 20000 Einwohner*innen (<q>Stadt</q> oder <q>Land</q>) ist.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> Die Ergebnisse sind in  zusammengefasst.</p>
+<p>Zusätzlich zur Frage der Kriegsdienstverweigerung sei in einer Zufallsstichprobe von als tauglich gemusterten erhoben, ob der Wohnort eine Gemeinde mit über oder unter 20000 Einwohner*innen (<q>Stadt</q> oder <q>Land</q>) ist.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> Die Ergebnisse sind in <a href="chi-quadrat-tests.html#tab:zivi1">10.1</a> zusammengefasst.</p>
 <p>Wir interessieren uns für den statistischen Zusammenhang dieser beiden Variablen, und zwar möchten wir die Hypothese prüfen, dass Menschen aus der Stadt eher den Kriegsdienst verweigerten als Menschen vom Land. Der Test wird entlang der bekannten sechs Schritte ausgeführt.</p>
 <div id="test-wählen-und-voraussetzungen-prüfen-4" class="section level3" number="10.3.1">
 <h3><span class="header-section-number">10.3.1</span> Test wählen und Voraussetzungen prüfen</h3>
@@ -506,7 +574,7 @@ H_1 &amp;: \textrm{Es gibt einen positiven Zusammenhang zwischen Wohnort in der 
 \tag{9.2}
 \]</span></p>
 <p>errechnet. Dabei ist die Ermittlung der Erwartungswerte <span class="math inline">\(m_{ij}\)</span> ein notwendiger Schritt, und auch die Teilwerte für <span class="math inline">\(\chi^2\)</span> können wieder direkt in die Kreuztabelle eingetragen werden.</p>
-<p>Für unser Beispiel erfolgt die Berechnung anhand .</p>
+<p>Für unser Beispiel erfolgt die Berechnung anhand <a href="#tab:zivi2"><strong>??</strong></a>.</p>
 <p>Zunächst muss dabei geprüft werden, ob die Richtung unserer Alternativhypothese stimmt. Die beobachtete Häufigkeit der Zivildienstleistenden in der Stadt <span class="math inline">\(n_{22}=23\)</span> ist größer als der Erwartungswert <span class="math inline">\(m_{22}=18,1\)</span>. Wenn eine Signifikanz nachgewiesen werden kann, dann also für den <em>positiven</em> Zusammenhang zwischen Wohnort in der Stadt und Kriegsdienstverweigerung (wie in unserer Alternativhypothese spezifiziert).</p>
 <p>Für <span class="math inline">\(\chi^2\)</span> ergibt sich im Beispiel:</p>
 <p><span class="math display">\[\begin{aligned}
@@ -523,7 +591,7 @@ H_1 &amp;: \textrm{Es gibt einen positiven Zusammenhang zwischen Wohnort in der 
 <div id="chi2-anpassungstest" class="section level2" number="10.4">
 <h2><span class="header-section-number">10.4</span> <span class="math inline">\(\chi^2\)</span>-Anpassungstest</h2>
 <p>Beim <span class="math inline">\(\chi^2\)</span>-Anpassungsest geht es um die Häufigkeiten <em>eines</em> nominalskalierten Merkmals – er ist deshalb der univariaten Teststatistik zuzuordnen. Der Test überprüft, ob das Merkmal entlang einer vorgegebenen Verteilung (im Normalfall gleichmäßig) verteilt ist, oder ob es signifikante Abweichungen von dieser erwarteten Verteilung gibt.</p>
-<p>Ein Beispiel: Für größere Verspätungen (<span class="math inline">\(\geq\)</span> 10 Minuten) beim ÖPNV einer Großstadt wird festgehalten, an welchen Wochentagen sie auftreten. Wir ignorieren Wochenden und Feiertage und fragen uns, ob sich die Verzögerungen gleichmäßig auf Werktage verteilen, oder ob es signifikante Abweichungen in Bezug auf den Wochentag gibt. Die Werte in  seien über drei Monate hinweg erhoben worden.</p>
+<p>Ein Beispiel: Für größere Verspätungen (<span class="math inline">\(\geq\)</span> 10 Minuten) beim ÖPNV einer Großstadt wird festgehalten, an welchen Wochentagen sie auftreten. Wir ignorieren Wochenden und Feiertage und fragen uns, ob sich die Verzögerungen gleichmäßig auf Werktage verteilen, oder ob es signifikante Abweichungen in Bezug auf den Wochentag gibt. Die Werte in <a href="#tab:late"><strong>??</strong></a> seien über drei Monate hinweg erhoben worden.</p>
 <table>
 <caption>Häufigkeiten größerer Verspätungen im ÖPNV</caption>
 <thead>
@@ -602,7 +670,55 @@ H_1 &amp;: \textrm{Starke Verspätungen sind an manchen Wertkagen wahrscheinlich
 <p>Die Prüfgröße <span class="math inline">\(\chi^2\)</span> berechnet sich analog zu vorherigen Beispielen. Einzige Besonderheit: Die Erwartungswerte werden direkt anhand der zu erwartenden (im Regelfall: gleichmäßigen) Verteilung bestimmt.</p>
 <p>Im Beispiel ergibt sich in den fünf Kategorien jeweils ein Erwartungswert von</p>
 <p><span class="math display">\[\frac{n}{k}=\frac{2106}{5}=421,2\]</span></p>
-<p>Dann nehmen wir wieder eine Tebelle zu Hilfe um die Prüfgröße <span class="math inline">\(\chi^2\)</span> zu berechnen (s. ). Wie gehabt werden einfach die Teilwerte zusammengezählt:</p>
+<table>
+<caption>
+<span id="tab:xtlate">Table 10.2: </span>Tabelle für den <span class="math inline">\(\chi^2\)</span>-Anpassungstest
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Montag
+</th>
+<th style="text-align:left;">
+Dienstag
+</th>
+<th style="text-align:left;">
+Mittwoch
+</th>
+<th style="text-align:left;">
+Donnerstag
+</th>
+<th style="text-align:left;">
+Freitag
+</th>
+<th style="text-align:right;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+
+</td>
+<td style="text-align:left;">
+
+</td>
+<td style="text-align:left;">
+
+</td>
+<td style="text-align:left;">
+
+</td>
+<td style="text-align:left;border-right:1px solid;">
+
+</td>
+<td style="text-align:right;">
+2106
+</td>
+</tr>
+</tbody>
+</table>
+<p>Dann nehmen wir wieder eine Tebelle zu Hilfe um die Prüfgröße <span class="math inline">\(\chi^2\)</span> zu berechnen (s. <a href="chi-quadrat-tests.html#tab:xtlate">10.2</a>). Wie gehabt werden einfach die Teilwerte zusammengezählt:</p>
 <p><span class="math display">\[\begin{aligned}
 \chi^2 &amp;= \sum_{i=1}^{k}\frac{(n_{i}-m_{i})^{2}}{m_{i}}\\[4pt]
 &amp;=3,392 +  0,353 +  0,123 +  2,777 + 0,593\\
@@ -654,6 +770,1579 @@ H_1 &amp;: \textrm{Starke Verspätungen sind an manchen Wertkagen wahrscheinlich
 <div id="anhang-chi2-verteilungen" class="section level2" number="10.7">
 <h2><span class="header-section-number">10.7</span> Anhang: <span class="math inline">\(\chi^2\)</span>-Verteilungen</h2>
 <p><img src="bookdownproj_files/figure-html/unnamed-chunk-33-1.png" width=".49\linewidth" style="display: block; margin: auto;" /></p>
+<table>
+<thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="11">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Fläche
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:right;">
+<span class="math inline">\(df\)</span>
+</th>
+<th style="text-align:right;">
+0,6
+</th>
+<th style="text-align:right;">
+0,7
+</th>
+<th style="text-align:right;">
+0,8
+</th>
+<th style="text-align:right;">
+0,85
+</th>
+<th style="text-align:right;">
+0,9
+</th>
+<th style="text-align:right;">
+0,95
+</th>
+<th style="text-align:right;">
+0,975
+</th>
+<th style="text-align:right;">
+0,99
+</th>
+<th style="text-align:right;">
+0,995
+</th>
+<th style="text-align:right;">
+0,999
+</th>
+<th style="text-align:right;">
+0,9995
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+1
+</td>
+<td style="text-align:right;">
+0,708
+</td>
+<td style="text-align:right;">
+1,074
+</td>
+<td style="text-align:right;">
+1,642
+</td>
+<td style="text-align:right;">
+2,072
+</td>
+<td style="text-align:right;">
+2,706
+</td>
+<td style="text-align:right;">
+3,841
+</td>
+<td style="text-align:right;">
+5,024
+</td>
+<td style="text-align:right;">
+6,635
+</td>
+<td style="text-align:right;">
+7,879
+</td>
+<td style="text-align:right;">
+10,828
+</td>
+<td style="text-align:right;">
+12,116
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+2
+</td>
+<td style="text-align:right;">
+1,833
+</td>
+<td style="text-align:right;">
+2,408
+</td>
+<td style="text-align:right;">
+3,219
+</td>
+<td style="text-align:right;">
+3,794
+</td>
+<td style="text-align:right;">
+4,605
+</td>
+<td style="text-align:right;">
+5,991
+</td>
+<td style="text-align:right;">
+7,378
+</td>
+<td style="text-align:right;">
+9,210
+</td>
+<td style="text-align:right;">
+10,597
+</td>
+<td style="text-align:right;">
+13,816
+</td>
+<td style="text-align:right;">
+15,202
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+3
+</td>
+<td style="text-align:right;">
+2,946
+</td>
+<td style="text-align:right;">
+3,665
+</td>
+<td style="text-align:right;">
+4,642
+</td>
+<td style="text-align:right;">
+5,317
+</td>
+<td style="text-align:right;">
+6,251
+</td>
+<td style="text-align:right;">
+7,815
+</td>
+<td style="text-align:right;">
+9,348
+</td>
+<td style="text-align:right;">
+11,345
+</td>
+<td style="text-align:right;">
+12,838
+</td>
+<td style="text-align:right;">
+16,266
+</td>
+<td style="text-align:right;">
+17,730
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+4
+</td>
+<td style="text-align:right;">
+4,045
+</td>
+<td style="text-align:right;">
+4,878
+</td>
+<td style="text-align:right;">
+5,989
+</td>
+<td style="text-align:right;">
+6,745
+</td>
+<td style="text-align:right;">
+7,779
+</td>
+<td style="text-align:right;">
+9,488
+</td>
+<td style="text-align:right;">
+11,143
+</td>
+<td style="text-align:right;">
+13,277
+</td>
+<td style="text-align:right;">
+14,860
+</td>
+<td style="text-align:right;">
+18,467
+</td>
+<td style="text-align:right;">
+19,997
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+5
+</td>
+<td style="text-align:right;">
+5,132
+</td>
+<td style="text-align:right;">
+6,064
+</td>
+<td style="text-align:right;">
+7,289
+</td>
+<td style="text-align:right;">
+8,115
+</td>
+<td style="text-align:right;">
+9,236
+</td>
+<td style="text-align:right;">
+11,070
+</td>
+<td style="text-align:right;">
+12,833
+</td>
+<td style="text-align:right;">
+15,086
+</td>
+<td style="text-align:right;">
+16,750
+</td>
+<td style="text-align:right;">
+20,515
+</td>
+<td style="text-align:right;">
+22,105
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+6
+</td>
+<td style="text-align:right;">
+6,211
+</td>
+<td style="text-align:right;">
+7,231
+</td>
+<td style="text-align:right;">
+8,558
+</td>
+<td style="text-align:right;">
+9,446
+</td>
+<td style="text-align:right;">
+10,645
+</td>
+<td style="text-align:right;">
+12,592
+</td>
+<td style="text-align:right;">
+14,449
+</td>
+<td style="text-align:right;">
+16,812
+</td>
+<td style="text-align:right;">
+18,548
+</td>
+<td style="text-align:right;">
+22,458
+</td>
+<td style="text-align:right;">
+24,103
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+7
+</td>
+<td style="text-align:right;">
+7,283
+</td>
+<td style="text-align:right;">
+8,383
+</td>
+<td style="text-align:right;">
+9,803
+</td>
+<td style="text-align:right;">
+10,748
+</td>
+<td style="text-align:right;">
+12,017
+</td>
+<td style="text-align:right;">
+14,067
+</td>
+<td style="text-align:right;">
+16,013
+</td>
+<td style="text-align:right;">
+18,475
+</td>
+<td style="text-align:right;">
+20,278
+</td>
+<td style="text-align:right;">
+24,322
+</td>
+<td style="text-align:right;">
+26,018
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+8
+</td>
+<td style="text-align:right;">
+8,351
+</td>
+<td style="text-align:right;">
+9,524
+</td>
+<td style="text-align:right;">
+11,030
+</td>
+<td style="text-align:right;">
+12,027
+</td>
+<td style="text-align:right;">
+13,362
+</td>
+<td style="text-align:right;">
+15,507
+</td>
+<td style="text-align:right;">
+17,535
+</td>
+<td style="text-align:right;">
+20,090
+</td>
+<td style="text-align:right;">
+21,955
+</td>
+<td style="text-align:right;">
+26,124
+</td>
+<td style="text-align:right;">
+27,868
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+9
+</td>
+<td style="text-align:right;">
+9,414
+</td>
+<td style="text-align:right;">
+10,656
+</td>
+<td style="text-align:right;">
+12,242
+</td>
+<td style="text-align:right;">
+13,288
+</td>
+<td style="text-align:right;">
+14,684
+</td>
+<td style="text-align:right;">
+16,919
+</td>
+<td style="text-align:right;">
+19,023
+</td>
+<td style="text-align:right;">
+21,666
+</td>
+<td style="text-align:right;">
+23,589
+</td>
+<td style="text-align:right;">
+27,877
+</td>
+<td style="text-align:right;">
+29,666
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+10
+</td>
+<td style="text-align:right;">
+10,473
+</td>
+<td style="text-align:right;">
+11,781
+</td>
+<td style="text-align:right;">
+13,442
+</td>
+<td style="text-align:right;">
+14,534
+</td>
+<td style="text-align:right;">
+15,987
+</td>
+<td style="text-align:right;">
+18,307
+</td>
+<td style="text-align:right;">
+20,483
+</td>
+<td style="text-align:right;">
+23,209
+</td>
+<td style="text-align:right;">
+25,188
+</td>
+<td style="text-align:right;">
+29,588
+</td>
+<td style="text-align:right;">
+31,420
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+11
+</td>
+<td style="text-align:right;">
+11,530
+</td>
+<td style="text-align:right;">
+12,899
+</td>
+<td style="text-align:right;">
+14,631
+</td>
+<td style="text-align:right;">
+15,767
+</td>
+<td style="text-align:right;">
+17,275
+</td>
+<td style="text-align:right;">
+19,675
+</td>
+<td style="text-align:right;">
+21,920
+</td>
+<td style="text-align:right;">
+24,725
+</td>
+<td style="text-align:right;">
+26,757
+</td>
+<td style="text-align:right;">
+31,264
+</td>
+<td style="text-align:right;">
+33,137
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+12
+</td>
+<td style="text-align:right;">
+12,584
+</td>
+<td style="text-align:right;">
+14,011
+</td>
+<td style="text-align:right;">
+15,812
+</td>
+<td style="text-align:right;">
+16,989
+</td>
+<td style="text-align:right;">
+18,549
+</td>
+<td style="text-align:right;">
+21,026
+</td>
+<td style="text-align:right;">
+23,337
+</td>
+<td style="text-align:right;">
+26,217
+</td>
+<td style="text-align:right;">
+28,300
+</td>
+<td style="text-align:right;">
+32,909
+</td>
+<td style="text-align:right;">
+34,821
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+13
+</td>
+<td style="text-align:right;">
+13,636
+</td>
+<td style="text-align:right;">
+15,119
+</td>
+<td style="text-align:right;">
+16,985
+</td>
+<td style="text-align:right;">
+18,202
+</td>
+<td style="text-align:right;">
+19,812
+</td>
+<td style="text-align:right;">
+22,362
+</td>
+<td style="text-align:right;">
+24,736
+</td>
+<td style="text-align:right;">
+27,688
+</td>
+<td style="text-align:right;">
+29,819
+</td>
+<td style="text-align:right;">
+34,528
+</td>
+<td style="text-align:right;">
+36,478
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+14
+</td>
+<td style="text-align:right;">
+14,685
+</td>
+<td style="text-align:right;">
+16,222
+</td>
+<td style="text-align:right;">
+18,151
+</td>
+<td style="text-align:right;">
+19,406
+</td>
+<td style="text-align:right;">
+21,064
+</td>
+<td style="text-align:right;">
+23,685
+</td>
+<td style="text-align:right;">
+26,119
+</td>
+<td style="text-align:right;">
+29,141
+</td>
+<td style="text-align:right;">
+31,319
+</td>
+<td style="text-align:right;">
+36,123
+</td>
+<td style="text-align:right;">
+38,109
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+15
+</td>
+<td style="text-align:right;">
+15,733
+</td>
+<td style="text-align:right;">
+17,322
+</td>
+<td style="text-align:right;">
+19,311
+</td>
+<td style="text-align:right;">
+20,603
+</td>
+<td style="text-align:right;">
+22,307
+</td>
+<td style="text-align:right;">
+24,996
+</td>
+<td style="text-align:right;">
+27,488
+</td>
+<td style="text-align:right;">
+30,578
+</td>
+<td style="text-align:right;">
+32,801
+</td>
+<td style="text-align:right;">
+37,697
+</td>
+<td style="text-align:right;">
+39,719
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+16
+</td>
+<td style="text-align:right;">
+16,780
+</td>
+<td style="text-align:right;">
+18,418
+</td>
+<td style="text-align:right;">
+20,465
+</td>
+<td style="text-align:right;">
+21,793
+</td>
+<td style="text-align:right;">
+23,542
+</td>
+<td style="text-align:right;">
+26,296
+</td>
+<td style="text-align:right;">
+28,845
+</td>
+<td style="text-align:right;">
+32,000
+</td>
+<td style="text-align:right;">
+34,267
+</td>
+<td style="text-align:right;">
+39,252
+</td>
+<td style="text-align:right;">
+41,308
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+17
+</td>
+<td style="text-align:right;">
+17,824
+</td>
+<td style="text-align:right;">
+19,511
+</td>
+<td style="text-align:right;">
+21,615
+</td>
+<td style="text-align:right;">
+22,977
+</td>
+<td style="text-align:right;">
+24,769
+</td>
+<td style="text-align:right;">
+27,587
+</td>
+<td style="text-align:right;">
+30,191
+</td>
+<td style="text-align:right;">
+33,409
+</td>
+<td style="text-align:right;">
+35,718
+</td>
+<td style="text-align:right;">
+40,790
+</td>
+<td style="text-align:right;">
+42,879
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+18
+</td>
+<td style="text-align:right;">
+18,868
+</td>
+<td style="text-align:right;">
+20,601
+</td>
+<td style="text-align:right;">
+22,760
+</td>
+<td style="text-align:right;">
+24,155
+</td>
+<td style="text-align:right;">
+25,989
+</td>
+<td style="text-align:right;">
+28,869
+</td>
+<td style="text-align:right;">
+31,526
+</td>
+<td style="text-align:right;">
+34,805
+</td>
+<td style="text-align:right;">
+37,156
+</td>
+<td style="text-align:right;">
+42,312
+</td>
+<td style="text-align:right;">
+44,434
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+19
+</td>
+<td style="text-align:right;">
+19,910
+</td>
+<td style="text-align:right;">
+21,689
+</td>
+<td style="text-align:right;">
+23,900
+</td>
+<td style="text-align:right;">
+25,329
+</td>
+<td style="text-align:right;">
+27,204
+</td>
+<td style="text-align:right;">
+30,144
+</td>
+<td style="text-align:right;">
+32,852
+</td>
+<td style="text-align:right;">
+36,191
+</td>
+<td style="text-align:right;">
+38,582
+</td>
+<td style="text-align:right;">
+43,820
+</td>
+<td style="text-align:right;">
+45,973
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+20
+</td>
+<td style="text-align:right;">
+20,951
+</td>
+<td style="text-align:right;">
+22,775
+</td>
+<td style="text-align:right;">
+25,038
+</td>
+<td style="text-align:right;">
+26,498
+</td>
+<td style="text-align:right;">
+28,412
+</td>
+<td style="text-align:right;">
+31,410
+</td>
+<td style="text-align:right;">
+34,170
+</td>
+<td style="text-align:right;">
+37,566
+</td>
+<td style="text-align:right;">
+39,997
+</td>
+<td style="text-align:right;">
+45,315
+</td>
+<td style="text-align:right;">
+47,498
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+25
+</td>
+<td style="text-align:right;">
+26,143
+</td>
+<td style="text-align:right;">
+28,172
+</td>
+<td style="text-align:right;">
+30,675
+</td>
+<td style="text-align:right;">
+32,282
+</td>
+<td style="text-align:right;">
+34,382
+</td>
+<td style="text-align:right;">
+37,652
+</td>
+<td style="text-align:right;">
+40,646
+</td>
+<td style="text-align:right;">
+44,314
+</td>
+<td style="text-align:right;">
+46,928
+</td>
+<td style="text-align:right;">
+52,620
+</td>
+<td style="text-align:right;">
+54,947
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+30
+</td>
+<td style="text-align:right;">
+31,316
+</td>
+<td style="text-align:right;">
+33,530
+</td>
+<td style="text-align:right;">
+36,250
+</td>
+<td style="text-align:right;">
+37,990
+</td>
+<td style="text-align:right;">
+40,256
+</td>
+<td style="text-align:right;">
+43,773
+</td>
+<td style="text-align:right;">
+46,979
+</td>
+<td style="text-align:right;">
+50,892
+</td>
+<td style="text-align:right;">
+53,672
+</td>
+<td style="text-align:right;">
+59,703
+</td>
+<td style="text-align:right;">
+62,162
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+35
+</td>
+<td style="text-align:right;">
+36,475
+</td>
+<td style="text-align:right;">
+38,859
+</td>
+<td style="text-align:right;">
+41,778
+</td>
+<td style="text-align:right;">
+43,640
+</td>
+<td style="text-align:right;">
+46,059
+</td>
+<td style="text-align:right;">
+49,802
+</td>
+<td style="text-align:right;">
+53,203
+</td>
+<td style="text-align:right;">
+57,342
+</td>
+<td style="text-align:right;">
+60,275
+</td>
+<td style="text-align:right;">
+66,619
+</td>
+<td style="text-align:right;">
+69,199
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+40
+</td>
+<td style="text-align:right;">
+41,622
+</td>
+<td style="text-align:right;">
+44,165
+</td>
+<td style="text-align:right;">
+47,269
+</td>
+<td style="text-align:right;">
+49,244
+</td>
+<td style="text-align:right;">
+51,805
+</td>
+<td style="text-align:right;">
+55,758
+</td>
+<td style="text-align:right;">
+59,342
+</td>
+<td style="text-align:right;">
+63,691
+</td>
+<td style="text-align:right;">
+66,766
+</td>
+<td style="text-align:right;">
+73,402
+</td>
+<td style="text-align:right;">
+76,095
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+45
+</td>
+<td style="text-align:right;">
+46,761
+</td>
+<td style="text-align:right;">
+49,452
+</td>
+<td style="text-align:right;">
+52,729
+</td>
+<td style="text-align:right;">
+54,810
+</td>
+<td style="text-align:right;">
+57,505
+</td>
+<td style="text-align:right;">
+61,656
+</td>
+<td style="text-align:right;">
+65,410
+</td>
+<td style="text-align:right;">
+69,957
+</td>
+<td style="text-align:right;">
+73,166
+</td>
+<td style="text-align:right;">
+80,077
+</td>
+<td style="text-align:right;">
+82,876
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+50
+</td>
+<td style="text-align:right;">
+51,892
+</td>
+<td style="text-align:right;">
+54,723
+</td>
+<td style="text-align:right;">
+58,164
+</td>
+<td style="text-align:right;">
+60,346
+</td>
+<td style="text-align:right;">
+63,167
+</td>
+<td style="text-align:right;">
+67,505
+</td>
+<td style="text-align:right;">
+71,420
+</td>
+<td style="text-align:right;">
+76,154
+</td>
+<td style="text-align:right;">
+79,490
+</td>
+<td style="text-align:right;">
+86,661
+</td>
+<td style="text-align:right;">
+89,561
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+60
+</td>
+<td style="text-align:right;">
+62,135
+</td>
+<td style="text-align:right;">
+65,227
+</td>
+<td style="text-align:right;">
+68,972
+</td>
+<td style="text-align:right;">
+71,341
+</td>
+<td style="text-align:right;">
+74,397
+</td>
+<td style="text-align:right;">
+79,082
+</td>
+<td style="text-align:right;">
+83,298
+</td>
+<td style="text-align:right;">
+88,379
+</td>
+<td style="text-align:right;">
+91,952
+</td>
+<td style="text-align:right;">
+99,607
+</td>
+<td style="text-align:right;">
+102,695
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+70
+</td>
+<td style="text-align:right;">
+72,358
+</td>
+<td style="text-align:right;">
+75,689
+</td>
+<td style="text-align:right;">
+79,715
+</td>
+<td style="text-align:right;">
+82,255
+</td>
+<td style="text-align:right;">
+85,527
+</td>
+<td style="text-align:right;">
+90,531
+</td>
+<td style="text-align:right;">
+95,023
+</td>
+<td style="text-align:right;">
+100,425
+</td>
+<td style="text-align:right;">
+104,215
+</td>
+<td style="text-align:right;">
+112,317
+</td>
+<td style="text-align:right;">
+115,578
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+80
+</td>
+<td style="text-align:right;">
+82,566
+</td>
+<td style="text-align:right;">
+86,120
+</td>
+<td style="text-align:right;">
+90,405
+</td>
+<td style="text-align:right;">
+93,106
+</td>
+<td style="text-align:right;">
+96,578
+</td>
+<td style="text-align:right;">
+101,879
+</td>
+<td style="text-align:right;">
+106,629
+</td>
+<td style="text-align:right;">
+112,329
+</td>
+<td style="text-align:right;">
+116,321
+</td>
+<td style="text-align:right;">
+124,839
+</td>
+<td style="text-align:right;">
+128,261
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+90
+</td>
+<td style="text-align:right;">
+92,761
+</td>
+<td style="text-align:right;">
+96,524
+</td>
+<td style="text-align:right;">
+101,054
+</td>
+<td style="text-align:right;">
+103,904
+</td>
+<td style="text-align:right;">
+107,565
+</td>
+<td style="text-align:right;">
+113,145
+</td>
+<td style="text-align:right;">
+118,136
+</td>
+<td style="text-align:right;">
+124,116
+</td>
+<td style="text-align:right;">
+128,299
+</td>
+<td style="text-align:right;">
+137,208
+</td>
+<td style="text-align:right;">
+140,782
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+100
+</td>
+<td style="text-align:right;">
+102,946
+</td>
+<td style="text-align:right;">
+106,906
+</td>
+<td style="text-align:right;">
+111,667
+</td>
+<td style="text-align:right;">
+114,659
+</td>
+<td style="text-align:right;">
+118,498
+</td>
+<td style="text-align:right;">
+124,342
+</td>
+<td style="text-align:right;">
+129,561
+</td>
+<td style="text-align:right;">
+135,807
+</td>
+<td style="text-align:right;">
+140,169
+</td>
+<td style="text-align:right;">
+149,449
+</td>
+<td style="text-align:right;">
+153,167
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+110
+</td>
+<td style="text-align:right;">
+113,121
+</td>
+<td style="text-align:right;">
+117,269
+</td>
+<td style="text-align:right;">
+122,250
+</td>
+<td style="text-align:right;">
+125,376
+</td>
+<td style="text-align:right;">
+129,385
+</td>
+<td style="text-align:right;">
+135,480
+</td>
+<td style="text-align:right;">
+140,917
+</td>
+<td style="text-align:right;">
+147,414
+</td>
+<td style="text-align:right;">
+151,948
+</td>
+<td style="text-align:right;">
+161,581
+</td>
+<td style="text-align:right;">
+165,435
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+120
+</td>
+<td style="text-align:right;">
+123,289
+</td>
+<td style="text-align:right;">
+127,616
+</td>
+<td style="text-align:right;">
+132,806
+</td>
+<td style="text-align:right;">
+136,062
+</td>
+<td style="text-align:right;">
+140,233
+</td>
+<td style="text-align:right;">
+146,567
+</td>
+<td style="text-align:right;">
+152,211
+</td>
+<td style="text-align:right;">
+158,950
+</td>
+<td style="text-align:right;">
+163,648
+</td>
+<td style="text-align:right;">
+173,617
+</td>
+<td style="text-align:right;">
+177,603
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+130
+</td>
+<td style="text-align:right;">
+133,450
+</td>
+<td style="text-align:right;">
+137,949
+</td>
+<td style="text-align:right;">
+143,340
+</td>
+<td style="text-align:right;">
+146,719
+</td>
+<td style="text-align:right;">
+151,045
+</td>
+<td style="text-align:right;">
+157,610
+</td>
+<td style="text-align:right;">
+163,453
+</td>
+<td style="text-align:right;">
+170,423
+</td>
+<td style="text-align:right;">
+175,278
+</td>
+<td style="text-align:right;">
+185,571
+</td>
+<td style="text-align:right;">
+189,682
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+140
+</td>
+<td style="text-align:right;">
+143,604
+</td>
+<td style="text-align:right;">
+148,269
+</td>
+<td style="text-align:right;">
+153,854
+</td>
+<td style="text-align:right;">
+157,352
+</td>
+<td style="text-align:right;">
+161,827
+</td>
+<td style="text-align:right;">
+168,613
+</td>
+<td style="text-align:right;">
+174,648
+</td>
+<td style="text-align:right;">
+181,840
+</td>
+<td style="text-align:right;">
+186,847
+</td>
+<td style="text-align:right;">
+197,451
+</td>
+<td style="text-align:right;">
+201,683
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+150
+</td>
+<td style="text-align:right;">
+153,753
+</td>
+<td style="text-align:right;">
+158,577
+</td>
+<td style="text-align:right;">
+164,349
+</td>
+<td style="text-align:right;">
+167,962
+</td>
+<td style="text-align:right;">
+172,581
+</td>
+<td style="text-align:right;">
+179,581
+</td>
+<td style="text-align:right;">
+185,800
+</td>
+<td style="text-align:right;">
+193,208
+</td>
+<td style="text-align:right;">
+198,360
+</td>
+<td style="text-align:right;">
+209,265
+</td>
+<td style="text-align:right;">
+213,613
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+200
+</td>
+<td style="text-align:right;">
+204,434
+</td>
+<td style="text-align:right;">
+209,985
+</td>
+<td style="text-align:right;">
+216,609
+</td>
+<td style="text-align:right;">
+220,744
+</td>
+<td style="text-align:right;">
+226,021
+</td>
+<td style="text-align:right;">
+233,994
+</td>
+<td style="text-align:right;">
+241,058
+</td>
+<td style="text-align:right;">
+249,445
+</td>
+<td style="text-align:right;">
+255,264
+</td>
+<td style="text-align:right;">
+267,541
+</td>
+<td style="text-align:right;">
+272,423
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+300
+</td>
+<td style="text-align:right;">
+305,574
+</td>
+<td style="text-align:right;">
+312,346
+</td>
+<td style="text-align:right;">
+320,397
+</td>
+<td style="text-align:right;">
+325,409
+</td>
+<td style="text-align:right;">
+331,789
+</td>
+<td style="text-align:right;">
+341,395
+</td>
+<td style="text-align:right;">
+349,874
+</td>
+<td style="text-align:right;">
+359,906
+</td>
+<td style="text-align:right;">
+366,844
+</td>
+<td style="text-align:right;">
+381,425
+</td>
+<td style="text-align:right;">
+387,203
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+400
+</td>
+<td style="text-align:right;">
+406,535
+</td>
+<td style="text-align:right;">
+414,335
+</td>
+<td style="text-align:right;">
+423,590
+</td>
+<td style="text-align:right;">
+429,340
+</td>
+<td style="text-align:right;">
+436,649
+</td>
+<td style="text-align:right;">
+447,632
+</td>
+<td style="text-align:right;">
+457,305
+</td>
+<td style="text-align:right;">
+468,724
+</td>
+<td style="text-align:right;">
+476,606
+</td>
+<td style="text-align:right;">
+493,132
+</td>
+<td style="text-align:right;">
+499,666
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-right:1px solid;">
+500
+</td>
+<td style="text-align:right;">
+507,382
+</td>
+<td style="text-align:right;">
+516,087
+</td>
+<td style="text-align:right;">
+526,401
+</td>
+<td style="text-align:right;">
+532,803
+</td>
+<td style="text-align:right;">
+540,930
+</td>
+<td style="text-align:right;">
+553,127
+</td>
+<td style="text-align:right;">
+563,852
+</td>
+<td style="text-align:right;">
+576,493
+</td>
+<td style="text-align:right;">
+585,207
+</td>
+<td style="text-align:right;">
+603,446
+</td>
+<td style="text-align:right;">
+610,648
+</td>
+</tr>
+</tbody>
+</table>
 <div style="page-break-after: always;"></div>
 </div>
 <div id="quellen-9" class="section level2" number="10.8">
@@ -718,16 +2407,7 @@ R Core Team. 2018. R: A Language and Environment for Statistical Computing. Wien
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
+"sharing": false,
 "fontsettings": {
 "theme": "white",
 "family": "sans",

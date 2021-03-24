@@ -19,7 +19,7 @@ Mit dem $\chi^2$-Unabhängigkeitstest und dem $\chi^2$-Anpassungstest lernen wir
 
 ## $\chi^2$-Unabhängigkeitstest
 
-Grundlage sind bivariate Häufigkeiten, die in einer Kreuztabelle dargestellt werden können (s. \autoref{tab:zivi1}). Wie Kreuztabellen erstellt werden, haben wir bereits in Sitzung 9 behandelt.
+Grundlage sind bivariate Häufigkeiten, die in einer Kreuztabelle dargestellt werden können (s. \@ref(tab:zivi1)). Wie Kreuztabellen erstellt werden, haben wir bereits in Sitzung 9 behandelt.
 
 ```{r zivi1}
 crosstable <- function(x, format, sums=T, expected=F, chisq=F, varnames=T, row.order=NULL, col.order=NULL, caption=NULL, df.only=F){
@@ -138,13 +138,13 @@ crosstable <- function(x, format, sums=T, expected=F, chisq=F, varnames=T, row.o
 }
 
 zivi <- read.table("img/10_zivi_dt")
-zivixt <- crosstable(zivi, format="latex", varnames = F, caption = "Kreuztabelle der Beispieldaten")
+zivixt <- crosstable(zivi, format="html", varnames = F, caption = "Kreuztabelle der Beispieldaten")
 zivixt$df
 ```
 
 Unser Beispieldatensatz beschäftigt sich mit Kriegsdienstverweigerern. Zwischen 1956 und 2011 galt in der BRD die Wehrpflicht, d.h. alle vom Staat als "männlich" erfassten und als "tauglich" gemusterte jungen Menschen mussten Dienst an der Waffe leisten -- es sei denn, sie verweigerten den Kriegsdienst und leisteten stattdessen Zivildienst (z.B. in sozialen Einrichtungen).
 
-Zusätzlich zur Frage der Kriegsdienstverweigerung sei in einer Zufallsstichprobe von als tauglich gemusterten erhoben, ob der Wohnort eine Gemeinde mit über oder unter 20000 Einwohner\*innen ("Stadt" oder "Land") ist.^[Hier wird also eine verhältnisskalierte Variable (Bevölkerungszahl der Gemeinde) in eine nominalskalierte Variable transformiert. In Fällen wie diesen, wo die Variable nach der Transformation nur zwei Werte annehmen kann, sprechen wir auch von der "Dichotomisierung" einer Variable.] Die Ergebnisse sind in \autoref{tab:zivi1} zusammengefasst.
+Zusätzlich zur Frage der Kriegsdienstverweigerung sei in einer Zufallsstichprobe von als tauglich gemusterten erhoben, ob der Wohnort eine Gemeinde mit über oder unter 20000 Einwohner\*innen ("Stadt" oder "Land") ist.^[Hier wird also eine verhältnisskalierte Variable (Bevölkerungszahl der Gemeinde) in eine nominalskalierte Variable transformiert. In Fällen wie diesen, wo die Variable nach der Transformation nur zwei Werte annehmen kann, sprechen wir auch von der "Dichotomisierung" einer Variable.] Die Ergebnisse sind in \@ref(tab:zivi1) zusammengefasst.
 
 Wir interessieren uns für den statistischen Zusammenhang dieser beiden Variablen, und zwar möchten wir die Hypothese prüfen, dass Menschen aus der Stadt eher den Kriegsdienst verweigerten als Menschen vom Land. Der Test wird entlang der bekannten sechs Schritte ausgeführt.
 
@@ -239,7 +239,7 @@ zivixt <- crosstable(zivi, format="latex", varnames = F, expected = T, chisq = T
 zivixt$df
 ```
 
-Für unser Beispiel erfolgt die Berechnung anhand \autoref{tab:zivi2}.
+Für unser Beispiel erfolgt die Berechnung anhand \@ref(tab:zivi2).
 
 Zunächst muss dabei geprüft werden, ob die Richtung unserer Alternativhypothese stimmt. Die beobachtete Häufigkeit der Zivildienstleistenden in der Stadt $n_{22}=23$ ist größer als der Erwartungswert $m_{22}=18,1$. Wenn eine Signifikanz nachgewiesen werden kann, dann also für den *positiven* Zusammenhang zwischen Wohnort in der Stadt und Kriegsdienstverweigerung (wie in unserer Alternativhypothese spezifiziert).
 
@@ -263,7 +263,7 @@ In R lässt sich ein $\chi^2$-Unabhängigkeitstest mit dem Befehl {\tt chisq.tes
 
 Beim $\chi^2$-Anpassungsest geht es um die Häufigkeiten *eines* nominalskalierten Merkmals -- er ist deshalb der univariaten Teststatistik zuzuordnen. Der Test überprüft, ob das Merkmal entlang einer vorgegebenen Verteilung (im Normalfall gleichmäßig) verteilt ist, oder ob es signifikante Abweichungen von dieser erwarteten Verteilung gibt.
 
-Ein Beispiel: Für größere Verspätungen ($\geq$ 10 Minuten) beim ÖPNV einer Großstadt wird festgehalten, an welchen Wochentagen sie auftreten. Wir ignorieren Wochenden und Feiertage und fragen uns, ob sich die Verzögerungen gleichmäßig auf Werktage verteilen, oder ob es signifikante Abweichungen in Bezug auf den Wochentag gibt. Die Werte in \autoref{tab:late} seien über drei Monate hinweg erhoben worden.
+Ein Beispiel: Für größere Verspätungen ($\geq$ 10 Minuten) beim ÖPNV einer Großstadt wird festgehalten, an welchen Wochentagen sie auftreten. Wir ignorieren Wochenden und Feiertage und fragen uns, ob sich die Verzögerungen gleichmäßig auf Werktage verteilen, oder ob es signifikante Abweichungen in Bezug auf den Wochentag gibt. Die Werte in \@ref(tab:late) seien über drei Monate hinweg erhoben worden.
 
 |Wochentag  | Häufigkeit|
 |:----------|----------:|
@@ -337,12 +337,11 @@ Im Beispiel ergibt sich in den fünf Kategorien jeweils ein Erwartungswert von
 ```{r xtlate}
 read.table(text="
 \\makecell[tr]{459\\\\(421,2)\\\\\\color{goethe_blue}{3,392}} \\makecell[tr]{409\\\\(421,2)\\\\\\color{goethe_blue}{0,353}} \\makecell[tr]{414\\\\(421,2)\\\\\\color{goethe_blue}{0,123}} \\makecell[tr]{387\\\\(421,2)\\\\\\color{goethe_blue}{2,777}} \\makecell[tr]{437\\\\(421,2)\\\\\\color{goethe_blue}{0,593}} 2106") %>%
-  kable("latex", escape=F, booktabs=T, longtable=F, col.names=c("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", " "), caption = "Tabelle für den $\\chi^2$-Anpassungstest") %>%
-  kable_styling() %>%
+  kable("html", escape=F, longtable=F, col.names=c("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", " "), caption = "Tabelle für den $\\chi^2$-Anpassungstest") %>%
   column_spec(5, border_right = T)
 ```
 
-Dann nehmen wir wieder eine Tebelle zu Hilfe um die Prüfgröße $\chi^2$ zu berechnen (s. \autoref{tab:xtlate}). Wie gehabt werden einfach die Teilwerte zusammengezählt:
+Dann nehmen wir wieder eine Tebelle zu Hilfe um die Prüfgröße $\chi^2$ zu berechnen (s. \@ref(tab:xtlate)). Wie gehabt werden einfach die Teilwerte zusammengezählt:
 
 \[\begin{aligned}
 \chi^2 &= \sum_{i=1}^{k}\frac{(n_{i}-m_{i})^{2}}{m_{i}}\\[4pt]
@@ -446,8 +445,7 @@ m <- outer(df, area, FUN = function(df, area) {qchisq(area, df)})
 m <- cbind(as.character(df), format(m,digits = 3,nsmall=3))
 colnames(m) <- c("$df$", format(area, decimal.mark = ",", drop0trailing = T))
 m <- as.data.frame(m)
-knitr::kable(m, "latex", booktabs = T, escape = F, align = "r") %>%
-  kable_styling(latex_options = c("striped", "scale_down", "hold_position")) %>%
+knitr::kable(m, "html", escape = F, align = "r") %>%
   add_header_above(c(" " = 1, "Fläche" = ncol(m)-1), escape = F) %>%
   column_spec(1, border_right = T)
 ```

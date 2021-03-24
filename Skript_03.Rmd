@@ -55,7 +55,7 @@ z=\frac{x-\bar{x}}{s}
 
 Der $z$-Wert eines Werts $x$ ist also der Abstand des Werts zum arithmetischen Mittel $\bar{x}$ der Verteilung, ausgedrückt im Verhältnis zu ihrer Standardabweichung $s$.
 
-Die einzelnen $z$-Werte für die Luftdruckmessungen ergeben sich wie in \autoref{tab:trans} dargestellt.
+Die einzelnen $z$-Werte für die Luftdruckmessungen ergeben sich wie in \@ref(tab:trans) dargestellt.
 
 ```{r trans, cache=T}
 df <- data.frame(xs)
@@ -63,8 +63,7 @@ df$b <- paste0("$z_{", row(df), "}=\\frac{", df$xs ,"-999,37}{8,56}$\\medskip")
 df$z <- format(round((df$xs-999.37)/8.56,2), nsmall=2)
 df$xs <- format(xs, nsmall=1)
 colnames(df) <- c("$x_i$", "Berechnung", "$z_i$")
-kable(df, "latex", booktabs=T, escape=F, align="rcr", caption="$z$-Transformation") %>%
-  kable_styling()
+kable(df, "html", escape=F, align="rcr", caption="$z$-Transformation")
 ```
 
 Eine so $z$-transformierte Verteilung hat *immer* automatisch das arithmetische Mittel $\bar{z}=0$ und die Standardabweichung $s_z=1$. Außerdem haben $z$-Werte keine Maßeinheit. So kann jede Verteilung "standardisiert" und systematisch vergleichbar gemacht werden.
@@ -113,7 +112,7 @@ Die Dichtefunktion einer Normalverteilung hat eine markante Glockenform (s. Abbi
 
 Die Dichtefunktion nimmt nie den Wert Null an -- Extremwerte sind also sehr selten bzw. unwahrscheinlich, aber nie unmöglich. Perfekte Normalverteilungen kommen in empirischen Beobachtungen nicht vor, sondern nur Annäherungen.
 
-Da es sich um eine *theoretische* Verteilung handelt, ist die Normalverteilung zunächst insbesondere in Bezug auf die Grundgesamtheit interessant. Im Kontext der Grundgesamtheit wird das arithmetische Mittel mit $\mu$ ("Mü") und die Standardabweichung mit $\sigma$ ("Sigma") bezeichnet (s. \autoref{tab:param}).
+Da es sich um eine *theoretische* Verteilung handelt, ist die Normalverteilung zunächst insbesondere in Bezug auf die Grundgesamtheit interessant. Im Kontext der Grundgesamtheit wird das arithmetische Mittel mit $\mu$ ("Mü") und die Standardabweichung mit $\sigma$ ("Sigma") bezeichnet (s. \@ref(tab:param)).
 
 ```{r param, cache=T}
 read.table(sep="|", header=T, text = "
@@ -122,8 +121,7 @@ Anzahl Elemente       | $n$        | $N$
 Arithmetisches Mittel | $\\bar{x}$  | $\\mu$
 Varianz               | $s^2$      | $\\sigma^2$
 Standardabweichung    | $s$        | $\\sigma$
-") %>% kable("latex", escape=F, booktabs=T, caption="Bezeichnung von Parametern in Stichprobe und Grundgesamtheit") %>%
-  kable_styling(latex_options = "HOLD_position")
+") %>% kable("html", escape=F, caption="Bezeichnung von Parametern in Stichprobe und Grundgesamtheit")
 ```
 
 Jede Normalverteilung lässt sich anhand von zwei Parametern beschreiben: ihr arithmetisches Mittel und ihre Standardabweichung. Normalverteilte Grundgesamtheiten werden so notiert:
@@ -592,8 +590,7 @@ z00 <- seq(0,0.09,0.01)
 m <- outer(z0,z00,FUN=function(z0,z00){pnorm(z0+z00)})
 m <- cbind(z0,m)
 colnames(m) <- c("$z$", format(z00, decimal.mark = ","))
-knitr::kable(m, "latex", format.args = list(digits = 4, decimal.mark = ","), booktabs = T, escape = F) %>%
-  kable_styling(latex_options = c("striped", "scale_down", "hold_position")) %>%
+knitr::kable(m, "html", format.args = list(digits = 4, decimal.mark = ","), escape = F) %>%
   add_header_above(c(" "=1, "$z$ (zweite Nachkommastelle)"=ncol(m)-1), escape = F) %>%
   column_spec(1, border_right = T)
 ```

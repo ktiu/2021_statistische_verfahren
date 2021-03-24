@@ -239,7 +239,7 @@ ggplot(data.frame(x=c(-3,3)), aes(x)) +
 ```{r tab}
 df <- data.frame(Jahr=2011:2017, Niederschlag=c(855.3, 839.5, 850.6, 873.1, 858.3, 857.1, 861.4))
 colnames(df) <- c("Jahr", "Niederschlag (l/m²)")
-kable(df,"latex", linesep = "",booktabs=T, caption = "Jahresniederschlag in Hessen")
+kable(df,"html", linesep = "", caption = "Jahresniederschlag in Hessen")
 ```
 
 Ein Beispiel soll dies verdeutlichen: Wir wissen, dass die jährliche Niederschlagsmenge in Hessen normalverteilt ist mit $\sigma=10{,}23$. Wir haben die Messwerte in Tabelle 1 erhoben und möchten den Mittelwert ($\mu$) per Intervallschätzung angeben.

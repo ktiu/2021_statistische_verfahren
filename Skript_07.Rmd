@@ -20,13 +20,12 @@ Das Streudiagramm (engl. *scatter plot*) stellt alle erfassten Werte dar, indem 
 
 Die statistischen Verfahren dieser Sitzung sollen wieder an einem Beispiel illustriert werden.
 
-Wir fragen uns, ob der jährliche Ertrag in einem bestimmten Anbaugebiet für Klebreis in Nordostthailand mit dem jährlichen Niederschlag zusammenhängt. Die erfassten Werte sind in \autoref{tab:reis} festgehalten ("Rai" ist ein [in Thailand übliches Flächenmaß](https://de.wikipedia.org/wiki/Rai_\(Einheit\))).
+Wir fragen uns, ob der jährliche Ertrag in einem bestimmten Anbaugebiet für Klebreis in Nordostthailand mit dem jährlichen Niederschlag zusammenhängt. Die erfassten Werte sind in \@ref(tab:reis) festgehalten ("Rai" ist ein [in Thailand übliches Flächenmaß](https://de.wikipedia.org/wiki/Rai_\(Einheit\))).
 
 ```{r, cache=T}
 reis <- read.table("img/7_reis_dt")
 reis <- cbind(data.frame(i=(1:10)), reis)
-kable(reis, "latex", caption = "\\label{tab:reis}Niederschlag und Ertrag im Reisanbau", booktabs=T, linesep=c(""), longtable=F, col.names = c("$i$", "", "$x_i$", "$y_i$"), escape = F, row.names =F) %>% 
-  kable_styling() %>%
+kable(reis, "html", caption = "\\label{tab:reis}Niederschlag und Ertrag im Reisanbau", linesep=c(""), longtable=F, col.names = c("$i$", "", "$x_i$", "$y_i$"), escape = F, row.names =F) %>%
   add_header_above(c("Laufende Nr.", "Jahr", "Niederschlag (mm)", "Ertrag (kg/Rai)"))
 ```
 
@@ -59,7 +58,7 @@ Der Befehl {\tt cov()} berechnet die Kovarianz einer bivariaten Verteilung in R.
 
 ### Beispiel
 
-Es macht Sinn, eine Tabelle anzulgen, in der Teilrechenschritte durchgeführt werden. \autoref{tab:ricemath} veranschaulicht dies.
+Es macht Sinn, eine Tabelle anzulgen, in der Teilrechenschritte durchgeführt werden. \@ref(tab:ricemath) veranschaulicht dies.
 
 ```{r, cache=T}
 reis$diffx <- reis$rain-mean(reis$rain)
@@ -71,8 +70,8 @@ sums <- colSums(reis)
 sums[1] <- "Summe:"
 sums[4:5] <- ""
 reis <- rbind(reis, sums)
-kable(reis, "latex", align="r", caption = "\\label{tab:ricemath}Hilfstabelle für die Berechnung der Kovarianz", booktabs=T, linesep=c(""), longtable=F, col.names = c("$i$", "$x_i$", "$y_i$", "$(x_i-\\bar{x})$", "$(y_i-\\bar{y})$", "$(x_i-\\bar{x})\\cdot(y_i-\\bar{y})$"), escape = F, row.names =F) %>% 
-  kable_styling() %>% row_spec(11, bold = T) %>% row_spec(10, hline_after = T)
+kable(reis, "html", align="r", caption = "\\label{tab:ricemath}Hilfstabelle für die Berechnung der Kovarianz", linesep=c(""), longtable=F, col.names = c("$i$", "$x_i$", "$y_i$", "$(x_i-\\bar{x})$", "$(y_i-\\bar{y})$", "$(x_i-\\bar{x})\\cdot(y_i-\\bar{y})$"), escape = F, row.names =F) %>% 
+  row_spec(11, bold = T) %>% row_spec(10, hline_after = T)
 ```
 
 Als Zwischenschritt müssen die Mittelwerte $\bar{x}$ und $\bar{y}$ berechnet werden, wofür die Summen der ersten beiden Spalten herangezogen werden können:
@@ -170,7 +169,7 @@ In R kann der Korrelationskoeffizient von zwei Merkmalen mit dem Befehl {\tt cor
 
 ### Beispiel
 
-In der Formel für den Korrelationskoeffizienten $r$ (\@ref(eq:cor)) werden die Standardabweichungen $s_x$ und $s_y$ benötigt. Es ist daher sinnvoll, die Hilfstabelle um die Quadrate der Differenzen (und deren Summen) zu erweitern (s. \autoref{tab:mathcor}).
+In der Formel für den Korrelationskoeffizienten $r$ (\@ref(eq:cor)) werden die Standardabweichungen $s_x$ und $s_y$ benötigt. Es ist daher sinnvoll, die Hilfstabelle um die Quadrate der Differenzen (und deren Summen) zu erweitern (s. \@ref(tab:mathcor)).
 
 ```{r, cache=T}
 reis <- reis.copy
@@ -181,8 +180,8 @@ sums <- colSums(reis)
 sums[1] <- "Summe:"
 sums[4:5] <- ""
 reis <- rbind(reis, sums)
-kable(reis, "latex", align="r", caption = "\\label{tab:mathcor}Hilfstabelle für die Berechnung des Korrelationskoeffizienten", booktabs=T, linesep=c(""), longtable=F, col.names = c("$i$", "$x_i$", "$y_i$", "$(x_i-\\bar{x})$", "$(y_i-\\bar{y})$", "$(x_i-\\bar{x})^2$", "$(y_i-\\bar{y})^2$"), escape = F, row.names =F) %>% 
-  kable_styling() %>% row_spec(11, bold = T) %>% row_spec(10, hline_after = T)
+kable(reis, "html", align="r", caption = "\\label{tab:mathcor}Hilfstabelle für die Berechnung des Korrelationskoeffizienten", linesep=c(""), longtable=F, col.names = c("$i$", "$x_i$", "$y_i$", "$(x_i-\\bar{x})$", "$(y_i-\\bar{y})$", "$(x_i-\\bar{x})^2$", "$(y_i-\\bar{y})^2$"), escape = F, row.names =F) %>% 
+  row_spec(11, bold = T) %>% row_spec(10, hline_after = T)
 ```
 
 Die Standardabweichungen ergeben sich nun wie gewohnt aus:
@@ -213,13 +212,13 @@ a) Messreihe:
 
 ```{r}
 ex <- read.table("img/7_exercise_dt")
-kable(data.frame(ex$xa, ex$ya), "latex", booktabs=T, longtable=F, linesep=c(""), col.names = c("$x_i$", "$y_i$"), escape = F) %>% kable_styling()
+kable(data.frame(ex$xa, ex$ya), "html", longtable=F, linesep=c(""), col.names = c("$x_i$", "$y_i$"), escape = F)
 ```
 
 b) Messreihe:
 
 ```{r}
-kable(read.table("img/7_exercise_b_dt"),"latex", booktabs=T, longtable=F, linesep=c(""), col.names = c("$x_i$", "$y_i$"), escape = F) %>% kable_styling()
+kable(read.table("img/7_exercise_b_dt"),"html", longtable=F, linesep=c(""), col.names = c("$x_i$", "$y_i$"), escape = F)
 ```
 
 
@@ -228,7 +227,7 @@ kable(read.table("img/7_exercise_b_dt"),"latex", booktabs=T, longtable=F, linese
 Sie erheben für zufällige „Wasserhäuschen“ in Frankfurt die Entfernung zur nächsten Haltestelle der S- oder U-Bahn sowie den durchschnitllichen Tagesumsatz. Die Erhebung ergibt:
 
 ```{r}
-kable(read.table("img/7_wasserhäuschen_dt"),"latex", booktabs=T, longtable=F, linesep=c(""), col.names = c("Entfernung (m)", "Umsatz (€/Tag)"), escape = F) %>% kable_styling()
+kable(read.table("img/7_wasserhäuschen_dt"),"html", longtable=F, linesep=c(""), col.names = c("Entfernung (m)", "Umsatz (€/Tag)"), escape = F)
 ```
 
 Gibt es einen Zusammenhang zwischen Entfernung und Umsatz? Wenn ja: Wie hängen die Variablen zusammen? Wie stark ist der Zusammenhang?

@@ -49,6 +49,8 @@
 
 
 
+<script src="assets/kePrint-0.0.1/kePrint.js"></script>
+<link href="assets/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link rel="icon" href="https://www.uni-frankfurt.de/favicon.ico" type="image/x-icon">
 <script src="solutions.js"></script>
 
@@ -67,7 +69,11 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Terminüberblick</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Inhalt</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#terminüberblick"><i class="fa fa-check"></i>Terminüberblick</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#formelsammlung-und-wertetabellen"><i class="fa fa-check"></i>Formelsammlung und Wertetabellen</a></li>
+</ul></li>
 <li class="chapter" data-level="1" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html"><i class="fa fa-check"></i><b>1</b> Datenerhebung und Häufigkeiten</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#lernziele-dieser-sitzung"><i class="fa fa-check"></i><b>1.1</b> Lernziele dieser Sitzung</a></li>
@@ -432,7 +438,7 @@
 <h3><span class="header-section-number">9.2.1</span> Beispiel</h3>
 <p>Wir fragen uns, ob es einen Zusammenhang zwischen dem Studienfach von Studierenden an einer Universität und ihrem präferierten Transportmittel für den Pendelweg zum Campus gibt. Insbesondere interessiert uns, ob ein Zusammenhang zwischen dem Studium der Geistes- und Sozialwissenschaften und der Fahrradnutzung besteht.</p>
 <p>Beide Variablen sind nominalskaliert: die erhobenen Werte können in Kategorien eingeordnet werden (Studienfach: Geographie, Politikwissenschaft, BWL, …; Transportmittel: Bus, Fahrrad, zu Fuß, …).</p>
-<p>Um die Variablen im Sinne unserer Fragestellung zu vereinfachen, wandeln wir beide Variablen in <em>dichotome</em> Variablen um (die dann nur zwei Werte annehmen können). Wir beschränken uns auf die Erhebung von <q>Fahrrad</q> oder <q>anderes Transportmittel</q> einerseits und <q>Geistes-/Sozialwissenschaft</q> oder <q>anderes Studienfach</q> andererseits. Die (verkürzte) Tabelle der Rohdaten einer Zufallsstichprobe der Größe <span class="math inline">\(n=90\)</span> könnte dann so aussehen wie .</p>
+<p>Um die Variablen im Sinne unserer Fragestellung zu vereinfachen, wandeln wir beide Variablen in <em>dichotome</em> Variablen um (die dann nur zwei Werte annehmen können). Wir beschränken uns auf die Erhebung von <q>Fahrrad</q> oder <q>anderes Transportmittel</q> einerseits und <q>Geistes-/Sozialwissenschaft</q> oder <q>anderes Studienfach</q> andererseits. Die (verkürzte) Tabelle der Rohdaten einer Zufallsstichprobe der Größe <span class="math inline">\(n=90\)</span> könnte dann so aussehen wie <a href="#tab:roh"><strong>??</strong></a>.</p>
 </div>
 </div>
 <div id="kreuztabelle" class="section level2" number="9.3">
@@ -441,18 +447,206 @@
 <p>Bei zwei dichotomen Variablen ergeben sich zwei Spalten und zwei Zeilen, also vier Tabellenfelder. Wir sprechen in diesem Fall auch von einer <span class="math inline">\(2\times2\)</span>-Tabelle.</p>
 <div id="beispiel-30" class="section level3" number="9.3.1">
 <h3><span class="header-section-number">9.3.1</span> Beispiel</h3>
-<p>Die Kreuztabelle für unser Beispiel ist in  dargestellt. Die Spaltenüberschriften sind die beiden Werte der dichotomen Variable <q>Transportmittel</q>, und die Zeilennamen sind die beiden Werte für <q>Studienfach</q>. In den Zellen stehen die Häufigkeiten. Es lässt sich also z.B. ablesen, dass die Kombination <q>Fahrrad</q> und <q>anderes Studienfach</q> neun mal vorkommt.</p>
+<p>Die Kreuztabelle für unser Beispiel ist in <a href="kreuztabellen.html#tab:crossrad">9.1</a> dargestellt. Die Spaltenüberschriften sind die beiden Werte der dichotomen Variable <q>Transportmittel</q>, und die Zeilennamen sind die beiden Werte für <q>Studienfach</q>. In den Zellen stehen die Häufigkeiten. Es lässt sich also z.B. ablesen, dass die Kombination <q>Fahrrad</q> und <q>anderes Studienfach</q> neun mal vorkommt.</p>
+<table>
+<caption>
+<span id="tab:crossrad">Table 9.1: </span>Kreuztabelle der Beispieldaten
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+</th>
+<th style="text-align:right;">
+Fahrrad
+</th>
+<th style="text-align:right;">
+anderes Transportmittel
+</th>
+<th style="text-align:right;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;background:var(--sand_gray); color:var(--goethe_blue);font-weight:600">
+Geistes-/Sozialwissenschaft
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;font-weight: bold;">
+39
+</td>
+</tr>
+<tr>
+<td style="text-align:right;background:var(--sand_gray); color:var(--goethe_blue);font-weight:600">
+anderes Studienfach
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;font-weight: bold;">
+51
+</td>
+</tr>
+<tr>
+<td style="text-align:right;background:var(--sand_gray); color:var(--goethe_blue);font-weight:600font-weight: bold;">
+</td>
+<td style="text-align:right;font-weight: bold;">
+20
+</td>
+<td style="text-align:right;font-weight: bold;">
+70
+</td>
+<td style="text-align:right;font-weight: bold;font-weight: bold;">
+90
+</td>
+</tr>
+</tbody>
+</table>
 <p>Am rechten Rand der Tabelle stehen die Summen für die Zeilen, am unteren Rand die Summen der Spalten. Ganz unten rechts steht die Gesamtsumme (Größe der Stichprobe).</p>
 </div>
 <div id="verallgemeinerung" class="section level3" number="9.3.2">
 <h3><span class="header-section-number">9.3.2</span> Verallgemeinerung</h3>
-<p>In  ist das allgemeingültige Format für Kreuztabellen festgehalten. Dabei sind folgende Besonderheiten zu beachten:</p>
+<p>In <a href="kreuztabellen.html#tab:crossalg">9.2</a> ist das allgemeingültige Format für Kreuztabellen festgehalten. Dabei sind folgende Besonderheiten zu beachten:</p>
 <ul>
 <li>Das Symbol <span class="math inline">\(k\)</span> steht für die Anzahl der Zeilen, <span class="math inline">\(\ell\)</span> für die Anzahl der Spalten.</li>
 <li>Die Häufigkeiten für Merkmalskombinationen in den Tabellenfeldern werden durch <span class="math inline">\(n_{ij}\)</span> symbolisiert, wobei <span class="math inline">\(i\)</span> für die laufende Nummer der Zeile steht, und <span class="math inline">\(j\)</span> für die laufende Nummer der Spalte.</li>
 <li>Die Teilsummen an den Rändern werden mit Punktnotation bezeichnet. Dabei steht die Zeilensumme <span class="math inline">\(n_{i\cdot}\)</span> für die Summe <em>aller</em> Felder in Zeile <span class="math inline">\(i\)</span> (Zeilensumme) und <span class="math inline">\(n_{\cdot j}\)</span> für die Summe <em>aller</em> Felder in Spalte <span class="math inline">\(j\)</span> (Spaltensumme).</li>
 <li>Die Gesamtsumme unten rechts wird hier mit <span class="math inline">\(n\)</span> gekennzeichnet und steht wie gewohnt für die Gesamtgröße der Stichprobe.</li>
 </ul>
+<table>
+<caption>
+<span id="tab:crossalg">Table 9.2: </span>Allgemeine Bezeichnungen in der Kreuztabelle
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Spalte 1
+</th>
+<th style="text-align:left;">
+Spalte 2
+</th>
+<th style="text-align:left;">
+…
+</th>
+<th style="text-align:left;">
+Spalte <span class="math inline">\(\ell\)</span>
+</th>
+<th style="text-align:left;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;border-right:1px solid;">
+Zeile 1
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(n_{11}\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(n_{12}\)</span>
+</td>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<span class="math inline">\(n_{1\ell}\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(n_{1\cdot}\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;border-right:1px solid;">
+Zeile 2
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(n_{21}\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(n_{22}\)</span>
+</td>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<span class="math inline">\(n_{2\ell}\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(n_{2\cdot}\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;border-right:1px solid;">
+…
+</td>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:left;border-right:1px solid;">
+…
+</td>
+<td style="text-align:left;">
+…
+</td>
+</tr>
+<tr>
+<td style="text-align:left;border-right:1px solid;">
+Zeile <span class="math inline">\(k\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(n_{k1}\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(n_{k2}\)</span>
+</td>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<span class="math inline">\(n_{k\ell}\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(n_{k\cdot}\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;border-right:1px solid;">
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(n_{\cdot1}\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(n_{\cdot2}\)</span>
+</td>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<span class="math inline">\(n_{\cdot\ell}\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(n\)</span>
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div id="berechnung-der-erwarteten-werte" class="section level2" number="9.4">
@@ -472,7 +666,69 @@ m_{12}&amp;=\frac{n_{1\cdot}\cdot n_{\cdot 2}}{n}\\[5pt]
 &amp;=\frac{39\cdot 70}{90}\\[4pt]
 &amp;\approx 30,33
 \end{aligned}\]</span></p>
-<p>Diese Rechnung lässt sich für alle Tabellenfelder durchführen. Die Kreuztabelle kann dann um diese erwarteten Werte in Klammern ergänzt werden (s. ).</p>
+<p>Diese Rechnung lässt sich für alle Tabellenfelder durchführen. Die Kreuztabelle kann dann um diese erwarteten Werte in Klammern ergänzt werden (s. <a href="kreuztabellen.html#tab:expected">9.3</a>).</p>
+<table>
+<caption>
+<span id="tab:expected">Table 9.3: </span>Kreuztabelle der Beispieldaten
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+</th>
+<th style="text-align:right;">
+Fahrrad
+</th>
+<th style="text-align:right;">
+anderes Transportmittel
+</th>
+<th style="text-align:right;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;background:var(--sand_gray); color:var(--goethe_blue);font-weight:600">
+Geistes-/Sozialwissenschaft
+</td>
+<td style="text-align:right;">
+11<br><span>(8,67)<span> </span></span>
+</td>
+<td style="text-align:right;">
+28<br><span>(30,33)<span> </span></span>
+</td>
+<td style="text-align:right;font-weight: bold;">
+39
+</td>
+</tr>
+<tr>
+<td style="text-align:right;background:var(--sand_gray); color:var(--goethe_blue);font-weight:600">
+anderes Studienfach
+</td>
+<td style="text-align:right;">
+9<br><span>(11,33)<span> </span></span>
+</td>
+<td style="text-align:right;">
+42<br><span>(39,67)<span> </span></span>
+</td>
+<td style="text-align:right;font-weight: bold;">
+51
+</td>
+</tr>
+<tr>
+<td style="text-align:right;background:var(--sand_gray); color:var(--goethe_blue);font-weight:600font-weight: bold;">
+</td>
+<td style="text-align:right;font-weight: bold;">
+20
+</td>
+<td style="text-align:right;font-weight: bold;">
+70
+</td>
+<td style="text-align:right;font-weight: bold;font-weight: bold;">
+90
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div id="berechnung-des-kontingenzkoeffizenten-chi2" class="section level2" number="9.5">
@@ -492,7 +748,69 @@ m_{12}&amp;=\frac{n_{1\cdot}\cdot n_{\cdot 2}}{n}\\[5pt]
 \frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}
 \tag{9.3}
 \]</span></p>
-<p>berechnet und sind in  in blau dargestellt.</p>
+<p>berechnet und sind in <a href="kreuztabellen.html#tab:radchisq">9.4</a> in blau dargestellt.</p>
+<table>
+<caption>
+<span id="tab:radchisq">Table 9.4: </span>Kreuztabelle der Beispieldaten mit Teilwerten für <span class="math inline">\(\chi^2\)</span>
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+</th>
+<th style="text-align:right;">
+Fahrrad
+</th>
+<th style="text-align:right;">
+anderes Transportmittel
+</th>
+<th style="text-align:right;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;background:var(--sand_gray); color:var(--goethe_blue);font-weight:600">
+Geistes-/Sozialwissenschaft
+</td>
+<td style="text-align:right;">
+11<br><span>(8,67)<span><br><span class="blue-text">0,626</span> </span></span>
+</td>
+<td style="text-align:right;">
+28<br><span>(30,33)<span><br><span class="blue-text">0,179</span> </span></span>
+</td>
+<td style="text-align:right;font-weight: bold;">
+39
+</td>
+</tr>
+<tr>
+<td style="text-align:right;background:var(--sand_gray); color:var(--goethe_blue);font-weight:600">
+anderes Studienfach
+</td>
+<td style="text-align:right;">
+9<br><span>(11,33)<span><br><span class="blue-text">0,479</span> </span></span>
+</td>
+<td style="text-align:right;">
+42<br><span>(39,67)<span><br><span class="blue-text">0,137</span> </span></span>
+</td>
+<td style="text-align:right;font-weight: bold;">
+51
+</td>
+</tr>
+<tr>
+<td style="text-align:right;background:var(--sand_gray); color:var(--goethe_blue);font-weight:600font-weight: bold;">
+</td>
+<td style="text-align:right;font-weight: bold;">
+20
+</td>
+<td style="text-align:right;font-weight: bold;">
+70
+</td>
+<td style="text-align:right;font-weight: bold;font-weight: bold;">
+90
+</td>
+</tr>
+</tbody>
+</table>
 <p>Zum Beispiel ergibt sich der Teilwert für <span class="math inline">\(\chi^2\)</span> für die Kombination <q>anderes Studienfach</q> – <q>Fahrrad</q> durch Einsetzen in <a href="kreuztabellen.html#eq:contrib">(9.3)</a>:</p>
 <p><span class="math display">\[\begin{aligned}
 \frac{(n_{21}-m_{21})^{2}}{m_{21}} &amp;\approx \frac{(9-11,33)^2}{11,33}\\
@@ -541,7 +859,7 @@ m_{12}&amp;=\frac{n_{1\cdot}\cdot n_{\cdot 2}}{n}\\[5pt]
 <p>In einer <span class="math inline">\(2\times2\)</span>-Tabelle ist dieser Wert identisch mit dem <span class="math inline">\(\phi\)</span>-Koeffizienten.</p>
 <div id="beispiel-34" class="section level3" number="9.7.1">
 <h3><span class="header-section-number">9.7.1</span> Beispiel</h3>
-<p>Hätten wir im Beispiel die Erhebung nicht auf dichotome Variablen reduziert, sondern die Wissenschaftsdisziplinen und Verkehrsmittel direkt erhoben, so würde sich die Kreuztabelle vielleicht wie in  darstellen.</p>
+<p>Hätten wir im Beispiel die Erhebung nicht auf dichotome Variablen reduziert, sondern die Wissenschaftsdisziplinen und Verkehrsmittel direkt erhoben, so würde sich die Kreuztabelle vielleicht wie in <a href="#tab:ci"><strong>??</strong></a> darstellen.</p>
 <p>Dabei werden die Erwartungswerte wie gehabt mit <a href="kreuztabellen.html#eq:m">(9.1)</a> und die Teilwerte für <span class="math inline">\(\chi^2\)</span> mit der <a href="kreuztabellen.html#eq:contrib">(9.3)</a> errechnet.</p>
 <p>Der <span class="math inline">\(\chi^2\)</span>-Wert ergibt sich wieder aus der Summe (s. <a href="kreuztabellen.html#eq:chisq">(9.2)</a>):</p>
 <p><span class="math display">\[\begin{aligned}
@@ -575,7 +893,7 @@ m_{12}&amp;=\frac{n_{1\cdot}\cdot n_{\cdot 2}}{n}\\[5pt]
 <div id="aufgabe-2-8" class="section level3" number="9.8.2">
 <h3><span class="header-section-number">9.8.2</span> Aufgabe 2</h3>
 <p>Sie interessieren sich dafür, ob zwei <q>Ja/Nein</q>-Fragen auf einem Fragebogen korrelieren.</p>
-<p>Sie ermittlen folgende Häufigkeiten:</p>
+<p>Sie ermitteln folgende Häufigkeiten:</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>Vervollständigen Sie die Kreuztabelle um ihre Summen und die Erwartungswerte.</p></li>
 <li><p>Berechnen Sie <span class="math inline">\(\chi^2\)</span> und den <span class="math inline">\(\phi\)</span>-Koeffizienten.</p></li>
@@ -623,16 +941,7 @@ m_{12}&amp;=\frac{n_{1\cdot}\cdot n_{\cdot 2}}{n}\\[5pt]
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
+"sharing": false,
 "fontsettings": {
 "theme": "white",
 "family": "sans",

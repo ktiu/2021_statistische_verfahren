@@ -150,17 +150,16 @@ Variablen lassen sich immer auch einem niedrigeren Skalenniveau zuordnen. Dies g
 
 Die im Folgenden beschriebenen Skalenniveaus sind nicht deckungsgleich mit den o.g. Variablentypen. Intervall- und Verhältnisskalen können z.B. jeweils diskret oder stetig sein.
 
-In Tabelle \ref{tab:skalen} sind die wichtigsten Skalenniveaus im Überblick aufgeführt. "Gültige Lagemaße" sind dabei als Zusatzinformation aufgelistet und werden erst in der nächsten Sitzung behandelt.
+In Tabelle \@ref(tab:skalen) sind die wichtigsten Skalenniveaus im Überblick aufgeführt. "Gültige Lagemaße" sind dabei als Zusatzinformation aufgelistet und werden erst in der nächsten Sitzung behandelt.
 
 ```{r skalen}
-c("Nominalskala", "Postleitzahl", "Gleichheit, Verschiedenheit", "Modus",
+c("Nominalskala", "Postleitzahl", "+ Gleichheit, Verschiedenheit", "+ Modus",
   "Ordinalskala", "Militärischer Rang", "+ Größer-kleiner-Relationen", "+ Median",
   "Intervallskala", "Temperatur in °C", "+ Gleichheit von Differenzen", "+ arithmetisches Mittel",
   "Verhältnisskala", "Körpergröße", "+ Gleichheit von Verhältnissen", "+ geometrisches Mittel") %>%
   matrix(nrow=4, byrow=T) %>%
   as_tibble %>%
-  kable("latex", booktabs=T, col.names= c("Skalenart", "Beispiel", "Mögliche Aussagen", "gültige Lagemaße"), caption="Die vier wichtigsten Skalenniveaus.") %>%
-  kable_styling() 
+  kable("html", col.names= c("Skalenart", "Beispiel", "Mögliche Aussagen", "gültige Lagemaße"), caption="Die vier wichtigsten Skalenniveaus.")
 ```
 
 #### Nominalskala
@@ -227,7 +226,7 @@ cat('`', sort(xs), '`')
 
 ### Häufigkeiten
 
-Die absoluten Häufigkeiten erhält man durch einfaches Abzählen der jeweiligen Werte. Für die relativen Häufigkeiten teilt man diese Zahl durch $n$. Kumulierte Häufigkeiten zählen die bisherigen Summen bzw. Anteile zusammen (s. Tabelle \ref{tab:haeufkum}).
+Die absoluten Häufigkeiten erhält man durch einfaches Abzählen der jeweiligen Werte. Für die relativen Häufigkeiten teilt man diese Zahl durch $n$. Kumulierte Häufigkeiten zählen die bisherigen Summen bzw. Anteile zusammen (s. Tabelle \@ref(tab:haeufkum)).
 
 \begin{rtip}
 In R lässt sich mit dem Befehl {\tt table()} eine einfache Häufigkeitstabelle aus Rohdaten erstellen.
@@ -241,7 +240,7 @@ df$kumrel <- cumsum(df$rel)
 df$rel <- paste0(round(df$rel*100, 1), "\\%")
 df$kumrel <- paste0(round(df$kumrel*100, 1), "\\%")
 colnames(df) <- c("Buchstabe", "Absolute Häufigkeit $f$", "$f_{kum}$", "Relative Häufigkeit", "$\\%_{kum}$")
-kable(df, "latex", booktabs=T, escape=F, caption = "Tabelle mit kumulierten Häufigkeiten", linesep = "" ,align = "lrrrr")
+kable(df, "html", escape=F, caption = "Tabelle mit kumulierten Häufigkeiten", linesep = "" ,align = "lrrrr")
 ```
 
 ### Stabdiagramme
@@ -272,7 +271,7 @@ Zur Veranschaulichung soll diese geordnete Liste von Messwerten des Stammdurchme
 cat('`', format(sort(trees$Girth), decimal.mark = ","), '`')
 ```
 
-Für solche Verteilungen müssen zuerst Klassen (engl. *bins*) gebildet werden, in denen die Werte dann zusammengefasst werden (s. Tabelle \ref{tab:haeufklass}).
+Für solche Verteilungen müssen zuerst Klassen (engl. *bins*) gebildet werden, in denen die Werte dann zusammengefasst werden (s. Tabelle \@ref(tab:haeufklass)).
 
 ```{r haeufklass}
 df <- data.frame(table(cut(trees$Girth, seq(8,22,2))))
@@ -283,8 +282,7 @@ df$rel <- paste0(round(df$rel*100, 1), "\\%")
 df$kumrel <- paste0(round(df$kumrel*100, 1), "\\%")
 df$Var1 <- gsub("\\((\\d+),(\\d+)\\]", "über \\1 bis \\2 Zoll", df$Var1)
 colnames(df) <- c("Durchmesser", "Absolute Häufigkeit $f$", "$f_{kum}$", "Relative Häufigkeit", "$\\%_{kum}$")
-knitr::kable(df, "latex", booktabs=T, escape=F, linesep="", caption = "Häufigkeitstabelle mit klassierten Werten",align = "lrrrr") %>%
-  kable_styling()
+knitr::kable(df, "html", escape=F, linesep="", caption = "Häufigkeitstabelle mit klassierten Werten",align = "lrrrr")
 
 ```
 

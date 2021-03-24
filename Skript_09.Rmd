@@ -20,7 +20,7 @@ Wir fragen uns, ob es einen Zusammenhang zwischen dem Studienfach von Studierend
 
 Beide Variablen sind nominalskaliert: die erhobenen Werte können in Kategorien eingeordnet werden (Studienfach: Geographie, Politikwissenschaft, BWL, ...; Transportmittel: Bus, Fahrrad, zu Fuß, ...).
 
-Um die Variablen im Sinne unserer Fragestellung zu vereinfachen, wandeln wir beide Variablen in *dichotome* Variablen um (die dann nur zwei Werte annehmen können). Wir beschränken uns auf die Erhebung von "Fahrrad" oder "anderes Transportmittel" einerseits und "Geistes-/Sozialwissenschaft" oder "anderes Studienfach" andererseits. Die (verkürzte) Tabelle der Rohdaten einer Zufallsstichprobe der Größe $n=90$ könnte dann so aussehen wie \autoref{tab:roh}.
+Um die Variablen im Sinne unserer Fragestellung zu vereinfachen, wandeln wir beide Variablen in *dichotome* Variablen um (die dann nur zwei Werte annehmen können). Wir beschränken uns auf die Erhebung von "Fahrrad" oder "anderes Transportmittel" einerseits und "Geistes-/Sozialwissenschaft" oder "anderes Studienfach" andererseits. Die (verkürzte) Tabelle der Rohdaten einer Zufallsstichprobe der Größe $n=90$ könnte dann so aussehen wie \@ref(tab:roh).
 
 ```{r}
 rad <- read.table("img/9_rad_dt", as.is = T)
@@ -36,7 +36,7 @@ Bei zwei dichotomen Variablen ergeben sich zwei Spalten und zwei Zeilen, also vi
 
 ### Beispiel
 
-Die Kreuztabelle für unser Beispiel ist in \autoref{tab:crossrad} dargestellt. Die Spaltenüberschriften sind die beiden Werte der dichotomen Variable "Transportmittel", und die Zeilennamen sind die beiden Werte für "Studienfach". In den Zellen stehen die Häufigkeiten. Es lässt sich also z.B. ablesen, dass die Kombination "Fahrrad" und "anderes Studienfach" neun mal vorkommt.
+Die Kreuztabelle für unser Beispiel ist in \@ref(tab:crossrad) dargestellt. Die Spaltenüberschriften sind die beiden Werte der dichotomen Variable "Transportmittel", und die Zeilennamen sind die beiden Werte für "Studienfach". In den Zellen stehen die Häufigkeiten. Es lässt sich also z.B. ablesen, dass die Kombination "Fahrrad" und "anderes Studienfach" neun mal vorkommt.
 
 ```{r crossrad}
 crosstable <- function(x, format, sums=T, expected=F, chisq=F, varnames=T, row.order=NULL, col.order=NULL, caption=NULL, df.only=F){
@@ -154,7 +154,7 @@ crosstable <- function(x, format, sums=T, expected=F, chisq=F, varnames=T, row.o
   }
 }
 
-radxt <- crosstable(rad, format="latex", varnames = F, row.order = c("Geistes-/Sozialwissenschaft", "anderes Studienfach"), col.order = c("Fahrrad", "anderes Transportmittel"), caption = "Kreuztabelle der Beispieldaten")
+radxt <- crosstable(rad, format="html", varnames = F, row.order = c("Geistes-/Sozialwissenschaft", "anderes Studienfach"), col.order = c("Fahrrad", "anderes Transportmittel"), caption = "Kreuztabelle der Beispieldaten")
 radxt$df
 ```
 
@@ -167,7 +167,7 @@ In R kann eine einfache Kreuztabelle mit dem Befehl {\tt table()} ausgegeben wer
 
 ### Verallgemeinerung
 
-In \autoref{tab:crossalg} ist das allgemeingültige Format für Kreuztabellen festgehalten. Dabei sind folgende Besonderheiten zu beachten:
+In \@ref(tab:crossalg) ist das allgemeingültige Format für Kreuztabellen festgehalten. Dabei sind folgende Besonderheiten zu beachten:
 
 - Das Symbol $k$ steht für die Anzahl der Zeilen, $\ell$ für die Anzahl der Spalten.
 - Die Häufigkeiten für Merkmalskombinationen in den Tabellenfeldern werden durch $n_{ij}$ symbolisiert, wobei $i$ für die laufende Nummer der Zeile steht, und $j$ für die laufende Nummer der Spalte.
@@ -182,8 +182,7 @@ $n_{21}$ $n_{22}$ ... $n_{2\\ell}$ $n_{2\\cdot}$
 $n_{k1}$ $n_{k2}$ ... $n_{k\\ell}$ $n_{k\\cdot}$
 $n_{\\cdot1}$ $n_{\\cdot2}$ ... $n_{\\cdot\\ell}$ $n$")
 row.names(t) <- c("Zeile 1", "Zeile 2", "...", "Zeile $k$", "")
-kable(t, "latex", booktabs=T, escape=F, longtable=F, col.names = c("Spalte 1","Spalte 2", "...", "Spalte $\\ell$", ""), caption = "Allgemeine Bezeichnungen in der Kreuztabelle") %>%
-  kable_styling() %>%
+kable(t, "html", escape=F, longtable=F, col.names = c("Spalte 1","Spalte 2", "...", "Spalte $\\ell$", ""), caption = "Allgemeine Bezeichnungen in der Kreuztabelle") %>%
   row_spec(4, hline_after = T) %>%
   column_spec(1, border_right = T) %>%
   column_spec(5, border_right = T)
@@ -214,10 +213,10 @@ m_{12}&=\frac{n_{1\cdot}\cdot n_{\cdot 2}}{n}\\[5pt]
 &\approx 30,33
 \end{aligned}\]
 
-Diese Rechnung lässt sich für alle Tabellenfelder durchführen. Die Kreuztabelle kann dann um diese erwarteten Werte in Klammern ergänzt werden (s. \autoref{tab:expected}).
+Diese Rechnung lässt sich für alle Tabellenfelder durchführen. Die Kreuztabelle kann dann um diese erwarteten Werte in Klammern ergänzt werden (s. \@ref(tab:expected)).
 
 ```{r expected}
-radxt <- crosstable(rad, format="latex", varnames = F, expected = T, row.order = c("Geistes-/Sozialwissenschaft", "anderes Studienfach"), col.order = c("Fahrrad", "anderes Transportmittel"), caption = "Kreuztabelle der Beispieldaten")
+radxt <- crosstable(rad, format="html", varnames = F, expected = T, row.order = c("Geistes-/Sozialwissenschaft", "anderes Studienfach"), col.order = c("Fahrrad", "anderes Transportmittel"), caption = "Kreuztabelle der Beispieldaten")
 radxt$df
 ```
 
@@ -247,10 +246,10 @@ Ein möglicher Zwischenschritt ist es, diese Teilwerte von $\chi^2$ für die ein
 (\#eq:contrib)
 \]
 
-berechnet und sind in \autoref{tab:radchisq} in blau dargestellt.
+berechnet und sind in \@ref(tab:radchisq) in blau dargestellt.
 
 ```{r radchisq}
-radxt <- crosstable(rad, format="latex", varnames = F, expected = T, chisq = T, row.order = c("Geistes-/Sozialwissenschaft", "anderes Studienfach"), col.order = c("Fahrrad", "anderes Transportmittel"), caption = "Kreuztabelle der Beispieldaten mit Teilwerten für $\\chi^2$")
+radxt <- crosstable(rad, format="html", varnames = F, expected = T, chisq = T, row.order = c("Geistes-/Sozialwissenschaft", "anderes Studienfach"), col.order = c("Fahrrad", "anderes Transportmittel"), caption = "Kreuztabelle der Beispieldaten mit Teilwerten für $\\chi^2$")
 radxt$df
 ```
 
@@ -318,7 +317,7 @@ In einer $2\times2$-Tabelle ist dieser Wert identisch mit dem $\phi$-Koeffizient
 
 ### Beispiel
 
-Hätten wir im Beispiel die Erhebung nicht auf dichotome Variablen reduziert, sondern die Wissenschaftsdisziplinen und Verkehrsmittel direkt erhoben, so würde sich die Kreuztabelle vielleicht wie in \autoref{tab:ci} darstellen.
+Hätten wir im Beispiel die Erhebung nicht auf dichotome Variablen reduziert, sondern die Wissenschaftsdisziplinen und Verkehrsmittel direkt erhoben, so würde sich die Kreuztabelle vielleicht wie in \@ref(tab:ci) darstellen.
 
 Dabei werden die Erwartungswerte wie gehabt mit \@ref(eq:m) und die Teilwerte für $\chi^2$ mit der \@ref(eq:contrib) errechnet.
 
@@ -376,8 +375,7 @@ Sie fragen sich, wie die Wohnumgebung einer Person (Stadt oder Land) damit zusam
 
 ```{r}
 ex1 <- read.table("img/9_ex1_dt")
-kable(ex1, "latex", booktabs=T) %>% 
-  kable_styling(latex_options=c("striped", "hold_position"))
+kable(ex1, "latex")
 ```
 
 a) Überführen Sie die Daten in eine Kreuztabelle.
@@ -394,14 +392,13 @@ e) Besteht eine Korrelation? In welche Richtung?
 
 Sie interessieren sich dafür, ob zwei "Ja/Nein"-Fragen auf einem Fragebogen korrelieren.
 
-Sie ermittlen folgende Häufigkeiten:
+Sie ermitteln folgende Häufigkeiten:
 
 ```{r}
 ex2 <- read.table("img/9_ex2_dt")
 colnames(ex2) <- c("Frage 1", "Frage 2")
 xt <- crosstable(ex2, format = "latex", sums=F)
-xt$df %>% kable_styling(latex_options = c("hold_position"))
-
+xt$df
 ```
 
 a) Vervollständigen Sie die Kreuztabelle um ihre Summen und die Erwartungswerte.
