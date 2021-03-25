@@ -306,7 +306,7 @@ Die Standardabweichung wird in R mit der Funktion {\tt sd()} berechnet.
 
 Der Boxplot (auch Box-and-whisker-plot) kombiniert einige der gebräuchlichsten Maßzahlen in einer übersichtlichen Grafik (s. Abbildung \@ref(fig:box)).
 
-```{r box, fig.height=5, fig.width=3, out.width='.3\\linewidth', fig.cap="Boxplot der Beispielverteilung"}
+```{r box, fig.height=5, fig.width=3, out.width='35%', fig.cap="Boxplot der Beispielverteilung"}
 ggplot(data.frame(xs), aes(y=xs)) +
   stat_boxplot(geom = 'errorbar', width=0.5) +
   geom_boxplot(fill = mustard_yellow) +

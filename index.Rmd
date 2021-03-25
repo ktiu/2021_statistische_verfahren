@@ -31,7 +31,7 @@ knitr::opts_chunk$set(cache = T,
                       warning = F,
                       message = F,
                       collapse = T,
-                      dev = 'png')
+                      dev = 'svglite')
 
 solutions <- knitr::opts_knit$get("rmarkdown.pandoc.to") == "html"
 
@@ -42,7 +42,7 @@ library(cowplot)
 #library(pubIHG)
 
 options(OutDec = ",")
-knitr::opts_chunk$set(fig.align='center', out.width='.49\\linewidth', fig.width=5, fig.height=3, echo=FALSE, warning=FALSE, message=FALSE, fig.pos = 'h')
+knitr::opts_chunk$set(fig.align='center', out.width='75%', fig.width=5, fig.height=3, echo=FALSE, warning=FALSE, message=FALSE, fig.pos = 'h')
 
 goethe_blue <- "#00618F"
 light_gray <- "#f8f6f5"
