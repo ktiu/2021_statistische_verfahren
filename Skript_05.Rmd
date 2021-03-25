@@ -605,7 +605,8 @@ m <- as.data.frame(m)
 m[nrow(m), 1] <- "$z$"
 knitr::kable(m, "html", format.args = list(digits = 3, nsmall=3, decimal.mark = ","), escape = F, align = "r") %>%
   add_header_above(c(" " = 1, "Fläche" = ncol(m)-1), escape = F) %>%
-  column_spec(1, border_right = T)
+  column_spec(1, border_right = T) %>%
+  scroll_box(width = "100%", box_css = "border: 0px;")
 ```
 
 \pagebreak

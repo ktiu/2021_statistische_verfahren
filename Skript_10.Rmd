@@ -447,7 +447,8 @@ colnames(m) <- c("$df$", format(area, decimal.mark = ",", drop0trailing = T))
 m <- as.data.frame(m)
 knitr::kable(m, "html", escape = F, align = "r") %>%
   add_header_above(c(" " = 1, "Fläche" = ncol(m)-1), escape = F) %>%
-  column_spec(1, border_right = T)
+  column_spec(1, border_right = T) %>%
+  scroll_box(width = "100%", box_css = "border: 0px;")
 ```
 
 \pagebreak

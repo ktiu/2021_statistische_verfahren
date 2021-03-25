@@ -105,7 +105,7 @@ r=\frac{s_{xy}}{s_x\cdot s_y}
 
 Durch diese Standardisierung kann der Korrelationskoeffizient nur noch Werte zwischen $r=-1$ (perfekte negative Korrelation) und $r=1$ (perfekte positive Korrelation) annehmen. Ein Korrelationskoeffizient nahe $r=0$ bedeutet, dass es keinen Zusammenhang zwischen den Variablen $x$ und $y$ gibt (s. \@ref(fig:corrs)).
 
-```{r corrs, cache=T, fig.cap="Verschiedene Korrelationskoeffizienten", echo=FALSE, out.width='.26\\linewidth', fig.width=3, fig.height=3, fig.show='hold', fig.align='center'} 
+```{r corrs, cache=T, fig.cap="Verschiedene Korrelationskoeffizienten", echo=FALSE, out.width='30%', fig.width=3, fig.height=3, fig.show='hold', fig.align='center'} 
 corex <- read.table("img/7_corex_dt")
 ggplot(corex, aes(x,yn1)) +
   ggtitle(bquote(r==-1)) +
