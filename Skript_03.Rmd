@@ -592,7 +592,6 @@ m <- cbind(z0,m)
 colnames(m) <- c("$z$", format(z00, decimal.mark = ","))
 knitr::kable(m, "html", format.args = list(digits = 4, decimal.mark = ","), escape = F) %>%
   add_header_above(c(" "=1, "$z$ (zweite Nachkommastelle)"=ncol(m)-1), escape = F) %>%
-  column_spec(1, border_right = T) %>%
   scroll_box(width = "100%", box_css = "border: 0px;")
 ```
 

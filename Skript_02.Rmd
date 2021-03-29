@@ -62,7 +62,8 @@ Um den Median zu bestimmen, wird zunächst eine geordnete Liste angefertigt, ind
 
 ```{r sort}
 matrix(sort(xs), nrow = 1, dimnames = list(c(), sprintf("$x_{(%s)}$", 1:14)))%>% as_tibble %>%
-  kable("html", escape=F, caption="Sortierte Wertereihe")
+  kable("html", escape=F, caption="Sortierte Wertereihe")%>%
+  scroll_box(width = "100%", box_css = "border: 0px;")
 ```
 
 Bei einer ungeraden Stichprobengröße $n$ teilt der $(\frac{n+1}{2})$-te Wert (also der Wert genau in der Mitte) die Stichprobe in zwei Hälften, weshalb gilt:

@@ -107,7 +107,6 @@ eq:ci
 tab:zivi1
 eq:dfu
 eq:dfe
-tab:xtlate
 datenerhebung-und-häufigkeiten
 lernziele-dieser-sitzung
 statistische-praxis

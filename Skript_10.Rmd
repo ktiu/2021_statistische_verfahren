@@ -337,7 +337,7 @@ Im Beispiel ergibt sich in den fünf Kategorien jeweils ein Erwartungswert von
 ```{r xtlate}
 read.table(text="
 \\makecell[tr]{459\\\\(421,2)\\\\\\color{goethe_blue}{3,392}} \\makecell[tr]{409\\\\(421,2)\\\\\\color{goethe_blue}{0,353}} \\makecell[tr]{414\\\\(421,2)\\\\\\color{goethe_blue}{0,123}} \\makecell[tr]{387\\\\(421,2)\\\\\\color{goethe_blue}{2,777}} \\makecell[tr]{437\\\\(421,2)\\\\\\color{goethe_blue}{0,593}} 2106") %>%
-  kable("html", escape=F, longtable=F, col.names=c("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", " "), caption = "Tabelle für den $\\chi^2$-Anpassungstest") %>%
+  kable("latex", escape=F, longtable=F, col.names=c("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", " "), caption = "Tabelle für den $\\chi^2$-Anpassungstest") %>%
   column_spec(5, border_right = T)
 ```
 
@@ -447,7 +447,6 @@ colnames(m) <- c("$df$", format(area, decimal.mark = ",", drop0trailing = T))
 m <- as.data.frame(m)
 knitr::kable(m, "html", escape = F, align = "r") %>%
   add_header_above(c(" " = 1, "Fläche" = ncol(m)-1), escape = F) %>%
-  column_spec(1, border_right = T) %>%
   scroll_box(width = "100%", box_css = "border: 0px;")
 ```
 
