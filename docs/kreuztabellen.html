@@ -438,7 +438,169 @@
 <h3><span class="header-section-number">9.2.1</span> Beispiel</h3>
 <p>Wir fragen uns, ob es einen Zusammenhang zwischen dem Studienfach von Studierenden an einer Universität und ihrem präferierten Transportmittel für den Pendelweg zum Campus gibt. Insbesondere interessiert uns, ob ein Zusammenhang zwischen dem Studium der Geistes- und Sozialwissenschaften und der Fahrradnutzung besteht.</p>
 <p>Beide Variablen sind nominalskaliert: die erhobenen Werte können in Kategorien eingeordnet werden (Studienfach: Geographie, Politikwissenschaft, BWL, …; Transportmittel: Bus, Fahrrad, zu Fuß, …).</p>
-<p>Um die Variablen im Sinne unserer Fragestellung zu vereinfachen, wandeln wir beide Variablen in <em>dichotome</em> Variablen um (die dann nur zwei Werte annehmen können). Wir beschränken uns auf die Erhebung von <q>Fahrrad</q> oder <q>anderes Transportmittel</q> einerseits und <q>Geistes-/Sozialwissenschaft</q> oder <q>anderes Studienfach</q> andererseits. Die (verkürzte) Tabelle der Rohdaten einer Zufallsstichprobe der Größe <span class="math inline">\(n=90\)</span> könnte dann so aussehen wie <a href="#tab:roh"><strong>??</strong></a>.</p>
+<p>Um die Variablen im Sinne unserer Fragestellung zu vereinfachen, wandeln wir beide Variablen in <em>dichotome</em> Variablen um (die dann nur zwei Werte annehmen können). Wir beschränken uns auf die Erhebung von <q>Fahrrad</q> oder <q>anderes Transportmittel</q> einerseits und <q>Geistes-/Sozialwissenschaft</q> oder <q>anderes Studienfach</q> andererseits. Die (verkürzte) Tabelle der Rohdaten einer Zufallsstichprobe der Größe <span class="math inline">\(n=90\)</span> könnte dann so aussehen wie <a href="kreuztabellen.html#tab:roh">9.1</a>.</p>
+<table>
+<caption>
+<span id="tab:roh">Table 9.1: </span>Ungeordnete Rohdaten der Erhebung
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Studienfach
+</th>
+<th style="text-align:left;">
+Transportmittel
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+anderes Studienfach
+</td>
+<td style="text-align:left;">
+Fahrrad
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+anderes Studienfach
+</td>
+<td style="text-align:left;">
+Fahrrad
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+Geistes-/Sozialwissenschaft
+</td>
+<td style="text-align:left;">
+anderes Transportmittel
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+Geistes-/Sozialwissenschaft
+</td>
+<td style="text-align:left;">
+anderes Transportmittel
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:left;">
+Geistes-/Sozialwissenschaft
+</td>
+<td style="text-align:left;">
+anderes Transportmittel
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+6
+</td>
+<td style="text-align:left;">
+Geistes-/Sozialwissenschaft
+</td>
+<td style="text-align:left;">
+Fahrrad
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:left;">
+…
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+85
+</td>
+<td style="text-align:left;">
+anderes Studienfach
+</td>
+<td style="text-align:left;">
+anderes Transportmittel
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+86
+</td>
+<td style="text-align:left;">
+anderes Studienfach
+</td>
+<td style="text-align:left;">
+anderes Transportmittel
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+87
+</td>
+<td style="text-align:left;">
+Geistes-/Sozialwissenschaft
+</td>
+<td style="text-align:left;">
+anderes Transportmittel
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+88
+</td>
+<td style="text-align:left;">
+anderes Studienfach
+</td>
+<td style="text-align:left;">
+anderes Transportmittel
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+89
+</td>
+<td style="text-align:left;">
+anderes Studienfach
+</td>
+<td style="text-align:left;">
+anderes Transportmittel
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+90
+</td>
+<td style="text-align:left;">
+Geistes-/Sozialwissenschaft
+</td>
+<td style="text-align:left;">
+anderes Transportmittel
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div id="kreuztabelle" class="section level2" number="9.3">
@@ -447,10 +609,10 @@
 <p>Bei zwei dichotomen Variablen ergeben sich zwei Spalten und zwei Zeilen, also vier Tabellenfelder. Wir sprechen in diesem Fall auch von einer <span class="math inline">\(2\times2\)</span>-Tabelle.</p>
 <div id="beispiel-30" class="section level3" number="9.3.1">
 <h3><span class="header-section-number">9.3.1</span> Beispiel</h3>
-<p>Die Kreuztabelle für unser Beispiel ist in <a href="kreuztabellen.html#tab:crossrad">9.1</a> dargestellt. Die Spaltenüberschriften sind die beiden Werte der dichotomen Variable <q>Transportmittel</q>, und die Zeilennamen sind die beiden Werte für <q>Studienfach</q>. In den Zellen stehen die Häufigkeiten. Es lässt sich also z.B. ablesen, dass die Kombination <q>Fahrrad</q> und <q>anderes Studienfach</q> neun mal vorkommt.</p>
+<p>Die Kreuztabelle für unser Beispiel ist in <a href="kreuztabellen.html#tab:crossrad">9.2</a> dargestellt. Die Spaltenüberschriften sind die beiden Werte der dichotomen Variable <q>Transportmittel</q>, und die Zeilennamen sind die beiden Werte für <q>Studienfach</q>. In den Zellen stehen die Häufigkeiten. Es lässt sich also z.B. ablesen, dass die Kombination <q>Fahrrad</q> und <q>anderes Studienfach</q> neun mal vorkommt.</p>
 <table>
 <caption>
-<span id="tab:crossrad">Table 9.1: </span>Kreuztabelle der Beispieldaten
+<span id="tab:crossrad">Table 9.2: </span>Kreuztabelle der Beispieldaten
 </caption>
 <thead>
 <tr>
@@ -514,7 +676,7 @@ anderes Studienfach
 </div>
 <div id="verallgemeinerung" class="section level3" number="9.3.2">
 <h3><span class="header-section-number">9.3.2</span> Verallgemeinerung</h3>
-<p>In <a href="kreuztabellen.html#tab:crossalg">9.2</a> ist das allgemeingültige Format für Kreuztabellen festgehalten. Dabei sind folgende Besonderheiten zu beachten:</p>
+<p>In <a href="kreuztabellen.html#tab:crossalg">9.3</a> ist das allgemeingültige Format für Kreuztabellen festgehalten. Dabei sind folgende Besonderheiten zu beachten:</p>
 <ul>
 <li>Das Symbol <span class="math inline">\(k\)</span> steht für die Anzahl der Zeilen, <span class="math inline">\(\ell\)</span> für die Anzahl der Spalten.</li>
 <li>Die Häufigkeiten für Merkmalskombinationen in den Tabellenfeldern werden durch <span class="math inline">\(n_{ij}\)</span> symbolisiert, wobei <span class="math inline">\(i\)</span> für die laufende Nummer der Zeile steht, und <span class="math inline">\(j\)</span> für die laufende Nummer der Spalte.</li>
@@ -523,7 +685,7 @@ anderes Studienfach
 </ul>
 <table>
 <caption>
-<span id="tab:crossalg">Table 9.2: </span>Allgemeine Bezeichnungen in der Kreuztabelle
+<span id="tab:crossalg">Table 9.3: </span>Allgemeine Bezeichnungen in der Kreuztabelle
 </caption>
 <thead>
 <tr>
@@ -666,10 +828,10 @@ m_{12}&amp;=\frac{n_{1\cdot}\cdot n_{\cdot 2}}{n}\\[5pt]
 &amp;=\frac{39\cdot 70}{90}\\[4pt]
 &amp;\approx 30,33
 \end{aligned}\]</span></p>
-<p>Diese Rechnung lässt sich für alle Tabellenfelder durchführen. Die Kreuztabelle kann dann um diese erwarteten Werte in Klammern ergänzt werden (s. <a href="kreuztabellen.html#tab:expected">9.3</a>).</p>
+<p>Diese Rechnung lässt sich für alle Tabellenfelder durchführen. Die Kreuztabelle kann dann um diese erwarteten Werte in Klammern ergänzt werden (s. <a href="kreuztabellen.html#tab:expected">9.4</a>).</p>
 <table>
 <caption>
-<span id="tab:expected">Table 9.3: </span>Kreuztabelle der Beispieldaten
+<span id="tab:expected">Table 9.4: </span>Kreuztabelle der Beispieldaten
 </caption>
 <thead>
 <tr>
@@ -748,10 +910,10 @@ anderes Studienfach
 \frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}
 \tag{9.3}
 \]</span></p>
-<p>berechnet und sind in <a href="kreuztabellen.html#tab:radchisq">9.4</a> in blau dargestellt.</p>
+<p>berechnet und sind in <a href="kreuztabellen.html#tab:radchisq">9.5</a> in blau dargestellt.</p>
 <table>
 <caption>
-<span id="tab:radchisq">Table 9.4: </span>Kreuztabelle der Beispieldaten mit Teilwerten für <span class="math inline">\(\chi^2\)</span>
+<span id="tab:radchisq">Table 9.5: </span>Kreuztabelle der Beispieldaten mit Teilwerten für <span class="math inline">\(\chi^2\)</span>
 </caption>
 <thead>
 <tr>
@@ -882,6 +1044,180 @@ anderes Studienfach
 <div id="aufgabe-1-8" class="section level3" number="9.8.1">
 <h3><span class="header-section-number">9.8.1</span> Aufgabe 1</h3>
 <p>Sie fragen sich, wie die Wohnumgebung einer Person (Stadt oder Land) damit zusammenhängt, ob die Person ein eigenes Auto besitzt. Sie erheben die folgende Messreihe:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Wohnort
+</th>
+<th style="text-align:left;">
+Autobesitz
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Land
+</td>
+<td style="text-align:left;">
+Ja
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Land
+</td>
+<td style="text-align:left;">
+Ja
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Stadt
+</td>
+<td style="text-align:left;">
+Nein
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Stadt
+</td>
+<td style="text-align:left;">
+Nein
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Stadt
+</td>
+<td style="text-align:left;">
+Ja
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Stadt
+</td>
+<td style="text-align:left;">
+Nein
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Land
+</td>
+<td style="text-align:left;">
+Ja
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Land
+</td>
+<td style="text-align:left;">
+Nein
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Land
+</td>
+<td style="text-align:left;">
+Ja
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Land
+</td>
+<td style="text-align:left;">
+Ja
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Stadt
+</td>
+<td style="text-align:left;">
+Nein
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Land
+</td>
+<td style="text-align:left;">
+Ja
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Land
+</td>
+<td style="text-align:left;">
+Ja
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Land
+</td>
+<td style="text-align:left;">
+Ja
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Stadt
+</td>
+<td style="text-align:left;">
+Nein
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Land
+</td>
+<td style="text-align:left;">
+Ja
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Stadt
+</td>
+<td style="text-align:left;">
+Nein
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Land
+</td>
+<td style="text-align:left;">
+Nein
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Stadt
+</td>
+<td style="text-align:left;">
+Ja
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Stadt
+</td>
+<td style="text-align:left;">
+Nein
+</td>
+</tr>
+</tbody>
+</table>
 <ol style="list-style-type: lower-alpha">
 <li><p>Überführen Sie die Daten in eine Kreuztabelle.</p></li>
 <li><p>Berechnen Sie die Erwartungswerte für jedes Tabellenfeld.</p></li>

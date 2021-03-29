@@ -315,7 +315,6 @@ ggplot(data.frame(xs), aes(y=xs)) +
   scale_y_continuous(NULL) +
   panel_border(colour = "black", size=1) +
   theme(axis.line = element_blank())
-  
 ```
 
 Die Höhe der "Box" definiert sich durch den Quartilsabstand, der mittlere Strich markiert den Median und die "Whisker" markieren den Wertebereich insgesamt -- wobei Ausreißer, deren Abstand zur Box mehr als das 1,5-Fache des Quartilsabstands beträgt, üblicherweise gar nicht oder (wie hier) gesondert mit Punkten markiert werden.

@@ -22,10 +22,9 @@ Beide Variablen sind nominalskaliert: die erhobenen Werte können in Kategorien 
 
 Um die Variablen im Sinne unserer Fragestellung zu vereinfachen, wandeln wir beide Variablen in *dichotome* Variablen um (die dann nur zwei Werte annehmen können). Wir beschränken uns auf die Erhebung von "Fahrrad" oder "anderes Transportmittel" einerseits und "Geistes-/Sozialwissenschaft" oder "anderes Studienfach" andererseits. Die (verkürzte) Tabelle der Rohdaten einer Zufallsstichprobe der Größe $n=90$ könnte dann so aussehen wie \@ref(tab:roh).
 
-```{r}
+```{r roh}
 rad <- read.table("img/9_rad_dt", as.is = T)
-kable(rbind(head(rad), data.frame(x=c("..."="..."), y=c("..."="...")), tail(rad)), "latex", row.names=T, booktabs=T, longtable=F, linesep="", caption = "\\label{tab:roh}Ungeordnete Rohdaten der Erhebung", col.names = c("Studienfach", "Transportmittel")) %>%
-  kable_styling(latex_options = c("striped"))
+kable(rbind(head(rad), data.frame(x=c("..."="..."), y=c("..."="...")), tail(rad)), "html", row.names=T, longtable=F, linesep="", caption = "\\label{tab:roh}Ungeordnete Rohdaten der Erhebung", col.names = c("Studienfach", "Transportmittel"))
 ```
 
 ## Kreuztabelle
@@ -375,7 +374,7 @@ Sie fragen sich, wie die Wohnumgebung einer Person (Stadt oder Land) damit zusam
 
 ```{r}
 ex1 <- read.table("img/9_ex1_dt")
-kable(ex1, "latex")
+kable(ex1, "html")
 ```
 
 a) Überführen Sie die Daten in eine Kreuztabelle.

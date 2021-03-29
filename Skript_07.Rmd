@@ -22,7 +22,7 @@ Die statistischen Verfahren dieser Sitzung sollen wieder an einem Beispiel illus
 
 Wir fragen uns, ob der jährliche Ertrag in einem bestimmten Anbaugebiet für Klebreis in Nordostthailand mit dem jährlichen Niederschlag zusammenhängt. Die erfassten Werte sind in \@ref(tab:reis) festgehalten ("Rai" ist ein [in Thailand übliches Flächenmaß](https://de.wikipedia.org/wiki/Rai_\(Einheit\))).
 
-```{r, cache=T}
+```{r reis, cache=T}
 reis <- read.table("img/7_reis_dt")
 reis <- cbind(data.frame(i=(1:10)), reis)
 kable(reis, "html", caption = "\\label{tab:reis}Niederschlag und Ertrag im Reisanbau", linesep=c(""), longtable=F, col.names = c("$i$", "", "$x_i$", "$y_i$"), escape = F, row.names =F) %>%
@@ -60,7 +60,7 @@ Der Befehl {\tt cov()} berechnet die Kovarianz einer bivariaten Verteilung in R.
 
 Es macht Sinn, eine Tabelle anzulgen, in der Teilrechenschritte durchgeführt werden. \@ref(tab:ricemath) veranschaulicht dies.
 
-```{r, cache=T}
+```{r ricemath, cache=T}
 reis$diffx <- reis$rain-mean(reis$rain)
 reis$diffy <- reis$yield-mean(reis$yield)
 reis$produkt <- round(reis$diffx * reis$diffy,2)
@@ -171,7 +171,7 @@ In R kann der Korrelationskoeffizient von zwei Merkmalen mit dem Befehl {\tt cor
 
 In der Formel für den Korrelationskoeffizienten $r$ (\@ref(eq:cor)) werden die Standardabweichungen $s_x$ und $s_y$ benötigt. Es ist daher sinnvoll, die Hilfstabelle um die Quadrate der Differenzen (und deren Summen) zu erweitern (s. \@ref(tab:mathcor)).
 
-```{r, cache=T}
+```{r mathcor, cache=T}
 reis <- reis.copy
 reis$produkt <- NULL
 reis$sqx <- round(reis$diffx^2,2)
