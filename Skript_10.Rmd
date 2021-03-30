@@ -337,10 +337,16 @@ Im Beispiel ergibt sich in den fünf Kategorien jeweils ein Erwartungswert von
 \[\frac{n}{k}=\frac{2106}{5}=421,2\]
 
 ```{r xtlate}
-read.table(text="
-\\makecell[tr]{459\\\\(421,2)\\\\\\color{goethe_blue}{3,392}} \\makecell[tr]{409\\\\(421,2)\\\\\\color{goethe_blue}{0,353}} \\makecell[tr]{414\\\\(421,2)\\\\\\color{goethe_blue}{0,123}} \\makecell[tr]{387\\\\(421,2)\\\\\\color{goethe_blue}{2,777}} \\makecell[tr]{437\\\\(421,2)\\\\\\color{goethe_blue}{0,593}} 2106") %>%
+options(knitr.kable.NA = '')
+read.table(sep="|", header=T, text = "
+       |          |          |            |         |
+459    | 409      | 414      | 387        | 437     | 2106
+(421,2)| (421,2)  | (421,2)  | (421,2)    | (421,2) | 
+3,392  | 0,353    | 0,123    |  2,777     | 0,593   | 
+") %>%
   kable("html", escape=F, longtable=F, col.names=c("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", " "), caption = "Tabelle für den $\\chi^2$-Anpassungstest") %>%
-  column_spec(5, border_right = T)
+  column_spec(5, border_right = T) %>%
+  row_spec(3, color = "#00618F")
 ```
 
 Dann nehmen wir wieder eine Tebelle zu Hilfe um die Prüfgröße $\chi^2$ zu berechnen (s. \@ref(tab:xtlate)). Wie gehabt werden einfach die Teilwerte zusammengezählt:
