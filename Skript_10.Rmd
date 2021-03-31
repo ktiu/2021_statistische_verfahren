@@ -9,7 +9,7 @@ Sie können...
 
 ## Anwendungsbereich
 
-In Sitzung 9 haben wir gelernt, wie für bivariate Verteilungen Korrelationen beschrieben werden können, wenn beide Variablen nominalskaliert sind. Grundlage dafür waren die Häufigkeiten von Wertekombinationen in der Kreuztabelle.
+In [Sitzung 9](#bivariate-verteilungen-mit-nominalen-variablen) haben wir gelernt, wie für bivariate Verteilungen Korrelationen beschrieben werden können, wenn beide Variablen nominalskaliert sind. Grundlage dafür waren die Häufigkeiten von Wertekombinationen in der Kreuztabelle.
 
 Auch für $\chi^2$-Tests sind beobachtete Häufigkeiten in einer Kreuztabelle unser Ausgangspunkt. Wir fragen jedoch nicht nach einem Kennwert für die Stärke der Korrelation, sondern wollen wissen, ob es einen statistisch signifikanten Zusammenhang zwischen den beiden Variablen gibt -- also einen Zusammenhang, der nur mit einer Wahrscheinlichkeit $\alpha$ zufällig zustande gekommen ist.
 
@@ -19,7 +19,7 @@ Mit dem $\chi^2$-Unabhängigkeitstest und dem $\chi^2$-Anpassungstest lernen wir
 
 ## $\chi^2$-Unabhängigkeitstest
 
-Grundlage sind bivariate Häufigkeiten, die in einer Kreuztabelle dargestellt werden können (s. \@ref(tab:zivi1)). Wie Kreuztabellen erstellt werden, haben wir bereits in Sitzung 9 behandelt.
+Grundlage sind bivariate Häufigkeiten, die in einer Kreuztabelle dargestellt werden können (s. \@ref(tab:zivi1)). Wie Kreuztabellen erstellt werden, haben wir bereits in [Sitzung 9](#kreuztabelle) behandelt.
 
 ```{r zivi1}
 crosstable <- function(x, format, sums=T, expected=F, chisq=F, varnames=T, row.order=NULL, col.order=NULL, caption=NULL, df.only=F){
@@ -205,7 +205,7 @@ Im Beispiel also:
 &=(2-1)\cdot (2 - 1) = 1
 \end{aligned}\]
 
-Damit lässt sich der kritische Wert an der Tabelle im Anhang ablesen, die allerdings für *ungerichtete* Alternativhypothesen ausgelegt ist.
+Damit lässt sich der kritische Wert aus der [Formelsammlung](Formelsammlung und Wertetabellen.pdf) ablesen, die allerdings für *ungerichtete* Alternativhypothesen ausgelegt ist.
 
 Hätten wir eine ungerichtete Alternativhypothese gewählt, würde der Ablehnungsbereich also definiert durch:
 
@@ -225,7 +225,7 @@ Für unsere gerichtete Alternativhypothese "dürfen" wir den Ablehnungsbereich j
 
 ### Prüfgröße berechnen
 
-Wie in Sitzung 9 besprochen, wird die Prüfgröße $\chi^2$ anhand der Formel
+Wie in [Sitzung 9](#berechnung-des-kontingenzkoeffizenten-chi2) besprochen, wird die Prüfgröße $\chi^2$ anhand der Formel
 
 \[
 \chi^2= \sum_{i=1}^{k}\sum_{j=1}^{\ell}\frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}
@@ -318,7 +318,7 @@ In unserem Beispiel (bei fünf Werktagen) also:
 &=5-1=4
 \end{aligned}\]
 
-Der kritische Wert für den Ablehnungsbereich ist der Tabelle im Anhang zu entnehmen.
+Der kritische Wert für den Ablehnungsbereich ist der [Formelsammlung](Formelsammlung und Wertetabellen.pdf) zu entnehmen.
 
 \[\begin{aligned}
 \chi^2 &\geq \chi^2_{\mathit{df};(1-\alpha)}\\
@@ -407,56 +407,6 @@ Prüfen Sie, ob diese Beobachtung auch statistisch relevant ist. Wählen Sie 5% 
 - Kapitel 9 in @bortz
 - Kapitel 5.3.4 in @bahrenberg
 - Kapitel 13 in @klemm
-
-\pagebreak
-
-## Anhang: $\chi^2$-Verteilungen
-
-```{r, echo=F, fig.width=3, fig.height=1.4, fig.align='center', warning=F}
-draw.curve <- function(interval, colorf, xlabel, curve, n) {
-  mode <- optimize(curve, interval, maximum = T)
-  p1 <- ggplot(data = data.frame(x = interval), aes(x)) +
-    stat_function(fun = curve,
-                  n = n,
-                  xlim =  colorf,
-                  geom = "area",
-                  fill = "#9FC1EF") +
-    geom_vline(xintercept = colorf[2],
-               color = "#2A76dd",
-               linetype = "dashed") +
-    stat_function(fun = curve,
-                  n = n,
-                  color = "#2a76dd") +
-    scale_y_continuous(breaks = NULL, expand=c(0,0), limits=c(0,mode$objective*1.05)) +
-    scale_x_continuous(breaks = c(0), expand=c(0,0)) +
-    annotate(geom="blank", x=interval[1], y=mode$objective*1.05) +
-    xlab("") +
-    ylab("") +
-    theme(text = element_text(size=10),
-          axis.text = element_text(size=10))
-  p1
-}
-draw.curve(
-  interval = c(0,24),
-  colorf = c(0,15),
-  xlabel = "$\\chi^2$",
-  curve = function(x){dchisq(x,8)},
-  n = 250
-)
-```
-
-
-```{r, echo = F}
-df <- c(1:20,seq(25,50,5),seq(60,150,10),200,300,400,500)
-area <- c(0.6, 0.7, 0.8, 0.85, 0.9, 0.95, 0.975, 0.990, 0.995, 0.999, 0.9995)
-m <- outer(df, area, FUN = function(df, area) {qchisq(area, df)})
-m <- cbind(as.character(df), format(m,digits = 3,nsmall=3))
-colnames(m) <- c("$df$", format(area, decimal.mark = ",", drop0trailing = T))
-m <- as.data.frame(m)
-knitr::kable(m, "html", escape = F, align = "r") %>%
-  add_header_above(c(" " = 1, "Fläche" = ncol(m)-1), escape = F) %>%
-  scroll_box(width = "100%", box_css = "border: 0px;")
-```
 
 \pagebreak
 

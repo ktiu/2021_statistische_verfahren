@@ -10,9 +10,9 @@ Sie können...
  
 ## Bivariate Verteilungen mit nominalen Variablen
 
-In der bivariaten Statistik (Sitzungen 7 und 8) ging es bisher um Zusammenhänge zwischen zwei metrischen Variablen. In dieser Sitzung geht es um statistische Verfahren der bivariaten Statistik, bei denen für beide Variablen nur das Nominalskalenniveau vorausgesetzt ist. (Für Skalenniveaus s. Sitzung&nbsp;1.)
+In der bivariaten Statistik ([Sitzung 7](korrelation.html) und [8](lineare-regression.html)) ging es bisher um Zusammenhänge zwischen zwei metrischen Variablen. In dieser Sitzung geht es um statistische Verfahren der bivariaten Statistik, bei denen für beide Variablen nur das Nominalskalenniveau vorausgesetzt ist. (Für Skalenniveaus s. [Sitzung 1](#skalenniveaus).)
 
-Mit den Werten von nominalen Variablen lassen sich die in Sitzung 7 und 8 besprochenen Parameter (z.B. Kovarianz) nicht errechnen, weil wir mit ihnen nicht die notwendigen Rechenoperationen (Addition, Subtraktion) durchführen können. Stattdessen sind die beobachteten Häufigkeiten Ausgangslage für die im Folgenden besprochenen Verfahren.
+Mit den Werten von nominalen Variablen lassen sich die in [Sitzung 7](korrelation.html) und [8](lineare-regression.html) besprochenen Parameter (z.B. Kovarianz) nicht errechnen, weil wir mit ihnen nicht die notwendigen Rechenoperationen (Addition, Subtraktion) durchführen können. Stattdessen sind die beobachteten Häufigkeiten Ausgangslage für die im Folgenden besprochenen Verfahren.
 
 ### Beispiel
 
@@ -233,7 +233,7 @@ Bei der Formel steht $k$ wieder für die Anzahl der Zeilen (und $i$ für ihre la
 
 Das doppelte Summenzeichen mag etwas verwirrend sein, bedeutet aber nur, dass die Zeilen spaltenweise summiert werden, und dann die Summe dieser Zeilensumme genommen wird -- d.h. dass einfach alle Tabellenfelder aufsummiert werden.
 
-Der $\chi^2$-Wert kann (ähnlich wie der $F$-Wert aus Sitzung 6) nur positive Werte annehmen. Er bildet die Grundlage für die im Folgenden besprochenen Kennwerte $\phi$ und $\mathit{CI}$ sowie für den in Sitzung 10 zu besprechenden $\chi^2$-Test.
+Der $\chi^2$-Wert kann (ähnlich wie der $F$-Wert aus [Sitzung 6](#die-f-verteilung)) nur positive Werte annehmen. Er bildet die Grundlage für die im Folgenden besprochenen Kennwerte $\phi$ und $\mathit{CI}$ sowie für den in [Sitzung 10](chi-quadrat-tests.html) zu besprechenden $\chi^2$-Test.
 
 ### Beispiel
 
@@ -274,7 +274,7 @@ Mit diesem Wert $\chi^2\approx1,421$ können wir noch nicht so viel anfangen -- 
 
 ## Berechnung des $\phi$-Koeffizienten
 
-Der $\phi$-Koeffizient ist der Korrelationskoeffizient für zwei dichotome Variablen (wobei er in der hier besprochenen Version nur positive Werte annehmen kann). Er ist jedoch *nicht* ohne weiteres mit dem Korrelationskoeffizienten $r$ (aus Sitzung 7) vergleichbar.
+Der $\phi$-Koeffizient ist der Korrelationskoeffizient für zwei dichotome Variablen (wobei er in der hier besprochenen Version nur positive Werte annehmen kann). Er ist jedoch *nicht* ohne weiteres mit dem Korrelationskoeffizienten $r$ (aus [Sitzung 7](#korrelationskoeffizient)) vergleichbar.
 
 Der Wert für $\phi$ kann aus $\chi^2$ berechnet werden mit:
 
@@ -297,7 +297,7 @@ In unserem Beispiel ergibt sich also für $\phi$ durch Einsetzung in \@ref(eq:ph
 
 Es wird ersichtlich, dass es eine leichte Korrelation der Variablen gibt. Aber in welche Richtung? Dafür müssen wir auf die Kreuztabelle blicken: Der beobachtete Wert für die Wertekombination "Fahrrad" und "Geistes-/Sozialwissenschaft" beträgt $n_{11}=11$ und liegt über dem Erwartungswert $m_{11}=8,67$. Damit ist klar: Das Studium von Geistes- und Sozialwissenschaften korreliert *positiv* mit der Fahrradnutzung für den Pendelweg.
 
-Ob diese Korrelation auch statistisch relevant ist, kann mit dem $\chi^2$-Test (Sitzung 10) überprüft werden.
+Ob diese Korrelation auch statistisch relevant ist, kann mit dem $\chi^2$-Test ([Sitzung 10](chi-quadrat-tests.html)) überprüft werden.
 
 ## Berechnung des Cramér-Index
 

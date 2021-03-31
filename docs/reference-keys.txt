@@ -88,11 +88,11 @@ eq:lin
 fig:lin
 eq:b
 eq:a
-tab:unnamed-chunk-21
+tab:unnamed-chunk-13
 fig:duty
 eq:res
 fig:res
-tab:unnamed-chunk-22
+tab:unnamed-chunk-14
 eq:rsqformal
 eq:rsq
 tab:roh
@@ -213,7 +213,6 @@ variationskoeffizient-1
 z-transformation-1
 normalverteilung-1
 wahrscheinlichkeitsdichtefunktion
-ptab
 quellen-2
 schätzstatistik-1
 lernziele-dieser-sitzung-3
@@ -281,7 +280,6 @@ aufgabe-3-2
 aufgabe-4-1
 aufgabe-5
 tipps-zur-vertiefung-4
-anhang-tabelle-t-verteilungen
 quellen-4
 testverfahren-mit-zwei-stichproben
 lernziele-dieser-sitzung-5
@@ -331,8 +329,6 @@ aufgabe-3-3
 aufgabe-4-2
 aufgabe-5-1
 tipps-zur-vertiefung-5
-anhang-tabelle-t-verteilungen-1
-anhang-tabelle-f-verteilungen
 quellen-5
 korrelation
 lernziele-dieser-sitzung-6
@@ -408,5 +404,4 @@ aufgaben-9
 aufgabe-1-9
 aufgabe-2-9
 tipps-zur-vertiefung-9
-anhang-chi2-verteilungen
 quellen-9

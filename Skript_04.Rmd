@@ -152,7 +152,7 @@ Beispiel:
 xs <- c(22, 26, 12, 23, 48, 31, 15, 71, 17, 35) 
 cat("`", paste(xs, collapse = " "), "`")
 ```
-- Das arithmetische Mittel der Messreihe lässt sich -- wie in Sitzung 2 ausführlich besprochen -- berechnen: $\bar{x}=30$
+- Das arithmetische Mittel der Messreihe lässt sich -- wie in [Sitzung 2](#arithmetisches-mittel) ausführlich besprochen -- berechnen: $\bar{x}=30$
 - Da es sich um eine erwartungstreue Schätzgröße (und eine valide Zufallsstichprobe) handelt, kann die durchschnittliche Pendelzeit *aller* Studierenden der Humangeographie auf $\mu=30$ Minuten geschätzt werden.
 
 Gleichzeitig wissen wir jedoch, dass diese Punktschätzung des arithmetischen Mittels vermutlich nicht ganz präzise ist, sondern einem Standardfehler ($\sigma_{\bar{x}}$) unterliegt. Woher wissen wir, wie groß dieser Standardfehler ist (und wie unpräzise damit unsere Schätzung)?
@@ -161,7 +161,7 @@ Gleichzeitig wissen wir jedoch, dass diese Punktschätzung des arithmetischen Mi
 
 Wir führen das obige Beispiel fort:
 
-- Die Varianz der Stichprobe können wir berechnen: $s^2\approx319{,}78$ (s. Sitzung 2).
+- Die Varianz der Stichprobe können wir berechnen: $s^2\approx319{,}78$ (s. [Sitzung 2](#varianz)).
 - Dabei handelt es sich ebenfalls um einen erwartungstreuen Punktschätzer für die Varianz der Grundgesamtheit ($\sigma^2$).
 - Die Varianz der Grundgesamtheit kann also auch auf $\sigma^2=s^2\approx319{,}78$ geschätzt werden.
 - Analog können wir die Standardabweichung der Population auf $\sigma=s\approx17,88$ schätzen.
@@ -197,7 +197,7 @@ Die Grundüberlegung ist dabei folgende:
 - Wir wissen dass die *theoretische* Verteilung aller möglichen Stichproben normalverteilt ist, und um den gesuchten Wert $\mu$ symmetrisch ist.
 - Den Mittelwert unserer empirischen Stichprobe $\bar{x}$ können wir uns als zufälligen Wert der theoretischen Stichprobenverteilung von $\bar{x}$ vorstellen.
 - Wo genau in dieser theoretischen Verteilung wir mit unserem empirischen Wert "gelandet" sind, wissen wir nicht.
-- Wenn wir den Wert $\mu$ kennen würden, könnten wir (mit den Methoden aus Sitzung 3) die Wahrscheinlichkeit für einen beliebeigen Bereich angeben, in den ein zufälliges $\bar{x}$ fällt.
+- Wenn wir den Wert $\mu$ kennen würden, könnten wir (mit den Methoden aus [Sitzung 3](#wahrscheinlichkeitsrechnung-mit-standardnormalverteilung)) die Wahrscheinlichkeit für einen beliebeigen Bereich angeben, in den ein zufälliges $\bar{x}$ fällt.
 - Der entscheidende Trick: Weil die Normalverteilung symmetrisch ist, sind diese Wahrscheinlichkeiten analog anzuwenden auf die Bereiche einer konstruierten Verteilung mit gleichem $\sigma_{\bar{x}}$ um unser $\bar{x}$, in die der wirkliche Wert $\mu$ fällt. (s. \@ref(fig:double)).
 
 ```{r double, cache=T, fig.cap="Konstruierte Verteilung um $\\bar{x}$"}
@@ -292,7 +292,7 @@ In $z$-Werten ausgedrückt:
 (\#eq:konf)
 \]
 
-In Sitzung 3 haben wir bereits gelernt, wie diese Wahrscheinlichkeit berechnet werden kann. Im Folgenden wird der Rechenweg noch einmal am Beispiel dargelegt. 
+In [Sitzung 3](#wahrscheinlichkeitsrechnung-mit-standardnormalverteilung) haben wir bereits gelernt, wie diese Wahrscheinlichkeit berechnet werden kann. Im Folgenden wird der Rechenweg noch einmal am Beispiel dargelegt. 
 
 #### Die umständliche Variante
 
@@ -332,7 +332,7 @@ Dies lässt sich umformen in:
 1-\alpha\approx P(z_{\mu}<1{,}08) - P(z_{\mu}<-1{,}08) 
 \]
 
-Die jeweiligen Wahrscheinlichkeiten lassen sich in der Tabelle für $p$-Werte der Normalverteilung nachschauen (bzw. für den negativen $z$-Wert errechnen, s. Sitzung 3):
+Die jeweiligen Wahrscheinlichkeiten lassen sich in der Tabelle für $p$-Werte der Normalverteilung nachschauen (bzw. für den negativen $z$-Wert errechnen, s. [Formelsammlung](Formelsammlung und Wertetabellen.pdf)):
 
 \nopagebreak
 

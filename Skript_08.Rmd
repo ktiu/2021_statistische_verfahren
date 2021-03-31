@@ -102,7 +102,7 @@ kable(duty, "html", col.names = c("$x_i$", "$y_i$"), escape = F, longtable=F, li
   add_header_above(c("Aufenthaltszeit (min)", "Ausgaben (€)"))
 ```
 
-Mit den Methoden aus Sitzung 2 und 7 können wir folgende Werte für die Mittelwerte $\bar{x}$ und $\bar{y}$, die Varianz $s^2_x$ sowie die Kovarianz $s_{xy}$ berechnen:
+Mit den Methoden aus [Sitzung 2](#einleitende-bemerkungen) und [7](#kovarianz) können wir folgende Werte für die Mittelwerte $\bar{x}$ und $\bar{y}$, die Varianz $s^2_x$ sowie die Kovarianz $s_{xy}$ berechnen:
 
 \[\begin{aligned}
 \bar{x}&=256,25\\
@@ -222,7 +222,7 @@ In R wird mit dem Befehl {\tt summary()} unter anderem der Determinationskoeffiz
 
 ### Beispiel
 
-Mit den Methoden aus Sitzung 7 können wir den Korrelationskoeffizienten für unser Beispiel errechnen:
+Mit den Methoden aus [Sitzung 7](#korrelationskoeffizient) können wir den Korrelationskoeffizienten für unser Beispiel errechnen:
 
 \[\begin{aligned}
 r&=\frac{s_{xy}}{s_x\cdot s_y}\\[6pt]
@@ -286,7 +286,7 @@ b) Bestimmen Sie den Determinationskoeffizienten $R^2$.
 
 ### Aufgabe 3
 
-*Diese Aufgabe erfordert auch Verfahren aus Sitzung 6.*
+*Diese Aufgabe erfordert auch Verfahren aus [Sitzung 6](testverfahren-mit-zwei-stichproben.html).*
 
 Sie fragen sich, wie die erreichte Punktzahl in einer Klausur mit der Vorbereitungszeit der geprüften Studierenden zusammenhängt. Sie erheben die folgende Messreihe:
 

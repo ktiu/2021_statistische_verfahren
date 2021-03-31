@@ -12,7 +12,7 @@ Sie können...
 
 ## Variationskoeffizient
 
-Die Berechnung von Maßzahlen (Sitzung 2) vereinfacht es uns, auch große Verteilungen miteinander zu vergleichen. Voraussetzung dafür ist jedoch, dass die Kennwerte (wie arithmetisches Mittel, Standardabweichung) in derselben Maßeinheit (kg, cm, °C, etc.) vorliegen und einen vergleichbaren Maßstab haben.
+Die Berechnung von Maßzahlen ([Sitzung 2](maßzahlen.html)) vereinfacht es uns, auch große Verteilungen miteinander zu vergleichen. Voraussetzung dafür ist jedoch, dass die Kennwerte (wie arithmetisches Mittel, Standardabweichung) in derselben Maßeinheit (kg, cm, °C, etc.) vorliegen und einen vergleichbaren Maßstab haben.
 
 Eine Möglichkeit, unabhängig hiervon eine Aussage über die *relative* Streuung zu treffen, ist der Variationskoeffizient (engl. *coefficient of variation*) $v$. Er ist definiert als das (prozentuale) Verhältnis von Standardabweichung zu Mittelwert:
 
@@ -30,7 +30,7 @@ xs <- c(1007.1, 1003.4, 990.7, 994.2, 1000.9, 993, 1016, 983.9, 1007.4,
 cat('`', format(xs, nsmall=1), '`')
 ```
 
-Mit den bekannten Methoden (Sitzung 2) können wir das arithmetische Mittel $\bar{x}\approx 999,37$ und die Standardabweichung $s\approx8,56$ der Stichprobe bestimmen. Durch einsetzen dieser Werte in \@ref(eq:cv) ergibt sich:
+Mit den bekannten Methoden ([Sitzung 2](#einleitende-bemerkungen)) können wir das arithmetische Mittel $\bar{x}\approx 999,37$ und die Standardabweichung $s\approx8,56$ der Stichprobe bestimmen. Durch einsetzen dieser Werte in \@ref(eq:cv) ergibt sich:
 
 \[\begin{aligned}
 v&\approx\frac{8,56}{999,37}\cdot 100\%\\[4pt]
@@ -136,7 +136,7 @@ Der Mittelwert $\mu$ bestimmt die Lage der Kurve auf der x-Achse, die Varianz $\
 
 ## Standardnormalverteilung
 
-Die Standardnormalverteilung (engl. *standard normal distribution*) ist sozusagen das Grundmuster aller Normalverteilungen. Sie hat den Mittelwert $\mu=0$ und die Standardabweichung $\sigma=1$ (s. \@ref(fig:stdnorm).
+Die Standardnormalverteilung (engl. *standard normal distribution*) ist sozusagen das Grundmuster aller Normalverteilungen. Sie hat den Mittelwert $\mu=0$ und die Standardabweichung $\sigma=1$ (s. \@ref(fig:stdnorm)).
 
 Alle Normalverteilungen lassen sich durch die $z$-Transformation auf die Standardnormalverteilung standardisieren.
 
@@ -170,10 +170,10 @@ Der *Multiplikationssatz* besagt: Die Wahrscheinlichkeit für das Eintreten zwei
 
 Die Fläche unter einer Wahrscheinlichkeitsdichtefunktion (engl. *probability density function*) beträgt genau 1.
 
-Das Perzentil $x_p$ (engl. *percentile*) ist definiert als der Wert, unter dem der Anteil $p$ der Verteilung liegt. In Sitzung 2 haben wir also bereits den Median $x_{50\%}$ sowie die Angelpunkte $Q1=x_{25\%}$ und $Q3=x_{75\%}$ kennengelernt.
+Das Perzentil $x_p$ (engl. *percentile*) ist definiert als der Wert, unter dem der Anteil $p$ der Verteilung liegt. In [Sitzung 2](#einleitende-bemerkungen) haben wir also bereits den Median $x_{50\%}$ sowie die Angelpunkte $Q1=x_{25\%}$ und $Q3=x_{75\%}$ kennengelernt.
 
 Die Fläche unter einer Wahrscheinlichkeitsdichtefunktion innerhalb der Limits $-\infty$ und $x_p$ beträgt $p$. Für einen zufälligen Wert $x$ ist die Wahrscheinlichkeit $P(x < x_p) = p$, dass er kleiner als $x_p$ ausfällt.
-Für die Standardnormalverteilung finden sich die $p$-Werte für positive $z$ in der [Tabelle im Anhang](#ptab).^[Manchmal wird die Funktion $z_p \rightarrow P(z < z_p)$ für normalverteilte Werte auch mit $\Phi(z)$ bezeichnet [z.B. in @bahrenberg].]
+Für die Standardnormalverteilung finden sich die $p$-Werte für positive $z$ in der [Formelsammlung](Formelsammlung und Wertetabellen.pdf).^[Manchmal wird die Funktion $z_p \rightarrow P(z < z_p)$ für normalverteilte Werte auch mit $\Phi(z)$ bezeichnet [z.B. in @bahrenberg].]
 
 ## Wahrscheinlichkeitsrechnung mit Standardnormalverteilung
 
@@ -255,9 +255,9 @@ ggplot(data.frame(x=c(-3,3)), aes(x)) +
   scale_x_continuous("z", expand=c(0,0), breaks=c(-3,-2,-1,0,1.41,3), labels=c(-3,-2,-1,0,1.41,3))
 ```
 
-Die [Tabelle im Anhang](#ptab) gibt für $z$-Werte die Wahrscheinlichkeit ihrer Unterschreitung in ener Normalverteilung an. Diese Wahrscheinlichkeit kann notiert werden als $P(z<z_p)$.
+Die [Formelsammlung](Formelsammlung und Wertetabellen.pdf) gibt für $z$-Werte die Wahrscheinlichkeit ihrer Unterschreitung in ener Normalverteilung an. Diese Wahrscheinlichkeit kann notiert werden als $P(z<z_p)$.
 
-Der [Tabelle im Anhang](#ptab) können wir den Wert $P(z < 1,41) \approx 0,9207$ entnehmen. Die Wahrscheinlichkeit, dass der Luftdruck zu einem zufälligen Zeitpunkt weniger als 1015 hPA beträgt, ist somit 92,07%.
+Der [Formelsammlung](Formelsammlung und Wertetabellen.pdf) können wir den Wert $P(z < 1,41) \approx 0,9207$ entnehmen. Die Wahrscheinlichkeit, dass der Luftdruck zu einem zufälligen Zeitpunkt weniger als 1015 hPA beträgt, ist somit 92,07%.
 
 \begin{rtip}
 In R lässt sich die Unterschreitungswahrscheinlichkeit eines $z$-Werts mit dem Befehl {\tt pnorm()} ermitteln.
@@ -317,7 +317,7 @@ Wenn nach der Unterschreitungswahrscheinlichkeit eines unterdurchschnittlichen W
   \end{aligned}
 \end{equation}
 
-Die [Tabelle im Anhang](#ptab) enthält keine $p$ für negative $z_p$. Da die Standardnormalverteilung jedoch um $z=0$ symmetrisch ist, gilt ganz allgemein:
+Die [Formelsammlung](Formelsammlung und Wertetabellen.pdf) enthält keine $p$ für negative $z_p$. Da die Standardnormalverteilung jedoch um $z=0$ symmetrisch ist, gilt ganz allgemein:
 
 \[
   \begin{aligned}
@@ -381,7 +381,7 @@ Für unseren Fall ist $x_u=1005$ und $x_o=1015$. In den [vorherigen Aufgaben](#u
   \end{aligned}
 \]
 
-Dann können wir die entsprechende Wahrscheinlichkeit berechnen, indem wir wieder die Werte aus der [Tabelle im Anhang](#ptab) einsetzen:
+Dann können wir die entsprechende Wahrscheinlichkeit berechnen, indem wir wieder die Werte aus der [Formelsammlung](Formelsammlung und Wertetabellen.pdf) einsetzen:
 
 \[
   \begin{aligned}
@@ -539,63 +539,6 @@ e) In welchen Grenzen liegen die mittleren 75% der jährlichen Niederschlagsmeng
 - Kapitel 5.3 in @bortz
 - Kapitel 5.2.2 in @bahrenberg
 - YouTube-Kanal "Kurzes Tutorium Statistik": [Zufallsvariable, Massenfunktion, Dichtefunktion und Verteilungsfunktion](https://www.youtube.com/watch?v=DoHTsDrzAQk)
-
-\pagebreak
-## Anhang: Tabelle Standardnormalverteilung{#ptab}
-
-\begin{multicols}{2}
-
-```{r, echo=F, fig.width=3, fig.height=1.7, fig.align='center', warning=F}
-
-draw.curve <- function(interval, colorf, xlabel, curve, n) {
-  mode <- optimize(curve, interval, maximum = T)
-  ggplot(data = data.frame(x = interval), aes(x)) +
-    stat_function(fun = curve,
-                  n = n,
-                  xlim =  colorf,
-                  geom = "area",
-                  fill = light_blue) +
-    geom_vline(xintercept = colorf[2],
-               color = goethe_blue,
-               linetype = "dashed") +
-    stat_function(fun = curve,
-                  n = n,
-                  color = goethe_blue) +
-    scale_y_continuous(breaks = NULL, expand=c(0,0), limits=c(0,mode$objective*1.05)) +
-    scale_x_continuous(breaks = c(0), expand=c(0,0)) +
-    annotate(geom="blank", x=interval[1], y=mode$objective*1.05) +
-    xlab("") +
-    ylab("") +
-    theme(text = element_text(size=10),
-          axis.text = element_text(size=10))
-}
-
-draw.curve(
-  interval = c(-3,3),
-  colorf = c(-3,1.2),
-  xlabel = "z",
-  curve = dnorm,
-  n = 250
-)
-
-```
-
-\[ P(z < -z_p) = 1-P(z< z_p) \]
-
-\end{multicols}
-
-```{r, echo=F}
-z0 <- seq(0,3,0.1)
-z00 <- seq(0,0.09,0.01)
-m <- outer(z0,z00,FUN=function(z0,z00){pnorm(z0+z00)})
-m <- cbind(z0,m)
-colnames(m) <- c("$z$", format(z00, decimal.mark = ","))
-knitr::kable(m, "html", format.args = list(digits = 4, decimal.mark = ","), escape = F) %>%
-  add_header_above(c(" "=1, "$z$ (zweite Nachkommastelle)"=ncol(m)-1), escape = F) %>%
-  scroll_box(width = "100%", box_css = "border: 0px;")
-```
-
-Quelle: Werte wurden automatisch mit der Funktion `pnorm` aus R [@r] generiert.
 
 \pagebreak
 

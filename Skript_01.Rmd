@@ -150,7 +150,7 @@ Variablen lassen sich immer auch einem niedrigeren Skalenniveau zuordnen. Dies g
 
 Die im Folgenden beschriebenen Skalenniveaus sind nicht deckungsgleich mit den o.g. Variablentypen. Intervall- und Verhältnisskalen können z.B. jeweils diskret oder stetig sein.
 
-In Tabelle \@ref(tab:skalen) sind die wichtigsten Skalenniveaus im Überblick aufgeführt. "Gültige Lagemaße" sind dabei als Zusatzinformation aufgelistet und werden erst in der nächsten Sitzung behandelt.
+In Tabelle \@ref(tab:skalen) sind die wichtigsten Skalenniveaus im Überblick aufgeführt. "Gültige Lagemaße" sind dabei als Zusatzinformation aufgelistet und werden erst in der [nächsten Sitzung](#lagemaße) behandelt.
 
 ```{r skalen}
 c("Nominalskala", "Postleitzahl", "Gleichheit, Verschiedenheit", "Modus",

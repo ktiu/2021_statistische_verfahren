@@ -240,7 +240,7 @@ Die Formel lautet:
 
 Die Quadrierung der Differenz hat dabei einen doppelten Effekt: Zum einen bekommen auch negative Differenzen ein positives Vorzeichen, so dass sich positive und negative Differenzen nicht neutralisieren. Zum anderen werden hierdurch besonders große Abweichungen zum arithmetischen Mittel stärker gewichtet als dies ohne Quadrierung der Fall wäre.
 
-Zudem fällt auf, dass im Gegensatz zur Formel für das arithmetische Mittel im Nenner $n-1$ steht und nicht etwa $n$. Dies hat mit so genannten Freiheitsgraden zu tun, die wir allerdings erst in Sitzung 6 genauer kennenlernen.
+Zudem fällt auf, dass im Gegensatz zur Formel für das arithmetische Mittel im Nenner $n-1$ steht und nicht etwa $n$. Dies hat mit so genannten Freiheitsgraden zu tun, die wir allerdings erst in [Sitzung 5](#freiheitsgrade) genauer kennenlernen.
 
 Für unsere Beispielstichprobe wird die Berechnung für alle einzelnen $(x_i-\bar{x})^2$ schnell aufwendig und unübersichtich. Deshalb berechnen wir ihre Summe hier mit Hilfe einer Häufigkeitstabelle (s. Tabelle \@ref(tab:freq)). Dabei werden alle distinkten Werte einzeln transformiert und in der letzten Spalte mit ihrer Häufigkeit multipliziert.
 
@@ -337,7 +337,7 @@ cat("`", scan("img/2_exercise"), "`")
 
 ```
 
-a) Welches Skalenniveau liegt vor? (Sitzung 1)
+a) Welches Skalenniveau liegt vor? ([Sitzung 1](#skalenniveaus))
 b) Berechnen Sie Modalwert,
 c) Median und
 d) arithmetisches Mittel der Stichprobe.
@@ -357,8 +357,8 @@ DAAG::bomsoi[71:90,c(1,15)] %>%
   kable("html", linesep=c(""), col.names = c("Jahr", "Niederschlag (mm)"))
 ```
 
-a) Welches Skalenniveau liegt vor?  (Sitzung 1)
-b) Legen Sie eine klassierte Häufigkeitstabelle an. Begründen Sie die Wahl der Klassen. (Sitzung 1)
+a) Welches Skalenniveau liegt vor?  ([Sitzung 1](#skalenniveaus))
+b) Legen Sie eine klassierte Häufigkeitstabelle an. Begründen Sie die Wahl der Klassen. ([Sitzung 1](#quantitative-variablen-1))
 c) Was ist der Modalwert der klassierten Verteilung?
 d) Wie groß ist der Quartilsabstand?
 e) Bestimmen Sie das arithmetische Mittel der klassierten Verteilung.

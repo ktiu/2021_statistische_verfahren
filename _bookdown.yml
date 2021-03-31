@@ -4,3 +4,6 @@ delete_merged_file: true
 language:
   ui:
     chapter_name: "Sitzung "
+  label:
+    fig: "Abbildung "
+    tab: "Tabelle "
