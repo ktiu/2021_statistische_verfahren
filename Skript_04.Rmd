@@ -85,7 +85,7 @@ Die Varianz der Stichprobenverteilung für $\bar{x}$ bezeichnen wir mit $\sigma^
 
 \[
 \sigma^2_{\bar{x}} = \frac{\sigma^2}{n}
-(\#eq:var)
+(\#eq:4var)
 \]
 
 Die Standardabweichung der Stichprobenverteilung ($\sigma_{\bar{x}}$) wird auch Standardfehler (engl. *standard error*) genannt. Durch Wurzelziehen ergibt sich:
@@ -94,7 +94,7 @@ Die Standardabweichung der Stichprobenverteilung ($\sigma_{\bar{x}}$) wird auch 
 
 \[
 \sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}}
-(\#eq:sd)
+(\#eq:4sd)
 \]
 
 Zusammenfassend lässt sich sagen:
@@ -104,11 +104,11 @@ Zusammenfassend lässt sich sagen:
 \[\begin{aligned}
 \bar{x} \sim N(\mu, {\textstyle \frac{\sigma^2}{n}}) \quad \textrm{für} \quad x\sim N(\mu, \sigma^2)
 \end{aligned}
-(\#eq:norm)\]
+(\#eq:4norm)\]
 
 ### Szenario 2: Nicht normalverteilte Grundgesamtheit
 
-Die Gleichungen \@ref(eq:mean), \@ref(eq:var) und \@ref(eq:sd) gelten uneingeschränkt auch für die Stichprobenverteilungen von nicht normalverteilten Populationen. Nur die Normalverteilung der Stichprobenverteilung (\@ref(eq:norm)) ist bei nicht normalverteilten Grundgesamtheiten grundsätzlich nicht gegeben.
+Die Gleichungen \@ref(eq:mean), \@ref(eq:4var) und \@ref(eq:4sd) gelten uneingeschränkt auch für die Stichprobenverteilungen von nicht normalverteilten Populationen. Nur die Normalverteilung der Stichprobenverteilung \@ref(eq:4norm) ist bei nicht normalverteilten Grundgesamtheiten grundsätzlich nicht gegeben.
 
 Das zentrale Grenzwerttheorem (engl. *central limit theorem*) besagt jedoch:
 
@@ -165,7 +165,7 @@ Wir führen das obige Beispiel fort:
 - Dabei handelt es sich ebenfalls um einen erwartungstreuen Punktschätzer für die Varianz der Grundgesamtheit ($\sigma^2$).
 - Die Varianz der Grundgesamtheit kann also auch auf $\sigma^2=s^2\approx319{,}78$ geschätzt werden.
 - Analog können wir die Standardabweichung der Population auf $\sigma=s\approx17,88$ schätzen.
-- Den Standardfehler können wir mit diesem Schätzwert anhand \@ref(eq:sd) berechnen. Allerdings benutzen wir statt $\sigma_{\bar{x}}$ das Symbol $s_{\bar{x}}$, da es sich um einen Schätzwert handelt:
+- Den Standardfehler können wir mit diesem Schätzwert anhand \@ref(eq:4sd) berechnen. Allerdings benutzen wir statt $\sigma_{\bar{x}}$ das Symbol $s_{\bar{x}}$, da es sich um einen Schätzwert handelt:
 
 \nopagebreak
 
@@ -252,7 +252,7 @@ Zunächst errechnen wir den Mittelwert unserer empirischen Stichprobe:
   \bar{x}&\approx856{,}47
 \end{aligned}\]
 
-Dann errechnen wir anhand \@ref(eq:sd) den Standardfehler der theoretischen Verteilung von $\bar{x}$:
+Dann errechnen wir anhand \@ref(eq:4sd) den Standardfehler der theoretischen Verteilung von $\bar{x}$:
 
 \nopagebreak
 
@@ -454,7 +454,7 @@ Durch Einsetzen und mit Blick auf die Tabelle erhalten wir:
  &\approx 1{,}94
 \end{aligned}\]
 
-Dieser Standardfehler $\sigma_{\bar{x}}\approx1{,}94$ würde unseren Anforderungen genügen. Welches $n$ ist nötig, um diesen Standardfehler zu erreichen? Wir formen \@ref(eq:sd) um...
+Dieser Standardfehler $\sigma_{\bar{x}}\approx1{,}94$ würde unseren Anforderungen genügen. Welches $n$ ist nötig, um diesen Standardfehler zu erreichen? Wir formen \@ref(eq:4sd) um...
 
 \nopagebreak
 

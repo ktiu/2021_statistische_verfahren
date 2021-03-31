@@ -225,7 +225,7 @@ Durch einsetzen ergibt sich die generelle Formel für die Prüfgröße des $z$-T
 
 \[
 z=\sqrt{n}\cdot\frac{\bar{x}-\mu_0}{\sigma}
-(\#eq:z)
+(\#eq:5z)
 \]
 
 Das grundsätzliche Schema dieser Formel werden wir in anderen Tests wiedererkennen.
@@ -236,7 +236,7 @@ An dieser Stelle (also *nachdem* wir uns für einen Test und ein Signifikanznive
 
 Diese ergibt bei $n=5$ den Mittelwert $\bar{x}=103{,}0$. Die Verteilung $x_0$ (also unter Annahme der Nullhypothese) hatte die Kennwerte $\mu_0=94{,}2$ und $\sigma=11{,}8$.
 
-Wir setzen ein in die Formel aus \@ref(eq:z):
+Wir setzen ein in die Formel aus \@ref(eq:5z):
 
 \[\begin{aligned}
 z&=\sqrt{n}\cdot\frac{\bar{x}-\mu_0}{\sigma}\\[4pt]
@@ -461,7 +461,7 @@ s&=\sqrt{\frac{\sum\limits_{i=1}^n(x_i-\bar{x})^2}{n-1}}\\[6pt]
 &\approx 3{,}67
 \end{aligned}\]
 
-Schließlich setzen wir diese Werte in die Formel für die Prüfgröße $t$ (\@ref(eq:t)) ein:
+Schließlich setzen wir diese Werte in die Formel für die Prüfgröße $t$ \@ref(eq:t) ein:
 
 \[\begin{aligned}
 t&=\sqrt{n}\cdot\frac{\bar{x}-\mu_0}{s}\\[6pt]

@@ -586,16 +586,16 @@ z=\frac{\bar{x}-\mu_0}{\sigma_{\bar{x}}}
 \tag{5.8}
 \]</span></p>
 <p>Durch einsetzen ergibt sich die generelle Formel für die Prüfgröße des <span class="math inline">\(z\)</span>-Tests:</p>
-<p><span class="math display" id="eq:z">\[
+<p><span class="math display" id="eq:5z">\[
 z=\sqrt{n}\cdot\frac{\bar{x}-\mu_0}{\sigma}
-\tag{3.2}
+\tag{5.9}
 \]</span></p>
 <p>Das grundsätzliche Schema dieser Formel werden wir in anderen Tests wiedererkennen.</p>
 <div id="beispiel-4" class="section level4" number="5.3.5.1">
 <h4><span class="header-section-number">5.3.5.1</span> Beispiel</h4>
 <p>An dieser Stelle (also <em>nachdem</em> wir uns für einen Test und ein Signifikanzniveau entschieden und den kritischen Wert berechnet haben) dürften wir streng genommen erst die Stichprobe erheben.</p>
 <p>Diese ergibt bei <span class="math inline">\(n=5\)</span> den Mittelwert <span class="math inline">\(\bar{x}=103{,}0\)</span>. Die Verteilung <span class="math inline">\(x_0\)</span> (also unter Annahme der Nullhypothese) hatte die Kennwerte <span class="math inline">\(\mu_0=94{,}2\)</span> und <span class="math inline">\(\sigma=11{,}8\)</span>.</p>
-<p>Wir setzen ein in die Formel aus <a href="z-werte-und-normalverteilung.html#eq:z">(3.2)</a>:</p>
+<p>Wir setzen ein in die Formel aus <a href="grundlagen-der-teststatistik.html#eq:5z">(5.9)</a>:</p>
 <p><span class="math display">\[\begin{aligned}
 z&amp;=\sqrt{n}\cdot\frac{\bar{x}-\mu_0}{\sigma}\\[4pt]
  &amp;\approx\sqrt{5}\cdot\frac{103{,}0-94{,}2}{11{,}8}\\[4pt]
@@ -717,7 +717,7 @@ t \geq t_{\mathit{df};(1-\alpha)} \quad \textrm{für} \quad H_1: \mu &gt; \mu_0
 <p>Die kritischen Werte für <span class="math inline">\(t\)</span> bei gegebenem Freiheitsgrad <span class="math inline">\((n-1)\)</span> und Flächenabschnitt lassen sich aus der <a href="Formelsammlung%20und%20Wertetabellen.pdf">Formelsammlung</a> ablesen. Dabei ist zu beachten, dass aufgrund der Symmetrie die Werte für Flächenanteile unter 50% nicht in der Tabelle verzeichnet sind. Es gilt die Formel:</p>
 <p><span class="math display" id="eq:negt">\[
 P(-t_\mathit{df})=1-P(t_\mathit{df})
-\tag{5.9}
+\tag{5.10}
 \]</span></p>
 <p>So ist zum Beispiel der Wert für <span class="math inline">\(t_{5;1\%}=-t_{5;99\%}=-3{,}365\)</span>.</p>
 <div id="beispiel-9" class="section level4" number="5.5.4.1">
@@ -743,7 +743,7 @@ Abbildung 5.6: Ablehnungsbereich bei gerichteter Alternativhypothese nach oben, 
 <p>Die Formel für die Berechnung der Prüfgröße <span class="math inline">\(t\)</span> im 1-Stichproben-<span class="math inline">\(t\)</span>-Test lautet ganz ähnlich wie die für die Prüfgröße <span class="math inline">\(z\)</span> im <span class="math inline">\(z\)</span>-Test – mit dem Unterschied, dass statt der (hier unbekannten) Standardabweichung der Grundgesamtheit (<span class="math inline">\(\sigma\)</span>) die Standardabweichung der Stichprobe (<span class="math inline">\(s\)</span>) eingesetzt wird:</p>
 <p><span class="math display" id="eq:t">\[
 t=\sqrt{n}\cdot\frac{\bar{x}-\mu_0}{s}
-\tag{5.10}
+\tag{5.11}
 \]</span></p>
 <p>Zum direkten Vergleich noch einmal die Prüfgröße im <span class="math inline">\(z\)</span>-Test:</p>
 <p><span class="math display">\[
@@ -767,7 +767,7 @@ s&amp;=\sqrt{\frac{\sum\limits_{i=1}^n(x_i-\bar{x})^2}{n-1}}\\[6pt]
 &amp;\approx\sqrt{\frac{29{,}38+2{,}02+6{,}66+2{,}02+20{,}98+19{,}54+31{,}14+19{,}54+2{,}5+2{,}02+0{,}34+12{,}82}{11}}\\
 &amp;\approx 3{,}67
 \end{aligned}\]</span></p>
-<p>Schließlich setzen wir diese Werte in die Formel für die Prüfgröße <span class="math inline">\(t\)</span> (<a href="grundlagen-der-teststatistik.html#eq:t">(5.10)</a>) ein:</p>
+<p>Schließlich setzen wir diese Werte in die Formel für die Prüfgröße <span class="math inline">\(t\)</span> <a href="grundlagen-der-teststatistik.html#eq:t">(5.11)</a> ein:</p>
 <p><span class="math display">\[\begin{aligned}
 t&amp;=\sqrt{n}\cdot\frac{\bar{x}-\mu_0}{s}\\[6pt]
 &amp;\approx\sqrt{12}\cdot\frac{39{,}58-30{,}2}{3{,}67}\\

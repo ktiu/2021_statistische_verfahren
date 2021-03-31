@@ -37,6 +37,9 @@ fig:mitte
 fig:pop
 fig:stich
 eq:mean
+eq:4var
+eq:4sd
+eq:4norm
 fig:beta
 fig:double
 fig:konf
@@ -55,6 +58,7 @@ fig:ablger1
 fig:ablger2
 eq:trans
 eq:serr
+eq:5z
 fig:tdf
 eq:negt
 fig:tkrit

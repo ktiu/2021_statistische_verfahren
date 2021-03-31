@@ -468,25 +468,25 @@ Abbildung 4.2: Dichtefunktionen der Stichprobenverteilungen
 <h4><span class="header-section-number">4.2.1.2</span> Standardfehler</h4>
 <p>Zusätzlich fällt in <a href="schätzstatistik-1.html#fig:stich">4.2</a> auf: Je größer die Stichprobe, desto gestauchter die Dichtekurve der Stichprobenverteilung: Die theoretische Verteilung von <span class="math inline">\(\bar{x}\)</span> bei <span class="math inline">\(n=6\)</span> weist eine kleinere Varianz auf als bei <span class="math inline">\(n=3\)</span>. Das ist einigermaßen intuitiv, denn wir können uns vorstellen, dass das arithmetische Mittel <span class="math inline">\(\bar{x}\)</span> bei steigender Stichprobengröße ein immer präziserer Schätzwert für <span class="math inline">\(\mu\)</span> wird.</p>
 <p>Die Varianz der Stichprobenverteilung für <span class="math inline">\(\bar{x}\)</span> bezeichnen wir mit <span class="math inline">\(\sigma^2_{\bar{x}}\)</span>. Sie hängt von der Varianz der Population ab und ist invers proportional zur Stichprobengröße. Es gilt:</p>
-<p><span class="math display" id="eq:var">\[
+<p><span class="math display" id="eq:4var">\[
 \sigma^2_{\bar{x}} = \frac{\sigma^2}{n}
-\tag{2.6}
+\tag{4.2}
 \]</span></p>
 <p>Die Standardabweichung der Stichprobenverteilung (<span class="math inline">\(\sigma_{\bar{x}}\)</span>) wird auch Standardfehler (engl. <em>standard error</em>) genannt. Durch Wurzelziehen ergibt sich:</p>
-<p><span class="math display" id="eq:sd">\[
+<p><span class="math display" id="eq:4sd">\[
 \sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}}
-\tag{2.7}
+\tag{4.3}
 \]</span></p>
 <p>Zusammenfassend lässt sich sagen:</p>
-<p><span class="math display" id="eq:norm">\[\begin{aligned}
+<p><span class="math display" id="eq:4norm">\[\begin{aligned}
 \bar{x} \sim N(\mu, {\textstyle \frac{\sigma^2}{n}}) \quad \textrm{für} \quad x\sim N(\mu, \sigma^2)
 \end{aligned}
-\tag{3.4}\]</span></p>
+\tag{4.4}\]</span></p>
 </div>
 </div>
 <div id="szenario-2-nicht-normalverteilte-grundgesamtheit" class="section level3" number="4.2.2">
 <h3><span class="header-section-number">4.2.2</span> Szenario 2: Nicht normalverteilte Grundgesamtheit</h3>
-<p>Die Gleichungen <a href="schätzstatistik-1.html#eq:mean">(4.1)</a>, <a href="maßzahlen.html#eq:var">(2.6)</a> und <a href="maßzahlen.html#eq:sd">(2.7)</a> gelten uneingeschränkt auch für die Stichprobenverteilungen von nicht normalverteilten Populationen. Nur die Normalverteilung der Stichprobenverteilung (<a href="z-werte-und-normalverteilung.html#eq:norm">(3.4)</a>) ist bei nicht normalverteilten Grundgesamtheiten grundsätzlich nicht gegeben.</p>
+<p>Die Gleichungen <a href="schätzstatistik-1.html#eq:mean">(4.1)</a>, <a href="schätzstatistik-1.html#eq:4var">(4.2)</a> und <a href="schätzstatistik-1.html#eq:4sd">(4.3)</a> gelten uneingeschränkt auch für die Stichprobenverteilungen von nicht normalverteilten Populationen. Nur die Normalverteilung der Stichprobenverteilung <a href="schätzstatistik-1.html#eq:4norm">(4.4)</a> ist bei nicht normalverteilten Grundgesamtheiten grundsätzlich nicht gegeben.</p>
 <p>Das zentrale Grenzwerttheorem (engl. <em>central limit theorem</em>) besagt jedoch:</p>
 <blockquote>
 <p>Die Verteilung von Mittelwerten aus Stichproben des Umfangs <span class="math inline">\(n\)</span>, die derselben Grundgesamtheit entnommen wurden, geht mit wachsendem Stichprobenumfang in eine Normalverteilung über. <span class="citation">(<a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">Bortz und Schuster 2010</a>: 86)</span></p>
@@ -526,7 +526,7 @@ Abbildung 4.3: Stichprobenverteilung bei nicht normalverteilter Population
 <li>Dabei handelt es sich ebenfalls um einen erwartungstreuen Punktschätzer für die Varianz der Grundgesamtheit (<span class="math inline">\(\sigma^2\)</span>).</li>
 <li>Die Varianz der Grundgesamtheit kann also auch auf <span class="math inline">\(\sigma^2=s^2\approx319{,}78\)</span> geschätzt werden.</li>
 <li>Analog können wir die Standardabweichung der Population auf <span class="math inline">\(\sigma=s\approx17,88\)</span> schätzen.</li>
-<li>Den Standardfehler können wir mit diesem Schätzwert anhand <a href="maßzahlen.html#eq:sd">(2.7)</a> berechnen. Allerdings benutzen wir statt <span class="math inline">\(\sigma_{\bar{x}}\)</span> das Symbol <span class="math inline">\(s_{\bar{x}}\)</span>, da es sich um einen Schätzwert handelt:</li>
+<li>Den Standardfehler können wir mit diesem Schätzwert anhand <a href="schätzstatistik-1.html#eq:4sd">(4.3)</a> berechnen. Allerdings benutzen wir statt <span class="math inline">\(\sigma_{\bar{x}}\)</span> das Symbol <span class="math inline">\(s_{\bar{x}}\)</span>, da es sich um einen Schätzwert handelt:</li>
 </ul>
 <p><span class="math display">\[\begin{aligned}
 s_{\bar{x}} &amp;= \frac{s}{\sqrt{n}}\\[4pt]
@@ -649,7 +649,7 @@ Niederschlag (l/m²)
 <p><span class="math display">\[\begin{aligned}
   \bar{x}&amp;\approx856{,}47
 \end{aligned}\]</span></p>
-<p>Dann errechnen wir anhand <a href="maßzahlen.html#eq:sd">(2.7)</a> den Standardfehler der theoretischen Verteilung von <span class="math inline">\(\bar{x}\)</span>:</p>
+<p>Dann errechnen wir anhand <a href="schätzstatistik-1.html#eq:4sd">(4.3)</a> den Standardfehler der theoretischen Verteilung von <span class="math inline">\(\bar{x}\)</span>:</p>
 <p><span class="math display">\[\begin{aligned}
 \sigma_{\bar{x}}&amp;=\frac{\sigma}{\sqrt{n}}\\[4pt]
            &amp;\approx\frac{10{,}23}{\sqrt{7}}\approx3,86
@@ -667,7 +667,7 @@ Niederschlag (l/m²)
 <p>In <span class="math inline">\(z\)</span>-Werten ausgedrückt:</p>
 <p><span class="math display" id="eq:konf">\[
 1-\alpha=P(z_{\alpha/2} &lt; z_{\mu} &lt; z_{(1-\alpha/2)})
-\tag{4.2}
+\tag{4.5}
 \]</span></p>
 <p>In <a href="z-werte-und-normalverteilung.html#wahrscheinlichkeitsrechnung-mit-standardnormalverteilung">Sitzung 3</a> haben wir bereits gelernt, wie diese Wahrscheinlichkeit berechnet werden kann. Im Folgenden wird der Rechenweg noch einmal am Beispiel dargelegt.</p>
 <div id="die-umständliche-variante" class="section level4" number="4.4.1.1">
@@ -683,7 +683,7 @@ z_{\alpha/2} &amp;= \frac{x_{\alpha/2}-\bar{x}}{\sigma_{\bar{x}}}\\[4pt]
 z_{(1-\alpha/2)} &amp;= \frac{x_{(1-\alpha/2)}-\bar{x}}{\sigma_{\bar{x}}}\\[4pt]
 &amp;\approx\frac{861{,}47-856,47}{3,86}\approx1,30
 \end{aligned}\]</span></p>
-<p>Es ist wenig überraschend, dass die <span class="math inline">\(z\)</span>-transformierten Werte symmetrisch sind. Wir setzen in <a href="schätzstatistik-1.html#eq:konf">(4.2)</a> ein:</p>
+<p>Es ist wenig überraschend, dass die <span class="math inline">\(z\)</span>-transformierten Werte symmetrisch sind. Wir setzen in <a href="schätzstatistik-1.html#eq:konf">(4.5)</a> ein:</p>
 <p><span class="math display">\[
 1-\alpha\approx P(-1{,}30 &lt;z_{\mu} &lt; 1{,}30)
 \]</span></p>
@@ -743,7 +743,7 @@ x_{95\%}&amp;= z_{95\%} \cdot \sigma_{\bar{x}} + \bar{x}\\[4pt]
 <p>Auch hier gibt es wieder eine kleine Abkürzung: Aufgrund der Symmetrie unserer theoretischen Verteilung gilt für die Konfidenzintervallbreite generell:</p>
 <p><span class="math display" id="eq:kib">\[
 \frac{\mathit{KIB}}{2} = z_{(1-\alpha/2)} \cdot \sigma_{\bar{x}}
-\tag{4.3}
+\tag{4.6}
 \]</span></p>
 <p>Wir setzen einfach unsere Werte ein:</p>
 <p><span class="math display">\[\begin{aligned}
@@ -756,7 +756,7 @@ x_{95\%}&amp;= z_{95\%} \cdot \sigma_{\bar{x}} + \bar{x}\\[4pt]
 <div id="gesuchtes-n" class="section level3" number="4.4.3">
 <h3><span class="header-section-number">4.4.3</span> Gesuchtes <span class="math inline">\(n\)</span></h3>
 <p>Eine letzte Fragerichtung lautet: Wie viele Messwerte müssten vorliegen, um den durchschnittlichen Niederschlag mit einem Konfidenzniveau von 99% und einer Genauigkeit von ± 5 l/m² schätzen zu können?</p>
-<p>Gegeben sind also das Konfidenzintervall und <span class="math inline">\(\alpha=0{,}01\)</span>, gesucht wird <span class="math inline">\(n\)</span>. Wir wissen, dass die Stichprobengröße <span class="math inline">\(n\)</span> den Standardfehler <span class="math inline">\(\sigma_{\bar{x}}\)</span> bestimmt. Also benutzen wir zunächst <a href="schätzstatistik-1.html#eq:kib">(4.3)</a> und formen um:</p>
+<p>Gegeben sind also das Konfidenzintervall und <span class="math inline">\(\alpha=0{,}01\)</span>, gesucht wird <span class="math inline">\(n\)</span>. Wir wissen, dass die Stichprobengröße <span class="math inline">\(n\)</span> den Standardfehler <span class="math inline">\(\sigma_{\bar{x}}\)</span> bestimmt. Also benutzen wir zunächst <a href="schätzstatistik-1.html#eq:kib">(4.6)</a> und formen um:</p>
 <p><span class="math display">\[\begin{aligned}
 \frac{\mathit{KIB}}{2} &amp;= z_{(1-\alpha/2)} \cdot \sigma_{\bar{x}}\\[4pt]
 \sigma_{\bar{x}} &amp;= \frac{\mathit{KIB}}{2\cdot z_{(1-\alpha/2)}} 
@@ -767,7 +767,7 @@ x_{95\%}&amp;= z_{95\%} \cdot \sigma_{\bar{x}} + \bar{x}\\[4pt]
  &amp;\approx \frac{10}{2\cdot 2{,}58}\\[4pt]
  &amp;\approx 1{,}94
 \end{aligned}\]</span></p>
-<p>Dieser Standardfehler <span class="math inline">\(\sigma_{\bar{x}}\approx1{,}94\)</span> würde unseren Anforderungen genügen. Welches <span class="math inline">\(n\)</span> ist nötig, um diesen Standardfehler zu erreichen? Wir formen <a href="maßzahlen.html#eq:sd">(2.7)</a> um…</p>
+<p>Dieser Standardfehler <span class="math inline">\(\sigma_{\bar{x}}\approx1{,}94\)</span> würde unseren Anforderungen genügen. Welches <span class="math inline">\(n\)</span> ist nötig, um diesen Standardfehler zu erreichen? Wir formen <a href="schätzstatistik-1.html#eq:4sd">(4.3)</a> um…</p>
 <p><span class="math display">\[\begin{aligned}
 \sigma_{\bar{x}} &amp;= \frac{\sigma}{\sqrt{n}}\\[4pt]
                n &amp;= \Big(\frac{\sigma}{\sigma_{\bar{x}}}\Big)^2
