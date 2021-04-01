@@ -154,9 +154,9 @@ In Tabelle \@ref(tab:skalen) sind die wichtigsten Skalenniveaus im Überblick au
 
 ```{r skalen}
 c("Nominalskala", "Postleitzahl", "Gleichheit, Verschiedenheit", "Modus",
-  "Ordinalskala", "Militärischer Rang", "+ Größer-kleiner-Relationen", "+ Median",
-  "Intervallskala", "Temperatur in °C", "+ Gleichheit von Differenzen", "+ arithmetisches Mittel",
-  "Verhältnisskala", "Körpergröße", "+ Gleichheit von Verhältnissen", "+ geometrisches Mittel") %>%
+  "Ordinalskala", "Militärischer Rang", "$+$ Größer-kleiner-Relationen", "$+$ Median",
+  "Intervallskala", "Temperatur in °C", "$+$ Gleichheit von Differenzen", "$+$ arithmetisches Mittel",
+  "Verhältnisskala", "Körpergröße", "$+$ Gleichheit von Verhältnissen", "$+$ geometrisches Mittel") %>%
   matrix(nrow=4, byrow=T) %>%
   as_tibble %>%
   kable("html", col.names= c("Skalenart", "Beispiel", "Mögliche Aussagen", "gültige Lagemaße"), caption="Die vier wichtigsten Skalenniveaus.")
