@@ -374,7 +374,8 @@ Sie fragen sich, wie die Wohnumgebung einer Person (Stadt oder Land) damit zusam
 
 ```{r}
 ex1 <- read.table("img/9_ex1_dt")
-kable(ex1, "html")
+kable(ex1, "html") %>%
+  kable_styling(full_width = F)
 ```
 
 a) Überführen Sie die Daten in eine Kreuztabelle.

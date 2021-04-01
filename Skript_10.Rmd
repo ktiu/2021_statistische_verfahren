@@ -273,7 +273,8 @@ Dienstag   |        409
 Mittwoch   |        414
 Donnerstag |        387
 Freitag    |        437
-") %>% kable("html", escape=F, caption="Häufigkeiten größerer Verspätungen im ÖPNV")
+") %>% kable("html", escape=F, caption="Häufigkeiten größerer Verspätungen im ÖPNV") %>%
+  kable_styling(full_width = F)
 ```
 
 

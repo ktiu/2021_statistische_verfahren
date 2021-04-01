@@ -99,7 +99,8 @@ Wir fragen uns, wie die Aufenthaltszeit von Passagieren am Frankfurter Flughafen
 ```{r}
 duty <- read.table("img/8_dutyfree_dt")
 kable(duty, "html", col.names = c("$x_i$", "$y_i$"), escape = F, longtable=F, linesep=c(""), caption = "\\label{tab:duty}Messwerte am Frankfurter Flughafen") %>%
-  add_header_above(c("Aufenthaltszeit (min)", "Ausgaben (€)"))
+  add_header_above(c("Aufenthaltszeit (min)", "Ausgaben (€)")) %>%
+  kable_styling(full_width = F)
 ```
 
 Mit den Methoden aus [Sitzung 2](#einleitende-bemerkungen) und [7](#kovarianz) können wir folgende Werte für die Mittelwerte $\bar{x}$ und $\bar{y}$, die Varianz $s^2_x$ sowie die Kovarianz $s_{xy}$ berechnen:
@@ -265,7 +266,8 @@ c) Bestimmen Sie die Residuen für die tatsächlich beobachtete Messreihe:
 ```{r}
 ex1 <- read.table("img/8_ex1_dt")
 ex1[,3:4] <- NULL
-kable(ex1, "html", escape = F, longtable=F, linesep=c(""), col.names = c("$x_i$", "$y_i$"), format.args = list(digits=3))
+kable(ex1, "html", escape = F, longtable=F, linesep=c(""), col.names = c("$x_i$", "$y_i$"), format.args = list(digits=3)) %>%
+  kable_styling(full_width = F)
 ```
 
 ### Aufgabe 2
@@ -292,7 +294,8 @@ Sie fragen sich, wie die erreichte Punktzahl in einer Klausur mit der Vorbereitu
 
 ```{r}
 ex3 <- read.table("img/8_ex3_dt")
-kable(ex3, "html", escape = F, longtable=F, linesep=c(""), col.names = c("Vorbereitungszeit (min)", "Erreichte Punktzahl"))
+kable(ex3, "html", escape = F, longtable=F, linesep=c(""), col.names = c("Vorbereitungszeit (min)", "Erreichte Punktzahl")) %>%
+  kable_styling(full_width = F)
 ```
 
 a) Welche Punktzahl ist mit einer Vorbereitunszeit von sechs Stunden zu erwarten?

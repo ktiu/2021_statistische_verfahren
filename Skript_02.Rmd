@@ -40,7 +40,9 @@ Alle Berechnungen von Maßzahlen werden am folgenden Beispiel illustriert: Für 
 xs <- c(4, 1, 4, 1, 5, 5, 0, 1, 8, 5, 1, 25, 3, 3)
 
 matrix(xs, nrow = 1, dimnames = list(c(), sprintf("$x_{%s}$", 1:14)))%>% as_tibble %>%
-  kable("html", escape=F, caption="Beispielverteilung")
+  kable("html", escape=F, caption="Beispielverteilung") %>%
+  kable_styling(full_width = F) %>%
+  scroll_box(width = "100%", box_css = "border: 0px;")
 ```
 
 
@@ -62,7 +64,8 @@ Um den Median zu bestimmen, wird zunächst eine geordnete Liste angefertigt, ind
 
 ```{r sort}
 matrix(sort(xs), nrow = 1, dimnames = list(c(), sprintf("$x_{(%s)}$", 1:14)))%>% as_tibble %>%
-  kable("html", escape=F, caption="Sortierte Wertereihe")%>%
+  kable("html", escape=F, caption="Sortierte Wertereihe") %>%
+  kable_styling(full_width = F) %>%
   scroll_box(width = "100%", box_css = "border: 0px;")
 ```
 
@@ -110,7 +113,8 @@ Hierzu müssen die Häufigkeiten der Werte bekannt sein, bzw. bestimmt werden (s
 ```{r mod}
 df <- as.data.frame(table(xs))
 colnames(df) <- c("Wert $x_i$", "Häufigkeit $f_i$")
-knitr::kable(df, "html", escape=F, align="r", caption = "Häufigkeiten der Beispielverteilung", linesep=c(""))
+knitr::kable(df, "html", escape=F, align="r", caption = "Häufigkeiten der Beispielverteilung", linesep=c("")) %>%
+  kable_styling(full_width = F)
 ```
 
 Der Modalwert der Beispielverteilung beträgt 1, da der Wert 1 am häufigsten (viermal) vorkommt.
@@ -196,7 +200,8 @@ In unserem Beispiel (mit $n=14$) ist die untere Hälfte der Verteilung:
 
 ```{r lower}
 matrix(sort(xs)[1:7], nrow = 1, dimnames = list(c(), sprintf("$x_{(%s)}$", 1:7)))%>% as_tibble %>%
-  kable("html", escape=F)
+  kable("html", escape=F) %>%
+  kable_styling(full_width = F)
 ```
 
 $Q_1$ ist der Median dieser Werte, also $x_{(4)}=1$.
@@ -205,7 +210,8 @@ Die oberen 7 Werte lauten:
 
 ```{r upper}
 matrix(sort(xs)[8:14], nrow = 1, dimnames = list(c(), sprintf("$x_{(%s)}$", 8:14)))%>% as_tibble %>%
-  kable("html", escape=F)
+  kable("html", escape=F) %>%
+  kable_styling(full_width = F)
 ```
 
 $Q_3$ ist also $x_{(11)} = 5$.
@@ -354,7 +360,8 @@ In Australien betrug die durchnittliche Niederschlagsmenge in den 1970er und 80e
 ```{r}
 DAAG::bomsoi[71:90,c(1,15)] %>%
   as_tibble(rownames = NULL) %>%
-  kable("html", linesep=c(""), col.names = c("Jahr", "Niederschlag (mm)"))
+  kable("html", linesep=c(""), col.names = c("Jahr", "Niederschlag (mm)")) %>%
+  kable_styling(full_width = F)
 ```
 
 a) Welches Skalenniveau liegt vor?  ([Sitzung 1](#skalenniveaus))

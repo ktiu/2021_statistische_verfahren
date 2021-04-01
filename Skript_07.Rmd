@@ -212,13 +212,15 @@ a) Messreihe:
 
 ```{r}
 ex <- read.table("img/7_exercise_dt")
-kable(data.frame(ex$xa, ex$ya), "html", longtable=F, linesep=c(""), col.names = c("$x_i$", "$y_i$"), escape = F)
+kable(data.frame(ex$xa, ex$ya), "html", longtable=F, linesep=c(""), col.names = c("$x_i$", "$y_i$"), escape = F) %>%
+  kable_styling(full_width = F)
 ```
 
 b) Messreihe:
 
 ```{r}
-kable(read.table("img/7_exercise_b_dt"),"html", longtable=F, linesep=c(""), col.names = c("$x_i$", "$y_i$"), escape = F)
+kable(read.table("img/7_exercise_b_dt"),"html", longtable=F, linesep=c(""), col.names = c("$x_i$", "$y_i$"), escape = F) %>%
+  kable_styling(full_width = F)
 ```
 
 
@@ -227,7 +229,8 @@ kable(read.table("img/7_exercise_b_dt"),"html", longtable=F, linesep=c(""), col.
 Sie erheben für zufällige „Wasserhäuschen“ in Frankfurt die Entfernung zur nächsten Haltestelle der S- oder U-Bahn sowie den durchschnitllichen Tagesumsatz. Die Erhebung ergibt:
 
 ```{r}
-kable(read.table("img/7_wasserhäuschen_dt"),"html", longtable=F, linesep=c(""), col.names = c("Entfernung (m)", "Umsatz (€/Tag)"), escape = F)
+kable(read.table("img/7_wasserhäuschen_dt"),"html", longtable=F, linesep=c(""), col.names = c("Entfernung (m)", "Umsatz (€/Tag)"), escape = F) %>%
+  kable_styling(full_width = F)
 ```
 
 Gibt es einen Zusammenhang zwischen Entfernung und Umsatz? Wenn ja: Wie hängen die Variablen zusammen? Wie stark ist der Zusammenhang?
