@@ -63,13 +63,13 @@ th_css <- "background-color: var(--sand_gray);
   color: var(--goethe_blue);
   font-weight: 600"
 
-font_add_google(name = "Source Sans Pro", family = "sans-serif")
+font_add_google(name = "Source Sans Pro", family = "source-sans-pro")
 showtext_auto()
 
 theme_goethe <- function() {
-  theme_classic(base_family = "sans-serif") %+replace%
+  theme_classic() %+replace%
     theme(
-      text = element_text(size = 10),
+      text = element_text(family = "source-sans-pro", size = 10),
       axis.text = element_text(size = 10),
       legend.text = element_text(size = 10),
       legend.text.align = 0,

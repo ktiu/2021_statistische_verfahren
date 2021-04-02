@@ -384,7 +384,7 @@ Folgende Häufigkeiten sind erfasst:
 
 ```{r}
 firma <- read.table("img/10_firma_dt")
-#firmaxt <- crosstable(firma, "latex", sums=F, varnames = F, col.order = c("Leitende Tätigkeit", "Administration", "Fertigung"))
+#firmaxt <- crosstable(firma, "html", sums=F, varnames = F, col.order = c("Leitende Tätigkeit", "Administration", "Fertigung"))
 #firmaxt$df
 ```
 
