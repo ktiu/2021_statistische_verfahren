@@ -92,11 +92,11 @@ eq:lin
 fig:lin
 eq:b
 eq:a
-tab:unnamed-chunk-13
-fig:duty
+tab:duty1
+fig:duty2
 eq:res
-fig:res
-tab:unnamed-chunk-14
+fig:res1
+tab:res2
 eq:rsqformal
 eq:rsq
 tab:roh

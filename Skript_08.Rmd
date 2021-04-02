@@ -95,11 +95,11 @@ Die Bestimmung der Regressionsgeraden soll nun mit einem Beispiel illustriert we
 
 ### Beispiel
 
-Wir fragen uns, wie die Aufenthaltszeit von Passagieren am Frankfurter Flughafen mit dem Betrag zusammenhängt, den sie in den dortigen Geschäften ausgeben. Eine Zufallserhebung habe die Werte in \@ref(tab:duty) ergeben.
+Wir fragen uns, wie die Aufenthaltszeit von Passagieren am Frankfurter Flughafen mit dem Betrag zusammenhängt, den sie in den dortigen Geschäften ausgeben. Eine Zufallserhebung habe die Werte in \@ref(tab:duty1) ergeben.
 
-```{r}
+```{r duty1}
 duty <- read.table("img/8_dutyfree_dt")
-kable(duty, "html", col.names = c("$x_i$", "$y_i$"), escape = F, longtable=F, linesep=c(""), caption = "\\label{tab:duty}Messwerte am Frankfurter Flughafen") %>%
+kable(duty, "html", col.names = c("$x_i$", "$y_i$"), escape = F, longtable=F, linesep=c(""), caption = "Messwerte am Frankfurter Flughafen") %>%
   add_header_above(c("Aufenthaltszeit (min)", "Ausgaben (€)")) %>%
   kable_styling(full_width = F)
 ```
@@ -143,9 +143,9 @@ y&=a+b\cdot x\\
 y&\approx3,35 + 0,114 \cdot x
 \end{aligned}\]
 
-Graphisch ist diese lineare Regression in \@ref(fig:duty) dargestellt.
+Graphisch ist diese lineare Regression in \@ref(fig:duty2) dargestellt.
 
-```{r duty, cache=T, fig.cap="Regressionslinie durch ein Streudiagramm"}
+```{r duty2, cache=T, fig.cap="Regressionslinie durch ein Streudiagramm"}
 model <- lm(duty$y~duty$x)
 ggplot(duty,aes(x,y)) +
   geom_point() +
@@ -174,9 +174,9 @@ Residuen lassen sich in R durch den Befehl {\tt resid() } errechnen.
 
 ### Beispiel
 
-Graphisch sind die Residuen für unser Beispiel in \@ref(fig:res) dargestellt (positive Werte in grün, negative Werte in rot), tabellarisch in \@ref(tab:res).
+Graphisch sind die Residuen für unser Beispiel in \@ref(fig:res1) dargestellt (positive Werte in grün, negative Werte in rot), tabellarisch in \@ref(tab:res2).
 
-```{r res, cache=T, fig.cap="Graphische Darstellung der Residuen"}
+```{r res1, cache=T, fig.cap="Graphische Darstellung der Residuen"}
 model <- lm(duty$y~duty$x)
 ggplot(duty,aes(x,y)) +
   geom_abline(intercept=model$coefficients[1],slope=model$coefficients[2], color=goethe_blue) +
@@ -190,10 +190,10 @@ ggplot(duty,aes(x,y)) +
 ```
 
 
-```{r}
+```{r res2}
 duty$pred <- 3.35+0.114*duty$x
 duty$res <- duty$y-duty$pred
-kable(duty, "html", col.names = c("$x_i$", "$y_i$", "$\\hat{y}_i\\approx3,35+0,114\\cdot x_i$", "$e_i=y_i-\\hat{y}_i$"), escape = F, longtable=F, linesep=c(""), caption = "\\label{tab:res}Residuen der Beispielwerte") %>%
+kable(duty, "html", col.names = c("$x_i$", "$y_i$", "$\\hat{y}_i\\approx3,35+0,114\\cdot x_i$", "$e_i=y_i-\\hat{y}_i$"), escape = F, longtable=F, linesep=c(""), caption = "Residuen der Beispielwerte") %>%
   add_header_above(c("Aufenthaltszeit (min)", "Ausgaben (€)", "Erwartete Ausgaben (€)", "Residuen (€)"))
 ```
 
