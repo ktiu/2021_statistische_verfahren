@@ -37,7 +37,8 @@ In einem Streudiagramm können diese Werte veranschaulicht werden. Dabei ist es 
 ggplot(reis, aes(rain, yield)) +
   geom_point(color=goethe_blue) +
   xlab("x : Niederschlag (mm)") +
-  ylab("y : Ertrag (kg/Rai)")
+  ylab("y : Ertrag (kg/Rai)") +
+  theme_goethe()
 ```
 
 
@@ -111,54 +112,63 @@ ggplot(corex, aes(x,yn1)) +
   ggtitle(bquote(r==-1)) +
   geom_point(color=goethe_blue) +
   scale_y_continuous("y") +
+  theme_goethe() +
   theme(axis.ticks = element_blank(),
         axis.text = element_blank())
 ggplot(corex, aes(x,yn0.9)) +
   ggtitle(bquote(r%~~%-0.9)) +
   geom_point(color=goethe_blue) +
   scale_y_continuous("y") +
+  theme_goethe() +
   theme(axis.ticks = element_blank(),
         axis.text = element_blank())
 ggplot(corex, aes(x,yn0.6)) +
   ggtitle(bquote(r%~~%-0.6)) +
   geom_point(color=goethe_blue) +
   scale_y_continuous("y") +
+  theme_goethe() +
   theme(axis.ticks = element_blank(),
         axis.text = element_blank())
 ggplot(corex, aes(x,yn0.3)) +
   ggtitle(bquote(r%~~%-0.3)) +
   geom_point(color=goethe_blue) +
   scale_y_continuous("y") +
+  theme_goethe() +
   theme(axis.ticks = element_blank(),
         axis.text = element_blank())
 ggplot(corex, aes(x,y0)) +
   ggtitle(bquote(r%~~%0)) +
   geom_point(color=goethe_blue) +
   scale_y_continuous("y") +
+  theme_goethe() +
   theme(axis.ticks = element_blank(),
         axis.text = element_blank())
 ggplot(corex, aes(x,y0.3)) +
   ggtitle(bquote(r%~~%0.3)) +
   geom_point(color=goethe_blue) +
   scale_y_continuous("y") +
+  theme_goethe() +
   theme(axis.ticks = element_blank(),
         axis.text = element_blank())
 ggplot(corex, aes(x,y0.6)) +
   ggtitle(bquote(r%~~%0.6)) +
   geom_point(color=goethe_blue) +
   scale_y_continuous("y") +
+  theme_goethe() +
   theme(axis.ticks = element_blank(),
         axis.text = element_blank())
 ggplot(corex, aes(x,y0.9)) +
   ggtitle(bquote(r%~~%0.9)) +
   geom_point(color=goethe_blue) +
   scale_y_continuous("y") +
+  theme_goethe() +
   theme(axis.ticks = element_blank(),
         axis.text = element_blank())
 ggplot(corex, aes(x,y1)) +
   ggtitle(bquote(r==1)) +
   geom_point(color=goethe_blue) +
   scale_y_continuous("y") +
+  theme_goethe() +
   theme(axis.ticks = element_blank(),
         axis.text = element_blank())
 ```
@@ -169,7 +179,7 @@ In R kann der Korrelationskoeffizient von zwei Merkmalen mit dem Befehl {\tt cor
 
 ### Beispiel
 
-In der Formel für den Korrelationskoeffizienten $r$ (\@ref(eq:cor)) werden die Standardabweichungen $s_x$ und $s_y$ benötigt. Es ist daher sinnvoll, die Hilfstabelle um die Quadrate der Differenzen (und deren Summen) zu erweitern (s. \@ref(tab:mathcor)).
+In der Formel für den Korrelationskoeffizienten $r$ \@ref(eq:cor) werden die Standardabweichungen $s_x$ und $s_y$ benötigt. Es ist daher sinnvoll, die Hilfstabelle um die Quadrate der Differenzen (und deren Summen) zu erweitern (s. \@ref(tab:mathcor)).
 
 ```{r mathcor, cache=T}
 reis <- reis.copy

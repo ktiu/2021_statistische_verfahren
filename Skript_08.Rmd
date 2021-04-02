@@ -36,7 +36,8 @@ ggplot(df,aes(x,y)) +
                                            model$coefficients[2] %>% round(1) %>% format(decimal.mark = "."),
                                            "%.%x"), parse=T, color=goethe_blue) +
   scale_x_continuous(limits = c(0,11), expand = c(0,0)) +
-  scale_y_continuous(limits = c(0,26), expand = c(0,0))
+  scale_y_continuous(limits = c(0,26), expand = c(0,0)) +
+  theme_goethe()
 ```
 
 Der Achsenabschnitt $a\approx2,2$ bedeutet, dass die Regressionsgerade die $y$-Achse etwa auf der Höhe 2,2 schneidet (bei $x=0$). Die Steigung $b\approx1,7$ heißt, dass für jede zusätzliche Einheit der Variable $x$ ca. 1,7 zusätzliche Einheiten der Variable $y$ erwartet werden können.
@@ -151,7 +152,8 @@ ggplot(duty,aes(x,y)) +
   geom_abline(intercept=model$coefficients[1],slope=model$coefficients[2], color=goethe_blue) +
   annotate("text", x=180, y=40, label=paste0("y%~~%3.35+0.114%.%x"), parse=T, color=goethe_blue) +
   scale_x_continuous("x : Aufenthaltszeit (min)", limits=c(0,400), expand = c(0,0)) +
-  scale_y_continuous("y : Ausgaben (EUR)", limits=c(0,60), expand = c(0,0))
+  scale_y_continuous("y : Ausgaben (EUR)", limits=c(0,60), expand = c(0,0)) +
+  theme_goethe()
 ```
 
 ## Residuen
@@ -183,7 +185,8 @@ ggplot(duty,aes(x,y)) +
   geom_segment(aes(x=x, y=y, xend=x, yend=model$coefficients[1]+x*model$coefficients[2]), data=subset(duty, y-(model$coefficients[1]+x*model$coefficients[2])<0), color="red") +
   geom_point() +
   scale_x_continuous("x : Aufenthaltszeit (min)", limits=c(0,400), expand = c(0,0)) +
-  scale_y_continuous("y : Ausgaben (EUR)", limits=c(0,60), expand = c(0,0))
+  scale_y_continuous("y : Ausgaben (EUR)", limits=c(0,60), expand = c(0,0)) +
+  theme_goethe()
 ```
 
 

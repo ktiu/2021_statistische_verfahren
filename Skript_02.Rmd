@@ -319,6 +319,7 @@ ggplot(data.frame(xs), aes(y=xs)) +
   geom_boxplot(fill = mustard_yellow) +
   scale_x_continuous(limits = c(-0.6,0.4), breaks = NULL) +
   scale_y_continuous(NULL) +
+  theme_goethe() +
   panel_border(colour = "black", size=1) +
   theme(axis.line = element_blank())
 ```

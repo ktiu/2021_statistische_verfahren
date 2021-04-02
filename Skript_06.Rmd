@@ -205,8 +205,7 @@ ggplot(data.frame(x=c(0, 3)), aes(x)) +
   scale_x_continuous(NULL, expand = c(0,0)) +
   scale_color_manual(NULL,values = c("red"=emo_red, "orange"=orange, "green"=green, "blue"=goethe_blue), breaks=c("red", "orange", "green", "blue"), labels=expression(F["2;5"],F["6;1"],F["5;10"],F["15;20"]))+  
   scale_y_continuous(NULL, expand = c(0,0), limits=c(0,1))+
-  theme(legend.position = c(0.7, 0.8),
-        legend.text.align = 0)
+  theme_goethe()
 ```
 
 
@@ -363,7 +362,8 @@ ggplot(data.frame(x=c(0,3.5)),aes(x))+
   stat_function(n=250,fun=fun, color=goethe_blue) +
   geom_vline(color=goethe_blue,xintercept=qf(0.05,5,5),linetype="dashed")+
   scale_x_continuous("F", breaks=c(round(qf(0.05,5,5),2),1:3),expand=c(0,0)) +
-  scale_y_continuous(NULL, expand=c(0,0), limits = c(0,0.65))
+  scale_y_continuous(NULL, expand=c(0,0), limits = c(0,0.65)) +
+  theme_goethe()
 ```
 
 ### Prüfgröße berechnen

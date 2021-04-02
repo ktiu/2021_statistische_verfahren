@@ -257,7 +257,8 @@ bar$xs <- as.factor(xs)
 ggplot(bar, aes(x=bar$xs)) +
   geom_bar(fill=goethe_blue) +
   xlab("Anfangsbuchstabe") +
-  ylab("Häufigkeit")
+  ylab("Häufigkeit") +
+  theme_goethe()
 ```
 
 
@@ -313,7 +314,8 @@ ggplot(data=trees, aes(x=trees$Girth)) +
   scale_x_continuous(breaks = seq(8,22,2)) +
   scale_y_continuous(breaks = seq(0,12,3)) +
   xlab("Stammdurchmesser in Zoll") +
-  ylab("Häufigkeit")
+  ylab("Häufigkeit") +
+  theme_goethe()
 ```
 
 
@@ -327,8 +329,8 @@ ggplot(data=trees, aes(x=trees$Girth)) +
   scale_x_continuous(breaks = seq(8,22,2)) +
   scale_y_continuous(breaks = seq(0,12,3)) +
   xlab("Stammdurchmesser in Zoll") +
-  ylab("Häufigkeit")
-
+  ylab("Häufigkeit") +
+  theme_goethe()
 ```
 
 ### Eigenschaften von Häufigkeitsverteilungen

@@ -102,8 +102,7 @@ ggplot(data = data.frame(x = c(-7,22)), aes(x)) +
     annotate(geom="text", x=17, y=0.06, label="c ~ N(10,64)", color = magenta) +
     xlab(NULL) +
   ylab(NULL) +
-    theme(text = element_text(size=10),
-          axis.text = element_text(size=10))
+    theme_goethe()
 ```
 
 Die Normalverteilung (auch: Gaußverteilung, engl. *normal distribution*) ist unimodal und symmetrisch. Die Normalverteilung ist eine theoretische Verteilung, für die bekannt ist, mit welcher Wahrscheinlichkeit bestimmte Werte unter- und überschritten werden bzw. mit welcher Wahrscheinlichkeit Werte in einem bestimmten Intervall liegen.
@@ -150,8 +149,7 @@ ggplot(data = data.frame(x = c(-3,3)), aes(x)) +
     annotate(geom="blank", x=0, y=dnorm(0)*1.05) +
     xlab("x") +
   ylab(NULL) +
-    theme(text = element_text(size=10),
-          axis.text = element_text(size=10))
+    theme_goethe()
 ```
 
 ## Crash-Kurs Wahrscheinlichkeitsrechnung
@@ -190,7 +188,8 @@ ggplot(data.frame(x=c(1003-3*sqrt(73),1003+3*sqrt(73))), aes(x)) +
   scale_y_continuous(limits=c(0, dnorm(1003,1003,sqrt(73))*1.05), expand=c(0,0)) +
   scale_x_continuous(expand=c(0,0)) +
   xlab("x (Luftdruck in hpa)") +
-  ylab(NULL)
+  ylab(NULL) +
+  theme_goethe()
 ```
 
 Wir können auch (analog zu \@ref(eq:norm)) schreiben:
@@ -227,7 +226,8 @@ ggplot(data.frame(x=c(xl, xr)), aes(x)) +
   scale_y_continuous(expand=c(0,0), limits=c(0,f(mu)*1.05)) +
   scale_x_continuous(expand=c(0,0)) +
   xlab("x (Luftdruck in hpa)") +
-  ylab(NULL)
+  ylab(NULL) +
+  theme_goethe()
 ```
 
 Um den entsprechenden Wert für $P(x < x_p)$ (also die Wahrscheinlichkeit, dass ein zufälliges $x$ unser Perzentil $x_p$ unterschreitet) in Erfahrung zu bringen, müssen wir die Verteilung zunächst standardisieren. Der Wert $z_p$ ergibt sich aus der Formel für die $z$-Transformation, diesmal jedoch mit $\mu$ statt $\bar{x}$ und $\sigma$ statt $s$, da es sich um die Grundgesamtheit handelt:
@@ -252,7 +252,8 @@ ggplot(data.frame(x=c(-3,3)), aes(x)) +
                linetype = "dashed") +
   stat_function(fun=dnorm, color = goethe_blue) +
   scale_y_continuous(NULL, expand=c(0,0), limits = c(0,dnorm(0)*1.05)) +
-  scale_x_continuous("z", expand=c(0,0), breaks=c(-3,-2,-1,0,1.41,3), labels=c(-3,-2,-1,0,1.41,3))
+  scale_x_continuous("z", expand=c(0,0), breaks=c(-3,-2,-1,0,1.41,3), labels=c(-3,-2,-1,0,1.41,3)) +
+  theme_goethe()
 ```
 
 Die [Formelsammlung](Formelsammlung und Wertetabellen.pdf) gibt für $z$-Werte die Wahrscheinlichkeit ihrer Unterschreitung in ener Normalverteilung an. Diese Wahrscheinlichkeit kann notiert werden als $P(z<z_p)$.
@@ -276,7 +277,8 @@ ggplot(data.frame(x=c(xl, xr)), aes(x)) +
   scale_y_continuous(expand=c(0,0), limits=c(0,f(mu)*1.05)) +
   scale_x_continuous(expand=c(0,0)) +
   xlab("x (Luftdruck in hpa)") +
-  ylab(NULL)
+  ylab(NULL) +
+  theme_goethe()
 ```
 
 Hier können wir genauso wie bei der Unterschreitung $z_p=1,41$ errechnen.
@@ -357,7 +359,8 @@ ggplot(data.frame(x=c(xl, xr)), aes(x)) +
   scale_y_continuous(expand=c(0,0), limits=c(0,f(mu)*1.05)) +
   scale_x_continuous(expand=c(0,0)) +
   xlab("x (Luftdruck in hpa)") +
-  ylab(NULL)
+  ylab(NULL) +
+  theme_goethe()
 ```
 
 Rechnerisch müssen wir also von den (günstigen) Fällen, in denen 1015 hPA unterschritten werden, noch jene (ungünstige) Fälle abziehen, in denen die 1005 hPA *ebenfalls* unterschritten werden.
@@ -433,7 +436,8 @@ ggplot(data.frame(x=c(xl, xr)), aes(x)) +
   scale_y_continuous(expand=c(0,0), limits=c(0,f(mu)*1.05)) +
   scale_x_continuous(expand=c(0,0)) +
   xlab("x (Luftdruck in hpa)") +
-  ylab(NULL)
+  ylab(NULL) +
+  theme_goethe()
 ```
 
 Da die Verteilung symmetrisch ist, teilen sich die ungünstigen 15% der Fälle gleichmäßig an den oberen und unteren Rand der Verteilung auf. Die Obergrenze $x_o$ ist also der Wert, der zu 7,5% über- und damit zu 92,5% unterschritten wird.

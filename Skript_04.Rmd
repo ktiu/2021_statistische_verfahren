@@ -38,7 +38,8 @@ sigma=5
 fun<-function(x){dnorm(x,mu,sigma)}
 ggplot(data.frame(x=c(mu-(2*sigma),mu+(2*sigma))), aes(x))+
   stat_function(fun=fun, color=goethe_blue) +
-  scale_y_continuous(expand = c(0,0), limits = c(0,dnorm(mu,mu,sigma/sqrt(6))*1.05), name=NULL)
+  scale_y_continuous(expand = c(0,0), limits = c(0,dnorm(mu,mu,sigma/sqrt(6))*1.05), name=NULL) +
+  theme_goethe()
 ```
 
 Wenn eine einzelne Stichprobe der Größe $n=3$ aus dieser Verteilung gezogen würde, hätte sie drei konkrete Werte ($x_1$, $x_2$ und $x_3$) sowie ein konkretes arithmetisches Mittel ($\bar{x}$).
@@ -56,8 +57,7 @@ ggplot(data.frame(x=c(mu-(2*sigma),mu+(2*sigma))), aes(x))+
   scale_colour_manual(NULL, values = c("blue"=goethe_blue, "green"=green, "orange"= orange), breaks=c("blue", "green", "orange"), labels = expression(x, bar(x)~für~n==3, bar(x)~für~n==6)) +
   scale_y_continuous(expand = c(0,0), limits = c(0,dnorm(mu,mu,sigma/sqrt(6))*1.05), name=NULL) +
   xlab(NULL) +
-  theme(legend.position = c(0.7, 0.8),
-        legend.text.align = 0)
+  theme_goethe()
 ```
 
 #### Erwartungswert
@@ -73,7 +73,7 @@ Das arithmetische Mittel der Stichprobenverteilung $\mu_{\bar{x}}$ wird auch als
 (\#eq:mean)
 \]
 
-Wir können auch sagen: $\bar{x}$ ist ein "ertwartungstreuer" Schätzparameter für $\mu$; nicht weil er in der Empirie zwangsläufig identisch mit $\mu$ wäre, sondern weil er mit zunehmender Stichprobengröße immer stärker zu $\mu$ tendiert.
+Wir können auch sagen: $\bar{x}$ ist ein "erwartungstreuer" Schätzparameter für $\mu$; nicht weil er in der Empirie zwangsläufig identisch mit $\mu$ wäre, sondern weil er mit zunehmender Stichprobengröße immer stärker zu $\mu$ tendiert.
 
 #### Standardfehler
 
@@ -127,9 +127,7 @@ ggplot(data.frame(x=c(0,0.75)), aes(x)) +
   scale_colour_manual(NULL, values = c("blue"=goethe_blue, "green"=green, "orange"=orange, "purple"=purple), breaks=c("blue", "green", "orange", "purple"), labels = expression(x, bar(x)~für~n==3, bar(x)~für~n==10, bar(x)~für~n==30)) +
   scale_x_continuous(expand = c(0,0), name=NULL) +
   scale_y_continuous(expand = c(0,0), limits=c(0, 11), name=NULL) +
-  theme(legend.position = c(0.7, 0.8),
-        legend.text.align = 0)
-  
+  theme_goethe()
 ```
 
 In der Praxis gilt die Faustregel: Ab einer Stichprobengröße von $n=30$ können wir statistische Verfahren anwenden, die von einer theoretischen Normalverteilung von $\bar{x}$ ausgehen -- und zwar *unabhängig* von der Verteilung der Grundgesamtheit.
@@ -213,8 +211,7 @@ ggplot(data.frame(x=c(25,80)), aes(x))+
   scale_y_continuous(expand = c(0,0), limits = c(0,dnorm(mu,mu,sigma/sqrt(6))*1.05), breaks=NULL, name=NULL) +
   scale_x_continuous(breaks=c(50,55), expand=c(0,0), labels = expression(mu, bar(x))) +
   xlab(NULL) +
-  theme(legend.position = c(0.7, 0.8),
-        legend.text.align = 0)
+  theme_goethe()
 ```
 
 Dabei heißt der Bereich Konfidenzintervall (engl. *confidence interval*), und seine Breite wird mit $\textrm{KIB}$ abgekürzt. Die Wahrscheinlichkeit, dass wir mit unserer Schätzung *außerhalb* des Konfidenzintervalls liegen wird mit $\alpha$ gekennzeichnet. Ein 95%-Konfidenzintervall hat also ein $\alpha$ von 0,05 (s. \@ref(fig:konf)).
@@ -229,8 +226,8 @@ ggplot(data.frame(x=c(-3,3)), aes(x)) +
   annotate(geom="text", x=0, y=dnorm(1), label="KIB\n")+
   geom_segment(aes(x=-1, xend=1, y=dnorm(-1), yend=dnorm(1)), arrow=arrow(ends="both", type="closed", angle=10), color=goethe_blue) +
   scale_x_continuous(breaks=c(-1,0,1), labels = c("Untergrenze", bquote(bar(x)), "Obergrenze"), name=NULL, expand = c(0,0)) +
-  scale_y_continuous(breaks = NULL, name=NULL, expand=c(0,0), limits = c(0,dnorm(0)*1.05))
-
+  scale_y_continuous(breaks = NULL, name=NULL, expand=c(0,0), limits = c(0,dnorm(0)*1.05)) +
+  theme_goethe()
 ```
 
 

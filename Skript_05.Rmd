@@ -53,8 +53,7 @@ ggplot(data.frame(x=c(mu-2*sigma, mu+2*sigma)), aes(x)) +
   scale_x_continuous(expand = c(0,0), name=NULL, breaks=c(80,90,110,barx), labels=c(80,90,110,expression(bar(x)==103))) +
   scale_y_continuous(expand = c(0,0), limits=c(0,stich(mu)*1.05), name=NULL) +
   scale_color_manual(NULL, values = c("blue"=goethe_blue, "red"=emo_red), labels=expression(x[0], bar(x)[0]~für~n==5 )) +
-  theme(legend.position = c(0.7, 0.8),
-        legend.text.align = 0)
+  theme_goethe()
 ```
 
 
@@ -165,7 +164,8 @@ ggplot(data.frame(x=c(-3, 3)), aes(x)) +
   stat_function(n=250,xlim=c(qnorm(0.975),3),fun=dnorm, geom="area", fill=light_blue) +
   stat_function(n=250,fun=dnorm, color=goethe_blue) +
   scale_x_continuous("z", breaks=c(qnorm(0.025), 0, qnorm(0.975)), labels=c(paste0("~",round(qnorm(0.025),2)), 0, paste0("~",round(qnorm(0.975),2))), expand = c(0,0)) +
-  scale_y_continuous(NULL, expand = c(0,0), limits=c(0,dnorm(0)*1.05))
+  scale_y_continuous(NULL, expand = c(0,0), limits=c(0,dnorm(0)*1.05)) +
+  theme_goethe()
 ```
 Bei den gerichteten Alternativhypothesen ist der Ablehnungsbereich jeweils nur auf einer Seite (s. Abbildungen \@ref(fig:ablger1) und \@ref(fig:ablger2)). Die kritischen Werte ergeben sich aus:
 
@@ -183,7 +183,8 @@ ggplot(data.frame(x=c(-3, 3)), aes(x)) +
   stat_function(n=250,xlim=c(-3, qnorm(0.05)),fun=dnorm, geom="area", fill=light_blue) +
   stat_function(n=250,fun=dnorm, color=goethe_blue) +
   scale_x_continuous("z", breaks=c(0, qnorm(0.05)), labels=c(0, "~-1,65"), expand = c(0,0)) +
-  scale_y_continuous(NULL, expand = c(0,0), limits=c(0,dnorm(0)*1.05))
+  scale_y_continuous(NULL, expand = c(0,0), limits=c(0,dnorm(0)*1.05)) +
+  theme_goethe()
 ```
 
 ```{r ablger2, fig.cap="Kritischer Wert für $z$ bei gerichteter Alternativhypothese nach oben und $\\alpha=0{,}05$"}
@@ -191,7 +192,8 @@ ggplot(data.frame(x=c(-3, 3)), aes(x)) +
   stat_function(n=250,xlim=c(qnorm(0.95),3),fun=dnorm, geom="area", fill=light_blue) +
   stat_function(n=250,fun=dnorm, color=goethe_blue) +
   scale_x_continuous("z", breaks=c(0, qnorm(0.95)), labels=c(0, "~1,65"), expand = c(0,0)) +
-  scale_y_continuous(NULL, expand = c(0,0), limits=c(0,dnorm(0)*1.05))
+  scale_y_continuous(NULL, expand = c(0,0), limits=c(0,dnorm(0)*1.05)) +
+  theme_goethe()
 ```
 
 
@@ -280,8 +282,7 @@ ggplot(data.frame(x=c(-4, 4)), aes(x)) +
   scale_x_continuous(NULL, breaks=0, expand = c(0,0)) +
   scale_color_manual(NULL,values = c("red"=emo_red, "orange"=orange, "green"=green, "blue"=goethe_blue), breaks=c("red", "orange", "green", "blue"), labels=expression(t[3],t[6],t[12],z))+  
   scale_y_continuous(NULL, expand = c(0,0), limits=c(0,dnorm(0)*1.05))+
-  theme(legend.position = c(0.7, 0.8),
-        legend.text.align = 0)
+  theme_goethe()
 ```
 
 
@@ -418,8 +419,7 @@ ggplot(data.frame(x=c(-4, 4)), aes(x)) +
   scale_x_continuous(NULL, breaks=c(0,qt(0.99,11)), labels=expression(0,t["11;99%"]==2.718), expand = c(0,0)) +
   scale_color_manual(NULL,values = c("blue"=goethe_blue), breaks=c("blue"), labels=expression(t[11]))+  
   scale_y_continuous(NULL, expand = c(0,0), limits=c(0,dnorm(0)*1.05))+
-  theme(legend.position = c(0.7, 0.8),
-        legend.text.align = 0)
+  theme_goethe()
 ```
 
 ### Prüfgröße berechnen
