@@ -24,7 +24,8 @@ Um die Variablen im Sinne unserer Fragestellung zu vereinfachen, wandeln wir bei
 
 ```{r roh}
 rad <- read.table("img/9_rad_dt", as.is = T)
-kable(rbind(head(rad), data.frame(x=c("..."="..."), y=c("..."="...")), tail(rad)), "html", row.names=T, longtable=F, linesep="", caption = "\\label{tab:roh}Ungeordnete Rohdaten der Erhebung", col.names = c("Studienfach", "Transportmittel"))
+kable(rbind(head(rad), data.frame(x=c("..."="..."), y=c("..."="...")), tail(rad)), "html", row.names=T, longtable=F, linesep="", caption = "\\label{tab:roh}Ungeordnete Rohdaten der Erhebung", col.names = c("Studienfach", "Transportmittel")) %>%
+  scroll_box(box_css = "overflow-y: auto;")
 ```
 
 ## Kreuztabelle
@@ -154,7 +155,8 @@ crosstable <- function(x, format, sums=T, expected=F, chisq=F, varnames=T, row.o
 }
 
 radxt <- crosstable(rad, format="html", varnames = F, row.order = c("Geistes-/Sozialwissenschaft", "anderes Studienfach"), col.order = c("Fahrrad", "anderes Transportmittel"), caption = "Kreuztabelle der Beispieldaten")
-radxt$df
+radxt$df %>%
+  scroll_box(box_css = "overflow-y: auto;")
 ```
 
 
@@ -184,7 +186,8 @@ row.names(t) <- c("Zeile 1", "Zeile 2", "...", "Zeile $k$", "")
 kable(t, "html", escape=F, longtable=F, col.names = c("Spalte 1","Spalte 2", "...", "Spalte $\\ell$", ""), caption = "Allgemeine Bezeichnungen in der Kreuztabelle") %>%
   row_spec(4, hline_after = T) %>%
   column_spec(1, border_right = T) %>%
-  column_spec(5, border_right = T)
+  column_spec(5, border_right = T) %>%
+  scroll_box(box_css = "overflow-y: auto;")
 ```
 
 ## Berechnung der erwarteten Werte
@@ -216,7 +219,8 @@ Diese Rechnung lässt sich für alle Tabellenfelder durchführen. Die Kreuztabel
 
 ```{r expected}
 radxt <- crosstable(rad, format="html", varnames = F, expected = T, row.order = c("Geistes-/Sozialwissenschaft", "anderes Studienfach"), col.order = c("Fahrrad", "anderes Transportmittel"), caption = "Kreuztabelle der Beispieldaten")
-radxt$df
+radxt$df %>%
+  scroll_box(box_css = "overflow-y: auto;")
 ```
 
 ## Berechnung des Kontingenzkoeffizenten $\chi^2$
@@ -249,7 +253,8 @@ berechnet und sind in \@ref(tab:radchisq) in blau dargestellt.
 
 ```{r radchisq}
 radxt <- crosstable(rad, format="html", varnames = F, expected = T, chisq = T, row.order = c("Geistes-/Sozialwissenschaft", "anderes Studienfach"), col.order = c("Fahrrad", "anderes Transportmittel"), caption = "Kreuztabelle der Beispieldaten mit Teilwerten für $\\chi^2$")
-radxt$df
+radxt$df %>%
+  scroll_box(box_css = "overflow-y: auto;")
 ```
 
 Zum Beispiel ergibt sich der Teilwert für $\chi^2$ für die Kombination "anderes Studienfach" -- "Fahrrad" durch Einsetzen in \@ref(eq:contrib):

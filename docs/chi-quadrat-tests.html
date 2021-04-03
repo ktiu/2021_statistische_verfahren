@@ -436,6 +436,7 @@
 <div id="chi2-unabhängigkeitstest" class="section level2" number="10.3">
 <h2><span class="header-section-number">10.3</span> <span class="math inline">\(\chi^2\)</span>-Unabhängigkeitstest</h2>
 <p>Grundlage sind bivariate Häufigkeiten, die in einer Kreuztabelle dargestellt werden können (s. <a href="chi-quadrat-tests.html#tab:zivi1">10.1</a>). Wie Kreuztabellen erstellt werden, haben wir bereits in <a href="kreuztabellen.html#kreuztabelle">Sitzung 9</a> behandelt.</p>
+<div style="overflow-y: auto;">
 <table>
 <caption>
 <span id="tab:zivi1">Tabelle 10.1: </span>Kreuztabelle der Beispieldaten
@@ -498,6 +499,7 @@ Stadt
 </tr>
 </tbody>
 </table>
+</div>
 <p>Unser Beispieldatensatz beschäftigt sich mit Kriegsdienstverweigerern. Zwischen 1956 und 2011 galt in der BRD die Wehrpflicht, d.h. alle vom Staat als <q>männlich</q> erfassten und als <q>tauglich</q> gemusterte jungen Menschen mussten Dienst an der Waffe leisten – es sei denn, sie verweigerten den Kriegsdienst und leisteten stattdessen Zivildienst (z.B. in sozialen Einrichtungen).</p>
 <p>Zusätzlich zur Frage der Kriegsdienstverweigerung sei in einer Zufallsstichprobe von als tauglich gemusterten erhoben, ob der Wohnort eine Gemeinde mit über oder unter 20000 Einwohner*innen (<q>Stadt</q> oder <q>Land</q>) ist.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> Die Ergebnisse sind in <a href="chi-quadrat-tests.html#tab:zivi1">10.1</a> zusammengefasst.</p>
 <p>Wir interessieren uns für den statistischen Zusammenhang dieser beiden Variablen, und zwar möchten wir die Hypothese prüfen, dass Menschen aus der Stadt eher den Kriegsdienst verweigerten als Menschen vom Land. Der Test wird entlang der bekannten sechs Schritte ausgeführt.</p>
@@ -571,6 +573,7 @@ H_1 &amp;: \textrm{Es gibt einen positiven Zusammenhang zwischen Wohnort in der 
 \tag{9.2}
 \]</span></p>
 <p>errechnet. Dabei ist die Ermittlung der Erwartungswerte <span class="math inline">\(m_{ij}\)</span> ein notwendiger Schritt, und auch die Teilwerte für <span class="math inline">\(\chi^2\)</span> können wieder direkt in die Kreuztabelle eingetragen werden.</p>
+<div style="overflow-y: auto;">
 <table>
 <caption>
 <span id="tab:zivi2">Tabelle 10.2: </span>Kreuztabelle mit Erwartungswerten und Teilwerten für <span class="math inline">\(\chi^2\)</span>
@@ -633,6 +636,7 @@ Stadt
 </tr>
 </tbody>
 </table>
+</div>
 <p>Für unser Beispiel erfolgt die Berechnung anhand <a href="chi-quadrat-tests.html#tab:zivi2">10.2</a>.</p>
 <p>Zunächst muss dabei geprüft werden, ob die Richtung unserer Alternativhypothese stimmt. Die beobachtete Häufigkeit der Zivildienstleistenden in der Stadt <span class="math inline">\(n_{22}=23\)</span> ist größer als der Erwartungswert <span class="math inline">\(m_{22}=18,1\)</span>. Wenn eine Signifikanz nachgewiesen werden kann, dann also für den <em>positiven</em> Zusammenhang zwischen Wohnort in der Stadt und Kriegsdienstverweigerung (wie in unserer Alternativhypothese spezifiziert).</p>
 <p>Für <span class="math inline">\(\chi^2\)</span> ergibt sich im Beispiel:</p>
@@ -755,6 +759,7 @@ H_1 &amp;: \textrm{Starke Verspätungen sind an manchen Wertkagen wahrscheinlich
 <p>Die Prüfgröße <span class="math inline">\(\chi^2\)</span> berechnet sich analog zu vorherigen Beispielen. Einzige Besonderheit: Die Erwartungswerte werden direkt anhand der zu erwartenden (im Regelfall: gleichmäßigen) Verteilung bestimmt.</p>
 <p>Im Beispiel ergibt sich in den fünf Kategorien jeweils ein Erwartungswert von</p>
 <p><span class="math display">\[\frac{n}{k}=\frac{2106}{5}=421,2\]</span></p>
+<div style="overflow-y: auto;">
 <table>
 <caption>
 <span id="tab:xtlate">Tabelle 10.4: </span>Tabelle für den <span class="math inline">\(\chi^2\)</span>-Anpassungstest
@@ -841,6 +846,7 @@ Freitag
 </tr>
 </tbody>
 </table>
+</div>
 <p>Dann nehmen wir wieder eine Tebelle zu Hilfe um die Prüfgröße <span class="math inline">\(\chi^2\)</span> zu berechnen (s. <a href="chi-quadrat-tests.html#tab:xtlate">10.4</a>). Wie gehabt werden einfach die Teilwerte zusammengezählt:</p>
 <p><span class="math display">\[\begin{aligned}
 \chi^2 &amp;= \sum_{i=1}^{k}\frac{(n_{i}-m_{i})^{2}}{m_{i}}\\[4pt]

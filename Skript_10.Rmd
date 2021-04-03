@@ -139,7 +139,8 @@ crosstable <- function(x, format, sums=T, expected=F, chisq=F, varnames=T, row.o
 
 zivi <- read.table("img/10_zivi_dt")
 zivixt <- crosstable(zivi, format="html", varnames = F, caption = "Kreuztabelle der Beispieldaten")
-zivixt$df
+zivixt$df %>%
+  scroll_box(box_css = "overflow-y: auto;")
 ```
 
 Unser Beispieldatensatz beschäftigt sich mit Kriegsdienstverweigerern. Zwischen 1956 und 2011 galt in der BRD die Wehrpflicht, d.h. alle vom Staat als "männlich" erfassten und als "tauglich" gemusterte jungen Menschen mussten Dienst an der Waffe leisten -- es sei denn, sie verweigerten den Kriegsdienst und leisteten stattdessen Zivildienst (z.B. in sozialen Einrichtungen).
@@ -236,7 +237,8 @@ errechnet. Dabei ist die Ermittlung der Erwartungswerte $m_{ij}$ ein notwendiger
 
 ```{r zivi2, fig.pos='H'}
 zivixt <- crosstable(zivi, format="html", varnames = F, expected = T, chisq = T, caption = "Kreuztabelle mit Erwartungswerten und Teilwerten für $\\chi^2$")
-zivixt$df
+zivixt$df %>%
+  scroll_box(box_css = "overflow-y: auto;")
 ```
 
 Für unser Beispiel erfolgt die Berechnung anhand \@ref(tab:zivi2).
@@ -347,7 +349,8 @@ read.table(sep="|", header=T, text = "
 ") %>%
   kable("html", escape=F, longtable=F, col.names=c("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", " "), caption = "Tabelle für den $\\chi^2$-Anpassungstest") %>%
   column_spec(5, border_right = T) %>%
-  row_spec(3, color = "#00618F")
+  row_spec(3, color = "#00618F") %>%
+  scroll_box(box_css = "overflow-y: auto;")
 ```
 
 Dann nehmen wir wieder eine Tebelle zu Hilfe um die Prüfgröße $\chi^2$ zu berechnen (s. \@ref(tab:xtlate)). Wie gehabt werden einfach die Teilwerte zusammengezählt:

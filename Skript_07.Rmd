@@ -26,7 +26,8 @@ Wir fragen uns, ob der jährliche Ertrag in einem bestimmten Anbaugebiet für Kl
 reis <- read.table("img/7_reis_dt")
 reis <- cbind(data.frame(i=(1:10)), reis)
 kable(reis, "html", caption = "\\label{tab:reis}Niederschlag und Ertrag im Reisanbau", linesep=c(""), longtable=F, col.names = c("$i$", "", "$x_i$", "$y_i$"), escape = F, row.names =F) %>%
-  add_header_above(c("Laufende Nr.", "Jahr", "Niederschlag (mm)", "Ertrag (kg/Rai)"))
+  add_header_above(c("Laufende Nr.", "Jahr", "Niederschlag (mm)", "Ertrag (kg/Rai)")) %>%
+  scroll_box(box_css = "overflow-y: auto;")
 ```
 
 In einem Streudiagramm können diese Werte veranschaulicht werden. Dabei ist es üblich, die unabhängige Variable auf der $x$-Achse und die abhängige Variable auf der $y$-Achse einzutragen. Im Beispiel liegt nahe, dass der Ertrag vom Regen abhängt, und nicht etwa umgekehrt.
@@ -72,7 +73,8 @@ sums[1] <- "Summe:"
 sums[4:5] <- ""
 reis <- rbind(reis, sums)
 kable(reis, "html", align="r", caption = "\\label{tab:ricemath}Hilfstabelle für die Berechnung der Kovarianz", linesep=c(""), longtable=F, col.names = c("$i$", "$x_i$", "$y_i$", "$(x_i-\\bar{x})$", "$(y_i-\\bar{y})$", "$(x_i-\\bar{x})\\cdot(y_i-\\bar{y})$"), escape = F, row.names =F) %>% 
-  row_spec(11, bold = T) %>% row_spec(10, hline_after = T)
+  row_spec(11, bold = T) %>% row_spec(10, hline_after = T) %>%
+  scroll_box(box_css = "overflow-y: auto;")
 ```
 
 Als Zwischenschritt müssen die Mittelwerte $\bar{x}$ und $\bar{y}$ berechnet werden, wofür die Summen der ersten beiden Spalten herangezogen werden können:
@@ -191,7 +193,8 @@ sums[1] <- "Summe:"
 sums[4:5] <- ""
 reis <- rbind(reis, sums)
 kable(reis, "html", align="r", caption = "\\label{tab:mathcor}Hilfstabelle für die Berechnung des Korrelationskoeffizienten", linesep=c(""), longtable=F, col.names = c("$i$", "$x_i$", "$y_i$", "$(x_i-\\bar{x})$", "$(y_i-\\bar{y})$", "$(x_i-\\bar{x})^2$", "$(y_i-\\bar{y})^2$"), escape = F, row.names =F) %>% 
-  row_spec(11, bold = T) %>% row_spec(10, hline_after = T)
+  row_spec(11, bold = T) %>% row_spec(10, hline_after = T) %>%
+  scroll_box(box_css = "overflow-y: auto;")
 ```
 
 Die Standardabweichungen ergeben sich nun wie gewohnt aus:

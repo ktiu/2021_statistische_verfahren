@@ -159,7 +159,8 @@ c("Nominalskala", "Postleitzahl", "Gleichheit, Verschiedenheit", "Modus",
   "Verhältnisskala", "Körpergröße", "$+$ Gleichheit von Verhältnissen", "$+$ geometrisches Mittel") %>%
   matrix(nrow=4, byrow=T) %>%
   as_tibble %>%
-  kable("html", col.names= c("Skalenart", "Beispiel", "Mögliche Aussagen", "gültige Lagemaße"), caption="Die vier wichtigsten Skalenniveaus.")
+  kable("html", col.names= c("Skalenart", "Beispiel", "Mögliche Aussagen", "gültige Lagemaße"), caption="Die vier wichtigsten Skalenniveaus.") %>%
+  scroll_box(box_css = "overflow-y: auto;")
 ```
 
 #### Nominalskala
@@ -240,7 +241,8 @@ df$kumrel <- cumsum(df$rel)
 df$rel <- paste0(round(df$rel*100, 1), "\\%")
 df$kumrel <- paste0(round(df$kumrel*100, 1), "\\%")
 colnames(df) <- c("Buchstabe", "Absolute Häufigkeit $f$", "$f_{kum}$", "Relative Häufigkeit", "$\\%_{kum}$")
-kable(df, "html", escape=F, caption = "Tabelle mit kumulierten Häufigkeiten", linesep = "" ,align = "lrrrr")
+kable(df, "html", escape=F, caption = "Tabelle mit kumulierten Häufigkeiten", linesep = "" ,align = "lrrrr") %>%
+  scroll_box(box_css = "overflow-y: auto;")
 ```
 
 ### Stabdiagramme
@@ -283,8 +285,8 @@ df$rel <- paste0(round(df$rel*100, 1), "\\%")
 df$kumrel <- paste0(round(df$kumrel*100, 1), "\\%")
 df$Var1 <- gsub("\\((\\d+),(\\d+)\\]", "über \\1 bis \\2 Zoll", df$Var1)
 colnames(df) <- c("Durchmesser", "Absolute Häufigkeit $f$", "$f_{kum}$", "Relative Häufigkeit", "$\\%_{kum}$")
-knitr::kable(df, "html", escape=F, linesep="", caption = "Häufigkeitstabelle mit klassierten Werten",align = "lrrrr")
-
+knitr::kable(df, "html", escape=F, linesep="", caption = "Häufigkeitstabelle mit klassierten Werten",align = "lrrrr") %>%
+  scroll_box(box_css = "overflow-y: auto;")
 ```
 
 

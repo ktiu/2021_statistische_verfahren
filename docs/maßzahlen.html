@@ -431,6 +431,7 @@
 <h2><span class="header-section-number">2.2</span> Einleitende Bemerkungen</h2>
 <p>Die im Folgenden besprochenen Maßzahlen (oder Kennzahlen, Parameter) verdichten (oder aggregieren) Häufigkeitsverteilungen einer Variable. Durch diese Parameter kann das Charakteristische einer Verteilung schnell erfasst und vergleichbar gemacht werden. Die Verdichtung auf Maßzahlen geht jedoch immer auch mit Informationsverlust einher.</p>
 <p>Die Möglichkeit der Angabe statistischer Maßzahlen ist abhängig vom Skalenniveau der Daten, wie der Überblick in Tabelle <a href="maßzahlen.html#tab:mass">2.1</a> zeigt.</p>
+<div style="overflow-y: auto;">
 <table>
 <caption>
 <span id="tab:mass">Tabelle 2.1: </span>Die wichtigsten Maßzahlen
@@ -552,9 +553,11 @@ metrisch
 </tr>
 </tbody>
 </table>
+</div>
 <div id="beispielverteilung" class="section level3" number="2.2.1">
 <h3><span class="header-section-number">2.2.1</span> Beispielverteilung</h3>
 <p>Alle Berechnungen von Maßzahlen werden am folgenden Beispiel illustriert: Für die 14 Gemeinden im Landkreis Rothenberge wurde die jeweilige Anzahl an Gaststätten erhoben. Die Zählung ergab die Wertereihe in Tabelle <a href="maßzahlen.html#tab:werte">2.2</a>.</p>
+<div style="overflow-y: auto;">
 <table>
 <caption>
 <span id="tab:werte">Tabelle 2.2: </span>Beispielverteilung
@@ -654,6 +657,7 @@ metrisch
 </table>
 </div>
 </div>
+</div>
 <div id="lagemaße" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> Lagemaße</h2>
 <p>Lagemaße (auch Maße der Zentraltendenz, Lokalisationsparameter, Mittelwerte, engl. <em>measures of central tendency</em>) bezeichnen alle statistischen Maßzahlen, die eine Verteilung repräsentieren, indem sie die Lage der mittleren oder häufigsten Variablenwerte angeben.</p>
@@ -664,6 +668,7 @@ metrisch
 <p>Da dies eine Größer-kleiner-Relation der Werte voraussetzt, kann der Median nur für ordinale und metrische Skalenniveaus angegeben werden.</p>
 <p>Im Folgenden wird die (einfachere) Bestimmung des Medians nach <span class="citation"><a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">Bortz und Schuster</a> (<a href="chi-quadrat-tests.html#ref-bortz" role="doc-biblioref">2010</a>)</span> verwendet. <span class="citation"><a href="chi-quadrat-tests.html#ref-benninghaus" role="doc-biblioref">Benninghaus</a> (<a href="chi-quadrat-tests.html#ref-benninghaus" role="doc-biblioref">2007</a>)</span> beschreibt ein anderes Verfahren, welches zu anderen Ergebnissen kommen kann.</p>
 <p>Um den Median zu bestimmen, wird zunächst eine geordnete Liste angefertigt, indem die Werte aufsteigend sortiert werden. Diese sortierten Werte werden mit <span class="math inline">\(x_{(1)}, x_{(2)}, x_{(3)}, ..., x_{(n)}\)</span> bezeichnet (also mit Klammern). Für unsere Beispielverteilung ergibt sich Tabelle <a href="maßzahlen.html#tab:sort">2.3</a>.</p>
+<div style="overflow-y: auto;">
 <table>
 <caption>
 <span id="tab:sort">Tabelle 2.3: </span>Sortierte Wertereihe
@@ -761,6 +766,7 @@ metrisch
 </tr>
 </tbody>
 </table>
+</div>
 <p>Bei einer ungeraden Stichprobengröße <span class="math inline">\(n\)</span> teilt der <span class="math inline">\((\frac{n+1}{2})\)</span>-te Wert (also der Wert genau in der Mitte) die Stichprobe in zwei Hälften, weshalb gilt:</p>
 <p><span class="math display" id="eq:med1">\[
   \mathit{Md} = x_{(\frac{n+1}{2})} \quad \text{falls }n\text{ ungerade.}
@@ -1045,6 +1051,7 @@ Häufigkeit <span class="math inline">\(f_i\)</span>
 <p>Die Quadrierung der Differenz hat dabei einen doppelten Effekt: Zum einen bekommen auch negative Differenzen ein positives Vorzeichen, so dass sich positive und negative Differenzen nicht neutralisieren. Zum anderen werden hierdurch besonders große Abweichungen zum arithmetischen Mittel stärker gewichtet als dies ohne Quadrierung der Fall wäre.</p>
 <p>Zudem fällt auf, dass im Gegensatz zur Formel für das arithmetische Mittel im Nenner <span class="math inline">\(n-1\)</span> steht und nicht etwa <span class="math inline">\(n\)</span>. Dies hat mit so genannten Freiheitsgraden zu tun, die wir allerdings erst in <a href="grundlagen-der-teststatistik.html#freiheitsgrade">Sitzung 5</a> genauer kennenlernen.</p>
 <p>Für unsere Beispielstichprobe wird die Berechnung für alle einzelnen <span class="math inline">\((x_i-\bar{x})^2\)</span> schnell aufwendig und unübersichtich. Deshalb berechnen wir ihre Summe hier mit Hilfe einer Häufigkeitstabelle (s. Tabelle <a href="maßzahlen.html#tab:freq">2.5</a>). Dabei werden alle distinkten Werte einzeln transformiert und in der letzten Spalte mit ihrer Häufigkeit multipliziert.</p>
+<div style="overflow-y: auto;">
 <table>
 <caption>
 <span id="tab:freq">Tabelle 2.5: </span>Häufigkeitstabelle zur Berechnung der Varianz
@@ -1217,6 +1224,7 @@ Produkt mit Häufigkeit
 </tr>
 </tbody>
 </table>
+</div>
 <p>Schließlich werden die Werte in Formel <a href="maßzahlen.html#eq:var">(2.6)</a> eingesetzt:</p>
 <p><span class="math display">\[\begin{aligned}
     s^2&amp;=\frac{\sum\limits_{i=1}^{14}(x_{i}-\bar{x})^2}{14-1} \\[4pt]

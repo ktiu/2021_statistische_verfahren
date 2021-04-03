@@ -29,7 +29,8 @@ td <- c(
 )
 table <- data.frame(t(matrix(td, nrow=length(th))))
 colnames(table) <- th
-knitr::kable(table, "html", escape=F, caption = "Die wichtigsten Maßzahlen")
+knitr::kable(table, "html", escape=F, caption = "Die wichtigsten Maßzahlen") %>%
+  scroll_box(box_css = "overflow-y: auto;")
 ```
 
 ### Beispielverteilung
@@ -40,7 +41,8 @@ Alle Berechnungen von Maßzahlen werden am folgenden Beispiel illustriert: Für 
 xs <- c(4, 1, 4, 1, 5, 5, 0, 1, 8, 5, 1, 25, 3, 3)
 
 matrix(xs, nrow = 1, dimnames = list(c(), sprintf("$x_{%s}$", 1:14)))%>% as_tibble %>%
-  kable("html", escape=F, caption="Beispielverteilung")
+  kable("html", escape=F, caption="Beispielverteilung") %>%
+  scroll_box(box_css = "overflow-y: auto;")
 ```
 
 
@@ -62,7 +64,8 @@ Um den Median zu bestimmen, wird zunächst eine geordnete Liste angefertigt, ind
 
 ```{r sort}
 matrix(sort(xs), nrow = 1, dimnames = list(c(), sprintf("$x_{(%s)}$", 1:14)))%>% as_tibble %>%
-  kable("html", escape=F, caption="Sortierte Wertereihe")
+  kable("html", escape=F, caption="Sortierte Wertereihe") %>%
+  scroll_box(box_css = "overflow-y: auto;")
 ```
 
 Bei einer ungeraden Stichprobengröße $n$ teilt der $(\frac{n+1}{2})$-te Wert (also der Wert genau in der Mitte) die Stichprobe in zwei Hälften, weshalb gilt:
@@ -255,7 +258,8 @@ df$`Produkt mit Häufigkeit` <- df$Freq*df$`Quadrat der Abweichung`
 mem<- df$`Produkt mit Häufigkeit`
 colnames(df)<-c("$x_i$", "$f_i$", "$(x_i- \\bar{x})$", "$(x_i- \\bar{x})^2$", "$f_i\\cdot(x_i -\\bar{x})^2$")
 kable(df, "html", escape = F, linesep=c(""), caption="Häufigkeitstabelle zur Berechnung der Varianz") %>% 
-  add_header_above(c("Wert", "Häufigkeit", "Abweichung vom Mittel", "Quadrat der Abweichung", "Produkt mit Häufigkeit"))
+  add_header_above(c("Wert", "Häufigkeit", "Abweichung vom Mittel", "Quadrat der Abweichung", "Produkt mit Häufigkeit")) %>%
+  scroll_box(box_css = "overflow-y: auto;")
 ```
 
 Schließlich werden die Werte in Formel \@ref(eq:var) eingesetzt:

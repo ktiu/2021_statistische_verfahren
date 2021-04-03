@@ -63,7 +63,8 @@ df$b <- paste0("$z_{", row(df), "}=\\frac{", df$xs ,"-999,37}{8,56}$\\medskip")
 df$z <- format(round((df$xs-999.37)/8.56,2), nsmall=2)
 df$xs <- format(xs, nsmall=1)
 colnames(df) <- c("$x_i$", "Berechnung", "$z_i$")
-kable(df, "html", escape=F, align="rcr", caption="$z$-Transformation")
+kable(df, "html", escape=F, align="rcr", caption="$z$-Transformation") %>%
+  scroll_box(box_css = "overflow-y: auto;")
 ```
 
 Eine so $z$-transformierte Verteilung hat *immer* automatisch das arithmetische Mittel $\bar{z}=0$ und die Standardabweichung $s_z=1$. Außerdem haben $z$-Werte keine Maßeinheit. So kann jede Verteilung "standardisiert" und systematisch vergleichbar gemacht werden.
@@ -120,7 +121,8 @@ Anzahl Elemente       | $n$        | $N$
 Arithmetisches Mittel | $\\bar{x}$  | $\\mu$
 Varianz               | $s^2$      | $\\sigma^2$
 Standardabweichung    | $s$        | $\\sigma$
-") %>% kable("html", escape=F, caption="Bezeichnung von Parametern in Stichprobe und Grundgesamtheit")
+") %>% kable("html", escape=F, caption="Bezeichnung von Parametern in Stichprobe und Grundgesamtheit") %>%
+  scroll_box(box_css = "overflow-y: auto;")
 ```
 
 Jede Normalverteilung lässt sich anhand von zwei Parametern beschreiben: ihr arithmetisches Mittel und ihre Standardabweichung. Normalverteilte Grundgesamtheiten werden so notiert:

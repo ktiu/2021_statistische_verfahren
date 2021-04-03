@@ -194,7 +194,8 @@ ggplot(duty,aes(x,y)) +
 duty$pred <- 3.35+0.114*duty$x
 duty$res <- duty$y-duty$pred
 kable(duty, "html", col.names = c("$x_i$", "$y_i$", "$\\hat{y}_i\\approx3,35+0,114\\cdot x_i$", "$e_i=y_i-\\hat{y}_i$"), escape = F, longtable=F, linesep=c(""), caption = "Residuen der Beispielwerte") %>%
-  add_header_above(c("Aufenthaltszeit (min)", "Ausgaben (€)", "Erwartete Ausgaben (€)", "Residuen (€)"))
+  add_header_above(c("Aufenthaltszeit (min)", "Ausgaben (€)", "Erwartete Ausgaben (€)", "Residuen (€)")) %>%
+  scroll_box(box_css = "overflow-y: auto;")
 ```
 
 Residuen spielen in vielen statistischen Verfahren eine Rolle, z.B. in der Residuenanalyse. Diese Verfahren werden im Rahmen dieser Veranstaltung jedoch nicht behandelt.

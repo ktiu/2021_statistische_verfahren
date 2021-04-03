@@ -436,6 +436,7 @@
 <p>Wir fragen uns, ob es einen Zusammenhang zwischen dem Studienfach von Studierenden an einer Universität und ihrem präferierten Transportmittel für den Pendelweg zum Campus gibt. Insbesondere interessiert uns, ob ein Zusammenhang zwischen dem Studium der Geistes- und Sozialwissenschaften und der Fahrradnutzung besteht.</p>
 <p>Beide Variablen sind nominalskaliert: die erhobenen Werte können in Kategorien eingeordnet werden (Studienfach: Geographie, Politikwissenschaft, BWL, …; Transportmittel: Bus, Fahrrad, zu Fuß, …).</p>
 <p>Um die Variablen im Sinne unserer Fragestellung zu vereinfachen, wandeln wir beide Variablen in <em>dichotome</em> Variablen um (die dann nur zwei Werte annehmen können). Wir beschränken uns auf die Erhebung von <q>Fahrrad</q> oder <q>anderes Transportmittel</q> einerseits und <q>Geistes-/Sozialwissenschaft</q> oder <q>anderes Studienfach</q> andererseits. Die (verkürzte) Tabelle der Rohdaten einer Zufallsstichprobe der Größe <span class="math inline">\(n=90\)</span> könnte dann so aussehen wie <a href="kreuztabellen.html#tab:roh">9.1</a>.</p>
+<div style="overflow-y: auto;">
 <table>
 <caption>
 <span id="tab:roh">Tabelle 9.1: </span>Ungeordnete Rohdaten der Erhebung
@@ -600,6 +601,7 @@ anderes Transportmittel
 </table>
 </div>
 </div>
+</div>
 <div id="kreuztabelle" class="section level2" number="9.3">
 <h2><span class="header-section-number">9.3</span> Kreuztabelle</h2>
 <p>Die Kreuztabelle (auch Kontingenztabelle, Kontingenztafel, engl. <em>contingency table</em>) ist eine übersichtliche Zusammenfassung der Rohdaten. Sie spannt die beiden Variablen in Spalten- und Zeilenrichtung auf, so dass in jeder Zelle die Häufigkeit einer bestimmten Wertekombination steht.</p>
@@ -607,6 +609,7 @@ anderes Transportmittel
 <div id="beispiel-30" class="section level3" number="9.3.1">
 <h3><span class="header-section-number">9.3.1</span> Beispiel</h3>
 <p>Die Kreuztabelle für unser Beispiel ist in <a href="kreuztabellen.html#tab:crossrad">9.2</a> dargestellt. Die Spaltenüberschriften sind die beiden Werte der dichotomen Variable <q>Transportmittel</q>, und die Zeilennamen sind die beiden Werte für <q>Studienfach</q>. In den Zellen stehen die Häufigkeiten. Es lässt sich also z.B. ablesen, dass die Kombination <q>Fahrrad</q> und <q>anderes Studienfach</q> neun mal vorkommt.</p>
+<div style="overflow-y: auto;">
 <table>
 <caption>
 <span id="tab:crossrad">Tabelle 9.2: </span>Kreuztabelle der Beispieldaten
@@ -669,6 +672,7 @@ anderes Studienfach
 </tr>
 </tbody>
 </table>
+</div>
 <p>Am rechten Rand der Tabelle stehen die Summen für die Zeilen, am unteren Rand die Summen der Spalten. Ganz unten rechts steht die Gesamtsumme (Größe der Stichprobe).</p>
 </div>
 <div id="verallgemeinerung" class="section level3" number="9.3.2">
@@ -680,6 +684,7 @@ anderes Studienfach
 <li>Die Teilsummen an den Rändern werden mit Punktnotation bezeichnet. Dabei steht die Zeilensumme <span class="math inline">\(n_{i\cdot}\)</span> für die Summe <em>aller</em> Felder in Zeile <span class="math inline">\(i\)</span> (Zeilensumme) und <span class="math inline">\(n_{\cdot j}\)</span> für die Summe <em>aller</em> Felder in Spalte <span class="math inline">\(j\)</span> (Spaltensumme).</li>
 <li>Die Gesamtsumme unten rechts wird hier mit <span class="math inline">\(n\)</span> gekennzeichnet und steht wie gewohnt für die Gesamtgröße der Stichprobe.</li>
 </ul>
+<div style="overflow-y: auto;">
 <table>
 <caption>
 <span id="tab:crossalg">Tabelle 9.3: </span>Allgemeine Bezeichnungen in der Kreuztabelle
@@ -808,6 +813,7 @@ Zeile <span class="math inline">\(k\)</span>
 </table>
 </div>
 </div>
+</div>
 <div id="berechnung-der-erwarteten-werte" class="section level2" number="9.4">
 <h2><span class="header-section-number">9.4</span> Berechnung der erwarteten Werte</h2>
 <p>Bestünde <em>kein</em> Zusammenhang zwischen den Variablen, dann wäre zu erwarten, dass sich die Kombinationen gleichmäßig auf die Tabellenfelder aufteilen, und zwar ausgehend von den Teilsummen für die Zeilen und Spalten.</p>
@@ -826,6 +832,7 @@ m_{12}&amp;=\frac{n_{1\cdot}\cdot n_{\cdot 2}}{n}\\[5pt]
 &amp;\approx 30,33
 \end{aligned}\]</span></p>
 <p>Diese Rechnung lässt sich für alle Tabellenfelder durchführen. Die Kreuztabelle kann dann um diese erwarteten Werte in Klammern ergänzt werden (s. <a href="kreuztabellen.html#tab:expected">9.4</a>).</p>
+<div style="overflow-y: auto;">
 <table>
 <caption>
 <span id="tab:expected">Tabelle 9.4: </span>Kreuztabelle der Beispieldaten
@@ -890,6 +897,7 @@ anderes Studienfach
 </table>
 </div>
 </div>
+</div>
 <div id="berechnung-des-kontingenzkoeffizenten-chi2" class="section level2" number="9.5">
 <h2><span class="header-section-number">9.5</span> Berechnung des Kontingenzkoeffizenten <span class="math inline">\(\chi^2\)</span></h2>
 <p>Sind für alle Tabellenfelder die Beobachtungs- und Erwartungswerte gegeben, lässt sich für jedes Tabellenfeld ein Wert berechnen, der diese Werte in Relation setzt. Die Summe dieser Werte über die gesamte Tabelle hinweg wird Kontingenzkoeffizient genannt und mit <span class="math inline">\(\chi^2\)</span> (<q>Chi-Quadrat</q>) abgekürzt.</p>
@@ -908,6 +916,7 @@ anderes Studienfach
 \tag{9.3}
 \]</span></p>
 <p>berechnet und sind in <a href="kreuztabellen.html#tab:radchisq">9.5</a> in blau dargestellt.</p>
+<div style="overflow-y: auto;">
 <table>
 <caption>
 <span id="tab:radchisq">Tabelle 9.5: </span>Kreuztabelle der Beispieldaten mit Teilwerten für <span class="math inline">\(\chi^2\)</span>
@@ -970,6 +979,7 @@ anderes Studienfach
 </tr>
 </tbody>
 </table>
+</div>
 <p>Zum Beispiel ergibt sich der Teilwert für <span class="math inline">\(\chi^2\)</span> für die Kombination <q>anderes Studienfach</q> – <q>Fahrrad</q> durch Einsetzen in <a href="kreuztabellen.html#eq:contrib">(9.3)</a>:</p>
 <p><span class="math display">\[\begin{aligned}
 \frac{(n_{21}-m_{21})^{2}}{m_{21}} &amp;\approx \frac{(9-11,33)^2}{11,33}\\
