@@ -200,7 +200,8 @@ In unserem Beispiel (mit $n=14$) ist die untere Hälfte der Verteilung:
 ```{r lower}
 matrix(sort(xs)[1:7], nrow = 1, dimnames = list(c(), sprintf("$x_{(%s)}$", 1:7)))%>% as_tibble %>%
   kable("html", escape=F) %>%
-  kable_styling(full_width = F)
+  kable_styling(full_width = F) %>%
+  scroll_box(box_css = "overflow-y: auto;")
 ```
 
 $Q_1$ ist der Median dieser Werte, also $x_{(4)}=1$.
@@ -210,7 +211,8 @@ Die oberen 7 Werte lauten:
 ```{r upper}
 matrix(sort(xs)[8:14], nrow = 1, dimnames = list(c(), sprintf("$x_{(%s)}$", 8:14)))%>% as_tibble %>%
   kable("html", escape=F) %>%
-  kable_styling(full_width = F)
+  kable_styling(full_width = F) %>%
+  scroll_box(box_css = "overflow-y: auto;")
 ```
 
 $Q_3$ ist also $x_{(11)} = 5$.
