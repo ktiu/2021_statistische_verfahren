@@ -43,7 +43,7 @@ library(showtext)
 #library(pubIHG)
 
 options(OutDec = ",")
-knitr::opts_chunk$set(fig.align='center', out.width='75%', fig.width=5, fig.height=3, echo=FALSE, warning=FALSE, message=FALSE, fig.pos = 'h')
+knitr::opts_chunk$set(fig.align='center', out.width='450px', fig.width=5, fig.height=3, echo=FALSE, warning=FALSE, message=FALSE, fig.pos = 'h')
 
 goethe_blue <- "#00618F"
 light_gray <- "#f8f6f5"

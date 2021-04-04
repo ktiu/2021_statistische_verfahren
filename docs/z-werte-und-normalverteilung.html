@@ -631,7 +631,7 @@ In R kann eine empirische Verteilung mit dem Behfehl <code>scale()</code> <span 
 <div id="normalverteilung" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> Normalverteilung</h2>
 <div class="figure" style="text-align: center"><span id="fig:norms"></span>
-<img src="bookdownproj_files/figure-html/norms-1.svg" alt="Dichtefunktionen verschiedener Normalverteilungen" width="75%" />
+<img src="bookdownproj_files/figure-html/norms-1.svg" alt="Dichtefunktionen verschiedener Normalverteilungen" width="450px" />
 <p class="caption">
 Abbildung 3.1: Dichtefunktionen verschiedener Normalverteilungen
 </p>
@@ -718,7 +718,7 @@ x \sim N(\mu,\enspace\sigma^2)
 <p>Die Standardnormalverteilung (engl. <em>standard normal distribution</em>) ist sozusagen das Grundmuster aller Normalverteilungen. Sie hat den Mittelwert <span class="math inline">\(\mu=0\)</span> und die Standardabweichung <span class="math inline">\(\sigma=1\)</span> (s. <a href="z-werte-und-normalverteilung.html#fig:stdnorm">3.2</a>).</p>
 <p>Alle Normalverteilungen lassen sich durch die <span class="math inline">\(z\)</span>-Transformation auf die Standardnormalverteilung standardisieren.</p>
 <div class="figure" style="text-align: center"><span id="fig:stdnorm"></span>
-<img src="bookdownproj_files/figure-html/stdnorm-1.svg" alt="Dichtefunktion der Standardnormalverteilung" width="75%" />
+<img src="bookdownproj_files/figure-html/stdnorm-1.svg" alt="Dichtefunktion der Standardnormalverteilung" width="450px" />
 <p class="caption">
 Abbildung 3.2: Dichtefunktion der Standardnormalverteilung
 </p>
@@ -748,7 +748,7 @@ Für die Standardnormalverteilung finden sich die <span class="math inline">\(p\
 </ul>
 <p>Die Verfahren sollen anhand eines Beispiels illustriert werden: Es sei bekannt, dass der Luftdruck auf dem Feldberg annähernd normalverteilt ist, und zwar mit dem arithmetischen Mittel <span class="math inline">\(\mu=1003\)</span> und Varianz <span class="math inline">\(\sigma^2=73\)</span>. Graphisch stellt sich die Wahrscheinlichkeitsdichtefunktion wie in <a href="z-werte-und-normalverteilung.html#fig:dens">3.3</a> dar.</p>
 <div class="figure" style="text-align: center"><span id="fig:dens"></span>
-<img src="bookdownproj_files/figure-html/dens-1.svg" alt="Theoretische Wahrscheinlichkeitsdichtefunktion des Luftdrucks" width="75%" />
+<img src="bookdownproj_files/figure-html/dens-1.svg" alt="Theoretische Wahrscheinlichkeitsdichtefunktion des Luftdrucks" width="450px" />
 <p class="caption">
 Abbildung 3.3: Theoretische Wahrscheinlichkeitsdichtefunktion des Luftdrucks
 </p>
@@ -768,7 +768,7 @@ x \sim N(1003, 73)
 <p>Die einfachste Art der Fragestellung ist nun, mit welcher Wahrscheinlichkeit ein bestimmter Wert <span class="math inline">\(x_p\)</span> unterschritten wird.</p>
 <p>Nehmen wir an, es sei gefragt, mit welcher Wahrscheinlichkeit zu einem beliebigen Zeitpunkt der Luftdruck weniger als 1015 hpa beträgt. Anders gesagt interessiert uns der Anteil der Fläche unter der Verteilung, der zwischen <span class="math inline">\(-\infty\)</span> und <span class="math inline">\(x_p=1015\)</span> liegt (s. <a href="z-werte-und-normalverteilung.html#fig:unter">3.4</a>).</p>
 <div class="figure" style="text-align: center"><span id="fig:unter"></span>
-<img src="bookdownproj_files/figure-html/unter-1.svg" alt="Unterschreitung eines Messwerts" width="75%" />
+<img src="bookdownproj_files/figure-html/unter-1.svg" alt="Unterschreitung eines Messwerts" width="450px" />
 <p class="caption">
 Abbildung 3.4: Unterschreitung eines Messwerts
 </p>
@@ -782,7 +782,7 @@ Abbildung 3.4: Unterschreitung eines Messwerts
 \]</span></p>
 <p>Graphisch ist das standardisierte Perzentil in <a href="z-werte-und-normalverteilung.html#fig:z">3.5</a> dargestellt.</p>
 <div class="figure" style="text-align: center"><span id="fig:z"></span>
-<img src="bookdownproj_files/figure-html/z-1.svg" alt="Standardnormalverteilung des Luftdrucks" width="75%" />
+<img src="bookdownproj_files/figure-html/z-1.svg" alt="Standardnormalverteilung des Luftdrucks" width="450px" />
 <p class="caption">
 Abbildung 3.5: Standardnormalverteilung des Luftdrucks
 </p>
@@ -799,7 +799,7 @@ In R lässt sich die Unterschreitungswahrscheinlichkeit eines <span class="math 
 <h4><span class="header-section-number">3.8.1.1</span> Überschreitungswahrscheinlichkeit</h4>
 <p>Wird nach der Wahrscheinlichkeit der Überschreitung eines Werts gefragt, ist in anderen Worten die Fläche unter der Wahrscheinlichkeitsdichtefunktion zwischen <span class="math inline">\(x_p\)</span> und <span class="math inline">\(\infty\)</span> gemeint. Wir bleiben bei unserem Beispiel <span class="math inline">\(x_p=1015\)</span> (s. <a href="z-werte-und-normalverteilung.html#fig:ueber">3.6</a>).</p>
 <div class="figure" style="text-align: center"><span id="fig:ueber"></span>
-<img src="bookdownproj_files/figure-html/ueber-1.svg" alt="Überschreitung eines Messwerts" width="75%" />
+<img src="bookdownproj_files/figure-html/ueber-1.svg" alt="Überschreitung eines Messwerts" width="450px" />
 <p class="caption">
 Abbildung 3.6: Überschreitung eines Messwerts
 </p>
@@ -861,7 +861,7 @@ Der Befehl <code>pnorm()</code> funktioniert auch mit negativen <span class="mat
 <h4><span class="header-section-number">3.8.1.3</span> Wert in einem Intervall</h4>
 <p>Nun wollen wir wissen, mit welcher Wahrscheinlichkeit ein zufälliger Meßwert zwischen 1005 und 1015 hPa liegt. Graphisch ist dies in <a href="z-werte-und-normalverteilung.html#fig:intervall">3.7</a> aufbereitet.</p>
 <div class="figure" style="text-align: center"><span id="fig:intervall"></span>
-<img src="bookdownproj_files/figure-html/intervall-1.svg" alt="Messwertintervall" width="75%" />
+<img src="bookdownproj_files/figure-html/intervall-1.svg" alt="Messwertintervall" width="450px" />
 <p class="caption">
 Abbildung 3.7: Messwertintervall
 </p>
@@ -918,7 +918,7 @@ Das Perzentil für eine gegebene Unterschreitungswahrscheinlichkeit lässt sich 
 <h4><span class="header-section-number">3.8.1.5</span> Gesuchte Grenzwerte eines Intervalls</h4>
 <p>Eine übliche Art der Fragestellung ist auch: Zwischen welchen beiden Werten liegen die mittleren 85% der Fälle (s. Abbiddung <a href="z-werte-und-normalverteilung.html#fig:mitte">3.8</a>)?</p>
 <div class="figure" style="text-align: center"><span id="fig:mitte"></span>
-<img src="bookdownproj_files/figure-html/mitte-1.svg" alt="Die mittleren 85\% der Normalverteilung" width="75%" />
+<img src="bookdownproj_files/figure-html/mitte-1.svg" alt="Die mittleren 85\% der Normalverteilung" width="450px" />
 <p class="caption">
 Abbildung 3.8: Die mittleren 85% der Normalverteilung
 </p>
