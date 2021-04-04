@@ -182,10 +182,8 @@ Genau wie bei den anderen Tests wird je nach erreichen des kritischen Werts (des
 
 Der kritische Wert von $t \geq 2{,}228$ wurde nicht überschritten. Wir müssen die Nullhypothese beibehalten, d.h. wir konnten keinen signifikanten Unterschied zwischen den Mietpreisen in Höchst und Praunheim feststellen ($\alpha=0{,}05$).
 
-::: {.rtip}
-**Softwarehinweis**\
-In R wird auch der 2-Stichproben-$t$-Test mit dem Befehl `t.test()` durchgeführt. Im Gegensatz zum 1-Stichproben-$t$-Test werden dabei zwei Verteilungen als Argumente eingegeben.
-:::
+<div class="rtip">Softwarehinweis</div>
+<div class="rtip_content">In R wird auch der 2-Stichproben-$t$-Test mit dem Befehl `t.test()` durchgeführt. Im Gegensatz zum 1-Stichproben-$t$-Test werden dabei zwei Verteilungen als Argumente eingegeben.</div>
 
 ## Die $F$-Verteilung
 
@@ -402,10 +400,8 @@ Der kritische Wert von 0,20 müsste *unterschritten* werden, um die Nullhypothes
 
 Damit haben wir im vorherigen Beispiel die Voraussetzungen des 2-Stichproben-$t$-Tests also nicht verletzt.
 
-::: {.rtip}
-**Softwarehinweis**\
-In R lautet der Befehl für den $F$-Test `var.test()`.
-:::
+<div class="rtip">Softwarehinweis</div>
+<div class="rtip_content">In R lautet der Befehl für den $F$-Test `var.test()`.</div>
 
 ## Fehlerarten
 

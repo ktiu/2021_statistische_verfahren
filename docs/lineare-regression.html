@@ -463,8 +463,10 @@ x_i&amp;=\frac{\hat{y}_i-a}{b}\\[5pt]
 \end{aligned}\]</span></p>
 <p>Bei der Regressionsanalyse wird ein gerichtetes Abhängigkeitsverhältnis der Variablen impliziert: <span class="math inline">\(y\)</span> hängt hier von <span class="math inline">\(x\)</span> ab. Daher wird <span class="math inline">\(x\)</span> auch die <q>Prädiktorvariable</q> und <span class="math inline">\(y\)</span> die <q>Kriteriumsvariable</q> genannt.</p>
 <div class="rtip">
-<p><strong>Softwarehinweis</strong><br />
-Wenn in R ein lineares Modell (eine Regressionsgerade) vorliegt, können Werte mit <code>predict()</code> geschätzt werden.</p>
+Softwarehinweis
+</div>
+<div class="rtip_content">
+Wenn in R ein lineares Modell (eine Regressionsgerade) vorliegt, können Werte mit <code>predict()</code> geschätzt werden.
 </div>
 <p>Es ist also für derartige Fragestellungen nötig, die Gleichung der Regressionsgeraden zu kennen. Im Folgenden wird gezeigt, wie diese anhand einer bivariaten Verteilung bestimmt werden kann.</p>
 </div>
@@ -481,8 +483,10 @@ a=\bar{y}-b\cdot\bar{x}
 \tag{8.3}
 \]</span></p>
 <div class="rtip">
-<p><strong>Softwarehinweis</strong><br />
-In R lässt sich ein lineares Regressionsmodell mit dem Befehl <code>lm()</code> erstellen.</p>
+Softwarehinweis
+</div>
+<div class="rtip_content">
+In R lässt sich ein lineares Regressionsmodell mit dem Befehl <code>lm()</code> erstellen.
 </div>
 <p>Die Bestimmung der Regressionsgeraden soll nun mit einem Beispiel illustriert werden.</p>
 <div id="beispiel-26" class="section level3" number="8.3.1">
@@ -657,8 +661,10 @@ e_i=y_i-\hat{y}_i
 \]</span></p>
 <p>Residuen sind also – auch dem Wortstamm nach – das, was nach der Vorhersage durch das Modell <q>übrig bleibt</q> von den tatsächlich beobachteten Werten (also der Teil des Werts, der <em>nicht</em> durch das Regressionsmodell erklärt wird).</p>
 <div class="rtip">
-<p><strong>Softwarehinweis</strong><br />
-Residuen lassen sich in R durch den Befehl <code>resid()</code> errechnen.</p>
+Softwarehinweis
+</div>
+<div class="rtip_content">
+Residuen lassen sich in R durch den Befehl <code>resid()</code> errechnen.
 </div>
 <div id="beispiel-27" class="section level3" number="8.4.1">
 <h3><span class="header-section-number">8.4.1</span> Beispiel</h3>
@@ -902,8 +908,10 @@ R^2=r^2
 \tag{8.6}
 \]</span></p>
 <div class="rtip">
-<p><strong>Softwarehinweis</strong><br />
-In R wird mit dem Befehl <code>summary()</code> unter anderem der Determinationskoeffizient eines linearen Regressionsmodells ausgegeben.</p>
+Softwarehinweis
+</div>
+<div class="rtip_content">
+In R wird mit dem Befehl <code>summary()</code> unter anderem der Determinationskoeffizient eines linearen Regressionsmodells ausgegeben.
 </div>
 <div id="beispiel-28" class="section level3" number="8.5.1">
 <h3><span class="header-section-number">8.5.1</span> Beispiel</h3>

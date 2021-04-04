@@ -260,10 +260,8 @@ In unserem Beispiel liegt der $z$-Wert knapp über dem kritischen Wert von 1,65.
 
 Gut, dass wir eine gerichtete Alternativhypothese aufgestellt haben. Hätten wir nur vermutet, dass sich die Besucherzahlen je nach Wetter unterscheiden (ohne Angabe einer Richtung), dann wäre der kritische Wert nicht erreicht worden und wir hätten die Nullhypothese beibehalten müssen. Hinterher die Hypothesen anzupassen ist natürlich nicht zulässig!
 
-::: {.rtip}
-**Softwarehinweis**\
-R hat in der Grundversion keinen dezidierten Befehl für einen $z$-Test. Mit der Funktion `qnorm()` können kritische Werte jedoch einfach bestimmt werden.
-:::
+<div class="rtip">Softwarehinweis</div>
+<div class="rtip_content">R hat in der Grundversion keinen dezidierten Befehl für einen $z$-Test. Mit der Funktion `qnorm()` können kritische Werte jedoch einfach bestimmt werden.</div>
 
 ## Die $t$-Verteilung
 
@@ -478,11 +476,9 @@ Genau wie beim $z$-Test kommt es darauf an, ob die Prüfgröße in den Ablehnung
 
 In unserem Beispiel liegt der $t$-Wert deutlich über dem kritischen Wert von 2,718. Wir können also die Nullhypothese ablehnen und unsere Alternativhypothese annehmen. Unsere statistische Untersuchung hat gezeigt, dass die Bearbeitungsdauer von Anträgen, die im Oktober eingehen, länger ist als im Jahresdurchschnitt (und zwar mit Signifikanzniveau $\alpha=0,01$).
 
-::: {.rtip}
-**Softwarehinweis**\
-In R kann ein $t$-Test mit dem Befehl `t.test()` durchgeführt werden.\
-Neben der Prüfgröße $t$ gibt der Befehl einen $p$-Wert aus -- ist dieser kleiner als $\alpha$, so liegt eine signifikante Abweichung vor.
-:::
+<div class="rtip">Softwarehinweis</div>
+<div class="rtip_content">In R kann ein $t$-Test mit dem Befehl `t.test()` durchgeführt werden.\
+Neben der Prüfgröße $t$ gibt der Befehl einen $p$-Wert aus -- ist dieser kleiner als $\alpha$, so liegt eine signifikante Abweichung vor.</div>
 
 ## Aufgaben
 

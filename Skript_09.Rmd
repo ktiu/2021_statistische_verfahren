@@ -162,10 +162,8 @@ radxt$df %>%
 
 Am rechten Rand der Tabelle stehen die Summen für die Zeilen, am unteren Rand die Summen der Spalten. Ganz unten rechts steht die Gesamtsumme (Größe der Stichprobe).
 
-::: {.rtip}
-**Softwarehinweis**\
-In R kann eine einfache Kreuztabelle mit dem Befehl `table()` ausgegeben werden.
-:::
+<div class="rtip">Softwarehinweis</div>
+<div class="rtip_content">In R kann eine einfache Kreuztabelle mit dem Befehl `table()` ausgegeben werden.</div>
 
 ### Verallgemeinerung
 

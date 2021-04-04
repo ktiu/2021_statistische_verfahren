@@ -221,7 +221,7 @@ cat('`', xs, '`')
 
 Die geordnete Liste bringt die Werte der Urliste in eine geeignete Reihenfolge, so dass die unterschiedlichen Werte leicht gezählt werden können:
 
-```{r, comnment=NA, results='asis'}
+```{r, comment=NA, results='asis'}
 cat('`', sort(xs), '`')
 ```
 
@@ -229,10 +229,8 @@ cat('`', sort(xs), '`')
 
 Die absoluten Häufigkeiten erhält man durch einfaches Abzählen der jeweiligen Werte. Für die relativen Häufigkeiten teilt man diese Zahl durch $n$. Kumulierte Häufigkeiten zählen die bisherigen Summen bzw. Anteile zusammen (s. Tabelle \@ref(tab:haeufkum)).
 
-::: {.rtip}
-**Softwarehinweis**\
-In R lässt sich mit dem Befehl `table()` eine einfache Häufigkeitstabelle aus Rohdaten erstellen.
-:::
+<div class="rtip">Softwarehinweis</div>
+<div class="rtip_content">In R lässt sich mit dem Befehl `table()` eine einfache Häufigkeitstabelle aus Rohdaten erstellen.</div>
 
 ```{r haeufkum}
 df <- data.frame(table(xs))
@@ -250,10 +248,8 @@ kable(df, "html", escape=F, caption = "Tabelle mit kumulierten Häufigkeiten", l
 
 Die so ermittelten Häufigkeiten lassen sich als Stabdiagramm (auch Säulen-, Streifen-, Balkendiagramm, engl. *bar chart*) darstellen (s. Abbildung \@ref(fig:stab)).
 
-::: {.rtip}
-**Softwarehinweis**\
-In R lautet der Standardbefehl zur Erstellung eines Stabdiagramms `barplot()`.
-:::
+<div class="rtip">Softwarehinweis</div>
+<div class="rtip_content">In R lautet der Standardbefehl zur Erstellung eines Stabdiagramms `barplot()`.</div>
 
 ```{r stab, fig.cap="Stabdiagramm"}
 bar <- data.frame(xs)
@@ -307,10 +303,8 @@ Zusätzlich sollten folgende Konventionen nach Möglichkeit befolgt werden:
 
 Die Darstellung erfolgt in so genannten Histogrammen (engl. *histogram*). Abbildung \@ref(fig:hist) enthält ein Beispiel für ein Histogramm.
 
-::: {.rtip}
-**Softwarehinweis**\
-In R können Histogramme mit `hist()` erstellt werden.
-:::
+<div class="rtip">Softwarehinweis</div>
+<div class="rtip_content">In R können Histogramme mit `hist()` erstellt werden.</div>
 
 ```{r hist, fig.cap="Histogramm"}
 

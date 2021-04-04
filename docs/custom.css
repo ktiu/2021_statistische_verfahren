@@ -37,7 +37,6 @@ q {
 *  Titles  *
 ************/
 
-
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
@@ -85,7 +84,6 @@ h1.title {
 /*********
 *  TOC  *
 *********/
-
 
 .book .book-summary ul.summary li a:hover {
   color: var(--light_blue); 
@@ -152,16 +150,21 @@ nav ul.summary ul b {
 /**********
 *  rtip  *
 **********/
+
 .rtip {
-  margin-top:; 1em;
-  margin-bottom: 1em;
-  border: 3px solid var(--purple);
-  border-radius: 10px;
-  padding-top: 1em;
-  padding-bottom: 0em;
-  padding-left: 1em;
-  padding-right: 1em;
+  margin-top: 25px;
+  border-radius: 10px 10px 0 0;
+  background: var(--purple);
+  line-height: 25px;
+  text-indent: 25px;
+  color: white;
+}
+
+.rtip_content {
+  margin-bottom: 25px;
+  border-radius: 0 0 10px 10px;
+  border: 2px solid var(--purple);
   background: var(--light_gray);
-  color: black;
-  line-height: 1.2em;
+  padding: 10px 10px 10px 25px;
+  line-height: 20px;
 }

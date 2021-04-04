@@ -617,8 +617,10 @@ Berechnung
 </div>
 <p>Eine so <span class="math inline">\(z\)</span>-transformierte Verteilung hat <em>immer</em> automatisch das arithmetische Mittel <span class="math inline">\(\bar{z}=0\)</span> und die Standardabweichung <span class="math inline">\(s_z=1\)</span>. Außerdem haben <span class="math inline">\(z\)</span>-Werte keine Maßeinheit. So kann jede Verteilung <q>standardisiert</q> und systematisch vergleichbar gemacht werden.</p>
 <div class="rtip">
-<p><strong>Softwarehinweis</strong><br />
-In R kann eine empirische Verteilung mit dem Behfehl <code>scale()</code> <span class="math inline">\(z\)</span>-transformiert werden.</p>
+Softwarehinweis
+</div>
+<div class="rtip_content">
+In R kann eine empirische Verteilung mit dem Behfehl <code>scale()</code> <span class="math inline">\(z\)</span>-transformiert werden.
 </div>
 <p>Andersherum lassen sich <span class="math inline">\(z\)</span>-Werte folgendermaßen wieder umwandeln in <span class="math inline">\(x\)</span>-Werte:</p>
 <p><span class="math display" id="eq:zrev">\[
@@ -788,8 +790,10 @@ Abbildung 3.5: Standardnormalverteilung des Luftdrucks
 <p>Die <a href="Formelsammlung%20und%20Wertetabellen.pdf" target="_blank">Formelsammlung</a> gibt für <span class="math inline">\(z\)</span>-Werte die Wahrscheinlichkeit ihrer Unterschreitung in ener Normalverteilung an. Diese Wahrscheinlichkeit kann notiert werden als <span class="math inline">\(P(z&lt;z_p)\)</span>.</p>
 <p>Der <a href="Formelsammlung%20und%20Wertetabellen.pdf" target="_blank">Formelsammlung</a> können wir den Wert <span class="math inline">\(P(z &lt; 1,41) \approx 0,9207\)</span> entnehmen. Die Wahrscheinlichkeit, dass der Luftdruck zu einem zufälligen Zeitpunkt weniger als 1015 hPA beträgt, ist somit 92,07%.</p>
 <div class="rtip">
-<p><strong>Softwarehinweis</strong><br />
-In R lässt sich die Unterschreitungswahrscheinlichkeit eines <span class="math inline">\(z\)</span>-Werts mit dem Befehl <code>pnorm()</code> ermitteln.</p>
+Softwarehinweis
+</div>
+<div class="rtip_content">
+In R lässt sich die Unterschreitungswahrscheinlichkeit eines <span class="math inline">\(z\)</span>-Werts mit dem Befehl <code>pnorm()</code> ermitteln.
 </div>
 <div id="überschreitungswahrscheinlichkeit" class="section level4" number="3.8.1.1">
 <h4><span class="header-section-number">3.8.1.1</span> Überschreitungswahrscheinlichkeit</h4>
@@ -847,8 +851,10 @@ Abbildung 3.6: Überschreitung eines Messwerts
 \]</span></p>
 <p>Ein Luftdruck von 990 hPa wird also nur in ca. 6,43% der Fälle unterschritten.</p>
 <div class="rtip">
-<p><strong>Softwarehinweis</strong><br />
-Der Befehl <code>pnorm()</code> funktioniert auch mit negativen <span class="math inline">\(z\)</span>-Werten.</p>
+Softwarehinweis
+</div>
+<div class="rtip_content">
+Der Befehl <code>pnorm()</code> funktioniert auch mit negativen <span class="math inline">\(z\)</span>-Werten.
 </div>
 </div>
 <div id="wert-in-einem-intervall" class="section level4" number="3.8.1.3">
@@ -902,8 +908,10 @@ Abbildung 3.7: Messwertintervall
 \]</span></p>
 <p>Die Marke von 1017,10 hPa wird also nur in 5% der Fälle überschritten.</p>
 <div class="rtip">
-<p><strong>Softwarehinweis</strong><br />
-Das Perzentil für eine gegebene Unterschreitungswahrscheinlichkeit lässt sich in R mit <code>qnorm()</code> bestimmen.</p>
+Softwarehinweis
+</div>
+<div class="rtip_content">
+Das Perzentil für eine gegebene Unterschreitungswahrscheinlichkeit lässt sich in R mit <code>qnorm()</code> bestimmen.
 </div>
 </div>
 <div id="gesuchte-grenzwerte-eines-intervalls" class="section level4" number="3.8.1.5">

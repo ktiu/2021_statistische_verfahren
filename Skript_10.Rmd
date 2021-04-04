@@ -257,10 +257,8 @@ Für $\chi^2$ ergibt sich im Beispiel:
 
 Der Wert der Prüfgröße $\chi^2=6,281$ liegt deutlich im Ablehnungsbereich $\chi^2\geq 2,706$. Die Nullhypothese kann abgelehnt werden. Es wurde ein statistisch signifikanter positiver Zusammenhang zwischen Wohnort in Gemeinden mit über 20000 Einwohner\*innen und Kriegsdienstverweigerung festgestellt ($\alpha=0,05$).
 
-::: {.rtip}
-**Softwarehinweis**\
-In R lässt sich ein $\chi^2$-Unabhängigkeitstest mit dem Befehl `chisq.test()` durchführen.
-:::
+<div class="rtip">Softwarehinweis</div>
+<div class="rtip_content">In R lässt sich ein $\chi^2$-Unabhängigkeitstest mit dem Befehl `chisq.test()` durchführen.</div>
 
 ## $\chi^2$-Anpassungstest
 
@@ -366,10 +364,8 @@ Dann nehmen wir wieder eine Tebelle zu Hilfe um die Prüfgröße $\chi^2$ zu ber
 
 Der Ablehnungsbereich $\chi^2 \geq 9,488$ wurde nicht erreicht. Die Nullhypothese muss beibehalten werden. Eine statistisch signifikante Abweichung von einer gleichmäßigen Verteilung konnte nicht nachgewiesen werden ($\alpha=0,05$).
 
-::: {.rtip}
-**Softwarehinweis**\
-Mit einer univariaten Verteilung als Eingabe führt der Befehl `chisq.test()` einen $\chi^2$-Anpassungstest durch.
-:::
+<div class="rtip">Softwarehinweis</div>
+<div class="rtip_content">Mit einer univariaten Verteilung als Eingabe führt der Befehl `chisq.test()` einen $\chi^2$-Anpassungstest durch.</div>
 
 ### Andere Verteilungen
 
