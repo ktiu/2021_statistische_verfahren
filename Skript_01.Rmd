@@ -229,9 +229,10 @@ cat('`', sort(xs), '`')
 
 Die absoluten Häufigkeiten erhält man durch einfaches Abzählen der jeweiligen Werte. Für die relativen Häufigkeiten teilt man diese Zahl durch $n$. Kumulierte Häufigkeiten zählen die bisherigen Summen bzw. Anteile zusammen (s. Tabelle \@ref(tab:haeufkum)).
 
-\begin{rtip}
-In R lässt sich mit dem Befehl {\tt table()} eine einfache Häufigkeitstabelle aus Rohdaten erstellen.
-\end{rtip}
+::: {.rtip}
+**Softwarehinweis**\
+In R lässt sich mit dem Befehl `table()` eine einfache Häufigkeitstabelle aus Rohdaten erstellen.
+:::
 
 ```{r haeufkum}
 df <- data.frame(table(xs))
@@ -249,9 +250,10 @@ kable(df, "html", escape=F, caption = "Tabelle mit kumulierten Häufigkeiten", l
 
 Die so ermittelten Häufigkeiten lassen sich als Stabdiagramm (auch Säulen-, Streifen-, Balkendiagramm, engl. *bar chart*) darstellen (s. Abbildung \@ref(fig:stab)).
 
-\begin{rtip}
-In R lautet der Standardbefehl zur Erstellung eines Stabdiagramms {\tt barplot()}.
-\end{rtip}
+::: {.rtip}
+**Softwarehinweis**\
+In R lautet der Standardbefehl zur Erstellung eines Stabdiagramms `barplot()`.
+:::
 
 ```{r stab, fig.cap="Stabdiagramm"}
 bar <- data.frame(xs)
@@ -305,9 +307,10 @@ Zusätzlich sollten folgende Konventionen nach Möglichkeit befolgt werden:
 
 Die Darstellung erfolgt in so genannten Histogrammen (engl. *histogram*). Abbildung \@ref(fig:hist) enthält ein Beispiel für ein Histogramm.
 
-\begin{rtip}
-In R können Histogramme mit {\tt hist()} erstellt werden.
-\end{rtip}
+::: {.rtip}
+**Softwarehinweis**\
+In R können Histogramme mit `hist()` erstellt werden.
+:::
 
 ```{r hist, fig.cap="Histogramm"}
 

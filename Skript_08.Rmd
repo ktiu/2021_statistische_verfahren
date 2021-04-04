@@ -63,9 +63,10 @@ x_i&=\frac{\hat{y}_i-a}{b}\\[5pt]
 
 Bei der Regressionsanalyse wird ein gerichtetes Abhängigkeitsverhältnis der Variablen impliziert: $y$ hängt hier von $x$ ab. Daher wird $x$ auch die "Prädiktorvariable" und $y$ die "Kriteriumsvariable" genannt.
 
-\begin{rtip}
-Wenn in R ein lineares Modell (eine Regressionsgerade) vorliegt, können Werte mit {\tt predict() } geschätzt werden.
-\end{rtip}
+::: {.rtip}
+**Softwarehinweis**\
+Wenn in R ein lineares Modell (eine Regressionsgerade) vorliegt, können Werte mit `predict()` geschätzt werden.
+:::
 
 Es ist also für derartige Fragestellungen nötig, die Gleichung der Regressionsgeraden zu kennen. Im Folgenden wird gezeigt, wie diese anhand einer bivariaten Verteilung bestimmt werden kann.
 
@@ -87,9 +88,10 @@ a=\bar{y}-b\cdot\bar{x}
 (\#eq:a)
 \]
 
-\begin{rtip}
-In R lässt sich ein lineares Regressionsmodell mit dem Befehl {\tt lm() } erstellen.
-\end{rtip}
+::: {.rtip}
+**Softwarehinweis**\
+In R lässt sich ein lineares Regressionsmodell mit dem Befehl `lm()` erstellen.
+:::
 
 Die Bestimmung der Regressionsgeraden soll nun mit einem Beispiel illustriert werden.
 
@@ -168,9 +170,10 @@ e_i=y_i-\hat{y}_i
 
 Residuen sind also -- auch dem Wortstamm nach -- das, was nach der Vorhersage durch das Modell "übrig bleibt" von den tatsächlich beobachteten Werten (also der Teil des Werts, der *nicht* durch das Regressionsmodell erklärt wird).
 
-\begin{rtip}
-Residuen lassen sich in R durch den Befehl {\tt resid() } errechnen.
-\end{rtip}
+::: {.rtip}
+**Softwarehinweis**\
+Residuen lassen sich in R durch den Befehl `resid()` errechnen.
+:::
 
 ### Beispiel
 
@@ -220,10 +223,10 @@ R^2=r^2
 (\#eq:rsq)
 \]
 
-\begin{rtip}
-In R wird mit dem Befehl {\tt summary()} unter anderem der Determinationskoeffizient eines linearen Regressionsmodells ausgegeben.
-\end{rtip}
-
+::: {.rtip}
+**Softwarehinweis**\
+In R wird mit dem Befehl `summary()` unter anderem der Determinationskoeffizient eines linearen Regressionsmodells ausgegeben.
+:::
 
 ### Beispiel
 

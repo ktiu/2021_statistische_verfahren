@@ -614,6 +614,10 @@ z&amp;=\sqrt{n}\cdot\frac{\bar{x}-\mu_0}{\sigma}\\[4pt]
 <h4><span class="header-section-number">5.3.6.1</span> Beispiel</h4>
 <p>In unserem Beispiel liegt der <span class="math inline">\(z\)</span>-Wert knapp über dem kritischen Wert von 1,65. Wir können also die Nullhypothese ablehnen und unsere Alternativhypothese annehmen. Unsere statistische Untersuchung hat gezeigt, dass die Eissporthalle an bewölkten Tagen besser besucht ist als an sonnigen (und zwar mit Signifikanzniveau <span class="math inline">\(\alpha=0,05\)</span>).</p>
 <p>Gut, dass wir eine gerichtete Alternativhypothese aufgestellt haben. Hätten wir nur vermutet, dass sich die Besucherzahlen je nach Wetter unterscheiden (ohne Angabe einer Richtung), dann wäre der kritische Wert nicht erreicht worden und wir hätten die Nullhypothese beibehalten müssen. Hinterher die Hypothesen anzupassen ist natürlich nicht zulässig!</p>
+<div class="rtip">
+<p><strong>Softwarehinweis</strong><br />
+R hat in der Grundversion keinen dezidierten Befehl für einen <span class="math inline">\(z\)</span>-Test. Mit der Funktion <code>qnorm()</code> können kritische Werte jedoch einfach bestimmt werden.</p>
+</div>
 </div>
 </div>
 </div>
@@ -783,6 +787,11 @@ t&amp;=\sqrt{n}\cdot\frac{\bar{x}-\mu_0}{s}\\[6pt]
 <div id="beispiel-10" class="section level4" number="5.5.6.1">
 <h4><span class="header-section-number">5.5.6.1</span> Beispiel</h4>
 <p>In unserem Beispiel liegt der <span class="math inline">\(t\)</span>-Wert deutlich über dem kritischen Wert von 2,718. Wir können also die Nullhypothese ablehnen und unsere Alternativhypothese annehmen. Unsere statistische Untersuchung hat gezeigt, dass die Bearbeitungsdauer von Anträgen, die im Oktober eingehen, länger ist als im Jahresdurchschnitt (und zwar mit Signifikanzniveau <span class="math inline">\(\alpha=0,01\)</span>).</p>
+<div class="rtip">
+<p><strong>Softwarehinweis</strong><br />
+In R kann ein <span class="math inline">\(t\)</span>-Test mit dem Befehl <code>t.test()</code> durchgeführt werden.<br />
+Neben der Prüfgröße <span class="math inline">\(t\)</span> gibt der Befehl einen <span class="math inline">\(p\)</span>-Wert aus – ist dieser kleiner als <span class="math inline">\(\alpha\)</span>, so liegt eine signifikante Abweichung vor.</p>
+</div>
 </div>
 </div>
 </div>

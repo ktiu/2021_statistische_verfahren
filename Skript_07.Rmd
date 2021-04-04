@@ -54,9 +54,10 @@ s_{xy}=\frac{\sum\limits^n_{i=1}(x_i-\bar{x})\cdot(y_i-\bar{y})}{n-1}
 
 \@ref(eq:cov) lässt erahnen: Wenn sowohl $x$ als auch $y$ in die gleiche Richtung vom jeweiligen Mittelwert abweichen (also beide Differenzen positiv oder beide Differenzen negativ), dann ist das Produkt positiv, sonst ist es negativ. Eine positive Kovarianz lässt also auf einen positiven Zusammenhang schließen (je größer $x$, desto größer auch $y$), eine negative Kovarianz auf einen negativen Zusammenhang (je größer $x$, desto *kleiner* $y$).
 
-\begin{rtip}
-Der Befehl {\tt cov()} berechnet die Kovarianz einer bivariaten Verteilung in R.
-\end{rtip}
+::: {.rtip}
+**Softwarehinweis**\
+Der Befehl `cov()` berechnet die Kovarianz einer bivariaten Verteilung in R.
+:::
 
 ### Beispiel
 
@@ -175,9 +176,10 @@ ggplot(corex, aes(x,y1)) +
         axis.text = element_blank())
 ```
 
-\begin{rtip}
-In R kann der Korrelationskoeffizient von zwei Merkmalen mit dem Befehl {\tt cor()} bestimmt werden.
-\end{rtip}
+::: {.rtip}
+**Softwarehinweis**\
+In R kann der Korrelationskoeffizient von zwei Merkmalen mit dem Befehl `cor()` bestimmt werden.
+:::
 
 ### Beispiel
 

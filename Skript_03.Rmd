@@ -69,9 +69,10 @@ kable(df, "html", escape=F, align="rcr", caption="$z$-Transformation") %>%
 
 Eine so $z$-transformierte Verteilung hat *immer* automatisch das arithmetische Mittel $\bar{z}=0$ und die Standardabweichung $s_z=1$. Außerdem haben $z$-Werte keine Maßeinheit. So kann jede Verteilung "standardisiert" und systematisch vergleichbar gemacht werden.
 
-\begin{rtip}
-In R kann eine empirische Verteilung mit dem Behfehl {\tt scale()} $z$-transformiert werden.
-\end{rtip}
+::: {.rtip}
+**Softwarehinweis**\
+In R kann eine empirische Verteilung mit dem Behfehl `scale()` $z$-transformiert werden.
+:::
 
 Andersherum lassen sich $z$-Werte folgendermaßen wieder umwandeln in $x$-Werte:
 
@@ -262,9 +263,10 @@ Die [Formelsammlung](Formelsammlung und Wertetabellen.pdf){target="_blank"} gibt
 
 Der [Formelsammlung](Formelsammlung und Wertetabellen.pdf){target="_blank"} können wir den Wert $P(z < 1,41) \approx 0,9207$ entnehmen. Die Wahrscheinlichkeit, dass der Luftdruck zu einem zufälligen Zeitpunkt weniger als 1015 hPA beträgt, ist somit 92,07%.
 
-\begin{rtip}
-In R lässt sich die Unterschreitungswahrscheinlichkeit eines $z$-Werts mit dem Befehl {\tt pnorm()} ermitteln.
-\end{rtip}
+::: {.rtip}
+**Softwarehinweis**\
+In R lässt sich die Unterschreitungswahrscheinlichkeit eines $z$-Werts mit dem Befehl `pnorm()` ermitteln.
+:::
 
 #### Überschreitungswahrscheinlichkeit
 
@@ -342,9 +344,10 @@ Für unser Beispiel ergibt sich (mit dem Wert $P(z < 1,52) = 0,9357$ aus der Tab
 
 Ein Luftdruck von 990 hPa wird also nur in ca. 6,43% der Fälle unterschritten.
 
-\begin{rtip}
-Der Befehl {\tt pnorm()} funktioniert auch mit negativen $z$-Werten.
-\end{rtip}
+::: {.rtip}
+**Softwarehinweis**\
+Der Befehl `pnorm()` funktioniert auch mit negativen $z$-Werten.
+:::
 
 #### Wert in einem Intervall
 
@@ -419,9 +422,10 @@ Mit der umgekehrten $z$-Transformation erhalten wir:
 
 Die Marke von 1017,10 hPa wird also nur in 5% der Fälle überschritten.
 
-\begin{rtip}
-Das Perzentil für eine gegebene Unterschreitungswahrscheinlichkeit lässt sich in R mit {\tt qnorm()} bestimmen.
-\end{rtip}
+::: {.rtip}
+**Softwarehinweis**\
+Das Perzentil für eine gegebene Unterschreitungswahrscheinlichkeit lässt sich in R mit `qnorm()` bestimmen.
+:::
 
 #### Gesuchte Grenzwerte eines Intervalls
 

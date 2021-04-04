@@ -92,9 +92,10 @@ In unserem Beispiel ist $n=14$ und damit gerade. Der Median errechnet also nach 
   \end{aligned}
 \]
 
-\begin{rtip}
-In R gibt die Funktion {\tt median()} den Median einer Verteilung aus.
-\end{rtip}
+::: {.rtip}
+**Softwarehinweis**\
+In R gibt die Funktion `median()` den Median einer Verteilung aus.
+:::
 
 ### Modalwert
 
@@ -141,9 +142,10 @@ Für unsere Beispielverteilung ergibt sich durch einsetzen in Formel \@ref(eq:am
   \end{aligned}
 \]
 
-\begin{rtip}
-Der Befehl für die Ermittlung des arithmetischen Mittels in R lautet {\tt mean()}.
-\end{rtip}
+::: {.rtip}
+**Softwarehinweis**\
+Der Befehl für die Ermittlung des arithmetischen Mittels in R lautet `mean()`.
+:::
 
 ## Streumaße
 
@@ -170,9 +172,10 @@ Für unsere Beispielstichprobe ergibt sich (mit Blick auf Tabelle \@ref(tab:sort
   \end{aligned}
 \]
 
-\begin{rtip}
-In R gibt die Funktion {\tt range()} die Werte für $x_{(1)}$ und $x_{(n)}$ aus.
-\end{rtip}
+::: {.rtip}
+**Softwarehinweis**\
+In R gibt die Funktion `range()` die Werte für $x_{(1)}$ und $x_{(n)}$ aus.
+:::
 
 ### Quartilsabstand
 
@@ -226,13 +229,12 @@ Für den Quartilsabstand ergibt sich durch einsetzen in Formel \@ref(eq:iqr):
   \end{aligned}
 \]
 
-\begin{rtip}
-In R werden die Quartile üblicherweise mit {\tt quantile()} und der Quartilsabstand mit {\tt IQR()} bestimmt.
+::: {.rtip}
+**Softwarehinweis**\
+In R werden die Quartile üblicherweise mit `quantile()` und der Quartilsabstand mit `IQR()` bestimmt.
 
-\medskip
-
-\textbf{Achtung:} Genau wie für den Median gibt es auch für die Ermittlung der Quartile bzw. des Quartilsabstands unterschiedliche Verfahren. Die Ergebnisse dieser R-Funktionen weichen hier deshalb meist leicht vom hier besprochenen Verfahren ab!
-\end{rtip}
+**Achtung:** Genau wie für den Median gibt es auch für die Ermittlung der Quartile bzw. des Quartilsabstands unterschiedliche Verfahren. Die Ergebnisse dieser R-Funktionen weichen hier deshalb meist leicht vom hier besprochenen Verfahren ab!
+:::
 
 ### Varianz
 
@@ -279,9 +281,10 @@ Eine solche Tabelle lässt sich analog auch für die Berechnung von Summen grö�
 
 Zudem lässt dieses Verfahren sich auf klassierte Daten anwenden, wenn für $x_i$ der Mittelwert der Klassen eingesetzt wird (womit allerdings Informations- und Präzisionsverlust einhergeht).
 
-\begin{rtip}
-In R lautet der Befehl für die Errechnung der Varianz {\tt var()}.
-\end{rtip}
+::: {.rtip}
+**Softwarehinweis**\
+In R lautet der Befehl für die Errechnung der Varianz `var()`.
+:::
 
 ### Standardabweichung
 
@@ -307,9 +310,10 @@ In unserem Beispiel beträgt die Standardabweichung also:
   \end{aligned}
 \]
 
-\begin{rtip}
-Die Standardabweichung wird in R mit der Funktion {\tt sd()} berechnet.
-\end{rtip}
+::: {.rtip}
+**Softwarehinweis**\
+Die Standardabweichung wird in R mit der Funktion `sd()` berechnet.
+:::
 
 ## Boxplot
 
@@ -328,9 +332,10 @@ ggplot(data.frame(xs), aes(y=xs)) +
 
 Die Höhe der "Box" definiert sich durch den Quartilsabstand, der mittlere Strich markiert den Median und die "Whisker" markieren den Wertebereich insgesamt -- wobei Ausreißer, deren Abstand zur Box mehr als das 1,5-Fache des Quartilsabstands beträgt, üblicherweise gar nicht oder (wie hier) gesondert mit Punkten markiert werden.
 
-\begin{rtip}
-In R lässt sich ein Boxplot mit dem Befehl {\tt boxplot()} ausgeben.
-\end{rtip}
+::: {.rtip}
+**Softwarehinweis**\
+In R lässt sich ein Boxplot mit dem Befehl `boxplot()` ausgeben.
+:::
 
 ## Aufgaben
 

@@ -785,6 +785,10 @@ metrisch
                 &amp; = 3,5
   \end{aligned}
 \]</span></p>
+<div class="rtip">
+<p><strong>Softwarehinweis</strong><br />
+In R gibt die Funktion <code>median()</code> den Median einer Verteilung aus.</p>
+</div>
 </div>
 <div id="modalwert" class="section level3" number="2.3.2">
 <h3><span class="header-section-number">2.3.2</span> Modalwert</h3>
@@ -889,6 +893,10 @@ Häufigkeit <span class="math inline">\(f_i\)</span>
             &amp;\approx 4,71
   \end{aligned}
 \]</span></p>
+<div class="rtip">
+<p><strong>Softwarehinweis</strong><br />
+Der Befehl für die Ermittlung des arithmetischen Mittels in R lautet <code>mean()</code>.</p>
+</div>
 </div>
 </div>
 <div id="streumaße" class="section level2" number="2.4">
@@ -909,6 +917,10 @@ Häufigkeit <span class="math inline">\(f_i\)</span>
      &amp;=25
   \end{aligned}
 \]</span></p>
+<div class="rtip">
+<p><strong>Softwarehinweis</strong><br />
+In R gibt die Funktion <code>range()</code> die Werte für <span class="math inline">\(x_{(1)}\)</span> und <span class="math inline">\(x_{(n)}\)</span> aus.</p>
+</div>
 </div>
 <div id="quartilsabstand" class="section level3" number="2.4.2">
 <h3><span class="header-section-number">2.4.2</span> Quartilsabstand</h3>
@@ -1043,6 +1055,11 @@ Häufigkeit <span class="math inline">\(f_i\)</span>
        &amp;=4 \\[4pt]
   \end{aligned}
 \]</span></p>
+<div class="rtip">
+<p><strong>Softwarehinweis</strong><br />
+In R werden die Quartile üblicherweise mit <code>quantile()</code> und der Quartilsabstand mit <code>IQR()</code> bestimmt.</p>
+<p><strong>Achtung:</strong> Genau wie für den Median gibt es auch für die Ermittlung der Quartile bzw. des Quartilsabstands unterschiedliche Verfahren. Die Ergebnisse dieser R-Funktionen weichen hier deshalb meist leicht vom hier besprochenen Verfahren ab!</p>
+</div>
 </div>
 <div id="varianz" class="section level3" number="2.4.3">
 <h3><span class="header-section-number">2.4.3</span> Varianz</h3>
@@ -1238,6 +1255,10 @@ Produkt mit Häufigkeit
 \end{aligned}\]</span></p>
 <p>Eine solche Tabelle lässt sich analog auch für die Berechnung von Summen größerer Messwertreihen für das arithmetische Mittel verwenden.</p>
 <p>Zudem lässt dieses Verfahren sich auf klassierte Daten anwenden, wenn für <span class="math inline">\(x_i\)</span> der Mittelwert der Klassen eingesetzt wird (womit allerdings Informations- und Präzisionsverlust einhergeht).</p>
+<div class="rtip">
+<p><strong>Softwarehinweis</strong><br />
+In R lautet der Befehl für die Errechnung der Varianz <code>var()</code>.</p>
+</div>
 </div>
 <div id="standardabweichung" class="section level3" number="2.4.4">
 <h3><span class="header-section-number">2.4.4</span> Standardabweichung</h3>
@@ -1257,6 +1278,10 @@ Produkt mit Häufigkeit
       \approx6,24
   \end{aligned}
 \]</span></p>
+<div class="rtip">
+<p><strong>Softwarehinweis</strong><br />
+Die Standardabweichung wird in R mit der Funktion <code>sd()</code> berechnet.</p>
+</div>
 </div>
 </div>
 <div id="boxplot" class="section level2" number="2.5">
@@ -1269,6 +1294,10 @@ Abbildung 2.1: Boxplot der Beispielverteilung
 </p>
 </div>
 <p>Die Höhe der <q>Box</q> definiert sich durch den Quartilsabstand, der mittlere Strich markiert den Median und die <q>Whisker</q> markieren den Wertebereich insgesamt – wobei Ausreißer, deren Abstand zur Box mehr als das 1,5-Fache des Quartilsabstands beträgt, üblicherweise gar nicht oder (wie hier) gesondert mit Punkten markiert werden.</p>
+<div class="rtip">
+<p><strong>Softwarehinweis</strong><br />
+In R lässt sich ein Boxplot mit dem Befehl <code>boxplot()</code> ausgeben.</p>
+</div>
 </div>
 <div id="aufgaben-1" class="section level2" number="2.6">
 <h2><span class="header-section-number">2.6</span> Aufgaben</h2>

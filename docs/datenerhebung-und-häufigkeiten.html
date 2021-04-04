@@ -706,6 +706,10 @@ Körpergewicht</p>
 <div id="häufigkeiten" class="section level3" number="1.4.3">
 <h3><span class="header-section-number">1.4.3</span> Häufigkeiten</h3>
 <p>Die absoluten Häufigkeiten erhält man durch einfaches Abzählen der jeweiligen Werte. Für die relativen Häufigkeiten teilt man diese Zahl durch <span class="math inline">\(n\)</span>. Kumulierte Häufigkeiten zählen die bisherigen Summen bzw. Anteile zusammen (s. Tabelle <a href="datenerhebung-und-häufigkeiten.html#tab:haeufkum">1.2</a>).</p>
+<div class="rtip">
+<p><strong>Softwarehinweis</strong><br />
+In R lässt sich mit dem Befehl <code>table()</code> eine einfache Häufigkeitstabelle aus Rohdaten erstellen.</p>
+</div>
 <div style="overflow-y: auto;">
 <table>
 <caption>
@@ -1095,6 +1099,10 @@ Y
 <div id="stabdiagramme" class="section level3" number="1.4.4">
 <h3><span class="header-section-number">1.4.4</span> Stabdiagramme</h3>
 <p>Die so ermittelten Häufigkeiten lassen sich als Stabdiagramm (auch Säulen-, Streifen-, Balkendiagramm, engl. <em>bar chart</em>) darstellen (s. Abbildung <a href="datenerhebung-und-häufigkeiten.html#fig:stab">1.1</a>).</p>
+<div class="rtip">
+<p><strong>Softwarehinweis</strong><br />
+In R lautet der Standardbefehl zur Erstellung eines Stabdiagramms <code>barplot()</code>.</p>
+</div>
 <div class="figure" style="text-align: center"><span id="fig:stab"></span>
 <img src="bookdownproj_files/figure-html/stab-1.svg" alt="Stabdiagramm" width="75%" />
 <p class="caption">
@@ -1269,6 +1277,10 @@ Relative Häufigkeit
 <li>Klassengrenzen sollten <q>Klumpen</q> mit ähnlichen Werten nicht trennen.</li>
 </ul>
 <p>Die Darstellung erfolgt in so genannten Histogrammen (engl. <em>histogram</em>). Abbildung <a href="datenerhebung-und-häufigkeiten.html#fig:hist">1.2</a> enthält ein Beispiel für ein Histogramm.</p>
+<div class="rtip">
+<p><strong>Softwarehinweis</strong><br />
+In R können Histogramme mit <code>hist()</code> erstellt werden.</p>
+</div>
 <div class="figure" style="text-align: center"><span id="fig:hist"></span>
 <img src="bookdownproj_files/figure-html/hist-1.svg" alt="Histogramm" width="75%" />
 <p class="caption">

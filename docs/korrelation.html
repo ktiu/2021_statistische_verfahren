@@ -640,6 +640,10 @@ s_{xy}=\frac{\sum\limits^n_{i=1}(x_i-\bar{x})\cdot(y_i-\bar{y})}{n-1}
 \tag{7.1}
 \]</span></p>
 <p><a href="korrelation.html#eq:cov">(7.1)</a> lässt erahnen: Wenn sowohl <span class="math inline">\(x\)</span> als auch <span class="math inline">\(y\)</span> in die gleiche Richtung vom jeweiligen Mittelwert abweichen (also beide Differenzen positiv oder beide Differenzen negativ), dann ist das Produkt positiv, sonst ist es negativ. Eine positive Kovarianz lässt also auf einen positiven Zusammenhang schließen (je größer <span class="math inline">\(x\)</span>, desto größer auch <span class="math inline">\(y\)</span>), eine negative Kovarianz auf einen negativen Zusammenhang (je größer <span class="math inline">\(x\)</span>, desto <em>kleiner</em> <span class="math inline">\(y\)</span>).</p>
+<div class="rtip">
+<p><strong>Softwarehinweis</strong><br />
+Der Befehl <code>cov()</code> berechnet die Kovarianz einer bivariaten Verteilung in R.</p>
+</div>
 <div id="beispiel-24" class="section level3" number="7.3.1">
 <h3><span class="header-section-number">7.3.1</span> Beispiel</h3>
 <p>Es macht Sinn, eine Tabelle anzulgen, in der Teilrechenschritte durchgeführt werden. <a href="korrelation.html#tab:ricemath">7.2</a> veranschaulicht dies.</p>
@@ -922,6 +926,10 @@ r=\frac{s_{xy}}{s_x\cdot s_y}
 <p class="caption">
 Abbildung 7.2: Verschiedene Korrelationskoeffizienten
 </p>
+</div>
+<div class="rtip">
+<p><strong>Softwarehinweis</strong><br />
+In R kann der Korrelationskoeffizient von zwei Merkmalen mit dem Befehl <code>cor()</code> bestimmt werden.</p>
 </div>
 <div id="beispiel-25" class="section level3" number="7.4.1">
 <h3><span class="header-section-number">7.4.1</span> Beispiel</h3>
