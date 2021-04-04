@@ -136,7 +136,7 @@ a&=\bar{y}-b\cdot\bar{x}\\
 
 Dieser Wert ergibt nur einen abstrakt-mathematischen Sinn -- es dürfte in der Praxis wohl kaum Passagiere geben, die 0 Minuten am Flughafen verbringen und € 3,35 ausgeben.
 
-Mit dem Achsenabschnitt $a$ und der Steigung $b$ lässt sich folgende Gleichung für die Regressionsgerade aufstellen (s. \ref(eq:lin)):
+Mit dem Achsenabschnitt $a$ und der Steigung $b$ lässt sich folgende Gleichung für die Regressionsgerade aufstellen (s. \@ref(eq:lin)):
 
 \[\begin{aligned}
 y&=a+b\cdot x\\

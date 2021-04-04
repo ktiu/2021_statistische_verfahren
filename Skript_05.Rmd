@@ -387,7 +387,7 @@ t \geq t_{\mathit{df};(1-\alpha)} \quad \textrm{für} \quad H_1: \mu > \mu_0
 (\#eq:kritless)
 \]
 
-Die kritischen Werte für $t$ bei gegebenem Freiheitsgrad $(n-1)$ und Flächenabschnitt lassen sich aus der [Formelsammlung](Formelsammlung und Wertetabellen.pdf) ablesen. Dabei ist zu beachten, dass aufgrund der Symmetrie die Werte für Flächenanteile unter 50% nicht in der Tabelle verzeichnet sind. Es gilt die Formel:
+Die kritischen Werte für $t$ bei gegebenem Freiheitsgrad $(n-1)$ und Flächenabschnitt lassen sich aus der [Formelsammlung](Formelsammlung und Wertetabellen.pdf){target="_blank"} ablesen. Dabei ist zu beachten, dass aufgrund der Symmetrie die Werte für Flächenanteile unter 50% nicht in der Tabelle verzeichnet sind. Es gilt die Formel:
 
 \[
 P(-t_\mathit{df})=1-P(t_\mathit{df})

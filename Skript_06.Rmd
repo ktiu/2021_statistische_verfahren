@@ -104,7 +104,7 @@ Wir entscheiden uns für das Signifikanzniveau $\alpha=0{,}05$.
 
 ### Ablehnungsbereich bestimmen
 
-Der kritische Wert wird genau wie bei dem 1-Stichproben-$t$-Test aus der [Formelsammlung](Formelsammlung und Wertetabellen.pdf) abgelesen. Der einzige (wichtige!) Unterschied ist die Bestimmung der Freiheitsgrade: Bei zwei Stichproben der Größe $n$ werden die Freiheitsgrade bestimmt durch:
+Der kritische Wert wird genau wie bei dem 1-Stichproben-$t$-Test aus der [Formelsammlung](Formelsammlung und Wertetabellen.pdf){target="_blank"} abgelesen. Der einzige (wichtige!) Unterschied ist die Bestimmung der Freiheitsgrade: Bei zwei Stichproben der Größe $n$ werden die Freiheitsgrade bestimmt durch:
 
 \[
 \mathit{df}=2\cdot n -2
@@ -318,7 +318,7 @@ Dabei bestimmen sich die Freiheitsgrade wieder durch die Stichprobengrößen:
 \end{aligned}
 (\#eq:Fdfs)\]
 
-In der [Formelsammlung](Formelsammlung und Wertetabellen.pdf) sind nur die Werte für Flächenanteile von 0,95 vermerkt. Die Werte für Flächenanteile von 0,05 (also am linken Rand) können durch \@ref(eq:Frev) bestimmt werden:
+In der [Formelsammlung](Formelsammlung und Wertetabellen.pdf){target="_blank"} sind nur die Werte für Flächenanteile von 0,95 vermerkt. Die Werte für Flächenanteile von 0,05 (also am linken Rand) können durch \@ref(eq:Frev) bestimmt werden:
 
 \[
 F_{\mathit{df}_1;\mathit{df}_2;\alpha}=\frac{1}{F_{\mathit{df}_2;\mathit{df}_1;(1-\alpha)}}

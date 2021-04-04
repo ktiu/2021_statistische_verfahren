@@ -206,7 +206,7 @@ Im Beispiel also:
 &=(2-1)\cdot (2 - 1) = 1
 \end{aligned}\]
 
-Damit lässt sich der kritische Wert aus der [Formelsammlung](Formelsammlung und Wertetabellen.pdf) ablesen, die allerdings für *ungerichtete* Alternativhypothesen ausgelegt ist.
+Damit lässt sich der kritische Wert aus der [Formelsammlung](Formelsammlung und Wertetabellen.pdf){target="_blank"} ablesen, die allerdings für *ungerichtete* Alternativhypothesen ausgelegt ist.
 
 Hätten wir eine ungerichtete Alternativhypothese gewählt, würde der Ablehnungsbereich also definiert durch:
 
@@ -321,7 +321,7 @@ In unserem Beispiel (bei fünf Werktagen) also:
 &=5-1=4
 \end{aligned}\]
 
-Der kritische Wert für den Ablehnungsbereich ist der [Formelsammlung](Formelsammlung und Wertetabellen.pdf) zu entnehmen.
+Der kritische Wert für den Ablehnungsbereich ist der [Formelsammlung](Formelsammlung und Wertetabellen.pdf){target="_blank"} zu entnehmen.
 
 \[\begin{aligned}
 \chi^2 &\geq \chi^2_{\mathit{df};(1-\alpha)}\\
