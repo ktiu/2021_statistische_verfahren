@@ -86,16 +86,21 @@ theme_goethe <- function() {
 
 Datum                 | Sitzung | Inhalt
 --------------------: | ------: | :-----------------------------------
-13. April 2021        | 1       | [Datenerhebung und Häufigkeiten]
-20. April 2021        | 2       | [Maßzahlen]
-27. April 2021        | 3       | [z-Werte und Normalverteilung]
-04. Mai 2021          | 4       | [Schätzstatistik]
-11. Mai 2021          | 5       | [Grundlagen der Teststatistik]
-18. Mai 2021          | 6       | [Testverfahren mit zwei Stichproben]
-25. Mai 2021          | 7       | [Korrelation]
-01. Juni 2021         | 8       | [Lineare Regression]
-08. Juni 2021         | 9       | [Kreuztabellen]
-15. Juni 2021         | 10      | [Chi-Quadrat-Tests]
+13. April 2021        |         | Vorbesprechung
+20. April 2021        | 1       | [Datenerhebung und Häufigkeiten]
+27. April 2021        | 2       | [Maßzahlen]
+04. Mai 2021          | 3       | [z-Werte und Normalverteilung]
+11. Mai 2021          | 4       | [Schätzstatistik]
+18. Mai 2021          | 5       | [Grundlagen der Teststatistik]
+25. Mai 2021          | 6       | [Testverfahren mit zwei Stichproben]
+01. Juni 2021         | 7       | [Korrelation]
+08. Juni 2021         | 8       | [Lineare Regression]
+15. Juni 2021         | 9       | [Kreuztabellen]
+22. Juni 2021         | 10      | [Chi-Quadrat-Tests]
+29. Juni 2021         | 11      | tba
+06. Juli 2021         | 12      | tba
+13. Juli 2021         | 13      | tba
+*tba*                 |         | *Klausur*
 
 ## Formelsammlung und Wertetabellen {-}
 
