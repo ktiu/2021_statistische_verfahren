@@ -4,6 +4,7 @@ fig:stab
 tab:haeufklass
 fig:hist
 fig:poly
+fig:shapes
 tab:mass
 tab:werte
 tab:sort

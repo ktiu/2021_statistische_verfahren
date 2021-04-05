@@ -27,11 +27,17 @@ csl: chicago-author-date-de.csl
 ---
 
 ```{r setup, include=F}
-knitr::opts_chunk$set(cache = T,
+knitr::opts_chunk$set(echo=F,
+                      cache = T,
                       warning = F,
                       message = F,
                       collapse = T,
-                      dev = 'svglite')
+                      dev = 'svglite',
+                      out.width='450px',
+                      fig.align='center',
+                      fig.width=5,
+                      fig.height=3,
+                      fig.pos = 'h')
 
 solutions <- knitr::opts_knit$get("rmarkdown.pandoc.to") == "html"
 
@@ -43,7 +49,6 @@ library(showtext)
 #library(pubIHG)
 
 options(OutDec = ",")
-knitr::opts_chunk$set(fig.align='center', out.width='450px', fig.width=5, fig.height=3, echo=FALSE, warning=FALSE, message=FALSE, fig.pos = 'h')
 
 goethe_blue <- "#00618F"
 light_gray <- "#f8f6f5"

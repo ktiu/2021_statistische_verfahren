@@ -334,9 +334,11 @@ ggplot(data=trees, aes(x=trees$Girth)) +
 
 ### Eigenschaften von Häufigkeitsverteilungen
 
-Polygone von Häufigkeitsverteilungen (insbesondere in geglätteter Form) ergeben Annäherungen an so gennannte Dichtefunktionen (engl. *density functions*). Diese lassen sich mit Attributen (uni-/bimodal, schmal-/breitgipflig, etc.) beschreiben, wie in Abbildung 4 veranschaulicht.
+Polygone von Häufigkeitsverteilungen (insbesondere in geglätteter Form) ergeben Annäherungen an so gennannte Dichtefunktionen (engl. *density functions*). Diese lassen sich mit Attributen (uni-/bimodal, schmal-/breitgipflig, etc.) beschreiben, wie in Abbildung \@ref(fig:shapes) veranschaulicht.
 
-![Merkmale von Verteilungen [aus: @bortz: 42]](img/shapes.png){height=700}
+```{r shapes, out.width='413px', fig.cap="Merkmale von Verteilungen [aus: @bortz: 42]"}
+knitr::include_graphics("img/shapes.png")
+```
 
 \pagebreak
 
