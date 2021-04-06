@@ -85,9 +85,9 @@ theme_goethe <- function() {
 
 # Inhalt {-}
 
-Die Vorlesung behandelt Grundprinzipien der beschreibenden und der schließenden Statistik und ihre Anwendung in der Geographie.
+In der Übung „Statistische Verfahren in der Geographie“ werden Methoden der Datenerhebung, der deskriptiven Statistik sowie der Schätz- und Teststatistik vermittelt und ihre Anwendung für geographische Fragestellungen geübt. Die Einführung in Statistiksoftware umfasst die praktische Anwendung der Methoden sowie die tabellarische und graphische Aufbereitung der Ergebnisse statistischer Analysen.
 
-**Ziel:** Die Veranstaltung zielt auf den Erwerb der Fähigkeit, Konzepte der beschreibenden und schließenden Statistik auf geographische Fragestellungen anzuwenden.
+[Zum OLAT Kurs 🡕](https://olat-ce.server.uni-frankfurt.de/olat/auth/RepositoryEntry/10811179011){target="_blank"}
 
 ## Terminüberblick {-}
 
@@ -114,4 +114,4 @@ Datum                 | Sitzung | Inhalt
 ## Formelsammlung und Wertetabellen {-}
 
 ![](Formelsammlung und Wertetabellen.pdf){width=100% height=800px}
-[Formelsammlung und Wertetabellen (PDF)](Formelsammlung und Wertetabellen.pdf){target="_blank"}
+[Formelsammlung und Wertetabellen (PDF) 🡕](Formelsammlung und Wertetabellen.pdf){target="_blank"}
