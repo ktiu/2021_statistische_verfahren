@@ -85,6 +85,10 @@ theme_goethe <- function() {
 
 # Inhalt {-}
 
+Die Vorlesung behandelt Grundprinzipien der beschreibenden und der schließenden Statistik und ihre Anwendung in der Geographie.
+
+**Ziel:** Die Veranstaltung zielt auf den Erwerb der Fähigkeit, Konzepte der beschreibenden und schließenden Statistik auf geographische Fragestellungen anzuwenden.
+
 ## Terminüberblick {-}
 
 *Alle Sitzungen finden von 14 bis 16h c.t. statt*
