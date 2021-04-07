@@ -106,12 +106,14 @@ Datum                 | Sitzung | Inhalt
 08. Juni 2021         | 8       | [Lineare Regression]
 15. Juni 2021         | 9       | [Kreuztabellen]
 22. Juni 2021         | 10      | [Chi-Quadrat-Tests]
-29. Juni 2021         | 11      | tba
-06. Juli 2021         | 12      | tba
-13. Juli 2021         | 13      | tba
-*tba*                 |         | *Klausur*
+29. Juni 2021         |         | Klausurvorbereitung
+06. Juli 2021         |         | tba
+*13. Juli 2021*       |         | *Klausur*
 
-## Formelsammlung und Wertetabellen {-}
+## Organisatorisches {-}
+
+
+# Formelsammlung und Wertetabellen {-}
 
 ![](Formelsammlung und Wertetabellen.pdf){width=100% height=750px}
 [Formelsammlung und Wertetabellen (PDF) ➔](Formelsammlung und Wertetabellen.pdf){target="_blank"}
