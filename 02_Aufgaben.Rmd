@@ -1,0 +1,62 @@
+## Aufgaben {-}
+
+Die folgenden Aufgaben sind zur eigenständigen Überprüfung Ihrer Lernleistung gedacht (als Vor- oder Nachbereitung der Vorlesung, oder als Klausurübung) und nicht etwa als Hausaufgabe.
+
+### Aufgabe 1
+
+Bei einer Befragung jedes 500. Studierenden im Matrikel einer privaten Hochschule wurden folgende Angaben zur Haushaltsgröße gemacht:
+
+```
+1 4 4 2 3 2 3 5 2 7 2 1 1
+```
+
+a) Welches Skalenniveau liegt vor? ([Sitzung 1](#skalenniveaus))
+b) Berechnen Sie Modalwert,
+c) Median und
+d) arithmetisches Mittel der Stichprobe.
+e) Berechnen Sie außerdem die Spannweite,
+f) den Quartilsabstand,
+g) die Varianz und
+h) die Standardabweichung der Stichprobe.
+i) Zeichnen Sie einen Boxplot der Stichprobenverteilung.
+
+### Aufgabe 2
+
+In Australien betrug die durchnittliche Niederschlagsmenge in den 1970er und 80er Jahren ^[Auszug aus dem Datensatz `bomsoi` in @haseloff]:
+\nopagebreak
+
+```{r}
+tribble(
+  ~Jahr, ~`Niederschlag (mm)`,
+  1970,	384.52,
+  1971,	493.65,
+  1972,	364.65,
+  1973,	661.32,
+  1974,	785.27,
+  1975,	603.45,
+  1976,	527.75,
+  1977,	471.81,
+  1978,	525.65,
+  1979,	455.64,
+  1980,	433.01,
+  1981,	535.12,
+  1982,	421.36,
+  1983,	499.29,
+  1984,	555.21,
+  1985,	398.88,
+  1986,	391.96,
+  1987,	453.41,
+  1988,	459.84,
+  1989,	483.78
+) %>%
+  kable() %>%
+  kable_styling(full_width = F)
+```
+
+a) Welches Skalenniveau liegt vor?  ([Sitzung 1](#skalenniveaus))
+b) Legen Sie eine klassierte Häufigkeitstabelle an. Begründen Sie die Wahl der Klassen. ([Sitzung 1](#quantitative-variablen-1))
+c) Was ist der Modalwert der klassierten Verteilung?
+d) Wie groß ist der Quartilsabstand?
+e) Bestimmen Sie das arithmetische Mittel der klassierten Verteilung.
+f) Berechnen Sie die Standardabweichung.
+g) Zeichnen Sie einen Boxplot für die Verteilung.

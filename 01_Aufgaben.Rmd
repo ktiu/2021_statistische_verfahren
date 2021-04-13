@@ -1,0 +1,37 @@
+## Übungsaufgaben {-}
+
+### Aufgabe 1
+
+Bestimmen Sie das Skalenniveau der folgenden Variablen. Kennzeichnen Sie darüber hinaus, ob die Variable qualitativ, diskret oder stetig ist.
+
+a) Lebensalter in Jahren
+a) Regenmenge in mm
+a) Güteklasse
+a) Passagieraufkommen
+a) Baujahr
+a) Geschwindigkeit in km/h
+a) Sozialstatus (Unter-, Mittel und Oberschicht)
+a) Temperatur in °F
+a) Fläche eines Bundeslands in km²
+a) Temperatur in K
+a) Einwohnerzahl
+a) Pegelstand
+a) Staatsangehörigkeit
+a) Interesse an Statistik (gering bis hoch)
+a) Klausurnote
+a) Bodentyp
+a) Entfernung zum Stadtzentrum in km
+a) Körpergröße
+a) Kleidergröße (S bis XXL)
+a) Monatliches Nettoeinkommen
+
+### Aufgabe 2
+Folgende Werte seien erfasst über die Lebensdauer von Klimaanlagen in Stunden [Beispieldatensatz `aircondit7` aus @r]:  
+
+```
+14 23 15 139 13 39 188 22 50 3 36 46 30 5 102 5 88 22 197 72 210 97 79 44
+```
+
+a) Erstellen Sie eine Häufigkeitstabelle. Welche Klassen wählen Sie und warum?
+a) Zeichnen Sie ein Histogramm.
+a) Beschreiben Sie die Verteilung.

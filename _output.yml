@@ -9,5 +9,5 @@ bookdown::gitbook:
   lib_dir: "assets"
   pandoc_args: ["--html-q-tags"]
 
-bookdown::pdf_book:
-  keep_tex: true
+# bookdown::pdf_book:
+#   keep_tex: true

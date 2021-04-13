@@ -1,0 +1,65 @@
+# Vorbesprechung {-}
+
+## Lernziele der Veranstaltung {-}
+
+Sie können...
+
+- Grundbegriffe der Statistik sinnvoll verwenden.
+- die wichtigsten statistischen Kennzahlen berechnen.
+- gängige Diagramme interpretieren.
+- einfache statistische Schätz- und Prüfverfahren anwenden.
+- passende Verfahren für verschiedene Aufgaben wählen.
+
+## Konzept der Veranstaltung {-}
+
+- Die gesamte Veranstaltung dient als Klausurvorbereitung
+- Die selbständige Anwendung der Verfahren steht im Vordergrund
+
+## Sitzungsvorbereitung {-}
+
+- Materialien werden zur eigenständigen Vorbereitung bereit gestellt
+- Dieses Online-Skript mit den Kerninhalten
+- Darin: Videos (aus dem Vorjahr) mit Beispielen und Übungen
+- Darin: Verweise auf weiterführende Literatur, YouTube-Videos, etc.
+- Fehler und Unklarheiten bitte per E-Mail melden!
+
+## Sitzungsablauf {-}
+
+- Dienstags, 14h c.t. auf Zoom (Link in OLAT)
+- Übungsaufgaben (und Lösungen) werden online bereit gestellt
+- Teilnehmer\*innen bearbeiten die Aufgaben in Break-Out-Sessions
+- Bei Problemen fragen Sie sich erstmal gegenseitig
+- Sonst bin ich ansprechbar (Zoom-Funktion: Um Hilfe bitten)
+
+## Empfehlungen {-}
+
+- Lassen Sie sich auf den wöchentlichen Rhythmus ein
+- Bereiten Sie die Sitzungen vor und nach
+- Bilden Sie Lerngruppen
+- Melden Sie mir gerne Break-Out-Wünsche per E-Mail (aber keine Garantie)
+- Gleichen Sie in Lerngruppen Ihre Ziele ab
+
+## Literaturempfehlungen {-}
+
+- Ganz besonders:
+  - @bortz (als eBook bei der UB erhältich; dieselben Notationskonventionen wie in der Veranstaltung)
+- Ergänzend:
+  - @bahrenberg (geographiebezogen)
+  - @benninghaus 
+- Bedingt:
+  - @zimmermann-janschitz2014a (geographiebezogen; als eBook bei der UB erhältich)
+
+## Klausur {-}
+
+- Termin: 13. Juli 2021, 14h s.t.
+- Präsenz oder online möglich
+- Viele Textaufgaben zur Berechnung von Hand
+- Hilfsmittel: Taschenrechner, Formelsammlung
+- Vier Teilaufgaben, immer nach demselben Schema (dazu später mehr)
+- Viele Probeklausuren zur Vorbereitung
+
+## Nachklausur {-}
+
+- Termin: 12. Oktober 2021, 14h s.t.
+- Gleiches Schema wie die reguläre Klausur (mit anderen Aufgaben)
+- Nicht einfacher als die reguläre Klausur

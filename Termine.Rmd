@@ -1,0 +1,20 @@
+# Terminüberblick {-}
+
+*Alle Sitzungen finden von 14 bis 16h c.t. statt*
+
+Datum                 | Sitzung | Inhalt
+--------------------: | ------: | :-----------------------------------
+13. April 2021        |         | [Vorbesprechung]
+20. April 2021        | 1       | [Datenerhebung und Häufigkeiten]
+27. April 2021        | 2       | [Maßzahlen]
+04. Mai 2021          | 3       | [z-Werte und Normalverteilung]
+11. Mai 2021          | 4       | [Schätzstatistik]
+18. Mai 2021          | 5       | [Grundlagen der Teststatistik]
+25. Mai 2021          | 6       | [Testverfahren mit zwei Stichproben]
+01. Juni 2021         | 7       | [Korrelation]
+08. Juni 2021         | 8       | [Lineare Regression]
+15. Juni 2021         | 9       | [Kreuztabellen]
+22. Juni 2021         | 10      | [Chi-Quadrat-Tests]
+29. Juni 2021         |         | Klausurvorbereitung
+06. Juli 2021         |         | Klausurvorbereitung
+13. Juli 2021         |         | Klausur

@@ -10,7 +10,7 @@ Sie können...
  
 ## Bivariate Verteilungen mit nominalen Variablen
 
-In der bivariaten Statistik ([Sitzung 7](korrelation.html) und [8](lineare-regression.html)) ging es bisher um Zusammenhänge zwischen zwei metrischen Variablen. In dieser Sitzung geht es um statistische Verfahren der bivariaten Statistik, bei denen für beide Variablen nur das Nominalskalenniveau vorausgesetzt ist. (Für Skalenniveaus s. [Sitzung 1](#skalenniveaus).)
+In der bivariaten Statistik ([Sitzung 7](#korrelation) und [8](lineare-regression.html)) ging es bisher um Zusammenhänge zwischen zwei metrischen Variablen. In dieser Sitzung geht es um statistische Verfahren der bivariaten Statistik, bei denen für beide Variablen nur das Nominalskalenniveau vorausgesetzt ist. (Für Skalenniveaus s. [Sitzung 1](#skalenniveaus).)
 
 Mit den Werten von nominalen Variablen lassen sich die in [Sitzung 7](korrelation.html) und [8](lineare-regression.html) besprochenen Parameter (z.B. Kovarianz) nicht errechnen, weil wir mit ihnen nicht die notwendigen Rechenoperationen (Addition, Subtraktion) durchführen können. Stattdessen sind die beobachteten Häufigkeiten Ausgangslage für die im Folgenden besprochenen Verfahren.
 
@@ -39,122 +39,7 @@ Bei zwei dichotomen Variablen ergeben sich zwei Spalten und zwei Zeilen, also vi
 Die Kreuztabelle für unser Beispiel ist in \@ref(tab:crossrad) dargestellt. Die Spaltenüberschriften sind die beiden Werte der dichotomen Variable "Transportmittel", und die Zeilennamen sind die beiden Werte für "Studienfach". In den Zellen stehen die Häufigkeiten. Es lässt sich also z.B. ablesen, dass die Kombination "Fahrrad" und "anderes Studienfach" neun mal vorkommt.
 
 ```{r crossrad}
-crosstable <- function(x, format, sums=T, expected=F, chisq=F, varnames=T, row.order=NULL, col.order=NULL, caption=NULL, df.only=F){
-  sink("nul")
-  xt <- gmodels::CrossTable(x[,1],x[,2], expected = T)
-  sink()
-  ts <- ""
-  chisq.contribs <- c()
-  if(is.null(row.order)){row.order <- rownames(xt$t)}
-  if(is.null(col.order)){col.order <- colnames(xt$t)}
-  first.col <- row.order
-  if(format=="latex") {
-    nbsp <- "~"
-  } else {
-    nbsp <- "&nbsp;"
-  }
-  col.names <- c(ifelse(varnames, paste0(colnames(x)[1], nbsp, "$\\downarrow$"), ""), col.order)
-  if (format == "latex"){
-    building <- list(
-        begin_cell = "\\makecell[tr]{",
-        end_cell = "}",
-        begin_expected = "(",
-        end_expected = ")",
-        begin_chisq = "\\textcolor{goethe_blue}{",
-        end_chisq = "}",
-        linebreak = "\\\\"
-      )
-  } else if (format == "html") {
-    if(is.numeric(expected)) {
-      begin_expected <- sprintf('<span class="fragment" data-fragment-index=%s>(', expected)
-    } else {
-      begin_expected <- "<span>("
-    }
-    if(is.numeric(chisq)) {
-       begin_chisq = sprintf('<span class="blue-text fragment" data-fragment-index=%s>', chisq)
-    } else {
-      begin_chisq = "<span class='blue-text'>"
-    }
-    building = list(
-      begin_cell = "",
-      end_cell = "",
-      begin_expected = begin_expected,
-      end_expected = ")<span>",
-      begin_chisq = begin_chisq,
-      end_chisq = "</span>",
-      linebreak = "<br>"
-    )
-  } else { stop("Invalid format.") }
-  kable.out <- function(df){
-    kable.params <- list(
-      x = df,
-      format = format,
-      align = "r",
-      escape = F)
-    if(format=="latex"){
-      kable.params$booktabs = T
-      kable.params$longtable = F
-    }
-    if(!is.null(caption)) kable.params$caption=caption
-    k <- do.call(kable, kable.params)
-    if(varnames){
-      header.above <- c(1,2)
-      if(sums) header.above <- c(header.above, 1)
-      header.names <- c(" ", colnames(x)[2])
-      if(sums) header.names <- c(header.names, " ")
-      names(header.above) <- header.names
-      k <- k %>%
-               add_header_above(header = header.above, line = F) %>%
-               column_spec(1, border_right = T)
-    }
-    if(format == "html"){
-      return(k %>%
-             column_spec(1, extra_css = "background:var(--sand_gray); color:var(--goethe_blue);font-weight:600") %>%
-             row_spec(nrow(xt$t)+1, bold = T) %>%
-             column_spec(ncol(xt$t)+2, bold=T))
-    }
-    if(sums){
-      k <- k %>%
-        column_spec(1 + ncol(xt$t), border_right = T) %>%
-        row_spec(nrow(xt$t), hline_after = T)
-    }
-    return(k %>%
-             column_spec(1, border_right=T) %>%
-             kable_styling())
-  }
-  for(row in row.order){
-    for(col in col.order){
-      obs <- xt$t[row,col]
-      exp <- round(xt$chisq$expected[row,col],2)
-      chisq.contrib <- round((obs-exp)^2/exp,3)
-      chisq.contribs <- c(chisq.contribs, chisq.contrib)
-      ts <- paste0(ts, building$begin_cell, obs )
-      if(expected){ ts <- paste0(ts, building$linebreak, building$begin_expected, format(exp, nsmall=2), building$end_expected)}
-      if(chisq){ ts <- paste0(ts, building$linebreak, building$begin_chisq, format(chisq.contrib,nsmall=3), building$end_chisq)}
-      ts <- paste0(ts, building$end_cell, "|")
-    }
-    if(sums){ts <- paste0(ts, sum(xt$t[row,]))}
-    ts <- paste0(ts, "
-")
-  }
-  if(sums){
-    for(col in col.order){
-      ts <- paste0(ts, sum(xt$t[,col]),"|")
-    }
-    ts <- paste0(ts, sum(xt$t))
-    col.names <-c(col.names, "")
-    first.col <- c(first.col, "")
-  }
-  df <- cbind(data.frame(first.col), read.table(text = ts, stringsAsFactors = F, quote = "", sep="|"))
-  colnames(df) <- col.names
-  if(df.only){
-    return(df)
-  } else {
-    return(list(df=kable.out(df), contrib=chisq.contribs))
-  }
-}
-
-radxt <- crosstable(rad, format="html", varnames = F, row.order = c("Geistes-/Sozialwissenschaft", "anderes Studienfach"), col.order = c("Fahrrad", "anderes Transportmittel"), caption = "Kreuztabelle der Beispieldaten")
+radxt <- crosstable(rad, format="latex", varnames = F, row.order = c("Geistes-/Sozialwissenschaft", "anderes Studienfach"), col.order = c("Fahrrad", "anderes Transportmittel"), caption = "Kreuztabelle der Beispieldaten")
 radxt$df %>%
   scroll_box(box_css = "overflow-y: auto;")
 ```
@@ -217,7 +102,7 @@ m_{12}&=\frac{n_{1\cdot}\cdot n_{\cdot 2}}{n}\\[5pt]
 Diese Rechnung lässt sich für alle Tabellenfelder durchführen. Die Kreuztabelle kann dann um diese erwarteten Werte in Klammern ergänzt werden (s. \@ref(tab:expected)).
 
 ```{r expected}
-radxt <- crosstable(rad, format="html", varnames = F, expected = T, row.order = c("Geistes-/Sozialwissenschaft", "anderes Studienfach"), col.order = c("Fahrrad", "anderes Transportmittel"), caption = "Kreuztabelle der Beispieldaten")
+radxt <- crosstable(rad, format="latex", varnames = F, expected = T, row.order = c("Geistes-/Sozialwissenschaft", "anderes Studienfach"), col.order = c("Fahrrad", "anderes Transportmittel"), caption = "Kreuztabelle der Beispieldaten")
 radxt$df %>%
   scroll_box(box_css = "overflow-y: auto;")
 ```
@@ -251,7 +136,7 @@ Ein möglicher Zwischenschritt ist es, diese Teilwerte von $\chi^2$ für die ein
 berechnet und sind in \@ref(tab:radchisq) in blau dargestellt.
 
 ```{r radchisq}
-radxt <- crosstable(rad, format="html", varnames = F, expected = T, chisq = T, row.order = c("Geistes-/Sozialwissenschaft", "anderes Studienfach"), col.order = c("Fahrrad", "anderes Transportmittel"), caption = "Kreuztabelle der Beispieldaten mit Teilwerten für $\\chi^2$")
+radxt <- crosstable(rad, format="latex", varnames = F, expected = T, chisq = T, row.order = c("Geistes-/Sozialwissenschaft", "anderes Studienfach"), col.order = c("Fahrrad", "anderes Transportmittel"), caption = "Kreuztabelle der Beispieldaten mit Teilwerten für $\\chi^2$")
 radxt$df %>%
   scroll_box(box_css = "overflow-y: auto;")
 ```
@@ -345,7 +230,7 @@ verkehrsmittel <- data.frame(
                         replicate(18,"Auto"),
                         replicate(6,"Öffentliche"))))
   
-crosstable(verkehrsmittel, "latex", expected=T, chisq=T, col.order=c("Fahrrad", "Auto", "Öffentliche"), row.order=c("Geisteswissenschaft", "Sozialwissenschaft", "Naturwissenschaft", "Ingenieurswissenschaft"))$df
+#crosstable(verkehrsmittel, "html", expected=T, chisq=T, col.order=c("Fahrrad", "Auto", "Öffentliche"), row.order=c("Geisteswissenschaft", "Sozialwissenschaft", "Naturwissenschaft", "Ingenieurswissenschaft"))$df
 ```
 
 

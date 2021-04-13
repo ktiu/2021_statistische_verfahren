@@ -27,47 +27,21 @@ csl: chicago-author-date-de.csl
 ---
 
 ```{r setup, include=F}
-knitr::opts_chunk$set(echo=F,
-                      cache = T,
-                      warning = F,
-                      message = F,
-                      collapse = T,
-                      dev = 'svglite',
-                      out.width='450px',
-                      fig.align='center',
-                      fig.width=5,
-                      fig.height=3,
+
+pubIHG::setup()
+
+knitr::opts_chunk$set(dev = 'svglite',
+                      out.width = '450px',
+                      fig.align ='center',
+                      fig.width = 5,
+                      fig.height = 3,
                       fig.pos = 'h')
-
-solutions <- knitr::opts_knit$get("rmarkdown.pandoc.to") == "html"
-
-library(knitr)
-library(kableExtra)
-library(tidyverse)
-library(cowplot)
-library(showtext)
-#library(pubIHG)
-
-options(OutDec = ",")
-
-goethe_blue <- "#00618F"
-light_gray <- "#f8f6f5"
-sand_gray <- "#e4e3dd"
-dark_gray <- "#4d4b46"
-purple <- "#860047"
-emo_red <- "#b3062c"
-mustard_yellow <- "#e3ba0f"
-green <- "#737c45"
-magenta <- "#ad3b76"
-orange <- "#c96215"
-sun_yellow <- "#f7d926"
-light_green <- "#a5ab52"
-light_blue <- "#48a9da"
 
 th_css <- "background-color: var(--sand_gray);
   color: var(--goethe_blue);
   font-weight: 600"
 
+library(showtext)
 font_add_google(name = "Source Sans Pro", family = "source-sans-pro")
 showtext_auto()
 
@@ -89,31 +63,3 @@ In der Übung „Statistische Verfahren in der Geographie“ werden Methoden der
 
 [Zum OLAT Kurs ➔](https://olat-ce.server.uni-frankfurt.de/olat/auth/RepositoryEntry/10811179011){target="_blank"}
 
-## Terminüberblick {-}
-
-*Alle Sitzungen finden von 14 bis 16h c.t. statt*
-
-Datum                 | Sitzung | Inhalt
---------------------: | ------: | :-----------------------------------
-13. April 2021        |         | Vorbesprechung
-20. April 2021        | 1       | [Datenerhebung und Häufigkeiten]
-27. April 2021        | 2       | [Maßzahlen]
-04. Mai 2021          | 3       | [z-Werte und Normalverteilung]
-11. Mai 2021          | 4       | [Schätzstatistik]
-18. Mai 2021          | 5       | [Grundlagen der Teststatistik]
-25. Mai 2021          | 6       | [Testverfahren mit zwei Stichproben]
-01. Juni 2021         | 7       | [Korrelation]
-08. Juni 2021         | 8       | [Lineare Regression]
-15. Juni 2021         | 9       | [Kreuztabellen]
-22. Juni 2021         | 10      | [Chi-Quadrat-Tests]
-29. Juni 2021         |         | Klausurvorbereitung
-06. Juli 2021         |         | tba
-*13. Juli 2021*       |         | *Klausur*
-
-## Organisatorisches {-}
-
-
-# Formelsammlung und Wertetabellen {-}
-
-![](Formelsammlung und Wertetabellen.pdf){width=100% height=750px}
-[Formelsammlung und Wertetabellen (PDF) ➔](Formelsammlung und Wertetabellen.pdf){target="_blank"}
