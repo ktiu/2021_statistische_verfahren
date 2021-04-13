@@ -1,5 +1,5 @@
 # Formelsammlung und Wertetabellen {-}
 
-Die Formelsammlung mit Wertetabellen liegt als PDF vor. So (oder ähnlich) formatiert werden diese (oder ähnliche) Informationen auch in der Klausur zur Verfügung stehen. Ich empfehle deshalb, das Dokument herunterzuladen und auszudrucken -- so gewöhnen Sie sich gleich an das Format.
+Die Formelsammlung mit Wertetabellen liegt als PDF vor. So (oder ähnlich) formatiert würden Ihnen diese Informationen auch in einer Präsenzklausur zur Verfügung stehen. Ich empfehle deshalb, das Dokument herunterzuladen und auszudrucken -- so gewöhnen Sie sich gleich an das Format.
 
 [Formelsammlung und Wertetabellen (PDF)](Formelsammlung und Wertetabellen.pdf){target="_blank"}

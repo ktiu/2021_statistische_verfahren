@@ -53,9 +53,10 @@ Sie können...
 
 - Termin: 13. Juli 2021, 14h s.t.
 - Präsenz oder online möglich
-- Viele Textaufgaben zur Berechnung von Hand
-- Hilfsmittel: Taschenrechner, Formelsammlung
-- Vier Teilaufgaben, immer nach demselben Schema (dazu später mehr)
+- Berechnung der Aufgaben "von Hand" auf Papier
+- Bearbeitungsdauer: 60 Minuten
+- Hilfsmittel: Taschenrechner, [Formelsammlung](#formelsammlung-und-wertetabellen)
+- Vier Teilaufgaben, immer nach demselben Schema (dazu im Laufe des Semesters mehr)
 - Viele Probeklausuren zur Vorbereitung
 
 ## Nachklausur {-}
