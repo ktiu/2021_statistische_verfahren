@@ -48,11 +48,11 @@ Sie können...
   - @bortz (als eBook bei der UB erhältich; dieselben Notationskonventionen wie in der Veranstaltung)
 - Ergänzend:
   - @bahrenberg (geographiebezogen)
-  - @benninghaus 
+  - @benninghaus (als eBook bei der UB erhältich)
 - Bedingt:
   - @zimmermann-janschitz2014a (geographiebezogen; als eBook bei der UB erhältich)
 
-## Taschenrechner
+## Taschenrechner {-}
 
 - Zulassungsregeln für Klausur wie für Mathe-Abi (Hessen)
 - Also kein "programmierbarer" Taschenrechner

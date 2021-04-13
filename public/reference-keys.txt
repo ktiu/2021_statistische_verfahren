@@ -5,7 +5,6 @@ tab:haeufklass
 fig:hist
 fig:poly
 fig:shapes
-taschenrechner
 datenerhebung-und-häufigkeiten
 statistische-praxis
 grundbegriffe-der-statistik
