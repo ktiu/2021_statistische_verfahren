@@ -1,5 +1,7 @@
 # Vorbesprechung {-}
 
+[Aufzeichung der Vorbesprechung am 13. April](https://video01.uni-frankfurt.de/Mediasite/Play/c5c5115e37f948d0bfeb9610d18427661d)
+
 ## Lernziele der Veranstaltung {-}
 
 Sie können...
@@ -38,6 +40,7 @@ Sie können...
 - Bilden Sie Lerngruppen
 - Melden Sie mir gerne Break-Out-Wünsche per E-Mail (aber keine Garantie)
 - Gleichen Sie in Lerngruppen Ihre Ziele ab
+- Machen Sie sich mit Ihrem Taschenrechner vertraut
 
 ## Literaturempfehlungen {-}
 
@@ -49,12 +52,20 @@ Sie können...
 - Bedingt:
   - @zimmermann-janschitz2014a (geographiebezogen; als eBook bei der UB erhältich)
 
+## Taschenrechner
+
+- Zulassungsregeln für Klausur wie für Mathe-Abi (Hessen)
+- Also kein "programmierbarer" Taschenrechner
+- Erlaubt ist z.B. CASIO FX-991DE Plus
+- "Wissenschaftlicher" Taschenrechner kann von großem Vorteil sein... aber den statistischen Funktionen nicht blind vertrauen!
+
 ## Klausur {-}
 
 - Termin: 13. Juli 2021, 14h s.t.
 - Präsenz oder online möglich
 - Berechnung der Aufgaben "von Hand" auf Papier
 - Bearbeitungsdauer: 60 Minuten
+- Bei Online-Klausur wird zusätzliche Zeit für technische Abwicklung gewährt
 - Hilfsmittel: Taschenrechner, [Formelsammlung](#formelsammlung-und-wertetabellen)
 - Vier Teilaufgaben, immer nach demselben Schema (dazu im Laufe des Semesters mehr)
 - Viele Probeklausuren zur Vorbereitung
