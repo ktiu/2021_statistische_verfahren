@@ -14,20 +14,10 @@ bibliography: ["statistik.bib"]
 link-citations: yes
 lang: de
 description: "Projektseminar"
-output:
-  bookdown::gitbook:
-    config:
-      sharing: false
-  html_document:
-    df_print: paged
-  pdf_document:
-    template: template.tex
-  
 csl: chicago-author-date-de.csl
 ---
 
 ```{r setup, include=F}
-
 pubIHG::setup()
 
 knitr::opts_chunk$set(dev = 'svglite',
