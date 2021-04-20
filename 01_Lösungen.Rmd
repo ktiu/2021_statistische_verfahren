@@ -17,7 +17,7 @@ tribble(
   "Güteklasse", "Ordinalskala", "qualitativ",  "",
   "Passagieraufkommen", "Verhältnisskala", "diskret", "",
   "Baujahr", "Intervallskala", "diskret", "",
-  "Geschwindigkeit in km/h", "Verhältnisskala", "diskret", "",
+  "Geschwindigkeit in km/h", "Verhältnisskala", "stetig", "bei ganzzahligen Werte: diskret",
   "Sozialstatus (Unter-, Mittel und Oberschicht)", "Ordinalskala", "qualitativ", "",
   "Temperatur in °F", "Intervallskala", "stetig", "",
   "Fläche eines Bundeslands in km²", "Verhältnisskala", "stetig", "",
