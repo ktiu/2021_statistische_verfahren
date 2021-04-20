@@ -10,6 +10,10 @@ Sie können...
 
 ## Lehrvideos (Sommersemester 2020) {-}
 
+- 2a) [Lagemaße](https://video01.uni-frankfurt.de/Mediasite/Play/aa39b5592e3147faaa4360b7d7f63cb71d)
+- 2b) [Streumaße](https://video01.uni-frankfurt.de/Mediasite/Play/cfdb254c058f44228e7b026f36986cc31d)
+- 2c) [Klassierte Verteilungen](https://video01.uni-frankfurt.de/Mediasite/Play/d115769da4ee4e25a9062a9b2e2e11c41d)
+
 ## Einleitende Bemerkungen
 
 Die im Folgenden besprochenen Maßzahlen (oder Kennzahlen, Parameter) verdichten (oder aggregieren) Häufigkeitsverteilungen einer Variable. Durch diese Parameter kann das Charakteristische einer Verteilung schnell erfasst und vergleichbar gemacht werden. Die Verdichtung auf Maßzahlen geht jedoch immer auch mit Informationsverlust einher.
@@ -316,7 +320,10 @@ ggplot(data.frame(xs), aes(y=xs)) +
   scale_x_continuous(limits = c(-0.6,0.4), breaks = NULL) +
   scale_y_continuous(NULL) +
   theme_goethe() +
-  theme(axis.line = element_blank())
+  theme(axis.line = element_blank(),
+        panel.border = element_rect(color = "black",
+                                    fill = NA,
+                                    size = 1))
 ```
 
 Die Höhe der "Box" definiert sich durch den Quartilsabstand, der mittlere Strich markiert den Median und die "Whisker" markieren den Wertebereich insgesamt -- wobei Ausreißer, deren Abstand zur Box mehr als das 1,5-Fache des Quartilsabstands beträgt, üblicherweise gar nicht oder (wie hier) gesondert mit Punkten markiert werden.

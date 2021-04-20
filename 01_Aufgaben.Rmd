@@ -65,3 +65,26 @@ Folgende Werte seien erfasst über die Lebensdauer von Klimaanlagen in Stunden [
 a) Erstellen Sie eine Häufigkeitstabelle. Welche Klassen wählen Sie und warum?
 a) Zeichnen Sie ein Histogramm.
 a) Beschreiben Sie die Verteilung.
+
+### Aufgabe 5
+
+Sind die folgenden Aussagen wahr oder unwahr?
+
+a) Die Auswahl z. B. jedes 100. Merkmalsträgers nennt man „systematische Stichprobe“.
+a) Eine Stichprobe kann eine Grundgesamtheit niemals völlig richtig repräsentieren, es gibt immer einen Zufallsfehler.
+a) Die Größe der Stichprobe wird auch mit $N$ bezeichnet.
+a) Klassengrenzen müssen so gewählt werden, dass alle Werte abgedeckt sind.
+a) Je stärker die Werte der Variablen streuen, desto kleiner sollte die Stichprobe sein.
+a) Variablen auf der Verhältnisskala sind immer metrisch und stetig.
+a) Verhältnisskala und Intervallskala unterscheiden sich durch den natürlichen Nullpunkt.
+a) Intervallskalierte Daten können immer auf die Nominalskala transformiert werden.
+a) Ordinalskalierte Daten können immer auf die Intervallskala transformiert werden.
+a) Eine stetige Variable ist nicht zwingend auch metrisch.
+a) Im Gegensatz zu nominalskalierten Variablen lassen sich Werte von ordinalskalierten Variablen in eine sinnvolle Reihenfolge bringen.
+a) Die relative Häufigkeit eines Werts ist nie größer als 100%.
+a) Verfahren der deskriptiven Statistik sind immer auch univariat.
+a) Klassengrenzen dürfen sich in Ausnahmefällen überlappen.
+a) $x_3$ ist immer kleiner als $x_4$.
+a) Variablen auf der Verhältnisskala haben einen natürlichen Nullpunkt.
+a) Die absolute Häufigkeit eines Werts ist immer eine positive ganze Zahl.
+a) Wenn man die Urliste ordnet, erhält man die geordnete Liste.

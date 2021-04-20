@@ -70,3 +70,26 @@ boot::aircondit7 %>%
 #### c)
 
 Die Verteilung ist unregelmäßig abfallend.
+
+### Aufgabe 5
+
+Sind die folgenden Aussagen wahr oder unwahr?
+
+a) wahr
+a) wahr
+a) unwahr
+a) wahr
+a) unwahr
+a) unwahr
+a) wahr
+a) wahr
+a) unwahr
+a) unwahr
+a) wahr
+a) wahr
+a) unwahr
+a) unwahr
+a) unwahr
+a) wahr
+a) wahr
+a) wahr
