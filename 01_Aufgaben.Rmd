@@ -2,6 +2,35 @@
 
 ### Aufgabe 1
 
+Teilen Sie in Ihrer Kleingruppe folgende Begriffe untereinander auf:
+
+- Variable
+- Kennwert
+- Wert
+- Grundgesamtheit
+- Stichprobe
+- Untersuchungselement
+
+Gehen Sie nun für jeden Begriff wie folgt vor:
+
+1. Erklären Sie der Reihe nach "Ihren" Begriff den anderen Gruppenmitgliedern, gerne auch mit Beispielen.
+2. Die anderen Gruppenmitglieder nehmen die Rolle von unwissenden Dritten ein und stellen bei Bedarf Nachfragen.
+2. Die anderen Gruppenmitglieder geben direkt danach Feedback auf die Erklärung: 
+   - Was fanden Sie gut erklärt?
+   - Was fanden Sie unverständlich?
+   - Was hat Ihnen gefehlt?
+
+
+### Aufgabe 2
+
+Finden Sie als Gruppe jeweils zwei Beispiele für:
+
+- systematische Zufallsstichproben
+- geschichtete Zufallsstichproben
+- Klumpenstichproben
+
+### Aufgabe 3
+
 Bestimmen Sie das Skalenniveau der folgenden Variablen. Kennzeichnen Sie darüber hinaus, ob die Variable qualitativ, diskret oder stetig ist.
 
 a) Lebensalter in Jahren
@@ -25,7 +54,8 @@ a) Körpergröße
 a) Kleidergröße (S bis XXL)
 a) Monatliches Nettoeinkommen
 
-### Aufgabe 2
+### Aufgabe 4
+
 Folgende Werte seien erfasst über die Lebensdauer von Klimaanlagen in Stunden [Beispieldatensatz `aircondit7` aus @r]:  
 
 ```

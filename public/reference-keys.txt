@@ -54,3 +54,13 @@ grundbegriffe
 stichproben
 skalenniveaus-1
 häufigkeiten-und-diagramme
+aufgabe-1
+aufgabe-2
+aufgabe-3
+aufgabe-4
+aufgaben-1-und-2
+aufgabe-3-1
+aufgabe-4-1
+a
+b
+c

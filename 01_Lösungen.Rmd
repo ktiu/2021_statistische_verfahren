@@ -2,7 +2,11 @@
 
 ## Sitzung 1 {-}
 
-### Aufgabe 1
+### Aufgaben 1 und 2
+
+-- keine Musterlösungen --
+
+### Aufgabe 3
 
 ```{r, results='asis', comment=NA}
 library(tidyverse)
@@ -32,7 +36,7 @@ tribble(
   kable(escape=F)
 ```
 
-### Aufgabe 2
+### Aufgabe 4
 
 #### a)
 
