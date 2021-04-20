@@ -7,7 +7,7 @@ rmd_files:
   - Vorbesprechung.Rmd
   - 01_Datenerhebung_und_Häufigkeiten.Rmd
   - 01_Aufgaben.Rmd
-  # - 02_Maßzahlen.Rmd
+  - 02_Maßzahlen.Rmd
   # - 02_Aufgaben.Rmd
   # - 03_z-Werte_und_Normalverteilung.Rmd
   # - 03_Aufgaben.Rmd
