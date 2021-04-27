@@ -8,6 +8,7 @@
 ```{r}
 set.seed(4525)
 runif(6, 10, 80) %>%
+  round() %>%
   lectuR::get_mean() -> mean_a
 
 tribble(
@@ -69,24 +70,6 @@ tribble(
 ) %>% lectuR::solution_table(meta=F)
 ```
 
-#### b)
-
-```{r}
-set.seed(4525)
-runif(6, 10, 80) -> a
-  lectuR::get_var(a) -> var_a
-  lectuR::get_sd(a) -> sd_a
-
-tribble(
-  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
-  "Varianz: Formel", var_a$formel, 0, T,
-  "Varianz: Einsetzen", var_a$einsetzen, 0, T,
-  "Varianz: Ergebnis", var_a$ergebnis, 0, T,
-  "Standardabweichung: Formel", sd_a$formel, 0, T,
-  "Standardabweichung: Einsetzen", sd_a$einsetzen, 0, T,
-  "Varianz: Ergebnis", sd_a$ergebnis, 0, T,
-) %>% lectuR::solution_table(meta=F)
-```
 
 ### Aufgabe 3
 
