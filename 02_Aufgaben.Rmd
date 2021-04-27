@@ -1,12 +1,10 @@
 ## Aufgaben {-}
 
-Die folgenden Aufgaben sind zur eigenständigen Überprüfung Ihrer Lernleistung gedacht (als Vor- oder Nachbereitung der Vorlesung, oder als Klausurübung) und nicht etwa als Hausaufgabe.
-
 ### Aufgabe 1
 
 Berechnen Sie das arithmetische Mittel für die folgenden Verteilungen:
 
-#### a ) 
+#### a) 
 
 ```{r}
 set.seed(4525)
@@ -63,7 +61,47 @@ i) Zeichnen Sie einen Boxplot der Stichprobenverteilung.
 
 ### Aufgabe 4
 
-In Australien betrug die durchnittliche Niederschlagsmenge in den 1970er und 80er Jahren ^[Auszug aus dem Datensatz `bomsoi` in @haseloff]:
+Eine Messreihe der Körperlänge weiblicher Beutelratten hat folgende Werte in cm erfasst [Beispieldatensatz `fossum` aus @daag]:
+
+```{r}
+lectuR::klassieren(DAAG::fossum$totlngth,
+                   "cm",
+                   seq(75, 97.5, 2.5)) %>%
+lectuR::klassentabelle_aufgabe()
+```
+
+a) Wie groß ist der Quartilsabstand?
+b) Bestimmen Sie das arithmetische Mittel der Reihe.
+b) Berechnen Sie auch die Varianz und
+d) die Standardabweichung.
+
+### Aufgabe 5 {#ex2-5}
+
+In Wiesbaum soll ein Kulturzentrum entstehen. Zwei leerstehende Industriegebäude -- eine Ziegelei und ein Möbellager -- kommen für eine Umnutzung in Frage. Bei der Entscheidung, welches Gebäude umfunktioniert werden soll, spielt auch eine Rolle, welcher Ort ohnehin schon mehr Fußverkehr aufweist. Für beide Gebäude wurden daher jeweils die Anzahl der Passant\*innen an sechs zufälligen Tagen erfasst:
+
+\[\begin{aligned}
+```{r}
+set.seed(1616)
+ziegelei <- round(rnorm(6,80,10))
+moebellager <- round(rnorm(6,70,18))
+knitr::asis_output(
+  sprintf(
+    "\\textrm{Ziegelei}: \\quad & %s\\\\
+\\textrm{Möbellager}: \\quad & %s\\\\",
+    paste(ziegelei, collapse="\\quad"),
+    paste(moebellager, collapse="\\quad")
+  )
+)
+```
+\end{aligned}\]
+
+a) Welches Gebäude weist im Durchschnitt die höhere Passant\*innenzahl auf?
+
+b) Vergleichen Sie außerdem die Quartilsabstände der beiden Messreihen.
+
+### Aufgabe 6
+
+In Australien betrug die durchnittliche Niederschlagsmenge in den 1970er- und 80er-Jahren ^[Auszug aus dem Datensatz `bomsoi` in @haseloff]:
 \nopagebreak
 
 ```{r}
@@ -101,30 +139,3 @@ d) Wie groß ist der Quartilsabstand?
 e) Bestimmen Sie das arithmetische Mittel der klassierten Verteilung.
 f) Berechnen Sie die Standardabweichung.
 g) Zeichnen Sie einen Boxplot für die Verteilung.
-
-### Aufgabe 5
-
-
-In Wiesbaum soll ein Kulturzentrum entstehen. Zwei leerstehende Industriegebäude -- eine Ziegelei und ein Möbellager -- kommen für eine Umnutzung in Frage. Bei der Entscheidung, welches Gebäude umfunktioniert werden soll, spielt auch eine Rolle, welcher Ort ohnehin schon mehr Fußverkehr aufweist. Für beide Gebäude wurden daher jeweils die Anzahl der Passant\*innen an sechs zufälligen Tagen erfasst:
-
-\[\begin{aligned}
-```{r}
-set.seed(1616)
-ziegelei <- round(rnorm(6,80,10))
-moebellager <- round(rnorm(6,70,18))
-knitr::asis_output(
-  sprintf(
-    "\\textrm{Ziegelei}: \\quad & %s\\\\
-\\textrm{Möbellager}: \\quad & %s\\\\",
-    paste(ziegelei, collapse="\\quad"),
-    paste(moebellager, collapse="\\quad")
-  )
-)
-```
-\end{aligned}\]
-
-a) Welches Gebäude weist im Durchschnitt die höhere Passant\*innenzahl auf?
-
-b) Vergleichen Sie außerdem die Quartilsabstände der beiden Messreihen.
-
-c) Geben Sie für beide Messreihen jeweils den Variationskoeffizienten an.

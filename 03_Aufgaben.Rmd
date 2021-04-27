@@ -1,0 +1,44 @@
+## Aufgaben {-}
+
+### Aufgabe 1
+
+Errechnen Sie für die Verteilungen in [Aufgabe 5 aus Sitzung 2](#ex2-5) jeweils den Variationskoeffizienten.
+
+### Aufgabe 2
+
+Deiche werden durch Wasserdruck bei Hochwasser belastet und dadurch beschädigt. Bei einem 12 m hohen Deich gilt als kritische Marke ein Wasserstand von 10 m. Die jährlichen Höchstwasserstände des Flusses sind normalverteilt mit einem Mittelwert von 9,01 m und einer Standardabweichung von 2,23 m.
+
+In den folgenden Teilaufgaben beantworten wir Schritt für Schritt die Frage, wie wahrscheinlich es (für ein beliebiges Jahr) ist, dass der Deich das jährliche Hochwasser ohne Beschädigung übersteht, d.&nbsp;h. dass ein Höchstwasserstand von 10 m oder weniger eintritt.
+
+a) Zeichnen Sie die Wahrscheinlichkeitsdichtefunktion (ganz grob, ohne y-Achse).
+a) Markieren Sie den kritischen Wert 10 m.
+a) Welchem $z$-Wert entspricht die kritische Marke von 10 m?
+b) Mit welcher Wahrscheinlichkeit bleibt der Deich in einem gegebenen Jahr unbeschädigt (Höchstwasserstand unter der kritischen Marke von 10 m)?
+
+
+### Aufgabe 3
+
+Wir bleiben beim Deich aus Aufgabe 1.
+
+a) Mit welcher Wahrscheinlichkeit wird der Deich beschädigt (Wasserstand über 10 m)?
+a) Mit welcher Wahrscheinlichkeit wird der Deich nicht nur beschädigt, sondern läuft über (Wasserstand über 12 m)?
+a) Mit welcher Wahrscheinlichkeit wird der Deich beschädigt, läuft aber nicht über (Wasserstand zwischen 10 und 12 m)?
+a) In welchen Grenzen liegen die mittleren 80% der Hochwasserstände?
+
+### Aufgabe 4
+
+Es ist ein neuer Deich zu bauen, der so sicher sein soll, dass er nur alle 200 Jahre vom Hochwasser übertreten wird. 
+
+a) Welcher Wahrscheinlichkeitswert $p=P(x < x_p)$ ist anzuwenden, d.&nbsp;h. wie wahrscheinlich ist die *Unterschreitung* eines "zweihundertjährigen Hochwassers"?
+b) Mit welchem $z$-Wert korrespondiert der gesuchte Wert $x_p$?
+c) Wie hoch muss dieser Deich sein? (Welcher Wert $x_p$ entspricht diesem $z_p$?)
+
+### Aufgabe 5
+
+Die jährlichen Niederschlagsmengen in Mittelstedt betragen im Durchschnitt 400 mm bei annähernder Normalverteilung und einer Standardabweichung von 100 mm. 
+
+a) Wie groß ist die Wahrscheinlichkeit, dass mehr als 500 mm Niederschlag fallen?
+b) Wie oft pro hundert Jahre kann mit weniger als 200 mm Niederschlag gerechnet werden?
+c) Mit welcher Wahrscheinlichkeit fallen zwischen 200 mm und 550 mm Niederschlag?
+d) Welche Niederschlagsmenge wird wahrscheinlich in nur 2 von 100 Jahren übertroffen?
+e) In welchen Grenzen liegen die mittleren 75% der jährlichen Niederschlagsmenge?

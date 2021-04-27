@@ -183,104 +183,78 @@ boxplot(xs)
 
 #### a)
 
-Es gibt eine Hierarchie der Werte (Ordinal-), sinnvolle Abstände (Intervall-) und einen sinnvollen Nullpunkt (Verhältnis-). Deshalb sind die angegebenen Werte als verhältnisskaliert zu verstehen.
+Für den Quartilsabstand brauchen wir den Klassendurchschnitt und kumulative Häufigkeiten:
 
-#### b)
 
-Die Klassengröße 2,5 cm ergibt überschaubare neun Klassen und runde Zahlen.
+```{r}
+lectuR::klassieren(DAAG::fossum$totlngth,
+                   "cm",
+                   seq(75, 97.5, 2.5)) -> tbbl
 
-Um die Berechnung des arithmetischen Mittels zu vereinfachen berechnen wir auch gleich den Klassendurchnitt und Zwischensummen:
-
-\medskip
-\begin{center}
-\begin{tabular}{r|r|r|r|r}
-\toprule
-Wertebereich (cm)& Klassendurchschnitt & Häufigkeit & Kumulative Häufigkeit & Produkt \\
-$x$ & $k_i$ & $f_i$ & $f_{kum}$ &$f_i\cdot k_i$ \\
-\midrule
-```{r, results='asis', comment=NA}
-options(OutDec = ".")
-df <- data.frame(table(cut(DAAG::fossum$totlngth, right=F, breaks=seq(75,97.5,2.5))))
-options(OutDec = ",")
-von <- sub("^\\[([0-9.]+),([0-9.]+)\\)", "\\1", df[,1]) %>% as.numeric
-bis <- sub("^\\[([0-9.]+),([0-9.]+)\\)", "\\2", df[,1]) %>% as.numeric
-df[,1] <- paste(format(von, decimal.mark = ","), "bis unter", format(bis, decimal.mark = ","))
-df[,3] <- df[,2]
-df[,2] <- (von + bis) / 2
-df[,4] <- cumsum(df[,3])
-df[,5] <- df[,2] * df[,3]
-df[,6] <- df[,2] - 88.05
-df[,7] <- (df[,2] - 88.05)^2
-df[,8] <- df[,3]*(df[,2] - 88.05)^2
-df[,5:8] <- round(df[,5:8],2)
-tf <- as.data.frame(lapply(format(df, decimal.mark=","), as.character))
-write.table(tf[,1:5], quote=F, eol="\\\\\n", sep=" & ", row.names=F, col.names = F)
+lectuR::klassentabelle_kum(tbbl) %>%
+  kable_styling() %>%
+  scroll_box(box_css = "overflow-y: auto;")
 ```
-\bottomrule
-\end{tabular}
-\end{center}
-\medskip
-
-#### b)
-
-Der Modalwert der klassierten Stichprobe ist die Klasse "87,5 bis unter 90,0".
-
-#### d)
 
 Bei $n=43$ ist $Q_1=\frac{x_{(11)}+x_{(12)}}{2}$ und $Q_3=\frac{x_{(32)}+x_{(33)}}{2}$.
 
-Aus der geordneten Liste können wir $Q_1=85,25$ und $Q_3=90,75$ bestimmen.
+Aus der Tabelle mit kumulativen Häufigkeiten können wir $Q_1=86{,}25$ und $Q_3=91{,}25$ ablesen.
 
-Wenn uns nur die klassierte Verteilung zur Verfügung steht oder wenn der Datensatz besonders unübersichtlich ist, ist es auch legitim, aus der kumulativen Häufigkeit $Q_1=83,75$ und $Q_3=91,25$ für die klassierte Verteilung abzulesen.
+Der Quartilsabstand beträgt dann
 
-Je nachdem beträgt der Quartilsabstand $\mathit{IQR}=Q_3-Q_1$ dann 5,5 oder 7,5 cm.
+\[\begin{aligned}
+\mathit{IQR}&=Q_3-Q_1\\
+            &=91{,}25-86{,}25\\
+            &=5
+\end{aligned}\]
 
-#### e)
+#### b)
 
-Die Summen für das arithmetische Mittel entnehmen wir der letzten Spalte der Wertetabelle:
+Um die Berechnung des arithmetischen Mittels zu vereinfachen berechnen wir den Klassendurchschnitt und Zwischensummen:
+
+```{r}
+lectuR::klassentabelle_mittel(tbbl) %>%
+  kable_styling() %>%
+  scroll_box(box_css = "overflow-y: auto;")
+```
+
+Die Summen für das arithmetische Mittel entnehmen wir dann einfach der letzten Spalte:
 
 \[\begin{aligned}
   \bar{x}&=\frac{\sum\limits_{i=1}^nx_i}{n} \\
-         &=\frac{76,25+ 243,75+ 418,75+ 603,75+1242,50+ 821,25+ 187,50+ 192,50}{43} \\
-         &=\frac{3786,25}{43} \\
-         &\approx88,05
+         &=\frac{76{,}25+ 243{,}75+ 418{,}75+ 603{,}75+1242{,}50+ 821{,}25+ 187{,}50+ 192{,}50}{43} \\
+         &=\frac{3786{,}25}{43} \\
+         &\approx88{,}05
 \end{aligned}\]
 
-#### f)
+#### c)
 
-Für die Standardabweichung brauchen wir andere Werte in der Tabelle:
+Für die Varianz erweitern wir die Tabelle:
 
-\medskip
-\begin{center}
-\begin{tabular}{r|r|r|r|r|r}
-\toprule
-Wertebereich $x$ & $k_i$ & $f_i$ & $(k_i-\bar{x})$ & $(k_i-\bar{x})^2$ & $f_i\cdot(k_i-\bar{x})^2$ \\
-\midrule
-```{r, results='asis', comment=NA}
-write.table(tf[,c(1:3, 6:8)], quote=F, eol="\\\\\n", sep=" & ", row.names=F, col.names = F)
+```{r}
+lectuR::klassentabelle_varianz(tbbl) %>%
+  kable_styling() %>%
+  scroll_box(box_css = "overflow-y: auto;")
 ```
-\bottomrule
-\end{tabular}
-\end{center}
-\medskip
 
 Die Varianz beträgt:
 
 \[\begin{aligned}
-  s^2&=\frac{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})^2}{n-1} \\[4pt]
-     &=\frac{139,24+138,72+ 92,45+ 22,68+  6,86+ 92,16+ 64,98+134,48}{43-1}\\[4pt]
-     &=\frac{691,57}{42}\approx{16,47}
+  s^2&=\frac{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})^2}{n-1} \\
+     &=\frac{139{,}24+138{,}72+ 92{,}45+ 22{,}68+  6{,}86+ 92{,}16+ 64{,}98+134{,}48}{43-1}\\
+     &=\frac{691{,}57}{42}\\
+     &\approx{16{,}47}
 \end{aligned}\]
 
-Somit beträgt die Standardabweichung $$s\approx\sqrt{16,47}\approx4,06$$
+#### d)
 
-#### g)
+Somit beträgt die Standardabweichung 
 
-Beim Boxplot stellt der Ausreißer nach unten eine Besonderheit dar, der kleiner als der Minimalwert $$Q_1-1,5\cdot\mathit{IQR}=83,75-1,5\cdot5,5=75,5$$ ist und somit als Kreis dargestellt wird:
-
-```{r, fig.height=6}
-boxplot(DAAG::fossum$totlngth)
-```
+\[\begin{aligned}
+  s&=\sqrt{s^2}\\
+   &\approx\sqrt{16{,}47}\\
+   &\approx4{,}06
+\end{aligned}\]
 
 ### Aufgabe 5
 
@@ -310,7 +284,7 @@ tribble(
 
 ```{r}
 iqr_ziegellager <- lectuR::get_iqr(ziegelei, T)
-iqr_moebellager <- lectuR::get_iqr(ziegelei, T, "y")
+iqr_moebellager <- lectuR::get_iqr(moebellager, T, "y")
 
 tribble(
   ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
@@ -361,4 +335,141 @@ tribble(
   "Variationskoeffizient: Einsetzen", "$v\\approx\\frac{11,54}{74,67}\\cdot100\\%\\quad$", 0.5, F,
   "Variationskoeffizient: Ergebnis", sprintf("$v \\approx %s\\%%$", fmt(sd_moebellager$raw/mean_moebellager$raw*100)), 1, F
 ) %>% lectuR::solution_table(meta=F)
+```
+
+### Aufgabe 6
+
+#### a)
+
+Es gibt eine Hierarchie der Werte (Ordinal-), sinnvolle Abstände (Intervall-) und einen sinnvollen Nullpunkt (Verhältnis-). Deshalb sind die angegebenen Werte als verhältnisskaliert zu verstehen.
+
+#### b)
+
+Klassen könnten z.&nbsp;B. wie in der folgenden Tabelle gewählt werden. Um die Berechnung des arithmetischen Mittels zu vereinfachen berechnen wir gleich den Klassendurchschnitt und Zwischensummen:
+
+```{r}
+
+tribble(
+  ~Jahr, ~`Niederschlag (mm)`,
+  1970,	384.52,
+  1971,	493.65,
+  1972,	364.65,
+  1973,	661.32,
+  1974,	785.27,
+  1975,	603.45,
+  1976,	527.75,
+  1977,	471.81,
+  1978,	525.65,
+  1979,	455.64,
+  1980,	433.01,
+  1981,	535.12,
+  1982,	421.36,
+  1983,	499.29,
+  1984,	555.21,
+  1985,	398.88,
+  1986,	391.96,
+  1987,	453.41,
+  1988,	459.84,
+  1989,	483.78
+) -> data
+
+data$`Niederschlag (mm)` %>%
+  lectuR::klassieren("mm") -> tbbl
+
+lectuR::klassentabelle_mittel(tbbl) %>%
+  kable_styling() %>%
+  scroll_box(box_css = "overflow-y: auto;")
+```
+
+#### c)
+
+Der Modalwert der so klassierten Stichprobe ist die Klasse von 400 bis unter 500 mm und kann auch mit dem Klassenmittelwert 450 mm angegeben werden.
+
+#### d)
+
+Bei $n=20$ ist $Q_1=\frac{x_{(5)}+x_{(6)}}{2}$ und $Q_3=\frac{x_{(15)}+x_{(16)}}{2}$.
+
+Aus einer geordneten Liste könnten wir also 
+
+\[\begin{aligned}
+Q_1&=\frac{x_{(5)}+x_{(6)}}{2}\\
+   &=\frac{421{,}36+433{,}01}{2}\\
+   &\approx427{,}19
+\end{aligned}\]
+
+und
+
+\[\begin{aligned}
+Q_3&=\frac{x_{(15)}+x_{(16)}}{2}\\
+   &=\frac{527{,}75+235{,}12}{2}\\
+   &\approx531{,}44
+\end{aligned}\]
+
+bestimmen.
+
+Wenn uns nur die klassierte Verteilung zur Verfügung steht oder wenn der Datensatz besonders unübersichtlich ist, ist es auch legitim, aus der kumulativen Häufigkeit $Q_1=450$ und $Q_3=550$ für die klassierte Verteilung abzulesen.
+
+Je nachdem beträgt der Quartilsabstand $\mathit{IQR}=Q_3-Q_1$ dann 104,24 oder 100 mm.
+
+#### e)
+
+Die Summen für das arithmetische Mittel entnehmen wir der letzten Spalte der Wertetabelle:
+
+\[\begin{aligned}
+  \bar{x}&=\frac{\sum\limits_{i=1}^nx_i}{n} \\
+         &=\frac{1400+4050+2200+1300+750}{20} \\
+         &=\frac{9700}{20} \\
+         &\approx485
+\end{aligned}\]
+
+#### f)
+
+Für die Standardabweichung erweitern wir die Tabelle:
+
+```{r}
+lectuR::klassentabelle_varianz(tbbl) %>%
+  kable_styling() %>%
+  scroll_box(box_css = "overflow-y: auto;")
+```
+
+Die Varianz beträgt:
+
+\[\begin{aligned}
+  s^2&=\frac{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})^2}{n-1} \\
+     &=\frac{72900+11025+16900+54450+70225}{20-1}\\
+     &=\frac{225500}{19}\\
+     &\approx{11868{,}42}
+\end{aligned}\]
+
+Somit beträgt die Standardabweichung 
+
+
+\[\begin{aligned}
+  s&=\sqrt{s^2}\\
+   &\approx\sqrt{11868{,}42}\\
+   &\approx108{,}94
+\end{aligned}\]
+
+#### g)
+
+Auch der Boxplot lässt sich anhand der klassierten Werte zeichnen:
+
+```{r fig.height=5, fig.width=3, out.width='35%'}
+
+purrr::map2(tbbl$f, tbbl$k, function(f, k){
+   rep(k, f)
+}) %>%
+  unlist() %>%
+  tibble(y = .) %>%
+ggplot(aes(y=y)) +
+  stat_boxplot(geom = 'errorbar', width=0.5) +
+  geom_boxplot(fill = pubIHG::mustard_yellow) +
+  scale_x_continuous(limits = c(-0.6,0.4), breaks = NULL) +
+  scale_y_continuous(NULL) +
+  theme_goethe() +
+  theme(axis.line = element_blank(),
+        panel.border = element_rect(color = "black",
+                                    fill = NA,
+                                    size = 1))
+
 ```
