@@ -1,6 +1,94 @@
 ## Sitzung 2 {-}
 
+
 ### Aufgabe 1
+
+#### a)
+
+```{r}
+set.seed(4525)
+runif(6, 10, 80) %>%
+  lectuR::get_mean() -> mean_a
+
+tribble(
+  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
+  "Formel", mean_a$formel, 0, T,
+  "Einsetzen", mean_a$einsetzen, 0, T,
+  "Ergebnis", mean_a$ergebnis, 0, T,
+) %>% lectuR::solution_table(meta=F)
+```
+
+#### b)
+
+```{r}
+set.seed(4525)
+runif(8, -1, 1) %>%
+  round(3) %>%
+  lectuR::get_mean() -> mean_b
+tribble(
+  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
+  "Formel", mean_b$formel, 0, T,
+  "Einsetzen", mean_b$einsetzen, 0, T,
+  "Ergebnis", mean_b$ergebnis, 0, T,
+) %>% lectuR::solution_table(meta=F)
+```
+
+#### c)
+
+```{r}
+set.seed(4525)
+runif(10, 600, 1000) %>%
+  round(2) %>%
+  lectuR::get_mean() -> mean_c
+tribble(
+  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
+  "Formel", mean_a$formel, 0, T,
+  "Einsetzen", mean_c$einsetzen, 0, T,
+  "Ergebnis", mean_c$ergebnis, 0, T,
+) %>% lectuR::solution_table(meta=F)
+```
+
+### Aufgabe 2
+
+#### a)
+
+```{r}
+set.seed(4525)
+runif(6, 10, 80) -> a
+  lectuR::get_var(a) -> var_a
+  lectuR::get_sd(a) -> sd_a
+
+tribble(
+  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
+  "Varianz: Formel", var_a$formel, 0, T,
+  "Varianz: Einsetzen", var_a$einsetzen, 0, T,
+  "Varianz: Ergebnis", var_a$ergebnis, 0, T,
+  "Standardabweichung: Formel", sd_a$formel, 0, T,
+  "Standardabweichung: Einsetzen", sd_a$einsetzen, 0, T,
+  "Varianz: Ergebnis", sd_a$ergebnis, 0, T,
+) %>% lectuR::solution_table(meta=F)
+```
+
+#### b)
+
+```{r}
+set.seed(4525)
+runif(6, 10, 80) -> a
+  lectuR::get_var(a) -> var_a
+  lectuR::get_sd(a) -> sd_a
+
+tribble(
+  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
+  "Varianz: Formel", var_a$formel, 0, T,
+  "Varianz: Einsetzen", var_a$einsetzen, 0, T,
+  "Varianz: Ergebnis", var_a$ergebnis, 0, T,
+  "Standardabweichung: Formel", sd_a$formel, 0, T,
+  "Standardabweichung: Einsetzen", sd_a$einsetzen, 0, T,
+  "Varianz: Ergebnis", sd_a$ergebnis, 0, T,
+) %>% lectuR::solution_table(meta=F)
+```
+
+### Aufgabe 3
 
 ```{r}
 xs <- scan("../img/2_exercise")
@@ -65,7 +153,7 @@ Da der untere Angelpunkt und der Median zusammenfallen, sieht der Boxplot etwas 
 boxplot(xs)
 ```
 
-### Aufgabe 2
+### Aufgabe 4
 
 #### a)
 
@@ -168,7 +256,7 @@ Beim Boxplot stellt der Ausreißer nach unten eine Besonderheit dar, der kleiner
 boxplot(DAAG::fossum$totlngth)
 ```
 
-### Aufgabe 3
+### Aufgabe 5
 
 #### a)
 

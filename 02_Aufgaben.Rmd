@@ -4,6 +4,47 @@ Die folgenden Aufgaben sind zur eigenständigen Überprüfung Ihrer Lernleistung
 
 ### Aufgabe 1
 
+Berechnen Sie das arithmetische Mittel für die folgenden Verteilungen:
+
+#### a ) 
+
+```{r}
+set.seed(4525)
+runif(6, 10, 80) %>%
+  round() %>%
+  cat()
+```
+
+#### b)
+
+```{r}
+set.seed(4525)
+runif(8, -1, 1) %>%
+  round(3) %>%
+  cat(sep="  ")
+```
+
+#### c)
+
+```{r}
+set.seed(4525)
+runif(10, 600, 1000) %>%
+  round(2) %>%
+  cat(sep="  ")
+```
+
+Tauschen Sie sich danach in der Lerngruppe darüber aus ...
+
+- Was schreiben Sie wann auf?
+- Wie geben Sie die Zahlen und Rechenschritte in den Taschenrechner ein?
+- Wie überprüfen Sie ggf. Ihr Ergebnis mit Hilfe des Taschenrechners?
+
+### Aufgabe 2
+
+Wiederholen Sie Aufgabe 1, aber berechnen Sie statt des arithmetischen Mittels die Standardabweichung (und tauschen sich darüber aus).
+
+### Aufgabe 3
+
 Bei einer Befragung jedes 500. Studierenden im Matrikel einer privaten Hochschule wurden folgende Angaben zur Haushaltsgröße gemacht:
 
 ```
@@ -20,7 +61,7 @@ g) die Varianz und
 h) die Standardabweichung der Stichprobe.
 i) Zeichnen Sie einen Boxplot der Stichprobenverteilung.
 
-### Aufgabe 2
+### Aufgabe 4
 
 In Australien betrug die durchnittliche Niederschlagsmenge in den 1970er und 80er Jahren ^[Auszug aus dem Datensatz `bomsoi` in @haseloff]:
 \nopagebreak
@@ -61,7 +102,7 @@ e) Bestimmen Sie das arithmetische Mittel der klassierten Verteilung.
 f) Berechnen Sie die Standardabweichung.
 g) Zeichnen Sie einen Boxplot für die Verteilung.
 
-### Aufgabe 3
+### Aufgabe 5
 
 
 In Wiesbaum soll ein Kulturzentrum entstehen. Zwei leerstehende Industriegebäude -- eine Ziegelei und ein Möbellager -- kommen für eine Umnutzung in Frage. Bei der Entscheidung, welches Gebäude umfunktioniert werden soll, spielt auch eine Rolle, welcher Ort ohnehin schon mehr Fußverkehr aufweist. Für beide Gebäude wurden daher jeweils die Anzahl der Passant\*innen an sechs zufälligen Tagen erfasst:
