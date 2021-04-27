@@ -26,6 +26,7 @@ set.seed(4525)
 runif(8, -1, 1) %>%
   round(3) %>%
   lectuR::get_mean() -> mean_b
+
 tribble(
   ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
   "Formel", mean_b$formel, 0, T,
@@ -55,7 +56,8 @@ tribble(
 
 ```{r}
 set.seed(4525)
-runif(6, 10, 80) -> a
+runif(6, 10, 80) %>%
+  round() -> a
   lectuR::get_var(a) -> var_a
   lectuR::get_sd(a) -> sd_a
 
@@ -67,6 +69,47 @@ tribble(
   "Standardabweichung: Formel", sd_a$formel, 0, T,
   "Standardabweichung: Einsetzen", sd_a$einsetzen, 0, T,
   "Varianz: Ergebnis", sd_a$ergebnis, 0, T,
+) %>% lectuR::solution_table(meta=F)
+```
+
+#### b)
+
+```{r}
+set.seed(4525)
+runif(8, -1, 1) %>%
+  round(3) -> b
+
+  lectuR::get_var(b) -> var_b
+  lectuR::get_sd(b) -> sd_b
+
+tribble(
+  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
+  "Varianz: Formel", var_b$formel, 0, T,
+  "Varianz: Einsetzen", var_b$einsetzen, 0, T,
+  "Varianz: Ergebnis", var_b$ergebnis, 0, T,
+  "Standardabweichung: Formel", sd_b$formel, 0, T,
+  "Standardabweichung: Einsetzen", sd_b$einsetzen, 0, T,
+  "Varianz: Ergebnis", sd_b$ergebnis, 0, T,
+) %>% lectuR::solution_table(meta=F)
+```
+
+#### c)
+
+```{r}
+set.seed(4525)
+runif(10, 600, 1000) %>%
+  round(2) -> c
+  lectuR::get_var(c) -> var_c
+  lectuR::get_sd(c) -> sd_c
+
+tribble(
+  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
+  "Varianz: Formel", var_c$formel, 0, T,
+  "Varianz: Einsetzen", var_c$einsetzen, 0, T,
+  "Varianz: Ergebnis", var_c$ergebnis, 0, T,
+  "Standardabweichung: Formel", sd_c$formel, 0, T,
+  "Standardabweichung: Einsetzen", sd_c$einsetzen, 0, T,
+  "Varianz: Ergebnis", sd_c$ergebnis, 0, T,
 ) %>% lectuR::solution_table(meta=F)
 ```
 
