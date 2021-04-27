@@ -66,21 +66,24 @@ g) Zeichnen Sie einen Boxplot für die Verteilung.
 
 In Wiesbaum soll ein Kulturzentrum entstehen. Zwei leerstehende Industriegebäude -- eine Ziegelei und ein Möbellager -- kommen für eine Umnutzung in Frage. Bei der Entscheidung, welches Gebäude umfunktioniert werden soll, spielt auch eine Rolle, welcher Ort ohnehin schon mehr Fußverkehr aufweist. Für beide Gebäude wurden daher jeweils die Anzahl der Passant\*innen an sechs zufälligen Tagen erfasst:
 
+\[\begin{aligned}
 ```{r}
 set.seed(1616)
-ziegelei <- rnorm(6,80,10)
-moebellager <- rnorm(6,70,18)
+ziegelei <- round(rnorm(6,80,10))
+moebellager <- round(rnorm(6,70,18))
+knitr::asis_output(
+  sprintf(
+    "\\textrm{Ziegelei}: \\quad & %s\\\\
+\\textrm{Möbellager}: \\quad & %s\\\\",
+    paste(ziegelei, collapse="\\quad"),
+    paste(moebellager, collapse="\\quad")
+  )
+)
 ```
-
-\[\begin{aligned}
-\textrm{Ziegelei}:& `paste(ziegelei, coll=`\\
-\textrm{Möbellager}: & \quad61 \quad 59 \quad 53 \quad 46 \quad 89 \quad 32 \\
 \end{aligned}\]
 
-\medskip
+a) Welches Gebäude weist im Durchschnitt die höhere Passant\*innenzahl auf?
 
-a) Welches Gebäude weist im Durchschnitt die höhere Passant\*innenzahl auf? *(5&nbsp;Punkte)*
+b) Vergleichen Sie außerdem die Quartilsabstände der beiden Messreihen.
 
-b) Vergleichen Sie außerdem die Quartilsabstände der beiden Messreihen. *(5&nbsp;Punkte)*
-
-c) Geben Sie für die Ziegelei (!) den Variationskoeffizienten an. *(5&nbsp;Punkte)*
+c) Geben Sie für beide Messreihen jeweils den Variationskoeffizienten an.

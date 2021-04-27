@@ -8,7 +8,7 @@ rmd_files:
   - 01_Datenerhebung_und_Häufigkeiten.Rmd
   - 01_Aufgaben.Rmd
   - 02_Maßzahlen.Rmd
-  # - 02_Aufgaben.Rmd
+  - 02_Aufgaben.Rmd
   # - 03_z-Werte_und_Normalverteilung.Rmd
   # - 03_Aufgaben.Rmd
   # - 04_Schätzstatistik.Rmd
@@ -27,7 +27,7 @@ rmd_files:
   # - 10_Aufgaben.Rmd
   - Formelsammlung.Rmd
   - 01_Lösungen.Rmd
-  # - 02_Lösungen.Rmd
+  - 02_Lösungen.Rmd
   # - 03_Lösungen.Rmd
   # - 04_Lösungen.Rmd
   # - 05_Lösungen.Rmd

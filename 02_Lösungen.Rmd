@@ -69,6 +69,10 @@ boxplot(xs)
 
 #### a)
 
+Es gibt eine Hierarchie der Werte (Ordinal-), sinnvolle Abstände (Intervall-) und einen sinnvollen Nullpunkt (Verhältnis-). Deshalb sind die angegebenen Werte als verhältnisskaliert zu verstehen.
+
+#### b)
+
 Die Klassengröße 2,5 cm ergibt überschaubare neun Klassen und runde Zahlen.
 
 Um die Berechnung des arithmetischen Mittels zu vereinfachen berechnen wir auch gleich den Klassendurchnitt und Zwischensummen:
@@ -107,7 +111,7 @@ write.table(tf[,1:5], quote=F, eol="\\\\\n", sep=" & ", row.names=F, col.names =
 
 Der Modalwert der klassierten Stichprobe ist die Klasse "87,5 bis unter 90,0".
 
-#### c)
+#### d)
 
 Bei $n=43$ ist $Q_1=\frac{x_{(11)}+x_{(12)}}{2}$ und $Q_3=\frac{x_{(32)}+x_{(33)}}{2}$.
 
@@ -117,7 +121,7 @@ Wenn uns nur die klassierte Verteilung zur Verfügung steht oder wenn der Datens
 
 Je nachdem beträgt der Quartilsabstand $\mathit{IQR}=Q_3-Q_1$ dann 5,5 oder 7,5 cm.
 
-#### d)
+#### e)
 
 Die Summen für das arithmetische Mittel entnehmen wir der letzten Spalte der Wertetabelle:
 
@@ -128,7 +132,7 @@ Die Summen für das arithmetische Mittel entnehmen wir der letzten Spalte der We
          &\approx88,05
 \end{aligned}\]
 
-#### e)
+#### f)
 
 Für die Standardabweichung brauchen wir andere Werte in der Tabelle:
 
@@ -156,10 +160,91 @@ Die Varianz beträgt:
 
 Somit beträgt die Standardabweichung $$s\approx\sqrt{16,47}\approx4,06$$
 
-#### f)
+#### g)
 
-Beim Boxplot stellt der Außreißer nach unten eine Besonderheit dar, der kleiner als der Minimalwert $$Q_1-1,5\cdot\mathit{IQR}=83,75-1,5\cdot5,5=75,5$$ ist und somit als Kreis dargestellt wird:
+Beim Boxplot stellt der Ausreißer nach unten eine Besonderheit dar, der kleiner als der Minimalwert $$Q_1-1,5\cdot\mathit{IQR}=83,75-1,5\cdot5,5=75,5$$ ist und somit als Kreis dargestellt wird:
 
 ```{r, fig.height=6}
 boxplot(DAAG::fossum$totlngth)
+```
+
+### Aufgabe 3
+
+#### a)
+
+```{r}
+set.seed(1616)
+ziegelei <- round(rnorm(6,80,10))
+moebellager <- round(rnorm(6,70,18))
+mean_ziegelei <- lectuR::get_mean(ziegelei)
+mean_moebellager <- lectuR::get_mean(moebellager, "y")
+
+tribble(
+  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
+  "Formel", get_mean()$formel, 1, F,
+  "Einsetzen", mean_ziegelei$einsetzen, 0.5, F,
+  "Ergebnis", mean_ziegelei$ergebnis, 1, F,
+  "Einsetzen", mean_moebellager$einsetzen, 0.5, F,
+  "Ergebnis", mean_moebellager$ergebnis, 1, F,
+  "Antwortsatz", sprintf("%s weist im Mittel die größere Passant\\*innenzahl auf.",
+                         ifelse(mean_moebellager$raw > mean_ziegelei$raw,
+                                "Das Möbellager", "Die Ziegelei")), 1, F
+) %>% lectuR::solution_table(meta=F)
+```
+
+#### b)
+
+```{r}
+iqr_ziegellager <- lectuR::get_iqr(ziegelei, T)
+iqr_moebellager <- lectuR::get_iqr(ziegelei, T, "y")
+
+tribble(
+  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
+  "Formel", lectuR::get_iqr()$formel, 1, F,
+  "Einsetzen", iqr_ziegellager$einsetzen, 0.5, F,
+  "Ergebnis", iqr_ziegellager$ergebnis, 1, F,
+  "Einsetzen", iqr_moebellager$einsetzen, 0.5, F,
+  "Ergebnis", iqr_moebellager$ergebnis, 1, F,
+  "Antwortsatz", sprintf("%s hat den größeren Quartilsabstand für die Passant\\*innenzahl.",
+                         ifelse(iqr_moebellager$raw > iqr_ziegellager$raw,
+                                "Das Möbellager", "Die Ziegelei")), 1, F
+) %>% lectuR::solution_table(meta=F)
+```
+
+#### c)
+
+**Für die Ziegelei:**
+
+```{r}
+var_ziegelei <- lectuR::get_var(alt=T, ziegelei)
+sd_ziegelei <- lectuR::get_sd(alt=T, ziegelei)
+tribble(
+  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
+  "Varianz: Formel", get_var()$formel, 0.5, F,
+  "Varianz: Einsetzen", var_ziegelei$einsetzen, 0.5, T,
+  "Varianz: Ergebnis", var_ziegelei$ergebnis, 0.5, T,
+  "Standardabweichung: Formel", get_sd()$formel, 0.5, T,
+  "Standardabweichung: Ergebnis", sd_ziegelei$ergebnis, 1, T,
+  "Variationskoeffizient: Formel",  "$v=\\frac{s}{|\\bar{x}|}\\cdot100\\%\\quad$", 0.5, F,
+  "Variationskoeffizient: Einsetzen", "$v\\approx\\frac{11,54}{74,67}\\cdot100\\%\\quad$", 0.5, F,
+  "Variationskoeffizient: Ergebnis", sprintf("$v \\approx %s\\%%$", fmt(sd_ziegelei$raw/mean_ziegelei$raw*100)), 1, F
+) %>% lectuR::solution_table(meta=F)
+```
+
+**Für das Möbellager:**
+
+```{r}
+var_moebellager <- lectuR::get_var(moebellager, alt=T, symbol="y")
+sd_moebellager <- lectuR::get_sd(moebellager, alt=T, symbol="y")
+tribble(
+  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
+  "Varianz: Formel", get_var()$formel, 0.5, F,
+  "Varianz: Einsetzen", var_moebellager$einsetzen, 0.5, T,
+  "Varianz: Ergebnis", var_moebellager$ergebnis, 0.5, T,
+  "Standardabweichung: Formel", sd_moebellager$formel, 0.5, T,
+  "Standardabweichung: Ergebnis", sd_moebellager$ergebnis, 1, T,
+  "Variationskoeffizient: Formel",  "$v=\\frac{s}{|\\bar{x}|}\\cdot100\\%\\quad$", 0.5, F,
+  "Variationskoeffizient: Einsetzen", "$v\\approx\\frac{11,54}{74,67}\\cdot100\\%\\quad$", 0.5, F,
+  "Variationskoeffizient: Ergebnis", sprintf("$v \\approx %s\\%%$", fmt(sd_moebellager$raw/mean_moebellager$raw*100)), 1, F
+) %>% lectuR::solution_table(meta=F)
 ```
