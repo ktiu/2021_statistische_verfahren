@@ -18,31 +18,93 @@ csl: chicago-author-date-de.csl
 ---
 
 ```{r setup, include=F}
-pubIHG::setup()
 
-knitr::opts_chunk$set(dev = 'svglite',
-                      out.width = '450px',
-                      fig.align ='center',
-                      fig.width = 5,
-                      fig.height = 3,
-                      fig.pos = 'h')
+library(tidyverse)
+library(lectuR)
+
+knitr::opts_chunk$set(
+  fig.align  = "center",
+  fig.width  = 5,
+  fig.height = 3,
+  fig.pos    = "!h",
+  echo       = FALSE,
+  warning    = FALSE,
+  message    = FALSE,
+  cache      = T,
+  comment    = NA
+)
+
+options(OutDec = ",")
+
+target <- knitr::opts_knit$get("rmarkdown.pandoc.to")
+
+if (!is.null(target)) {
+  if (target == "html") {
+    knitr::opts_chunk$set(
+      dev        = "svglite",
+      out.width  = "450px"
+    )
+  } else if (target == "latex") {
+    knitr::opts_chunk$set(
+      dev        = "pdf",
+      out.width  = ".6\\linewidth"
+    )
+  }
+}
+
+rtip <- function(text) {
+  if ((! is.null(target)) && target == "latex") {
+    c("\\begin{rtip}",
+      "%s",
+      "\\end{rtip}") -> lines
+    text %>%
+      stringr::str_replace_all("`([^`]*)`", "\\\\verb|\\1|") -> text
+  } else {
+    c("<div class='rtip'>Softwarehinweis</div>",
+      "<div class='rtip_content'>%s</div>") -> lines
+  }
+  lines %>%
+    paste(collapse = "\n") %>%
+    sprintf(text) %>%
+    knitr::asis_output()
+}
+
+dcat <- function(xs) {
+  xs %>%
+    cat(sep = "  ", fill = T)
+}
+
+goethe_blue    <- "#00618F"
+light_gray     <- "#f8f6f5"
+sand_gray      <- "#e4e3dd"
+dark_gray      <- "#4d4b46"
+purple         <- "#860047"
+emo_red        <- "#b3062c"
+mustard_yellow <- "#e3ba0f"
+green          <- "#737c45"
+magenta        <- "#ad3b76"
+orange         <- "#c96215"
+sun_yellow     <- "#f7d926"
+light_green    <- "#a5ab52"
+light_blue     <- "#48a9da"
 
 th_css <- "background-color: var(--sand_gray);
-  color: var(--goethe_blue);
-  font-weight: 600"
+           color: var(--goethe_blue);
+           font-weight: 600"
 
-library(showtext)
-font_add_google(name = "Source Sans Pro", family = "source-sans-pro")
-showtext_auto()
+library(extrafont)
 
 theme_goethe <- function() {
+  target <- knitr::opts_knit$get("rmarkdown.pandoc.to")
+  family <-  ifelse((! is.null(target)) && target != "pdf",
+                    "Source Sans Pro",
+                    "")
+
   theme_classic() %+replace%
     theme(
-      text = element_text(family = "source-sans-pro", size = 10),
-      axis.text = element_text(size = 10),
-      legend.text = element_text(size = 10),
+      text = element_text(family = family, size = 10),
       legend.text.align = 0,
-      legend.position = c(0.9, 0.8),
+      legend.position = c(0.9, 0.8)
     )
 }
 ```
@@ -51,5 +113,4 @@ theme_goethe <- function() {
 
 In der Übung „Statistische Verfahren in der Geographie“ werden Methoden der Datenerhebung, der deskriptiven Statistik sowie der Schätz- und Teststatistik vermittelt und ihre Anwendung für geographische Fragestellungen geübt. Die Einführung in Statistiksoftware umfasst die praktische Anwendung der Methoden sowie die tabellarische und graphische Aufbereitung der Ergebnisse statistischer Analysen.
 
-[Zum OLAT Kurs ➔](https://olat-ce.server.uni-frankfurt.de/olat/auth/RepositoryEntry/10811179011){target="_blank"}
-
+[Zum OLAT Kurs](https://olat-ce.server.uni-frankfurt.de/olat/auth/RepositoryEntry/10811179011){target="_blank"}

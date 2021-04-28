@@ -1,6 +1,5 @@
 ## Sitzung 2 {-}
 
-
 ### Aufgabe 1
 
 #### a)
@@ -16,7 +15,7 @@ tribble(
   "Formel", mean_a$formel, 0, T,
   "Einsetzen", mean_a$einsetzen, 0, T,
   "Ergebnis", mean_a$ergebnis, 0, T,
-) %>% lectuR::solution_table(meta=F)
+) %>% lectuR::solution_table(meta = F)
 ```
 
 #### b)
@@ -32,7 +31,7 @@ tribble(
   "Formel", mean_b$formel, 0, T,
   "Einsetzen", mean_b$einsetzen, 0, T,
   "Ergebnis", mean_b$ergebnis, 0, T,
-) %>% lectuR::solution_table(meta=F)
+) %>% lectuR::solution_table(meta = F)
 ```
 
 #### c)
@@ -47,7 +46,7 @@ tribble(
   "Formel", mean_a$formel, 0, T,
   "Einsetzen", mean_c$einsetzen, 0, T,
   "Ergebnis", mean_c$ergebnis, 0, T,
-) %>% lectuR::solution_table(meta=F)
+) %>% lectuR::solution_table(meta = F)
 ```
 
 ### Aufgabe 2
@@ -69,7 +68,7 @@ tribble(
   "Standardabweichung: Formel", sd_a$formel, 0, T,
   "Standardabweichung: Einsetzen", sd_a$einsetzen, 0, T,
   "Varianz: Ergebnis", sd_a$ergebnis, 0, T,
-) %>% lectuR::solution_table(meta=F)
+) %>% lectuR::solution_table(meta = F)
 ```
 
 #### b)
@@ -90,7 +89,7 @@ tribble(
   "Standardabweichung: Formel", sd_b$formel, 0, T,
   "Standardabweichung: Einsetzen", sd_b$einsetzen, 0, T,
   "Varianz: Ergebnis", sd_b$ergebnis, 0, T,
-) %>% lectuR::solution_table(meta=F)
+) %>% lectuR::solution_table(meta = F)
 ```
 
 #### c)
@@ -110,7 +109,7 @@ tribble(
   "Standardabweichung: Formel", sd_c$formel, 0, T,
   "Standardabweichung: Einsetzen", sd_c$einsetzen, 0, T,
   "Varianz: Ergebnis", sd_c$ergebnis, 0, T,
-) %>% lectuR::solution_table(meta=F)
+) %>% lectuR::solution_table(meta = F)
 ```
 
 
@@ -118,26 +117,19 @@ tribble(
 
 ```{r}
 xs <- scan("../img/2_exercise")
-
 ```
 
 #### a)
 
 Die geordnete Liste ist:
 
-```{r, results='asis', comment=NA}
-cat('> `', sort(xs), '`') 
+```{r}
+cat(sort(xs))
 ```
 
 Für das arithmetische Mittel und die Varianz ist diese Tabelle hilfreich:
 
-\medskip
-\begin{center}
-\begin{tabular}{r|r|r|r|r|r}
-\toprule
-$x_i$ & $f_i$ & $f_i\cdot x_i$ & $(x_i-\bar{x})$ & $(x_i-\bar{x})^2$ & $f_i\cdot(x_i-\bar{x})^2$ \\
-\midrule
-```{r, results='asis', comment=NA}
+```{r}
 df <- data.frame(table(xs))
 df$xs <- as.numeric(levels(df$xs)[df$xs])
 df[,3] <- df$xs * df$Freq
@@ -146,12 +138,8 @@ df[,5] <- (df$xs - mean(xs))^2
 df[,6] <- df$Freq*(df$xs - mean(xs))^2
 df[] <- round(df,2)
 df[] <- lapply(format(df, decimal.mark=","), as.character)
-write.table(df, quote=F, eol="\\\\\n", sep="&", row.names=F, col.names = F)
+tabelle(df, escape = F, col.names = c("$x_i$", "$f_i$", "$f_i\\cdot x_i$", "$(x_i-\\bar{x})$", "$(x_i-\\bar{x})^2$", "$f_i\\cdot(x_i-\\bar{x})^2$"))
 ```
-\bottomrule
-\end{tabular}
-\end{center}
-\medskip
 
 Der häufigste Wert (und damit der Modalwert) ist 2.
 
@@ -191,9 +179,9 @@ lectuR::klassieren(DAAG::fossum$totlngth,
                    "cm",
                    seq(75, 97.5, 2.5)) -> tbbl
 
-lectuR::klassentabelle_kum(tbbl) %>%
-  kable_styling() %>%
-  scroll_box(box_css = "overflow-y: auto;")
+tbbl %>%
+  select(x, k, f, fkum) %>%
+  tabelle(col.names = c("$x$", "$k_i$", "$f_i$", "$f_{kum}$"))
 ```
 
 Bei $n=43$ ist $Q_1=\frac{x_{(11)}+x_{(12)}}{2}$ und $Q_3=\frac{x_{(32)}+x_{(33)}}{2}$.
@@ -213,9 +201,9 @@ Der Quartilsabstand beträgt dann
 Um die Berechnung des arithmetischen Mittels zu vereinfachen berechnen wir den Klassendurchschnitt und Zwischensummen:
 
 ```{r}
-lectuR::klassentabelle_mittel(tbbl) %>%
-  kable_styling() %>%
-  scroll_box(box_css = "overflow-y: auto;")
+tbbl %>%
+  select(x, k, f, fkum, prod) %>%
+  tabelle(col.names = c("$x$", "$k_i$", "$f_i$", "$f_{kum}$", "$f_i \\cdot k_i$"))
 ```
 
 Die Summen für das arithmetische Mittel entnehmen wir dann einfach der letzten Spalte:
@@ -232,9 +220,9 @@ Die Summen für das arithmetische Mittel entnehmen wir dann einfach der letzten 
 Für die Varianz erweitern wir die Tabelle:
 
 ```{r}
-lectuR::klassentabelle_varianz(tbbl) %>%
-  kable_styling() %>%
-  scroll_box(box_css = "overflow-y: auto;")
+tbbl %>%
+  select(x, k, f, diff, diffsq, prodsq) %>%
+  tabelle(col.names = c("$x_i$", "$k_i$", "$f_i$", "$(k_i - \\bar{x})$", "$(k_i - \\bar{x})^2$", "$f_i \\cdot (k_i - \\bar{x})^2$"))
 ```
 
 Die Varianz beträgt:
@@ -269,7 +257,7 @@ mean_moebellager <- lectuR::get_mean(moebellager, "y")
 
 tribble(
   ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
-  "Formel", get_mean()$formel, 1, F,
+  "Formel", lectuR::get_mean()$formel, 1, F,
   "Einsetzen", mean_ziegelei$einsetzen, 0.5, F,
   "Ergebnis", mean_ziegelei$ergebnis, 1, F,
   "Einsetzen", mean_moebellager$einsetzen, 0.5, F,
@@ -277,7 +265,7 @@ tribble(
   "Antwortsatz", sprintf("%s weist im Mittel die größere Passant\\*innenzahl auf.",
                          ifelse(mean_moebellager$raw > mean_ziegelei$raw,
                                 "Das Möbellager", "Die Ziegelei")), 1, F
-) %>% lectuR::solution_table(meta=F)
+) %>% lectuR::solution_table(meta = F)
 ```
 
 #### b)
@@ -293,48 +281,11 @@ tribble(
   "Ergebnis", iqr_ziegellager$ergebnis, 1, F,
   "Einsetzen", iqr_moebellager$einsetzen, 0.5, F,
   "Ergebnis", iqr_moebellager$ergebnis, 1, F,
-  "Antwortsatz", sprintf("%s hat den größeren Quartilsabstand für die Passant\\*innenzahl.",
-                         ifelse(iqr_moebellager$raw > iqr_ziegellager$raw,
-                                "Das Möbellager", "Die Ziegelei")), 1, F
-) %>% lectuR::solution_table(meta=F)
-```
-
-#### c)
-
-**Für die Ziegelei:**
-
-```{r}
-var_ziegelei <- lectuR::get_var(alt=T, ziegelei)
-sd_ziegelei <- lectuR::get_sd(alt=T, ziegelei)
-tribble(
-  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
-  "Varianz: Formel", get_var()$formel, 0.5, F,
-  "Varianz: Einsetzen", var_ziegelei$einsetzen, 0.5, T,
-  "Varianz: Ergebnis", var_ziegelei$ergebnis, 0.5, T,
-  "Standardabweichung: Formel", get_sd()$formel, 0.5, T,
-  "Standardabweichung: Ergebnis", sd_ziegelei$ergebnis, 1, T,
-  "Variationskoeffizient: Formel",  "$v=\\frac{s}{|\\bar{x}|}\\cdot100\\%\\quad$", 0.5, F,
-  "Variationskoeffizient: Einsetzen", "$v\\approx\\frac{11,54}{74,67}\\cdot100\\%\\quad$", 0.5, F,
-  "Variationskoeffizient: Ergebnis", sprintf("$v \\approx %s\\%%$", fmt(sd_ziegelei$raw/mean_ziegelei$raw*100)), 1, F
-) %>% lectuR::solution_table(meta=F)
-```
-
-**Für das Möbellager:**
-
-```{r}
-var_moebellager <- lectuR::get_var(moebellager, alt=T, symbol="y")
-sd_moebellager <- lectuR::get_sd(moebellager, alt=T, symbol="y")
-tribble(
-  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
-  "Varianz: Formel", get_var()$formel, 0.5, F,
-  "Varianz: Einsetzen", var_moebellager$einsetzen, 0.5, T,
-  "Varianz: Ergebnis", var_moebellager$ergebnis, 0.5, T,
-  "Standardabweichung: Formel", sd_moebellager$formel, 0.5, T,
-  "Standardabweichung: Ergebnis", sd_moebellager$ergebnis, 1, T,
-  "Variationskoeffizient: Formel",  "$v=\\frac{s}{|\\bar{x}|}\\cdot100\\%\\quad$", 0.5, F,
-  "Variationskoeffizient: Einsetzen", "$v\\approx\\frac{11,54}{74,67}\\cdot100\\%\\quad$", 0.5, F,
-  "Variationskoeffizient: Ergebnis", sprintf("$v \\approx %s\\%%$", fmt(sd_moebellager$raw/mean_moebellager$raw*100)), 1, F
-) %>% lectuR::solution_table(meta=F)
+  "Antwortsatz", sprintf(
+     "%s hat den größeren Quartilsabstand für die Passant\\*innenzahl.",
+     ifelse(iqr_moebellager$raw > iqr_ziegellager$raw,
+            "Das Möbellager", "Die Ziegelei")), 1, F) %>%
+  lectuR::solution_table(meta = F)
 ```
 
 ### Aufgabe 6
@@ -376,9 +327,9 @@ tribble(
 data$`Niederschlag (mm)` %>%
   lectuR::klassieren("mm") -> tbbl
 
-lectuR::klassentabelle_mittel(tbbl) %>%
-  kable_styling() %>%
-  scroll_box(box_css = "overflow-y: auto;")
+tbbl %>%
+  select(x, k, f, fkum, prod) %>%
+  tabelle(col.names = c("$x$", "$k_i$", "$f_i$", "$f_{kum}$", "$f_i \\cdot k_i$"))
 ```
 
 #### c)
@@ -427,9 +378,9 @@ Die Summen für das arithmetische Mittel entnehmen wir der letzten Spalte der We
 Für die Standardabweichung erweitern wir die Tabelle:
 
 ```{r}
-lectuR::klassentabelle_varianz(tbbl) %>%
-  kable_styling() %>%
-  scroll_box(box_css = "overflow-y: auto;")
+tbbl %>%
+  select(x, k, f, diff, diffsq, prodsq) %>%
+  tabelle(col.names = c("$x_i$", "$k_i$", "$f_i$", "$(k_i - \\bar{x})$", "$(k_i - \\bar{x})^2$", "$f_i \\cdot (k_i - \\bar{x})^2$"))
 ```
 
 Die Varianz beträgt:
@@ -443,7 +394,6 @@ Die Varianz beträgt:
 
 Somit beträgt die Standardabweichung 
 
-
 \[\begin{aligned}
   s&=\sqrt{s^2}\\
    &\approx\sqrt{11868{,}42}\\
@@ -454,22 +404,20 @@ Somit beträgt die Standardabweichung
 
 Auch der Boxplot lässt sich anhand der klassierten Werte zeichnen:
 
-```{r fig.height=5, fig.width=3, out.width='35%'}
-
+```{r solve_2_6_g, fig.height=5, fig.width=3, out.width='35%'}
 purrr::map2(tbbl$f, tbbl$k, function(f, k){
    rep(k, f)
 }) %>%
   unlist() %>%
   tibble(y = .) %>%
-ggplot(aes(y=y)) +
-  stat_boxplot(geom = 'errorbar', width=0.5) +
-  geom_boxplot(fill = pubIHG::mustard_yellow) +
-  scale_x_continuous(limits = c(-0.6,0.4), breaks = NULL) +
-  scale_y_continuous(NULL) +
-  theme_goethe() +
-  theme(axis.line = element_blank(),
-        panel.border = element_rect(color = "black",
-                                    fill = NA,
-                                    size = 1))
-
+  ggplot(aes(y=y)) +
+    stat_boxplot(geom = 'errorbar', width=0.5) +
+    geom_boxplot(fill = mustard_yellow) +
+    scale_x_continuous(limits = c(-0.6,0.4), breaks = NULL) +
+    scale_y_continuous(NULL) +
+    theme_goethe() +
+    theme(axis.line = element_blank(),
+          panel.border = element_rect(color = "black",
+                                      fill = NA,
+                                      size = 1))
 ```

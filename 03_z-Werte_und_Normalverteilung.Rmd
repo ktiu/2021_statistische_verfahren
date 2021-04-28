@@ -23,7 +23,7 @@ Die Berechnung von Maßzahlen ([Sitzung&nbsp;2](#maßzahlen)) vereinfacht es uns
 
 Eine Möglichkeit, unabhängig hiervon eine Aussage über die *relative* Streuung zu treffen, ist der Variationskoeffizient (engl. *coefficient of variation*) $v$. Er ist definiert als das (prozentuale) Verhältnis von Standardabweichung zu Mittelwert:
 
-\[\begin{}
+\[\begin{aligned}
 v=\frac{s}{|\bar{x}|}\cdot 100\%
 \end{aligned}
 (\#eq:cv)
@@ -70,8 +70,7 @@ df$b <- paste0("$z_{", row(df), "}=\\frac{", df$xs ,"-999,37}{8,56}$\\medskip")
 df$z <- format(round((df$xs-999.37)/8.56,2), nsmall=2)
 df$xs <- format(xs, nsmall=1)
 colnames(df) <- c("$x_i$", "Berechnung", "$z_i$")
-kable(df, "html", escape=F, align="rcr", caption="$z$-Transformation") %>%
-  scroll_box(box_css = "overflow-y: auto;")
+tabelle(df, full_width = F, escape = F, align = "rcr", caption = "$z$-Transformation")
 ```
 
 Eine so $z$-transformierte Verteilung hat *immer* automatisch das arithmetische Mittel $\bar{z}=0$ und die Standardabweichung $s_z=1$. Außerdem haben $z$-Werte keine Maßeinheit. So kann jede Verteilung "standardisiert" und systematisch vergleichbar gemacht werden.
@@ -108,7 +107,7 @@ ggplot(data = data.frame(x = c(-7,22)), aes(x)) +
     annotate(geom="text", x=11, y=0.15, label="b ~ N(6,4)", color = goethe_blue) +
     annotate(geom="text", x=17, y=0.06, label="c ~ N(10,64)", color = magenta) +
     xlab(NULL) +
-  ylab(NULL) +
+    ylab(NULL) +
     theme_goethe()
 ```
 
@@ -127,8 +126,8 @@ Anzahl Elemente       | $n$        | $N$
 Arithmetisches Mittel | $\\bar{x}$  | $\\mu$
 Varianz               | $s^2$      | $\\sigma^2$
 Standardabweichung    | $s$        | $\\sigma$
-") %>% kable("html", escape=F, caption="Bezeichnung von Parametern in Stichprobe und Grundgesamtheit") %>%
-  scroll_box(box_css = "overflow-y: auto;")
+") %>% 
+  tabelle(escape = F, full_width = F, caption="Bezeichnung von Parametern in Stichprobe und Grundgesamtheit")
 ```
 
 Jede Normalverteilung lässt sich anhand von zwei Parametern beschreiben: ihr arithmetisches Mittel und ihre Standardabweichung. Normalverteilte Grundgesamtheiten werden so notiert:
@@ -195,7 +194,7 @@ ggplot(data.frame(x=c(1003-3*sqrt(73),1003+3*sqrt(73))), aes(x)) +
   stat_function(fun=function(x){dnorm(x,1003,sqrt(73))}, color = goethe_blue) +
   scale_y_continuous(limits=c(0, dnorm(1003,1003,sqrt(73))*1.05), expand=c(0,0)) +
   scale_x_continuous(expand=c(0,0)) +
-  xlab("x (Luftdruck in hpa)") +
+  xlab("x (Luftdruck in hPa)") +
   ylab(NULL) +
   theme_goethe()
 ```
@@ -219,7 +218,7 @@ $$\begin{aligned}
 
 Die einfachste Art der Fragestellung ist nun, mit welcher Wahrscheinlichkeit ein bestimmter Wert $x_p$ unterschritten wird.
 
-Nehmen wir an, es sei gefragt, mit welcher Wahrscheinlichkeit zu einem beliebigen Zeitpunkt der Luftdruck weniger als 1015 hpa beträgt. Anders gesagt interessiert uns der Anteil der Fläche unter der Verteilung, der zwischen $-\infty$ und $x_p=1015$ liegt (s. Abbildung \@ref(fig:unter)).
+Nehmen wir an, es sei gefragt, mit welcher Wahrscheinlichkeit zu einem beliebigen Zeitpunkt der Luftdruck weniger als 1015&nbsp;hPa beträgt. Anders gesagt interessiert uns der Anteil der Fläche unter der Verteilung, der zwischen $-\infty$ und $x_p=1015$ liegt (s. Abbildung \@ref(fig:unter)).
 
 ```{r unter, fig.pos='H', cache=T, fig.cap="Unterschreitung eines Messwerts"}
 mu = 1003
@@ -235,7 +234,7 @@ ggplot(data.frame(x=c(xl, xr)), aes(x)) +
   geom_vline(xintercept=xp, color= goethe_blue, linetype="dashed") +
   scale_y_continuous(expand=c(0,0), limits=c(0,f(mu)*1.05)) +
   scale_x_continuous(expand=c(0,0)) +
-  xlab("x (Luftdruck in hpa)") +
+  xlab("x (Luftdruck in hPa)") +
   ylab(NULL) +
   theme_goethe()
 ```
@@ -285,7 +284,7 @@ ggplot(data.frame(x=c(xl, xr)), aes(x)) +
   geom_vline(xintercept=xp, color= goethe_blue, linetype="dashed") +
   scale_y_continuous(expand=c(0,0), limits=c(0,f(mu)*1.05)) +
   scale_x_continuous(expand=c(0,0)) +
-  xlab("x (Luftdruck in hpa)") +
+  xlab("x (Luftdruck in hPa)") +
   ylab(NULL) +
   theme_goethe()
 ```
@@ -366,7 +365,7 @@ ggplot(data.frame(x=c(xl, xr)), aes(x)) +
   geom_vline(xintercept=xo, color=goethe_blue, linetype="dashed") +
   scale_y_continuous(expand=c(0,0), limits=c(0,f(mu)*1.05)) +
   scale_x_continuous(expand=c(0,0)) +
-  xlab("x (Luftdruck in hpa)") +
+  xlab("x (Luftdruck in hPa)") +
   ylab(NULL) +
   theme_goethe()
 ```
@@ -439,7 +438,7 @@ ggplot(data.frame(x=c(xl, xr)), aes(x)) +
   geom_vline(xintercept=xo, color=goethe_blue, linetype="dashed") +
   scale_y_continuous(expand=c(0,0), limits=c(0,f(mu)*1.05)) +
   scale_x_continuous(expand=c(0,0)) +
-  xlab("x (Luftdruck in hpa)") +
+  xlab("x (Luftdruck in hPa)") +
   ylab(NULL) +
   theme_goethe()
 ```

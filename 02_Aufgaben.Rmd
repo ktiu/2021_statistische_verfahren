@@ -1,4 +1,4 @@
-## Aufgaben {-}
+## Übungsaufgaben {-}
 
 ### Aufgabe 1
 
@@ -67,7 +67,8 @@ Eine Messreihe der Körperlänge weiblicher Beutelratten hat folgende Werte in c
 lectuR::klassieren(DAAG::fossum$totlngth,
                    "cm",
                    seq(75, 97.5, 2.5)) %>%
-lectuR::klassentabelle_aufgabe()
+    select(x, k, f, fkum, prod) %>%
+    tabelle(escape=F, col.names = c("$x$", "$k_i$", "$f_i$", "$f_{kum}$", "$f_i \\cdot k_i$"))
 ```
 
 a) Wie groß ist der Quartilsabstand?
@@ -128,8 +129,7 @@ tribble(
   1988,	459.84,
   1989,	483.78
 ) %>%
-  kable() %>%
-  kable_styling(full_width = F)
+  tabelle(full_width = F)
 ```
 
 a) Welches Skalenniveau liegt vor?  ([Sitzung 1](#skalenniveaus))

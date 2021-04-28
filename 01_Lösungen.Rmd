@@ -32,8 +32,8 @@ tribble(
   "Körpergröße", "Verhältnisskala", "stetig", "",
   "Kleidergröße (S bis XXL)", "Ordinalskala", "qualitativ", "",
   "Monatliches Nettoeinkommen", "Verhältnisskala", "stetig", "oder diskret für Cent-Beträge") %>%
-  bind_cols(` `=paste0(letters[1:20], "\\)"), .) %>%
-  kable(escape=F)
+  bind_cols(` `=paste0(letters[1:20], " )"), .) %>%
+  tabelle()
 ```
 
 ### Aufgabe 4
@@ -49,7 +49,7 @@ von <- sub("^\\((\\d+).*$", "\\1", df$.) %>% as.numeric() %>% `+`(1)
 bis <- sub(".*,(\\d+)\\]$", "\\1", df$.)
 df$. <- paste0(von,"--", bis)
 colnames(df) <- c("Wert $x_i$", "Häufigkeit $f_i$")
-kable(df) %>%
+tabelle(df, escape=F) %>%
   kable_styling(full_width=F)
 ```
 

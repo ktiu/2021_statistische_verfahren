@@ -35,8 +35,7 @@ td <- c(
 )
 table <- data.frame(t(matrix(td, nrow=length(th))))
 colnames(table) <- th
-knitr::kable(table, "html", escape=F, caption = "Die wichtigsten Maßzahlen") %>%
-  scroll_box(box_css = "overflow-y: auto;")
+tabelle(table, escape=F, caption="Die wichtigsten Maßzahlen")
 ```
 
 ### Beispielverteilung
@@ -47,8 +46,7 @@ Alle Berechnungen von Maßzahlen werden am folgenden Beispiel illustriert: Für 
 xs <- c(4, 1, 4, 1, 5, 5, 0, 1, 8, 5, 1, 25, 3, 3)
 
 matrix(xs, nrow = 1, dimnames = list(c(), sprintf("$x_{%s}$", 1:14)))%>% as_tibble %>%
-  kable("html", escape=F, caption="Beispielverteilung") %>%
-  scroll_box(box_css = "overflow-y: auto;")
+  tabelle(escape=F, caption="Beispielverteilung")
 ```
 
 
@@ -70,8 +68,7 @@ Um den Median zu bestimmen, wird zunächst eine geordnete Liste angefertigt, ind
 
 ```{r sort}
 matrix(sort(xs), nrow = 1, dimnames = list(c(), sprintf("$x_{(%s)}$", 1:14)))%>% as_tibble %>%
-  kable("html", escape=F, caption="Sortierte Wertereihe") %>%
-  scroll_box(box_css = "overflow-y: auto;")
+  tabelle(escape=F, caption="Sortierte Wertereihe")
 ```
 
 Bei einer ungeraden Stichprobengröße $n$ teilt der $(\frac{n+1}{2})$-te Wert (also der Wert genau in der Mitte) die Stichprobe in zwei Hälften, weshalb gilt:
@@ -98,8 +95,9 @@ In unserem Beispiel ist $n=14$ und damit gerade. Der Median errechnet also nach 
   \end{aligned}
 \]
 
-<div class="rtip">Softwarehinweis</div>
-<div class="rtip_content">In R gibt die Funktion `median()` den Median einer Verteilung aus.</div>
+```{r}
+rtip("In R gibt die Funktion `median()` den Median einer Verteilung aus.")
+```
 
 ### Modalwert
 
@@ -117,8 +115,7 @@ Hierzu müssen die Häufigkeiten der Werte bekannt sein, bzw. bestimmt werden (s
 ```{r mod}
 df <- as.data.frame(table(xs))
 colnames(df) <- c("Wert $x_i$", "Häufigkeit $f_i$")
-knitr::kable(df, "html", escape=F, align="r", caption = "Häufigkeiten der Beispielverteilung", linesep=c("")) %>%
-  kable_styling(full_width = F)
+tabelle(df, escape=F, align="r", caption = "Häufigkeiten der Beispielverteilung", full_width=F)
 ```
 
 Der Modalwert der Beispielverteilung beträgt 1, da der Wert 1 am häufigsten (viermal) vorkommt.
@@ -146,8 +143,9 @@ Für unsere Beispielverteilung ergibt sich durch einsetzen in Formel \@ref(eq:am
   \end{aligned}
 \]
 
-<div class="rtip">Softwarehinweis</div>
-<div class="rtip_content">Der Befehl für die Ermittlung des arithmetischen Mittels in R lautet `mean()`.</div>
+```{r}
+rtip("Der Befehl für die Ermittlung des arithmetischen Mittels in R lautet `mean()`.")
+```
 
 ## Streumaße
 
@@ -174,8 +172,9 @@ Für unsere Beispielstichprobe ergibt sich (mit Blick auf Tabelle \@ref(tab:sort
   \end{aligned}
 \]
 
-<div class="rtip">Softwarehinweis</div>
-<div class="rtip_content">In R gibt die Funktion `range()` die Werte für $x_{(1)}$ und $x_{(n)}$ aus.</div>
+```{r}
+rtip("In R gibt die Funktion `range()` die Werte für $x_{(1)}$ und $x_{(n)}$ aus.")
+```
 
 ### Quartilsabstand
 
@@ -202,9 +201,7 @@ In unserem Beispiel (mit $n=14$) ist die untere Hälfte der Verteilung:
 
 ```{r lower}
 matrix(sort(xs)[1:7], nrow = 1, dimnames = list(c(), sprintf("$x_{(%s)}$", 1:7)))%>% as_tibble %>%
-  kable("html", escape=F) %>%
-  kable_styling(full_width = F) %>%
-  scroll_box(box_css = "overflow-y: auto;")
+  tabelle(escape=F, full_width=F)
 ```
 
 $Q_1$ ist der Median dieser Werte, also $x_{(4)}=1$.
@@ -213,9 +210,7 @@ Die oberen 7 Werte lauten:
 
 ```{r upper}
 matrix(sort(xs)[8:14], nrow = 1, dimnames = list(c(), sprintf("$x_{(%s)}$", 8:14)))%>% as_tibble %>%
-  kable("html", escape=F) %>%
-  kable_styling(full_width = F) %>%
-  scroll_box(box_css = "overflow-y: auto;")
+  tabelle(escape=F, full_width=F)
 ```
 
 $Q_3$ ist also $x_{(11)} = 5$.
@@ -229,10 +224,11 @@ Für den Quartilsabstand ergibt sich durch einsetzen in Formel \@ref(eq:iqr):
   \end{aligned}
 \]
 
-<div class="rtip">Softwarehinweis</div>
-<div class="rtip_content">In R werden die Quartile üblicherweise mit `quantile()` und der Quartilsabstand mit `IQR()` bestimmt.
+```{r}
+rtip("In R werden die Quartile üblicherweise mit `quantile()` und der Quartilsabstand mit `IQR()` bestimmt.")
+```
 
-**Achtung:** Genau wie für den Median gibt es auch für die Ermittlung der Quartile bzw. des Quartilsabstands unterschiedliche Verfahren. Die Ergebnisse dieser R-Funktionen weichen hier deshalb meist leicht vom hier besprochenen Verfahren ab!</div>
+**Achtung:** Genau wie für den Median gibt es auch für die Ermittlung der Quartile bzw. des Quartilsabstands unterschiedliche Verfahren. Die Ergebnisse dieser R-Funktionen weichen hier deshalb meist leicht vom hier besprochenen Verfahren ab!
 
 ### Varianz
 
@@ -258,10 +254,8 @@ df$`Abweichung vom arithmetischen Mittel` <- df$xs - round(mean(xs),2)
 df$`Quadrat der Abweichung` <- round(df$`Abweichung vom arithmetischen Mittel`^2,2)
 df$`Produkt mit Häufigkeit` <- df$Freq*df$`Quadrat der Abweichung`
 mem<- df$`Produkt mit Häufigkeit`
-colnames(df)<-c("$x_i$", "$f_i$", "$(x_i- \\bar{x})$", "$(x_i- \\bar{x})^2$", "$f_i\\cdot(x_i -\\bar{x})^2$")
-kable(df, "html", escape = F, linesep=c(""), caption="Häufigkeitstabelle zur Berechnung der Varianz") %>% 
-  add_header_above(c("Wert", "Häufigkeit", "Abweichung vom Mittel", "Quadrat der Abweichung", "Produkt mit Häufigkeit")) %>%
-  scroll_box(box_css = "overflow-y: auto;")
+colnames(df)<-c("Werte $x_i$", "Häufigk. $f_i$", "$(x_i- \\bar{x})$", "$(x_i- \\bar{x})^2$", "$f_i\\cdot(x_i -\\bar{x})^2$")
+tabelle(df, escape = F, caption="Häufigkeitstabelle zur Berechnung der Varianz")
 ```
 
 Schließlich werden die Werte in Formel \@ref(eq:var) eingesetzt:
@@ -279,8 +273,9 @@ Eine solche Tabelle lässt sich analog auch für die Berechnung von Summen grö�
 
 Zudem lässt dieses Verfahren sich auf klassierte Daten anwenden, wenn für $x_i$ der Mittelwert der Klassen eingesetzt wird (womit allerdings Informations- und Präzisionsverlust einhergeht).
 
-<div class="rtip">Softwarehinweis</div>
-<div class="rtip_content">In R lautet der Befehl für die Errechnung der Varianz `var()`.</div>
+```{r}
+rtip("In R lautet der Befehl für die Errechnung der Varianz `var()`.")
+```
 
 ### Standardabweichung
 
@@ -306,8 +301,9 @@ In unserem Beispiel beträgt die Standardabweichung also:
   \end{aligned}
 \]
 
-<div class="rtip">Softwarehinweis</div>
-<div class="rtip_content">Die Standardabweichung wird in R mit der Funktion `sd()` berechnet.</div>
+```{r}
+rtip("Die Standardabweichung wird in R mit der Funktion `sd()` berechnet.")
+```
 
 ## Boxplot
 
@@ -328,8 +324,9 @@ ggplot(data.frame(xs), aes(y=xs)) +
 
 Die Höhe der "Box" definiert sich durch den Quartilsabstand, der mittlere Strich markiert den Median und die "Whisker" markieren den Wertebereich insgesamt -- wobei Ausreißer, deren Abstand zur Box mehr als das 1,5-Fache des Quartilsabstands beträgt, üblicherweise gar nicht oder (wie hier) gesondert mit Punkten markiert werden.
 
-<div class="rtip">Softwarehinweis</div>
-<div class="rtip_content">In R lässt sich ein Boxplot mit dem Befehl `boxplot()` ausgeben.</div>
+```{r rtip-boxplot}
+rtip("In R lässt sich ein Boxplot mit dem Befehl `boxplot()` ausgeben.")
+```
 
 ## Tipps zur Vertiefung {-}
 

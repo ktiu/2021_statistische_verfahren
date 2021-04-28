@@ -1,0 +1,324 @@
+## Sitzung 3 {-}
+
+### Aufgabe 1
+
+#### a)
+
+Zunächst brauchen wir das arithmetische Mittel:
+
+```{r}
+set.seed(2220)
+rnorm(9, -20, 8) %>%
+  round(2) -> data
+m <- get_mean(data)
+
+tribble(
+  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
+  "Formel", m$formel, 0, F,
+  "Einsetzen", m$einsetzen, 0, F,
+  "Ergebnis", m$ergebnis, 0, F
+) %>% lectuR::solution_table(meta = F)
+```
+
+Und die Standardabweichung:
+
+```{r}
+s <- get_sd(data)
+
+tribble(
+  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
+  "Formel", s$formel, 0, F,
+  "Einsetzen", s$einsetzen, 0, F,
+  "Ergebnis", s$ergebnis, 0, F
+) %>% lectuR::solution_table(meta = F)
+```
+
+Dann lässt sich die Formel bestimmen:
+
+```{r}
+z <- get_z_trans(sd = s$raw, mean = m$raw)
+
+tribble(
+  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
+  "Formel", z$formel, 0, F,
+  "Einsetzen", z$general, 0, F,
+) %>% lectuR::solution_table(meta = F)
+```
+
+Und schließlich die einzelnen Werte berechnen. Hier sind die Berechnungen zum Prüfen ausformuliert, das wird in der Klausur nicht für jeden Wert erwartet.
+
+```{r}
+map2(data, seq_along(data), function(x, i) {
+  get_z_trans(sd = s$raw, mean = m$raw, x=x, symbol=i)
+}) -> calc
+
+tibble(
+  `$x_i$` = data,
+  Berechnung = map_chr(calc, "quick")
+) %>%
+tabelle(full_width = F)
+```
+
+#### b)
+
+```{r}
+set.seed(2220)
+runif(12, -4, 4) %>%
+  round(2) -> data
+
+m <- 221.54
+
+sd <- get_sd(variance = 13.02)
+rz <- get_z_trans(mean = m, sd = sd$raw)
+```
+
+Zunächst die Standardabweichung:
+
+```{r}
+tribble(
+  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
+  "Formel", sd$formel, 0, F,
+  "Einsetzen", sd$einsetzen, 0, F,
+  "Ergebnis", sd$ergebnis, 0, F,
+) %>% lectuR::solution_table(meta = F)
+```
+
+Dann die Formel:
+
+```{r}
+tribble(
+  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
+  "Formel", get_z_trans()$formel, 0, F,
+  "Umformen", rz$formel, 0, F,
+  "Einsetzen", rz$general_reverse, 0, F,
+) %>% lectuR::solution_table(meta = F)
+```
+
+Schließlich die einzelnen Werte:
+
+```{r}
+map2(data, seq_along(data), function(z, i) {
+  get_z_trans(sd = sd$raw, mean = m, z = z, symbol = i)
+}) -> calc
+
+tibble(
+  `$z_i$` = data,
+  Berechnung = map_chr(calc, "quick_reverse")
+) %>%
+tabelle(full_width = F)
+```
+
+### Aufgabe 2
+
+```{r}
+mu <- 32.2
+sigma <- 4.4
+```
+
+#### a) 
+
+Zunächst geht es darum, die $x$-Werte in $z$-Werte zu transformieren.
+
+```{r}
+set.seed(9444)
+runif(6, 10, 50) %>%
+  round(2) -> xs
+
+z <- get_z_trans(mean = mu, sd = sigma, pop = T)
+tribble(
+  ~Schritt, ~Lösung,
+  "Formel", z$formel,
+  "Einsetzen", z$general
+) %>% tabelle(align = "lc")
+```
+
+Durch einsetzen ergeben sich die folgenden Werte. (So ausführlich muss es in der Klausur nicht sein.)
+
+```{r}
+map2(xs, seq_along(xs), function(x, i) {
+  get_z_trans(sd = sigma, mean = mu, x = x, symbol = i, pop = T)
+}) -> calc
+
+tibble(
+  `$x_i$` = xs,
+  Berechnung = map_chr(calc, "quick")
+) %>%
+tabelle(full_width = F)
+```
+
+
+
+#### b)
+
+```{r}
+c(0.05,  0.1,  5,  13,  50,  90,  99,  99.99) %>%
+  `/`(100) -> ps
+
+```
+
+Es wurde nach Überschreitungswerten gefragt. In der Tabelle für die Normalverteilung
+
+Anhand der Tabelle für die Normalverteilung können diesen 
+
+
+#### c)
+
+In welchem Bereich liegen die mittleren 95% der Werte?
+
+d) Wie wahrscheinlich ist es, dass ein Wert zwischen 30 und 40 liegt?
+
+### Aufgabe 3
+
+#### a)
+
+Siehe b)
+
+#### b)
+
+Die Dichtefunktion mit kritischem Wert sollte in etwa so aussehen:
+
+```{r}
+ggplot(data.frame(x = c(2.32, 15.7)), aes(x)) +
+    stat_function(fun = function(x) {dnorm(x, 9.01, 2.23)}) +
+    geom_vline(xintercept = 10,
+               color = goethe_blue,
+               linetype = "dashed") +
+  scale_y_continuous(expand=c(0,0), breaks=NULL) +
+  scale_x_continuous() +
+  annotate(geom="blank", x=9.01, y=dnorm(9.01,9.01,2.23)*1.05) +
+  xlab("Höchstwasserstand in m") +
+  ylab(NULL) +
+  theme_goethe()
+```
+
+#### c)
+
+$$z_p=\frac{x_p- \mu}{\sigma} = \frac{10-9,01}{2,23}\approx0,44$$
+
+#### d)
+
+$$p=P(z<z_p)\approx P(z<0,44)\approx0,6700$$
+
+Die Wahrscheinlichkeit, dass der Deich unbeschädigt bleibt, beträgt 67%.
+
+### Aufgabe 4
+
+#### a)
+
+Die Übertretungswahrscheinlichkeit beträgt:
+
+$$P(z>z_p) = 1- P(z<z_p) \approx 1-0,6700 = 0,3300 = 33\% $$
+
+#### b)
+
+Für $x_p=12$ ergibt sich:
+
+$$ z_p=\frac{x_p- \mu}{\sigma} = \frac{12-9,01}{2,23}\approx1,34 $$
+
+Und für die Übertretungswahrscheinlichkeit:
+
+$$P(z>z_p) = 1- P(z<z_p) \approx 1-0,9099 = 0,0901= 9,01\% $$
+
+#### c)
+
+Wir kennen $P(x < 12)\approx0,9099$ aus Aufgabe 2 b) und $P(x<10)\approx0,6700$ aus Aufgabe 1 d). Also rechnen wir:
+
+$$P(10<x<12) = P(x<12) - P(x<10) \approx 0,9099 - 0,6700 = 0,2399$$
+
+#### d)
+
+Für die Obergrenze soll gelten: $P(x<x_o) = 0,9$. Der Tabelle entnehmen wir $z_o \approx 1,28$. Entsprechend ist $z_u\approx-1,28$.
+
+Die Umkehrung der $z$-Transformation ergibt:
+
+$$\begin{aligned}
+x_o&=z_o\cdot\sigma + \mu\approx1,28\cdot2,23 +9,01\approx11,86\\
+x_u&=z_u\cdot\sigma + \mu\approx-1,28\cdot2.23 +9.01\approx6,16
+\end{aligned}$$
+
+Die mittleren 80% der Werte liegen also zwichen 6,16 und 11,86&nbsp;m.
+
+### Aufgabe 5
+
+#### a)
+
+$$p=P(x<x_p)=1-P(x>x_p)=1-\frac{1}{200}=1-0,005=0,995$$
+
+#### b)
+
+$$z_{99,5\%}\approx2,58$$
+
+#### c)
+
+$$x_{99,5\%}=z_{99,5\%}\cdot\sigma + \mu\approx2,58\cdot2,23+9,01\approx14,76$$
+
+Der neue Deich muss 14,76&nbsp;m hoch sein.
+
+### Aufgabe 6
+
+#### a)
+
+- $z_p=1$ und $P(z<1)\approx84,13\%$, also $P(z>1)\approx15,87\%$
+
+#### b)
+
+- $z_p=-2$ und $P(z<-2) = 1-P(z<2) \approx 1-0,9772 = 0,0228$
+- Es kann also 2,28 Mal in 100 Jahren (oder: in etwa 2 von 100 Jahren, in weniger als 3 von 100 Jahren) mit weniger als 200&nbsp;mm Regen gerechnet werden.
+
+#### c)
+
+- $z_u=-2$ und $P(z<z_u)\approx 0,0228$ (siehe b)
+- $z_o=\frac{x_o- \mu}{\sigma}=\frac{550-400}{100}=1,5$ und $P(z<z_o) \approx 0,9332$
+- $P(200 < x < 550) = P(x < 550) - P(x<200) \approx 91,04\%$
+
+#### d)
+
+- Gesucht ist $x_p$, für das gilt: $P(x>x_p) = \frac{2}{100}=0,02$
+- Daraus folgt: $P(x<x_p) = 0,98$ und $z_p\approx2,05$
+- $x_p = 605$
+
+#### e)
+
+- $z_{12,5\%}\approx -1,15$ und $z_{87,5\%}= 1,15$
+- Die mittleren 75% liegen zwischen $x_u=285$ und $x_o=515$ mm.
+
+### Aufgabe 7
+
+**Für die Ziegelei:**
+
+```{r}
+var_ziegelei <- lectuR::get_var(alt=T, ziegelei)
+sd_ziegelei <- lectuR::get_sd(alt=T, ziegelei)
+tribble(
+  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
+  "Varianz: Formel", lectuR::get_var()$formel, 0.5, F,
+  "Varianz: Einsetzen", var_ziegelei$einsetzen, 0.5, T,
+  "Varianz: Ergebnis", var_ziegelei$ergebnis, 0.5, T,
+  "Standardabweichung: Formel", lectuR::get_sd()$formel, 0.5, T,
+  "Standardabweichung: Ergebnis", sd_ziegelei$ergebnis, 1, T,
+  "Variationskoeffizient: Formel",  "$v=\\frac{s}{|\\bar{x}|}\\cdot100\\%\\quad$", 0.5, F,
+  "Variationskoeffizient: Einsetzen", "$v\\approx\\frac{11,54}{74,67}\\cdot100\\%\\quad$", 0.5, F,
+  "Variationskoeffizient: Ergebnis", sprintf(
+    "$v \\approx %s\\%%$",
+    lectuR::fmt(sd_ziegelei$raw / mean_ziegelei$raw * 100)), 1, F
+) %>% lectuR::solution_table(meta = F)
+```
+
+**Für das Möbellager:**
+
+```{r}
+var_moebellager <- lectuR::get_var(moebellager, alt=T, symbol="y")
+sd_moebellager <- lectuR::get_sd(moebellager, alt=T, symbol="y")
+tribble(
+  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
+  "Varianz: Formel", lectuR::get_var()$formel, 0.5, F,
+  "Varianz: Einsetzen", var_moebellager$einsetzen, 0.5, T,
+  "Varianz: Ergebnis", var_moebellager$ergebnis, 0.5, T,
+  "Standardabweichung: Formel", sd_moebellager$formel, 0.5, T,
+  "Standardabweichung: Ergebnis", sd_moebellager$ergebnis, 1, T,
+  "Variationskoeffizient: Formel",  "$v=\\frac{s}{|\\bar{x}|}\\cdot100\\%\\quad$", 0.5, F,
+  "Variationskoeffizient: Einsetzen", "$v\\approx\\frac{11,54}{74,67}\\cdot100\\%\\quad$", 0.5, F,
+  "Variationskoeffizient: Ergebnis", sprintf("$v \\approx %s\\%%$",
+                                             lectuR::fmt(sd_moebellager$raw/mean_moebellager$raw*100)), 1, F
+) %>% lectuR::solution_table(meta = F)
+```

@@ -1,0 +1,141 @@
+## Übungsaufgaben {-}
+
+### Aufgabe 1
+
+Berechnen Sie das arithmetische Mittel für die folgenden Verteilungen:
+
+#### a) 
+
+```{r}
+set.seed(4525)
+runif(6, 10, 80) %>%
+  round() %>%
+  cat()
+```
+
+#### b)
+
+```{r}
+set.seed(4525)
+runif(8, -1, 1) %>%
+  round(3) %>%
+  cat(sep="  ")
+```
+
+#### c)
+
+```{r}
+set.seed(4525)
+runif(10, 600, 1000) %>%
+  round(2) %>%
+  cat(sep="  ")
+```
+
+Tauschen Sie sich danach in der Lerngruppe darüber aus ...
+
+- Was schreiben Sie wann auf?
+- Wie geben Sie die Zahlen und Rechenschritte in den Taschenrechner ein?
+- Wie überprüfen Sie ggf. Ihr Ergebnis mit Hilfe des Taschenrechners?
+
+### Aufgabe 2
+
+Wiederholen Sie Aufgabe 1, aber berechnen Sie statt des arithmetischen Mittels die Standardabweichung (und tauschen sich darüber aus).
+
+### Aufgabe 3
+
+Bei einer Befragung jedes 500. Studierenden im Matrikel einer privaten Hochschule wurden folgende Angaben zur Haushaltsgröße gemacht:
+
+```
+1 4 4 2 3 2 3 5 2 7 2 1 1
+```
+
+a) Welches Skalenniveau liegt vor? ([Sitzung 1](#skalenniveaus))
+b) Berechnen Sie Modalwert,
+c) Median und
+d) arithmetisches Mittel der Stichprobe.
+e) Berechnen Sie außerdem die Spannweite,
+f) den Quartilsabstand,
+g) die Varianz und
+h) die Standardabweichung der Stichprobe.
+i) Zeichnen Sie einen Boxplot der Stichprobenverteilung.
+
+### Aufgabe 4
+
+Eine Messreihe der Körperlänge weiblicher Beutelratten hat folgende Werte in cm erfasst [Beispieldatensatz `fossum` aus @daag]:
+
+```{r}
+lectuR::klassieren(DAAG::fossum$totlngth,
+                   "cm",
+                   seq(75, 97.5, 2.5)) %>%
+lectuR::klassentabelle_aufgabe()
+```
+
+a) Wie groß ist der Quartilsabstand?
+b) Bestimmen Sie das arithmetische Mittel der Reihe.
+b) Berechnen Sie auch die Varianz und
+d) die Standardabweichung.
+
+### Aufgabe 5 {#ex2-5}
+
+In Wiesbaum soll ein Kulturzentrum entstehen. Zwei leerstehende Industriegebäude -- eine Ziegelei und ein Möbellager -- kommen für eine Umnutzung in Frage. Bei der Entscheidung, welches Gebäude umfunktioniert werden soll, spielt auch eine Rolle, welcher Ort ohnehin schon mehr Fußverkehr aufweist. Für beide Gebäude wurden daher jeweils die Anzahl der Passant\*innen an sechs zufälligen Tagen erfasst:
+
+\[\begin{aligned}
+```{r}
+set.seed(1616)
+ziegelei <- round(rnorm(6,80,10))
+moebellager <- round(rnorm(6,70,18))
+knitr::asis_output(
+  sprintf(
+    "\\textrm{Ziegelei}: \\quad & %s\\\\
+\\textrm{Möbellager}: \\quad & %s\\\\",
+    paste(ziegelei, collapse="\\quad"),
+    paste(moebellager, collapse="\\quad")
+  )
+)
+```
+\end{aligned}\]
+
+a) Welches Gebäude weist im Durchschnitt die höhere Passant\*innenzahl auf?
+
+b) Vergleichen Sie außerdem die Quartilsabstände der beiden Messreihen.
+
+### Aufgabe 6
+
+In Australien betrug die durchnittliche Niederschlagsmenge in den 1970er- und 80er-Jahren ^[Auszug aus dem Datensatz `bomsoi` in @haseloff]:
+\nopagebreak
+
+```{r}
+tribble(
+  ~Jahr, ~`Niederschlag (mm)`,
+  1970,	384.52,
+  1971,	493.65,
+  1972,	364.65,
+  1973,	661.32,
+  1974,	785.27,
+  1975,	603.45,
+  1976,	527.75,
+  1977,	471.81,
+  1978,	525.65,
+  1979,	455.64,
+  1980,	433.01,
+  1981,	535.12,
+  1982,	421.36,
+  1983,	499.29,
+  1984,	555.21,
+  1985,	398.88,
+  1986,	391.96,
+  1987,	453.41,
+  1988,	459.84,
+  1989,	483.78
+) %>%
+  kable() %>%
+  kable_styling(full_width = F)
+```
+
+a) Welches Skalenniveau liegt vor?  ([Sitzung 1](#skalenniveaus))
+b) Legen Sie eine klassierte Häufigkeitstabelle an. Begründen Sie die Wahl der Klassen. ([Sitzung 1](#quantitative-variablen-1))
+c) Was ist der Modalwert der klassierten Verteilung?
+d) Wie groß ist der Quartilsabstand?
+e) Bestimmen Sie das arithmetische Mittel der klassierten Verteilung.
+f) Berechnen Sie die Standardabweichung.
+g) Zeichnen Sie einen Boxplot für die Verteilung.

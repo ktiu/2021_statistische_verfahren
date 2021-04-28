@@ -1,0 +1,3485 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  ngerman,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Statistische Verfahren in der Geographie},
+  pdflang={de},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+
+%%%%%%%%%%%%%%%%%%
+%  custom start  %
+%%%%%%%%%%%%%%%%%%
+
+\usepackage[margin=3cm,top=3.5cm,bottom=3cm]{geometry}
+\usepackage[default]{sourcesanspro}
+
+%%%%%%%%%%%%
+%  colors  %
+%%%%%%%%%%%%
+
+\definecolor{goethe_blue}{HTML}{00618F}
+\definecolor{light_gray}{HTML}{f8f6f5}
+\definecolor{sand_gray}{HTML}{e4e3dd}
+\definecolor{dark_gray}{HTML}{4d4b46}
+\definecolor{purple}{HTML}{860047}
+\definecolor{emo_red}{HTML}{b3062c}
+\definecolor{mustard_yellow}{HTML}{e3ba0f}
+\definecolor{green}{HTML}{737c45}
+\definecolor{magenta}{HTML}{ad3b76}
+\definecolor{orange}{HTML}{c96215}
+\definecolor{sun_yellow}{HTML}{f7d926}
+\definecolor{light_green}{HTML}{a5ab52}
+\definecolor{light_blue}{HTML}{48a9da}
+\hypersetup{unicode=true,
+            colorlinks=true,
+            linkcolor=goethe_blue,
+            citecolor=goethe_blue,
+            urlcolor=goethe_blue,
+            breaklinks=true}
+
+%%%%%%%%%%
+%  rtip  %
+%%%%%%%%%%
+
+\usepackage{tcolorbox}
+\newenvironment{rtip}{
+  \medskip
+  \begin{tcolorbox}[colframe=purple,colback=light_gray,title=Softwarehinweis]
+}{
+  \end{tcolorbox}
+  \medskip
+}
+
+%%%%%%%%%%
+%  misc  %
+%%%%%%%%%%
+
+\usepackage{csquotes}
+\usepackage{gensymb}
+\usepackage{makecell}
+\usepackage{tabularx}
+\usepackage{arydshln}
+\usepackage{caption}
+\usepackage{bbding}
+\usepackage{icomma}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{float}
+
+\newcommand{\lastupdate}{Stand: }
+\newcommand{\pagestring}{Seite }
+\iflanguage{english}{%
+  \renewcommand{\lastupdate}{Last updated }%
+  \renewcommand{\pagestring}{Page }%
+}{}
+
+%%%%%%%%%%%
+%  title  %
+%%%%%%%%%%%
+
+\renewcommand{\maketitle}{
+  \newpage
+  \begingroup
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{4pt}
+    {\fontseries{b}\selectfont\Huge{Statistische Verfahren in der Geographie}\par}
+    
+
+    \bigskip
+
+    \begin{tabularx}{\textwidth}{@{}X r}
+                  Till Straube
+        \newline \href{mailto:straube@geo.uni-frankfurt.de}{\nolinkurl{straube@geo.uni-frankfurt.de}}
+                  \medskip\newline
+          {\renewcommand\\{\newline}Institut für Humangeographie\\
+Goethe-Universität Frankfurt}
+         &
+                    Sommersemester 2021
+        \end{tabularx}
+  \endgroup
+  \vspace{1.1cm}
+  \thispagestyle{plain}% suppress the running head
+}
+
+\newcommand{\makenotation}{
+  \begin{center}
+    \fontseries{l}\selectfont
+    \huge  
+  \end{center}
+  \bigskip
+}
+
+\newcommand{\divider}{
+  \medskip
+  \begin{center}
+  {\color{orange}\SparkleBold}
+  \end{center}
+  \medskip
+}
+
+
+\ifXeTeX
+  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
+  \usepackage{polyglossia}
+  \setmainlanguage[]{german}
+\else
+  \usepackage[main=ngerman]{babel}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\fi
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
+  % set entry spacing
+  \ifnum #2 > 0
+  \setlength{\parskip}{#2\baselineskip}
+  \fi
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\title{Statistische Verfahren in der Geographie}
+\author{true}
+\date{Sommersemester 2021}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\hypertarget{inhalt}{%
+\section*{Inhalt}\label{inhalt}}
+\addcontentsline{toc}{section}{Inhalt}
+
+In der Übung „Statistische Verfahren in der Geographie`` werden Methoden der Datenerhebung, der deskriptiven Statistik sowie der Schätz- und Teststatistik vermittelt und ihre Anwendung für geographische Fragestellungen geübt. Die Einführung in Statistiksoftware umfasst die praktische Anwendung der Methoden sowie die tabellarische und graphische Aufbereitung der Ergebnisse statistischer Analysen.
+
+\href{https://olat-ce.server.uni-frankfurt.de/olat/auth/RepositoryEntry/10811179011}{Zum OLAT Kurs}
+
+\hypertarget{terminuxfcberblick}{%
+\section*{Terminüberblick}\label{terminuxfcberblick}}
+\addcontentsline{toc}{section}{Terminüberblick}
+
+\emph{Alle Sitzungen finden von 14 bis 16h c.t. statt}
+
+\begin{longtable}[]{@{}rrl@{}}
+\toprule
+Datum & Sitzung & Inhalt \\
+\midrule
+\endhead
+13. April 2021 & & \protect\hyperlink{vorbesprechung}{Vorbesprechung} \\
+20. April 2021 & 1 & \protect\hyperlink{datenerhebung-und-huxe4ufigkeiten}{Datenerhebung und Häufigkeiten} \\
+27. April 2021 & 2 & \protect\hyperlink{mauxdfzahlen}{Maßzahlen} \\
+4. Mai 2021 & 3 & \protect\hyperlink{z-werte-und-normalverteilung}{z-Werte und Normalverteilung} \\
+11. Mai 2021 & 4 & {[}Schätzstatistik{]} \\
+18. Mai 2021 & 5 & {[}Grundlagen der Teststatistik{]} \\
+25. Mai 2021 & 6 & {[}Testverfahren mit zwei Stichproben{]} \\
+1. Juni 2021 & 7 & {[}Korrelation{]} \\
+8. Juni 2021 & 8 & {[}Lineare Regression{]} \\
+15. Juni 2021 & 9 & {[}Kreuztabellen{]} \\
+22. Juni 2021 & 10 & {[}Chi-Quadrat-Tests{]} \\
+29. Juni 2021 & & Klausurvorbereitung \\
+6. Juli 2021 & & Klausurvorbereitung \\
+13. Juli 2021 & & Klausur \\
+\bottomrule
+\end{longtable}
+
+\hypertarget{vorbesprechung}{%
+\section*{Vorbesprechung}\label{vorbesprechung}}
+\addcontentsline{toc}{section}{Vorbesprechung}
+
+\href{https://video01.uni-frankfurt.de/Mediasite/Play/c5c5115e37f948d0bfeb9610d18427661d}{Aufzeichung der Vorbesprechung am 13. April}
+
+\hypertarget{lernziele-der-veranstaltung}{%
+\subsection*{Lernziele der Veranstaltung}\label{lernziele-der-veranstaltung}}
+\addcontentsline{toc}{subsection}{Lernziele der Veranstaltung}
+
+Sie können\ldots{}
+
+\begin{itemize}
+\tightlist
+\item
+  Grundbegriffe der Statistik sinnvoll verwenden.
+\item
+  die wichtigsten statistischen Kennzahlen berechnen.
+\item
+  gängige Diagramme interpretieren.
+\item
+  einfache statistische Schätz- und Prüfverfahren anwenden.
+\item
+  passende Verfahren für verschiedene Aufgaben wählen.
+\end{itemize}
+
+\hypertarget{konzept-der-veranstaltung}{%
+\subsection*{Konzept der Veranstaltung}\label{konzept-der-veranstaltung}}
+\addcontentsline{toc}{subsection}{Konzept der Veranstaltung}
+
+\begin{itemize}
+\tightlist
+\item
+  Die gesamte Veranstaltung dient als Klausurvorbereitung
+\item
+  Die selbständige Anwendung der Verfahren steht im Vordergrund
+\end{itemize}
+
+\hypertarget{sitzungsvorbereitung}{%
+\subsection*{Sitzungsvorbereitung}\label{sitzungsvorbereitung}}
+\addcontentsline{toc}{subsection}{Sitzungsvorbereitung}
+
+\begin{itemize}
+\tightlist
+\item
+  Materialien werden zur eigenständigen Vorbereitung bereit gestellt
+\item
+  Dieses Online-Skript mit den Kerninhalten
+\item
+  Darin: Videos (aus dem Vorjahr) mit Beispielen und Übungen
+\item
+  Darin: Verweise auf weiterführende Literatur, YouTube-Videos, etc.
+\item
+  Fehler und Unklarheiten bitte per E-Mail melden!
+\end{itemize}
+
+\hypertarget{sitzungsablauf}{%
+\subsection*{Sitzungsablauf}\label{sitzungsablauf}}
+\addcontentsline{toc}{subsection}{Sitzungsablauf}
+
+\begin{itemize}
+\tightlist
+\item
+  Dienstags, 14h c.t. auf Zoom (Link in OLAT)
+\item
+  Übungsaufgaben (und Lösungen) werden online bereit gestellt
+\item
+  Teilnehmer*innen bearbeiten die Aufgaben in Break-Out-Sessions
+\item
+  Bei Problemen fragen Sie sich erstmal gegenseitig
+\item
+  Sonst bin ich ansprechbar (Zoom-Funktion: Um Hilfe bitten)
+\end{itemize}
+
+\hypertarget{empfehlungen}{%
+\subsection*{Empfehlungen}\label{empfehlungen}}
+\addcontentsline{toc}{subsection}{Empfehlungen}
+
+\begin{itemize}
+\tightlist
+\item
+  Lassen Sie sich auf den wöchentlichen Rhythmus ein
+\item
+  Bereiten Sie die Sitzungen vor und nach
+\item
+  Bilden Sie Lerngruppen
+\item
+  Melden Sie mir gerne Break-Out-Wünsche per E-Mail (aber keine Garantie)
+\item
+  Gleichen Sie in Lerngruppen Ihre Ziele ab
+\item
+  Machen Sie sich mit Ihrem Taschenrechner vertraut
+\end{itemize}
+
+\hypertarget{literaturempfehlungen}{%
+\subsection*{Literaturempfehlungen}\label{literaturempfehlungen}}
+\addcontentsline{toc}{subsection}{Literaturempfehlungen}
+
+\begin{itemize}
+\tightlist
+\item
+  Ganz besonders:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \protect\hyperlink{ref-bortz}{Bortz und Schuster} (\protect\hyperlink{ref-bortz}{2010}) (als eBook bei der UB erhältich; dieselben Notationskonventionen wie in der Veranstaltung)
+  \end{itemize}
+\item
+  Ergänzend:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \protect\hyperlink{ref-bahrenberg}{Bahrenberg, Giese und Nipper} (\protect\hyperlink{ref-bahrenberg}{2010}) (geographiebezogen)
+  \item
+    \protect\hyperlink{ref-benninghaus}{Benninghaus} (\protect\hyperlink{ref-benninghaus}{2007}) (als eBook bei der UB erhältich)
+  \end{itemize}
+\item
+  Bedingt:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \protect\hyperlink{ref-zimmermann-janschitz2014a}{Zimmermann-Janschitz} (\protect\hyperlink{ref-zimmermann-janschitz2014a}{2014}) (geographiebezogen; als eBook bei der UB erhältich)
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{taschenrechner}{%
+\subsection*{Taschenrechner}\label{taschenrechner}}
+\addcontentsline{toc}{subsection}{Taschenrechner}
+
+\begin{itemize}
+\tightlist
+\item
+  Zulassungsregeln für Klausur wie für Mathe-Abi (Hessen)
+\item
+  Also kein ``programmierbarer'' Taschenrechner
+\item
+  Erlaubt ist z.B. CASIO FX-991DE Plus
+\item
+  ``Wissenschaftlicher'' Taschenrechner kann von großem Vorteil sein\ldots{} aber den statistischen Funktionen nicht blind vertrauen!
+\end{itemize}
+
+\hypertarget{klausur}{%
+\subsection*{Klausur}\label{klausur}}
+\addcontentsline{toc}{subsection}{Klausur}
+
+\begin{itemize}
+\tightlist
+\item
+  Termin: 13. Juli 2021, 14h s.t.
+\item
+  Präsenz oder online möglich
+\item
+  Berechnung der Aufgaben ``von Hand'' auf Papier
+\item
+  Bearbeitungsdauer: 60 Minuten
+\item
+  Bei Online-Klausur wird zusätzliche Zeit für technische Abwicklung gewährt
+\item
+  Hilfsmittel: Taschenrechner, \protect\hyperlink{formelsammlung-und-wertetabellen}{Formelsammlung}
+\item
+  Vier Teilaufgaben, immer nach demselben Schema (dazu im Laufe des Semesters mehr)
+\item
+  Viele Probeklausuren zur Vorbereitung
+\end{itemize}
+
+\hypertarget{nachklausur}{%
+\subsection*{Nachklausur}\label{nachklausur}}
+\addcontentsline{toc}{subsection}{Nachklausur}
+
+\begin{itemize}
+\tightlist
+\item
+  Termin: 12. Oktober 2021, 14h s.t.
+\item
+  Gleiches Schema wie die reguläre Klausur (mit anderen Aufgaben)
+\item
+  Nicht einfacher als die reguläre Klausur
+\end{itemize}
+
+\hypertarget{datenerhebung-und-huxe4ufigkeiten}{%
+\section{Datenerhebung und Häufigkeiten}\label{datenerhebung-und-huxe4ufigkeiten}}
+
+\hypertarget{lernziele-dieser-sitzung}{%
+\subsection*{Lernziele dieser Sitzung}\label{lernziele-dieser-sitzung}}
+\addcontentsline{toc}{subsection}{Lernziele dieser Sitzung}
+
+Sie können\ldots{}
+
+\begin{itemize}
+\tightlist
+\item
+  einige Grundbegriffe der Statistik definieren.
+\item
+  Typen von Stichproben unterscheiden.
+\item
+  Skalenniveaus von Variablen bestimmen.
+\item
+  Häufigkeitsverteilungen beschreiben.
+\end{itemize}
+
+\hypertarget{lehrvideos-sommersemester-2020}{%
+\subsection*{Lehrvideos (Sommersemester 2020)}\label{lehrvideos-sommersemester-2020}}
+\addcontentsline{toc}{subsection}{Lehrvideos (Sommersemester 2020)}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://video01.uni-frankfurt.de/Mediasite/Play/36dca452df154bd3b7be2e069174e8991d}{1a) Grundbegriffe}
+\item
+  \href{https://video01.uni-frankfurt.de/Mediasite/Play/5a397035f7a6468fa2cecf802ca8d52a1d}{1b) Skalenniveaus}
+\item
+  \href{https://video01.uni-frankfurt.de/Mediasite/Play/5fce0458009b4da283b14fdc30e3a0ea1d}{1c) Grundbegriffe}
+\end{itemize}
+
+\hypertarget{statistische-praxis}{%
+\subsection{Statistische Praxis}\label{statistische-praxis}}
+
+Was ist Statistik? Je nach Perspektive kann Statistik vieles sein: ein Teilgebiet der Mathematik, ein Untersuchungsobjekt kritischer Forschung oder ein unbeliebtes Studienfach.
+
+Im Rahmen dieser Veranstaltung soll Statistik als eine Zusammenstellung von Praktiken in der quantitativen Forschung verstanden werden, wobei ihre Anwendung stets im Mittelpunkt steht. Eine hilfreiche Definition findet sich bei \protect\hyperlink{ref-haseloff}{Haseloff et al.} (\protect\hyperlink{ref-haseloff}{1968}):
+
+\begin{quote}
+``Allgemein kann gesagt werden: Die Statistik hat es mit Zahlen zu tun, die entweder aus Abzählvorgängen oder aus Messungen gewonnen wurden. Ihre Aufgabe ist es, ein solches Zahlenmaterial in eine optimal übersichtliche und informationsreiche Form zu bringen, aus ihnen methodische Schlußfolgerungen zu ziehen und gegebenfalls auch die Ursachen der analysierten Zahlenverhältnisse mit sachlichen Methoden aufzudecken.'' (\protect\hyperlink{ref-haseloff}{Haseloff et al. 1968}: 27)
+\end{quote}
+
+\hypertarget{grundbegriffe-der-statistik}{%
+\subsubsection{Grundbegriffe der Statistik}\label{grundbegriffe-der-statistik}}
+
+\hypertarget{untersuchungselement}{%
+\paragraph{Untersuchungselement}\label{untersuchungselement}}
+
+Untersuchungselemente (auch Untersuchungseinheiten, Merkmalsträger, bei Personen: Proband*innen, engl. \emph{sampling unit}) sind die individuellen Gegenstände empirischer Untersuchungen. Bei einer Hochrechnung zur Bundestagswahl ist dies z.B. eine befragte Wählerin.
+
+\hypertarget{stichprobe}{%
+\paragraph{Stichprobe}\label{stichprobe}}
+
+Eine Stichprobe (engl. \emph{sample}) ist die Menge aller Untersuchungselemente, deren Daten direkt erhoben werden. Die Anzahl der Untersuchungselemente in der Stichprobe wird in Formeln mit \(n\) bezeichnet. Bei einer Hochrechnung z.B. bilden alle tatsächlich befragten Wähler*innen die Stichprobe.
+
+\hypertarget{grundgesamtheit}{%
+\paragraph{Grundgesamtheit}\label{grundgesamtheit}}
+
+Die Grundgesamtheit (auch Population, engl. \emph{population}) ist die Menge aller potentiell untersuchbaren Elemente, über die Aussagen getroffen werden sollen. Die Stichprobe ist eine Teilmenge der Grundgesamtheit. Die Anzahl der Elemente in der Grundgesamtheit wird in Formeln mit \(N\) bezeichnet. Bei einer Hochrechnung zur Bundestagswahl sind dies z.B. alle Wähler*innen (bzw. alle Wahlberechtigten, wenn Wahlbeteiligung von Interesse ist).
+
+\hypertarget{variable}{%
+\paragraph{Variable}\label{variable}}
+
+Variablen (auch Merkmale, engl. \emph{variable}) sind Informationen über die Untersuchungselemente, die in einer Untersuchung von Interesse sind. Typischerweise unterscheiden sie sich von Untersuchungselement zu Untersuchungseelement, sind also variabel. Bei einer Hochrechnung ist dies die Antwort auf die Frage: ``Welche Partei haben Sie gerade gewählt?''
+
+\hypertarget{wert}{%
+\paragraph{Wert}\label{wert}}
+
+Ein Wert (auch Merkmalsausprägung, engl. \emph{observation}) ist die erfasste Ausprägung einer Variable bei einem Untersuchungselement. In Formeln werden Werte mit \(x_1, x_2, x_3, ..., x_n\) durchnummeriert. Bei einer Hochrechnung kann die Variable ``gewählte Partei'' für ein Untersuchungselement z.B. den Wert ``CDU'' annehmen.
+
+\hypertarget{kennwert}{%
+\paragraph{Kennwert}\label{kennwert}}
+
+Kennwerte (auch Maßzahlen, Kennzahlen, engl. \emph{summary statistics}) sind Zahlen, die aus den beobachteten Werten errechnet werden. Sie können beispielsweise Aufschluss über Mittelwerte und Verteilung einer Variable oder den Zusammenhang mehrerer Variablen geben. Bei einer Hochrechnung sind z.B. die relativen Häufigkeiten (in Prozent) der Variable ``gewählte Partei'' von besonderem Interesse.
+
+\hypertarget{taxonomien-statistischer-verfahren}{%
+\subsubsection{Taxonomien statistischer Verfahren}\label{taxonomien-statistischer-verfahren}}
+
+Statistische Verfahren werden in mehrerlei Hinsicht unterschieden, wie im Folgenden beschrieben. Dabei schließen sich verschiedene Kategorien nicht unbedingt aus, es gibt also durchaus statistische Verfahren, die z.B. als univariat \emph{und} deskriptiv bezeichnet werden.
+
+\hypertarget{uni--bi--und-multivariate-statistik}{%
+\paragraph{Uni-, bi- und multivariate Statistik}\label{uni--bi--und-multivariate-statistik}}
+
+Bei diesen Bezeichnungen ist entscheidend, wie viele Variablen bei den jeweiligen Verfahren zum Einsatz kommen. Im Allgemeinen spricht man bei einer Variable von univariater Statistik, bei zwei Variablen von bivariater Statistik und bei mehr als zwei Variablen von multivariater Statistik. (Manchmal werden allerdings auch Verfahren mit nur zwei Variablen als multivariat bezeichnet.)
+
+In dieser Veranstaltung beschäftigen wir uns zunächst mit univariaten, dann mit bivariaten Verfahren. Verfahren mit mehr als zwei Variablen werden nicht behandelt.
+
+\hypertarget{deskriptive-und-schlieuxdfende-statistik}{%
+\paragraph{Deskriptive und schließende Statistik}\label{deskriptive-und-schlieuxdfende-statistik}}
+
+Unabhängig von der Anzahl der Variablen unterscheidet man auch nach der Art und Weise des Vorgehens:
+
+\hypertarget{deskriptive-statistik}{%
+\subparagraph{Deskriptive Statistik}\label{deskriptive-statistik}}
+
+Die deskriptive Statistik (auch: beschreibende Statistik) dient der Beschreibung der Verteilung von Merkmalen, indem sie z. B. Durchschnittswerte bildet, Häufigkeiten bestimmt oder etwas über die Streuung eines Merkmals aussagt. Sie kann so große Datenmengen übersichtlicher machen, indem sie diese ordnet, gruppiert oder verdichtet. Sie erleichtert es also, das Charakteristische, Wichtige zu erkennen.
+
+\hypertarget{schlieuxdfende-statistik}{%
+\subparagraph{Schließende Statistik}\label{schlieuxdfende-statistik}}
+
+Die schließende Statistik (auch: analytische, operative Statistik, Inferenzstatistik, Prüfstatistik) verhilft dazu, von Eigenschaften einer Stichprobe auf Eigenschaften der Grundgesamtheit verallgemeinern bzw. schließen zu können (deshalb eben auch: schließende Statistik) und diese Einschätzung überprüfen zu können.
+
+Die schließende Statistik wird weiter unterteilt in Schätz- und Teststatistik:
+
+Schätzende Statistik
+
+Die Schätzstatistik schätzt Kennwerte der Grundgesamtheit aus den Kennwerten einer Stichprobe.
+
+Testende Statistik
+
+Die Teststatistik überprüft, als wie wahrscheinlich oder unwahrscheinlich gemachte Schätzungen bzw. Hypothesen gelten können.
+
+\hypertarget{ablauf-einer-statistischen-untersuchung}{%
+\subsubsection{Ablauf einer statistischen Untersuchung}\label{ablauf-einer-statistischen-untersuchung}}
+
+Eine typische Anwendung statistischer Verfahren in der Forschung folgt diesem Schema:
+
+\hypertarget{datenerhebung}{%
+\paragraph{Datenerhebung}\label{datenerhebung}}
+
+\begin{itemize}
+\tightlist
+\item
+  Eigene Erhebung z.B. durch Zählen, Messen, Befragung (primärstatistische Daten)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Auswahl von Untersuchungseinheiten
+  \item
+    Wahl der Datenniveaus
+  \end{itemize}
+\item
+  Rückgriff auf vorhandenes Datenmaterial (sekundärstatistische Daten)
+\end{itemize}
+
+\hypertarget{datenaufbereitung}{%
+\paragraph{Datenaufbereitung}\label{datenaufbereitung}}
+
+\begin{itemize}
+\tightlist
+\item
+  Verdichtung des gewonnenen Datenmaterials und Digitalisierung in Form einer Datenmatrix
+\item
+  Verschneidung von mehreren Datensätzen
+\item
+  Vereinheitlichung und Säuberung der Daten
+\item
+  Überblick verschaffen durch einfache Beschreibung von Häufigkeiten und Maßzahlen (deskriptive Statistik)
+\end{itemize}
+
+\hypertarget{datenauswertung}{%
+\paragraph{Datenauswertung}\label{datenauswertung}}
+
+\begin{itemize}
+\tightlist
+\item
+  Verdichtete Beschreibung von Verteilungsmustern einer Variable (univariate deskriptive Statistik)
+\item
+  Verdichtete Beschreibung der Beziehung zwischen zwei Variablen (bivariate deskriptive Statistik)
+\item
+  Schluss von Stichprobe auf Grundgesamtheit (Schätzstatistik)
+\item
+  Testen von Hypothesen über die Grundgesamtheit (Teststatistik)
+\end{itemize}
+
+\hypertarget{grundlagen-der-datenerhebung}{%
+\subsection{Grundlagen der Datenerhebung}\label{grundlagen-der-datenerhebung}}
+
+\hypertarget{typen-von-stichproben}{%
+\subsubsection{Typen von Stichproben}\label{typen-von-stichproben}}
+
+\hypertarget{reine-zufallsstichprobe}{%
+\paragraph{Reine Zufallsstichprobe}\label{reine-zufallsstichprobe}}
+
+Bei endlichen Grundgesamtheiten können Lotterieverfahren angewendet werden. Dabei wird allen Elementen der Grundgesamtheit eine Zahl zwischen 1 und \(N\) zugeordnet. Anschließend werden Zufallszahlen ausgewählt und die entsprechenden Elemente in die Stichprobe übernommen.
+
+\hypertarget{systematische-zufallsstichprobe}{%
+\paragraph{Systematische Zufallsstichprobe}\label{systematische-zufallsstichprobe}}
+
+Die Elemente einer endlichen Grundgesamtheit werden in eine Rangordnung gebracht (Nummerierung 1 bis \(N\)). Anschließend wählt man jedes \((N/n)\)-te Element aus. So entsteht eine Stichprobe der Größe \(n\).
+
+\hypertarget{geschichtete-zufallsstichprobe}{%
+\paragraph{Geschichtete Zufallsstichprobe}\label{geschichtete-zufallsstichprobe}}
+
+Die Elemente einer endlichen Grundgesamtheit werden in Schichten (Klassen) zusammengefasst. Anschließend zieht man eine Zufallsstichprobe aus jeder Schicht. Geschichtete Stichproben setzen die Kenntnis einiger Parameter der Grundgesamtheit voraus. Zur Aufteilung des Stichprobenumfangs auf die einzelnen Schichten wird in der Regel die proportionale Aufteilung gewählt.
+
+\hypertarget{klumpenstichprobe}{%
+\paragraph{Klumpenstichprobe}\label{klumpenstichprobe}}
+
+Hier ist die Grundgesamtheit schon in ``natürliche'' Gruppen aufgeteilt (z.B. Schulklassen) und es werden mehrere dieser Gruppen (Klumpen, engl. \emph{cluster}) nach einem Zufallsverfahren als Stichprobe gewählt.
+
+\begin{quote}
+``Man beachte, dass ein einzelner Klumpen (\ldots) keine Klumpenstichprobe darstellt, sondern eine Ad-hoc-Stichprobe, bei der zufällige Auswahlkriterien praktisch keine Rolle spielen. Die Bezeichnung „Klumpenstichprobe`` ist nur zu rechtfertigen, wenn mehrere zufällig ausgewählte Klumpen vollständig untersucht werden.'' (\protect\hyperlink{ref-bortz}{Bortz und Schuster 2010}: 81)
+\end{quote}
+
+\hypertarget{variablentypen}{%
+\subsubsection{Variablentypen}\label{variablentypen}}
+
+\hypertarget{qualitative-variablen}{%
+\paragraph{Qualitative Variablen}\label{qualitative-variablen}}
+
+Qualitative Variablen können nicht der Größe nach, sondern nur im Hinblick auf ihre Eigenschaft/Art (``Qualität'') unterschieden werden (z.B. Parteizugehörigkeit, Telefonnummer, Automarke).
+
+Qualitative Variablen, die nur zwei mögliche Werte annehmen können, nennt man ``dichotome'' Variablen (etwa Antworten auf Ja-Nein-Fragen).
+
+\hypertarget{quantitative-variablen}{%
+\paragraph{Quantitative Variablen}\label{quantitative-variablen}}
+
+Quantitative Variablen können der Größe nach unterschieden werden (Bsp. Geburtenzahl, Arbeitslosenzahl).
+
+Quantitative Variablen können diskret oder stetig sein:
+
+\hypertarget{diskrete-variablen}{%
+\subparagraph{Diskrete Variablen}\label{diskrete-variablen}}
+
+Diskrete Variablen (auch diskontinuierliche Variablen) können nur endlich viele, ganzzahlige Werte annehmen. Zwischen zwei Ausprägungen befindet sich eine abzählbare Menge anderer Ausprägungen (z.B. Anzahl eigener Kinder, Haushaltsgröße in Personen).
+
+\hypertarget{stetige-variablen}{%
+\subparagraph{Stetige Variablen}\label{stetige-variablen}}
+
+Stetige Variablen (auch: kontinuierliche Variablen) können in einem bestimmten Bereich jede beliebige Ausprägung annehmen. Der Ausdehnungsbereich kennt keine Lücken, sondern ist als ein fortlaufendes Kontinuum vorstellbar: Bei stetigen Variablen können zwischen zwei Werten oder Ausprägungen unendlich viele weitere Ausprägungen oder Werte liegen (z.B. Körpergröße, Längengrad in Dezimalform).
+
+\hypertarget{skalenniveaus}{%
+\subsubsection{Skalenniveaus}\label{skalenniveaus}}
+
+Eine Variable lässt sich aufgrund ihrer Eigenschaften einem Skalenniveau (auch Skalentyp, Messniveau, Datenniveau, engl. \emph{level of measurement}) zuordnen. Bestimmte Rechenoperationen und statistische Verfahren setzen bestimmte Skalenniveaus voraus. Deshalb ist es wichtig zu wissen, welchem Skalenniveau eine Variable zuzuordnen ist.
+
+Variablen lassen sich immer auch einem niedrigeren Skalenniveau zuordnen. Dies geht allerdings mit Informationsverlust einher.
+
+Die im Folgenden beschriebenen Skalenniveaus sind nicht deckungsgleich mit den o.g. Variablentypen. Intervall- und Verhältnisskalen können z.B. jeweils diskret oder stetig sein.
+
+In Tabelle \ref{tab:skalen} sind die wichtigsten Skalenniveaus im Überblick aufgeführt. ``Gültige Lagemaße'' sind dabei als Zusatzinformation aufgelistet und werden erst in der \protect\hyperlink{lagemauxdfe}{nächsten Sitzung} behandelt.
+
+\begin{table}
+
+\caption{\label{tab:skalen}Die vier wichtigsten Skalenniveaus}
+\centering
+\begin{tabular}[t]{llll}
+\toprule
+Skalenart & Beispiel & mögliche Aussagen & gültige Lagemaße\\
+\midrule
+Nominalskala & Postleitzahl & Gleichheit, Verschiedenheit & Modus\\
+Ordinalskala & Militärischer Rang & $+$ Größer-kleiner-Relationen & $+$ Median\\
+Intervallskala & Temperatur in °C & $+$ Gleichheit von Differenzen & $+$ arithmetisches Mittel\\
+Verhältnisskala & Körpergröße & $+$ Gleichheit von Verhältnissen & $+$ geometrisches Mittel\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\hypertarget{nominalskala}{%
+\paragraph{Nominalskala}\label{nominalskala}}
+
+Die Merkmalsausprägungen einer Variable stehen je `für sich'; sie lassen sich nicht sinnvoll in eine Rangordnung bringen oder gar miteinander verrechnen.
+
+Die einzige Aussage, die sich über zwei Werte in einer Nominalskala treffen lässt, ist dass sie gleich oder nicht gleich sind.
+
+Beispiele: Postleitzahlen, Telefonnummern, Staatsangehörigkeit, Krankheitsklassifikationen
+
+\hypertarget{ordinalskala}{%
+\paragraph{Ordinalskala}\label{ordinalskala}}
+
+Die Merkmalsausprägungen einer Variablen lassen sich sinnvoll in eine Rangordnung bringen, die Abstände zwischen den Merkmalsausprägungen aber lassen sich nicht sinnvoll quantifizieren.
+
+Über zwei Werte in einer Ordinalskala lässt sich nicht nur sagen, ob sie gleich oder verschieden sind (wie in der Nominalskala), sondern darüber hinaus, welcher Wert bei Verschiedenheit größer ist.
+
+Beispiele: Militärische Ränge, Windstärken, pauschale Häufigkeitsangaben (sehr oft \ldots{} nie), Zufriedenheitsangaben (sehr zufrieden \ldots{} unzufrieden)
+
+\hypertarget{metrische-skalen-oder-kardinalskalen}{%
+\paragraph{Metrische Skalen (oder Kardinalskalen)}\label{metrische-skalen-oder-kardinalskalen}}
+
+Abstände zwischen den Merkmalsausprägungen lassen sich exakt angeben.
+
+Zusätzlich zu den Möglichkeiten der Ordinalskala können auf einer metrischen Skala Rechenoperationen auch sinnvoll auf die Differenzen zwischen den Merkmalsausprägungen angewendet werden.
+
+Metrische Skalen werden unterteilt in Intervall- und Verhältnisskalen:
+
+\hypertarget{intervallskala}{%
+\subparagraph{Intervallskala}\label{intervallskala}}
+
+Maßeinheit und Wahl des Nullpunktes sind willkürlich gewählt.
+
+Beispiele: Grad Celsius, Geburtsjahr als Jahreszahl (``1961''), in der Praxis häufig: subjektive Bewertung auf einer Skala von 1 bis 10.
+
+\hypertarget{verhuxe4ltnisskala-auch-ratioskala}{%
+\subparagraph{Verhältnisskala (auch Ratioskala)}\label{verhuxe4ltnisskala-auch-ratioskala}}
+
+Es gibt einen invarianten (absoluten, natürlichen) Nullpunkt.
+
+In einer Verhältnisskala lassen sich über alle o.a. Möglichkeiten hinaus auch Aussagen über Verhältnisse zwischen Werten treffen (z.B. ``\(x_1\) ist doppelt so groß wie \(x_2\)'').
+
+Beispiele: Lebensalter in Jahren, Haushaltsgröße, Köpergröße,
+Körpergewicht
+
+\hypertarget{huxe4ufigkeitsverteilungen}{%
+\subsection{Häufigkeitsverteilungen}\label{huxe4ufigkeitsverteilungen}}
+
+\hypertarget{urliste}{%
+\subsubsection{Urliste}\label{urliste}}
+
+Die Urliste ist eine ungeordnete Liste aller erfassten Werte.
+
+Für die statistische Erhebung ``Anfangsbuchstaben der Vornamen von Teilnehmenden an einer Statistikvorlesung'' könnte die Urliste z.B. so aussehen:
+
+\texttt{T\ J\ D\ T\ E\ N\ D\ F\ F\ M\ A\ J\ V\ T\ T\ V\ A\ L\ V\ P\ J\ K\ P\ M\ F\ M\ A\ J\ N\ A\ C\ I\ T\ P\ B\ A\ P\ H\ T\ L\ N\ S\ P\ C\ K\ J\ K\ L\ J\ R\ E\ Y\ M\ K\ H\ M\ N\ L\ A\ A\ L\ L\ M\ L\ J\ G\ P\ L\ B\ F\ L\ J\ J\ V\ M\ P\ C\ J\ M\ J\ S\ A\ M\ M\ M\ P\ A\ A\ L\ L\ O\ C\ J\ L\ P\ L\ V\ F\ J\ R\ M\ A\ V\ K\ S\ B\ B\ B\ N\ C\ A\ A\ T\ J\ P\ C\ F\ L\ E\ B\ L\ C\ A\ K\ A\ L\ T\ V\ Y\ P\ F\ L\ J\ S\ T\ T\ N\ R\ J\ A\ S\ E\ L\ M\ L\ T\ A\ E\ B\ M\ N\ M\ V\ D\ P\ P\ L\ N\ L\ B\ A\ A\ J\ M\ L\ N\ N\ S\ H\ M}
+
+\hypertarget{geordnete-liste}{%
+\subsubsection{Geordnete Liste}\label{geordnete-liste}}
+
+Die geordnete Liste bringt die Werte der Urliste in eine geeignete Reihenfolge, so dass die unterschiedlichen Werte leicht gezählt werden können:
+
+\texttt{A\ A\ A\ A\ A\ A\ A\ A\ A\ A\ A\ A\ A\ A\ A\ A\ A\ A\ A\ B\ B\ B\ B\ B\ B\ B\ B\ C\ C\ C\ C\ C\ C\ C\ D\ D\ D\ E\ E\ E\ E\ E\ F\ F\ F\ F\ F\ F\ F\ G\ H\ H\ H\ I\ J\ J\ J\ J\ J\ J\ J\ J\ J\ J\ J\ J\ J\ J\ J\ J\ J\ K\ K\ K\ K\ K\ K\ L\ L\ L\ L\ L\ L\ L\ L\ L\ L\ L\ L\ L\ L\ L\ L\ L\ L\ L\ L\ L\ L\ M\ M\ M\ M\ M\ M\ M\ M\ M\ M\ M\ M\ M\ M\ M\ M\ M\ N\ N\ N\ N\ N\ N\ N\ N\ N\ N\ O\ P\ P\ P\ P\ P\ P\ P\ P\ P\ P\ P\ P\ P\ R\ R\ R\ S\ S\ S\ S\ S\ S\ T\ T\ T\ T\ T\ T\ T\ T\ T\ T\ T\ V\ V\ V\ V\ V\ V\ V\ V\ Y\ Y}
+
+\hypertarget{huxe4ufigkeiten}{%
+\subsubsection{Häufigkeiten}\label{huxe4ufigkeiten}}
+
+Die absoluten Häufigkeiten erhält man durch einfaches Abzählen der jeweiligen Werte. Für die relativen Häufigkeiten teilt man diese Zahl durch \(n\). Kumulierte Häufigkeiten zählen die bisherigen Summen bzw. Anteile zusammen (s. Tabelle \ref{tab:haeufkum}).
+
+\begin{rtip}
+In R lässt sich mit dem Befehl \verb|table()| eine einfache Häufigkeitstabelle aus Rohdaten erstellen.
+\end{rtip}
+
+\begin{table}
+
+\caption{\label{tab:haeufkum}Tabelle mit kumulierten Häufigkeiten}
+\centering
+\begin{tabular}[t]{lrrrr}
+\toprule
+Buchstabe & Absolute Häufigkeit $f$ & $f_{kum}$ & Relative Häufigkeit & $\%_{kum}$\\
+\midrule
+A & 19 & 19 & 11,2\% & 11,2\%\\
+B & 8 & 27 & 4,7\% & 15,9\%\\
+C & 7 & 34 & 4,1\% & 20\%\\
+D & 3 & 37 & 1,8\% & 21,8\%\\
+E & 5 & 42 & 2,9\% & 24,7\%\\
+F & 7 & 49 & 4,1\% & 28,8\%\\
+G & 1 & 50 & 0,6\% & 29,4\%\\
+H & 3 & 53 & 1,8\% & 31,2\%\\
+I & 1 & 54 & 0,6\% & 31,8\%\\
+J & 17 & 71 & 10\% & 41,8\%\\
+K & 6 & 77 & 3,5\% & 45,3\%\\
+L & 22 & 99 & 12,9\% & 58,2\%\\
+M & 17 & 116 & 10\% & 68,2\%\\
+N & 10 & 126 & 5,9\% & 74,1\%\\
+O & 1 & 127 & 0,6\% & 74,7\%\\
+P & 13 & 140 & 7,6\% & 82,4\%\\
+R & 3 & 143 & 1,8\% & 84,1\%\\
+S & 6 & 149 & 3,5\% & 87,6\%\\
+T & 11 & 160 & 6,5\% & 94,1\%\\
+V & 8 & 168 & 4,7\% & 98,8\%\\
+Y & 2 & 170 & 1,2\% & 100\%\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\hypertarget{stabdiagramme}{%
+\subsubsection{Stabdiagramme}\label{stabdiagramme}}
+
+Die so ermittelten Häufigkeiten lassen sich als Stabdiagramm (auch Säulen-, Streifen-, Balkendiagramm, engl. \emph{bar chart}) darstellen (s. Abbildung \ref{fig:stab}).
+
+\begin{rtip}
+In R lautet der Standardbefehl zur Erstellung eines Stabdiagramms \verb|barplot()|.
+\end{rtip}
+
+\begin{figure}[!h]
+
+{\centering \includegraphics[width=.6\linewidth]{Skript_Statistik_2021_files/figure-latex/stab-1} 
+
+}
+
+\caption{Stabdiagramm}\label{fig:stab}
+\end{figure}
+
+\hypertarget{quantitative-variablen-1}{%
+\subsubsection{Quantitative Variablen}\label{quantitative-variablen-1}}
+
+Das oben beschriebene Verfahren funktioniert gut für qualitative Variablen (und diskrete Variablen mit wenigen unterschiedlichen Werten). Für quantitative Variablen wird ein anderes Verfahren empfohlen.
+
+Zur Veranschaulichung soll diese geordnete Liste von Messwerten des Stammdurchmessers von Schwarzkirschen (Beispieldatensatz \texttt{trees} aus \protect\hyperlink{ref-r}{R Core Team 2018}) dienen:
+
+\texttt{8,3\ \ 8,6\ \ 8,8\ 10,5\ 10,7\ 10,8\ 11,0\ 11,0\ 11,1\ 11,2\ 11,3\ 11,4\ 11,4\ 11,7\ 12,0\ 12,9\ 12,9\ 13,3\ 13,7\ 13,8\ 14,0\ 14,2\ 14,5\ 16,0\ 16,3\ 17,3\ 17,5\ 17,9\ 18,0\ 18,0\ 20,6}
+
+Für solche Verteilungen müssen zuerst Klassen (engl. \emph{bins}) gebildet werden, in denen die Werte dann zusammengefasst werden (s. Tabelle \ref{tab:haeufklass}).
+
+\begin{table}
+
+\caption{\label{tab:haeufklass}Häufigkeitstabelle mit klassierten Werten}
+\centering
+\begin{tabular}[t]{lrrrr}
+\toprule
+Durchmesser & Absolute Häufigkeit $f$ & $f_{kum}$ & Relative Häufigkeit & $\%_{kum}$\\
+\midrule
+über 8 bis 10 Zoll & 3 & 3 & 9,7\% & 9,7\%\\
+über 10 bis 12 Zoll & 12 & 15 & 38,7\% & 48,4\%\\
+über 12 bis 14 Zoll & 6 & 21 & 19,4\% & 67,7\%\\
+über 14 bis 16 Zoll & 3 & 24 & 9,7\% & 77,4\%\\
+über 16 bis 18 Zoll & 6 & 30 & 19,4\% & 96,8\%\\
+über 18 bis 20 Zoll & 0 & 30 & 0\% & 96,8\%\\
+über 20 bis 22 Zoll & 1 & 31 & 3,2\% & 100\%\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Für die Wahl der Klassengrenzen gibt es zwei feste Regeln:
+
+\begin{itemize}
+\tightlist
+\item
+  Alle Werte müssen abgedeckt sein.
+\item
+  Die Klassen dürfen sich nicht überlappen.
+\end{itemize}
+
+Zusätzlich sollten die folgenden Konventionen nach Möglichkeit befolgt werden:
+
+\begin{itemize}
+\tightlist
+\item
+  Klassen sollten gleich große Wertebereiche abdecken.
+\item
+  Alle Klassen sollten besetzt sein.
+\item
+  Klassengrenzen sollten möglichst glatte Zahlen sein.
+\item
+  Aus Gründen der Übersichtlichkeit sollten nicht mehr als 20 Klassen gewählt werden.
+\item
+  Klassengrenzen sollten ``Klumpen'' mit ähnlichen Werten nicht trennen.
+\end{itemize}
+
+Die Darstellung erfolgt in so genannten Histogrammen (engl. \emph{histogram}). Abbildung \ref{fig:hist} enthält ein Beispiel für ein Histogramm.
+
+\begin{rtip}
+In R können Histogramme mit \verb|hist()| erstellt werden.
+\end{rtip}
+
+\begin{figure}[!h]
+
+{\centering \includegraphics[width=.6\linewidth]{Skript_Statistik_2021_files/figure-latex/hist-1} 
+
+}
+
+\caption{Histogramm}\label{fig:hist}
+\end{figure}
+
+\hypertarget{polygone}{%
+\subsubsection{Polygone}\label{polygone}}
+
+Statt ausgefüllten Flächen wie im Histogramm lassen sich für die Häufigkeiten auch Punkte setzen, die dann mit Linien verbunden werden. So entsteht ein Häufigkeitspolygon (s. Abbildung \ref{fig:poly}).
+
+\begin{figure}[!h]
+
+{\centering \includegraphics[width=.6\linewidth]{Skript_Statistik_2021_files/figure-latex/poly-1} 
+
+}
+
+\caption{Polygonzug}\label{fig:poly}
+\end{figure}
+
+\hypertarget{eigenschaften-von-huxe4ufigkeitsverteilungen}{%
+\subsubsection{Eigenschaften von Häufigkeitsverteilungen}\label{eigenschaften-von-huxe4ufigkeitsverteilungen}}
+
+Polygone von Häufigkeitsverteilungen (insbesondere in geglätteter Form) ergeben Annäherungen an so gennannte Dichtefunktionen (engl. \emph{density functions}). Diese lassen sich mit Attributen (uni-/bimodal, schmal-/breitgipflig, etc.) beschreiben, wie in Abbildung \ref{fig:shapes} veranschaulicht.
+
+\begin{figure}[!h]
+
+{\centering \includegraphics[width=.6\linewidth]{img/shapes} 
+
+}
+
+\caption{Merkmale von Verteilungen [aus: @bortz: 42]}\label{fig:shapes}
+\end{figure}
+
+\hypertarget{tipps-zur-vertiefung}{%
+\subsection*{Tipps zur Vertiefung}\label{tipps-zur-vertiefung}}
+\addcontentsline{toc}{subsection}{Tipps zur Vertiefung}
+
+\hypertarget{grundbegriffe}{%
+\subsubsection{Grundbegriffe}\label{grundbegriffe}}
+
+\begin{itemize}
+\tightlist
+\item
+  YouTube-Kanal ``Kurzes Tutorium Statistik'': \href{https://www.youtube.com/watch?v=bJsBcLjke3Q}{Statistische Grundbegriffe}
+\item
+  Kapitel 1.1 in \protect\hyperlink{ref-bortz}{Bortz und Schuster} (\protect\hyperlink{ref-bortz}{2010})
+\item
+  Kapitel 1.1 in \protect\hyperlink{ref-benninghaus}{Benninghaus} (\protect\hyperlink{ref-benninghaus}{2007})
+\item
+  Kapitel 2.1 in \protect\hyperlink{ref-bahrenberg}{Bahrenberg, Giese und Nipper} (\protect\hyperlink{ref-bahrenberg}{2010})
+\end{itemize}
+
+\hypertarget{stichproben}{%
+\subsubsection{Stichproben}\label{stichproben}}
+
+\begin{itemize}
+\tightlist
+\item
+  Kapitel 6.1 in \protect\hyperlink{ref-bortz}{Bortz und Schuster} (\protect\hyperlink{ref-bortz}{2010})
+\item
+  Kapitel 2.3 in \protect\hyperlink{ref-bahrenberg}{Bahrenberg, Giese und Nipper} (\protect\hyperlink{ref-bahrenberg}{2010})
+\end{itemize}
+
+\hypertarget{skalenniveaus-1}{%
+\subsubsection{Skalenniveaus}\label{skalenniveaus-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  Kapitel 1.2 in \protect\hyperlink{ref-bortz}{Bortz und Schuster} (\protect\hyperlink{ref-bortz}{2010})
+\item
+  Kapitel 2.1 in \protect\hyperlink{ref-benninghaus}{Benninghaus} (\protect\hyperlink{ref-benninghaus}{2007})
+\item
+  Kapitel 2.2 in \protect\hyperlink{ref-bahrenberg}{Bahrenberg, Giese und Nipper} (\protect\hyperlink{ref-bahrenberg}{2010})
+\item
+  YouTube-Kanal ``Kurzes Tutorium Statistik'': \href{https://www.youtube.com/watch?v=TV4tTtW4UBU}{Skalenniveaus}
+\end{itemize}
+
+\hypertarget{huxe4ufigkeiten-und-diagramme}{%
+\subsubsection{Häufigkeiten und Diagramme}\label{huxe4ufigkeiten-und-diagramme}}
+
+\begin{itemize}
+\tightlist
+\item
+  YouTube-Kanal ``Kurzes Tutorium Statistik'': \href{https://www.youtube.com/watch?v=LkOBRWXnTRQ}{Stabdiagramme und Histogramme}
+\item
+  Kapitel 3.1 und 3.2 in \protect\hyperlink{ref-bortz}{Bortz und Schuster} (\protect\hyperlink{ref-bortz}{2010})
+\item
+  Kapitel 1.2 in \protect\hyperlink{ref-benninghaus}{Benninghaus} (\protect\hyperlink{ref-benninghaus}{2007})
+\item
+  Kapitel 4.1 in \protect\hyperlink{ref-bahrenberg}{Bahrenberg, Giese und Nipper} (\protect\hyperlink{ref-bahrenberg}{2010})
+\end{itemize}
+
+\hypertarget{uxfcbungsaufgaben}{%
+\subsection*{Übungsaufgaben}\label{uxfcbungsaufgaben}}
+\addcontentsline{toc}{subsection}{Übungsaufgaben}
+
+\hypertarget{aufgabe-1}{%
+\subsubsection{Aufgabe 1}\label{aufgabe-1}}
+
+Teilen Sie in Ihrer Kleingruppe folgende Begriffe untereinander auf:
+
+\begin{itemize}
+\tightlist
+\item
+  Variable
+\item
+  Kennwert
+\item
+  Wert
+\item
+  Grundgesamtheit
+\item
+  Stichprobe
+\item
+  Untersuchungselement
+\end{itemize}
+
+Gehen Sie nun für jeden Begriff wie folgt vor:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Erklären Sie der Reihe nach ``Ihren'' Begriff den anderen Gruppenmitgliedern, gerne auch mit Beispielen.
+\item
+  Die anderen Gruppenmitglieder nehmen die Rolle von unwissenden Dritten ein und stellen bei Bedarf Nachfragen.
+\item
+  Die anderen Gruppenmitglieder geben direkt danach Feedback auf die Erklärung:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Was fanden Sie gut erklärt?
+  \item
+    Was fanden Sie unverständlich?
+  \item
+    Was hat Ihnen gefehlt?
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{aufgabe-2}{%
+\subsubsection{Aufgabe 2}\label{aufgabe-2}}
+
+Finden Sie als Gruppe jeweils zwei Beispiele für:
+
+\begin{itemize}
+\tightlist
+\item
+  systematische Zufallsstichproben
+\item
+  geschichtete Zufallsstichproben
+\item
+  Klumpenstichproben
+\end{itemize}
+
+\hypertarget{aufgabe-3}{%
+\subsubsection{Aufgabe 3}\label{aufgabe-3}}
+
+Bestimmen Sie das Skalenniveau der folgenden Variablen. Kennzeichnen Sie darüber hinaus, ob die Variable qualitativ, diskret oder stetig ist.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Lebensalter in Jahren
+\item
+  Regenmenge in mm
+\item
+  Güteklasse
+\item
+  Passagieraufkommen
+\item
+  Baujahr
+\item
+  Geschwindigkeit in km/h
+\item
+  Sozialstatus (Unter-, Mittel und Oberschicht)
+\item
+  Temperatur in °F
+\item
+  Fläche eines Bundeslands in km²
+\item
+  Temperatur in K
+\item
+  Einwohnerzahl
+\item
+  Pegelstand
+\item
+  Staatsangehörigkeit
+\item
+  Interesse an Statistik (gering bis hoch)
+\item
+  Klausurnote
+\item
+  Bodentyp
+\item
+  Entfernung zum Stadtzentrum in km
+\item
+  Körpergröße
+\item
+  Kleidergröße (S bis XXL)
+\item
+  Monatliches Nettoeinkommen
+\end{enumerate}
+
+\hypertarget{aufgabe-4}{%
+\subsubsection{Aufgabe 4}\label{aufgabe-4}}
+
+Folgende Werte seien erfasst über die Lebensdauer von Klimaanlagen in Stunden (Beispieldatensatz \texttt{aircondit7} aus \protect\hyperlink{ref-r}{R Core Team 2018}):
+
+\begin{verbatim}
+14 23 15 139 13 39 188 22 50 3 36 46 30 5 102 5 88 22 197 72 210 97 79 44
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Erstellen Sie eine Häufigkeitstabelle. Welche Klassen wählen Sie und warum?
+\item
+  Zeichnen Sie ein Histogramm.
+\item
+  Beschreiben Sie die Verteilung.
+\end{enumerate}
+
+\hypertarget{aufgabe-5}{%
+\subsubsection{Aufgabe 5}\label{aufgabe-5}}
+
+Sind die folgenden Aussagen wahr oder unwahr?
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Die Auswahl z. B. jedes 100. Merkmalsträgers nennt man „systematische Stichprobe``.
+\item
+  Eine Stichprobe kann eine Grundgesamtheit niemals völlig richtig repräsentieren, es gibt immer einen Zufallsfehler.
+\item
+  Die Größe der Stichprobe wird auch mit \(N\) bezeichnet.
+\item
+  Klassengrenzen müssen so gewählt werden, dass alle Werte abgedeckt sind.
+\item
+  Je stärker die Werte der Variablen streuen, desto kleiner sollte die Stichprobe sein.
+\item
+  Variablen auf der Verhältnisskala sind immer metrisch und stetig.
+\item
+  Verhältnisskala und Intervallskala unterscheiden sich durch den natürlichen Nullpunkt.
+\item
+  Intervallskalierte Daten können immer auf die Nominalskala transformiert werden.
+\item
+  Ordinalskalierte Daten können immer auf die Intervallskala transformiert werden.
+\item
+  Eine stetige Variable ist nicht zwingend auch metrisch.
+\item
+  Im Gegensatz zu nominalskalierten Variablen lassen sich Werte von ordinalskalierten Variablen in eine sinnvolle Reihenfolge bringen.
+\item
+  Die relative Häufigkeit eines Werts ist nie größer als 100\%.
+\item
+  Verfahren der deskriptiven Statistik sind immer auch univariat.
+\item
+  Klassengrenzen dürfen sich in Ausnahmefällen überlappen.
+\item
+  \(x_3\) ist immer kleiner als \(x_4\).
+\item
+  Variablen auf der Verhältnisskala haben einen natürlichen Nullpunkt.
+\item
+  Die absolute Häufigkeit eines Werts ist immer eine positive ganze Zahl.
+\item
+  Wenn man die Urliste ordnet, erhält man die geordnete Liste.
+\end{enumerate}
+
+\hypertarget{mauxdfzahlen}{%
+\section{Maßzahlen}\label{mauxdfzahlen}}
+
+\hypertarget{lernziele-dieser-sitzung-1}{%
+\subsection*{Lernziele dieser Sitzung}\label{lernziele-dieser-sitzung-1}}
+\addcontentsline{toc}{subsection}{Lernziele dieser Sitzung}
+
+Sie können\ldots{}
+
+\begin{itemize}
+\tightlist
+\item
+  die wichtigsten Lagemaße von Stichproben bestimmen.
+\item
+  die wichtigsten Streumaße von Stichproben bestimmen.
+\item
+  Boxplots interpretieren.
+\end{itemize}
+
+\hypertarget{lehrvideos-sommersemester-2020-1}{%
+\subsection*{Lehrvideos (Sommersemester 2020)}\label{lehrvideos-sommersemester-2020-1}}
+\addcontentsline{toc}{subsection}{Lehrvideos (Sommersemester 2020)}
+
+\begin{itemize}
+\tightlist
+\item
+  2a) \href{https://video01.uni-frankfurt.de/Mediasite/Play/bbb30f8025cf48e99a48700b0600e1e11d}{Lagemaße}
+\item
+  2b) \href{https://video01.uni-frankfurt.de/Mediasite/Play/cfdb254c058f44228e7b026f36986cc31d}{Streumaße}
+\item
+  2c) \href{https://video01.uni-frankfurt.de/Mediasite/Play/d115769da4ee4e25a9062a9b2e2e11c41d}{Klassierte Verteilungen}
+\end{itemize}
+
+\hypertarget{einleitende-bemerkungen}{%
+\subsection{Einleitende Bemerkungen}\label{einleitende-bemerkungen}}
+
+Die im Folgenden besprochenen Maßzahlen (oder Kennzahlen, Parameter) verdichten (oder aggregieren) Häufigkeitsverteilungen einer Variable. Durch diese Parameter kann das Charakteristische einer Verteilung schnell erfasst und vergleichbar gemacht werden. Die Verdichtung auf Maßzahlen geht jedoch immer auch mit Informationsverlust einher.
+
+Die Möglichkeit der Angabe statistischer Maßzahlen ist abhängig vom Skalenniveau der Daten, wie der Überblick in Tabelle \ref{tab:mass} zeigt.
+
+\begin{table}
+
+\caption{\label{tab:mass}Die wichtigsten Maßzahlen}
+\centering
+\begin{tabular}[t]{llll}
+\toprule
+Parameter & Typ & Mindestes Skalenniveau & Formel\\
+\midrule
+Modalwert & Lagemaß & nominal & \medskip$\mathit{Mo}$\\
+Median & Lagemaß & ordinal & \medskip$\def\arraystretch{1.2} \mathit{Md} = \Bigg\{\begin{array}{@{}c@{}}\frac{x_{(\frac{n}{2})}+x_{(\frac{n}{2}+1)}}{2} \quad \textrm{falls }n \textrm{ gerade}\\[6pt] x_{(\frac{n+1}{2})}\quad \textrm{falls }n \textrm{ ungerade}\end{array}$\\
+Arithmetisches Mittel & Lagemaß & metrisch & \medskip$\bar{x}=\frac{\sum\limits_{i=1}^{n}x _{i}}{n}$\\
+Spannweite & Streumaß & ordinal & \medskip$R=x_{(n)}-x_{(1)}$\\
+Quartilsabstand & Streumaß & ordinal & \medskip$\mathit{IQR}=Q_3-Q_1$\\
+Varianz & Streumaß & metrisch & \medskip$s^2=\frac{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})^2}{n-1}$\\
+Standardabweichung & Streumaß & metrisch & \medskip$s=\sqrt{s^2}$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\hypertarget{beispielverteilung}{%
+\subsubsection{Beispielverteilung}\label{beispielverteilung}}
+
+Alle Berechnungen von Maßzahlen werden am folgenden Beispiel illustriert: Für die 14 Gemeinden im Landkreis Rothenberge wurde die jeweilige Anzahl an Gaststätten erhoben. Die Zählung ergab die Wertereihe in Tabelle \ref{tab:werte}.
+
+\begin{table}
+
+\caption{\label{tab:werte}Beispielverteilung}
+\centering
+\begin{tabular}[t]{rrrrrrrrrrrrrr}
+\toprule
+$x_{1}$ & $x_{2}$ & $x_{3}$ & $x_{4}$ & $x_{5}$ & $x_{6}$ & $x_{7}$ & $x_{8}$ & $x_{9}$ & $x_{10}$ & $x_{11}$ & $x_{12}$ & $x_{13}$ & $x_{14}$\\
+\midrule
+4 & 1 & 4 & 1 & 5 & 5 & 0 & 1 & 8 & 5 & 1 & 25 & 3 & 3\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\hypertarget{lagemauxdfe}{%
+\subsection{Lagemaße}\label{lagemauxdfe}}
+
+Lagemaße (auch Maße der Zentraltendenz, Lokalisationsparameter, Mittelwerte, engl. \emph{measures of central tendency}) bezeichnen alle statistischen Maßzahlen, die eine Verteilung repräsentieren, indem sie die Lage der mittleren oder häufigsten Variablenwerte angeben.
+
+Im Falle einer unimodalen, perfekt symmetrischen Verteilung (z.B. Glockenform) haben alle drei Lageparameter den gleichen Wert. Je weiter Verteilungen von dieser Form abweichen -- durch Mehrgipfligkeit oder Asymmetrie -- desto unpräziser ist die Beschreibung der Verteilung durch einen einzigen Parameter.
+
+\hypertarget{median}{%
+\subsubsection{Median}\label{median}}
+
+Der Median (engl. \emph{median}) einer Verteilung ist der Wert, der größer als genau 50\% aller Werte ist.
+
+Da dies eine Größer-kleiner-Relation der Werte voraussetzt, kann der Median nur für ordinale und metrische Skalenniveaus angegeben werden.
+
+Im Folgenden wird die (einfachere) Bestimmung des Medians nach \protect\hyperlink{ref-bortz}{Bortz und Schuster} (\protect\hyperlink{ref-bortz}{2010}) verwendet. \protect\hyperlink{ref-benninghaus}{Benninghaus} (\protect\hyperlink{ref-benninghaus}{2007}) beschreibt ein anderes Verfahren, welches zu anderen Ergebnissen kommen kann.
+
+Um den Median zu bestimmen, wird zunächst eine geordnete Liste angefertigt, indem die Werte aufsteigend sortiert werden. Diese sortierten Werte werden mit \(x_{(1)}, x_{(2)}, x_{(3)}, ..., x_{(n)}\) bezeichnet (also mit Klammern). Für unsere Beispielverteilung ergibt sich Tabelle \ref{tab:sort}.
+
+\begin{table}
+
+\caption{\label{tab:sort}Sortierte Wertereihe}
+\centering
+\begin{tabular}[t]{rrrrrrrrrrrrrr}
+\toprule
+$x_{(1)}$ & $x_{(2)}$ & $x_{(3)}$ & $x_{(4)}$ & $x_{(5)}$ & $x_{(6)}$ & $x_{(7)}$ & $x_{(8)}$ & $x_{(9)}$ & $x_{(10)}$ & $x_{(11)}$ & $x_{(12)}$ & $x_{(13)}$ & $x_{(14)}$\\
+\midrule
+0 & 1 & 1 & 1 & 1 & 3 & 3 & 4 & 4 & 5 & 5 & 5 & 8 & 25\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Bei einer ungeraden Stichprobengröße \(n\) teilt der \((\frac{n+1}{2})\)-te Wert (also der Wert genau in der Mitte) die Stichprobe in zwei Hälften, weshalb gilt:
+
+\[
+  \mathit{Md} = x_{(\frac{n+1}{2})} \quad \text{falls }n\text{ ungerade.}
+  \label{eq:med1}
+\]
+
+Bei geradem \(n\) entstehen zwei gleich große Hälften der Stichprobe: \(x_{(1)}\) bis \(x_{(\frac{n}{2})}\) einerseits, und \(x_{(\frac{n}{2}+1)}\) bis \(x_{(n)}\) andererseits. Der Durchschnitt zwischen \(x_{(\frac{n}{2})}\) und \(x_{(\frac{n}{2}+1)}\) teilt die Stichprobe in zwei Hälften. Es gilt:
+
+\[
+  \mathit{Md} = \frac{x_{(\frac{n}{2})} + x_{(\frac{n}{2}+1)}}{2} \quad \text{falls } n \text{ gerade.}
+  \label{eq:med2}
+\]
+
+In unserem Beispiel ist \(n=14\) und damit gerade. Der Median errechnet also nach Formel \eqref{eq:med2} wie folgt:
+
+\[
+  \begin{aligned}
+    \mathit{Md} & = \frac{x_{(7)} + x_{(8)}}{2} \\[4pt]
+                & = \frac{3 + 4}{2} \\[4pt]
+                & = 3{,}5
+  \end{aligned}
+\]
+
+\begin{rtip}
+In R gibt die Funktion \verb|median()| den Median einer Verteilung aus.
+\end{rtip}
+
+\hypertarget{modalwert}{%
+\subsubsection{Modalwert}\label{modalwert}}
+
+Der Modalwert \(\mathit{Mo}\) (auch Modus, engl. \emph{mode}) gibt den häufigsten Wert oder die häufigsten Werte einer Verteilung an.
+
+Der Modalwert kann so auch (als einziger Mittelwert) für nominalskalierte Variablen angegeben werden.
+
+Bei ordinalen und metrischen Skalenniveaus sind folgende Besonderheiten zu beachten:
+
+\begin{itemize}
+\tightlist
+\item
+  Wird der Modus einer Verteilung durch unmittelbar benachbarte Werte gebildet, wird er als Kombination (bei metrischen Variablen als arithmetisches Mittel) dieser Werte angegeben.
+\item
+  Bei bimodalen (multimodalen) Verteilungen werden beide (alle) Modalwerte angegeben.
+\end{itemize}
+
+Hierzu müssen die Häufigkeiten der Werte bekannt sein, bzw. bestimmt werden (s. Tabelle \ref{tab:mod}).
+
+\begin{table}
+
+\caption{\label{tab:mod}Häufigkeiten der Beispielverteilung}
+\centering
+\begin{tabular}[t]{rr}
+\toprule
+Wert $x_i$ & Häufigkeit $f_i$\\
+\midrule
+0 & 1\\
+1 & 4\\
+3 & 2\\
+4 & 2\\
+5 & 3\\
+8 & 1\\
+25 & 1\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Der Modalwert der Beispielverteilung beträgt 1, da der Wert 1 am häufigsten (viermal) vorkommt.
+
+\hypertarget{arithmetisches-mittel}{%
+\subsubsection{Arithmetisches Mittel}\label{arithmetisches-mittel}}
+
+Das arithmetische Mittel (auch Mittelwert, Durchschnitt, engl. \emph{mean}) ist das gebräuchlichste Lagemaß und Grundlage für viele statistische Verfahren.
+
+Das arithmetische Mittel setzt ein metrisches Skalenniveau voraus.
+
+Die Berechnung des arithmetischen Mittels einer Stichprobe erfolgt durch die Formel:
+
+\[
+ \bar{x}=\frac{\sum\limits _{i=1}^{n}x_{i}}{n}
+ \label{eq:am}
+\]
+
+Für unsere Beispielverteilung ergibt sich durch einsetzen in Formel \eqref{eq:am}:
+\[
+  \begin{aligned}
+     \bar{x}&=\frac{\sum\limits _{i=1}^{14}x_{i}}{14} \\[4pt]
+            &=\frac{4+1+4+1+5+5+0+1+8+5+1+25+3+3}{14} \\[4pt]
+            &=\frac{63}{14}\\[4pt]
+            &\approx 4{,}71
+  \end{aligned}
+\]
+
+\begin{rtip}
+Der Befehl für die Ermittlung des arithmetischen Mittels in R lautet \verb|mean()|.
+\end{rtip}
+
+\hypertarget{streumauxdfe}{%
+\subsection{Streumaße}\label{streumauxdfe}}
+
+Streumaße (auch Streuungs-, Variabilitäts-, Dispersionswerte, engl. \emph{measures of variability}) geben Auskunft darüber, wie heterogen die Werte einer Verteilung sind, d.h. wie breit sie gestreut sind. Während Lagemaße den typischen Wert einer Verteilung ermitteln, zeigen Streumaße, wie gut (oder eigentlich: wie schlecht) dieser typische Wert die Verteilung repräsentiert.
+
+\hypertarget{spannweite}{%
+\subsubsection{Spannweite}\label{spannweite}}
+
+Die Spannweite (engl. \emph{range}) gibt Auskunft darüber, wie groß der Wertebereich ist, der von einer Verteilung abgedeckt wird. Sie wird (für metrische Skalen) als die Differenz vom größten zum kleinsten Wert (also vom letzten zum ersten Wert einer geordneten Werteliste) angegeben:
+
+\[
+ R=x_{(n)} - x_{(1)}
+ \label{eq:range}
+\]
+
+Für unsere Beispielstichprobe ergibt sich (mit Blick auf Tabelle \ref{tab:sort}):
+
+\nopagebreak
+
+\[
+  \begin{aligned}
+     R&=x_{(14)} - x_{(1)} \\[4pt]
+     &=25-0 \\[4pt]
+     &=25
+  \end{aligned}
+\]
+
+\begin{rtip}
+In R gibt die Funktion \verb|range()| die Werte für $x_{(1)}$ und $x_{(n)}$ aus.
+\end{rtip}
+
+\hypertarget{quartilsabstand}{%
+\subsubsection{Quartilsabstand}\label{quartilsabstand}}
+
+Der Quartilsabstand (auch Interquartilsabstand, engl. \emph{interquartile range / IQR}) gibt die Größe des Wertebereichs der mittleren 50\% einer Verteilung an.
+
+Genau so wie der Median eine Messwertreihe in zwei gleich große Hälften ``schneidet'', schneiden die Quartile die Werte in Viertel. Dabei liegt der so genannte untere Angelpunkt \(Q_1\) genau über 25\% der Werte, \(Q_2\) ist identisch mit dem Median und der obere Angelpunkt \(Q_3\) liegt genau über 75\% der Werte.
+
+Der Angelpunkt \(Q_1\) wird ermittelt, indem der Median für die unteren 50\% (\(Q_3\): die oberen 50\%) der Werte bestimmt wird -- also jener Werte, die theoretisch unterhalb des Medians der Gesamtverteilung liegen.
+
+Dabei folgen wir \protect\hyperlink{ref-bortz}{Bortz und Schuster} (\protect\hyperlink{ref-bortz}{2010}) und nehmen im Fall eines ungeraden \(n\) den Median auf beiden Seiten hinzu.
+
+Die Formel für den Quartilsabstand lautet:
+
+\[
+  \begin{aligned}
+    \mathit{IQR}=Q_3-Q_1
+  \end{aligned}
+  \label{eq:iqr}
+\]
+
+Der Quartilsabstand ist Ausreißern gegenüber stabiler als die Spannweite, da extreme hohe oder niedrige Wert nicht in die Berechnung einfließen.
+
+In unserem Beispiel (mit \(n=14\)) ist die untere Hälfte der Verteilung:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{rrrrrrr}
+\toprule
+$x_{(1)}$ & $x_{(2)}$ & $x_{(3)}$ & $x_{(4)}$ & $x_{(5)}$ & $x_{(6)}$ & $x_{(7)}$\\
+\midrule
+0 & 1 & 1 & 1 & 1 & 3 & 3\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\(Q_1\) ist der Median dieser Werte, also \(x_{(4)}=1\).
+
+Die oberen 7 Werte lauten:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{rrrrrrr}
+\toprule
+$x_{(8)}$ & $x_{(9)}$ & $x_{(10)}$ & $x_{(11)}$ & $x_{(12)}$ & $x_{(13)}$ & $x_{(14)}$\\
+\midrule
+4 & 4 & 5 & 5 & 5 & 8 & 25\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\(Q_3\) ist also \(x_{(11)} = 5\).
+
+Für den Quartilsabstand ergibt sich durch einsetzen in Formel \eqref{eq:iqr}:
+
+\[
+  \begin{aligned}
+    \mathit{IQR}&=5-1 \\[4pt]
+       &=4 \\[4pt]
+  \end{aligned}
+\]
+
+\begin{rtip}
+In R werden die Quartile üblicherweise mit \verb|quantile()| und der Quartilsabstand mit \verb|IQR()| bestimmt.
+\end{rtip}
+
+\textbf{Achtung:} Genau wie für den Median gibt es auch für die Ermittlung der Quartile bzw. des Quartilsabstands unterschiedliche Verfahren. Die Ergebnisse dieser R-Funktionen weichen hier deshalb meist leicht vom hier besprochenen Verfahren ab!
+
+\hypertarget{varianz}{%
+\subsubsection{Varianz}\label{varianz}}
+
+Die Varianz einer Messwertreihe (engl. \emph{variance}) kann verstanden werden als der durschnittliche quadrierte Abstand der Werte zum arithmetischen Mittel.
+
+Die Formel lautet:
+
+\[
+  s^2=\frac{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})^2}{n-1}
+  \label{eq:var}
+\]
+
+Die Quadrierung der Differenz hat dabei einen doppelten Effekt: Zum einen bekommen auch negative Differenzen ein positives Vorzeichen, so dass sich positive und negative Differenzen nicht neutralisieren. Zum anderen werden hierdurch besonders große Abweichungen zum arithmetischen Mittel stärker gewichtet als dies ohne Quadrierung der Fall wäre.
+
+Zudem fällt auf, dass im Gegensatz zur Formel für das arithmetische Mittel im Nenner \(n-1\) steht und nicht etwa \(n\). Dies hat mit so genannten Freiheitsgraden zu tun, die wir allerdings erst in \protect\hyperlink{freiheitsgrade}{Sitzung 5} genauer kennenlernen.
+
+Für unsere Beispielstichprobe wird die Berechnung für alle einzelnen \((x_i-\bar{x})^2\) schnell aufwendig und unübersichtich. Deshalb berechnen wir ihre Summe hier mit Hilfe einer Häufigkeitstabelle (s. Tabelle \ref{tab:freq}). Dabei werden alle distinkten Werte einzeln transformiert und in der letzten Spalte mit ihrer Häufigkeit multipliziert.
+
+\begin{table}
+
+\caption{\label{tab:freq}Häufigkeitstabelle zur Berechnung der Varianz}
+\centering
+\begin{tabular}[t]{rrrrr}
+\toprule
+Werte $x_i$ & Häufigk. $f_i$ & $(x_i- \bar{x})$ & $(x_i- \bar{x})^2$ & $f_i\cdot(x_i -\bar{x})^2$\\
+\midrule
+0 & 1 & -4,71 & 22,18 & 22,18\\
+1 & 4 & -3,71 & 13,76 & 55,04\\
+3 & 2 & -1,71 & 2,92 & 5,84\\
+4 & 2 & -0,71 & 0,50 & 1,00\\
+5 & 3 & 0,29 & 0,08 & 0,24\\
+8 & 1 & 3,29 & 10,82 & 10,82\\
+25 & 1 & 20,29 & 411,68 & 411,68\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Schließlich werden die Werte in Formel \eqref{eq:var} eingesetzt:
+
+\nopagebreak
+
+\[\begin{aligned}
+    s^2&=\frac{\sum\limits_{i=1}^{14}(x_{i}-\bar{x})^2}{14-1} \\[4pt]
+       &\approx\frac{22{,}18+55{,}04+5{,}84+1+0{,}24+10{,}82+411{,}68}{13} \\[4pt]
+       &=\frac{506{,}80}{13}\\[4pt]
+       &\approx 38{,}98
+\end{aligned}\]
+
+Eine solche Tabelle lässt sich analog auch für die Berechnung von Summen größerer Messwertreihen für das arithmetische Mittel verwenden.
+
+Zudem lässt dieses Verfahren sich auf klassierte Daten anwenden, wenn für \(x_i\) der Mittelwert der Klassen eingesetzt wird (womit allerdings Informations- und Präzisionsverlust einhergeht).
+
+\begin{rtip}
+In R lautet der Befehl für die Errechnung der Varianz \verb|var()|.
+\end{rtip}
+
+\hypertarget{standardabweichung}{%
+\subsubsection{Standardabweichung}\label{standardabweichung}}
+
+Die Standardabweichung (engl. \emph{standard deviation}) ist das gebräuchlichste Streumaß und spielt eine herausragende Rolle in den allermeisten statistischen Verfahren.
+
+Die Standardabweichung einer Messwertreihe ist definiert als die Quadraturzel ihrer Varianz:
+
+\[
+  \begin{aligned}
+    s=\sqrt{s^2}
+  \end{aligned}
+  \label{eq:sd}
+\]
+
+Indem hier die Wurzel gezogen wird, wird in gewisser Weise die Quadrierung der Differenzen für die Varianz wieder ``korrigiert''. Insbesondere wird die Quadrierung der Maßeinheit wieder aufgehoben -- die Standardabweichung hat also die gleiche Einheit wie die Messreihe selbst.
+
+In unserem Beispiel beträgt die Standardabweichung also:
+
+\[
+  \begin{aligned}
+    s&\approx\sqrt{38{,}98}
+      \approx6{,}24
+  \end{aligned}
+\]
+
+\begin{rtip}
+Die Standardabweichung wird in R mit der Funktion \verb|sd()| berechnet.
+\end{rtip}
+
+\hypertarget{boxplot}{%
+\subsection{Boxplot}\label{boxplot}}
+
+Der Boxplot (auch Box-and-whisker-plot) kombiniert einige der gebräuchlichsten Maßzahlen in einer übersichtlichen Grafik (s. Abbildung \ref{fig:box}).
+
+\begin{figure}[!h]
+
+{\centering \includegraphics[width=0.35\linewidth]{Skript_Statistik_2021_files/figure-latex/box-1} 
+
+}
+
+\caption{Boxplot der Beispielverteilung}\label{fig:box}
+\end{figure}
+
+Die Höhe der ``Box'' definiert sich durch den Quartilsabstand, der mittlere Strich markiert den Median und die ``Whisker'' markieren den Wertebereich insgesamt -- wobei Ausreißer, deren Abstand zur Box mehr als das 1,5-Fache des Quartilsabstands beträgt, üblicherweise gar nicht oder (wie hier) gesondert mit Punkten markiert werden.
+
+\begin{rtip}
+In R lässt sich ein Boxplot mit dem Befehl \verb|boxplot()| ausgeben.
+\end{rtip}
+
+\hypertarget{tipps-zur-vertiefung-1}{%
+\subsection*{Tipps zur Vertiefung}\label{tipps-zur-vertiefung-1}}
+\addcontentsline{toc}{subsection}{Tipps zur Vertiefung}
+
+\hypertarget{lagemauxdfe-1}{%
+\subsubsection{Lagemaße}\label{lagemauxdfe-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  Kapitel 3.3.1 in \protect\hyperlink{ref-benninghaus}{Benninghaus} (\protect\hyperlink{ref-benninghaus}{2007})
+\item
+  Kapitel 2.1 in \protect\hyperlink{ref-bortz}{Bortz und Schuster} (\protect\hyperlink{ref-bortz}{2010})
+\item
+  Kapitel 4.2.1 in \protect\hyperlink{ref-bahrenberg}{Bahrenberg, Giese und Nipper} (\protect\hyperlink{ref-bahrenberg}{2010})
+\item
+  YouTube-Kanal ``Kurzes Tutorium Statistik'': \href{https://www.youtube.com/watch?v=Kx9aHOMVPEg}{Arithmetisches, harmonisches und geometrisches Mittel}
+\item
+  YouTube-Kanal ``Kurzes Tutorium Statistik'': \href{https://www.youtube.com/watch?v=HsDeAoBOyS4}{Boxplots, Median, Quartile}
+\end{itemize}
+
+\hypertarget{streumauxdfe-1}{%
+\subsubsection{Streumaße}\label{streumauxdfe-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  Kapitel 3.1.2 in \protect\hyperlink{ref-benninghaus}{Benninghaus} (\protect\hyperlink{ref-benninghaus}{2007})
+\item
+  Kapitel 2.2 in \protect\hyperlink{ref-bortz}{Bortz und Schuster} (\protect\hyperlink{ref-bortz}{2010})
+\item
+  Kapitel 4.2.2 in \protect\hyperlink{ref-bahrenberg}{Bahrenberg, Giese und Nipper} (\protect\hyperlink{ref-bahrenberg}{2010})
+\item
+  YouTube-Kanal ``Kurzes Tutorium Statistik'': \href{https://www.youtube.com/watch?v=3oZrS3ZWVcA}{Streumaße - Varianz, Standardabweichung, Variationskoeffizient und mehr!}
+\end{itemize}
+
+\hypertarget{boxplot-1}{%
+\subsubsection{Boxplot}\label{boxplot-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  Kapitel 3.4 in \protect\hyperlink{ref-bortz}{Bortz und Schuster} (\protect\hyperlink{ref-bortz}{2010})
+\item
+  YouTube-Kanal ``Kurzes Tutorium Statistik'': \href{https://www.youtube.com/watch?v=HsDeAoBOyS4}{Boxplots, Median, Quartile}
+\end{itemize}
+
+\hypertarget{uxfcbungsaufgaben-1}{%
+\subsection*{Übungsaufgaben}\label{uxfcbungsaufgaben-1}}
+\addcontentsline{toc}{subsection}{Übungsaufgaben}
+
+\hypertarget{aufgabe-1-1}{%
+\subsubsection{Aufgabe 1}\label{aufgabe-1-1}}
+
+Berechnen Sie das arithmetische Mittel für die folgenden Verteilungen:
+
+\hypertarget{a}{%
+\paragraph{a)}\label{a}}
+
+\begin{verbatim}
+72 55 69 69 30 61
+\end{verbatim}
+
+\hypertarget{b}{%
+\paragraph{b)}\label{b}}
+
+\begin{verbatim}
+0,759  0,296  0,687  0,7  -0,418  0,459  -0,4  -0,008
+\end{verbatim}
+
+\hypertarget{c}{%
+\paragraph{c)}\label{c}}
+
+\begin{verbatim}
+951,73  859,29  937,4  939,96  716,45  891,83  719,92  798,38  864,21  670,99
+\end{verbatim}
+
+Tauschen Sie sich danach in der Lerngruppe darüber aus \ldots{}
+
+\begin{itemize}
+\tightlist
+\item
+  Was schreiben Sie wann auf?
+\item
+  Wie geben Sie die Zahlen und Rechenschritte in den Taschenrechner ein?
+\item
+  Wie überprüfen Sie ggf. Ihr Ergebnis mit Hilfe des Taschenrechners?
+\end{itemize}
+
+\hypertarget{aufgabe-2-1}{%
+\subsubsection{Aufgabe 2}\label{aufgabe-2-1}}
+
+Wiederholen Sie Aufgabe 1, aber berechnen Sie statt des arithmetischen Mittels die Standardabweichung (und tauschen sich darüber aus).
+
+\hypertarget{aufgabe-3-1}{%
+\subsubsection{Aufgabe 3}\label{aufgabe-3-1}}
+
+Bei einer Befragung jedes 500. Studierenden im Matrikel einer privaten Hochschule wurden folgende Angaben zur Haushaltsgröße gemacht:
+
+\begin{verbatim}
+1 4 4 2 3 2 3 5 2 7 2 1 1
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Welches Skalenniveau liegt vor? (\protect\hyperlink{skalenniveaus}{Sitzung 1})
+\item
+  Berechnen Sie Modalwert,
+\item
+  Median und
+\item
+  arithmetisches Mittel der Stichprobe.
+\item
+  Berechnen Sie außerdem die Spannweite,
+\item
+  den Quartilsabstand,
+\item
+  die Varianz und
+\item
+  die Standardabweichung der Stichprobe.
+\item
+  Zeichnen Sie einen Boxplot der Stichprobenverteilung.
+\end{enumerate}
+
+\hypertarget{aufgabe-4-1}{%
+\subsubsection{Aufgabe 4}\label{aufgabe-4-1}}
+
+Eine Messreihe der Körperlänge weiblicher Beutelratten hat folgende Werte in cm erfasst (Beispieldatensatz \texttt{fossum} aus \protect\hyperlink{ref-daag}{Maindonald und Braun 2015}):
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrrrr}
+\toprule
+$x$ & $k_i$ & $f_i$ & $f_{kum}$ & $f_i \cdot k_i$\\
+\midrule
+von 75 bis unter 77,5 cm & 76,25 & 1 & 1 & 76,25\\
+von 77,5 bis unter 80 cm & 78,75 & 0 & 1 & 0,00\\
+von 80 bis unter 82,5 cm & 81,25 & 3 & 4 & 243,75\\
+von 82,5 bis unter 85 cm & 83,75 & 5 & 9 & 418,75\\
+von 85 bis unter 87,5 cm & 86,25 & 7 & 16 & 603,75\\
+von 87,5 bis unter 90 cm & 88,75 & 14 & 30 & 1242,50\\
+von 90 bis unter 92,5 cm & 91,25 & 9 & 39 & 821,25\\
+von 92,5 bis unter 95 cm & 93,75 & 2 & 41 & 187,50\\
+von 95 bis unter 97,5 cm & 96,25 & 2 & 43 & 192,50\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Wie groß ist der Quartilsabstand?
+\item
+  Bestimmen Sie das arithmetische Mittel der Reihe.
+\item
+  Berechnen Sie auch die Varianz und
+\item
+  die Standardabweichung.
+\end{enumerate}
+
+\hypertarget{ex2-5}{%
+\subsubsection{Aufgabe 5}\label{ex2-5}}
+
+In Wiesbaum soll ein Kulturzentrum entstehen. Zwei leerstehende Industriegebäude -- eine Ziegelei und ein Möbellager -- kommen für eine Umnutzung in Frage. Bei der Entscheidung, welches Gebäude umfunktioniert werden soll, spielt auch eine Rolle, welcher Ort ohnehin schon mehr Fußverkehr aufweist. Für beide Gebäude wurden daher jeweils die Anzahl der Passant*innen an sechs zufälligen Tagen erfasst:
+
+\[\begin{aligned}
+\textrm{Ziegelei}: \quad & 75\quad91\quad86\quad77\quad78\quad104\\
+\textrm{Möbellager}: \quad & 109\quad68\quad37\quad78\quad103\quad51\\
+\end{aligned}\]
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\item
+  Welches Gebäude weist im Durchschnitt die höhere Passant*innenzahl auf?
+\item
+  Vergleichen Sie außerdem die Quartilsabstände der beiden Messreihen.
+\end{enumerate}
+
+\hypertarget{aufgabe-6}{%
+\subsubsection{Aufgabe 6}\label{aufgabe-6}}
+
+In Australien betrug die durchnittliche Niederschlagsmenge in den 1970er- und 80er-Jahren:\footnote{Auszug aus dem Datensatz \texttt{bomsoi} in \protect\hyperlink{ref-haseloff}{Haseloff et al.} (\protect\hyperlink{ref-haseloff}{1968})}
+\nopagebreak
+
+\begin{table}[H]
+\centering
+\begin{tabular}{rr}
+\toprule
+Jahr & Niederschlag (mm)\\
+\midrule
+1970 & 384,52\\
+1971 & 493,65\\
+1972 & 364,65\\
+1973 & 661,32\\
+1974 & 785,27\\
+1975 & 603,45\\
+1976 & 527,75\\
+1977 & 471,81\\
+1978 & 525,65\\
+1979 & 455,64\\
+1980 & 433,01\\
+1981 & 535,12\\
+1982 & 421,36\\
+1983 & 499,29\\
+1984 & 555,21\\
+1985 & 398,88\\
+1986 & 391,96\\
+1987 & 453,41\\
+1988 & 459,84\\
+1989 & 483,78\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Welches Skalenniveau liegt vor? (\protect\hyperlink{skalenniveaus}{Sitzung 1})
+\item
+  Legen Sie eine klassierte Häufigkeitstabelle an. Begründen Sie die Wahl der Klassen. (\protect\hyperlink{quantitative-variablen-1}{Sitzung 1})
+\item
+  Was ist der Modalwert der klassierten Verteilung?
+\item
+  Wie groß ist der Quartilsabstand?
+\item
+  Bestimmen Sie das arithmetische Mittel der klassierten Verteilung.
+\item
+  Berechnen Sie die Standardabweichung.
+\item
+  Zeichnen Sie einen Boxplot für die Verteilung.
+\end{enumerate}
+
+\hypertarget{z-werte-und-normalverteilung}{%
+\section{z-Werte und Normalverteilung}\label{z-werte-und-normalverteilung}}
+
+\hypertarget{lernziele-dieser-sitzung-2}{%
+\subsection*{Lernziele dieser Sitzung}\label{lernziele-dieser-sitzung-2}}
+\addcontentsline{toc}{subsection}{Lernziele dieser Sitzung}
+
+Sie können\ldots{}
+
+\begin{itemize}
+\tightlist
+\item
+  z-Werte ermitteln.
+\item
+  Merkmale der Normalverteilung wiedergeben.
+\item
+  anhand einer normalverteilten Dichtefunktion\ldots{}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Wahrscheinlichkeiten errechnen.
+  \item
+    Perzentile errechnen.
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{lehrvideos-sommersemster-2020}{%
+\subsection*{Lehrvideos (Sommersemster 2020)}\label{lehrvideos-sommersemster-2020}}
+\addcontentsline{toc}{subsection}{Lehrvideos (Sommersemster 2020)}
+
+\begin{itemize}
+\tightlist
+\item
+  3a) \href{https://video01.uni-frankfurt.de/Mediasite/Play/8c755eed883b4ea0924481da818b742f1d}{\(z\)-Transformation}
+\item
+  3b) \href{https://video01.uni-frankfurt.de/Mediasite/Play/26e839cc0d8d43d2a74c2c03b76aa6421d}{Normalverteilung}
+\item
+  3c) \href{https://video01.uni-frankfurt.de/Mediasite/Play/902e68deb21045a79473a249303558d11d}{Quantile der Normalverteilung}
+\end{itemize}
+
+\hypertarget{variationskoeffizient}{%
+\subsection{Variationskoeffizient}\label{variationskoeffizient}}
+
+Die Berechnung von Maßzahlen (\protect\hyperlink{mauxdfzahlen}{Sitzung~2}) vereinfacht es uns, auch große Verteilungen miteinander zu vergleichen. Voraussetzung dafür ist jedoch, dass die Kennwerte (wie arithmetisches Mittel, Standardabweichung) in derselben Maßeinheit (kg, cm, °C, etc.) vorliegen und einen vergleichbaren Maßstab haben.
+
+Eine Möglichkeit, unabhängig hiervon eine Aussage über die \emph{relative} Streuung zu treffen, ist der Variationskoeffizient (engl. \emph{coefficient of variation}) \(v\). Er ist definiert als das (prozentuale) Verhältnis von Standardabweichung zu Mittelwert:
+
+\[\begin{aligned}
+v=\frac{s}{|\bar{x}|}\cdot 100\%
+\end{aligned}
+\label{eq:cv}
+\]
+
+Zur Illustration: An zufälligen Tagen hat die Wetterstation auf dem Feldberg folgende Luftdruckwerte gemessen (in~hPa):
+
+\begin{verbatim}
+1007,1  1003,4   990,7   994,2  1000,9   993,0  
+1016,0   983,9  1007,4   997,8   997,9  1000,2
+\end{verbatim}
+
+Mit den bekannten Methoden (\protect\hyperlink{mauxdfzahlen}{Sitzung~2}) können wir das arithmetische Mittel \(\bar{x}\approx 999,37\) und die Standardabweichung \(s\approx8,56\) der Stichprobe bestimmen. Durch einsetzen dieser Werte in Formel \eqref{eq:cv} ergibt sich:
+
+\[\begin{aligned}
+v&\approx\frac{8{,}56}{999{,}37}\cdot 100\%\\[4pt]
+ &\approx0{,}86\%
+\end{aligned}
+\]
+
+Da die Standardabweichung im Vergleich zu den absoluten Werten sehr klein ist, ist der Variationskoeffizient hier sehr klein.
+
+Ein Problem ergibt sich, wenn der Mittelwert einer Verteilung nahe Null liegt (z.~B. wenn die Reihe auch negative Messwerte enthält). Der Variationskoeffizient wird in diesem Fall sehr groß und verliert stark an Aussagekraft.
+
+\hypertarget{z-transformation}{%
+\subsection{z-Transformation}\label{z-transformation}}
+
+Ein weiterer Ansatz, Verteilungsmuster vergleichbar zu machen, ist die \(z\)-Transformation (auch Standardisierung, engl. \emph{standardization}).
+
+Für jeden der Messwerte lässt sich ein entsprechender \(z\)-Wert mit dieser Formel errechnen:
+
+\[
+z=\frac{x-\bar{x}}{s}
+\label{eq:z}
+\]
+
+Der \(z\)-Wert eines Werts \(x\) ist also der Abstand des Werts zum arithmetischen Mittel \(\bar{x}\) der Verteilung, ausgedrückt im Verhältnis zu ihrer Standardabweichung \(s\).
+
+Die einzelnen \(z\)-Werte für die Luftdruckmessungen ergeben sich wie in Tabelle \ref{tab:trans} dargestellt.
+
+\begin{table}
+
+\caption{\label{tab:trans}$z$-Transformation}
+\centering
+\begin{tabular}[t]{rcr}
+\toprule
+$x_i$ & Berechnung & $z_i$\\
+\midrule
+1007,1 & $z_{1}=\frac{1007,1-999,37}{8,56}$\medskip & 0,90\\
+1003,4 & $z_{2}=\frac{1003,4-999,37}{8,56}$\medskip & 0,47\\
+990,7 & $z_{3}=\frac{990,7-999,37}{8,56}$\medskip & -1,01\\
+994,2 & $z_{4}=\frac{994,2-999,37}{8,56}$\medskip & -0,60\\
+1000,9 & $z_{5}=\frac{1000,9-999,37}{8,56}$\medskip & 0,18\\
+993,0 & $z_{6}=\frac{993-999,37}{8,56}$\medskip & -0,74\\
+1016,0 & $z_{7}=\frac{1016-999,37}{8,56}$\medskip & 1,94\\
+983,9 & $z_{8}=\frac{983,9-999,37}{8,56}$\medskip & -1,81\\
+1007,4 & $z_{9}=\frac{1007,4-999,37}{8,56}$\medskip & 0,94\\
+997,8 & $z_{10}=\frac{997,8-999,37}{8,56}$\medskip & -0,18\\
+997,9 & $z_{11}=\frac{997,9-999,37}{8,56}$\medskip & -0,17\\
+1000,2 & $z_{12}=\frac{1000,2-999,37}{8,56}$\medskip & 0,10\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Eine so \(z\)-transformierte Verteilung hat \emph{immer} automatisch das arithmetische Mittel \(\bar{z}=0\) und die Standardabweichung \(s_z=1\). Außerdem haben \(z\)-Werte keine Maßeinheit. So kann jede Verteilung ``standardisiert'' und systematisch vergleichbar gemacht werden.
+
+Softwarehinweis
+
+In R kann eine empirische Verteilung mit dem Behfehl \texttt{scale()} \(z\)-transformiert werden.
+
+Andersherum lassen sich \(z\)-Werte folgendermaßen wieder umwandeln in \(x\)-Werte:
+
+\[
+  x=s\cdot z+\bar{x}
+  \label{eq:zrev}
+\]
+
+\hypertarget{normalverteilung}{%
+\subsection{Normalverteilung}\label{normalverteilung}}
+
+\begin{figure}[b]
+
+{\centering \includegraphics[width=.6\linewidth]{Skript_Statistik_2021_files/figure-latex/norms-1} 
+
+}
+
+\caption{Dichtefunktionen verschiedener Normalverteilungen}\label{fig:norms}
+\end{figure}
+
+Die Normalverteilung (auch: Gaußverteilung, engl. \emph{normal distribution}) ist unimodal und symmetrisch. Die Normalverteilung ist eine theoretische Verteilung, für die bekannt ist, mit welcher Wahrscheinlichkeit bestimmte Werte unter- und überschritten werden bzw. mit welcher Wahrscheinlichkeit Werte in einem bestimmten Intervall liegen.
+
+Die Dichtefunktion einer Normalverteilung hat eine markante Glockenform (s. Abbildungen \ref{fig:norms} und \ref{fig:stdnorm}). Die beiden Wendepunkte einer Normalverteilung (also dort, wo die Steigung zwischen zu- und abnehmend wechselt; oder mathematisch: wo die Ableitung der Dichtefunktion einen Extremwert annimmt) sind je eine Standardabweichung vom Mittelwert entfernt.
+
+Die Dichtefunktion nimmt nie den Wert Null an -- Extremwerte sind also sehr selten bzw. unwahrscheinlich, aber nie unmöglich. Perfekte Normalverteilungen kommen in empirischen Beobachtungen nicht vor, sondern nur Annäherungen.
+
+Da es sich um eine \emph{theoretische} Verteilung handelt, ist die Normalverteilung zunächst insbesondere in Bezug auf die Grundgesamtheit interessant. Im Kontext der Grundgesamtheit wird das arithmetische Mittel mit \(\mu\) (``Mü'') und die Standardabweichung mit \(\sigma\) (``Sigma'') bezeichnet (s. Tabelle \ref{tab:param}).
+
+\begin{table}
+
+\caption{\label{tab:param}Bezeichnung von Parametern in Stichprobe und Grundgesamtheit}
+\centering
+\begin{tabular}[t]{lll}
+\toprule
+Parameter & Stichprobe & Grundgesamtheit\\
+\midrule
+Anzahl Elemente & $n$ & $N$\\
+Arithmetisches Mittel & $\bar{x}$ & $\mu$\\
+Varianz & $s^2$ & $\sigma^2$\\
+Standardabweichung & $s$ & $\sigma$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Jede Normalverteilung lässt sich anhand von zwei Parametern beschreiben: ihr arithmetisches Mittel und ihre Standardabweichung. Normalverteilte Grundgesamtheiten werden so notiert:
+
+\nopagebreak
+
+\[\begin{aligned}
+x \sim N(\mu,\enspace\sigma^2)
+\end{aligned}
+\label{eq:norm}\]
+
+Der Mittelwert \(\mu\) bestimmt die Lage der Kurve auf der x-Achse, die Varianz \(\sigma^2\) bestimmt die ``Stauchung'' der Kurve (je größer desto flacher). Es gibt also unendlich viele verschiedene Normalverteilungen (s. Abbildung \ref{fig:norms}).
+
+\hypertarget{standardnormalverteilung}{%
+\subsection{Standardnormalverteilung}\label{standardnormalverteilung}}
+
+Die Standardnormalverteilung (engl. \emph{standard normal distribution}) ist sozusagen das Grundmuster aller Normalverteilungen. Sie hat den Mittelwert \(\mu=0\) und die Standardabweichung \(\sigma=1\) (s. Abbildung \ref{fig:stdnorm}).
+
+Alle Normalverteilungen lassen sich durch die \(z\)-Transformation auf die Standardnormalverteilung standardisieren.
+
+\begin{figure}[!h]
+
+{\centering \includegraphics[width=.6\linewidth]{Skript_Statistik_2021_files/figure-latex/stdnorm-1} 
+
+}
+
+\caption{Dichtefunktion der Standardnormalverteilung}\label{fig:stdnorm}
+\end{figure}
+
+\hypertarget{crash-kurs-wahrscheinlichkeitsrechnung}{%
+\subsection{Crash-Kurs Wahrscheinlichkeitsrechnung}\label{crash-kurs-wahrscheinlichkeitsrechnung}}
+
+Ein Zufallsexperiment ist ein beliebig oft wiederholbarer, nach bestimmten Vorschriften ausgeführter Versuch, dessen Ergebnis zufallsbedingt ist (d.~h. nicht eindeutig voraussagbar ist).
+
+Jedem zufälligen Ereignis \(A\) ist eine bestimmte ``Wahrscheinlichkeit des Auftretens'' (engl. \emph{probability}) \(P(A)\) zugeordnet, die der Ungleichung \(0 \leq P(A) \leq 1\) genügt (d.~h. zwischen 0 und 1 liegt).
+
+Die Wahrscheinlichkeit eines sicheren Ergebnisses A ist \(P(A) = 1\). Hingegen würde \(P(B) = 0\) bedeuten, dass das Ereignis B nicht eintreten kann. Die Summe der Wahrscheinlichkeiten aller möglichen Ereignisse beträgt 1.
+
+Der \emph{Additionssatz} besagt: Die Wahrscheinlichkeit, dass eins von verschiedenen zufälligen, sich gegenseitig ausschließenden Ereignissen eintritt, ist die Summe ihrer Wahrscheinlichkeiten.
+
+Der \emph{Multiplikationssatz} besagt: Die Wahrscheinlichkeit für das Eintreten zweier voneinander unabhängiger Ereignisse ist gleich dem Produkt der Einzelwahrscheinlichkeiten.
+
+\hypertarget{wahrscheinlichkeitsdichtefunktionen}{%
+\subsection{Wahrscheinlichkeitsdichtefunktionen}\label{wahrscheinlichkeitsdichtefunktionen}}
+
+Die Fläche unter einer Wahrscheinlichkeitsdichtefunktion (engl. \emph{probability density function}) beträgt genau 1.
+
+Das Perzentil \(x_p\) (engl. \emph{percentile}) ist definiert als der Wert, unter dem der Anteil \(p\) der Verteilung liegt. In \protect\hyperlink{Mauxdfzahlen}{Sitzung~2} haben wir also bereits den Median \(x_{50\%}\) sowie die Angelpunkte \(Q_1=x_{25\%}\) und \(Q_3=x_{75\%}\) kennengelernt.
+
+Die Fläche unter einer Wahrscheinlichkeitsdichtefunktion innerhalb der Limits \(-\infty\) und \(x_p\) beträgt \(p\). Für einen zufälligen Wert \(x\) ist die Wahrscheinlichkeit \(P(x < x_p) = p\), dass er kleiner als \(x_p\) ausfällt.
+Für die Standardnormalverteilung finden sich die \(p\)-Werte für positive \(z\) in der \href{Formelsammlung\%20und\%20Wertetabellen.pdf}{Formelsammlung}.\footnote{Manchmal wird die Funktion \(z_p \rightarrow P(z < z_p)\) für normalverteilte Werte auch mit \(\Phi(z)\) bezeichnet (z.~B. in \protect\hyperlink{ref-bahrenberg}{Bahrenberg, Giese und Nipper 2010}).}
+
+\hypertarget{wahrscheinlichkeitsrechnung-mit-standardnormalverteilung}{%
+\subsection{Wahrscheinlichkeitsrechnung mit Standardnormalverteilung}\label{wahrscheinlichkeitsrechnung-mit-standardnormalverteilung}}
+
+Für die im Rest dieser Sitzung vorgestellten Verfahren müssen folgende Voraussetzungen gegeben sein:
+
+\begin{itemize}
+\tightlist
+\item
+  Die Grundgesamtheit ist (annähernd) normalverteilt.
+\item
+  Arithmetisches Mittel \(\mu\) und Standardabweichung \(\sigma\) der Grundgesamtheit sind bekannt.
+\end{itemize}
+
+Die Verfahren sollen anhand eines Beispiels illustriert werden: Es sei bekannt, dass der Luftdruck auf dem Feldberg annähernd normalverteilt ist, und zwar mit dem arithmetischen Mittel \(\mu=1003\) und Varianz \(\sigma^2=73\). Graphisch stellt sich die Wahrscheinlichkeitsdichtefunktion wie in Abbildung \ref{fig:dens} dar.
+
+\begin{figure}[t]
+
+{\centering \includegraphics[width=.6\linewidth]{Skript_Statistik_2021_files/figure-latex/dens-1} 
+
+}
+
+\caption{Theoretische Wahrscheinlichkeitsdichtefunktion des Luftdrucks}\label{fig:dens}
+\end{figure}
+
+Wir können auch (analog zu Formel \eqref{eq:norm}) schreiben:
+
+\[
+x \sim N(1003,\enspace73)
+\]
+
+Daraus ergibt sich für die Standardabweichung \(\sigma\):
+\nopagebreak
+
+\[\begin{aligned}
+\sigma&=\sqrt{\sigma^2}\\
+&=\sqrt{73}\\
+&\approx8{,}54
+\end{aligned}\]
+
+\hypertarget{unter}{%
+\subsubsection{Unterschreitungswahrscheinlichkeit}\label{unter}}
+
+Die einfachste Art der Fragestellung ist nun, mit welcher Wahrscheinlichkeit ein bestimmter Wert \(x_p\) unterschritten wird.
+
+Nehmen wir an, es sei gefragt, mit welcher Wahrscheinlichkeit zu einem beliebigen Zeitpunkt der Luftdruck weniger als 1015~hPa beträgt. Anders gesagt interessiert uns der Anteil der Fläche unter der Verteilung, der zwischen \(-\infty\) und \(x_p=1015\) liegt (s. Abbildung \ref{fig:unter}).
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=.6\linewidth]{Skript_Statistik_2021_files/figure-latex/unter-1} 
+
+}
+
+\caption{Unterschreitung eines Messwerts}\label{fig:unter}
+\end{figure}
+
+Um den entsprechenden Wert für \(P(x < x_p)\) (also die Wahrscheinlichkeit, dass ein zufälliges \(x\) unser Perzentil \(x_p\) unterschreitet) in Erfahrung zu bringen, müssen wir die Verteilung zunächst standardisieren. Der Wert \(z_p\) ergibt sich aus der Formel für die \(z\)-Transformation, diesmal jedoch mit \(\mu\) statt \(\bar{x}\) und \(\sigma\) statt \(s\), da es sich um die Grundgesamtheit handelt:
+
+\[\begin{aligned}
+    z_p &= \frac{x_p-\mu}{\sigma} \\[4pt]
+        &\approx \frac{1015-1003}{8{,}54}\\[4pt]
+        &\approx 1{,}41
+  \end{aligned}
+\]
+
+Graphisch ist das standardisierte Perzentil in Abbildung \ref{fig:z} dargestellt.
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=.6\linewidth]{Skript_Statistik_2021_files/figure-latex/z-1} 
+
+}
+
+\caption{Standardnormalverteilung des Luftdrucks}\label{fig:z}
+\end{figure}
+
+Die \href{Formelsammlung\%20und\%20Wertetabellen.pdf}{Formelsammlung} gibt für \(z\)-Werte die Wahrscheinlichkeit ihrer Unterschreitung in ener Normalverteilung an. Diese Wahrscheinlichkeit kann notiert werden als \(P(z<z_p)\).
+
+Der \href{Formelsammlung\%20und\%20Wertetabellen.pdf}{Formelsammlung} können wir den Wert \(P(z < 1,41) \approx 0,9207\) entnehmen. Die Wahrscheinlichkeit, dass der Luftdruck zu einem zufälligen Zeitpunkt weniger als 1015 hPA beträgt, ist somit 92,07\%.
+
+Softwarehinweis
+
+In R lässt sich die Unterschreitungswahrscheinlichkeit eines \(z\)-Werts mit dem Befehl \texttt{pnorm()} ermitteln.
+
+\hypertarget{uxfcberschreitungswahrscheinlichkeit}{%
+\paragraph{Überschreitungswahrscheinlichkeit}\label{uxfcberschreitungswahrscheinlichkeit}}
+
+Wird nach der Wahrscheinlichkeit der Überschreitung eines Werts gefragt, ist in anderen Worten die Fläche unter der Wahrscheinlichkeitsdichtefunktion zwischen \(x_p\) und \(\infty\) gemeint. Wir bleiben bei unserem Beispiel \(x_p=1015\) (s. Abbildung \ref{fig:ueber}).
+
+\begin{figure}[!h]
+
+{\centering \includegraphics[width=.6\linewidth]{Skript_Statistik_2021_files/figure-latex/ueber-1} 
+
+}
+
+\caption{Überschreitung eines Messwerts}\label{fig:ueber}
+\end{figure}
+
+Hier können wir genauso wie bei der Unterschreitung \(z_p=1{,}41\) errechnen.
+
+Jetzt stehen wir zunächst vor dem Problem, dass die \(p\)-Werte in der Tabelle immer die Wahrscheinlichkeit der Unterschreitung darstellen. Wir wissen jedoch: Die gesamte Fläche unter der Verteilung ist 1, und die Wahrscheinlichkeiten der Unter- und Überschreitung sind komplementär, d.~H. einer von beiden Fällen tritt sicher (mit einer Wahrscheinlichkeit von 100\%) ein. (Den Sonderfall \(x=x_p\) können wir bei stetigen Variablen vernachlässigen.)
+
+Hieraus ergibt sich ganz allgemein:
+
+\[
+  \begin{aligned}
+    P(x \geq x_p) = 1-P(x<x_p)
+  \end{aligned}
+  \label{eq:ueber}
+\]
+
+Und für unser Beispiel:
+
+\[
+  \begin{aligned}
+    P(x \geq 1015) &= 1-P(x < 1015) \\
+    &\approx1-P(z < 1,41)\\
+    &\approx1-0{,}9207\\
+    &= 0{,}0793
+  \end{aligned}
+\]
+
+In 7,93\% der Fälle beträgt der Luftdruck also über 1015~hPA.
+
+\hypertarget{negativer-z-wert}{%
+\paragraph{\texorpdfstring{Negativer \(z\)-Wert}{Negativer z-Wert}}\label{negativer-z-wert}}
+
+Wenn nach der Unterschreitungswahrscheinlichkeit eines unterdurchschnittlichen Werts gefragt ist (z.~B. 990~hPA), dann ergibt sich ein negativer Wert für \(z_p\):
+
+\begin{equation}
+  \begin{aligned}
+    z_p &= \frac{x_p-\mu}{\sigma} \\[4pt]
+        &= \frac{990-1003}{8{,}54} \\[4pt]
+        &\approx -1{,}52
+  \end{aligned}
+\end{equation}
+
+Die \href{Formelsammlung\%20und\%20Wertetabellen.pdf}{Formelsammlung} enthält keine \(p\) für negative \(z_p\). Da die Standardnormalverteilung jedoch um \(z=0\) symmetrisch ist, gilt ganz allgemein:
+
+\[
+  \begin{aligned}
+    P(z < -z_p) = 1 - P(z < z_p)
+  \end{aligned}
+  \label{eq:neg}
+\]
+
+Für unser Beispiel ergibt sich (mit dem Wert \(P(z < 1,52) = 0{,}9357\) aus der Tabelle):
+
+\[
+  \begin{aligned}
+    P(z < -1,52) &= 1 - P(z < 1,52) \\
+    &\approx 1-0{,}9357 \\
+    &=0{,}0643
+  \end{aligned}
+\]
+
+Ein Luftdruck von 990~hPa wird also nur in ca. 6,43\% der Fälle unterschritten.
+
+Softwarehinweis
+
+Der Befehl \texttt{pnorm()} funktioniert auch mit negativen \(z\)-Werten.
+
+\hypertarget{wert-in-einem-intervall}{%
+\paragraph{Wert in einem Intervall}\label{wert-in-einem-intervall}}
+
+Nun wollen wir wissen, mit welcher Wahrscheinlichkeit ein zufälliger Meßwert zwischen 1005 und 1015~hPa liegt. Graphisch ist dies in Abbildung \ref{fig:intervall} aufbereitet.
+
+\begin{figure}[!h]
+
+{\centering \includegraphics[width=.6\linewidth]{Skript_Statistik_2021_files/figure-latex/intervall-1} 
+
+}
+
+\caption{Messwertintervall}\label{fig:intervall}
+\end{figure}
+
+Rechnerisch müssen wir also von den (günstigen) Fällen, in denen 1015 hPA unterschritten werden, noch jene (ungünstige) Fälle abziehen, in denen die 1005 hPA \emph{ebenfalls} unterschritten werden.
+
+Ganz allgemein heißt das für die Untergrenze \(x_u\) und die Obergrenze \(x_o\):
+
+\[\begin{aligned}
+    P(x_{u} \leq x < x_{o}) = P(x < x_{o}) - P(x < x_{u})
+  \end{aligned}
+  \label{eq:intervall}
+\]
+
+Für unseren Fall ist \(x_u=1005\) und \(x_o=1015\). In den \protect\hyperlink{unter}{vorherigen Aufgaben} haben wir \(z_o\approx1,41\) bereits ermittelt. Wir müssen aber noch \(z_u\) ermitteln:
+
+\[\begin{aligned}
+    z_u &= \frac{x_u-\mu}{\sigma} \\[4pt]
+        &= \frac{1005-1003}{8{,}54}  \\[4pt]
+        &\approx 0{,}23
+\end{aligned}\]
+
+Dann können wir die entsprechende Wahrscheinlichkeit berechnen, indem wir wieder die Werte aus der \href{Formelsammlung\%20und\%20Wertetabellen.pdf}{Formelsammlung} einsetzen:
+
+\[
+  \begin{aligned}
+    P(1005 \leq x < 1015) &= P(x < 1015) - P(x < 1005) \\
+    &\approx P(z < 1{,}41) - P(z < 0{,}23) \\
+    &\approx 0{,}9207- 0{,}5910  \\
+    &= 0{,}3297
+  \end{aligned}
+\]
+
+Der Luftdruck liegt also mit einer Wahrscheinlichkeit von 32,97\% zwischen 1005 und 1015~hPa.
+
+\hypertarget{gesuchter-wert-bei-gegebener-wahrscheinlichkeit}{%
+\paragraph{Gesuchter Wert bei gegebener Wahrscheinlichkeit}\label{gesuchter-wert-bei-gegebener-wahrscheinlichkeit}}
+
+Die Fragerichtung lässt sich umdrehen: Welche Marke wird beim Messen des Luftdrucks nur in 5\% der Fälle überschritten?
+
+5\% Überschreitungswahrscheinlichkeit entsprechen einer Unterschreitungswahrscheinlichkeit von 95\%. Welcher Wert wird also mit 95\% Wahrscheinlichkeit unterschritten?
+
+Der Tabelle entnehmen wir, dass einer Unterschreitungswahrscheinlichkeit von 0,95 ein \(z\)-Wert zwischen 1,64 und 1,65 entspricht. Da es bei dieser Fragestellungen oft darum geht, einen ``kritischen'' Wert zu nennen, der nur in Ausnahmefällen überschritten wird, nehmen wir hier üblicherweise den extremeren Wert, also \(z_{95\%}\approx 1,65\).
+
+Mit der umgekehrten \(z\)-Transformation erhalten wir:
+
+\[
+  \begin{aligned}
+    x_{95\%}&=z_{95\%}\cdot \sigma + \mu \\
+       &\approx 1{,}65\cdot 8{,}54 + 1003\\
+       &\approx 1017{,}10
+  \end{aligned}
+\]
+
+Die Marke von 1017,10~hPa wird also nur in 5\% der Fälle überschritten.
+
+Softwarehinweis
+
+Das Perzentil für eine gegebene Unterschreitungswahrscheinlichkeit lässt sich in R mit \texttt{qnorm()} bestimmen.
+
+\hypertarget{gesuchte-grenzwerte-eines-intervalls}{%
+\paragraph{Gesuchte Grenzwerte eines Intervalls}\label{gesuchte-grenzwerte-eines-intervalls}}
+
+Eine übliche Art der Fragestellung ist auch: Zwischen welchen beiden Werten liegen die mittleren 85\% der Fälle (s. Abbiddung \ref{fig:mitte})?
+
+\begin{figure}[!h]
+
+{\centering \includegraphics[width=.6\linewidth]{Skript_Statistik_2021_files/figure-latex/mitte-1} 
+
+}
+
+\caption{Die mittleren 85\% der Normalverteilung}\label{fig:mitte}
+\end{figure}
+
+Da die Verteilung symmetrisch ist, teilen sich die ungünstigen 15\% der Fälle gleichmäßig an den oberen und unteren Rand der Verteilung auf. Die Obergrenze \(x_o\) ist also der Wert, der zu 7,5\% über- und damit zu 92,5\% unterschritten wird.
+
+Der Tabelle entnehmen wir den Wert \(z_o=z_{92,5\%}\approx1{,}44\).
+
+Die Untergrenze ist entsprechend der Wert, der in 7,5\% der Fälle unterschritten wird.
+
+Der Wert für \(z_u=z_{7{,}5\%}\) ist in der Tabelle nicht enthalten. Weil die Verteilung aber symmetrisch ist, wissen wir uns zu helfen:
+
+\[
+  \begin{aligned}
+    z_u=z_{7{,}5\%}=-z_{92{,}5\%}\approx-1{,}44
+  \end{aligned}
+\]
+
+Die absoluten Werte ergeben sich schließlich aus:
+\[
+  \begin{aligned}
+    x_u&=z_u\cdot \sigma + \mu \\
+    &\approx-1{,}44 \cdot 8{,}54 + 1003\\
+    &\approx990{,}70
+  \end{aligned}
+\]
+
+Und:
+\[
+  \begin{aligned}
+    x_o&=z_o\cdot \sigma + \mu  \\
+    &\approx1{,}44 \cdot 8{,}54 + 1003\\
+    & \approx 1015{,}30
+  \end{aligned}
+\]
+
+Die mittleren 85\% der Messwerte liegen also zwischen 990,7 und 1015,3~hPa.
+
+\hypertarget{tipps-zur-vertiefung-2}{%
+\subsection*{Tipps zur Vertiefung}\label{tipps-zur-vertiefung-2}}
+\addcontentsline{toc}{subsection}{Tipps zur Vertiefung}
+
+\hypertarget{variationskoeffizient-1}{%
+\subsubsection{Variationskoeffizient}\label{variationskoeffizient-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  Kapitel 4.2.2 in \protect\hyperlink{ref-bahrenberg}{Bahrenberg, Giese und Nipper} (\protect\hyperlink{ref-bahrenberg}{2010})
+\item
+  YouTube-Kanal ``Kurzes Tutorium Statistik'': \href{https://www.youtube.com/watch?v=3oZrS3ZWVcA}{Streumaße - Varianz, Standardabweichung, Variationskoeffizient und mehr!}
+\end{itemize}
+
+\hypertarget{z-transformation-1}{%
+\subsubsection{z-Transformation}\label{z-transformation-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  Kapitel 2.4 in \protect\hyperlink{ref-bortz}{Bortz und Schuster} (\protect\hyperlink{ref-bortz}{2010})
+\item
+  Kapitel 4.2.2 in \protect\hyperlink{ref-bahrenberg}{Bahrenberg, Giese und Nipper} (\protect\hyperlink{ref-bahrenberg}{2010})
+\item
+  Kapitel 3.3.3 in \protect\hyperlink{ref-benninghaus}{Benninghaus} (\protect\hyperlink{ref-benninghaus}{2007})
+\item
+  YouTube-Kanal ``Methodenlehre Mainz'': \href{https://www.youtube.com/watch?v=AiucvUlIP8k}{WT.012.09 Äpfel mit Birnen vergleichen: Die z-Standardisierung}
+\end{itemize}
+
+\hypertarget{normalverteilung-1}{%
+\subsubsection{Normalverteilung}\label{normalverteilung-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  Kapitel 5.4 in \protect\hyperlink{ref-bortz}{Bortz und Schuster} (\protect\hyperlink{ref-bortz}{2010})
+\item
+  Kapitel 5.2.2 in \protect\hyperlink{ref-bahrenberg}{Bahrenberg, Giese und Nipper} (\protect\hyperlink{ref-bahrenberg}{2010})
+\item
+  YouTube-Kanal ``Mathe by Daniel Jung'': \href{https://www.youtube.com/watch?v=_f1vgWUiavY}{Was ist die Normalverteilung, Gauß-Verteilung, Schaubilder, Übersicht}
+\end{itemize}
+
+\hypertarget{wahrscheinlichkeitsdichtefunktion}{%
+\subsubsection{Wahrscheinlichkeitsdichtefunktion}\label{wahrscheinlichkeitsdichtefunktion}}
+
+\begin{itemize}
+\tightlist
+\item
+  Kapitel 5.3 in \protect\hyperlink{ref-bortz}{Bortz und Schuster} (\protect\hyperlink{ref-bortz}{2010})
+\item
+  Kapitel 5.2.2 in \protect\hyperlink{ref-bahrenberg}{Bahrenberg, Giese und Nipper} (\protect\hyperlink{ref-bahrenberg}{2010})
+\item
+  YouTube-Kanal ``Kurzes Tutorium Statistik'': \href{https://www.youtube.com/watch?v=DoHTsDrzAQk}{Zufallsvariable, Massenfunktion, Dichtefunktion und Verteilungsfunktion}
+\end{itemize}
+
+\hypertarget{uxfcbungsaufgaben-2}{%
+\subsection*{Übungsaufgaben}\label{uxfcbungsaufgaben-2}}
+\addcontentsline{toc}{subsection}{Übungsaufgaben}
+
+\hypertarget{aufgabe-1-2}{%
+\subsubsection{Aufgabe 1}\label{aufgabe-1-2}}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Führen Sie eine \(z\)-Transformation der folgenden Verteilung durch:
+\end{enumerate}
+
+\begin{verbatim}
+-16,93  -16,09  -10,97  -3,77  -25,55  -20,57  -23,61  
+-25,9  -27,08
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Sie kennen das arithmetische Mittel (221,54) und die Varianz (13,02) einer Verteilung. Welche \(x\)-Werte entsprechen diesen \(z\)-Werten?
+\end{enumerate}
+
+\begin{verbatim}
+1,19  -1,87  1,5  -0,44  2,96  0,2  3,83  0,54  -2,05  
+0,18  -0,23  0,9
+\end{verbatim}
+
+\hypertarget{aufgabe-2-2}{%
+\subsubsection{Aufgabe 2}\label{aufgabe-2-2}}
+
+Gegeben sei eine Normalverteilung beschrieben durch:
+
+\[x \sim N(32{,}2,\enspace4{,}4)\]
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Mit welcher Wahrscheinlichkeit werden die folgenden Werte unterschritten?
+\end{enumerate}
+
+\begin{verbatim}
+42,78  12,68  31,84  49,31  44,72  31,13
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Welche Werte werden jeweils mit der folgenden Wahrscheinlichkeit über(!)schritten?
+\end{enumerate}
+
+\begin{verbatim}
+0.05%  0.1%  5%  13%  50%  90%  99%  99.99%
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{2}
+\item
+  In welchem Bereich liegen die mittleren 95\% der Werte?
+\item
+  Wie wahrscheinlich ist es, dass ein Wert zwischen 30 und 40 liegt?
+\end{enumerate}
+
+\hypertarget{aufgabe-3-2}{%
+\subsubsection{Aufgabe 3}\label{aufgabe-3-2}}
+
+Deiche werden durch Wasserdruck bei Hochwasser belastet und dadurch beschädigt. Bei einem 12~m hohen Deich gilt als kritische Marke ein Wasserstand von 10~m. Die jährlichen Höchstwasserstände des Flusses sind normalverteilt mit einem Mittelwert von 9,01~m und einer Standardabweichung von 2,23~m.
+
+In den folgenden Teilaufgaben beantworten wir Schritt für Schritt die Frage, wie wahrscheinlich es (für ein beliebiges Jahr) ist, dass der Deich das jährliche Hochwasser ohne Beschädigung übersteht, d.~h. dass ein Höchstwasserstand von 10~m oder weniger eintritt.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Zeichnen Sie die Wahrscheinlichkeitsdichtefunktion (ganz grob, ohne \(y\)-Achse).
+\item
+  Markieren Sie den kritischen Wert 10~m.
+\item
+  Welchem \(z\)-Wert entspricht die kritische Marke von 10~?
+\item
+  Mit welcher Wahrscheinlichkeit bleibt der Deich in einem gegebenen Jahr unbeschädigt (Höchstwasserstand unter der kritischen Marke von 10~m)?
+\end{enumerate}
+
+\hypertarget{aufgabe-4-2}{%
+\subsubsection{Aufgabe 4}\label{aufgabe-4-2}}
+
+Wir bleiben beim Deich aus Aufgabe 3.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Mit welcher Wahrscheinlichkeit wird der Deich beschädigt (Wasserstand über 10~m)?
+\item
+  Mit welcher Wahrscheinlichkeit wird der Deich nicht nur beschädigt, sondern läuft über (Wasserstand über 12~m)?
+\item
+  Mit welcher Wahrscheinlichkeit wird der Deich beschädigt, läuft aber nicht über (Wasserstand zwischen 10 und 12~m)?
+\item
+  In welchen Grenzen liegen die mittleren 80\% der Hochwasserstände?
+\end{enumerate}
+
+\hypertarget{aufgabe-5-1}{%
+\subsubsection{Aufgabe 5}\label{aufgabe-5-1}}
+
+Es ist ein neuer Deich zu bauen, der so sicher sein soll, dass er nur alle 200 Jahre vom Hochwasser übertreten wird.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Welcher Wahrscheinlichkeitswert \(p=P(x < x_p)\) ist anzuwenden, d.~h. wie wahrscheinlich ist die \emph{Unterschreitung} eines ``zweihundertjährigen Hochwassers''?
+\item
+  Mit welchem \(z\)-Wert korrespondiert der gesuchte Wert \(x_p\)?
+\item
+  Wie hoch muss dieser Deich sein? (Welcher Wert \(x_p\) entspricht diesem \(z_p\)?)
+\end{enumerate}
+
+\hypertarget{aufgabe-6-1}{%
+\subsubsection{Aufgabe 6}\label{aufgabe-6-1}}
+
+Die jährlichen Niederschlagsmengen in Mittelstedt betragen im Durchschnitt 40m bei annähernder Normalverteilung und einer Standardabweichung von 100~mm.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Wie groß ist die Wahrscheinlichkeit, dass mehr als 50m Niederschlag fallen?
+\item
+  Wie oft pro hundert Jahre kann mit weniger als 20m Niederschlag gerechnet werden?
+\item
+  Mit welcher Wahrscheinlichkeit fallen zwischen 20m und 550~mm Niederschlag?
+\item
+  Welche Niederschlagsmenge wird wahrscheinlich in nur 2 von 100 Jahren übertroffen?
+\item
+  In welchen Grenzen liegen die mittleren 75\% der jährlichen Niederschlagsmenge?
+\end{enumerate}
+
+\hypertarget{aufgabe-7}{%
+\subsubsection{Aufgabe 7}\label{aufgabe-7}}
+
+Errechnen Sie für die Verteilungen in \protect\hyperlink{ex2-5}{Aufgabe 5 aus Sitzung 2} jeweils den Variationskoeffizienten.
+
+\hypertarget{formelsammlung-und-wertetabellen}{%
+\section*{Formelsammlung und Wertetabellen}\label{formelsammlung-und-wertetabellen}}
+\addcontentsline{toc}{section}{Formelsammlung und Wertetabellen}
+
+Die Formelsammlung mit Wertetabellen liegt als PDF vor. So (oder ähnlich) formatiert würden Ihnen diese Informationen auch in einer Präsenzklausur zur Verfügung stehen. Ich empfehle deshalb, das Dokument herunterzuladen und auszudrucken -- so gewöhnen Sie sich gleich an das Format.
+
+\href{Formelsammlung\%20und\%20Wertetabellen.pdf}{Formelsammlung und Wertetabellen (PDF)}
+
+\hypertarget{luxf6sungen-der-uxfcbungsaufgaben}{%
+\section*{Lösungen der Übungsaufgaben}\label{luxf6sungen-der-uxfcbungsaufgaben}}
+\addcontentsline{toc}{section}{Lösungen der Übungsaufgaben}
+
+\hypertarget{sitzung-1}{%
+\subsection*{Sitzung 1}\label{sitzung-1}}
+\addcontentsline{toc}{subsection}{Sitzung 1}
+
+\hypertarget{aufgaben-1-und-2}{%
+\subsubsection{Aufgaben 1 und 2}\label{aufgaben-1-und-2}}
+
+-- keine Musterlösungen --
+
+\hypertarget{aufgabe-3-3}{%
+\subsubsection{Aufgabe 3}\label{aufgabe-3-3}}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lllll}
+\toprule
+  & Variable & Skalenniveau & Variablentyp & Anmerkungen\\
+\midrule
+a ) & Lebensalter in Jahren & Verhältnisskala & diskret & ganze Zahlen vorausgesetzt\\
+b ) & Regenmenge in mm & Verhältnisskala & stetig & \\
+c ) & Güteklasse & Ordinalskala & qualitativ & \\
+d ) & Passagieraufkommen & Verhältnisskala & diskret & \\
+e ) & Baujahr & Intervallskala & diskret & \\
+f ) & Geschwindigkeit in km/h & Verhältnisskala & stetig & bei ganzzahligen Werten: diskret\\
+g ) & Sozialstatus (Unter-, Mittel und Oberschicht) & Ordinalskala & qualitativ & \\
+h ) & Temperatur in °F & Intervallskala & stetig & \\
+i ) & Fläche eines Bundeslands in km² & Verhältnisskala & stetig & \\
+j ) & Temperatur in K & Verhältnisskala & stetig & 0 K ist ein natürlicher Nullpunkt\\
+k ) & Einwohnerzahl & Verhältnisskala & diskret & \\
+l ) & Pegelstand & Intervallskala & stetig & willkürlicher Nullpunkt\\
+m ) & Staatsangehörigkeit & Nominalskala & qualitativ & \\
+n ) & Interesse an Statistik (gering bis hoch) & Ordinalskala & qualitativ & \\
+o ) & Klausurnote & Ordinalskala & qualitativ & wird jedoch oft metrisch verwendet\\
+p ) & Bodentyp & Nominalskala & qualitativ & \\
+q ) & Entfernung zum Stadtzentrum in km & Verhältnisskala & stetig & \\
+r ) & Körpergröße & Verhältnisskala & stetig & \\
+s ) & Kleidergröße (S bis XXL) & Ordinalskala & qualitativ & \\
+t ) & Monatliches Nettoeinkommen & Verhältnisskala & stetig & oder diskret für Cent-Beträge\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\hypertarget{aufgabe-4-3}{%
+\subsubsection{Aufgabe 4}\label{aufgabe-4-3}}
+
+\hypertarget{a-1}{%
+\paragraph{a)}\label{a-1}}
+
+Die Werte sind im Bereich zwischen 3 und 210 Stunden. Eine Klassengröße von 25 Stunden bietet sich an, es sind jedoch auch andere Größen denkbar. Da die Variable diskret zu sein scheint, können die Klassengrenzen als ganze Zahlen angegeben werden.
+
+\begin{table}[H]
+\centering\begin{table}[H]
+\centering
+\begin{tabular}{lr}
+\toprule
+Wert $x_i$ & Häufigkeit $f_i$\\
+\midrule
+1--25 & 9\\
+26--50 & 6\\
+51--75 & 1\\
+76--100 & 3\\
+101--125 & 1\\
+126--150 & 1\\
+151--175 & 0\\
+176--200 & 2\\
+201--225 & 1\\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{table}
+
+\hypertarget{b-1}{%
+\paragraph{b)}\label{b-1}}
+
+Das Resultat sollte je nach gewählter Klassengröße in etwa so aussehen:
+
+\begin{center}\includegraphics[width=.6\linewidth]{Skript_Statistik_2021_files/figure-latex/unnamed-chunk-26-1} \end{center}
+
+\hypertarget{c-1}{%
+\paragraph{c)}\label{c-1}}
+
+Die Verteilung ist unregelmäßig abfallend.
+
+\hypertarget{aufgabe-5-2}{%
+\subsubsection{Aufgabe 5}\label{aufgabe-5-2}}
+
+Sind die folgenden Aussagen wahr oder unwahr?
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  wahr
+\item
+  wahr
+\item
+  unwahr
+\item
+  wahr
+\item
+  unwahr
+\item
+  unwahr
+\item
+  wahr
+\item
+  wahr
+\item
+  unwahr
+\item
+  unwahr
+\item
+  wahr
+\item
+  wahr
+\item
+  unwahr
+\item
+  unwahr
+\item
+  unwahr
+\item
+  wahr
+\item
+  wahr
+\item
+  wahr
+\end{enumerate}
+
+\hypertarget{sitzung-2}{%
+\subsection*{Sitzung 2}\label{sitzung-2}}
+\addcontentsline{toc}{subsection}{Sitzung 2}
+
+\hypertarget{aufgabe-1-3}{%
+\subsubsection{Aufgabe 1}\label{aufgabe-1-3}}
+
+\hypertarget{a-2}{%
+\paragraph{a)}\label{a-2}}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lc}
+\toprule
+Schritt & Musterlösung\\
+\midrule
+Formel & $\bar{x}=\frac{\sum\limits_{i=1}^{n}x_{i}}{n}$\\
+Einsetzen & $\bar{x}=\frac{356{,}00}{6}$\\
+Ergebnis & $\bar{x}=59{,}33$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\hypertarget{b-2}{%
+\paragraph{b)}\label{b-2}}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lc}
+\toprule
+Schritt & Musterlösung\\
+\midrule
+Formel & $\bar{x}=\frac{\sum\limits_{i=1}^{n}x_{i}}{n}$\\
+Einsetzen & $\bar{x}=\frac{2{,}08}{8}$\\
+Ergebnis & $\bar{x}=0{,}26$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\hypertarget{c-2}{%
+\paragraph{c)}\label{c-2}}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lc}
+\toprule
+Schritt & Musterlösung\\
+\midrule
+Formel & $\bar{x}=\frac{\sum\limits_{i=1}^{n}x_{i}}{n}$\\
+Einsetzen & $\bar{x}=\frac{8350{,}16}{10}$\\
+Ergebnis & $\bar{x}=835{,}02$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\hypertarget{aufgabe-2-3}{%
+\subsubsection{Aufgabe 2}\label{aufgabe-2-3}}
+
+\hypertarget{a-3}{%
+\paragraph{a)}\label{a-3}}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lc}
+\toprule
+Schritt & Musterlösung\\
+\midrule
+Varianz: Formel & $s^2=\frac{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})^2}{n-1}$\\
+Varianz: Einsetzen & $s^2=\frac{1229{,}33}{5}$\\
+Varianz: Ergebnis & $s^2=245{,}87$\\
+Standardabweichung: Formel & $s=\sqrt{s^2}$\\
+Standardabweichung: Einsetzen & $s=\sqrt{245{,}87}$\\
+Varianz: Ergebnis & $s\approx15{,}68$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\hypertarget{b-3}{%
+\paragraph{b)}\label{b-3}}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lc}
+\toprule
+Schritt & Musterlösung\\
+\midrule
+Varianz: Formel & $s^2=\frac{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})^2}{n-1}$\\
+Varianz: Einsetzen & $s^2=\frac{1{,}63}{7}$\\
+Varianz: Ergebnis & $s^2=0{,}23$\\
+Standardabweichung: Formel & $s=\sqrt{s^2}$\\
+Standardabweichung: Einsetzen & $s=\sqrt{0{,}23}$\\
+Varianz: Ergebnis & $s\approx0{,}48$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\hypertarget{c-3}{%
+\paragraph{c)}\label{c-3}}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lc}
+\toprule
+Schritt & Musterlösung\\
+\midrule
+Varianz: Formel & $s^2=\frac{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})^2}{n-1}$\\
+Varianz: Einsetzen & $s^2=\frac{95338{,}94}{9}$\\
+Varianz: Ergebnis & $s^2=10593{,}21$\\
+Standardabweichung: Formel & $s=\sqrt{s^2}$\\
+Standardabweichung: Einsetzen & $s=\sqrt{10593{,}21}$\\
+Varianz: Ergebnis & $s\approx102{,}92$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\hypertarget{aufgabe-3-4}{%
+\subsubsection{Aufgabe 3}\label{aufgabe-3-4}}
+
+\hypertarget{a-4}{%
+\paragraph{a)}\label{a-4}}
+
+Die geordnete Liste ist:
+
+\begin{verbatim}
+1 1 1 2 2 2 2 3 3 4 4 5 7
+\end{verbatim}
+
+Für das arithmetische Mittel und die Varianz ist diese Tabelle hilfreich:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{llllll}
+\toprule
+$x_i$ & $f_i$ & $f_i\cdot x_i$ & $(x_i-\bar{x})$ & $(x_i-\bar{x})^2$ & $f_i\cdot(x_i-\bar{x})^2$\\
+\midrule
+1 & 3 & 3 & -1,85 & 3,41 & 10,22\\
+2 & 4 & 8 & -0,85 & 0,72 & 2,86\\
+3 & 2 & 6 & 0,15 & 0,02 & 0,05\\
+4 & 2 & 8 & 1,15 & 1,33 & 2,66\\
+5 & 1 & 5 & 2,15 & 4,64 & 4,64\\
+7 & 1 & 7 & 4,15 & 17,25 & 17,25\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Der häufigste Wert (und damit der Modalwert) ist 2.
+
+Die Stichprobengröße ist ungerade (\(n=13\)), daher ist der Median: \[x_{(\frac{n+1}{2})} = x_{(7)} = 2\]
+
+Das arithmetische Mittel berechnet sich einfacher mit den Werten aus der Tabelle:
+
+\[\bar{x}={\displaystyle\frac{\sum\limits_{x=1}^nx_i}{n}}=\frac{3+8+6+8+5+6}{13}=\frac{37}{13}\approx2.85\]
+
+\hypertarget{b-4}{%
+\paragraph{b)}\label{b-4}}
+
+Die Spannweite ist: \[R=x_{(n)}-x_{(1)}=7-1=6\]
+
+Der Quartilsabstand ist: \[\mathit{IQR}=Q_3-Q_1=4-2=2\]
+
+Für die Varianz bieten sich ebenfalls die Tabellenwerte an: \[s^2=\frac{\sum\limits_{x=1}^n(x_i-\bar{x})^2}{n-1}\approx\frac{10,22+ 2,86+ 0,05+ 2,66+ 4,64+17,25}{13-1}=\frac{37,68}{12}=3.14\]
+
+Schließlich ist die Standardabweichung: \[s=\sqrt{s^2}\approx\sqrt{3,14}\approx1,77\]
+
+\hypertarget{c-4}{%
+\paragraph{c)}\label{c-4}}
+
+Da der untere Angelpunkt und der Median zusammenfallen, sieht der Boxplot etwas ungewöhnlich aus:
+
+\begin{center}\includegraphics[width=.6\linewidth]{Skript_Statistik_2021_files/figure-latex/unnamed-chunk-36-1} \end{center}
+
+\hypertarget{aufgabe-4-4}{%
+\subsubsection{Aufgabe 4}\label{aufgabe-4-4}}
+
+\hypertarget{a-5}{%
+\paragraph{a)}\label{a-5}}
+
+Für den Quartilsabstand brauchen wir den Klassendurchschnitt und kumulative Häufigkeiten:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrrr}
+\toprule
+\$x\$ & \$k\_i\$ & \$f\_i\$ & \$f\_\{kum\}\$\\
+\midrule
+von 75 bis unter 77,5 cm & 76,25 & 1 & 1\\
+von 77,5 bis unter 80 cm & 78,75 & 0 & 1\\
+von 80 bis unter 82,5 cm & 81,25 & 3 & 4\\
+von 82,5 bis unter 85 cm & 83,75 & 5 & 9\\
+von 85 bis unter 87,5 cm & 86,25 & 7 & 16\\
+von 87,5 bis unter 90 cm & 88,75 & 14 & 30\\
+von 90 bis unter 92,5 cm & 91,25 & 9 & 39\\
+von 92,5 bis unter 95 cm & 93,75 & 2 & 41\\
+von 95 bis unter 97,5 cm & 96,25 & 2 & 43\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Bei \(n=43\) ist \(Q_1=\frac{x_{(11)}+x_{(12)}}{2}\) und \(Q_3=\frac{x_{(32)}+x_{(33)}}{2}\).
+
+Aus der Tabelle mit kumulativen Häufigkeiten können wir \(Q_1=86{,}25\) und \(Q_3=91{,}25\) ablesen.
+
+Der Quartilsabstand beträgt dann
+
+\[\begin{aligned}
+\mathit{IQR}&=Q_3-Q_1\\
+            &=91{,}25-86{,}25\\
+            &=5
+\end{aligned}\]
+
+\hypertarget{b-5}{%
+\paragraph{b)}\label{b-5}}
+
+Um die Berechnung des arithmetischen Mittels zu vereinfachen berechnen wir den Klassendurchschnitt und Zwischensummen:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrrrr}
+\toprule
+\$x\$ & \$k\_i\$ & \$f\_i\$ & \$f\_\{kum\}\$ & \$f\_i \textbackslash{}cdot k\_i\$\\
+\midrule
+von 75 bis unter 77,5 cm & 76,25 & 1 & 1 & 76,25\\
+von 77,5 bis unter 80 cm & 78,75 & 0 & 1 & 0,00\\
+von 80 bis unter 82,5 cm & 81,25 & 3 & 4 & 243,75\\
+von 82,5 bis unter 85 cm & 83,75 & 5 & 9 & 418,75\\
+von 85 bis unter 87,5 cm & 86,25 & 7 & 16 & 603,75\\
+von 87,5 bis unter 90 cm & 88,75 & 14 & 30 & 1242,50\\
+von 90 bis unter 92,5 cm & 91,25 & 9 & 39 & 821,25\\
+von 92,5 bis unter 95 cm & 93,75 & 2 & 41 & 187,50\\
+von 95 bis unter 97,5 cm & 96,25 & 2 & 43 & 192,50\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Die Summen für das arithmetische Mittel entnehmen wir dann einfach der letzten Spalte:
+
+\[\begin{aligned}
+  \bar{x}&=\frac{\sum\limits_{i=1}^nx_i}{n} \\
+         &=\frac{76{,}25+ 243{,}75+ 418{,}75+ 603{,}75+1242{,}50+ 821{,}25+ 187{,}50+ 192{,}50}{43} \\
+         &=\frac{3786{,}25}{43} \\
+         &\approx88{,}05
+\end{aligned}\]
+
+\hypertarget{c-5}{%
+\paragraph{c)}\label{c-5}}
+
+Für die Varianz erweitern wir die Tabelle:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrrrrr}
+\toprule
+\$x\_i\$ & \$k\_i\$ & \$f\_i\$ & \$(k\_i - \textbackslash{}bar\{x\})\$ & \$(k\_i - \textbackslash{}bar\{x\})\textasciicircum{}2\$ & \$f\_i \textbackslash{}cdot (k\_i - \textbackslash{}bar\{x\})\textasciicircum{}2\$\\
+\midrule
+von 75 bis unter 77,5 cm & 76,25 & 1 & -11,8 & 139,24 & 139,24\\
+von 77,5 bis unter 80 cm & 78,75 & 0 & -9,3 & 86,49 & 0,00\\
+von 80 bis unter 82,5 cm & 81,25 & 3 & -6,8 & 46,24 & 138,72\\
+von 82,5 bis unter 85 cm & 83,75 & 5 & -4,3 & 18,49 & 92,45\\
+von 85 bis unter 87,5 cm & 86,25 & 7 & -1,8 & 3,24 & 22,68\\
+von 87,5 bis unter 90 cm & 88,75 & 14 & 0,7 & 0,49 & 6,86\\
+von 90 bis unter 92,5 cm & 91,25 & 9 & 3,2 & 10,24 & 92,16\\
+von 92,5 bis unter 95 cm & 93,75 & 2 & 5,7 & 32,49 & 64,98\\
+von 95 bis unter 97,5 cm & 96,25 & 2 & 8,2 & 67,24 & 134,48\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Die Varianz beträgt:
+
+\[\begin{aligned}
+  s^2&=\frac{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})^2}{n-1} \\
+     &=\frac{139{,}24+138{,}72+ 92{,}45+ 22{,}68+  6{,}86+ 92{,}16+ 64{,}98+134{,}48}{43-1}\\
+     &=\frac{691{,}57}{42}\\
+     &\approx{16{,}47}
+\end{aligned}\]
+
+\hypertarget{d}{%
+\paragraph{d)}\label{d}}
+
+Somit beträgt die Standardabweichung
+
+\[\begin{aligned}
+  s&=\sqrt{s^2}\\
+   &\approx\sqrt{16{,}47}\\
+   &\approx4{,}06
+\end{aligned}\]
+
+\hypertarget{aufgabe-5-3}{%
+\subsubsection{Aufgabe 5}\label{aufgabe-5-3}}
+
+\hypertarget{a-6}{%
+\paragraph{a)}\label{a-6}}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lc}
+\toprule
+Schritt & Musterlösung\\
+\midrule
+Formel & $\bar{x}=\frac{\sum\limits_{i=1}^{n}x_{i}}{n}$\\
+Einsetzen & $\bar{x}=\frac{511{,}00}{6}$\\
+Ergebnis & $\bar{x}=85{,}17$\\
+Einsetzen & $\bar{y}=\frac{446{,}00}{6}$\\
+Ergebnis & $\bar{y}=74{,}33$\\
+Antwortsatz & Die Ziegelei weist im Mittel die größere Passant\*innenzahl auf.\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\hypertarget{b-6}{%
+\paragraph{b)}\label{b-6}}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lc}
+\toprule
+Schritt & Musterlösung\\
+\midrule
+Formel & $\mathit{IQR}=Q_3-Q_1$\\
+Einsetzen & $\mathit{IQR}_x=91-77$\\
+Ergebnis & $\mathit{IQR}_x=14$\\
+Einsetzen & $\mathit{IQR}_y=103-51$\\
+Ergebnis & $\mathit{IQR}_y=52$\\
+Antwortsatz & Das Möbellager hat den größeren Quartilsabstand für die Passant\*innenzahl.\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\hypertarget{aufgabe-6-2}{%
+\subsubsection{Aufgabe 6}\label{aufgabe-6-2}}
+
+\hypertarget{a-7}{%
+\paragraph{a)}\label{a-7}}
+
+Es gibt eine Hierarchie der Werte (Ordinal-), sinnvolle Abstände (Intervall-) und einen sinnvollen Nullpunkt (Verhältnis-). Deshalb sind die angegebenen Werte als verhältnisskaliert zu verstehen.
+
+\hypertarget{b-7}{%
+\paragraph{b)}\label{b-7}}
+
+Klassen könnten z.~B. wie in der folgenden Tabelle gewählt werden. Um die Berechnung des arithmetischen Mittels zu vereinfachen berechnen wir gleich den Klassendurchschnitt und Zwischensummen:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrrrr}
+\toprule
+\$x\$ & \$k\_i\$ & \$f\_i\$ & \$f\_\{kum\}\$ & \$f\_i \textbackslash{}cdot k\_i\$\\
+\midrule
+von 300 bis unter 400 mm & 350 & 4 & 4 & 1400\\
+von 400 bis unter 500 mm & 450 & 9 & 13 & 4050\\
+von 500 bis unter 600 mm & 550 & 4 & 17 & 2200\\
+von 600 bis unter 700 mm & 650 & 2 & 19 & 1300\\
+von 700 bis unter 800 mm & 750 & 1 & 20 & 750\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\hypertarget{c-6}{%
+\paragraph{c)}\label{c-6}}
+
+Der Modalwert der so klassierten Stichprobe ist die Klasse von 400 bis unter 500 mm und kann auch mit dem Klassenmittelwert 450 mm angegeben werden.
+
+\hypertarget{d-1}{%
+\paragraph{d)}\label{d-1}}
+
+Bei \(n=20\) ist \(Q_1=\frac{x_{(5)}+x_{(6)}}{2}\) und \(Q_3=\frac{x_{(15)}+x_{(16)}}{2}\).
+
+Aus einer geordneten Liste könnten wir also
+
+\[\begin{aligned}
+Q_1&=\frac{x_{(5)}+x_{(6)}}{2}\\
+   &=\frac{421{,}36+433{,}01}{2}\\
+   &\approx427{,}19
+\end{aligned}\]
+
+und
+
+\[\begin{aligned}
+Q_3&=\frac{x_{(15)}+x_{(16)}}{2}\\
+   &=\frac{527{,}75+235{,}12}{2}\\
+   &\approx531{,}44
+\end{aligned}\]
+
+bestimmen.
+
+Wenn uns nur die klassierte Verteilung zur Verfügung steht oder wenn der Datensatz besonders unübersichtlich ist, ist es auch legitim, aus der kumulativen Häufigkeit \(Q_1=450\) und \(Q_3=550\) für die klassierte Verteilung abzulesen.
+
+Je nachdem beträgt der Quartilsabstand \(\mathit{IQR}=Q_3-Q_1\) dann 104,24 oder 100 mm.
+
+\hypertarget{e}{%
+\paragraph{e)}\label{e}}
+
+Die Summen für das arithmetische Mittel entnehmen wir der letzten Spalte der Wertetabelle:
+
+\[\begin{aligned}
+  \bar{x}&=\frac{\sum\limits_{i=1}^nx_i}{n} \\
+         &=\frac{1400+4050+2200+1300+750}{20} \\
+         &=\frac{9700}{20} \\
+         &\approx485
+\end{aligned}\]
+
+\hypertarget{f}{%
+\paragraph{f)}\label{f}}
+
+Für die Standardabweichung erweitern wir die Tabelle:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrrrrr}
+\toprule
+\$x\_i\$ & \$k\_i\$ & \$f\_i\$ & \$(k\_i - \textbackslash{}bar\{x\})\$ & \$(k\_i - \textbackslash{}bar\{x\})\textasciicircum{}2\$ & \$f\_i \textbackslash{}cdot (k\_i - \textbackslash{}bar\{x\})\textasciicircum{}2\$\\
+\midrule
+von 300 bis unter 400 mm & 350 & 4 & -135 & 18225 & 72900\\
+von 400 bis unter 500 mm & 450 & 9 & -35 & 1225 & 11025\\
+von 500 bis unter 600 mm & 550 & 4 & 65 & 4225 & 16900\\
+von 600 bis unter 700 mm & 650 & 2 & 165 & 27225 & 54450\\
+von 700 bis unter 800 mm & 750 & 1 & 265 & 70225 & 70225\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Die Varianz beträgt:
+
+\[\begin{aligned}
+  s^2&=\frac{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})^2}{n-1} \\
+     &=\frac{72900+11025+16900+54450+70225}{20-1}\\
+     &=\frac{225500}{19}\\
+     &\approx{11868{,}42}
+\end{aligned}\]
+
+Somit beträgt die Standardabweichung
+
+\[\begin{aligned}
+  s&=\sqrt{s^2}\\
+   &\approx\sqrt{11868{,}42}\\
+   &\approx108{,}94
+\end{aligned}\]
+
+\hypertarget{g}{%
+\paragraph{g)}\label{g}}
+
+Auch der Boxplot lässt sich anhand der klassierten Werte zeichnen:
+
+\begin{center}\includegraphics[width=0.35\linewidth]{Skript_Statistik_2021_files/figure-latex/solve_2_6_g-1} \end{center}
+
+\hypertarget{sitzung-3}{%
+\subsection*{Sitzung 3}\label{sitzung-3}}
+\addcontentsline{toc}{subsection}{Sitzung 3}
+
+\hypertarget{aufgabe-1-4}{%
+\subsubsection{Aufgabe 1}\label{aufgabe-1-4}}
+
+\hypertarget{a-8}{%
+\paragraph{a)}\label{a-8}}
+
+Zunächst brauchen wir das arithmetische Mittel:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lc}
+\toprule
+Schritt & Musterlösung\\
+\midrule
+Formel & $\bar{x}=\frac{\sum\limits_{i=1}^{n}x_{i}}{n}$\\
+Einsetzen & $\bar{x}=\frac{-170{,}47}{9}$\\
+Ergebnis & $\bar{x}=-18{,}94$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Und die Standardabweichung:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lc}
+\toprule
+Schritt & Musterlösung\\
+\midrule
+Formel & $s=\sqrt{s^2}$\\
+Einsetzen & $s=\sqrt{61{,}08}$\\
+Ergebnis & $s\approx7{,}82$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Dann lässt sich die Formel bestimmen:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lc}
+\toprule
+Schritt & Musterlösung\\
+\midrule
+Formel & $z_{i} = \frac{x_{i} - \bar{x}}{s}$\\
+Einsetzen & $z_{i} = \frac{x_{i} +18{,}94}{7{,}82}$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Und schließlich die einzelnen Werte berechnen. Hier sind die Berechnungen zum Prüfen ausformuliert, das wird in der Klausur nicht für jeden Wert erwartet.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{rl}
+\toprule
+\$x\_i\$ & Berechnung\\
+\midrule
+-16,93 & \$z\_\{1\}=\textbackslash{}frac\{-16\{,\}93+18\{,\}94\}\{7\{,\}82\}\textbackslash{}approx0\{,\}26\$\\
+-16,09 & \$z\_\{2\}=\textbackslash{}frac\{-16\{,\}09+18\{,\}94\}\{7\{,\}82\}\textbackslash{}approx0\{,\}36\$\\
+-10,97 & \$z\_\{3\}=\textbackslash{}frac\{-10\{,\}97+18\{,\}94\}\{7\{,\}82\}\textbackslash{}approx1\{,\}02\$\\
+-3,77 & \$z\_\{4\}=\textbackslash{}frac\{-3\{,\}77+18\{,\}94\}\{7\{,\}82\}\textbackslash{}approx1\{,\}94\$\\
+-25,55 & \$z\_\{5\}=\textbackslash{}frac\{-25\{,\}55+18\{,\}94\}\{7\{,\}82\}\textbackslash{}approx-0\{,\}85\$\\
+-20,57 & \$z\_\{6\}=\textbackslash{}frac\{-20\{,\}57+18\{,\}94\}\{7\{,\}82\}\textbackslash{}approx-0\{,\}21\$\\
+-23,61 & \$z\_\{7\}=\textbackslash{}frac\{-23\{,\}61+18\{,\}94\}\{7\{,\}82\}\textbackslash{}approx-0\{,\}60\$\\
+-25,90 & \$z\_\{8\}=\textbackslash{}frac\{-25\{,\}9+18\{,\}94\}\{7\{,\}82\}\textbackslash{}approx-0\{,\}89\$\\
+-27,08 & \$z\_\{9\}=\textbackslash{}frac\{-27\{,\}08+18\{,\}94\}\{7\{,\}82\}\textbackslash{}approx-1\{,\}04\$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\hypertarget{b-8}{%
+\paragraph{b)}\label{b-8}}
+
+Zunächst die Standardabweichung:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lc}
+\toprule
+Schritt & Musterlösung\\
+\midrule
+Formel & $s=\sqrt{s^2}$\\
+Einsetzen & $s=\sqrt{13{,}02}$\\
+Ergebnis & $s\approx3{,}61$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Dann die Formel:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lc}
+\toprule
+Schritt & Musterlösung\\
+\midrule
+Formel & $z_{i} = \frac{x_{i} - \bar{x}}{s}$\\
+Umformen & $z_{i} = \frac{x_{i} - \bar{x}}{s}$\\
+Einsetzen & $x_{i} = z_{i} \cdot 3{,}61 + 221{,}54$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Schließlich die einzelnen Werte:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{rl}
+\toprule
+\$z\_i\$ & Berechnung\\
+\midrule
+1,19 & \$x\_\{1\} = 1\{,\}19 \textbackslash{}cdot 3\{,\}61 + 221\{,\}54\textbackslash{}approx225\{,\}84\$\\
+-1,87 & \$x\_\{2\} = -1\{,\}87 \textbackslash{}cdot 3\{,\}61 + 221\{,\}54\textbackslash{}approx214\{,\}79\$\\
+1,50 & \$x\_\{3\} = 1\{,\}5 \textbackslash{}cdot 3\{,\}61 + 221\{,\}54\textbackslash{}approx226\{,\}95\$\\
+-0,44 & \$x\_\{4\} = -0\{,\}44 \textbackslash{}cdot 3\{,\}61 + 221\{,\}54\textbackslash{}approx219\{,\}95\$\\
+2,96 & \$x\_\{5\} = 2\{,\}96 \textbackslash{}cdot 3\{,\}61 + 221\{,\}54\textbackslash{}approx232\{,\}23\$\\
+0,20 & \$x\_\{6\} = 0\{,\}2 \textbackslash{}cdot 3\{,\}61 + 221\{,\}54\textbackslash{}approx222\{,\}26\$\\
+3,83 & \$x\_\{7\} = 3\{,\}83 \textbackslash{}cdot 3\{,\}61 + 221\{,\}54\textbackslash{}approx235\{,\}37\$\\
+0,54 & \$x\_\{8\} = 0\{,\}54 \textbackslash{}cdot 3\{,\}61 + 221\{,\}54\textbackslash{}approx223\{,\}49\$\\
+-2,05 & \$x\_\{9\} = -2\{,\}05 \textbackslash{}cdot 3\{,\}61 + 221\{,\}54\textbackslash{}approx214\{,\}14\$\\
+0,18 & \$x\_\{10\} = 0\{,\}18 \textbackslash{}cdot 3\{,\}61 + 221\{,\}54\textbackslash{}approx222\{,\}19\$\\
+-0,23 & \$x\_\{11\} = -0\{,\}23 \textbackslash{}cdot 3\{,\}61 + 221\{,\}54\textbackslash{}approx220\{,\}71\$\\
+0,90 & \$x\_\{12\} = 0\{,\}9 \textbackslash{}cdot 3\{,\}61 + 221\{,\}54\textbackslash{}approx224\{,\}79\$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\hypertarget{aufgabe-2-4}{%
+\subsubsection{Aufgabe 2}\label{aufgabe-2-4}}
+
+\hypertarget{a-9}{%
+\paragraph{a)}\label{a-9}}
+
+Zunächst geht es darum, die \(x\)-Werte in \(z\)-Werte zu transformieren.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lc}
+\toprule
+Schritt & Lösung\\
+\midrule
+Formel & \$z\_\{i\} = \textbackslash{}frac\{x\_\{i\} - \textbackslash{}mu\}\{\textbackslash{}sigma\}\$\\
+Einsetzen & \$z\_\{i\} = \textbackslash{}frac\{x\_\{i\} - 32\{,\}2\}\{4\{,\}4\}\$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Durch einsetzen ergeben sich die folgenden Werte. (So ausführlich muss es in der Klausur nicht sein.)
+
+\begin{table}[H]
+\centering
+\begin{tabular}{rl}
+\toprule
+\$x\_i\$ & Berechnung\\
+\midrule
+42,78 & \$z\_\{1\}=\textbackslash{}frac\{42\{,\}78-32\{,\}2\}\{4\{,\}4\}\textbackslash{}approx2\{,\}40\$\\
+12,68 & \$z\_\{2\}=\textbackslash{}frac\{12\{,\}68-32\{,\}2\}\{4\{,\}4\}\textbackslash{}approx-4\{,\}44\$\\
+31,84 & \$z\_\{3\}=\textbackslash{}frac\{31\{,\}84-32\{,\}2\}\{4\{,\}4\}\textbackslash{}approx-0\{,\}08\$\\
+49,31 & \$z\_\{4\}=\textbackslash{}frac\{49\{,\}31-32\{,\}2\}\{4\{,\}4\}\textbackslash{}approx3\{,\}89\$\\
+44,72 & \$z\_\{5\}=\textbackslash{}frac\{44\{,\}72-32\{,\}2\}\{4\{,\}4\}\textbackslash{}approx2\{,\}85\$\\
+31,13 & \$z\_\{6\}=\textbackslash{}frac\{31\{,\}13-32\{,\}2\}\{4\{,\}4\}\textbackslash{}approx-0\{,\}24\$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\hypertarget{b-9}{%
+\paragraph{b)}\label{b-9}}
+
+Anhand der Tabelle für die Normalverteilung können diesen
+
+\hypertarget{c-7}{%
+\paragraph{c)}\label{c-7}}
+
+In welchem Bereich liegen die mittleren 95\% der Werte?
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Wie wahrscheinlich ist es, dass ein Wert zwischen 30 und 40 liegt?
+\end{enumerate}
+
+\hypertarget{aufgabe-3-5}{%
+\subsubsection{Aufgabe 3}\label{aufgabe-3-5}}
+
+\hypertarget{a-10}{%
+\paragraph{a)}\label{a-10}}
+
+Siehe b)
+
+\hypertarget{b-10}{%
+\paragraph{b)}\label{b-10}}
+
+Die Dichtefunktion mit kritischem Wert sollte in etwa so aussehen:
+
+\begin{center}\includegraphics[width=.6\linewidth]{Skript_Statistik_2021_files/figure-latex/unnamed-chunk-56-1} \end{center}
+
+\hypertarget{c-8}{%
+\paragraph{c)}\label{c-8}}
+
+\[z_p=\frac{x_p- \mu}{\sigma} = \frac{10-9,01}{2,23}\approx0,44\]
+
+\hypertarget{d-2}{%
+\paragraph{d)}\label{d-2}}
+
+\[p=P(z<z_p)\approx P(z<0,44)\approx0,6700\]
+
+Die Wahrscheinlichkeit, dass der Deich unbeschädigt bleibt, beträgt 67\%.
+
+\hypertarget{aufgabe-4-5}{%
+\subsubsection{Aufgabe 4}\label{aufgabe-4-5}}
+
+\hypertarget{a-11}{%
+\paragraph{a)}\label{a-11}}
+
+Die Übertretungswahrscheinlichkeit beträgt:
+
+\[P(z>z_p) = 1- P(z<z_p) \approx 1-0,6700 = 0,3300 = 33\% \]
+
+\hypertarget{b-11}{%
+\paragraph{b)}\label{b-11}}
+
+Für \(x_p=12\) ergibt sich:
+
+\[ z_p=\frac{x_p- \mu}{\sigma} = \frac{12-9,01}{2,23}\approx1,34 \]
+
+Und für die Übertretungswahrscheinlichkeit:
+
+\[P(z>z_p) = 1- P(z<z_p) \approx 1-0,9099 = 0,0901= 9,01\% \]
+
+\hypertarget{c-9}{%
+\paragraph{c)}\label{c-9}}
+
+Wir kennen \(P(x < 12)\approx0,9099\) aus Aufgabe 2 b) und \(P(x<10)\approx0,6700\) aus Aufgabe 1 d). Also rechnen wir:
+
+\[P(10<x<12) = P(x<12) - P(x<10) \approx 0,9099 - 0,6700 = 0,2399\]
+
+\hypertarget{d-3}{%
+\paragraph{d)}\label{d-3}}
+
+Für die Obergrenze soll gelten: \(P(x<x_o) = 0,9\). Der Tabelle entnehmen wir \(z_o \approx 1,28\). Entsprechend ist \(z_u\approx-1,28\).
+
+Die Umkehrung der \(z\)-Transformation ergibt:
+
+\[\begin{aligned}
+x_o&=z_o\cdot\sigma + \mu\approx1,28\cdot2,23 +9,01\approx11,86\\
+x_u&=z_u\cdot\sigma + \mu\approx-1,28\cdot2.23 +9.01\approx6,16
+\end{aligned}\]
+
+Die mittleren 80\% der Werte liegen also zwichen 6,16 und 11,86~m.
+
+\hypertarget{aufgabe-5-4}{%
+\subsubsection{Aufgabe 5}\label{aufgabe-5-4}}
+
+\hypertarget{a-12}{%
+\paragraph{a)}\label{a-12}}
+
+\[p=P(x<x_p)=1-P(x>x_p)=1-\frac{1}{200}=1-0,005=0,995\]
+
+\hypertarget{b-12}{%
+\paragraph{b)}\label{b-12}}
+
+\[z_{99,5\%}\approx2,58\]
+
+\hypertarget{c-10}{%
+\paragraph{c)}\label{c-10}}
+
+\[x_{99,5\%}=z_{99,5\%}\cdot\sigma + \mu\approx2,58\cdot2,23+9,01\approx14,76\]
+
+Der neue Deich muss 14,76~m hoch sein.
+
+\hypertarget{aufgabe-6-3}{%
+\subsubsection{Aufgabe 6}\label{aufgabe-6-3}}
+
+\hypertarget{a-13}{%
+\paragraph{a)}\label{a-13}}
+
+\begin{itemize}
+\tightlist
+\item
+  \(z_p=1\) und \(P(z<1)\approx84,13\%\), also \(P(z>1)\approx15,87\%\)
+\end{itemize}
+
+\hypertarget{b-13}{%
+\paragraph{b)}\label{b-13}}
+
+\begin{itemize}
+\tightlist
+\item
+  \(z_p=-2\) und \(P(z<-2) = 1-P(z<2) \approx 1-0,9772 = 0,0228\)
+\item
+  Es kann also 2,28 Mal in 100 Jahren (oder: in etwa 2 von 100 Jahren, in weniger als 3 von 100 Jahren) mit weniger als 200~mm Regen gerechnet werden.
+\end{itemize}
+
+\hypertarget{c-11}{%
+\paragraph{c)}\label{c-11}}
+
+\begin{itemize}
+\tightlist
+\item
+  \(z_u=-2\) und \(P(z<z_u)\approx 0,0228\) (siehe b)
+\item
+  \(z_o=\frac{x_o- \mu}{\sigma}=\frac{550-400}{100}=1,5\) und \(P(z<z_o) \approx 0,9332\)
+\item
+  \(P(200 < x < 550) = P(x < 550) - P(x<200) \approx 91,04\%\)
+\end{itemize}
+
+\hypertarget{d-4}{%
+\paragraph{d)}\label{d-4}}
+
+\begin{itemize}
+\tightlist
+\item
+  Gesucht ist \(x_p\), für das gilt: \(P(x>x_p) = \frac{2}{100}=0,02\)
+\item
+  Daraus folgt: \(P(x<x_p) = 0,98\) und \(z_p\approx2,05\)
+\item
+  \(x_p = 605\)
+\end{itemize}
+
+\hypertarget{e-1}{%
+\paragraph{e)}\label{e-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  \(z_{12,5\%}\approx -1,15\) und \(z_{87,5\%}= 1,15\)
+\item
+  Die mittleren 75\% liegen zwischen \(x_u=285\) und \(x_o=515\) mm.
+\end{itemize}
+
+\hypertarget{aufgabe-7-1}{%
+\subsubsection{Aufgabe 7}\label{aufgabe-7-1}}
+
+\textbf{Für die Ziegelei:}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lc}
+\toprule
+Schritt & Musterlösung\\
+\midrule
+Varianz: Formel & $s^2=\frac{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})^2}{n-1}$\\
+Varianz: Einsetzen & $s^2_x=\frac{610{,}83}{5}$\\
+Varianz: Ergebnis & $s^2_x=122{,}17$\\
+Standardabweichung: Formel & $s=\sqrt{s^2}$\\
+Standardabweichung: Ergebnis & $s_x\approx11{,}05$\\
+Variationskoeffizient: Formel & $v=\frac{s}{|\bar{x}|}\cdot100\%\quad$\\
+Variationskoeffizient: Einsetzen & $v\approx\frac{11,54}{74,67}\cdot100\%\quad$\\
+Variationskoeffizient: Ergebnis & $v \approx 12{,}97\%$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Für das Möbellager:}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lc}
+\toprule
+Schritt & Musterlösung\\
+\midrule
+Varianz: Formel & $s^2=\frac{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})^2}{n-1}$\\
+Varianz: Einsetzen & $s^2_y=\frac{4015{,}33}{5}$\\
+Varianz: Ergebnis & $s^2_y=803{,}07$\\
+Standardabweichung: Formel & $s_y=\sqrt{s^2_y}$\\
+Standardabweichung: Ergebnis & $s_y\approx28{,}34$\\
+Variationskoeffizient: Formel & $v=\frac{s}{|\bar{x}|}\cdot100\%\quad$\\
+Variationskoeffizient: Einsetzen & $v\approx\frac{11,54}{74,67}\cdot100\%\quad$\\
+Variationskoeffizient: Ergebnis & $v \approx 38{,}13\%$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\hypertarget{quellenverzeichnis}{%
+\section*{Quellenverzeichnis}\label{quellenverzeichnis}}
+\addcontentsline{toc}{section}{Quellenverzeichnis}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-bahrenberg}{}}%
+Bahrenberg, Gerhard, Ernst Giese und Josef Nipper. 2010. \emph{Statistische Methoden in der Geographie}. Bd. 1. Univariate und bivariate Statistik. Stuttgart: Bornträger.
+
+\leavevmode\vadjust pre{\hypertarget{ref-benninghaus}{}}%
+Benninghaus, Hans. 2007. \emph{Deskriptive Statistik. Eine Einführung für Sozialwissenschaftler}. Wiesbaden: VS Verlag.
+
+\leavevmode\vadjust pre{\hypertarget{ref-bortz}{}}%
+Bortz, Jürgen und Christof Schuster. 2010. \emph{Statistik für Human- und Sozialwissenschaftler}. Berlin: Springer.
+
+\leavevmode\vadjust pre{\hypertarget{ref-haseloff}{}}%
+Haseloff, Otto W., Hans-Joachim Hoffmann, John H. Maindonald und W. John Braun. 1968. \emph{Kleines Lehrbuch der Statistik DAAG. Data Analysis and Graphics Data and Functions}. Berlin: de Gruyter.
+
+\leavevmode\vadjust pre{\hypertarget{ref-daag}{}}%
+Maindonald, John H. und W. John Braun. 2015. DAAG: Data Analysis and Graphics Data and Functions. \url{https://CRAN.R-project.org/package=DAAG}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-r}{}}%
+R Core Team. 2018. R: A Language and Environment for Statistical Computing. Wien: R Foundation for Statistical Computing. \url{https://www.R-project.org/} (zugegriffen: 9. April 2021).
+
+\leavevmode\vadjust pre{\hypertarget{ref-zimmermann-janschitz2014a}{}}%
+Zimmermann-Janschitz, Susanne. 2014. \emph{Statistik in der Geographie. Eine Exkursion durch die deskriptive Statistik}. Berlin: Springer.
+
+\end{CSLReferences}
+
+\end{document}

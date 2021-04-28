@@ -165,8 +165,7 @@ tribble(
   "Ordinalskala", "Militärischer Rang", "$+$ Größer-kleiner-Relationen", "$+$ Median",
   "Intervallskala", "Temperatur in °C", "$+$ Gleichheit von Differenzen", "$+$ arithmetisches Mittel",
   "Verhältnisskala", "Körpergröße", "$+$ Gleichheit von Verhältnissen", "$+$ geometrisches Mittel") %>%
-  kable(caption="Die vier wichtigsten Skalenniveaus.") %>%
-  scroll_box(box_css = "overflow-y: auto;")
+  tabelle(escape=F, caption="Die vier wichtigsten Skalenniveaus")
 ```
 
 #### Nominalskala
@@ -235,8 +234,9 @@ cat('`', sort(xs), '`')
 
 Die absoluten Häufigkeiten erhält man durch einfaches Abzählen der jeweiligen Werte. Für die relativen Häufigkeiten teilt man diese Zahl durch $n$. Kumulierte Häufigkeiten zählen die bisherigen Summen bzw. Anteile zusammen (s. Tabelle \@ref(tab:haeufkum)).
 
-<div class="rtip">Softwarehinweis</div>
-<div class="rtip_content">In R lässt sich mit dem Befehl `table()` eine einfache Häufigkeitstabelle aus Rohdaten erstellen.</div>
+```{r}
+rtip("In R lässt sich mit dem Befehl `table()` eine einfache Häufigkeitstabelle aus Rohdaten erstellen.")
+```
 
 ```{r haeufkum}
 df <- data.frame(table(xs))
@@ -246,16 +246,16 @@ df$kumrel <- cumsum(df$rel)
 df$rel <- paste0(round(df$rel*100, 1), "\\%")
 df$kumrel <- paste0(round(df$kumrel*100, 1), "\\%")
 colnames(df) <- c("Buchstabe", "Absolute Häufigkeit $f$", "$f_{kum}$", "Relative Häufigkeit", "$\\%_{kum}$")
-kable(df, "html", escape=F, caption = "Tabelle mit kumulierten Häufigkeiten", linesep = "" ,align = "lrrrr") %>%
-  scroll_box(box_css = "overflow-y: auto;")
+tabelle(df, caption="Tabelle mit kumulierten Häufigkeiten", escape=F, align = "lrrrr")
 ```
 
 ### Stabdiagramme
 
 Die so ermittelten Häufigkeiten lassen sich als Stabdiagramm (auch Säulen-, Streifen-, Balkendiagramm, engl. *bar chart*) darstellen (s. Abbildung \@ref(fig:stab)).
 
-<div class="rtip">Softwarehinweis</div>
-<div class="rtip_content">In R lautet der Standardbefehl zur Erstellung eines Stabdiagramms `barplot()`.</div>
+```{r}
+rtip("In R lautet der Standardbefehl zur Erstellung eines Stabdiagramms `barplot()`.")
+```
 
 ```{r stab, fig.cap="Stabdiagramm"}
 bar <- data.frame(xs)
@@ -289,8 +289,7 @@ df$rel <- paste0(round(df$rel*100, 1), "\\%")
 df$kumrel <- paste0(round(df$kumrel*100, 1), "\\%")
 df$Var1 <- gsub("\\((\\d+),(\\d+)\\]", "über \\1 bis \\2 Zoll", df$Var1)
 colnames(df) <- c("Durchmesser", "Absolute Häufigkeit $f$", "$f_{kum}$", "Relative Häufigkeit", "$\\%_{kum}$")
-kable(df, "html", escape=F, caption = "Häufigkeitstabelle mit klassierten Werten",align = "lrrrr") %>%
-  scroll_box(box_css = "overflow-y: auto;")
+tabelle(df, escape=F, align = "lrrrr", caption="Häufigkeitstabelle mit klassierten Werten")
 ```
 
 Für die Wahl der Klassengrenzen gibt es zwei feste Regeln:
@@ -308,8 +307,9 @@ Zusätzlich sollten die folgenden Konventionen nach Möglichkeit befolgt werden:
 
 Die Darstellung erfolgt in so genannten Histogrammen (engl. *histogram*). Abbildung \@ref(fig:hist) enthält ein Beispiel für ein Histogramm.
 
-<div class="rtip">Softwarehinweis</div>
-<div class="rtip_content">In R können Histogramme mit `hist()` erstellt werden.</div>
+```{r}
+rtip("In R können Histogramme mit `hist()` erstellt werden.")
+```
 
 ```{r hist, fig.cap="Histogramm"}
 ggplot(data=trees, aes(x=Girth)) +
@@ -339,7 +339,7 @@ ggplot(data=trees, aes(x=Girth)) +
 
 Polygone von Häufigkeitsverteilungen (insbesondere in geglätteter Form) ergeben Annäherungen an so gennannte Dichtefunktionen (engl. *density functions*). Diese lassen sich mit Attributen (uni-/bimodal, schmal-/breitgipflig, etc.) beschreiben, wie in Abbildung \@ref(fig:shapes) veranschaulicht.
 
-```{r shapes, out.width='413px', fig.cap="Merkmale von Verteilungen [aus: @bortz: 42]"}
+```{r shapes, fig.cap="Merkmale von Verteilungen [aus: @bortz: 42]"}
 knitr::include_graphics("img/shapes.png")
 ```
 

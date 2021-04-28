@@ -1,31 +1,78 @@
-## Aufgaben {-}
+## Übungsaufgaben {-}
 
 ### Aufgabe 1
 
-Errechnen Sie für die Verteilungen in [Aufgabe 5 aus Sitzung 2](#ex2-5) jeweils den Variationskoeffizienten.
+a) Führen Sie eine $z$-Transformation der folgenden Verteilung durch:
+
+```{r}
+set.seed(2220)
+rnorm(9, -20, 8) %>%
+  round(2) %>%
+  dcat()
+```
+
+b) Sie kennen das arithmetische Mittel (221,54) und die Varianz (13,02) einer Verteilung. Welche $x$-Werte entsprechen diesen $z$-Werten?
+
+```{r}
+set.seed(2220)
+runif(12, -4, 4) %>%
+  round(2) %>%
+  dcat()
+```
 
 ### Aufgabe 2
 
-Deiche werden durch Wasserdruck bei Hochwasser belastet und dadurch beschädigt. Bei einem 12 m hohen Deich gilt als kritische Marke ein Wasserstand von 10 m. Die jährlichen Höchstwasserstände des Flusses sind normalverteilt mit einem Mittelwert von 9,01 m und einer Standardabweichung von 2,23 m.
+Gegeben sei eine Normalverteilung beschrieben durch:
 
-In den folgenden Teilaufgaben beantworten wir Schritt für Schritt die Frage, wie wahrscheinlich es (für ein beliebiges Jahr) ist, dass der Deich das jährliche Hochwasser ohne Beschädigung übersteht, d.&nbsp;h. dass ein Höchstwasserstand von 10 m oder weniger eintritt.
+\[x \sim N(32{,}2,\enspace4{,}4)\]
 
-a) Zeichnen Sie die Wahrscheinlichkeitsdichtefunktion (ganz grob, ohne y-Achse).
-a) Markieren Sie den kritischen Wert 10 m.
-a) Welchem $z$-Wert entspricht die kritische Marke von 10 m?
-b) Mit welcher Wahrscheinlichkeit bleibt der Deich in einem gegebenen Jahr unbeschädigt (Höchstwasserstand unter der kritischen Marke von 10 m)?
+a) Mit welcher Wahrscheinlichkeit werden die folgenden Werte unterschritten?
 
+```{r}
+set.seed(9444)
+runif(6, 10, 50) %>%
+  round(2) %>%
+  dcat()
+```
+
+b) Welche Werte werden jeweils mit der folgenden Wahrscheinlichkeit über(!)schritten?
+
+```{r}
+c(0.05,  0.1,  5,  13,  50,  90,  99,  99.99) %>%
+  `/`(100) -> data
+
+data %>%
+  map(~ .x * 100) %>%
+  sprintf("%s%%", .) %>%
+  cat(sep="  ")
+```
+
+c) In welchem Bereich liegen die mittleren 95% der Werte?
+
+d) Wie wahrscheinlich ist es, dass ein Wert zwischen 30 und 40 liegt?
 
 ### Aufgabe 3
 
-Wir bleiben beim Deich aus Aufgabe 1.
+Deiche werden durch Wasserdruck bei Hochwasser belastet und dadurch beschädigt. Bei einem 12&nbsp;m hohen Deich gilt als kritische Marke ein Wasserstand von 10&nbsp;m. Die jährlichen Höchstwasserstände des Flusses sind normalverteilt mit einem Mittelwert von 9,01&nbsp;m und einer Standardabweichung von 2,23&nbsp;m.
 
-a) Mit welcher Wahrscheinlichkeit wird der Deich beschädigt (Wasserstand über 10 m)?
-a) Mit welcher Wahrscheinlichkeit wird der Deich nicht nur beschädigt, sondern läuft über (Wasserstand über 12 m)?
-a) Mit welcher Wahrscheinlichkeit wird der Deich beschädigt, läuft aber nicht über (Wasserstand zwischen 10 und 12 m)?
-a) In welchen Grenzen liegen die mittleren 80% der Hochwasserstände?
+In den folgenden Teilaufgaben beantworten wir Schritt für Schritt die Frage, wie wahrscheinlich es (für ein beliebiges Jahr) ist, dass der Deich das jährliche Hochwasser ohne Beschädigung übersteht, d.&nbsp;h. dass ein Höchstwasserstand von 10&nbsp;m oder weniger eintritt.
+
+a) Zeichnen Sie die Wahrscheinlichkeitsdichtefunktion (ganz grob, ohne $y$-Achse).
+a) Markieren Sie den kritischen Wert 10&nbsp;m.
+a) Welchem $z$-Wert entspricht die kritische Marke von 10&nbsp;?
+b) Mit welcher Wahrscheinlichkeit bleibt der Deich in einem gegebenen Jahr unbeschädigt (Höchstwasserstand unter der kritischen Marke von 10&nbsp;m)?
+
 
 ### Aufgabe 4
+
+Wir bleiben beim Deich aus Aufgabe 3.
+
+a) Mit welcher Wahrscheinlichkeit wird der Deich beschädigt (Wasserstand über 10&nbsp;m)?
+a) Mit welcher Wahrscheinlichkeit wird der Deich nicht nur beschädigt, sondern läuft über (Wasserstand über 12&nbsp;m)?
+a) Mit welcher Wahrscheinlichkeit wird der Deich beschädigt, läuft aber nicht über (Wasserstand zwischen 10 und 12&nbsp;m)?
+a) In welchen Grenzen liegen die mittleren 80% der Hochwasserstände?
+
+### Aufgabe 5
 
 Es ist ein neuer Deich zu bauen, der so sicher sein soll, dass er nur alle 200 Jahre vom Hochwasser übertreten wird. 
 
@@ -33,12 +80,16 @@ a) Welcher Wahrscheinlichkeitswert $p=P(x < x_p)$ ist anzuwenden, d.&nbsp;h. wie
 b) Mit welchem $z$-Wert korrespondiert der gesuchte Wert $x_p$?
 c) Wie hoch muss dieser Deich sein? (Welcher Wert $x_p$ entspricht diesem $z_p$?)
 
-### Aufgabe 5
+### Aufgabe 6
 
-Die jährlichen Niederschlagsmengen in Mittelstedt betragen im Durchschnitt 400 mm bei annähernder Normalverteilung und einer Standardabweichung von 100 mm. 
+Die jährlichen Niederschlagsmengen in Mittelstedt betragen im Durchschnitt 40m bei annähernder Normalverteilung und einer Standardabweichung von 100&nbsp;mm. 
 
-a) Wie groß ist die Wahrscheinlichkeit, dass mehr als 500 mm Niederschlag fallen?
-b) Wie oft pro hundert Jahre kann mit weniger als 200 mm Niederschlag gerechnet werden?
-c) Mit welcher Wahrscheinlichkeit fallen zwischen 200 mm und 550 mm Niederschlag?
+a) Wie groß ist die Wahrscheinlichkeit, dass mehr als 50m Niederschlag fallen?
+b) Wie oft pro hundert Jahre kann mit weniger als 20m Niederschlag gerechnet werden?
+c) Mit welcher Wahrscheinlichkeit fallen zwischen 20m und 550&nbsp;mm Niederschlag?
 d) Welche Niederschlagsmenge wird wahrscheinlich in nur 2 von 100 Jahren übertroffen?
 e) In welchen Grenzen liegen die mittleren 75% der jährlichen Niederschlagsmenge?
+
+### Aufgabe 7
+
+Errechnen Sie für die Verteilungen in [Aufgabe 5 aus Sitzung 2](#ex2-5) jeweils den Variationskoeffizienten.

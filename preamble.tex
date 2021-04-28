@@ -1,0 +1,114 @@
+\usepackage[margin=2.5cm,top=3.5cm,bottom=3cm]{geometry}
+\usepackage[default]{sourcesanspro}
+
+%%%%%%%%%%%%
+%  colors  %
+%%%%%%%%%%%%
+
+\definecolor{goethe_blue}{HTML}{00618F}
+\definecolor{light_gray}{HTML}{f8f6f5}
+\definecolor{sand_gray}{HTML}{e4e3dd}
+\definecolor{dark_gray}{HTML}{4d4b46}
+\definecolor{purple}{HTML}{860047}
+\definecolor{emo_red}{HTML}{b3062c}
+\definecolor{mustard_yellow}{HTML}{e3ba0f}
+\definecolor{green}{HTML}{737c45}
+\definecolor{magenta}{HTML}{ad3b76}
+\definecolor{orange}{HTML}{c96215}
+\definecolor{sun_yellow}{HTML}{f7d926}
+\definecolor{light_green}{HTML}{a5ab52}
+\definecolor{light_blue}{HTML}{48a9da}
+\hypersetup{unicode=true,
+            colorlinks=true,
+            linkcolor=goethe_blue,
+            citecolor=goethe_blue,
+            urlcolor=goethe_blue,
+            breaklinks=true}
+
+%%%%%%%%%%
+%  rtip  %
+%%%%%%%%%%
+
+\usepackage{tcolorbox}
+\newenvironment{rtip}{
+  \medskip
+  \begin{tcolorbox}[colframe=purple,colback=light_gray,title=Softwarehinweis]
+}{
+  \end{tcolorbox}
+  \medskip
+}
+
+%%%%%%%%%%
+%  misc  %
+%%%%%%%%%%
+
+\usepackage{csquotes}
+\usepackage{gensymb}
+\usepackage{makecell}
+\usepackage{tabularx}
+\usepackage{arydshln}
+\usepackage{caption}
+\usepackage{bbding}
+\usepackage{icomma}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{multicol}
+
+\newcommand{\lastupdate}{Stand: }
+\newcommand{\pagestring}{Seite }
+
+\iflanguage{english}{%
+  \renewcommand{\lastupdate}{Last updated }%
+  \renewcommand{\pagestring}{Page }%
+}{}
+
+%%%%%%%%%%%
+%  title  %
+%%%%%%%%%%%
+
+\renewcommand{\maketitle}{
+  \newpage
+  \begingroup
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{4pt}
+    {\fontseries{b}\selectfont\Huge{$if(skript_session)$Sitzung~$skript_session$: $endif$$title$}\par}
+    $if(subtitle)${\fontseries{l}\LARGE{$subtitle$}\par\bigskip}$endif$
+
+    \bigskip
+
+%     \begin{tabularx}{\textwidth}{@{}$for(author)$X $endfor$r}
+%     $if(author)$
+%       $for(author)$
+%         $author.name$
+%         $if(author.email)$\newline $author.email$$endif$
+%         $if(author.affiliation)$
+%           \medskip\newline
+%           {\renewcommand\\{\newline}$author.affiliation$}
+%         $endif$ &
+%       $endfor$
+%     $endif$
+%     $if(date)$
+%       $date$
+%     $endif$
+%     \end{tabularx}
+  \endgroup
+  \vspace{1.1cm}
+  \thispagestyle{plain}% suppress the running head
+}
+
+\newcommand{\makenotation}{
+  \begin{center}
+    \fontseries{l}\selectfont
+    \huge$if(emphasize_notation)$\itshape\color{emo_red}\MakeUppercase{$endif$ $notation$ $if(emphasize_notation)$}$endif$
+  \end{center}
+  \bigskip
+}
+
+\newcommand{\divider}{
+  \medskip
+  \begin{center}
+  {\color{orange}\SparkleBold}
+  \end{center}
+  \medskip
+}
+
