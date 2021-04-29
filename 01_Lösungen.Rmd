@@ -32,7 +32,7 @@ tribble(
   "Körpergröße", "Verhältnisskala", "stetig", "",
   "Kleidergröße (S bis XXL)", "Ordinalskala", "qualitativ", "",
   "Monatliches Nettoeinkommen", "Verhältnisskala", "stetig", "oder diskret für Cent-Beträge") %>%
-  bind_cols(` ` = paste0("(", letters[1:20], ")"), .) %>%
+  bind_cols(` ` = paste0(letters[1:20], abcparen()), .) %>%
   tabelle(escape = T)
 ```
 
