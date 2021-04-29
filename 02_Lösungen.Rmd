@@ -116,7 +116,7 @@ tribble(
 ### Aufgabe 3
 
 ```{r}
-xs <- scan("../img/2_exercise")
+xs <- scan("img/2_exercise")
 ```
 
 #### a)
@@ -181,7 +181,7 @@ lectuR::klassieren(DAAG::fossum$totlngth,
 
 tbbl %>%
   select(x, k, f, fkum) %>%
-  tabelle(col.names = c("$x$", "$k_i$", "$f_i$", "$f_{kum}$"))
+  tabelle(escape = F, col.names = c("$x$", "$k_i$", "$f_i$", "$f_{kum}$"))
 ```
 
 Bei $n=43$ ist $Q_1=\frac{x_{(11)}+x_{(12)}}{2}$ und $Q_3=\frac{x_{(32)}+x_{(33)}}{2}$.
@@ -203,7 +203,7 @@ Um die Berechnung des arithmetischen Mittels zu vereinfachen berechnen wir den K
 ```{r}
 tbbl %>%
   select(x, k, f, fkum, prod) %>%
-  tabelle(col.names = c("$x$", "$k_i$", "$f_i$", "$f_{kum}$", "$f_i \\cdot k_i$"))
+  tabelle(escape = F, col.names = c("$x$", "$k_i$", "$f_i$", "$f_{kum}$", "$f_i \\cdot k_i$"))
 ```
 
 Die Summen für das arithmetische Mittel entnehmen wir dann einfach der letzten Spalte:
@@ -222,7 +222,7 @@ Für die Varianz erweitern wir die Tabelle:
 ```{r}
 tbbl %>%
   select(x, k, f, diff, diffsq, prodsq) %>%
-  tabelle(col.names = c("$x_i$", "$k_i$", "$f_i$", "$(k_i - \\bar{x})$", "$(k_i - \\bar{x})^2$", "$f_i \\cdot (k_i - \\bar{x})^2$"))
+  tabelle(escape = F, col.names = c("$x_i$", "$k_i$", "$f_i$", "$(k_i - \\bar{x})$", "$(k_i - \\bar{x})^2$", "$f_i \\cdot (k_i - \\bar{x})^2$"))
 ```
 
 Die Varianz beträgt:
@@ -329,7 +329,7 @@ data$`Niederschlag (mm)` %>%
 
 tbbl %>%
   select(x, k, f, fkum, prod) %>%
-  tabelle(col.names = c("$x$", "$k_i$", "$f_i$", "$f_{kum}$", "$f_i \\cdot k_i$"))
+  tabelle(escape = F, col.names = c("$x$", "$k_i$", "$f_i$", "$f_{kum}$", "$f_i \\cdot k_i$"))
 ```
 
 #### c)
@@ -380,7 +380,7 @@ Für die Standardabweichung erweitern wir die Tabelle:
 ```{r}
 tbbl %>%
   select(x, k, f, diff, diffsq, prodsq) %>%
-  tabelle(col.names = c("$x_i$", "$k_i$", "$f_i$", "$(k_i - \\bar{x})$", "$(k_i - \\bar{x})^2$", "$f_i \\cdot (k_i - \\bar{x})^2$"))
+  tabelle(escape = F, col.names = c("$x_i$", "$k_i$", "$f_i$", "$(k_i - \\bar{x})$", "$(k_i - \\bar{x})^2$", "$f_i \\cdot (k_i - \\bar{x})^2$"))
 ```
 
 Die Varianz beträgt:

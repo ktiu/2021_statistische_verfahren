@@ -329,12 +329,22 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 
-%%%%%%%%%%%%%%%%%%
-%  custom start  %
-%%%%%%%%%%%%%%%%%%
-
-\usepackage[margin=3cm,top=3.5cm,bottom=3cm]{geometry}
-\usepackage[default]{sourcesanspro}
+%%%%%%%%%%%%
+%  custom  %
+%%%%%%%%%%%%
+            
+\usepackage{gensymb}
+\usepackage{makecell}
+\usepackage{tabularx}
+\usepackage{arydshln}
+\usepackage{caption}
+\usepackage{bbding}
+\usepackage{icomma}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage{iflang}
 
 %%%%%%%%%%%%
 %  colors  %
@@ -360,92 +370,6 @@ $endfor$
             urlcolor=goethe_blue,
             breaklinks=true}
 
-%%%%%%%%%%
-%  rtip  %
-%%%%%%%%%%
-
-\usepackage{tcolorbox}
-\newenvironment{rtip}{
-  \medskip
-  \begin{tcolorbox}[colframe=purple,colback=light_gray,title=Softwarehinweis]
-}{
-  \end{tcolorbox}
-  \medskip
-}
-
-%%%%%%%%%%
-%  misc  %
-%%%%%%%%%%
-
-\usepackage{csquotes}
-\usepackage{gensymb}
-\usepackage{makecell}
-\usepackage{tabularx}
-\usepackage{arydshln}
-\usepackage{caption}
-\usepackage{bbding}
-\usepackage{icomma}
-\usepackage{fancyhdr}
-\usepackage{lastpage}
-\usepackage{multicol}
-\usepackage{float}
-
-\newcommand{\lastupdate}{Stand: }
-\newcommand{\pagestring}{Seite }
-\iflanguage{english}{%
-  \renewcommand{\lastupdate}{Last updated }%
-  \renewcommand{\pagestring}{Page }%
-}{}
-
-%%%%%%%%%%%
-%  title  %
-%%%%%%%%%%%
-
-\renewcommand{\maketitle}{
-  \newpage
-  \begingroup
-    \setlength{\parindent}{0pt}
-    \setlength{\parskip}{4pt}
-    {\fontseries{b}\selectfont\Huge{$if(skript_session)$Sitzung~$skript_session$: $endif$$title$}\par}
-    $if(subtitle)${\fontseries{l}\LARGE{$subtitle$}\par\bigskip}$endif$
-
-    \bigskip
-
-    \begin{tabularx}{\textwidth}{@{}$for(author)$X $endfor$r}
-    $if(author)$
-      $for(author)$
-        $author.name$
-        $if(author.email)$\newline $author.email$$endif$
-        $if(author.affiliation)$
-          \medskip\newline
-          {\renewcommand\\{\newline}$author.affiliation$}
-        $endif$ &
-      $endfor$
-    $endif$
-    $if(date)$
-      $date$
-    $endif$
-    \end{tabularx}
-  \endgroup
-  \vspace{1.1cm}
-  \thispagestyle{plain}% suppress the running head
-}
-
-\newcommand{\makenotation}{
-  \begin{center}
-    \fontseries{l}\selectfont
-    \huge$if(emphasize_notation)$\itshape\color{emo_red}\MakeUppercase{$endif$ $notation$ $if(emphasize_notation)$}$endif$
-  \end{center}
-  \bigskip
-}
-
-\newcommand{\divider}{
-  \medskip
-  \begin{center}
-  {\color{orange}\SparkleBold}
-  \end{center}
-  \medskip
-}
 
 
 $if(lang)$
@@ -466,6 +390,97 @@ $if(babel-newcommands)$
 $endif$
 \fi
 $endif$
+
+\IfLanguageName{ngerman}{%
+  \newcommand{\lastupdate}{Stand: }%
+  \newcommand{\pagestring}{Seite }%
+}{%
+  \newcommand{\lastupdate}{Last updated }%
+  \newcommand{\pagestring}{Page }%
+}
+
+\addto\captionsenglish{\renewcommand{\chaptername}{Lecture}}
+\addto\captionsngerman{\renewcommand{\chaptername}{Sitzung}}
+
+
+%%%%%%%%%%%%%%%%%%%%%
+%  header / footer  %
+%%%%%%%%%%%%%%%%%%%%%
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\usepackage{xpatch}
+\xpretocmd\headrule{\color{dark_gray}}{}{\PatchFailed}
+\lhead{\color{dark_gray}\footnotesize $if(header_title)$$header_title$$else$$title$$endif$}
+\chead{\color{dark_gray}\footnotesize$if(emphasize_notation)$\itshape\color{emo_red}\MakeUppercase{$endif$ $if(header_notation)$$header_notation$$else$$notation$$endif$$if(emphasize_notation)$}$endif$}
+\rhead{\color{dark_gray}\footnotesize $if(header_subtitle)$$header_subtitle$$else$$subtitle$$endif$}
+$if(keinstand)$
+$else$
+  \lfoot{\color{dark_gray}\footnotesize\lastupdate\today}
+$endif$
+\rfoot{\color{dark_gray}\footnotesize\pagestring\thepage/\begin{NoHyper}\pageref{LastPage}\end{NoHyper}}
+\fancypagestyle{plain}{ %
+  \fancyhf{} % remove everything
+  \renewcommand{\headrulewidth}{0pt} % remove lines as well
+  \renewcommand{\footrulewidth}{0pt}
+  $if(keinstand)$
+  $else$
+    \lfoot{\color{dark_gray}\footnotesize\lastupdate\today}
+  $endif$
+  \rfoot{\color{dark_gray}\footnotesize\pagestring\thepage/\begin{NoHyper}\pageref{LastPage}\end{NoHyper}}
+}
+
+%%%%%%%%%%%
+%  title  %
+%%%%%%%%%%%
+
+\renewcommand{\maketitle}{
+  \newpage
+  \begingroup
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{8pt}
+    {\fontseries{b}\selectfont\Huge\raggedright{$title$}\par}
+    $if(subtitle)${\fontseries{l}\LARGE\raggedright{$subtitle$}\par}$endif$
+
+    \vspace{1cm}
+    
+    \begin{tabularx}{\textwidth}{@{}$for(author)$X $endfor$r}
+    $if(author)$
+      $for(author)$
+        $author.name$
+        $if(author.email)$\newline $author.email$$endif$
+        $if(author.affiliation)$
+          \medskip\newline
+          {\renewcommand\\{\newline}$author.affiliation$}
+        $endif$ &
+      $endfor$
+    $endif$
+    $if(date)$
+      $date$
+    $endif$
+    \end{tabularx}
+  \endgroup
+  \vspace{1cm}
+  \thispagestyle{plain}% suppress the running head
+}
+
+\newcommand{\makenotation}{
+  \begin{center}
+    \fontseries{l}\selectfont
+    \huge$if(emphasize_notation)$\itshape\color{emo_red}\MakeUppercase{$endif$ $notation$ $if(emphasize_notation)$}$endif$
+  \end{center}
+  \bigskip
+}
+
+\newcommand{\divider}{
+  \medskip
+  \begin{center}
+  {\color{orange}\SparkleBold}
+  \end{center}
+  \medskip
+}
+
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi

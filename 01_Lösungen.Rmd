@@ -32,8 +32,8 @@ tribble(
   "Körpergröße", "Verhältnisskala", "stetig", "",
   "Kleidergröße (S bis XXL)", "Ordinalskala", "qualitativ", "",
   "Monatliches Nettoeinkommen", "Verhältnisskala", "stetig", "oder diskret für Cent-Beträge") %>%
-  bind_cols(` `=paste0(letters[1:20], " )"), .) %>%
-  tabelle()
+  bind_cols(` ` = paste0("(", letters[1:20], ")"), .) %>%
+  tabelle(escape = T)
 ```
 
 ### Aufgabe 4
@@ -42,15 +42,15 @@ tribble(
 
 Die Werte sind im Bereich zwischen 3 und 210 Stunden. Eine Klassengröße von 25 Stunden bietet sich an, es sind jedoch auch andere Größen denkbar. Da die Variable diskret zu sein scheint, können die Klassengrenzen als ganze Zahlen angegeben werden.
 
-```{r, results='asis', comment=NA}
-df <- boot::aircondit7$hours %>% cut(seq(0,225,25), right=T)%>% table %>% as.data.frame
-df$. <- as.character(df$.)
-von <- sub("^\\((\\d+).*$", "\\1", df$.) %>% as.numeric() %>% `+`(1)
-bis <- sub(".*,(\\d+)\\]$", "\\1", df$.)
-df$. <- paste0(von,"--", bis)
-colnames(df) <- c("Wert $x_i$", "Häufigkeit $f_i$")
-tabelle(df, escape=F) %>%
-  kable_styling(full_width=F)
+```{r}
+
+klassieren(boot::aircondit7$hours,
+           breaks = seq(0, 225, 25),
+           unit = "h") -> tbbl
+tbbl %>%
+  transmute(`Wert $x_i$` = x,
+            `Häufigkeit $f_i$` = f) %>%
+  tabelle(df, escape = F, full_width = F)
 ```
 
 #### b)

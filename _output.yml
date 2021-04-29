@@ -6,7 +6,7 @@ bookdown::gitbook:
       collapse: section
     toolbar:
       position: fixed
-      download: 'Skript_Statistik_2021.pdf'
+      download: 'pdf'
       search: yes
   includes:
     in_header: header.html
@@ -15,5 +15,6 @@ bookdown::gitbook:
 
 bookdown::pdf_book:
   keep_tex: true
-  latex_engine: xelatex
   template: template.tex
+  includes:
+    in_header: preamble.tex

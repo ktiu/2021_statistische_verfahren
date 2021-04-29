@@ -56,7 +56,7 @@ tibble(
   `$x_i$` = data,
   Berechnung = map_chr(calc, "quick")
 ) %>%
-tabelle(full_width = F)
+tabelle(full_width = F, escape = F)
 ```
 
 #### b)
@@ -105,7 +105,7 @@ tibble(
   `$z_i$` = data,
   Berechnung = map_chr(calc, "quick_reverse")
 ) %>%
-tabelle(full_width = F)
+tabelle(full_width = F, escape = F)
 ```
 
 ### Aufgabe 2
@@ -121,7 +121,7 @@ Zunächst geht es darum, die $x$-Werte in $z$-Werte zu transformieren.
 
 ```{r}
 set.seed(9444)
-runif(6, 10, 50) %>%
+runif(6, 15, 45) %>%
   round(2) -> xs
 
 z <- get_z_trans(mean = mu, sd = sigma, pop = T)
@@ -129,10 +129,10 @@ tribble(
   ~Schritt, ~Lösung,
   "Formel", z$formel,
   "Einsetzen", z$general
-) %>% tabelle(align = "lc")
+) %>% tabelle(align = "lc", escape = F)
 ```
 
-Durch einsetzen ergeben sich die folgenden Werte. (So ausführlich muss es in der Klausur nicht sein.)
+Durch Einsetzen ergeben sich die folgenden Werte. (So ausführlich muss es in der Klausur nicht sein.)
 
 ```{r}
 map2(xs, seq_along(xs), function(x, i) {
@@ -143,29 +143,140 @@ tibble(
   `$x_i$` = xs,
   Berechnung = map_chr(calc, "quick")
 ) %>%
-tabelle(full_width = F)
+tabelle(full_width = F, escape = F)
 ```
 
+Für die positiven $z$-Werte können die Unterschreitungs&shy;wahrscheinlichkeiten direkt in der Wertetabelle nachgeschaut werden. Für negative $z$-Werte gilt die Formel:
 
+\[ P(z\leq -z_p) = 1-P(z \leq z_p) \]
+
+Die Unterschreitungswerte ergeben:
+
+```{r}
+map(calc, "raw") %>%
+  map(get_p_under) -> ps
+
+tibble(
+   `$x_i$` = xs,
+   `$z_i$` = map(calc, "raw"),
+   Formel = ifelse(map(ps, ~ is.null(.$umformen)),
+                   map(ps, "formel"),
+                   map(ps, "umformen")),
+   Ergebnis = map(ps, "ergebnis"),
+   `In Prozent` = map(ps, ~ sprintf("%s%s",
+                                    round(.$raw * 100, 2),
+                                    percent()))
+) %>% tabelle(escape = F)
+```
 
 #### b)
+
 
 ```{r}
 c(0.05,  0.1,  5,  13,  50,  90,  99,  99.99) %>%
   `/`(100) -> ps
-
 ```
 
-Es wurde nach Überschreitungswerten gefragt. In der Tabelle für die Normalverteilung
+Es handelt sich um Überschreitungs&shy;wahrscheinlichkeiten, aber aus der Tabelle lassen sich nur Unterschreitungswerte ablesen. Weil die Normalverteilung symmetrisch ist, gilt aber:
 
-Anhand der Tabelle für die Normalverteilung können diesen 
+\[ P(x>x_p)=1-P(x\leq x_p)\]
 
+So lässt sich jeweils sagen:
+
+```{r}
+
+(1-ps) %>%
+map2(seq_along(ps), get_z_under) %>%
+map(function(x) {
+  if (is.null(x$umformen)) {
+    x$umformen <- x$formel
+    x$einsetzen <- ""
+  }
+  return(x)
+}) -> calc
+
+tibble(
+  `Überschr. $p_{i}$` = ps,
+  `Unterschr. $(1-p_{1})$` = 1 - ps,
+  Berechnung = map(calc, "umformen"),
+  `....` = map(calc, "einsetzen"),
+  Ergebnis = map(calc, "ergebnis")
+) %>% tabelle(escape = F)
+```
+
+Für die Rücktransformation gilt die Formel:
+
+```{r}
+sprintf("$%s$", get_z_trans(z = 0, mean = mu, sd = sigma, pop = T)$formel) %>%
+  knitr::asis_output()
+```
+
+```{r}
+map(calc, "raw") %>%
+  map2(seq_along(ps), ~ get_z_trans(z = .x, mean = mu, sd = sigma, symbol = .y)) -> calcz
+
+tibble(
+  `$z_i$` = map(calc, "raw"),
+  Einsetzen = map(calcz, "einsetzen"),
+  `$x_i$` = map(calcz, "ergebnis")
+) %>% tabelle(escape = F)
+```
 
 #### c)
 
-In welchem Bereich liegen die mittleren 95% der Werte?
+Die mittleren 95% der Werte liegen zwischen einem unteren Wert $x_{2{,}5\%}$ (der zu 2,5% unterschritten wird) und einem oberen Wert $x_{97{,}5\%}$ (der zu 2,5% überschritten wird).
 
-d) Wie wahrscheinlich ist es, dass ein Wert zwischen 30 und 40 liegt?
+Der obere $z$-Wert lässt sich leicht finden: $z_{97{,}5\%} \approx 1{,}96$
+
+Durch Symmetrie wissen wir dann auch, dass: $z_{2{,}5\%} \approx -1{,}96$
+
+Nun noch rückwärts transformieren:
+
+```{r}
+ober <- get_z_trans(z = 1.96, mean = mu, sd = sigma, pop = T, symbol = "o")
+unter <- get_z_trans(z = -1.96, mean = mu, sd = sigma, pop = T, symbol = "u")
+tribble(
+  ~Schritt, ~Lösung,
+  "Formel", get_z_trans(z = 1.96, mean = mu, sd = sigma, pop = T)$formel,
+  "Untergrenze: Einsetzen", unter$einsetzen,
+  "Untergrenze: Ergengis",  unter$ergebnis,
+  "Obergrenze: Einsetzen",  ober$einsetzen,
+  "Obergrenze: Ergebnis",   ober$ergebnis,
+  "Antwortsatz",            "Die mittleren 95 Prozent der Werte liegen zwischen %s und %s." %>% sprintf(unter$raw, ober$raw)
+) %>% tabelle(escape = F)
+```
+
+#### d) 
+
+Es ist immer einfacher, mit Unterschreitungs&shy;wahrscheinlichkeiten zu arbeiten. Zwischen 30 und 40 heißt auch: unter 40, aber nicht unter 30. Formal sieht das so aus:
+
+$$P(30 < x \leq 40) = P(x \leq 40) - P(x \leq 30)$$
+
+Diese Unterschreitungs&shy;wahrscheinlichkeiten bestimmen wir wieder über die $z$-Transformation:
+
+```{r}
+zunter <- get_z_trans(x = 30, mean = mu, sd = sigma, pop = T, symbol = "u")
+zober  <- get_z_trans(x = 40, mean = mu, sd = sigma, pop = T, symbol = "o")
+punter <- get_p_under(zunter$raw)
+pober  <- get_p_under(zober$raw)
+tribble(
+  ~Schritt, ~Lösung,
+  "Formel", get_z_trans(pop = T)$formel,
+  "Untergrenze: $z$-Wert", zunter$quick,
+  "Untergrenze: Unterschr.", punter$ergebnis,
+  "Obergrenze: $z$-Wert", zober$quick,
+  "Obergrenze: Unterschr.", pober$ergebnis,
+  "Intervall", sprintf("$P(30 < x \\leq 40) = P(x \\leq 40) - P(x \\leq 30)$"),
+  "Intervall einsetzen", sprintf("$P(30 < x \\leq 40) \\approx P(z \\leq %s) - P(z \\leq %s)$",
+                                 pober$fmt, punter$fmt),
+  "Intervall Ergebnis", sprintf("$P(30 < x \\leq 40) \\approx %s$",
+                                fmt(pober$raw - punter$raw, 4)),
+  "Antwortsatz", sprintf(
+    "Ein zufälliger Wert der Verteilung liegt mit %s-prozentiger Wahrscheinlichkeit zwischen 30 und 40.",
+    round((pober$raw - punter$raw) * 100, 2)
+  )
+) %>% tabelle(escape = F)
+```
 
 ### Aufgabe 3
 

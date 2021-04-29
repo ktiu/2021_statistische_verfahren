@@ -102,7 +102,7 @@ b) Vergleichen Sie außerdem die Quartilsabstände der beiden Messreihen.
 
 ### Aufgabe 6
 
-In Australien betrug die durchnittliche Niederschlagsmenge in den 1970er- und 80er-Jahren ^[Auszug aus dem Datensatz `bomsoi` in @haseloff]:
+In Australien betrug die durchschnittliche Niederschlagsmenge in den 1970er- und 80er-Jahren ^[Auszug aus dem Datensatz `bomsoi` in @haseloff]:
 \nopagebreak
 
 ```{r}
@@ -132,8 +132,8 @@ tribble(
   tabelle(full_width = F)
 ```
 
-a) Welches Skalenniveau liegt vor?  ([Sitzung 1](#skalenniveaus))
-b) Legen Sie eine klassierte Häufigkeitstabelle an. Begründen Sie die Wahl der Klassen. ([Sitzung 1](#quantitative-variablen-1))
+a) Welches Skalenniveau liegt vor?  ([Sitzung&nbsp;1](#skalenniveaus))
+b) Legen Sie eine klassierte Häufigkeitstabelle an. Begründen Sie die Wahl der Klassen. ([Sitzung&nbsp;1](#quantitative-variablen-1))
 c) Was ist der Modalwert der klassierten Verteilung?
 d) Wie groß ist der Quartilsabstand?
 e) Bestimmen Sie das arithmetische Mittel der klassierten Verteilung.

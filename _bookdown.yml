@@ -16,7 +16,7 @@ rmd_files:
   - 02_Maßzahlen.Rmd
   - 02_Aufgaben.Rmd
   - 03_z-Werte_und_Normalverteilung.Rmd
-  - 03_Aufgaben.Rmd
+  # - 03_Aufgaben.Rmd
   # - 04_Schätzstatistik.Rmd
   # - 04_Aufgaben.Rmd
   # - 05_Grundlagen der Teststatistik.Rmd
@@ -35,7 +35,7 @@ rmd_files:
   - Formelsammlung.Rmd
   - 01_Lösungen.Rmd
   - 02_Lösungen.Rmd
-  - 03_Lösungen.Rmd
+  # - 03_Lösungen.Rmd
   # - 04_Lösungen.Rmd
   # - 05_Lösungen.Rmd
   # - 06_Lösungen.Rmd

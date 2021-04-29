@@ -2,5 +2,4 @@
 .RData
 .Rproj.user
 *.Rproj
-.bookdown_files
-nul
+_bookdown_files

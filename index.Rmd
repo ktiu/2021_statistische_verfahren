@@ -1,5 +1,6 @@
 ---
-title: "Statistische Verfahren in der Geographie"
+title: Statistische Verfahren in der Geographie
+subtitle: Skript für den Theorieteil
 author:
   - name: Till Straube
     url: https://user.uni-frankfurt.de/~tstraube
@@ -9,12 +10,19 @@ author:
       | Goethe-Universität Frankfurt
 date: "Sommersemester 2021"
 site: bookdown::bookdown_site
-documentclass: article
-bibliography: ["statistik.bib"]
-link-citations: yes
 lang: de
+documentclass: report
+bibliography: ["statistik.bib"]
 description: "Projektseminar"
 csl: chicago-author-date-de.csl
+link-citations: yes
+
+papersize: a4
+fontsize: 11pt
+geometry: margin=2.5cm,top=3.5cm,bottom=3cm
+fontfamily: sourcesanspro
+fontfamilyoptions: default
+csquotes: true
 ---
 
 ```{r setup, include=F}
@@ -96,13 +104,13 @@ library(extrafont)
 
 theme_goethe <- function() {
   target <- knitr::opts_knit$get("rmarkdown.pandoc.to")
-  family <-  ifelse((! is.null(target)) && target != "pdf",
-                    "Source Sans Pro",
-                    "")
-
+  text <- element_text(size = 10)
+  if ((! is.null(target)) && target != "latex") {
+    text <- element_text(family = "Source Sans Pro", size = 10)
+  }
   theme_classic() %+replace%
     theme(
-      text = element_text(family = family, size = 10),
+      text = text,
       legend.text.align = 0,
       legend.position = c(0.9, 0.8)
     )
