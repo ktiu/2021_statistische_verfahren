@@ -169,32 +169,16 @@ ol[style="list-style-type: lower-alpha"] > li:before {
   font-weight: 600;
 }
 
-nav ul.summary ul ul b {
-  display: none;
-}
-
 .hanging-indent {
   text-indent: -2em;
   padding-left: 2em;
 }
 
-form button {
-  margin: 20px 0;
-  border-radius: 15px;
-  padding: 20px;
-  background-color: var(--light_gray);
-  border: 1px solid var(--goethe_blue);
-  color: var(--goethe_blue);
-  display: flex;
-  align-items: center;
-  font-weight: bold;
-  font-size: 1.3em;
+/* fix weird math in sidebar */
+div.book-summary span.mjx-chtml {
+  font-size:110% !important;
+  color: inherit !important;
 }
-
-form button i {
-  margin-right: 20px;
-}
-
 
 /**********
 *  rtip  *
@@ -217,3 +201,4 @@ form button i {
   padding: 10px 10px 10px 25px;
   line-height: 20px;
 }
+

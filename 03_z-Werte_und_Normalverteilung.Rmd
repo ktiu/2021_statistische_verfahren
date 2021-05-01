@@ -1,16 +1,16 @@
-# z-Werte und Normalverteilung
+# $z$-Werte und Normalverteilung
 
-## Lernziele dieser Sitzung {-}
+### Lernziele dieser Sitzung {-}
 
 Sie können...
 
-- z-Werte ermitteln.
+- $z$-Werte ermitteln.
 - Merkmale der Normalverteilung wiedergeben.
 - anhand einer normalverteilten Dichtefunktion...
   - Wahrscheinlichkeiten errechnen.
   - Perzentile errechnen.
 
-## Lehrvideos (Sommersemster 2020) {-}
+### Lehrvideos (Sommersemster 2020) {-}
 
 - 3a) [$z$-Transformation](https://video01.uni-frankfurt.de/Mediasite/Play/8c755eed883b4ea0924481da818b742f1d) 
 - 3b) [Normalverteilung](https://video01.uni-frankfurt.de/Mediasite/Play/26e839cc0d8d43d2a74c2c03b76aa6421d) 
@@ -482,24 +482,32 @@ Die mittleren 85% der Messwerte liegen also zwischen 990,7 und 1015,3&nbsp;hPa.
 
 ### Variationskoeffizient
 
+- Kapitel 3.3.4 in @delange
 - Kapitel 4.2.2 in @bahrenberg
 - YouTube-Kanal "Kurzes Tutorium Statistik": [Streumaße - Varianz, Standardabweichung, Variationskoeffizient und mehr!](https://www.youtube.com/watch?v=3oZrS3ZWVcA)
+- *Englisch:* Kapitel 2.3 in @burt
 
-### z-Transformation
+### $z$-Transformation
 
 - Kapitel 2.4 in @bortz
+- Kapitel 3.5.2 in @delange
 - Kapitel 4.2.2 in @bahrenberg
 - Kapitel 3.3.3 in @benninghaus
 - YouTube-Kanal "Methodenlehre Mainz": [WT.012.09 Äpfel mit Birnen vergleichen: Die z-Standardisierung](https://www.youtube.com/watch?v=AiucvUlIP8k)
+- *Englisch:* Kapitel 6.3 in @burt
 
 ### Normalverteilung
 
 - Kapitel 5.4 in @bortz
+- Kapitel 7.3.2.2 und 7.3.2.3 in @delange
 - Kapitel 5.2.2 in @bahrenberg
 - YouTube-Kanal "Mathe by Daniel Jung": [Was ist die Normalverteilung, Gauß-Verteilung, Schaubilder, Übersicht](https://www.youtube.com/watch?v=_f1vgWUiavY)
+- *Englisch:* Kapitel 6.3 in @burt
 
 ### Wahrscheinlichkeitsdichtefunktion
 
 - Kapitel 5.3 in @bortz
+- Kapitel 7.3.2.1 in @delange
 - Kapitel 5.2.2 in @bahrenberg
 - YouTube-Kanal "Kurzes Tutorium Statistik": [Zufallsvariable, Massenfunktion, Dichtefunktion und Verteilungsfunktion](https://www.youtube.com/watch?v=DoHTsDrzAQk)
+- *Englisch:* Kapitel 6.1 in @burt

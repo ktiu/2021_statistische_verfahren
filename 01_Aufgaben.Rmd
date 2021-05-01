@@ -1,6 +1,6 @@
 ## Übungsaufgaben {-}
 
-### Aufgabe 1
+`r naechste("aufgabe", T)`
 
 Teilen Sie in Ihrer Kleingruppe folgende Begriffe untereinander auf:
 
@@ -21,7 +21,7 @@ Gehen Sie nun für jeden Begriff wie folgt vor:
    - Was hat Ihnen gefehlt?
 
 
-### Aufgabe 2
+`r naechste("aufgabe")`
 
 Finden Sie als Gruppe jeweils zwei Beispiele für:
 
@@ -29,7 +29,7 @@ Finden Sie als Gruppe jeweils zwei Beispiele für:
 - geschichtete Zufallsstichproben
 - Klumpenstichproben
 
-### Aufgabe 3
+`r naechste("aufgabe")`
 
 Bestimmen Sie das Skalenniveau der folgenden Variablen. Kennzeichnen Sie darüber hinaus, ob die Variable qualitativ, diskret oder stetig ist.
 
@@ -54,7 +54,7 @@ a) Körpergröße
 a) Kleidergröße (S bis XXL)
 a) Monatliches Nettoeinkommen
 
-### Aufgabe 4
+`r naechste("aufgabe")`
 
 Folgende Werte seien erfasst über die Lebensdauer von Klimaanlagen in Stunden [Beispieldatensatz `aircondit7` aus @r]:  
 
@@ -66,7 +66,7 @@ a) Erstellen Sie eine Häufigkeitstabelle. Welche Klassen wählen Sie und warum?
 a) Zeichnen Sie ein Histogramm.
 a) Beschreiben Sie die Verteilung.
 
-### Aufgabe 5
+`r naechste("aufgabe")`
 
 Sind die folgenden Aussagen wahr oder unwahr?
 

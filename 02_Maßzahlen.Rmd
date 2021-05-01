@@ -1,6 +1,6 @@
 # Maßzahlen
 
-## Lernziele dieser Sitzung {-}
+### Lernziele dieser Sitzung {-}
 
 Sie können...
 
@@ -8,7 +8,7 @@ Sie können...
 - die wichtigsten Streumaße von Stichproben bestimmen.
 - Boxplots interpretieren.
 
-## Lehrvideos (Sommersemester 2020) {-}
+### Lehrvideos (Sommersemester 2020) {-}
 
 - 2a) [Lagemaße](https://video01.uni-frankfurt.de/Mediasite/Play/bbb30f8025cf48e99a48700b0600e1e11d)
 - 2b) [Streumaße](https://video01.uni-frankfurt.de/Mediasite/Play/cfdb254c058f44228e7b026f36986cc31d)
@@ -54,7 +54,7 @@ matrix(xs, nrow = 1, dimnames = list(c(), sprintf("$x_{%s}$", 1:14)))%>% as_tibb
 
 Lagemaße (auch Maße der Zentraltendenz, Lokalisationsparameter, Mittelwerte, engl. *measures of central tendency*) bezeichnen alle statistischen Maßzahlen, die eine Verteilung repräsentieren, indem sie die Lage der mittleren oder häufigsten Variablenwerte angeben.
 
-Im Falle einer unimodalen, perfekt symmetrischen Verteilung (z.B. Glockenform) haben alle drei Lageparameter den gleichen Wert. Je weiter Verteilungen von dieser Form abweichen -- durch Mehrgipfligkeit oder Asymmetrie -- desto unpräziser ist die Beschreibung der Verteilung durch einen einzigen Parameter.
+Im Falle einer unimodalen, perfekt symmetrischen Verteilung (z.&nbsp;B. Glockenform) haben alle drei Lageparameter den gleichen Wert. Je weiter Verteilungen von dieser Form abweichen -- durch Mehrgipfligkeit oder Asymmetrie -- desto unpräziser ist die Beschreibung der Verteilung durch einen einzigen Parameter.
 
 ### Median
 
@@ -149,7 +149,7 @@ rtip("Der Befehl für die Ermittlung des arithmetischen Mittels in R lautet `mea
 
 ## Streumaße
 
-Streumaße (auch Streuungs-, Variabilitäts-, Dispersionswerte, engl. *measures of variability*) geben Auskunft darüber, wie heterogen die Werte einer Verteilung sind, d.h. wie breit sie gestreut sind. Während Lagemaße den typischen Wert einer Verteilung ermitteln, zeigen Streumaße, wie gut (oder eigentlich: wie schlecht) dieser typische Wert die Verteilung repräsentiert.
+Streumaße (auch Streuungs-, Variabilitäts-, Dispersionswerte, engl. *measures of variability*) geben Auskunft darüber, wie heterogen die Werte einer Verteilung sind, d.&nbsp;h. wie breit sie gestreut sind. Während Lagemaße den typischen Wert einer Verteilung ermitteln, zeigen Streumaße, wie gut (oder eigentlich: wie schlecht) dieser typische Wert die Verteilung repräsentiert.
 
 ### Spannweite
 
@@ -178,7 +178,7 @@ rtip("In R gibt die Funktion `range()` die Werte für $x_{(1)}$ und $x_{(n)}$ au
 
 ### Quartilsabstand
 
-Der Quartilsabstand (auch Interquartilsabstand, engl. *interquartile range / IQR*) gibt die Größe des Wertebereichs der mittleren 50% einer Verteilung an.
+Der Quartilsabstand (auch Interquartilsabstand, engl. *interquartile range, IQR*) gibt die Größe des Wertebereichs der mittleren 50% einer Verteilung an.
 
 Genau so wie der Median eine Messwertreihe in zwei gleich große Hälften "schneidet", schneiden die Quartile die Werte in Viertel. Dabei liegt der so genannte untere Angelpunkt $Q_1$ genau über 25% der Werte, $Q_2$ ist identisch mit dem Median und der obere Angelpunkt $Q_3$ liegt genau über 75% der Werte.
 
@@ -232,7 +232,7 @@ rtip("In R werden die Quartile üblicherweise mit `quantile()` und der Quartilsa
 
 ### Varianz
 
-Die Varianz einer Messwertreihe (engl. *variance*) kann verstanden werden als der durschnittliche quadrierte Abstand der Werte zum arithmetischen Mittel.
+Die Varianz einer Messwertreihe (engl. *variance*) kann verstanden werden als der durchschnittliche quadrierte Abstand der Werte zum arithmetischen Mittel.
 
 Die Formel lautet:
 
@@ -245,7 +245,7 @@ Die Quadrierung der Differenz hat dabei einen doppelten Effekt: Zum einen bekomm
 
 Zudem fällt auf, dass im Gegensatz zur Formel für das arithmetische Mittel im Nenner $n-1$ steht und nicht etwa $n$. Dies hat mit so genannten Freiheitsgraden zu tun, die wir allerdings erst in [Sitzung 5](#freiheitsgrade) genauer kennenlernen.
 
-Für unsere Beispielstichprobe wird die Berechnung für alle einzelnen $(x_i-\bar{x})^2$ schnell aufwendig und unübersichtich. Deshalb berechnen wir ihre Summe hier mit Hilfe einer Häufigkeitstabelle (s. Tabelle \@ref(tab:freq)). Dabei werden alle distinkten Werte einzeln transformiert und in der letzten Spalte mit ihrer Häufigkeit multipliziert.
+Für unsere Beispielstichprobe wird die Berechnung für alle einzelnen $(x_i-\bar{x})^2$ schnell aufwendig und unübersichtlich. Deshalb berechnen wir ihre Summe hier mit Hilfe einer Häufigkeitstabelle (s. Tabelle \@ref(tab:freq)). Dabei werden alle distinkten Werte einzeln transformiert und in der letzten Spalte mit ihrer Häufigkeit multipliziert.
 
 ```{r freq, results='asis'}
 df <- as.data.frame(table(xs))
@@ -281,7 +281,7 @@ rtip("In R lautet der Befehl für die Errechnung der Varianz `var()`.")
 
 Die Standardabweichung (engl. *standard deviation*) ist das gebräuchlichste Streumaß und spielt eine herausragende Rolle in den allermeisten statistischen Verfahren.
 
-Die Standardabweichung einer Messwertreihe ist definiert als die Quadraturzel ihrer Varianz:
+Die Standardabweichung einer Messwertreihe ist definiert als die Quadratwurzel ihrer Varianz:
 
 \[
   \begin{aligned}
@@ -332,20 +332,26 @@ rtip("In R lässt sich ein Boxplot mit dem Befehl `boxplot()` ausgeben.")
 
 ### Lagemaße
 
-- Kapitel 3.3.1 in @benninghaus
 - Kapitel 2.1 in @bortz
+- Kapitel 3.3.2 in @delange
+- Kapitel 3.3.1 in @benninghaus
 - Kapitel 4.2.1 in @bahrenberg
 - YouTube-Kanal "Kurzes Tutorium Statistik": [Arithmetisches, harmonisches und geometrisches Mittel](https://www.youtube.com/watch?v=Kx9aHOMVPEg)
 - YouTube-Kanal "Kurzes Tutorium Statistik": [Boxplots, Median, Quartile](https://www.youtube.com/watch?v=HsDeAoBOyS4)
+- *Englisch:* Kapitel 2.2 in @burt
 
 ### Streumaße
 
-- Kapitel 3.1.2 in @benninghaus
 - Kapitel 2.2 in @bortz
+- Kapitel 3.3.3 in @delange
+- Kapitel 3.1.2 in @benninghaus
 - Kapitel 4.2.2 in @bahrenberg
 - YouTube-Kanal "Kurzes Tutorium Statistik": [Streumaße - Varianz, Standardabweichung, Variationskoeffizient und mehr!](https://www.youtube.com/watch?v=3oZrS3ZWVcA)
+- *Englisch:* Kapitel 2.3 in @burt
 
 ### Boxplot
 
 - Kapitel 3.4 in @bortz
+- Kapitel 5.3.1 in @delange
 - YouTube-Kanal "Kurzes Tutorium Statistik": [Boxplots, Median, Quartile](https://www.youtube.com/watch?v=HsDeAoBOyS4)
+- *Englisch:* Kapitel 16.3 in @burt

@@ -9,16 +9,15 @@ language:
     tab: "Tabelle "
 rmd_files:
   - index.Rmd
-  - Termine.Rmd
   - Vorbesprechung.Rmd
-  - 01_Datenerhebung_und_Häufigkeiten.Rmd
+  - 01_Datenerhebung_und_Haeufigkeiten.Rmd
   - 01_Aufgaben.Rmd
   - 02_Maßzahlen.Rmd
   - 02_Aufgaben.Rmd
   - 03_z-Werte_und_Normalverteilung.Rmd
-  # - 03_Aufgaben.Rmd
-  # - 04_Schätzstatistik.Rmd
-  # - 04_Aufgaben.Rmd
+  - 03_Aufgaben.Rmd
+  - 04_Schaetzstatistik.Rmd
+  - 04_Aufgaben.Rmd
   # - 05_Grundlagen der Teststatistik.Rmd
   # - 05_Aufgaben.Rmd
   # - 06_Testverfahren mit zwei Stichproben.Rmd
@@ -33,14 +32,14 @@ rmd_files:
   # - 10_Aufgaben.Rmd
 
   - Formelsammlung.Rmd
-  - 01_Lösungen.Rmd
-  - 02_Lösungen.Rmd
-  # - 03_Lösungen.Rmd
-  # - 04_Lösungen.Rmd
-  # - 05_Lösungen.Rmd
-  # - 06_Lösungen.Rmd
-  # - 07_Lösungen.Rmd
-  # - 08_Lösungen.Rmd
-  # - 09_Lösungen.Rmd
-  # - 10_Lösungen.Rmd
+  - 01_Loesungen.Rmd
+  - 02_Loesungen.Rmd
+  - 03_Loesungen.Rmd
+  - 04_Loesungen.Rmd
+  # - 05_Loesungen.Rmd
+  # - 06_Loesungen.Rmd
+  # - 07_Loesungen.Rmd
+  # - 08_Loesungen.Rmd
+  # - 09_Loesungen.Rmd
+  # - 10_Loesungen.Rmd
   - Quellen.Rmd

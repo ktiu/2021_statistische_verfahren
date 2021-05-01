@@ -1,5 +1,9 @@
+.DS_Store
 .Rhistory
 .RData
 .Rproj.user
 *.Rproj
-_bookdown_files
+*_files/
+*_cache/
+*.knit.md
+*.utf8.md

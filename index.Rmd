@@ -30,6 +30,8 @@ csquotes: true
 library(tidyverse)
 library(lectuR)
 
+options(OutDec = ",")
+
 knitr::opts_chunk$set(
   fig.align  = "center",
   fig.width  = 5,
@@ -41,8 +43,6 @@ knitr::opts_chunk$set(
   cache      = T,
   comment    = NA
 )
-
-options(OutDec = ",")
 
 target <- knitr::opts_knit$get("rmarkdown.pandoc.to")
 
@@ -77,11 +77,6 @@ rtip <- function(text) {
     knitr::asis_output()
 }
 
-dcat <- function(xs) {
-  xs %>%
-    cat(sep = "  ", fill = T)
-}
-
 goethe_blue    <- "#00618F"
 light_gray     <- "#f8f6f5"
 sand_gray      <- "#e4e3dd"
@@ -100,13 +95,18 @@ th_css <- "background-color: var(--sand_gray);
            color: var(--goethe_blue);
            font-weight: 600"
 
+dcat <- function(xs) {
+  xs %>%
+    cat(sep = "  ", fill = T)
+}
+
 library(extrafont)
 
 theme_goethe <- function() {
   target <- knitr::opts_knit$get("rmarkdown.pandoc.to")
-  text <- element_text(size = 10)
+  text <- ggplot2::element_text(size = 10)
   if ((! is.null(target)) && target != "latex") {
-    text <- element_text(family = "Source Sans Pro", size = 10)
+    text <- ggplot2::element_text(family = "Source Sans Pro", size = 10)
   }
   theme_classic() %+replace%
     theme(
@@ -115,10 +115,44 @@ theme_goethe <- function() {
       legend.position = c(0.9, 0.8)
     )
 }
+
+nummeriere <- function(typ = c("aufgabe", "lösung"), sitzung, aufgabe) {
+  sprintf(list(aufgabe = c("### Aufgabe&nbsp;%s-%s {#aufgabe-%s-%s}",
+                           "[zur&nbsp;Lösung](#loesung-%s-%s)"),
+               lösung  = c("### Lösung&nbsp;%s-%s {#loesung-%s-%s}",
+                           "[zur Aufgabenstellung](#aufgabe-%s-%s)"))[[typ]] %>%
+            paste(collapse = "\n\n"),
+          sitzung, aufgabe, sitzung, aufgabe, sitzung, aufgabe)
+}
+
+naechste <- function(typ = c("aufgabe", "lösung"), naechste_sitzung = F) {
+  if (naechste_sitzung) {
+    counter$sitzung <<- counter$sitzung + 1
+    counter$aufgabe <<- 1
+  } else counter$aufgabe <<- counter$aufgabe + 1
+  nummeriere(typ, counter$sitzung, counter$aufgabe)
+}
+
+counter <- list(sitzung = 0, aufgabe = 0)
 ```
 
-# Inhalt {-}
+# Terminüberblick {-}
 
-In der Übung „Statistische Verfahren in der Geographie“ werden Methoden der Datenerhebung, der deskriptiven Statistik sowie der Schätz- und Teststatistik vermittelt und ihre Anwendung für geographische Fragestellungen geübt. Die Einführung in Statistiksoftware umfasst die praktische Anwendung der Methoden sowie die tabellarische und graphische Aufbereitung der Ergebnisse statistischer Analysen.
+*Alle Sitzungen finden von 14 bis 16h c.t. statt*
 
-[Zum OLAT Kurs](https://olat-ce.server.uni-frankfurt.de/olat/auth/RepositoryEntry/10811179011){target="_blank"}
+Datum                 | Sitzung | Inhalt
+--------------------: | ------: | :-----------------------------------
+13. April 2021        |         | [Vorbesprechung]
+20. April 2021        | 1       | [Datenerhebung und Häufigkeiten]
+27. April 2021        | 2       | [Maßzahlen]
+4. Mai 2021           | 3       | [z-Werte und Normalverteilung]
+11. Mai 2021          | 4       | [Schätzstatistik]
+18. Mai 2021          | 5       | [Grundlagen der Teststatistik]
+25. Mai 2021          | 6       | [Testverfahren mit zwei Stichproben]
+1. Juni 2021          | 7       | [Korrelation]
+8. Juni 2021          | 8       | [Lineare Regression]
+15. Juni 2021         | 9       | [Kreuztabellen]
+22. Juni 2021         | 10      | [Chi-Quadrat-Tests]
+29. Juni 2021         |         | Klausurvorbereitung
+6. Juli 2021          |         | Klausurvorbereitung
+13. Juli 2021         |         | Klausur

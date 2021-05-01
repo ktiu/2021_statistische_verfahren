@@ -1,0 +1,423 @@
+## Sitzung 2 {-}
+
+`r naechste("lösung", T)`
+
+#### a)
+
+```{r}
+set.seed(4525)
+runif(6, 10, 80) %>%
+  round() %>%
+  lectuR::get_mean() -> mean_a
+
+tribble(
+  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
+  "Formel", mean_a$formel, 0, T,
+  "Einsetzen", mean_a$einsetzen, 0, T,
+  "Ergebnis", mean_a$ergebnis, 0, T,
+) %>% lectuR::solution_table(meta = F)
+```
+
+#### b)
+
+```{r}
+set.seed(4525)
+runif(8, -1, 1) %>%
+  round(3) %>%
+  lectuR::get_mean() -> mean_b
+
+tribble(
+  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
+  "Formel", mean_b$formel, 0, T,
+  "Einsetzen", mean_b$einsetzen, 0, T,
+  "Ergebnis", mean_b$ergebnis, 0, T,
+) %>% lectuR::solution_table(meta = F)
+```
+
+#### c)
+
+```{r}
+set.seed(4525)
+runif(10, 600, 1000) %>%
+  round(2) %>%
+  lectuR::get_mean() -> mean_c
+tribble(
+  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
+  "Formel", mean_a$formel, 0, T,
+  "Einsetzen", mean_c$einsetzen, 0, T,
+  "Ergebnis", mean_c$ergebnis, 0, T,
+) %>% lectuR::solution_table(meta = F)
+```
+
+`r naechste("lösung")`
+
+#### a)
+
+```{r}
+set.seed(4525)
+runif(6, 10, 80) %>%
+  round() -> a
+  lectuR::get_var(a) -> var_a
+  lectuR::get_sd(a) -> sd_a
+
+tribble(
+  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
+  "Varianz: Formel", var_a$formel, 0, T,
+  "Varianz: Einsetzen", var_a$einsetzen, 0, T,
+  "Varianz: Ergebnis", var_a$ergebnis, 0, T,
+  "Standardabweichung: Formel", sd_a$formel, 0, T,
+  "Standardabweichung: Einsetzen", sd_a$einsetzen, 0, T,
+  "Varianz: Ergebnis", sd_a$ergebnis, 0, T,
+) %>% lectuR::solution_table(meta = F)
+```
+
+#### b)
+
+```{r}
+set.seed(4525)
+runif(8, -1, 1) %>%
+  round(3) -> b
+
+  lectuR::get_var(b) -> var_b
+  lectuR::get_sd(b) -> sd_b
+
+tribble(
+  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
+  "Varianz: Formel", var_b$formel, 0, T,
+  "Varianz: Einsetzen", var_b$einsetzen, 0, T,
+  "Varianz: Ergebnis", var_b$ergebnis, 0, T,
+  "Standardabweichung: Formel", sd_b$formel, 0, T,
+  "Standardabweichung: Einsetzen", sd_b$einsetzen, 0, T,
+  "Varianz: Ergebnis", sd_b$ergebnis, 0, T,
+) %>% lectuR::solution_table(meta = F)
+```
+
+#### c)
+
+```{r}
+set.seed(4525)
+runif(10, 600, 1000) %>%
+  round(2) -> c
+  lectuR::get_var(c) -> var_c
+  lectuR::get_sd(c) -> sd_c
+
+tribble(
+  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
+  "Varianz: Formel", var_c$formel, 0, T,
+  "Varianz: Einsetzen", var_c$einsetzen, 0, T,
+  "Varianz: Ergebnis", var_c$ergebnis, 0, T,
+  "Standardabweichung: Formel", sd_c$formel, 0, T,
+  "Standardabweichung: Einsetzen", sd_c$einsetzen, 0, T,
+  "Varianz: Ergebnis", sd_c$ergebnis, 0, T,
+) %>% lectuR::solution_table(meta = F)
+```
+
+
+`r naechste("lösung")`
+
+```{r}
+xs <- scan("img/2_exercise")
+```
+
+#### a)
+
+Die geordnete Liste ist:
+
+```{r}
+cat(sort(xs))
+```
+
+Für das arithmetische Mittel und die Varianz ist diese Tabelle hilfreich:
+
+```{r}
+df <- data.frame(table(xs))
+df$xs <- as.numeric(levels(df$xs)[df$xs])
+df[,3] <- df$xs * df$Freq
+df[,4] <- df$xs - mean(xs)
+df[,5] <- (df$xs - mean(xs))^2
+df[,6] <- df$Freq*(df$xs - mean(xs))^2
+df[] <- round(df,2)
+df[] <- lapply(format(df, decimal.mark=","), as.character)
+tabelle(df, escape = F, col.names = c("$x_i$", "$f_i$", "$f_i\\cdot x_i$", "$(x_i-\\bar{x})$", "$(x_i-\\bar{x})^2$", "$f_i\\cdot(x_i-\\bar{x})^2$"))
+```
+
+Der häufigste Wert (und damit der Modalwert) ist 2.
+
+Die Stichprobengröße ist ungerade ($n=13$), daher ist der Median: $$x_{(\frac{n+1}{2})} = x_{(7)} = 2$$
+
+Das arithmetische Mittel berechnet sich einfacher mit den Werten aus der Tabelle:
+
+\[\bar{x}={\displaystyle\frac{\sum\limits_{x=1}^nx_i}{n}}=\frac{3+8+6+8+5+6}{13}=\frac{37}{13}\approx2.85\]
+
+#### b)
+
+Die Spannweite ist: $$R=x_{(n)}-x_{(1)}=7-1=6$$
+
+Der Quartilsabstand ist: $$\mathit{IQR}=Q_3-Q_1=4-2=2$$
+
+Für die Varianz bieten sich ebenfalls die Tabellenwerte an: $$s^2=\frac{\sum\limits_{x=1}^n(x_i-\bar{x})^2}{n-1}\approx\frac{10,22+ 2,86+ 0,05+ 2,66+ 4,64+17,25}{13-1}=\frac{37,68}{12}=3.14$$
+
+Schließlich ist die Standardabweichung: $$s=\sqrt{s^2}\approx\sqrt{3,14}\approx1,77$$
+
+#### c)
+
+Da der untere Angelpunkt und der Median zusammenfallen, sieht der Boxplot etwas ungewöhnlich aus:
+
+```{r, fig.height=6}
+boxplot(xs)
+```
+
+`r naechste("lösung")`
+
+#### a)
+
+Für den Quartilsabstand brauchen wir den Klassendurchschnitt und kumulative Häufigkeiten:
+
+
+```{r}
+lectuR::klassieren(DAAG::fossum$totlngth,
+                   "cm",
+                   seq(75, 97.5, 2.5)) -> tbbl
+
+tbbl %>%
+  select(x, k, f, fkum) %>%
+  tabelle(escape = F, col.names = c("$x$", "$k_i$", "$f_i$", "$f_{kum}$"))
+```
+
+Bei $n=43$ ist $Q_1=\frac{x_{(11)}+x_{(12)}}{2}$ und $Q_3=\frac{x_{(32)}+x_{(33)}}{2}$.
+
+Aus der Tabelle mit kumulativen Häufigkeiten können wir $Q_1=86{,}25$ und $Q_3=91{,}25$ ablesen.
+
+Der Quartilsabstand beträgt dann
+
+\[\begin{aligned}
+\mathit{IQR}&=Q_3-Q_1\\
+            &=91{,}25-86{,}25\\
+            &=5
+\end{aligned}\]
+
+#### b)
+
+Um die Berechnung des arithmetischen Mittels zu vereinfachen berechnen wir den Klassendurchschnitt und Zwischensummen:
+
+```{r}
+tbbl %>%
+  select(x, k, f, fkum, prod) %>%
+  tabelle(escape = F, col.names = c("$x$", "$k_i$", "$f_i$", "$f_{kum}$", "$f_i \\cdot k_i$"))
+```
+
+Die Summen für das arithmetische Mittel entnehmen wir dann einfach der letzten Spalte:
+
+\[\begin{aligned}
+  \bar{x}&=\frac{\sum\limits_{i=1}^nx_i}{n} \\
+         &=\frac{76{,}25+ 243{,}75+ 418{,}75+ 603{,}75+1242{,}50+ 821{,}25+ 187{,}50+ 192{,}50}{43} \\
+         &=\frac{3786{,}25}{43} \\
+         &\approx88{,}05
+\end{aligned}\]
+
+#### c)
+
+Für die Varianz erweitern wir die Tabelle:
+
+```{r}
+tbbl %>%
+  select(x, k, f, diff, diffsq, prodsq) %>%
+  tabelle(escape = F, col.names = c("$x_i$", "$k_i$", "$f_i$", "$(k_i - \\bar{x})$", "$(k_i - \\bar{x})^2$", "$f_i \\cdot (k_i - \\bar{x})^2$"))
+```
+
+Die Varianz beträgt:
+
+\[\begin{aligned}
+  s^2&=\frac{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})^2}{n-1} \\
+     &=\frac{139{,}24+138{,}72+ 92{,}45+ 22{,}68+  6{,}86+ 92{,}16+ 64{,}98+134{,}48}{43-1}\\
+     &=\frac{691{,}57}{42}\\
+     &\approx{16{,}47}
+\end{aligned}\]
+
+#### d)
+
+Somit beträgt die Standardabweichung 
+
+\[\begin{aligned}
+  s&=\sqrt{s^2}\\
+   &\approx\sqrt{16{,}47}\\
+   &\approx4{,}06
+\end{aligned}\]
+
+`r naechste("lösung")`
+
+#### a)
+
+```{r}
+set.seed(1616)
+ziegelei <- round(rnorm(6,80,10))
+moebellager <- round(rnorm(6,70,18))
+mean_ziegelei <- lectuR::get_mean(ziegelei)
+mean_moebellager <- lectuR::get_mean(moebellager, "y")
+
+tribble(
+  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
+  "Formel", lectuR::get_mean()$formel, 1, F,
+  "Einsetzen", mean_ziegelei$einsetzen, 0.5, F,
+  "Ergebnis", mean_ziegelei$ergebnis, 1, F,
+  "Einsetzen", mean_moebellager$einsetzen, 0.5, F,
+  "Ergebnis", mean_moebellager$ergebnis, 1, F,
+  "Antwortsatz", sprintf("%s weist im Mittel die größere Passant\\*innenzahl auf.",
+                         ifelse(mean_moebellager$raw > mean_ziegelei$raw,
+                                "Das Möbellager", "Die Ziegelei")), 1, F
+) %>% lectuR::solution_table(meta = F)
+```
+
+#### b)
+
+```{r}
+iqr_ziegellager <- lectuR::get_iqr(ziegelei, T)
+iqr_moebellager <- lectuR::get_iqr(moebellager, T, "y")
+
+tribble(
+  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
+  "Formel", lectuR::get_iqr()$formel, 1, F,
+  "Einsetzen", iqr_ziegellager$einsetzen, 0.5, F,
+  "Ergebnis", iqr_ziegellager$ergebnis, 1, F,
+  "Einsetzen", iqr_moebellager$einsetzen, 0.5, F,
+  "Ergebnis", iqr_moebellager$ergebnis, 1, F,
+  "Antwortsatz", sprintf(
+     "%s hat den größeren Quartilsabstand für die Passant\\*innenzahl.",
+     ifelse(iqr_moebellager$raw > iqr_ziegellager$raw,
+            "Das Möbellager", "Die Ziegelei")), 1, F) %>%
+  lectuR::solution_table(meta = F)
+```
+
+`r naechste("lösung")`
+
+#### a)
+
+Es gibt eine Hierarchie der Werte (Ordinal-), sinnvolle Abstände (Intervall-) und einen sinnvollen Nullpunkt (Verhältnis-). Deshalb sind die angegebenen Werte als verhältnisskaliert zu verstehen.
+
+#### b)
+
+Klassen könnten z.&nbsp;B. wie in der folgenden Tabelle gewählt werden. Um die Berechnung des arithmetischen Mittels zu vereinfachen berechnen wir gleich den Klassendurchschnitt und Zwischensummen:
+
+```{r}
+
+tribble(
+  ~Jahr, ~`Niederschlag (mm)`,
+  1970,	384.52,
+  1971,	493.65,
+  1972,	364.65,
+  1973,	661.32,
+  1974,	785.27,
+  1975,	603.45,
+  1976,	527.75,
+  1977,	471.81,
+  1978,	525.65,
+  1979,	455.64,
+  1980,	433.01,
+  1981,	535.12,
+  1982,	421.36,
+  1983,	499.29,
+  1984,	555.21,
+  1985,	398.88,
+  1986,	391.96,
+  1987,	453.41,
+  1988,	459.84,
+  1989,	483.78
+) -> data
+
+data$`Niederschlag (mm)` %>%
+  lectuR::klassieren("mm") -> tbbl
+
+tbbl %>%
+  select(x, k, f, fkum, prod) %>%
+  tabelle(escape = F, col.names = c("$x$", "$k_i$", "$f_i$", "$f_{kum}$", "$f_i \\cdot k_i$"))
+```
+
+#### c)
+
+Der Modalwert der so klassierten Stichprobe ist die Klasse von 400 bis unter 500 mm und kann auch mit dem Klassenmittelwert 450 mm angegeben werden.
+
+#### d)
+
+Bei $n=20$ ist $Q_1=\frac{x_{(5)}+x_{(6)}}{2}$ und $Q_3=\frac{x_{(15)}+x_{(16)}}{2}$.
+
+Aus einer geordneten Liste könnten wir also 
+
+\[\begin{aligned}
+Q_1&=\frac{x_{(5)}+x_{(6)}}{2}\\
+   &=\frac{421{,}36+433{,}01}{2}\\
+   &\approx427{,}19
+\end{aligned}\]
+
+und
+
+\[\begin{aligned}
+Q_3&=\frac{x_{(15)}+x_{(16)}}{2}\\
+   &=\frac{527{,}75+235{,}12}{2}\\
+   &\approx531{,}44
+\end{aligned}\]
+
+bestimmen.
+
+Wenn uns nur die klassierte Verteilung zur Verfügung steht oder wenn der Datensatz besonders unübersichtlich ist, ist es auch legitim, aus der kumulativen Häufigkeit $Q_1=450$ und $Q_3=550$ für die klassierte Verteilung abzulesen.
+
+Je nachdem beträgt der Quartilsabstand $\mathit{IQR}=Q_3-Q_1$ dann 104,24 oder 100 mm.
+
+#### e)
+
+Die Summen für das arithmetische Mittel entnehmen wir der letzten Spalte der Wertetabelle:
+
+\[\begin{aligned}
+  \bar{x}&=\frac{\sum\limits_{i=1}^nx_i}{n} \\
+         &=\frac{1400+4050+2200+1300+750}{20} \\
+         &=\frac{9700}{20} \\
+         &\approx485
+\end{aligned}\]
+
+#### f)
+
+Für die Standardabweichung erweitern wir die Tabelle:
+
+```{r}
+tbbl %>%
+  select(x, k, f, diff, diffsq, prodsq) %>%
+  tabelle(escape = F, col.names = c("$x_i$", "$k_i$", "$f_i$", "$(k_i - \\bar{x})$", "$(k_i - \\bar{x})^2$", "$f_i \\cdot (k_i - \\bar{x})^2$"))
+```
+
+Die Varianz beträgt:
+
+\[\begin{aligned}
+  s^2&=\frac{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})^2}{n-1} \\
+     &=\frac{72900+11025+16900+54450+70225}{20-1}\\
+     &=\frac{225500}{19}\\
+     &\approx{11868{,}42}
+\end{aligned}\]
+
+Somit beträgt die Standardabweichung 
+
+\[\begin{aligned}
+  s&=\sqrt{s^2}\\
+   &\approx\sqrt{11868{,}42}\\
+   &\approx108{,}94
+\end{aligned}\]
+
+#### g)
+
+Auch der Boxplot lässt sich anhand der klassierten Werte zeichnen:
+
+```{r solve_2_6_g, fig.height=5, fig.width=3, out.width='35%'}
+purrr::map2(tbbl$f, tbbl$k, function(f, k){
+   rep(k, f)
+}) %>%
+  unlist() %>%
+  tibble(y = .) %>%
+  ggplot(aes(y=y)) +
+    stat_boxplot(geom = 'errorbar', width=0.5) +
+    geom_boxplot(fill = mustard_yellow) +
+    scale_x_continuous(limits = c(-0.6,0.4), breaks = NULL) +
+    scale_y_continuous(NULL) +
+    theme_goethe() +
+    theme(axis.line = element_blank(),
+          panel.border = element_rect(color = "black",
+                                      fill = NA,
+                                      size = 1))
+```

@@ -2,7 +2,7 @@
 
 [Aufzeichung der Vorbesprechung am 13. April](https://video01.uni-frankfurt.de/Mediasite/Play/c5c5115e37f948d0bfeb9610d18427661d)
 
-## Lernziele der Veranstaltung {-}
+### Lernziele der Veranstaltung {-}
 
 Sie können...
 
@@ -12,12 +12,12 @@ Sie können...
 - einfache statistische Schätz- und Prüfverfahren anwenden.
 - passende Verfahren für verschiedene Aufgaben wählen.
 
-## Konzept der Veranstaltung {-}
+### Konzept der Veranstaltung {-}
 
 - Die gesamte Veranstaltung dient als Klausurvorbereitung
 - Die selbständige Anwendung der Verfahren steht im Vordergrund
 
-## Sitzungsvorbereitung {-}
+### Sitzungsvorbereitung {-}
 
 - Materialien werden zur eigenständigen Vorbereitung bereit gestellt
 - Dieses Online-Skript mit den Kerninhalten
@@ -25,15 +25,15 @@ Sie können...
 - Darin: Verweise auf weiterführende Literatur, YouTube-Videos, etc.
 - Fehler und Unklarheiten bitte per E-Mail melden!
 
-## Sitzungsablauf {-}
+### Sitzungsablauf {-}
 
-- Dienstags, 14h c.t. auf Zoom (Link in OLAT)
+- Dienstags, 14 h c.&nbsp;t.. auf Zoom (Link in OLAT)
 - Übungsaufgaben (und Lösungen) werden online bereit gestellt
 - Teilnehmer\*innen bearbeiten die Aufgaben in Break-Out-Sessions
 - Bei Problemen fragen Sie sich erstmal gegenseitig
 - Sonst bin ich ansprechbar (Zoom-Funktion: Um Hilfe bitten)
 
-## Empfehlungen {-}
+### Empfehlungen {-}
 
 - Lassen Sie sich auf den wöchentlichen Rhythmus ein
 - Bereiten Sie die Sitzungen vor und nach
@@ -42,26 +42,26 @@ Sie können...
 - Gleichen Sie in Lerngruppen Ihre Ziele ab
 - Machen Sie sich mit Ihrem Taschenrechner vertraut
 
-## Literaturempfehlungen {-}
+### Literaturempfehlungen {-}
 
 - Ganz besonders:
-  - @bortz (als eBook bei der UB erhältich; dieselben Notationskonventionen wie in der Veranstaltung)
+  - @bortz (als E-Book bei der UB erhältich; dieselben Notationskonventionen wie in der Veranstaltung)
 - Ergänzend:
   - @bahrenberg (geographiebezogen)
-  - @benninghaus (als eBook bei der UB erhältich)
+  - @benninghaus (als E-Book bei der UB erhältich)
 - Bedingt:
-  - @zimmermann-janschitz2014a (geographiebezogen; als eBook bei der UB erhältich)
+  - @zimmermann-janschitz2014a (geographiebezogen; als E-Book bei der UB erhältich)
 
-## Taschenrechner {-}
+### Taschenrechner {-}
 
 - Zulassungsregeln für Klausur wie für Mathe-Abi (Hessen)
 - Also kein "programmierbarer" Taschenrechner
 - Erlaubt ist z.B. CASIO FX-991DE Plus
 - "Wissenschaftlicher" Taschenrechner kann von großem Vorteil sein... aber den statistischen Funktionen nicht blind vertrauen!
 
-## Klausur {-}
+### Klausur {-}
 
-- Termin: 13. Juli 2021, 14h s.t.
+- Termin: 13. Juli 2021, 14 h s.&nbsp;t.
 - Präsenz oder online möglich
 - Berechnung der Aufgaben "von Hand" auf Papier
 - Bearbeitungsdauer: 60 Minuten
@@ -70,8 +70,8 @@ Sie können...
 - Vier Teilaufgaben, immer nach demselben Schema (dazu im Laufe des Semesters mehr)
 - Viele Probeklausuren zur Vorbereitung
 
-## Nachklausur {-}
+### Nachklausur {-}
 
-- Termin: 12. Oktober 2021, 14h s.t.
+- Termin: 12. Oktober 2021, 14 h s.&nbsp;t.
 - Gleiches Schema wie die reguläre Klausur (mit anderen Aufgaben)
 - Nicht einfacher als die reguläre Klausur

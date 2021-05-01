@@ -1,0 +1,46 @@
+## Übungsaufgaben {-}
+
+Die folgenden Aufgaben sind zur eigenständigen Überprüfung Ihrer Lernleistung gedacht (als Vor- oder Nachbereitung der Vorlesung, oder als Klausurübung) und nicht etwa als Hausaufgabe.
+
+`r naechste("aufgabe", T)`
+
+Eine Messreihe habe die Werte:
+
+```{r}
+c(165, 173, 155, 179, 158, 142) %>%
+  dcat()
+```
+
+a) Führen Sie eine Punktschätzung für $\mu$ und $\sigma$ der Grundgesamtheit durch.
+b) Welcher Standardfehler für $\bar{x}$ ist zu erwarten?
+
+`r naechste("aufgabe")`
+
+Die Sonnenstunden auf einer Ferieninsel (pro Tag, im Jahresdurschnitt) sind annähernd normalverteilt mit einer Standardabweichung von vier Minuten. Der Mittelwert $\mu$ ist unbekannt, es liegen neun Messwerte vor.
+
+a) Welcher Standardfehler für $\bar{x}$ ist zu erwarten?
+c) Welche Konfidenzintervallbreite korrespondiert mit einem Konfidenzniveau von 95%?
+b) Mit welchem Konfidenzniveau lässt sich $\mu$ "auf die Minute genau" (± 30 Sekunden) schätzen?
+d) Welche Stichprobengröße ist nötig um den Mittelwert mit einer Konfidenzintervallbreite von zwei Minuten und -niveau von 90% zu schätzen?
+
+`r naechste("aufgabe")`
+
+Sie intressieren sich für das Durchschnittseinkommen (in EUR) der Haushalte eines Stadtteils. Die Varianz ist mit $\sigma^2=4096$ bekannt. Eine Zufallsstichprobe von 40 befragten Haushalten weist einen Mittelwert von $\bar{x}=2650$ auf.
+
+a) Wie lautet das 90%-Konfidenzintervall?
+b) Mit welcher Wahrscheinlichkeit liegt das Durchschnittseinkommen zwischen 2640 und 2660 EUR?
+
+`r naechste("aufgabe")`
+
+Es sei bekannt, dass die Lieferzeit eines Bauteils aus Übersee annähernd normalverteilt ist mit einer Standardabweichung von 11,5 Tagen.
+
+Bei sieben Bestellvorgängen werden folgende Lieferzeiten festgestellt (in Tagen):
+
+$$116,5\quad 94,5\quad101,5\quad109,0\quad125,0\quad112,5\quad100,5$$
+
+Sie interessieren sich für die tatsächliche durchschnittliche Lieferzeit, von der Sie auch in Zukunft ausgehen können.
+
+a) Berechnen Sie das arithmetische Mittel der beobachteten Werte für die Lieferzeit.
+b) Was ist der Standardfehler für die Stichprobenverteilung von $\bar{x}$?
+c) Zwischen welchen Werten liegt die tatsächliche durchschnittliche Lieferzeit mit 95% Wahrscheinlichkeit?
+d) Wie viele zusätzliche Messungen müssten Sie vornehmen, um den tatsächlichen Mittelwert im selben Wertebereich zu 99% verorten zu können?
