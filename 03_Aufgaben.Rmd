@@ -1,26 +1,27 @@
 ## Übungsaufgaben {-}
 
-`r naechste("aufgabe", T) # 1`
+`r naechste("aufgabe", T) # ex1`
 
 a) Führen Sie eine $z$-Transformation der folgenden Verteilung durch:
 
     ```{r}
     set.seed(2220)
       rnorm(9, -20, 8) %>%
-      round(2) %>%
-      dcat()
+      round(2) -> ex_3_1_a
+      dcat(ex_3_1_a)
     ```
 
 b) Sie kennen das arithmetische Mittel (221,54) und die Varianz (13,02) einer Verteilung. Welche $x$-Werte entsprechen diesen $z$-Werten?
 
     ```{r}
     set.seed(2220)
-    runif(12, -4, 4) %>%
-      round(2) %>%
-      dcat()
+    runif(12, -3, 3) %>%
+      rlist::list.filter(~ abs(.) <= 3) %>%
+      round(2) -> ex_3_1_b
+      dcat(ex_3_1_b)
     ```
 
-`r naechste("aufgabe") # 2`
+`r naechste("aufgabe") # ex2`
 
 Gegeben sei eine Normalverteilung beschrieben durch:
 
@@ -30,18 +31,18 @@ a) Mit welcher Wahrscheinlichkeit werden die folgenden Werte unterschritten?
 
     ```{r}
     set.seed(9444)
-    runif(6, 15, 45) %>%
-      round(2) %>%
-      dcat()
+    runif(6, 32.2-3*4.4, 32.2+3*4.4) %>%
+      round(2) -> ex_3_2_a
+      dcat(ex_3_2_a)
     ```
 
 b) Welche Werte werden jeweils mit der folgenden Wahrscheinlichkeit über(!)schritten?
 
     ```{r}
-    c(0.05,  0.1,  5,  13,  50,  90,  99,  99.99) %>%
-      `/`(100) -> data
+    c(1.5, 2.5, 5, 13, 50,  90, 99, 99.5) %>%
+      `/`(100) -> ex_3_2_b
 
-    data %>%
+    ex_3_2_b %>%
       map(~ format(.x * 100)) %>%
       sprintf("%s%%", .) %>%
       dcat()
@@ -81,11 +82,11 @@ c) Wie hoch muss dieser Deich sein? (Welcher Wert $x_p$ entspricht diesem $z_p$?
 
 `r naechste("aufgabe") # 6`
 
-Die jährlichen Niederschlagsmengen in Mittelstedt betragen im Durchschnitt 40m bei annähernder Normalverteilung und einer Standardabweichung von 100&nbsp;mm. 
+Die jährlichen Niederschlagsmengen in Mittelstedt betragen im Durchschnitt 400 m bei annähernder Normalverteilung und einer Standardabweichung von 100&nbsp;mm. 
 
-a) Wie groß ist die Wahrscheinlichkeit, dass mehr als 50m Niederschlag fallen?
-b) Wie oft pro hundert Jahre kann mit weniger als 20m Niederschlag gerechnet werden?
-c) Mit welcher Wahrscheinlichkeit fallen zwischen 20m und 550&nbsp;mm Niederschlag?
+a) Wie groß ist die Wahrscheinlichkeit, dass mehr als 500 mm Niederschlag fallen?
+b) Wie oft pro hundert Jahre kann mit weniger als 200 m Niederschlag gerechnet werden?
+c) Mit welcher Wahrscheinlichkeit fallen zwischen 200 und 550&nbsp;mm Niederschlag?
 d) Welche Niederschlagsmenge wird wahrscheinlich in nur 2 von 100 Jahren übertroffen?
 e) In welchen Grenzen liegen die mittleren 75% der jährlichen Niederschlagsmenge?
 

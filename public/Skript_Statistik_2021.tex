@@ -261,7 +261,7 @@ Datum & Sitzung & Inhalt \\
 20. April 2021 & 1 & \protect\hyperlink{datenerhebung-und-huxe4ufigkeiten}{Datenerhebung und Häufigkeiten} \\
 27. April 2021 & 2 & \protect\hyperlink{mauxdfzahlen}{Maßzahlen} \\
 4. Mai 2021 & 3 & \protect\hyperlink{z-werte-und-normalverteilung}{z-Werte und Normalverteilung} \\
-11. Mai 2021 & 4 & {[}Schätzstatistik{]} \\
+11. Mai 2021 & 4 & \protect\hyperlink{schuxe4tzstatistik}{Schätzstatistik} \\
 18. Mai 2021 & 5 & {[}Grundlagen der Teststatistik{]} \\
 25. Mai 2021 & 6 & {[}Testverfahren mit zwei Stichproben{]} \\
 1. Juni 2021 & 7 & {[}Korrelation{]} \\
@@ -2458,7 +2458,7 @@ Die mittleren 85\% der Messwerte liegen also zwischen 990,7 und 1015,3~hPa.
   Sie kennen das arithmetische Mittel (221,54) und die Varianz (13,02) einer Verteilung. Welche \(x\)-Werte entsprechen diesen \(z\)-Werten?
 
 \begin{verbatim}
-1,19  -1,87  1,5  -0,44  2,96  0,2  3,83  0,54  -2,05  0,18  -0,23  0,9
+0,9  -1,4  1,12  -0,33  2,22  0,15  2,87  0,4  -1,54  0,13  -0,17  0,68
 \end{verbatim}
 \end{enumerate}
 
@@ -2477,13 +2477,13 @@ Gegeben sei eine Normalverteilung beschrieben durch:
   Mit welcher Wahrscheinlichkeit werden die folgenden Werte unterschritten?
 
 \begin{verbatim}
-39,58  17,01  31,38  44,48  41,04  30,85
+40,63  20,77  33,41  44,95  41,91  32,95
 \end{verbatim}
 \item
   Welche Werte werden jeweils mit der folgenden Wahrscheinlichkeit über(!)schritten?
 
 \begin{verbatim}
-0,05%  0,1%  5%  13%  50%  90%  99%  99,99%
+1,5%  2,5%  5%  13%  50%  90%  99%  99,5%
 \end{verbatim}
 \item
   In welchem Bereich liegen die mittleren 95\% der Werte?
@@ -2556,17 +2556,17 @@ Es ist ein neuer Deich zu bauen, der so sicher sein soll, dass er nur alle 200 J
 
 \protect\hyperlink{loesung-3-6}{zur~Lösung}
 
-Die jährlichen Niederschlagsmengen in Mittelstedt betragen im Durchschnitt 40m bei annähernder Normalverteilung und einer Standardabweichung von 100~mm.
+Die jährlichen Niederschlagsmengen in Mittelstedt betragen im Durchschnitt 400~m bei annähernder Normalverteilung und einer Standardabweichung von 100~mm.
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
 \tightlist
 \item
-  Wie groß ist die Wahrscheinlichkeit, dass mehr als 50m Niederschlag fallen?
+  Wie groß ist die Wahrscheinlichkeit, dass mehr als 500~mm Niederschlag fallen?
 \item
-  Wie oft pro hundert Jahre kann mit weniger als 20m Niederschlag gerechnet werden?
+  Wie oft pro hundert Jahre kann mit weniger als 200~m Niederschlag gerechnet werden?
 \item
-  Mit welcher Wahrscheinlichkeit fallen zwischen 20m und 550~mm Niederschlag?
+  Mit welcher Wahrscheinlichkeit fallen zwischen 200 und 550~mm Niederschlag?
 \item
   Welche Niederschlagsmenge wird wahrscheinlich in nur 2 von 100 Jahren übertroffen?
 \item
@@ -2579,6 +2579,590 @@ Die jährlichen Niederschlagsmengen in Mittelstedt betragen im Durchschnitt 40m 
 \protect\hyperlink{loesung-3-7}{zur~Lösung}
 
 Errechnen Sie für die Verteilungen in \protect\hyperlink{aufgabe-2-5}{Aufgabe 5 aus Sitzung 2} jeweils den Variationskoeffizienten.
+
+\hypertarget{schuxe4tzstatistik}{%
+\chapter{Schätzstatistik}\label{schuxe4tzstatistik}}
+
+\hypertarget{lernziele-dieser-sitzung-3}{%
+\subsection*{Lernziele dieser Sitzung}\label{lernziele-dieser-sitzung-3}}
+\addcontentsline{toc}{subsection}{Lernziele dieser Sitzung}
+
+Sie können\ldots{}
+
+\begin{itemize}
+\tightlist
+\item
+  eine Punktschätzung für \(\mu\) und \(\sigma\) durchführen.
+\item
+  den Standardfehler der Stichprobenverteilung von \(\bar{x}\) bestimmen.
+\item
+  eine Intervallschätzung für \(\mu\) durchführen.
+\end{itemize}
+
+\hypertarget{lehrvideos-sommersester-2020}{%
+\subsection*{Lehrvideos (Sommersester 2020)}\label{lehrvideos-sommersester-2020}}
+\addcontentsline{toc}{subsection}{Lehrvideos (Sommersester 2020)}
+
+\begin{itemize}
+\tightlist
+\item
+  4a) \href{https://video01.uni-frankfurt.de/Mediasite/Play/7f5b3002871a4b18859db90d937e5f8a1d}{Alphafehler}
+\item
+  4b) \href{https://video01.uni-frankfurt.de/Mediasite/Play/393be1f574c643f9a045a6b4cc60a4511d}{Stichprobenverteilung}
+\item
+  4c) \href{https://video01.uni-frankfurt.de/Mediasite/Play/ace60129a0c94894a66349f56e0b24a31d}{Schätzungen}
+\end{itemize}
+
+\hypertarget{stichprobenverteilung}{%
+\section{Stichprobenverteilung}\label{stichprobenverteilung}}
+
+\begin{quote}
+Die Stichprobenverteilung ist eine theoretische Verteilung, welche die möglichen Ausprägungen eines statistischen Kennwertes (z.~B. \(\bar{x}\)) sowie deren Auftretenswahrscheinlichkeit beim Ziehen von Zufallsstichproben des Umfanges \(n\) beschreibt. (\protect\hyperlink{ref-bortz}{Bortz und Schuster 2010}: 83)
+\end{quote}
+
+Hier ist zunächst die theoretische Verteilung des Mittelwerts einer Stichprobe relevant. Insbesondere interessiert uns, wie sich die theoretische Verteilung des Mittelwerts abhängig von der Stichprobengröße verhält.
+
+\hypertarget{szenario-1-normalverteilte-grundgesamtheit}{%
+\subsection{Szenario 1: Normalverteilte Grundgesamtheit}\label{szenario-1-normalverteilte-grundgesamtheit}}
+
+Die Grundgesamtheit (Population) einer Variable \(x\) sei normalverteilt mit \(\mu=50\) und \(\sigma^2=25\). Wir können also schreiben:
+
+\nopagebreak
+
+\[ x \sim N(50, \enspace 25) \]
+
+Die Standardabweichung der Population beträgt entsprechend:
+
+\nopagebreak
+
+\[\begin{aligned}
+\sigma&=\sqrt{\sigma^2}\\[4pt]
+&=\sqrt{25}=5\end{aligned}\]
+
+Graphisch ist die Dichtefunktion der Verteilung in Abbildung \ref{fig:pop} veranschaulicht.
+
+\begin{figure}[!h]
+
+{\centering \includegraphics[width=.6\linewidth]{Skript_Statistik_2021_files/figure-latex/pop-1} 
+
+}
+
+\caption{Dichtefunktion der Grundgesamtheit}\label{fig:pop}
+\end{figure}
+
+Wenn eine einzelne Stichprobe der Größe \(n=3\) aus dieser Verteilung gezogen würde, hätte sie drei konkrete Werte (\(x_1\), \(x_2\) und \(x_3\)) sowie ein konkretes arithmetisches Mittel (\(\bar{x}\)).
+
+Es lässt sich jedoch auch eine Wahrscheinlichkeitsdichtefunktion der Mittelwerte \emph{aller theoretisch möglichen Stichproben} der Größe \(n=3\) (und zusätzlich der Größe \(n=6\)) zeichnen (s. Abbildung \ref{fig:stich}).
+
+\begin{figure}[!h]
+
+{\centering \includegraphics[width=.6\linewidth]{Skript_Statistik_2021_files/figure-latex/stich-1} 
+
+}
+
+\caption{Dichtefunktionen der Stichprobenverteilungen}\label{fig:stich}
+\end{figure}
+
+\hypertarget{erwartungswert}{%
+\subsubsection{Erwartungswert}\label{erwartungswert}}
+
+Es fällt auf, dass die Stichprobenverteilungen für \(\bar{x}\) normalverteilt sind und um das arithmetische Mittel der Grundgesamtheit (\(\mu\)) symmetrisch sind.
+
+Das arithmetische Mittel der Stichprobenverteilung \(\mu_{\bar{x}}\) wird auch als \textbf{Erwartungswert} (engl. \emph{expected value}) von \(\bar{x}\) bezeichnet. Es gilt:
+
+\nopagebreak
+
+\[
+\mu_{\bar{x}} = \mu
+\label{eq:mean}
+\]
+
+Wir können auch sagen: \(\bar{x}\) ist ein \enquote{erwartungstreuer} Schätzparameter für \(\mu\); nicht weil er in der Empirie zwangsläufig identisch mit \(\mu\) wäre, sondern weil er mit zunehmender Stichprobengröße immer stärker zu \(\mu\) tendiert.
+
+\hypertarget{standardfehler}{%
+\subsubsection{Standardfehler}\label{standardfehler}}
+
+Zusätzlich fällt in \ref{fig:stich} auf: Je größer die Stichprobe, desto gestauchter die Dichtekurve der Stichprobenverteilung: Die theoretische Verteilung von \(\bar{x}\) bei \(n=6\) weist eine kleinere Varianz auf als bei \(n=3\). Das ist einigermaßen intuitiv, denn wir können uns vorstellen, dass das arithmetische Mittel \(\bar{x}\) bei steigender Stichprobengröße ein immer präziserer Schätzwert für \(\mu\) wird.
+
+Die Varianz der Stichprobenverteilung für \(\bar{x}\) bezeichnen wir mit \(\sigma^2_{\bar{x}}\). Sie hängt von der Varianz der Population ab und ist invers proportional zur Stichprobengröße. Es gilt:
+
+\nopagebreak
+
+\[
+\sigma^2_{\bar{x}} = \frac{\sigma^2}{n}
+\label{eq:4var}
+\]
+
+Die Standardabweichung der Stichprobenverteilung (\(\sigma_{\bar{x}}\)) wird auch Standardfehler (engl. \emph{standard error}) genannt. Durch Wurzelziehen ergibt sich:
+
+\nopagebreak
+
+\[
+\sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}} \label{eq:4sd}
+\]
+
+Zusammenfassend lässt sich sagen:
+
+\nopagebreak
+
+\[
+\begin{aligned}
+\bar{x} \sim N(\mu, {\textstyle \frac{\sigma^2}{n}}) \quad \textrm{für} \quad x\sim N(\mu, \sigma^2)
+\end{aligned}
+\label{eq:4norm}
+\]
+
+\hypertarget{szenario-2-nicht-normalverteilte-grundgesamtheit}{%
+\subsection{Szenario 2: Nicht normalverteilte Grundgesamtheit}\label{szenario-2-nicht-normalverteilte-grundgesamtheit}}
+
+Die Gleichungen \eqref{eq:mean}, \eqref{eq:4var} und \eqref{eq:4sd} gelten uneingeschränkt auch für die Stichprobenverteilungen von nicht normalverteilten Populationen. Nur die Normalverteilung der Stichprobenverteilung \eqref{eq:4norm} ist bei nicht normalverteilten Grundgesamtheiten nicht automatisch gegeben.
+
+Das zentrale Grenzwerttheorem (engl. \emph{central limit theorem}) besagt jedoch:
+
+\begin{quote}
+Die Verteilung von Mittelwerten aus Stichproben des Umfangs \(n\), die derselben Grundgesamtheit entnommen wurden, geht mit wachsendem Stichprobenumfang in eine Normalverteilung über. (\protect\hyperlink{ref-bortz}{Bortz und Schuster 2010}: 86)
+\end{quote}
+
+Abbildung \ref{fig:beta} veranschaulicht diesen Effekt für eine nicht normalverteilte Grundgesamtheit.
+
+\begin{figure}[!h]
+
+{\centering \includegraphics[width=.6\linewidth]{Skript_Statistik_2021_files/figure-latex/beta-1} 
+
+}
+
+\caption{Stichprobenverteilung bei nicht normalverteilter Population}\label{fig:beta}
+\end{figure}
+
+In der Praxis gilt die Faustregel: Ab einer Stichprobengröße von \(n=30\) können wir statistische Verfahren anwenden, die von einer theoretischen Normalverteilung von \(\bar{x}\) ausgehen -- und zwar \emph{unabhängig} von der Verteilung der Grundgesamtheit.
+
+\hypertarget{punktschuxe4tzung}{%
+\section{Punktschätzung}\label{punktschuxe4tzung}}
+
+Bei statistischen Untersuchungen geht es oft darum, ausgehend von der empirischen Verteilung einer Stichprobe auf Parameter der Grundgesamtheit zu schließen.
+
+Die Punktschätzung (engl. \emph{point estimation}) ist dabei eine vergleichsweise einfache und intuitive Vorgehensweise.
+
+\hypertarget{punktschuxe4tzung-des-arithmetischen-mittels}{%
+\subsection{Punktschätzung des arithmetischen Mittels}\label{punktschuxe4tzung-des-arithmetischen-mittels}}
+
+Wenn eine Stichprobe vorliegt, dann ist ihr arithmetisches Mittel (\(\bar{x}\)) als erwartungstreuer Punktschätzer der wahrscheinlichste Wert für das arithmetische Mittel der Grundgesamtheit (\(\mu\)). Es gilt
+
+\[
+\hat{\mu} = \bar{x}
+\label{eq:muhat}
+\]
+
+wobei das \enquote{Dach} auf dem \(\mu\) dafür steht, dass es sich nur um eine Schätzung handelt.
+
+Beispiel:
+
+\begin{itemize}
+\tightlist
+\item
+  Zehn Studierende der Humangeographie werden zufällig ausgewählt, um ihre Pendelzeit zum IG-Farben-Campus zu erfassen.
+\item
+  Die Angaben in Minuten lauten:
+  \texttt{22\ 26\ 12\ 23\ 48\ 31\ 15\ 71\ 17\ 35}
+\item
+  Das arithmetische Mittel der Messreihe lässt sich -- wie in \protect\hyperlink{arithmetisches-mittel}{Sitzung~2} ausführlich besprochen -- berechnen: \(\bar{x}=30\)
+\item
+  Da es sich um eine erwartungstreue Schätzgröße (und eine valide Zufallsstichprobe) handelt, kann die durchschnittliche Pendelzeit \emph{aller} Studierenden der Humangeographie gemäß Gleichung \eqref{eq:muhat} auf \(\hat{\mu}=\bar{x}=30\) Minuten geschätzt werden.
+\end{itemize}
+
+Gleichzeitig wissen wir jedoch, dass diese Punktschätzung des arithmetischen Mittels vermutlich nicht ganz präzise ist, sondern einem Standardfehler (\(\sigma_{\bar{x}}\)) unterliegt. Woher wissen wir, wie groß dieser Standardfehler ist (und wie unpräzise damit unsere Schätzung)?
+
+\hypertarget{punktschuxe4tzung-der-varianz-und-der-standardabweichung}{%
+\subsection{Punktschätzung der Varianz und der Standardabweichung}\label{punktschuxe4tzung-der-varianz-und-der-standardabweichung}}
+
+Bei der Varianz einer Stichprobe \(s^2\) handelt es sich ebenfalls um einen erwartungstreuen Punktschätzer für die Varianz der Grundgesamtheit \(\sigma^2\).
+
+Es gilt also
+
+\[
+\hat{\sigma^2} = s^2 \label{eq:varhat}
+\]
+
+und damit natürlich auch
+
+\[
+\hat{\sigma} = s \label{eq:sigmahat}
+\]
+
+\hypertarget{schuxe4tzung-des-standardfehlers}{%
+\subsection{Schätzung des Standardfehlers}\label{schuxe4tzung-des-standardfehlers}}
+
+Wir führen das obige Beispiel fort:
+
+\begin{itemize}
+\tightlist
+\item
+  Die Varianz der Stichprobe können wir berechnen: \(s^2\approx319{,}78\) (s.\protect\hyperlink{varianz}{Sitzung~2}).
+\item
+  Die Varianz der Grundgesamtheit kann also mit Gleichung \eqref{eq:muhat} auch auf \(\hat{\sigma^2}=s^2\approx319{,}78\) geschätzt werden.
+\item
+  Analog können wir die Standardabweichung der Population auf \(\hat{\sigma}=s\approx17{,}88\) schätzen.
+\item
+  Den Standardfehler können wir mit diesem Schätzwert anhand Gleichung \eqref{eq:4sd} berechnen. Allerdings benutzen wir statt \(\sigma_{\bar{x}}\) das Symbol \(s_{\bar{x}}\), da es sich um einen Schätzwert handelt:
+\end{itemize}
+
+\nopagebreak
+
+\[
+\begin{aligned}
+s_{\bar{x}} &= \frac{s}{\sqrt{n}}\\[4pt]
+&\approx \frac{17{,}88}{\sqrt{10}}\approx5{,}65
+\end{aligned}
+\]
+
+Je größer die Stichprobe, desto genauer lassen sich also Parameter der Population schätzen. Die statistische Antwort auf die Frage, wie groß die Stichprobe denn sein müsse, lautet demnach zunächst immer: Möglichst groß!
+
+Bemerkenswert ist jedoch, dass dabei die Größe der Grundgesamtheit (\(N\), im Beispiel die Anzahl aller Studierenden der Humangeographie) bei diesen Überlegungen überhaupt keine Rolle spielt.
+
+\hypertarget{intervallschuxe4tzung}{%
+\section{Intervallschätzung}\label{intervallschuxe4tzung}}
+
+Um eine Intervallschätzung durchführen zu können, muss:
+
+\begin{itemize}
+\tightlist
+\item
+  die Standardabweichung der Grundgesamtheit \(\sigma\) bekannt und
+\item
+  die theoretische Verteilung von \(\bar{x}\) normalverteilt sein. Das bedeutet:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{Entweder} es ist bekannt, dass die Grundgesamtheit normalverteilt ist
+  \item
+    \emph{Und/oder} die Stichprobengröße ist \(n\geq30\)
+  \end{itemize}
+\end{itemize}
+
+Für das obige Beispiel der Pendelzeiten wissen wir nicht, wie die Verteilung der Grundgesamtheit aussieht, und die Stichprobengröße (\(n=10\)) ist kleiner als 30. Eine Intervallschätzung können wir hier also nicht durchführen!
+
+Auch bei der Intervallschätzung (engl. \emph{interval estimation}) geht es darum, das arithmetische Mittel der Population (\(\mu\)) zu schätzen. Allerdings geben wir nicht einfach nur den wahrscheinlichsten Wert an, sondern einen Bereich (ein \emph{Intervall}), in dem \(\mu\) mit einer bestimmten Wahrscheinlichkeit liegt.
+
+Die Grundüberlegung ist dabei folgende:
+
+\begin{itemize}
+\tightlist
+\item
+  Wir haben eine \emph{empirische} Stichprobe vorliegen (und können ihren Mittelwert \(\bar{x}\) und ihre Standardabweichung \(s\) berechnen).
+\item
+  Wir wissen dass die \emph{theoretische} Verteilung aller möglichen Stichproben normalverteilt ist, und um den gesuchten Wert \(\mu\) symmetrisch ist.
+\item
+  Den Mittelwert unserer empirischen Stichprobe \(\bar{x}\) können wir uns als zufälligen Wert der theoretischen Stichprobenverteilung von \(\bar{x}\) vorstellen.
+\item
+  Wo genau in dieser theoretischen Verteilung wir mit unserem empirischen Wert \enquote{gelandet} sind, wissen wir nicht.
+\item
+  Wenn wir den Wert \(\mu\) kennen würden, könnten wir (mit den Methoden aus \protect\hyperlink{wahrscheinlichkeitsrechnung-mit-standardnormalverteilung}{Sitzung~3}) die Wahrscheinlichkeit für einen beliebeigen Bereich angeben, in den ein zufälliges \(\bar{x}\) fällt.
+\item
+  Der entscheidende Trick: Weil die Normalverteilung symmetrisch ist, sind diese Wahrscheinlichkeiten analog anzuwenden auf die Bereiche einer konstruierten Verteilung mit gleichem \(\sigma_{\bar{x}}\) um unser \(\bar{x}\), in die der wirkliche Wert \(\mu\) fällt. (s. Abbildung \ref{fig:double}).
+\end{itemize}
+
+\begin{figure}[!h]
+
+{\centering \includegraphics[width=.6\linewidth]{Skript_Statistik_2021_files/figure-latex/double-1} 
+
+}
+
+\caption{Konstruierte Verteilung um $\bar{x}$}\label{fig:double}
+\end{figure}
+
+Dabei heißt der Bereich Konfidenzintervall (engl. \emph{confidence interval}), und seine Breite wird mit \(\textrm{KIB}\) abgekürzt. Die Wahrscheinlichkeit, dass wir mit unserer Schätzung \emph{außerhalb} des Konfidenzintervalls liegen wird mit \(\alpha\) gekennzeichnet. Ein 95\%-Konfidenzintervall hat also ein \(\alpha\) von 0,05 (s. \ref{fig:konf}).
+
+\begin{figure}[!h]
+
+{\centering \includegraphics[width=.6\linewidth]{Skript_Statistik_2021_files/figure-latex/konf-1} 
+
+}
+
+\caption{Konfidenzintervall}\label{fig:konf}
+\end{figure}
+
+\begin{table}
+
+\caption{\label{tab:tab}Jahresniederschlag in Hessen}
+\centering
+\begin{tabular}[t]{rr}
+\toprule
+Jahr & Niederschlag (l/m²)\\
+\midrule
+2011 & 855,3\\
+2012 & 839,5\\
+2013 & 850,6\\
+2014 & 873,1\\
+2015 & 858,3\\
+2016 & 857,1\\
+2017 & 861,4\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Ein Beispiel soll dies verdeutlichen: Wir wissen, dass die jährliche Niederschlagsmenge in Hessen normalverteilt ist mit \(\sigma=10{,}23\). Wir haben die Messwerte in Tabelle 1 erhoben und möchten den Mittelwert (\(\mu\)) per Intervallschätzung angeben.
+
+Zunächst errechnen wir den Mittelwert unserer empirischen Stichprobe:
+
+\nopagebreak
+
+\[
+\begin{aligned}
+  \bar{x}&\approx856{,}47
+\end{aligned}
+\]
+
+Dann errechnen wir anhand Gleichung \eqref{eq:4sd} den Standardfehler der theoretischen Verteilung von \(\bar{x}\):
+
+\nopagebreak
+
+\[\begin{aligned}
+\sigma_{\bar{x}}&=\frac{\sigma}{\sqrt{n}}\\[4pt]
+           &\approx\frac{10{,}23}{\sqrt{7}}\approx3,86
+\end{aligned}\]
+
+\hypertarget{gesuchtes-alpha}{%
+\subsection{\texorpdfstring{Gesuchtes \(\alpha\)}{Gesuchtes \textbackslash alpha}}\label{gesuchtes-alpha}}
+
+Nun könnte eine Fragerichtung lauten: Wie groß ist die Wahrscheinlichkeit, dass der Mittelwert der Population \(\mu\) in einem Korridor von ± 5 l/m² um \(\bar{x}\) liegt?\footnote{Genau genommen ist das nicht ganz korrekt, \enquote{denn tatsächlich kann der Parameter nur innerhalb oder außerhalb des gefundenen Bereichs liegen. Die Wahrscheinlichkeit, dass ein Parameter in einen bestimmten Bereich fällt, ist damit entweder 0 oder 1.} (\protect\hyperlink{ref-bortz}{Bortz und Schuster 2010}: 93). Mathematisch korrekt müsste es heißen: \enquote{Die Wahrscheinlichkeit, dass \(\bar{x}\) zu einer Population gehört, deren Parameter \(\mu\) in diesem Bereich liegt\ldots{}}}
+
+Gesucht ist bei einer Konfidenzintervallbreite von \(\textit{KIB}=10\) also die Wahrscheinlichkeit:
+
+\nopagebreak
+
+\[1-\alpha\approx P(851{,}47 < \mu < 861{,}47)\]
+
+Generalisierend lässt sich schreiben:
+
+\nopagebreak
+
+\[
+1-\alpha=P(x_{\alpha/2} < \mu < x_{(1-\alpha/2)})
+\]
+
+\nopagebreak
+
+\ldots wobei \(x_{\alpha/2}\) die Untergrenze darstellt und \(x_{(1-\alpha/2)}\) die Obergrenze.
+
+In \(z\)-Werten ausgedrückt:
+
+\nopagebreak
+
+\[
+1-\alpha=P(z_{\alpha/2} < z_{\mu} < z_{(1-\alpha/2)})
+\label{eq:konf}
+\]
+
+In \protect\hyperlink{wahrscheinlichkeitsrechnung-mit-standardnormalverteilung}{Sitzung~3} haben wir bereits gelernt, wie diese Wahrscheinlichkeit berechnet werden kann. Im Folgenden wird der Rechenweg noch einmal am Beispiel dargelegt.
+
+\hypertarget{die-umstuxe4ndliche-variante}{%
+\subsubsection{Die umständliche Variante}\label{die-umstuxe4ndliche-variante}}
+
+Zunächst müssen wir die Intervallgrenzen in\(z\)-Werte umwandeln, um die Unter- bzw. Überschreitungswahrscheinlichkeiten ermitteln zu können. Die z-Transformation muss hier jedoch anhand des Standardfehlers \(\sigma_{\bar{x}}\) geschehen, da wir ja an der Stichprobenverteilung interessiert sind. Durch \(z\)-Transformation mit \(\bar{x}\) und dem Standardfehler \(\sigma_{\bar{x}}\) erhalten wir die standardisierten Intervallgrenzen.
+
+Untergrenze:
+
+\nopagebreak
+
+\[\begin{aligned}
+z_{\alpha/2} &= \frac{x_{\alpha/2}-\bar{x}}{\sigma_{\bar{x}}}\\[4pt]
+&\approx\frac{851{,}47-856,47}{3,86}\approx-1,30
+\end{aligned}\]
+
+Obergrenze:
+
+\nopagebreak
+
+\[\begin{aligned}
+z_{(1-\alpha/2)} &= \frac{x_{(1-\alpha/2)}-\bar{x}}{\sigma_{\bar{x}}}\\[4pt]
+&\approx\frac{861{,}47-856,47}{3,86}\approx1,30
+\end{aligned}\]
+
+Es ist wenig überraschend, dass die \(z\)-transformierten Werte symmetrisch sind. Wir setzen in \eqref{eq:konf} ein:
+
+\nopagebreak
+
+\[1-\alpha\approx P(-1{,}30 <z_{\mu} < 1{,}30)\]
+
+Dies lässt sich umformen in:
+
+\nopagebreak
+
+\[
+1-\alpha\approx P(z_{\mu}<1{,}08) - P(z_{\mu}<-1{,}08) 
+\]
+
+Die jeweiligen Wahrscheinlichkeiten lassen sich in der Tabelle für \(p\)-Werte der Normalverteilung nachschauen (bzw. für den negativen \(z\)-Wert errechnen, s. \href{Formelsammlung\%20und\%20Wertetabellen.pdf}{Formelsammlung}):
+
+\nopagebreak
+
+\[
+\begin{aligned}
+1-\alpha&\approx 0,9032 - 0,0968\\
+&=0,8064
+\end{aligned}
+\]
+
+Die Wahrscheinlichkeit, dass \(\mu\) im Konfidenzintervalls 856,47 ± 5 l/m² liegt, beträgt also 80,64\%.
+
+\hypertarget{die-schnelle-variante}{%
+\subsubsection{Die schnelle Variante}\label{die-schnelle-variante}}
+
+Wir können den \(z\)-Wert für die Obergrenze des Konfidenzintervalls ganz einfach ausrechnen, weil wir wissen, dass die Obergrenze um 5 größer ist als \(\bar{x}\) und dass \(z_{\bar{x}}=0\):
+
+\nopagebreak
+
+\[\begin{aligned}
+z_{(1-\alpha/2)}&=\frac{5}{\sigma_{\bar{x}}}\\
+&\approx\frac{5}{3,86}\\
+&\approx1{,}30
+\end{aligned}\]
+
+Oberhalb dieses Werts liegt bekanntermaßen der Anteil \(\frac{\alpha}{2}\), woraus sich mit Blick auf die Tabelle ergibt:
+
+\nopagebreak
+
+\[\begin{aligned}
+\frac{\alpha}{2}&=1-0,9032\\[4pt]
+\alpha&=0,1936
+\end{aligned}\]
+
+\hypertarget{gesuchtes-konfidenzintervall}{%
+\subsection{Gesuchtes Konfidenzintervall}\label{gesuchtes-konfidenzintervall}}
+
+Eine weitere Möglichkeit der Fragestellung lautet: In welchem Bereich liegt das arithmetische Mittel \(\mu\) mit einer Wahscheinlichkeit von 90\%?
+
+Vorgegeben ist also \(\alpha=0{,}1\), und gesucht sind die Unter- und die Obergrenze des Konfidenzintervalls.
+
+Wir setzen ein:
+
+\nopagebreak
+
+\[\begin{aligned}
+1-\alpha&=P(z_{\alpha/2} < z_{\mu} < z_{(1-\alpha/2)})\\[4pt]
+0{,}9 &= P(z_{5\%} < z_{\mu} < z_{95\%})
+\end{aligned}\]
+
+Die entsprechenden \(z\)-Werte der Intervallgrenzen lassen sich (in umgekehrter Suchrichtung) aus der Tabelle ablesen:
+
+\nopagebreak
+
+\[\begin{aligned}
+z_{5\%}&\approx-1{,}64\\[4pt]
+z_{95\%}&\approx 1{,}64
+\end{aligned}\]
+
+Durch umgekehrte z-Transformation -- auch hier weider mit \(\bar{x}\) und \(\sigma_{\bar{x}}\) -- ergeben sich die Intervallgrenzen.
+
+Untergrenze:
+
+\nopagebreak
+
+\[\begin{aligned}
+x_{5\%} &= z_{5\%} \cdot \sigma_{\bar{x}} + \bar{x}\\[4pt]
+&\approx -1{,}64 \cdot 3,86 + 856{,}47\\[4pt]
+&\approx 850,14\\[6pt]
+\end{aligned}\]
+
+Obergrenze:
+
+\nopagebreak
+
+\[
+\begin{aligned}
+x_{95\%}&= z_{95\%} \cdot \sigma_{\bar{x}} + \bar{x}\\[4pt]
+&\approx 1{,}64 \cdot 3,86 + 856{,}47\\[4pt]
+&\approx 862,80
+\end{aligned}\]
+
+Auch hier gibt es wieder eine kleine Abkürzung: Aufgrund der Symmetrie unserer theoretischen Verteilung gilt für die Konfidenzintervallbreite generell:
+
+\nopagebreak
+
+\[
+\frac{\mathit{KIB}}{2} = z_{(1-\alpha/2)} \cdot \sigma_{\bar{x}}
+\label{eq:kib}
+\]
+
+Wir setzen einfach unsere Werte ein:
+
+\nopagebreak
+
+\[\begin{aligned}
+\frac{\mathit{KIB}}{2} &= z_{95\%} \cdot s_{\bar{x}}\\[4pt]
+&\approx1{,}64 \cdot 3,86\\[4pt]
+&\approx 6,33
+\end{aligned}\]
+
+Die Intervallgrenzen ergeben sich dann trivial aus \(\bar{x} \pm \frac{\mathit{KIB}}{2}\).
+
+\hypertarget{gesuchtes-n}{%
+\subsection{\texorpdfstring{Gesuchtes \(n\)}{Gesuchtes n}}\label{gesuchtes-n}}
+
+Eine letzte Fragerichtung lautet: Wie viele Messwerte müssten vorliegen, um den durchschnittlichen Niederschlag mit einem Konfidenzniveau von 99\% und einer Genauigkeit von ± 5 l/m² schätzen zu können?
+
+Gegeben sind also das Konfidenzintervall und \(\alpha=0{,}01\), gesucht wird \(n\). Wir wissen, dass die Stichprobengröße \(n\) den Standardfehler \(\sigma_{\bar{x}}\) bestimmt. Also benutzen wir zunächst Gleichung \eqref{eq:kib} und formen um:
+
+\nopagebreak
+
+\[\begin{aligned}
+\frac{\mathit{KIB}}{2} &= z_{(1-\alpha/2)} \cdot \sigma_{\bar{x}}\\[4pt]
+\sigma_{\bar{x}} &= \frac{\mathit{KIB}}{2\cdot z_{(1-\alpha/2)}} 
+\end{aligned}\]
+
+Durch Einsetzen und mit Blick auf die Tabelle erhalten wir:
+
+\nopagebreak
+
+\[\begin{aligned}
+\sigma_{\bar{x}} &= \frac{10}{2\cdot z_{99{,}5\%}}\\[4pt]
+ &\approx \frac{10}{2\cdot 2{,}58}\\[4pt]
+ &\approx 1{,}94
+\end{aligned}\]
+
+Dieser Standardfehler \(\sigma_{\bar{x}}\approx1{,}94\) würde unseren Anforderungen genügen. Welches \(n\) ist nötig, um diesen Standardfehler zu erreichen? Wir formen Gleichung \eqref{eq:4sd} um\ldots{}
+
+\nopagebreak
+
+\[\begin{aligned}
+\sigma_{\bar{x}} &= \frac{\sigma}{\sqrt{n}}\\[4pt]
+               n &= \Big(\frac{\sigma}{\sigma_{\bar{x}}}\Big)^2
+\end{aligned}\]
+
+\ldots und setzen den angestrebten Standardfehler sowie die Standardabweichung der Population (\(\sigma=10{,}23\)) ein:
+
+\nopagebreak
+
+\[
+\begin{aligned}
+n&=\Big(\frac{\sigma}{\sigma_{\bar{x}}}\Big)^2\\[4pt]
+n&\approx\bigg(\frac{10{,}23}{1{,}94}\bigg)^2\\[4pt]
+&\approx27{,}80
+\end{aligned}
+\]
+
+Wir müssten also 28 Stichproben vorliegen haben.
+
+\hypertarget{tipps-zur-vertiefung-3}{%
+\section*{Tipps zur Vertiefung}\label{tipps-zur-vertiefung-3}}
+\addcontentsline{toc}{section}{Tipps zur Vertiefung}
+
+\begin{itemize}
+\tightlist
+\item
+  YouTube-Kanal \enquote{Kurzes Tutorium Statistik}: \href{https://www.youtube.com/watch?v=DdwTa28W4Os}{Intervallschätzungen - Konfidenzintervalle}
+\item
+  Kapitel 6.2--6.4 in \protect\hyperlink{ref-bortz}{Bortz und Schuster} (\protect\hyperlink{ref-bortz}{2010})
+\item
+  Kapitel 8.1.1 -- 8.1.4 in \protect\hyperlink{ref-delange}{Lange und Nipper} (\protect\hyperlink{ref-delange}{2018})
+\item
+  Kapitel 8 in \protect\hyperlink{ref-klemm}{Klemm} (\protect\hyperlink{ref-klemm}{2002})
+\item
+  Kapitel 5.3.1 in \protect\hyperlink{ref-bahrenberg}{Bahrenberg, Giese und Nipper} (\protect\hyperlink{ref-bahrenberg}{2010})
+\item
+  \emph{English:} Kapitel 8 in \protect\hyperlink{ref-burt}{Burt und Barber} (\protect\hyperlink{ref-burt}{1996})
+\end{itemize}
 
 \hypertarget{formelsammlung-und-wertetabellen}{%
 \chapter*{Formelsammlung und Wertetabellen}\label{formelsammlung-und-wertetabellen}}
@@ -2679,7 +3263,7 @@ von 200 bis unter 225 h & 1\\
 
 Das Resultat sollte je nach gewählter Klassengröße in etwa so aussehen:
 
-\begin{center}\includegraphics[width=.6\linewidth]{Skript_Statistik_2021_files/figure-latex/unnamed-chunk-27-1} \end{center}
+\begin{center}\includegraphics[width=.6\linewidth]{Skript_Statistik_2021_files/figure-latex/unnamed-chunk-28-1} \end{center}
 
 \hypertarget{c-1}{%
 \subsubsection{c)}\label{c-1}}
@@ -2909,7 +3493,7 @@ Schließlich ist die Standardabweichung: \[s=\sqrt{s^2}\approx\sqrt{3,14}\approx
 
 Da der untere Angelpunkt und der Median zusammenfallen, sieht der Boxplot etwas ungewöhnlich aus:
 
-\begin{center}\includegraphics[width=.6\linewidth]{Skript_Statistik_2021_files/figure-latex/unnamed-chunk-37-1} \end{center}
+\begin{center}\includegraphics[width=.6\linewidth]{Skript_Statistik_2021_files/figure-latex/unnamed-chunk-38-1} \end{center}
 
 \hypertarget{loesung-2-4}{%
 \subsection{Lösung~2-4}\label{loesung-2-4}}
@@ -3308,18 +3892,18 @@ Schließlich die einzelnen Werte:
 \toprule
 $z_i$ & Berechnung\\
 \midrule
-1,19 & $x_{1} = 1{,}19 \cdot 3{,}61 + 221{,}54\approx225{,}84$\\
--1,87 & $x_{2} = -1{,}87 \cdot 3{,}61 + 221{,}54\approx214{,}79$\\
-1,50 & $x_{3} = 1{,}5 \cdot 3{,}61 + 221{,}54\approx226{,}95$\\
--0,44 & $x_{4} = -0{,}44 \cdot 3{,}61 + 221{,}54\approx219{,}95$\\
-2,96 & $x_{5} = 2{,}96 \cdot 3{,}61 + 221{,}54\approx232{,}23$\\
-0,20 & $x_{6} = 0{,}2 \cdot 3{,}61 + 221{,}54\approx222{,}26$\\
-3,83 & $x_{7} = 3{,}83 \cdot 3{,}61 + 221{,}54\approx235{,}37$\\
-0,54 & $x_{8} = 0{,}54 \cdot 3{,}61 + 221{,}54\approx223{,}49$\\
--2,05 & $x_{9} = -2{,}05 \cdot 3{,}61 + 221{,}54\approx214{,}14$\\
-0,18 & $x_{10} = 0{,}18 \cdot 3{,}61 + 221{,}54\approx222{,}19$\\
--0,23 & $x_{11} = -0{,}23 \cdot 3{,}61 + 221{,}54\approx220{,}71$\\
-0,90 & $x_{12} = 0{,}9 \cdot 3{,}61 + 221{,}54\approx224{,}79$\\
+0,90 & $x_{1} = 0{,}9 \cdot 3{,}61 + 221{,}54\approx224{,}79$\\
+-1,40 & $x_{2} = -1{,}4 \cdot 3{,}61 + 221{,}54\approx216{,}49$\\
+1,12 & $x_{3} = 1{,}12 \cdot 3{,}61 + 221{,}54\approx225{,}58$\\
+-0,33 & $x_{4} = -0{,}33 \cdot 3{,}61 + 221{,}54\approx220{,}35$\\
+2,22 & $x_{5} = 2{,}22 \cdot 3{,}61 + 221{,}54\approx229{,}55$\\
+0,15 & $x_{6} = 0{,}15 \cdot 3{,}61 + 221{,}54\approx222{,}08$\\
+2,87 & $x_{7} = 2{,}87 \cdot 3{,}61 + 221{,}54\approx231{,}90$\\
+0,40 & $x_{8} = 0{,}4 \cdot 3{,}61 + 221{,}54\approx222{,}98$\\
+-1,54 & $x_{9} = -1{,}54 \cdot 3{,}61 + 221{,}54\approx215{,}98$\\
+0,13 & $x_{10} = 0{,}13 \cdot 3{,}61 + 221{,}54\approx222{,}01$\\
+-0,17 & $x_{11} = -0{,}17 \cdot 3{,}61 + 221{,}54\approx220{,}93$\\
+0,68 & $x_{12} = 0{,}68 \cdot 3{,}61 + 221{,}54\approx223{,}99$\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -3332,7 +3916,22 @@ $z_i$ & Berechnung\\
 \hypertarget{a-9}{%
 \subsubsection{a)}\label{a-9}}
 
-Zunächst geht es darum, die \(x\)-Werte in \(z\)-Werte zu transformieren.
+\(\sigma\) lässt sich berechnen durch:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+Schritt & Lösung\\
+\midrule
+Formel & $\sigma=\sqrt{\sigma^2}$\\
+Einsetzen & $\sigma=\sqrt{19{,}36}$\\
+Lösung & $\sigma\approx4{,}40$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Dann geht es zunächst darum, die \(x\)-Werte in \(z\)-Werte zu transformieren:
 
 \begin{table}[H]
 \centering
@@ -3354,12 +3953,12 @@ Durch Einsetzen ergeben sich die folgenden Werte. (So ausführlich muss es in de
 \toprule
 $x_i$ & Berechnung\\
 \midrule
-39,58 & $z_{1}=\frac{39{,}58-32{,}2}{4{,}4}\approx1{,}68$\\
-17,01 & $z_{2}=\frac{17{,}01-32{,}2}{4{,}4}\approx-3{,}45$\\
-31,38 & $z_{3}=\frac{31{,}38-32{,}2}{4{,}4}\approx-0{,}19$\\
-44,48 & $z_{4}=\frac{44{,}48-32{,}2}{4{,}4}\approx2{,}79$\\
-41,04 & $z_{5}=\frac{41{,}04-32{,}2}{4{,}4}\approx2{,}01$\\
-30,85 & $z_{6}=\frac{30{,}85-32{,}2}{4{,}4}\approx-0{,}31$\\
+40,63 & $z_{1}=\frac{40{,}63-32{,}2}{4{,}4}\approx1{,}92$\\
+20,77 & $z_{2}=\frac{20{,}77-32{,}2}{4{,}4}\approx-2{,}60$\\
+33,41 & $z_{3}=\frac{33{,}41-32{,}2}{4{,}4}\approx0{,}27$\\
+44,95 & $z_{4}=\frac{44{,}95-32{,}2}{4{,}4}\approx2{,}90$\\
+41,91 & $z_{5}=\frac{41{,}91-32{,}2}{4{,}4}\approx2{,}21$\\
+32,95 & $z_{6}=\frac{32{,}95-32{,}2}{4{,}4}\approx0{,}17$\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -3376,12 +3975,12 @@ Die Unterschreitungswerte ergeben:
 \toprule
 $x_i$ & $z_i$ & Formel & Ergebnis & In Prozent\\
 \midrule
-39,58 & 1,68 & $p=P(z \leq 1{,}68)$ & $p \approx 0{,}9535$ & 95,35\%\\
-17,01 & -3,45 & $p=1-P(z \leq 3{,}45)$ & $p \approx 0{,}0003$ & 0,03\%\\
-31,38 & -0,19 & $p=1-P(z \leq 0{,}19)$ & $p \approx 0{,}4247$ & 42,47\%\\
-44,48 & 2,79 & $p=P(z \leq 2{,}79)$ & $p \approx 0{,}9974$ & 99,74\%\\
-41,04 & 2,01 & $p=P(z \leq 2{,}01)$ & $p \approx 0{,}9778$ & 97,78\%\\
-30,85 & -0,31 & $p=1-P(z \leq 0{,}31)$ & $p \approx 0{,}3783$ & 37,83\%\\
+40,63 & 1,92 & $p=P(z \leq 1{,}92)$ & $p \approx 0{,}9726$ & 97,26\%\\
+20,77 & -2,6 & $p=1-P(z \leq 2{,}6)$ & $p \approx 0{,}0047$ & 0,47\%\\
+33,41 & 0,27 & $p=P(z \leq 0{,}27)$ & $p \approx 0{,}6064$ & 60,64\%\\
+44,95 & 2,9 & $p=P(z \leq 2{,}9)$ & $p \approx 0{,}9981$ & 99,81\%\\
+41,91 & 2,21 & $p=P(z \leq 2{,}21)$ & $p \approx 0{,}9864$ & 98,64\%\\
+32,95 & 0,17 & $p=P(z \leq 0{,}17)$ & $p \approx 0{,}5675$ & 56,75\%\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -3401,14 +4000,14 @@ So lässt sich jeweils sagen:
 \toprule
 Überschr. $p_{i}$ & Unterschr. $(1-p_{1})$ & Berechnung & .... & Ergebnis\\
 \midrule
-0,0005 & 0,9995 & $P(z \leq z_{1}) = 0{,}9995$ &  & $z_{1} \approx 3{,}29$\\
-0,0010 & 0,9990 & $P(z \leq z_{2}) = 0{,}999$ &  & $z_{2} \approx 3{,}09$\\
-0,0500 & 0,9500 & $P(z \leq z_{3}) = 0{,}95$ &  & $z_{3} \approx 1{,}64$\\
-0,1300 & 0,8700 & $P(z \leq z_{4}) = 0{,}87$ &  & $z_{4} \approx 1{,}13$\\
-0,5000 & 0,5000 & $P(z \leq z_{5}) = 0{,}5$ &  & $z_{5} \approx 0{,}00$\\
-0,9000 & 0,1000 & $P(z \leq -z_{6}) = 1-0{,}1 = 0{,}9$ & $-z_{6} \approx 1{,}28$ & $z_{6} \approx -1{,}28$\\
-0,9900 & 0,0100 & $P(z \leq -z_{7}) = 1-0{,}01 = 0{,}99$ & $-z_{7} \approx 2{,}33$ & $z_{7} \approx -2{,}33$\\
-0,9999 & 0,0001 & $P(z \leq -z_{8}) = 1-0{,}0001 = 0{,}9999$ & $-z_{8} \approx 3{,}72$ & $z_{8} \approx -3{,}72$\\
+0,015 & 0,985 & $P(z \leq z_{1}) = 0{,}985$ &  & $z_{1} \approx 2{,}17$\\
+0,025 & 0,975 & $P(z \leq z_{2}) = 0{,}975$ &  & $z_{2} \approx 1{,}96$\\
+0,050 & 0,950 & $P(z \leq z_{3}) = 0{,}95$ &  & $z_{3} \approx 1{,}64$\\
+0,130 & 0,870 & $P(z \leq z_{4}) = 0{,}87$ &  & $z_{4} \approx 1{,}13$\\
+0,500 & 0,500 & $P(z \leq z_{5}) = 0{,}5$ &  & $z_{5} \approx 0{,}00$\\
+0,900 & 0,100 & $P(z \leq -z_{6}) = 1-0{,}1 = 0{,}9$ & $-z_{6} \approx 1{,}28$ & $z_{6} \approx -1{,}28$\\
+0,990 & 0,010 & $P(z \leq -z_{7}) = 1-0{,}01 = 0{,}99$ & $-z_{7} \approx 2{,}33$ & $z_{7} \approx -2{,}33$\\
+0,995 & 0,005 & $P(z \leq -z_{8}) = 1-0{,}005 = 0{,}995$ & $-z_{8} \approx 2{,}58$ & $z_{8} \approx -2{,}58$\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -3423,14 +4022,14 @@ Für die Rücktransformation gilt die Formel:
 \toprule
 $z_i$ & Einsetzen & $x_i$\\
 \midrule
-3,29 & $x_{1} = 3{,}29 \cdot 4{,}4 + 32{,}2$ & $x_{1}\approx46{,}68$\\
-3,09 & $x_{2} = 3{,}09 \cdot 4{,}4 + 32{,}2$ & $x_{2}\approx45{,}80$\\
+2,17 & $x_{1} = 2{,}17 \cdot 4{,}4 + 32{,}2$ & $x_{1}\approx41{,}75$\\
+1,96 & $x_{2} = 1{,}96 \cdot 4{,}4 + 32{,}2$ & $x_{2}\approx40{,}82$\\
 1,64 & $x_{3} = 1{,}64 \cdot 4{,}4 + 32{,}2$ & $x_{3}\approx39{,}42$\\
 1,13 & $x_{4} = 1{,}13 \cdot 4{,}4 + 32{,}2$ & $x_{4}\approx37{,}17$\\
 0 & $x_{5} = 0 \cdot 4{,}4 + 32{,}2$ & $x_{5}\approx32{,}20$\\
 -1,28 & $x_{6} = -1{,}28 \cdot 4{,}4 + 32{,}2$ & $x_{6}\approx26{,}57$\\
 -2,33 & $x_{7} = -2{,}33 \cdot 4{,}4 + 32{,}2$ & $x_{7}\approx21{,}95$\\
--3,72 & $x_{8} = -3{,}72 \cdot 4{,}4 + 32{,}2$ & $x_{8}\approx15{,}83$\\
+-2,58 & $x_{8} = -2{,}58 \cdot 4{,}4 + 32{,}2$ & $x_{8}\approx20{,}85$\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -3505,7 +4104,7 @@ Siehe b)
 
 Die Dichtefunktion mit kritischem Wert sollte in etwa so aussehen:
 
-\begin{center}\includegraphics[width=.6\linewidth]{Skript_Statistik_2021_files/figure-latex/unnamed-chunk-63-1} \end{center}
+\begin{center}\includegraphics[width=.6\linewidth]{Skript_Statistik_2021_files/figure-latex/unnamed-chunk-65-1} \end{center}
 
 \hypertarget{c-8}{%
 \subsubsection{c)}\label{c-8}}
@@ -3666,7 +4265,7 @@ Varianz: Ergebnis & $s^2_x=122{,}17$\\
 Standardabweichung: Formel & $s=\sqrt{s^2}$\\
 Standardabweichung: Ergebnis & $s_x\approx11{,}05$\\
 Variationskoeffizient: Formel & $v=\frac{s}{|\bar{x}|}\cdot100\%\quad$\\
-Variationskoeffizient: Einsetzen & $v\approx\frac{11,54}{74,67}\cdot100\%\quad$\\
+Variationskoeffizient: Einsetzen & $v\approx\frac{11{,}05}{85{,}17}\cdot100\%$\\
 Variationskoeffizient: Ergebnis & $v \approx 12{,}97\%$\\
 \bottomrule
 \end{tabular}
@@ -3685,8 +4284,8 @@ Varianz: Einsetzen & $s^2_y=\frac{4015{,}33}{5}$\\
 Varianz: Ergebnis & $s^2_y=803{,}07$\\
 Standardabweichung: Formel & $s_y=\sqrt{s^2_y}$\\
 Standardabweichung: Ergebnis & $s_y\approx28{,}34$\\
-Variationskoeffizient: Formel & $v=\frac{s}{|\bar{x}|}\cdot100\%\quad$\\
-Variationskoeffizient: Einsetzen & $v\approx\frac{11,54}{74,67}\cdot100\%\quad$\\
+Variationskoeffizient: Formel & $v=\frac{s}{|\bar{x}|}\cdot100\%$\\
+Variationskoeffizient: Einsetzen & $v\approx\frac{28{,}34}{74{,}33}\cdot100\%$\\
 Variationskoeffizient: Ergebnis & $v \approx 38{,}13\%$\\
 \bottomrule
 \end{tabular}
@@ -3712,6 +4311,9 @@ Burt, James E. und Gerald M. Barber. 1996. \emph{Elementary statistics for geogr
 
 \leavevmode\vadjust pre{\hypertarget{ref-haseloff}{}}%
 Haseloff, Otto W., Hans-Joachim Hoffmann, John H. Maindonald und W. John Braun. 1968. \emph{Kleines Lehrbuch der Statistik DAAG. Data Analysis and Graphics Data and Functions}. Berlin: de Gruyter.
+
+\leavevmode\vadjust pre{\hypertarget{ref-klemm}{}}%
+Klemm, Elmar. 2002. \emph{Einführung in die Statistik. Für die Sozialwissenschaften}. Wiesbaden: Westdeutscher Verlag.
 
 \leavevmode\vadjust pre{\hypertarget{ref-delange}{}}%
 Lange, Norbert de und Josef Nipper. 2018. \emph{Quantitative Methodik in der Geographie}. {UTB} Geographie, Methoden, Statistische Verfahren 4933. Paderborn: Ferdinand Schöningh.

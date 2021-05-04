@@ -16,7 +16,7 @@ rmd_files:
   - 02_Aufgaben.Rmd
   - 03_z-Werte_und_Normalverteilung.Rmd
   - 03_Aufgaben.Rmd
-  # - 04_Schaetzstatistik.Rmd
+  - 04_Schaetzstatistik.Rmd
   # - 04_Aufgaben.Rmd
   # - 05_Grundlagen der Teststatistik.Rmd
   # - 05_Aufgaben.Rmd

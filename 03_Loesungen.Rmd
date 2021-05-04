@@ -7,10 +7,7 @@
 Zunächst brauchen wir das arithmetische Mittel:
 
 ```{r}
-set.seed(2220)
-rnorm(9, -20, 8) %>%
-  round(2) -> data
-m <- get_mean(data)
+m <- get_mean(ex_3_1_a)
 
 tribble(
   ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
@@ -23,7 +20,7 @@ tribble(
 Und die Standardabweichung:
 
 ```{r}
-s <- get_sd(data)
+s <- get_sd(ex_3_1_a)
 
 tribble(
   ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
@@ -48,12 +45,12 @@ tribble(
 Und schließlich die einzelnen Werte berechnen. Hier sind die Berechnungen zum Prüfen ausformuliert, das wird in der Klausur nicht für jeden Wert erwartet.
 
 ```{r}
-map2(data, seq_along(data), function(x, i) {
-  get_z_trans(sd = s$raw, mean = m$raw, x=x, symbol=i)
+map2(ex_3_1_a, seq_along(ex_3_1_a), function(x, i) {
+  get_z_trans(sd = s$raw, mean = m$raw, x = x, symbol = i)
 }) -> calc
 
 tibble(
-  `$x_i$` = data,
+  `$x_i$` = ex_3_1_a,
   Berechnung = map_chr(calc, "quick")
 ) %>%
 tabelle(full_width = F, escape = F)
@@ -62,10 +59,6 @@ tabelle(full_width = F, escape = F)
 #### b)
 
 ```{r}
-set.seed(2220)
-runif(12, -4, 4) %>%
-  round(2) -> data
-
 m <- 221.54
 
 sd <- get_sd(variance = 13.02)
@@ -97,12 +90,12 @@ tribble(
 Schließlich die einzelnen Werte:
 
 ```{r}
-map2(data, seq_along(data), function(z, i) {
+map2(ex_3_1_b, seq_along(ex_3_1_b), function(z, i) {
   get_z_trans(sd = sd$raw, mean = m, z = z, symbol = i)
 }) -> calc
 
 tibble(
-  `$z_i$` = data,
+  `$z_i$` = ex_3_1_b,
   Berechnung = map_chr(calc, "quick_reverse")
 ) %>%
 tabelle(full_width = F, escape = F)
@@ -112,19 +105,29 @@ tabelle(full_width = F, escape = F)
 
 ```{r}
 mu <- 32.2
-sigma <- 4.4
+sigmasq <- 19.36
 ```
 
 #### a) 
 
-Zunächst geht es darum, die $x$-Werte in $z$-Werte zu transformieren.
+$\sigma$ lässt sich berechnen durch:
 
 ```{r}
-set.seed(9444)
-runif(6, 15, 45) %>%
-  round(2) -> xs
+sigma <- get_sd(var = sigmasq, pop = T)
+tribble(
+  ~Schritt, ~Lösung,
+  "Formel", sigma$formel,
+  "Einsetzen", sigma$einsetzen,
+  "Lösung", sigma$ergebnis
+) %>%
+tabelle(escape = F)
+```
 
-z <- get_z_trans(mean = mu, sd = sigma, pop = T)
+Dann geht es zunächst darum, die $x$-Werte in $z$-Werte zu transformieren:
+
+```{r}
+xs <- ex_3_2_a
+z <- get_z_trans(mean = mu, sd = sigma$raw, pop = T)
 tribble(
   ~Schritt, ~Lösung,
   "Formel", z$formel,
@@ -136,7 +139,7 @@ Durch Einsetzen ergeben sich die folgenden Werte. (So ausführlich muss es in de
 
 ```{r}
 map2(xs, seq_along(xs), function(x, i) {
-  get_z_trans(sd = sigma, mean = mu, x = x, symbol = i, pop = T)
+  get_z_trans(sd = sigma$raw, mean = mu, x = x, symbol = i, pop = T)
 }) -> calc
 
 tibble(
@@ -171,10 +174,8 @@ tibble(
 
 #### b)
 
-
 ```{r}
-c(0.05,  0.1,  5,  13,  50,  90,  99,  99.99) %>%
-  `/`(100) -> ps
+ex_3_2_b -> ps
 ```
 
 Es handelt sich um Überschreitungs&shy;wahrscheinlichkeiten, aber aus der Tabelle lassen sich nur Unterschreitungswerte ablesen. Weil die Normalverteilung symmetrisch ist, gilt aber:
@@ -185,7 +186,7 @@ So lässt sich jeweils sagen:
 
 ```{r}
 
-(1-ps) %>%
+(1 - ps) %>%
 map2(seq_along(ps), get_z_under) %>%
 map(function(x) {
   if (is.null(x$umformen)) {
@@ -207,13 +208,13 @@ tibble(
 Für die Rücktransformation gilt die Formel:
 
 ```{r}
-sprintf("$%s$", get_z_trans(z = 0, mean = mu, sd = sigma, pop = T)$formel) %>%
+sprintf("$%s$", get_z_trans(z = 0, mean = mu, sd = sigma$raw, pop = T)$formel) %>%
   knitr::asis_output()
 ```
 
 ```{r}
 map(calc, "raw") %>%
-  map2(seq_along(ps), ~ get_z_trans(z = .x, mean = mu, sd = sigma, symbol = .y)) -> calcz
+  map2(seq_along(ps), ~ get_z_trans(z = .x, mean = mu, sd = sigma$raw, symbol = .y)) -> calcz
 
 tibble(
   `$z_i$` = map(calc, "raw"),
@@ -233,11 +234,11 @@ Durch Symmetrie wissen wir dann auch, dass: $z_{2{,}5\%} \approx -1{,}96$
 Nun noch rückwärts transformieren:
 
 ```{r}
-ober <- get_z_trans(z = 1.96, mean = mu, sd = sigma, pop = T, symbol = "o")
-unter <- get_z_trans(z = -1.96, mean = mu, sd = sigma, pop = T, symbol = "u")
+ober <- get_z_trans(z = 1.96, mean = mu, sd = sigma$raw, pop = T, symbol = "o")
+unter <- get_z_trans(z = -1.96, mean = mu, sd = sigma$raw, pop = T, symbol = "u")
 tribble(
   ~Schritt, ~Lösung,
-  "Formel", get_z_trans(z = 1.96, mean = mu, sd = sigma, pop = T)$formel,
+  "Formel", get_z_trans(z = 1.96, mean = mu, sd = sigma$raw, pop = T)$formel,
   "Untergrenze: Einsetzen", unter$einsetzen,
   "Untergrenze: Ergebnis",  unter$ergebnis,
   "Obergrenze: Einsetzen",  ober$einsetzen,
@@ -255,8 +256,8 @@ $$P(30 < x \leq 40) = P(x \leq 40) - P(x \leq 30)$$
 Diese Unterschreitungs&shy;wahrscheinlichkeiten bestimmen wir wieder über die $z$-Transformation:
 
 ```{r}
-zunter <- get_z_trans(x = 30, mean = mu, sd = sigma, pop = T, symbol = "u")
-zober  <- get_z_trans(x = 40, mean = mu, sd = sigma, pop = T, symbol = "o")
+zunter <- get_z_trans(x = 30, mean = mu, sd = sigma$raw, pop = T, symbol = "u")
+zober  <- get_z_trans(x = 40, mean = mu, sd = sigma$raw, pop = T, symbol = "o")
 punter <- get_p_under(zunter$raw)
 pober  <- get_p_under(zober$raw)
 tribble(
@@ -408,7 +409,10 @@ tribble(
   "Standardabweichung: Formel", lectuR::get_sd()$formel, 0.5, T,
   "Standardabweichung: Ergebnis", sd_ziegelei$ergebnis, 1, T,
   "Variationskoeffizient: Formel",  "$v=\\frac{s}{|\\bar{x}|}\\cdot100\\%\\quad$", 0.5, F,
-  "Variationskoeffizient: Einsetzen", "$v\\approx\\frac{11,54}{74,67}\\cdot100\\%\\quad$", 0.5, F,
+  "Variationskoeffizient: Einsetzen", sprintf(
+     "$v\\approx\\frac{%s}{%s}\\cdot100\\%%$",
+     fmt(sd_ziegelei$raw), fmt(mean_ziegelei$raw)
+  ), 0.5, F,
   "Variationskoeffizient: Ergebnis", sprintf(
     "$v \\approx %s\\%%$",
     lectuR::fmt(sd_ziegelei$raw / mean_ziegelei$raw * 100)), 1, F
@@ -427,8 +431,11 @@ tribble(
   "Varianz: Ergebnis", var_moebellager$ergebnis, 0.5, T,
   "Standardabweichung: Formel", sd_moebellager$formel, 0.5, T,
   "Standardabweichung: Ergebnis", sd_moebellager$ergebnis, 1, T,
-  "Variationskoeffizient: Formel",  "$v=\\frac{s}{|\\bar{x}|}\\cdot100\\%\\quad$", 0.5, F,
-  "Variationskoeffizient: Einsetzen", "$v\\approx\\frac{11,54}{74,67}\\cdot100\\%\\quad$", 0.5, F,
+  "Variationskoeffizient: Formel",  "$v=\\frac{s}{|\\bar{x}|}\\cdot100\\%$", 0.5, F,
+  "Variationskoeffizient: Einsetzen", sprintf(
+     "$v\\approx\\frac{%s}{%s}\\cdot100\\%%$",
+     fmt(sd_moebellager$raw), fmt(mean_moebellager$raw)
+  ), 0.5, F,
   "Variationskoeffizient: Ergebnis", sprintf("$v \\approx %s\\%%$",
                                              lectuR::fmt(sd_moebellager$raw/mean_moebellager$raw*100)), 1, F
 ) %>% lectuR::solution_table(meta = F)
