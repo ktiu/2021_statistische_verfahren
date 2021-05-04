@@ -24,7 +24,7 @@ b) Sie kennen das arithmetische Mittel (221,54) und die Varianz (13,02) einer Ve
 
 Gegeben sei eine Normalverteilung beschrieben durch:
 
-\[x \sim N(32{,}2,\enspace4{,}4)\]
+\[x \sim N(32{,}2,\enspace19{,}36)\]
 
 a) Mit welcher Wahrscheinlichkeit werden die folgenden Werte unterschritten?
 
