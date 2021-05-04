@@ -1,4 +1,4 @@
-# $z$-Werte und Normalverteilung
+# z-Werte und Normalverteilung
 
 ### Lernziele dieser Sitzung {-}
 
