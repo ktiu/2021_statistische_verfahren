@@ -16,8 +16,8 @@ rmd_files:
   - 02_Aufgaben.Rmd
   - 03_z-Werte_und_Normalverteilung.Rmd
   - 03_Aufgaben.Rmd
-  - 04_Schaetzstatistik.Rmd
-  - 04_Aufgaben.Rmd
+  # - 04_Schaetzstatistik.Rmd
+  # - 04_Aufgaben.Rmd
   # - 05_Grundlagen der Teststatistik.Rmd
   # - 05_Aufgaben.Rmd
   # - 06_Testverfahren mit zwei Stichproben.Rmd
@@ -35,7 +35,7 @@ rmd_files:
   - 01_Loesungen.Rmd
   - 02_Loesungen.Rmd
   - 03_Loesungen.Rmd
-  - 04_Loesungen.Rmd
+  # - 04_Loesungen.Rmd
   # - 05_Loesungen.Rmd
   # - 06_Loesungen.Rmd
   # - 07_Loesungen.Rmd

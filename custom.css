@@ -103,6 +103,10 @@ h1.title {
   background: var(--sand_gray);
 }
 
+nav ul.summary ul ul b {
+  display: none;
+}
+
 /***********
 *  table  *
 ***********/
@@ -168,6 +172,7 @@ ol[style="list-style-type: lower-alpha"] > li:before {
 .book .book-body .page-wrapper .page-inner section.normal strong {
   font-weight: 600;
 }
+
 
 .hanging-indent {
   text-indent: -2em;

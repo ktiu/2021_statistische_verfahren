@@ -12,7 +12,7 @@ $\sigma = s \approx 13{,}30$
 
 $\sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}}\approx\frac{13{,}30}{\sqrt{6}} \approx 5,42$
 
-`r naechste("lösung", T)`
+`r naechste("lösung")`
 
 #### a)
 
@@ -58,7 +58,7 @@ $n = \big(\frac{\sigma}{\sigma_{\bar{x}}}\big)^2$
 
 $n \approx \big(\frac{4}{0{,}61}\big)^2\approx43$
 
-`r naechste("lösung", T)`
+`r naechste("lösung")`
 
 #### a)
 
@@ -66,7 +66,7 @@ $\alpha=0{,}1$
 
 $\sigma=\sqrt{\sigma^2}=\sqrt{4096}=64$
 
-$\sigma_{\bar{x}}=\frac{\sigma}{\sqrt{n}}=\frac{64}{sqrt{40}}\approx10{,}12$
+$\sigma_{\bar{x}}=\frac{\sigma}{\sqrt{n}}=\frac{64}{\sqrt{40}}\approx10{,}12$
 
 $\frac{\mathit{KIB}}{2}=z_{95\%} \cdot \sigma_{\bar{x}}$
 
@@ -92,7 +92,7 @@ $\alpha\approx 0{,}3222$
 
 Das Konfidenzniveau beträgt ca. 67,78%.
 
-`r naechste("lösung", T)`
+`r naechste("lösung")`
 
 #### a)
 
