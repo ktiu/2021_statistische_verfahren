@@ -13,6 +13,7 @@ Sie können...
 - 2a) [Lagemaße](https://video01.uni-frankfurt.de/Mediasite/Play/bbb30f8025cf48e99a48700b0600e1e11d)
 - 2b) [Streumaße](https://video01.uni-frankfurt.de/Mediasite/Play/cfdb254c058f44228e7b026f36986cc31d)
 - 2c) [Klassierte Verteilungen](https://video01.uni-frankfurt.de/Mediasite/Play/d115769da4ee4e25a9062a9b2e2e11c41d)
+  - In diesem Video ist mir ein Fehler unterlaufen: Bei Minute 6:30 muss das arithmetische Mittel $\bar{x}\approx4{,}59$ betragen. Daraus ergibt sich ein Folgefehler: Die Varianz müsste den Wert $s^2\approx14{,}56$ haben.
 
 ## Einleitende Bemerkungen
 
