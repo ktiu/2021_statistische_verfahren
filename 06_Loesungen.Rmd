@@ -1,0 +1,184 @@
+## Sitzung 6 {-}
+
+`r naechste("lösung", T)`
+
+a) 0,13
+a) 3,23
+a) 3,14
+a) 6,00
+a) 3,29
+a) 0,20
+a) 0,05
+a) 0,72
+a) 4,35
+a) 1,78
+
+`r naechste("lösung") #2`
+
+a) Es geht um den Vergleich der Varianzen von zwei Stichproben, deshalb $F$-Test.
+b) Ungerichtete Alternativhypothese:
+
+    \[\begin{aligned}
+    H_0: \sigma^2_1 = \sigma^2_2\\[5pt]
+    H_1: \sigma^2_1 \neq \sigma^2_2
+    \end{aligned}\]
+
+c) Ein Signifikanzniveau von $\alpha=0{,}1$ bedeutet, dass wir die Nullhypothese genau dann verwerfen, wenn das empirische Ergebnis unter Annahme der Nullhypothese eine Wahrscheinlichkeit von 10% oder weniger hat.
+
+d) Bei ungerichteter Hypothese:
+
+    \[\begin{aligned}
+    F &\leq F_{4;6;5\%}\quad \textrm{und} \quad F\geq F_{4;6;95\%}\\[4pt]
+    F &\leq 0{,}16 \quad \textrm{und} \quad F\geq 4{,}53
+    \end{aligned}\]
+
+`r naechste("lösung") #3`
+
+a) Die Varianzen lauten:
+
+    \[\begin{aligned}
+    s^2_1= 1{,}967\\
+    s^2_2\approx 0{,}123
+    \end{aligned}\]
+
+    $F$ berechnet sich durch:
+
+    \[\begin{aligned}
+    F&=\frac{s^2_1}{s^2_2}\\[6pt]
+    &\approx\frac{1{,}967}{0{,}123}\\[4pt]
+    &\approx15{,}992
+    \end{aligned}\]
+
+b) Der kritische Wert wurde deutlich übertroffen. Ein Unterschied in der Streuung der Wassertemperaturen konnte nachgewiesen werden ($\alpha=0{,}1$).
+
+`r naechste("lösung") #4`
+
+a) Es geht um den Vergleich von Mittelwerten von zwei Stichproben, also ist der 2-Stichproben-$t$-Test angedacht.
+
+    Die Normalverteilung des Merkmals „durchschnittliche Antwortzeit“ ist nicht gesichert, (aber auch nicht ganz abwegig).
+
+    Ein weiteres Problem stellt die Bedingung der reinen Zufallsstichprobe dar, was hier allerdings auch nur sehr schwer zu konstruieren wäre (also zufällig ausgewählte Proband\*innen aus *allen* WhatsApp-Nutzer\*innen im relevanten Alter).
+
+    Schließlich ist die Voraussetzung $\sigma^2_1=\sigma^2_2$ nicht unbedingt gegeben. Bei sehr unterschiedlichen Varianzen der Stichproben sollte daher der Test abgebrochen werden.
+
+b) Wenn Nutzer\*innen ohne Benachtigungsfunktion die Population $x_1$ darstellen und jene mit $x_2$, dann lauten die Hypothesen:
+
+    \[\begin{aligned}
+    H_0: \mu_1=\mu_2\\
+    H_1: \mu_1 > \mu_2
+    \end{aligned}\]
+
+c) Freiheitsgrade:
+
+    \[\begin{aligned}
+    \mathit{fg}&=2\cdot n-2\\
+    &=2\cdot 6-2\\
+    &=10
+    \end{aligned}\] 
+
+    Kritischer Wert:
+
+    \[\begin{aligned}
+    t &\geq t_{10;95\%}\\
+    t &\geq 1{,}812
+    \end{aligned}\]
+
+`r naechste("lösung") #5`
+
+a) Zunächst die Mittelwerte und Varianzen:
+
+    \[\begin{aligned}
+    \bar{x}_1 =27{,}05 \quad &s^2_1\approx165{,}16\\
+    \bar{x}_2 \approx22{,}18 \quad &s^2_2\approx107{,}77
+    \end{aligned}\]
+
+    Dabei fällt auf, dass die Varianzen gar nicht so unterschiedlich sind (was ja beim 2-Stichproben-$t$-Test vorausgesetzt ist. In der Praxis sollte dies aber noch mit einem $F$-Test abgesichert werden.
+
+b) Durch Einsetzen in die Formel für $t$ ergibt sich:
+
+    \[\begin{aligned}
+    t&=\frac{\bar{x}_1-\bar{x}_2}{\sqrt{\frac{s^2_1+s^2_2}{n}}}\\[8pt]
+    &\approx\frac{27{,}05-22{,}18}{\sqrt{\frac{165{,}16+107{,}77}{6}}}\\[5pt]
+    &\approx0{,}722
+    \end{aligned}\]
+
+c) Der kritische Wert (1,812) wurde nicht überschritten. Die Nullhypothese muss beibehalten werden. Dass jugendliche Nutzer\*innen mit Benachrichtigungsfunktion schneller antworten, konnte in dieser Untersuchung nicht belegt werden ($\alpha=0{,}05$).
+
+`r naechste("lösung") #6`
+
+```{r}
+tibble(
+  esselrode = c(17,15,16,22,17,21),
+  albwald = c(23,17,13,20,19,19)
+) -> data
+var_esselrode <- get_var(data$esselrode, T, "1")
+var_albwald <- get_var(data$albwald, T, "2")
+f <- get_f(list(data$esselrode, data$albwald),
+           alpha = 0.1,
+           mode = "ungerichtet")
+tribble(
+  ~Schritt, ~Lösung,
+  "Test wählen", f$wählen,
+  "Nullhypothese", f$nullhypothese,
+  "Alternativhypothese", f$alternativhypothese,
+  "Signifikanzniveau entscheiden", f$signifikanz,
+  "Freiheitsgrade 1", f$df1,
+  "Freiheitsgrade 2", f$df2,
+  "Ablehnungsbereich: Formel", f$ablehnungsbereich$formel,
+  "Ablehnungsbereich: Einsetzen", f$ablehnungsbereich$einsetzen,
+  "Ablehnungsbereich: Ergebnis", f$ablehnungsbereich$ergebnis,
+  "Varianzen: Formel", get_var()$formel,
+  "Varianzen: Esselrode", var_esselrode$einsetzen,
+  "Varianzen: Esselrode", var_esselrode$ergebnis,
+  "Varianzen: Albwald", var_albwald$einsetzen,
+  "Varianzen: Albwald", var_albwald$ergebnis,
+  "Prüfgröße: Formel", f$formel,
+  "Prüfgröße: Einsetzen", f$einsetzen,
+  "Prüfgröße: Ergebnis", f$ergebnis,
+  "Interpretieren", f$interpretieren$ablehnungsbereich,
+  "Interpretieren", f$interpretieren$hypothese,
+  "Interpretieren", ifelse(f$test,
+                           "Die Vermutung konnte bestätigt werden: Die Storchpopulationen weichen signifikant voneinander ab $(\\alpha=0{,}01)$.",
+                           "Die Vermutung konnte nicht bestätigt werden: Die Storchpopulationen weichen nicht signifikant voneinander ab $(\\alpha=0{,}1)$."),
+  ) %>% tabelle()
+```
+
+`r naechste("lösung") #7`
+
+```{r}
+set.seed(42751)
+tibble(
+  Hessen = generate_numbers(9, 1100, 200, 0, 7000, 0),
+  Niedersachsen = generate_numbers(9, 1300, 200, 0, 7000, 0)
+) -> data
+mean_hessen <- get_mean(data$Hessen)
+mean_niedersachsen <- get_mean(data$Niedersachsen, "y")
+var_hessen <- get_var(data$Hessen, T)
+var_niedersachsen <- get_var(data$Niedersachsen, T, "y")
+t <- (mean_hessen$raw-mean_niedersachsen$raw)/sqrt((var_hessen$raw+var_niedersachsen$raw)/9)
+
+tribble(
+  ~Schritt, ~Musterlösung,
+  "Test wählen", "2-Stichprobem-$t$-Test",
+  "Nullhypothese", "$H_0: \\mu_1 = \\mu_2$",
+  "Alternativhypothese", "$H_1: \\mu_1 \\neq \\mu_2$",
+  "Signifikanzniveau entscheiden", "$\\alpha=0,01$",
+  "Freiheitsgrad: Formel", "$\\mathit{df} = 2\\cdot n - 2$",
+  "Freiheitsgrad: Ergebnis", "$\\mathit{df} = 16$",
+  "Ablehnungsbereich: Formel","$t \\leq t_{\\mathit{df};\\alpha/2} \\quad \\textrm{und} \\quad t \\geq t_{\\mathit{df};(1-\\alpha/2)}$",
+  "Ablehnungsbereich","$t \\leq t_{16;0{,}5\\%} \\quad \\textrm{und} \\quad t \\geq t_{16;99{,}5\\%}$",
+  "Ablehnungsbereich", paste0("$t \\leq", fmt(qt(0.005,16),3), "\\quad \\textrm{und} \\quad t \\geq", fmt(qt(0.995,16), 3), "$" ),
+  "Mittelwert: Formel", get_mean()$formel,
+  "Mittelwert 1: Ergebnis", mean_hessen$ergebnis,
+  "Mittelwert 2: Ergebnis", mean_niedersachsen$ergebnis,
+  "Varianz: Formel", get_var()$formel,
+  "Varianz 1: Ergebnis", var_hessen$ergebnis,
+  "Varianz 2: Ergebnis", var_niedersachsen$ergebnis,
+  "Prüfgröße: Formel", "$t=\\frac{\\bar{x}_1-\\bar{x}_2}{\\sqrt{\\frac{s^2_1+s^2_2}{n}}}$",
+  "Prüfgröße: Einsetzen", paste0("$t=\\frac{", mean_hessen$fmt ,"-", mean_niedersachsen$fmt, "}{\\sqrt{\\frac{", var_hessen$fmt, "+", var_niedersachsen$fmt, "}{9}}}$"),
+  "Prüfgröße: Ergebnis", paste0("$t =", fmt(t), "$"),
+  "Interpretieren", ifelse(t > qt(0.005,16) & t < qt(0.995,16), "Der Ablehungsbereich wurde nicht erreicht.", "Der Ablehnungsbereich wurde erreicht."),
+  "Interpretieren", ifelse(t > qt(0.005,16) & t < qt(0.995,16), "Die Nullhypothese muss beibehalten werden.", "Die Nullhypothese kann abgelehnt werden."),
+  "Interpretieren", ifelse(t > qt(0.005,16) & t < qt(0.995,16), "Die Abrufzahlen zwischen Hessen und Niedersachsen unterscheiden sich nicht signifikant. ($\\alpha=0.01$)", ifelse(t > qt(0.005), "Die Abrufzahlen in Hessen sind signifikant höher als in Niedesachsen. ($\\alpha=0.01$)", "Die Abrufzahlen in Niedersachsen sind signifikant höher als in Hessen. ($\\alpha=0.01$)")),
+  ) %>% tabelle()
+```

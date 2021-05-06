@@ -1,0 +1,175 @@
+## Sitzung 5 {-}
+
+`r naechste("lösung", T)`
+
+a) Ob die Grundgesamtheit normalverteilt ist oder nicht, ist nicht bekannt. (Vermutlich ist das sogar nicht der Fall.) Deshalb muss die Stichprobengröße mindestens 30 betragen.
+
+b) $H_0 : \mu = 2{,}30$
+
+    $H_1 : \mu \neq 2{,}30$
+
+c) $z \leq -1{,}96$ und $z \geq 1{,}96$
+
+d) $z=\sqrt{n}\cdot\frac{\bar{x}-\mu}{\sigma}$
+
+    $z=\sqrt{40}\cdot\frac{1{,}82-2{,}30}{1{,}42}\approx-2{,}14$
+
+e) Der $z$-Wert ist mit -2,14 kleiner als der kritische Wert -1,96 und damit im Ablehnungsbereich. Die Nullhypothese kann verworfen werden. Die Vermutung, dass sich die Frankfurter Haushaltsgröße vom europäischen Durchschnitt unterscheidet, ist damit bestätigt.
+
+`r naechste("lösung") #2`
+
+a)  -4,604 
+a)  -3,579 
+a)  -2,365 
+a)  -1,771 
+a)  2,201 
+a)  2,353 
+a)  3,707 
+a)  3,686 
+a)  3,365 
+a)  -2,528 
+
+`r naechste("lösung") #3`
+
+1. Voraussetzungen prüfen (Test wählen):
+
+    $z$-Test, da $\sigma$ bekannt
+
+2. Hypothesen formulieren:
+
+    $H_0 : \mu = 61{,}5$
+
+    $H_1 : \mu < 61{,}5$
+
+3. Signifikanzniveau entscheiden:
+
+    Signifikanzniveau z.B. $alpha=0,05$, weil ein zu großes $alpha$ hier nicht in besonderer Weise problematisch ist.
+
+4. Kritischen Wert bestimmen:
+
+    $z \leq -1{,}65$
+
+5. Prüfgröße berechnen:
+
+    Zunächst muss $\bar{x} = 57{,}75$ berechnet werden (s. Sitzung 2)
+
+    $z=\sqrt{n}\cdot\frac{\bar{x}-\mu}{\sigma}$
+
+    $z\approx\sqrt{4}\cdot\frac{57{,}75-61{,}5}{10{,}3}\approx-0{,}73$
+
+6. Nullhypothese ablehnen oder beibehalten:
+
+    Der kritsche Wert wurde nicht erreicht. Die Nullhypothese muss beibehalten werden, eine systematisch schlechtere Prüfungsleistung von berufstätigen Studierenden ließ sich hier nicht bestätigen.
+
+`r naechste("lösung") #4`
+
+a) Es geht um den Vergleich des Mittelwerts einer Stichprobe mit dem Mittelwert der Grundgesamtheit bei unbekanntem $\sigma$,s deshalb 1-Stichproben-$t$-Test.
+
+b) Gerichtete Alternativhypothese nach unten:
+
+    \[\begin{aligned}
+    H_0: \mu=3042,43\\
+    H_1: \mu < 3042,43
+    \end{aligned}\] 
+
+c) Stichprobengröße 6, also 5 Freiheitsgrade:
+
+    \[\begin{aligned}
+    t &\leq t_{5;1\%}\\
+    t &\leq -3,365
+    \end{aligned}\] 
+
+`r naechste("lösung") #5`
+
+a) Wir berechnen zunächst die Parameter der Stichprobe (s. Sitzung 2):
+
+    \[\begin{aligned}
+    \bar{x}&\approx2964,50\\
+    s&\approx 51,93
+    \end{aligned}\] 
+
+    Und setzen anschließend ein:
+
+    \[\begin{aligned}
+    t &= \sqrt{n}\cdot\frac{\bar{x}-\mu_0}{s}\\[5pt]
+    &=\sqrt{6}\cdot\frac{2964,50-3042,43}{51,93}\\
+    &\approx-3,676
+    \end{aligned}\]
+
+b) Der kritische Wert wurde unterschritten, die Nullhypothese wird abgelehnt. Wir haben gezeigt, dass in diesem Betrieb Angestellte mit Migrationshintergrund schlechter bezahlt werden ($\alpha=0,01$).
+
+`r naechste("lösung") #6`
+
+```{r}
+set.seed(134323)
+rnorm(5, 10, sqrt(5.2)) %>%
+  round(2) -> preise
+mittel <- get_mean(preise)
+sigma <- get_sd(pop = T, variance = 5.2)
+z <- get_z1(preise, mu = 11.8, sigma = sigma$raw, mode = "abwärts")
+
+tribble(
+  ~Schritt, ~Lösung,
+  "Test wählen", "Varianz bekannt, deshalb $z$-Test",
+  "Nullhypothese", "$H_0: \\mu = \\mu_0$",
+  "Alternativhypothese", "$H_1: \\mu \\lt \\mu_0$",
+  "Signifikanzniveau", "$\\alpha=0{,}05$",
+  "Ablehnungsbereich", "$z \\leq z_{\\alpha}$",
+  "Ablehnungsbereich", "$z \\leq z_{5\\%}$",
+  "Ablehnungsbereich", "$z \\leq -1,65\\quad\\textrm{oder} -1,65$",
+  "Mittel: Formel", mittel$formel,
+  "Mittel: Einsetzen", mittel$einsetzen,
+  "Mittel: Ergebnis", mittel$ergebnis,
+  "Standardabweichung", sigma$ergebnis,
+  "Prüfgröße: Formel", z$formel,
+  "Prüfgröße: Einsetzen", z$einsetzen,
+  "Prüfgröße: Ergebnis", z$ergebnis,
+  "Interpretieren", "Der Ablehnungsbereich wurde nicht erreicht.",
+  "Interpretieren", "Die Nullhypothese muss beibehalten werden.",
+  "Interpretieren", "Die Behauptung, im Neubaugebiet seien die Mietpreise günstiger, konnte nicht bestätigt werden.",
+) %>% tabelle()
+```
+`r naechste("lösung") #7`
+
+```{r}
+data <- c(85, 78, 73, 76, 76, 81)
+mu0 <- 73
+barx <- get_mean(data)
+var <- get_var(data)
+s <- get_sd(data)
+t <- get_t1(barx = barx$raw,
+            s = s$raw,
+            n = 6,
+            mu = mu0,
+            mode = "ungerichtet")
+tribble(
+  ~Schritt,                            ~Lösung,
+  "Test wählen",                       t$wählen,
+  "Nullhypothese",                     t$nullhypothese,
+  "Alternativhypothese",               t$alternativhypothese,
+  "Signifikanzniveau",                 t$signifikanz,
+  "Freiheitsgrade",                    t$df,
+  "Ablehnungsbereich: Formel",         t$ablehnungsbereich$formel,
+  "Ablehnungsbereich: Einsetzen",      t$ablehnungsbereich$einsetzen,
+  "Ablehnungsbereich: Ergebnis",       t$ablehnungsbereich$ergebnis,
+  "Mittel: Formel",                    barx$formel,
+  "Mittel: Einsetzen",                 barx$einsetzen,
+  "Mittel: Ergebnis",                  barx$ergebnis,
+  "Varianz: Formel",                   var$formel,
+  "Varianz: Einsetzen",                var$einsetzen,
+  "Varianz: Ergebnis",                 var$ergebnis,
+  "Standardabweichung: Formel",        s$formel,
+  "Standardabweichung: Einsetzen",     s$einsetzen,
+  "Standardabweichung: Ergebnis",      s$ergebnis,
+  "Prüfgröße: Formel",                 t$formel,
+  "Prüfgröße: Einsetzen",              t$einsetzen,
+  "Prüfgröße: Ergebnis",               t$ergebnis,
+  "Interpretieren: Ablehnungsbereich", t$interpretieren$ablehnungsbereich,
+  "Interpretieren: Hypothese",         t$interpretieren$hypothese,
+  "Interpretieren: Inhalt",
+  ifelse(t$test,
+         "Der Ertrag mit dem neuen Düngemittel ist signifikant %s als ohne ($\\alpha=0{,}05$)." %>%
+           sprintf(ifelse(barx$raw > mu0, "höher", "niedriger")),
+         "Der Ertrag weicht nicht signifikant ab ($\\alpha=0{,}05$)."),
+) %>% tabelle()
+```

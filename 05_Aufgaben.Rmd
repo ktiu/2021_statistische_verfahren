@@ -1,0 +1,88 @@
+## Übungsaufgaben {-}
+
+\nopagebreak
+
+`r naechste("aufgabe", T) #1`
+
+Sie interessieren sich für die durchschnittliche Haushaltsgröße in Frankfurt im europäischen Vergleich. In der EU sei die durchschnittliche Haushaltsgröße 2,30 Personen mit einer Standardabweichung von 1,42.
+
+Sie vermuten, dass Frankfurter Haushalte sich in ihrer Größe vom europäischen Durchschnitt unterscheiden, können aber nicht sagen, in welche Richtung.
+
+a) Welche Stichprobengröße ist für einen $z$-Test in diesem Fall nötig und warum?
+b) Formulieren Sie Null- und Alternativhypothese.
+c) Sie entscheiden Sich für ein Signifikanzniveau von $\alpha=0{,}05$. Notieren Sie die kritischen Werte.
+d) Eine Stichprobe von 40 Frankfurter Haushalten ergibt eine durchschnittliche Größe von 1,82. Berechnen Sie die Prüfgröße $z$.
+e) Wie bewerten Sie das Ergebnis?
+
+
+`r naechste("aufgabe") #2`
+
+Bestimmen Sie die folgenden kritischen Werte:
+
+a) $t_{4;0,5\%}$
+a) $t_{19;0,1\%}$
+a) $t_{7;2,5\%}$
+a) $t_{13;5\%}$
+a) $t_{11;97,5\%}$
+a) $t_{3;95\%}$
+a) $t_{6;99,5\%}$
+a) $t_{16;99,9\%}$
+a) $t_{5;99\%}$
+a) $t_{20;1\%}$
+
+`r naechste("aufgabe") #3`
+
+Die Prüfungsergebnisse für eine Klausur im Geographiestudium seien normalverteilt mit einer mittleren Punktzahl von 61,5 und einer Standardabweichung von 10,3. Sie vermuten, dass berufstätige Studierende im Durchschnitt schlechter abschneiden, weil ihnen die Vorbereitungszeit fehlt. Eine Zufallsstichprobe berufstätiger Studierender ergibt die Prüfungsergebnisse: `42 78 46 65`
+
+Prüfen Sie Ihre Vermutung. Begründen Sie die Wahl des Tests und des Signifikanzniveaus.
+
+`r naechste("aufgabe") #4`
+
+Sie vermuten, dass Angestellte mit Migrationshintergrund in einem bestimmten Betrieb weniger als das Durchschnittsgehalt verdienen. Die Personalabteilung bestätigt Ihnen gegenüber die annähernde Normalverteilung der Bruttogehälter mit Mittelwert $\mu=3042,43$ (in EUR). Sie planen, das Bruttogehalt von sechs zufälligen Angestellten mit Migrationshintergrund direkt zu ermitteln.\nopagebreak 
+  
+a) Welchen Test führen Sie durch?
+a) Formulieren Sie die Hypothesen.
+b) Bestimmen Sie den kritischen Wert bei Signifikanzniveau $\alpha=0{,}01$.
+
+`r naechste("aufgabe") #5`
+
+*(Fortführung von Aufgabe 4)*
+
+Sie ermitteln die folgenden Werte (in EUR):
+\[
+2927,35\quad2930,68\quad2903,58\quad3032,59\quad3013,37\quad2979,4
+\]
+
+a) Berechnen Sie die Prüfgröße.
+b) Welche Schlüsse ziehen Sie aus der Untersuchung?
+
+`r naechste("aufgabe") #6`
+
+In Ermberg ist die Verteilung der Mietpreise für Ladenflächen pro Quadratmeter (in €) annähernd normalverteilt mit Mittelwert 11,8 und Varianz 5,2.
+
+Die Baudezernentin sagt, dass die Ladenmieten im Neubaugebiet Auwiese deutlich günstiger seien als im Gemeindedurchschnitt. Um die Behauptung zu überprüfen, erheben Sie die folgende Zufallsstichprobe von Ladenmieten im Neubaugebiet (pro m² in €):
+
+```{r}
+set.seed(134323)
+rnorm(5, 10, sqrt(5.2)) %>%
+  round(2) -> preise
+```
+
+$$8,54\quad7,16\quad14,47\quad11,84\quad10,27$$
+
+Prüfen Sie die Behauptung. Schließen Sie einen Fehler 1. Art zu 95% aus.
+
+`r naechste("aufgabe") #7`
+
+In einem landwirtschaftlichen Großbetrieb wird ein neues Düngemittel für Zuckerrüben getestet. Zunächst wird es nur auf sechs zufällig ausgewählten Feldern (von 60) eingesetzt.
+
+Der durchschnittliche Ertrag aller 60 Felder beträgt 69 Tonnen pro Hektar (t/ha). Für die sechs Felder mit dem neuen Düngemittel wurden folgende Ertragswerte erhoben:
+
+```{r}
+tibble(
+  Feld = 1:6,
+  `Ertrag in t/ha` = c(93, 74, 65, 69, 89, 85),
+) %>% tabelle(full_width = F)
+```
+
+Prüfen Sie, ob der Einsatz des neuen Düngemittels zu einem signifikanten Unterschied im Ertrag der Felder geführt hat. Akzeptieren Sie in Ihrer Analyse 5% als Wahrscheinlichkeit für einen Fehler 1. Art.

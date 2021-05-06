@@ -1,0 +1,95 @@
+## Übungsaufgaben {-}
+
+\nopagebreak
+
+`r naechste("aufgabe", T)`
+
+Bestimmen Sie die folgenden kritischen Werte:
+
+a) $F_{4;1;5\%}$
+a) $F_{8;9;95\%}$
+a) $F_{7;10;95\%}$
+a) $F_{9;4;95\%}$
+a) $F_{3;15;95\%}$
+a) $F_{5;6;5\%}$
+a) $F_{2;2;5\%}$
+a) $F_{100;100;5\%}$
+a) $F_{1;20;95\%}$
+a) $F_{20;50;95\%}$
+
+`r naechste("aufgabe", T) #2`
+
+Sie wissen, dass in städtischen Freibädern die Wassertemperatur an verschiedenen Tagen normalverteilt ist. Sie vermuten, dass die  Temperatur in zwei Bädern unterschiedlich stark variiert. Sie planen zwei unabhängige Erhebungen an zufälligen Tagen während der Badesaison. Aus organisatorischen Gründen beträgt die Stichprobengröße in „Schwimmbad 1“ $n_1=5$ und in „Schwimmbad 2“ $n_2=7$.
+
+a) Welchen Test führen Sie durch?
+a) Formulieren Sie die Hypothesen.
+c) Sie wählen das Signifikanzniveau $\alpha=0{,}1$. Was bedeutet diese Zahl?
+b) Bestimmen Sie den Ablehnungsbereich.
+
+`r naechste("aufgabe", T) #3`
+
+*(Fortführung von Aufgabe 2)*
+
+Sie erheben folgende Werte für die Wassertemperatur:
+
+\[\begin{aligned}
+\textrm{Schwimmbad 1}:\quad 23{,}3\quad21{,}4\quad20{,}9\quad19{,}4\quad21{,}6&\\
+\textrm{Schwimmbad 2} : \quad 21{,}5\quad21{,}7\quad21{,}5\quad21{,}4\quad22{,}0&\quad20{,}9\quad21{,}8
+\end{aligned}\]
+
+a) Berechnen Sie die Prüfgröße.
+b) Welche Schlüsse ziehen Sie aus der Untersuchung?
+
+
+`r naechste("aufgabe", T) #4`
+
+Sie interessieren sich für das Kommunikationsverhalten von Jugendlichen über WhatsApp. Sie vermuten, dass Nutzer\*innen, die die [„Gelesen-Benachrichtigung“](https://faq.whatsapp.com/en/android/28000015/?lang=de) deaktiviert haben, im Durchschnitt langsamer antworten als diejenigen, die die Benachrichtigung aktiviert lassen.
+
+Sie finden je Einstellung sechs freiwillige Schüler\*innen, die Sie ihre WhatsApp-Protokolle auf die Durchschnittliche Antwortzeit auswerten lassen (natürlich unter Einwilligung der Eltern).
+
+a) Welchen Test wollen Sie durchführen? Prüfen Sie die Voraussetzungen. Was könnte hier problematisch sein?
+a) Formulieren Sie die Hypothesen.
+b) Bestimmen Sie den Ablehnungsbereich bei Signifikanzniveau $\alpha=0{,}05$.
+
+`r naechste("aufgabe", T) #5`
+
+Sie ermitteln die folgenden durchschnittlichen Antwortzeiten der individuellen Nutzer\*innen (in Minuten):
+\[\begin{aligned}
+\textrm{Ohne Benachrichtigung} &: \quad 24{,}7\quad32{,}0\quad48{,}9\quad23{,}7\quad23{,}0\quad10{,}0\\
+\textrm{Mit Benachrichtigung} &: \quad18{,}2\quad14{,}3\quad23{,}4\quad31{,}6\quad36{,}4\quad 9{,}2
+\end{aligned}\]
+
+a) Berechnen Sie die Prüfgröße.
+b) Welche Schlüsse ziehen Sie aus der Untersuchung?
+
+`r naechste("aufgabe", T) #6`
+
+In zwei Naturschutzgebieten werden zu zufälligen Zeitpunkten die Storchenpopulationen gezählt:
+
+\[\begin{aligned}
+\textrm{Naturschutzgebiet Esselrode}&: \quad17\quad15\quad16\quad22\quad17\quad21\\
+\textrm{Naturschutzgebiet Albwald}&:\quad 23\quad17\quad13\quad20\quad19\quad19
+\end{aligned}\]
+
+Sie berechnen Mittelwerte, die sich sehr ähneln: 18,0 für Esselrode und 18,5 für Albwald. Sie haben jedoch die Vermutung, dass die Varianzen signifikant voneinander abweichen. Prüfen Sie die Vermutung mit $\alpha=0{,}1$. (Es sei bekannt, dass die Populationen annähernd normalverteilt sind.)
+
+`r naechste("aufgabe", T) #7`
+
+Ein Musikstreaming-Portal zeichnet die Anzahl der Aufrufe einzelner Tracks nach Aufenthaltsort auf. Sie sind  beauftragt nachvollziehen, ob sich die täglichen Aufrufzahlen eines angehenden Sommerhits in Hessen und in Niedersachsen -- zwei Länder mit vergleichbaren Abonnent\*innenzahlen -- signifikant voneinander unterscheiden.
+
+In der letzten Woche waren folgende Zahlen zu verzeichnen:
+
+```{r}
+set.seed(42751)
+tibble(
+  Hessen = generate_numbers(9, 1100, 200, 0, 7000, 0),
+  Niedersachsen = generate_numbers(9, 1300, 200, 0, 7000, 0)
+) -> data
+```
+
+\[\begin{aligned}
+\textrm{Hessen}: & \quad `r paste(data$Hessen, collapse=" \\quad ")`\\
+\textrm{Niedersachsen}: & \quad `r paste(data$Niedersachsen, collapse=" \\quad ")`\\
+\end{aligned}\]
+
+Wählen Sie $\alpha = 0{,}01$.

@@ -1,0 +1,511 @@
+# Grundlagen der Teststatistik
+
+### Lernziele dieser Sitzung {-}
+
+Sie können...
+
+- Hypothesen formulieren.
+- einen $z$-Test durchführen.
+- einen 1-Stichproben-$t$-Test durchführen.
+
+### Lernvideos (Sommersemester 2020) {-}
+
+- [5a) $z$-Test](https://video01.uni-frankfurt.de/Mediasite/Play/696f09c79d0b4186b66e040e4377b7601d)
+- [5b) 1-Stichproben-$t$-Test](https://video01.uni-frankfurt.de/Mediasite/Play/c78e80fbd9fb4073a7f932d3862245da1d)
+
+## Statistische Tests
+
+Gemeinsam mit der Schätzstatistik bildet die Test- bzw. Prüfstatistik jenen Teil statistischer Verfahren, die ausgehend von einer Stichprobenverteilung Rückschlüsse auf die Beschaffenheit von Grundgesamtheiten anstreben (schließende Statistik).
+
+Dabei haben Schätz- und Teststatistik jedoch grundlegend verschiedene Vorgehensweisen. Wie in [Sitzung 4](#Schätzstatistik) besprochen ermöglicht die Schätzstatistik die Angabe statistischer Parameter einer Grundgesamtheit anhand von Stichprobenwerten, und unter Angabe von Wahrscheinlichkeiten.
+
+Ziel statistischer Tests hingegen ist es, mit Hilfe von Stichproben Hypothesen (also Vermutungen) über die Grundgesamtheit zu prüfen. Geprüft wird dabei ein empirischer Sachverhalt gegen die Zufälligkeit seiner Realisierung. Ein statistischer Test fragt, ab welcher Größenordnung ein Stichprobenergebnis nicht mehr als zufällig, sondern als *signifikant* anzusehen ist.
+
+Dabei folgt die grundsätzliche Vorgehensweise von (hier behandelten) statistischen Tests immer diesem Schema:
+
+1. Test wählen und Voraussetzungen prüfen
+2. Hypothesen formulieren
+3. Signifikanzniveau entscheiden
+4. Ablehnungsbereich bestimmen
+5. Prüfgröße berechnen
+6. Ergebnis interpretieren
+
+Die einzelnen Schritte werden im Folgenden direkt anhand des $z$-Tests besprochen.
+
+## $z$-Test
+
+Die mathematischen Grundlagen des $z$-Tests leiten sich direkt aus der in [Sitzung 4](#stichprobenverteilung) besprochenen Stichprobenverteilung für $\bar{x}$ ab.
+
+Ein illustrierendes Beispiel: Wir wissen, dass die Anzahl der täglichen Besucher\*innen einer Eissporthalle annähernd normalverteilt ist, und zwar mit dem arithmetischen Mittel $\mu=94{,}2$ und der Standardabweichung $\sigma=11{,}8$. Wir vermuten, dass die Anzahl der Besucher\*innen an bewölkten Tagen größer ist, weil an sonnigen Tagen andere Freizeitbeschäftigungen attraktiver sind.
+
+An fünf zufälligen bewölkten Tagen zählen wir die Besucher\*innen und kommen auf einen Mittelwert der Stichprobe von $\bar{x} = 103{,}0$.
+
+Dieser Wert ist höher als das arithmetische Mittel der Grundgesamtheit ($\mu$). Aber heißt das auch, dass unsere Vermutung stimmt? Wir wissen aus [Sitzung 4](#stichprobenverteilung), dass die Stichprobenverteilung einem Standardfehler ($\sigma_{\bar{x}}$) unterliegt (s. \@ref(fig:eis)).
+
+Ist das Ergebnis also nur zufällig zustande gekommen, oder liegt ein *statistisch signifikantes* Ergebnis vor? Mit anderen Worten: Ist die Stichprobe überhaupt der Verteilung $x_0$ um $\mu_0$ entnommen, oder gibt es eine *andere* Verteilung ($x$ um ein anderes $\mu$) für bewölkte Tage, denen unser Stichprobenmittelwert $\bar{x}$ entstammt? Genau diese Art von Frage versuchen statistische Tests zu beantworten.
+
+```{r eis, fig.cap="Theoretische Stichprobenverteilung (unter Annahme der Nullhypothese)"}
+mu <- 94.2
+sigma <- 11.8
+n <- 5
+barx <- 103.0
+fun <- function(x) {
+  dnorm(x, mu, sigma)
+}
+stich <- function(x) {
+  dnorm(x, mu, sigma / sqrt(n))
+}
+ggplot(data.frame(x = c(mu - 2 * sigma, mu + 2 * sigma)), aes(x)) +
+  stat_function(n = 250, fun = fun, aes(color = "blue")) +
+  stat_function(n = 250, fun = stich, aes(color = "red")) +
+  geom_vline(xintercept = barx, color = "red", linetype = "dashed") +
+  scale_x_continuous(NULL,
+                     expand = c(0, 0),
+                     breaks = c(80, 90, 110, barx),
+                     labels = c(80, 90, 110, expression(bar(x) == 103))) +
+  scale_y_continuous(expand = c(0, 0),
+                     limits = c(0, stich(mu) * 1.05),
+                     name   = NULL) +
+  scale_color_manual(NULL,
+                     values = c("blue" = goethe_blue,
+                                      "red" = emo_red),
+                     labels = expression(x[0], bar(x)[0]~für~n == 5)) +
+  theme_goethe()
+```
+
+
+### Test wählen und Voraussetzungen prüfen
+
+Je nachdem, was überprüft werden soll, was über die Grundgesamtheit bekannt ist und wie die Stichprobe beschaffen ist, müssen verschiedene Testverfahren angewendet werden.
+
+Statistische Tests unterscheiden sich zunächst in Bezug auf ihre Prüfgröße (und sind auch nach ihrer Prüfgröße benannt). Wir werden zunächst den $z$-Test kennenlernen, der mit dem (uns seit [Sitzung 3](#z-transformation) bekannten) $z$-Wert als Prüfgröße arbeitet.
+
+Der $z$-Test hat zum Ziel, den Mittelwert einer Stichprobe mit den zu erwartenden Werten bei einer bekannten Verteilung zu vergleichen.
+
+Um den $z$-Test anwenden zu können, müssen also folgende Voraussetzungen gegeben sein: 
+
+- Das Ziel der Untersuchung ist es, eine signifikante Abweichung des Mittelwerts festzustellen.
+- Das arithmetische Mittel $\mu$ und die Standardabweichung $\sigma$ der (ursprünglichen) Grundgesamtheit müssen bekannt sein. 
+- Der Test muss anhand einer reinen Zufallsstichprobe erfolgen.
+- Die Stichprobenverteilung muss (annähernd) normalverteilt sein, das heißt:
+  - *entweder* die Grundgesamtheit ist (annähernd) normalverteilt,
+  - *oder* die Stichprobe hat die Größe $n\geq30$.
+
+#### Beispiel
+
+In unserem Beispiel (Besuchszahlen der Eissporthalle) sind diese Voraussetzungen gegeben. Wir können und wollen also einen $z$-Test durchführen.
+
+
+### Hypothesen formulieren
+
+Es müssen immer zwei Hypothesen formuliert werden: die Nullhypothese und die Alternativhypothese. Die Nullhypothese geht immer davon aus, dass es keine Abweichung gibt, die Alternativhypothese formuliert eine Abweichung.
+
+Dabei werden zwei Verteilungen konstruiert: Die bekannte Grundgesamtheit (in unserem Beispiel: Besuchszahlen insgesamt) $x_0$ mit Mittelwert $\mu_0$ und eine neue Verteilung (Besuchszahlen an bewölkten Tagen) $x$ mit Mittelwert $\mu$.
+
+Die Hypothesen sind theoriegeleitet (formulieren also eine begründete Vermutung) und stehen stets am Anfang der statistischen Untersuchung. Es ist unzulässig, sie im Nachhinein anzupassen.
+
+#### Nullhypothese
+
+Die Nullhypothese (engl. *null hypothesis*) geht immer davon aus, das die forscherische Vermutung nicht stimmt. Im $z$-Test besagt die Nullhypothese, dass es zwischen dem Mittelwert $\mu_0$ und dem Mittelwert $\mu$ keinen Unterschied gibt. Generell heißt die Nullhypothese:
+
+\[
+H_0 : \mu = \mu_0
+(\#eq:h0)
+\]
+
+#### Alternativhypothese
+
+Die Alternativhypothese (engl. *alternative hypothesis*) stellt die Vermutung dar, die überprüft werden soll. Dabei gibt es zwei unterschiedliche Möglichkeiten: ungerichtete und gerichtete Alternativhypothesen.
+
+##### Ungerichtete Alternativhypothese
+
+Die ungerichtete Alternativhypothese besagt nur, *dass* es einen Unterschied zwischen $\mu$ und $\mu_0$ gibt, aber nicht in welche Richtung (größer oder kleiner). Sie lautet daher:
+
+\[
+H_1 : \mu \neq \mu_0
+(\#eq:h1u)
+\]
+
+##### Gerichtete Alternativhypothese
+
+Die gerichtete Alternativhyptothese gibt eine Richtung des vermuteten Unterschieds (nach oben oder unten) vor. Sie lautet entweder:
+
+\[
+H_1 : \mu < \mu_0 \quad \textrm{(abwärts gerichtet)}
+(\#eq:h1l)
+\]
+
+oder:
+
+\[
+H_1 : \mu > \mu_0 \quad \textrm{(aufwärts gerichtet)}
+(\#eq:h1g)
+\]
+
+#### Beispiel 
+
+In unserem Beispiel geben wir eine Richtung vor, denn wir vermuten ja, dass die Besuchszahlen an bewölkten Tagen *höher* sind. Wir schreiben also:
+
+\[\begin{aligned}
+H_0: \mu = 94{,}2\\[4pt]
+H_1: \mu>94{,}2
+\end{aligned}\]
+
+### Signifikanzniveau entscheiden
+
+Das Signifikanzniveau $\alpha$ (engl. *significance level*) entscheidet, wie *unwahrscheinlich* eine Prüfgröße unter Annahme der Nullhypothese sein muss, damit wir die Nullhypothese ablehnen können (und damit unsere Annahme bestätigen).
+
+Übliche Werte für das Signifikanzniveau sind $\alpha=0{,}05$ oder $\alpha=0{,}01$.
+
+Für die Wahl des Signifikanzniveaus ist jeweils der Kontext entscheidend: Wenn die irrtümliche Bestätigung der forscherischen Annahme gravierende Auswirkungen hat, möchte man das Signifikanzniveau besonders niedrig wählen um diese Art von Fehler auszuschließen. 
+
+Auch das Signifikanzniveau muss vor der statistischen Erhebung formuliert werden, und es ist unzulässig, es im Nachhinein an das Ergebnis anzupassen.
+
+#### Beispiel
+
+Ein Irrtum in der statistischen Signifikanz der Besucherzahl hat vermutlich keine gravierenden Folgen. Wir legen das Signifikanzniveau auf $\alpha=0{,}05$ fest.
+
+### Ablehnungsbereich bestimmen
+
+Zusammen mit der (Un-)Gerichtetheit der Alternativhypothese bestimmt das Signifikanzniveau $\alpha$ den *Ablehnungsbereich* -- also den Bereich für die zu errechnende Prüfgröße $z$, in dem die Nullhypothese abgelehnt würde.
+
+Der Ablehnungsbereich für die ungerichtete Alternativhypothese ist $\frac{\alpha}{2}$ auf beiden Seiten (s. \@ref(fig:ablung)). Die kritischen Werte sind dann die Schwellen des Ablehnungsbereich auf beiden Seiten:
+
+\[
+z \leq z_{\alpha/2} \quad \textrm{und} \quad z \geq z_{(1-\alpha/2)} \quad \textrm{für} \quad H_1: \mu \neq \mu_0
+(\#eq:kritneq)
+\]
+
+```{r ablung, fig.cap="Kritische Werte für $z$ bei ungerichteter Alternativhypothese und $\\alpha=0{,}05$"}
+ggplot(data.frame(x=c(-3, 3)), aes(x)) +
+  stat_function(n=250,xlim=c(-3,qnorm(0.025)),fun=dnorm, geom="area", fill=light_blue) +
+  stat_function(n=250,xlim=c(qnorm(0.975),3),fun=dnorm, geom="area", fill=light_blue) +
+  stat_function(n=250,fun=dnorm, color=goethe_blue) +
+  scale_x_continuous("z", breaks=c(qnorm(0.025), 0, qnorm(0.975)), labels=c(paste0("~",round(qnorm(0.025),2)), 0, paste0("~",round(qnorm(0.975),2))), expand = c(0,0)) +
+  scale_y_continuous(NULL, expand = c(0,0), limits=c(0,dnorm(0)*1.05)) +
+  theme_goethe()
+```
+Bei den gerichteten Alternativhypothesen ist der Ablehnungsbereich jeweils nur auf einer Seite (s. Abbildungen \@ref(fig:ablger1) und \@ref(fig:ablger2)). Die kritischen Werte ergeben sich aus:
+
+\[
+z \leq z_{\alpha} \quad \textrm{für} \quad H_1: \mu < \mu_0
+(\#eq:kritless)
+\]
+\[
+z \geq z_{(1-\alpha)} \quad \textrm{für} \quad H_1: \mu > \mu_0
+(\#eq:kritless)
+\]
+
+```{r ablger1, fig.cap="Kritischer Wert für $z$ bei gerichteter Alternativhypothese nach unten und $\\alpha=0{,}05$"}
+ggplot(data.frame(x=c(-3, 3)), aes(x)) +
+  stat_function(n=250,xlim=c(-3, qnorm(0.05)),fun=dnorm, geom="area", fill=light_blue) +
+  stat_function(n=250,fun=dnorm, color=goethe_blue) +
+  scale_x_continuous("z", breaks=c(0, qnorm(0.05)), labels=c(0, "~-1,65"), expand = c(0,0)) +
+  scale_y_continuous(NULL, expand = c(0,0), limits=c(0,dnorm(0)*1.05)) +
+  theme_goethe()
+```
+
+```{r ablger2, fig.cap="Kritischer Wert für $z$ bei gerichteter Alternativhypothese nach oben und $\\alpha=0{,}05$"}
+ggplot(data.frame(x=c(-3, 3)), aes(x)) +
+  stat_function(n=250,xlim=c(qnorm(0.95),3),fun=dnorm, geom="area", fill=light_blue) +
+  stat_function(n=250,fun=dnorm, color=goethe_blue) +
+  scale_x_continuous("z", breaks=c(0, qnorm(0.95)), labels=c(0, "~1,65"), expand = c(0,0)) +
+  scale_y_continuous(NULL, expand = c(0,0), limits=c(0,dnorm(0)*1.05)) +
+  theme_goethe()
+```
+
+
+#### Beispiel
+
+In unserem Beispiel haben wir eine gerichtete Alternativhypothese nach oben und ein Signifikanzniveau von $\alpha=0{,}05$ verwendet. Der kritische Wert (bei dessen Überschreitung wir die Nullhypothese ablehnen und unsere Vermutung bestätigt sehen) lautet also:
+
+\[
+z \geq z_{95\%}\approx 1{,}65
+\]
+
+Der Mittelwert unserer Stichprobe fällt höher aus als $\mu$. Aber übersteigt er auch den kritischen Wert (und ist damit statistisch signifikant)?
+
+### Prüfgröße berechnen
+
+Für den $z$-Test ist die Prüfgröße der $z$-Wert der Stichprobe, und zwar standardisiert in Bezug auf $\mu_0$ und den Standardfehler ($\sigma_{\bar{x}}$):
+
+\[
+z=\frac{\bar{x}-\mu_0}{\sigma_{\bar{x}}}
+(\#eq:trans)
+\]
+
+Wie wir bereits wissen, ergibt sich der Standardfehler ($\sigma_{\bar{x}}$) wiederum aus der Stichprobengröße ($n$) und der Standardabweichung der Grundgesamtheit ($\sigma$):
+
+\[
+\sigma_{\bar{x}}=\frac{\sigma}{\sqrt{n}}
+(\#eq:serr)
+\]
+
+Durch einsetzen ergibt sich die generelle Formel für die Prüfgröße des $z$-Tests:
+
+\[
+z=\sqrt{n}\cdot\frac{\bar{x}-\mu_0}{\sigma}
+(\#eq:5z)
+\]
+
+Das grundsätzliche Schema dieser Formel werden wir in anderen Tests wiedererkennen.
+
+#### Beispiel
+
+An dieser Stelle (also *nachdem* wir uns für einen Test und ein Signifikanzniveau entschieden und den kritischen Wert berechnet haben) dürften wir streng genommen erst die Stichprobe erheben.
+
+Diese ergibt bei $n=5$ den Mittelwert $\bar{x}=103{,}0$. Die Verteilung $x_0$ (also unter Annahme der Nullhypothese) hatte die Kennwerte $\mu_0=94{,}2$ und $\sigma=11{,}8$.
+
+Wir setzen ein in die Formel aus \@ref(eq:5z):
+
+\[\begin{aligned}
+z&=\sqrt{n}\cdot\frac{\bar{x}-\mu_0}{\sigma}\\[4pt]
+ &\approx\sqrt{5}\cdot\frac{103{,}0-94{,}2}{11{,}8}\\[4pt]
+ &\approx1{,}67
+\end{aligned}\]
+
+### Ergebnis inerpretieren
+
+Je nachdem, ob die Prüfgröße in den Ablehnungsbereich fällt (ob der kritische Wert also unter- bzw. überschritten wird), können wir die Nullhypothese ablehnen (und damit unsere Alternativhypothese bestätigen) oder nicht.
+
+Eine Ablehnung der Nullhypothese bedeutet, dass wir ein *statistisch signifikantes Ergebnis zugunsten unserer Vermutung* vorliegen haben.
+
+Diese Art von Ergebnis wird oft falsch interpretiert. Bei einem Signifikanzniveau von $\alpha=0{,}01$ heißt das zum Beispiel, dass die beobachteten Werte nur mit 1% Wahrscheinlichkeit vorkommen, wenn unsere Vermutung *nicht* stimmt. Wichtig dabei: Das ist etwas ganz anderes als zu behaupten, dass unsere Vermutung zu 99% stimme. Über die Wahrscheinlichkeit, dass eine Hypothese stimmt (oder nicht) können wir mit den Methoden der klassischen Statistik keine Aussage machen!
+
+#### Beispiel
+
+In unserem Beispiel liegt der $z$-Wert knapp über dem kritischen Wert von 1,65. Wir können also die Nullhypothese ablehnen und unsere Alternativhypothese annehmen. Unsere statistische Untersuchung hat gezeigt, dass die Eissporthalle an bewölkten Tagen besser besucht ist als an sonnigen (und zwar mit Signifikanzniveau $\alpha=0,05$).
+
+Gut, dass wir eine gerichtete Alternativhypothese aufgestellt haben. Hätten wir nur vermutet, dass sich die Besuchszahlen je nach Wetter unterscheiden (ohne Angabe einer Richtung), dann wäre der kritische Wert nicht erreicht worden und wir hätten die Nullhypothese beibehalten müssen. Hinterher die Hypothesen anzupassen ist natürlich nicht zulässig!
+
+<div class="rtip">Softwarehinweis</div>
+<div class="rtip_content">R hat in der Grundversion keinen dezidierten Befehl für einen $z$-Test. Mit der Funktion `qnorm()` können kritische Werte jedoch einfach bestimmt werden.</div>
+
+## Die $t$-Verteilung
+
+Wenn die Standardabweichung $\sigma$ eines Merkmals in der Grundgesamtheit *unbekannt* ist, kann sie durch die Standardabweichung $s$ der Stichprobe geschätzt werden (s. [Sitzung 4](schätzstatistik-1.html)). Dann ist die Stichprobenverteilung für $\bar{x}$ jedoch nicht mehr normalverteilt, sondern sie folgt einer $t$-Verteilung.
+
+Im Gegensatz zur Standardnormalverteilung (die wir für den $z$-Test benutzen) gibt es aber nicht nur eine $t$-Verteilung, sondern die Form der $t$-Verteilung hängt von so genannten Freiheitsgraden (engl. *degrees of freedom*) ab. Mit steigender Zahl der Freiheitsgrade nähert sich die $t$-Verteilung einer Standardnormalverteilung an (s. \@ref(fig:tdf)).
+
+```{r tdf, cache=T, fig.cap="$t$-Verteilungen mit verschiedenen Freiheitsgraden"}
+t3 <- function(x){dt(x,3)}
+t6 <- function(x){dt(x,6)}
+t12 <- function(x){dt(x,12)}
+ggplot(data.frame(x=c(-4, 4)), aes(x)) +
+  stat_function(n=250,fun=t3, aes(color="red")) +
+  stat_function(n=250,fun=t6, aes(color="orange")) +
+  stat_function(n=250,fun=t12, aes(color="green")) +
+  stat_function(n=250,fun=dnorm, aes(color="blue"))+
+  scale_x_continuous(NULL, breaks=0, expand = c(0,0)) +
+  scale_color_manual(NULL,values = c("red"=emo_red, "orange"=orange, "green"=green, "blue"=goethe_blue), breaks=c("red", "orange", "green", "blue"), labels=expression(t[3],t[6],t[12],z))+  
+  scale_y_continuous(NULL, expand = c(0,0), limits=c(0,dnorm(0)*1.05))+
+  theme_goethe()
+```
+
+
+### Freiheitsgrade
+
+In Anlehnung an @bortz kürzen wir Freiheitsgrade mit $\mathit{df}$ ab. Dort findet sich auch eine brauchbare Erklärung dieses Phänomens:
+
+> „Die Freiheitsgrade, welche mit einem Kennwert verbunden sind, entsprechen der Anzahl der Werte, die bei seiner Berechnung frei variieren können. Der Mittelwert $\bar{x}$ besitzt beispielsweise $n$ Freiheitsgrade, weil es keinerlei Bedingung gibt, der die $n$ Werte genügen müssen. Dies ist für die Varianz $s^2=\mathit{QS}/(n-1)$ nicht der Fall. Nur $n-1$ Abweichungen, welche in die Berechnung der Quadratsumme $\mathit{QS}=\sum_i(x_i-\bar{x})^2$ eingehen, können frei variieren. [D]ie Summe der Abweichungen von ihrem Mittelwert [ist] null, d.h. $\sum_i(x_i-\bar{x})=0$. Von $n$ Abweichungen können deshalb nur $n - 1$ frei variieren. Ergeben sich beispielsweise bei einer Stichprobe aus drei Werten die Abweichungen $x_1 - \bar{x} = -4$ und $x_2 - \bar{x} = 0$, muss zwangsläufig $x_3 -\bar{x} = 4$ sein, damit die Summe aller Abweichungen null ergibt. Bei der Varianzberechnung ist eine der $n$ Abweichungen festgelegt, d.h. die Varianz hat nur $n - 1$ Freiheitsgrade. Man schreibt die Stichprobenvarianz deshalb gelegentlich auch als $s^2 = \mathit{QS}/\mathit{df}$. Da die Varianz mit $n - 1$ Freiheitsgraden verbunden ist, gilt dies auch für die Standardabweichung $s$.“ [@bortz: 121]
+
+
+## 1-Stichproben-$t$-Test
+
+Der 1-Stichproben-$t$-Test vergleicht (wie der $z$-Test) die Werte einer Stichprobe mit der Grundgesamtheit. Das Vorgehen ist dabei analog zum $z$-Test, mit dem einzigen Unterschied, dass eine $t$-Verteilung mit $(n-1)$ Freiheitsgraden herangezogen wird.
+
+Wir besprechen den 1-Stichproben-$t$-Test direkt an einem Beispiel:
+
+Beim Frankfurter Amt für Wohnungswesen betrage die durchschnittliche Bearbeitungsdauer von Anträgen auf Wohngeld 30,2 Tage und sei normalverteilt. Wir vermuten, dass die Bearbeitungszeit zu Anfang des Wintersemesters höher ist als im Jahresdurchschnitt und planen eine zufällige Stichprobe von 12 Anträgen mit Einreichungsdatum im Oktober.
+
+### Test wählen und Voraussetzungen prüfen
+
+Um den 1-Stichproben-$t$-Test durzuführen müssen folgende Voraussetzungen erfüllt sein:
+
+- Das Ziel der Untersuchung ist es, eine statistisch signifikante Abweichung des Mittelwerts einer Stichprobe im Vergleich zu einer Grundgesamtheit festzustellen.
+- Das zu untersuchende Merkmal ist in der Grundgesamtheit normalverteilt.
+- Das arithmetische Mittel ($\mu$) des Merkmals in der Grundgesamtheit ist bekannt. (Im Gegensatz zum $z$-Test ist $\sigma$ hier unbekannt!)
+- Der Test erfolgt anhand einer reinen Zufallsstichprobe.
+
+#### Beispiel
+
+In unserem Beispiel (Bearbeitungszeit Wohngeldanträge) sind diese Bedingungen erfüllt und wir können einen 1-Stichproben-$t$-Test durchführen.
+
+### Hypothesen formulieren
+
+Die Hypothesen werden genauso wie beim $z$-Test formuliert:
+
+#### Nullhypothese
+
+\[
+H_0 : \mu = \mu_0
+(\#eq:h0)
+\]
+
+#### Alternativhypothese
+
+\[
+H_1 : \mu \neq \mu_0 \quad \textrm{(ungerichtet)}
+(\#eq:h1u)
+\]
+
+oder
+
+\[
+H_1 : \mu < \mu_0 \quad \textrm{(abwärts gerichtet)}
+(\#eq:h1l)
+\]
+
+oder
+
+\[
+H_1 : \mu > \mu_0 \quad \textrm{(aufwärts gerichtet)}
+(\#eq:h1g)
+\]
+
+#### Beispiel 
+
+In unserem Beispiel geben wir eine Richtung vor, denn wir vermuten ja, dass die Bearbeitungsdauer zu Semesteranfang *höher* ist. Wir schreiben also:
+
+\[\begin{aligned}
+H_0: \mu = 30{,}2\\
+H_1: \mu>30{,}2
+\end{aligned}\]
+
+### Signifikanzniveau entscheiden
+
+Wie beim $z$-Test entscheidet das Signifikanzniveau $\alpha$, wie *unwahrscheinlich* eine Prüfgröße unter Annahme der Nullhypothese sein muss, damit wir die Nullhypothese ablehnen können (und damit unsere Annahme bestätigen).
+
+Übliche Werte für das Signifikanzniveau sind auch beim $t$-Test $\alpha=0{,}05$ oder $\alpha=0{,}01$.
+
+#### Beispiel
+
+Ein Irrtum zugunsten der Alternativhypothese hat bei unserer Untersuchung keine gravierenden Folgen. Angenommen, wir wollen uns in der Analyse trotzdem ganz sicher sein. Dann entscheiden wir uns für das Signifikanzniveau $\alpha=0{,}01$.
+
+### Ablehnungsbereich bestimmen
+
+Genau wie beim $z$-Test bestimmt das Signifikanzniveau $\alpha$ den *Ablehnungsbereich* -- also den Bereich für die zu errechnende Prüfgröße $t$, in dem die Nullhypothese abgelehnt würde.
+
+Der Ablehnungsbereich für die ungerichtete Alternativhypothese ist $\frac{\alpha}{2}$ auf beiden Seiten. Die kritischen Werte sind dann die Schwellen des Ablehnungsbereich auf beiden Seiten:
+
+\[
+t \leq t_{\mathit{df};\alpha/2} \quad \textrm{und} \quad t \geq t_{\mathit{df};(1-\alpha/2)} \quad \textrm{für} \quad H_1: \mu \neq \mu_0
+(\#eq:kritneq)
+\]
+
+Bei den gerichteten Alternativhypothesen ist der Ablehnungsbereich jeweils nur auf einer Seite. Die kritischen Werte ergeben sich aus:
+
+\[
+t \leq t_{\mathit{df};\alpha} \quad \textrm{für} \quad H_1: \mu < \mu_0
+(\#eq:kritless)
+\]
+\[
+t \geq t_{\mathit{df};(1-\alpha)} \quad \textrm{für} \quad H_1: \mu > \mu_0
+(\#eq:kritless)
+\]
+
+Die kritischen Werte für $t$ bei gegebenem Freiheitsgrad $(n-1)$ und Flächenabschnitt lassen sich aus der [Formelsammlung](Formelsammlung und Wertetabellen.pdf){target="_blank"} ablesen. Dabei ist zu beachten, dass aufgrund der Symmetrie die Werte für Flächenanteile unter 50% nicht in der Tabelle verzeichnet sind. Es gilt die Formel:
+
+\[
+P(-t_\mathit{df})=1-P(t_\mathit{df})
+(\#eq:negt)
+\]
+
+So ist zum Beispiel der Wert für $t_{5;1\%}=-t_{5;99\%}=-3{,}365$.
+
+#### Beispiel
+
+In unserem Beispiel haben wir eine gerichtete Alternativhypothese nach oben und ein Signifikanzniveau von $\alpha=0{,}01$ verwendet. Wir haben uns zudem für eine Stichprobengröße von $n=12$ entschieden, woraus der Freiheitsgrad $\mathit{df}=n-1=11$ resultiert.
+
+Der kritische Wert (bei dessen Überschreitung wir die Nullhypothese ablehnen und unsere Vermutung bestätigt sehen) lautet also:
+
+\[\begin{aligned}
+t &\geq t_{\mathit{df};(1-\alpha)}\\[4pt]
+t &\geq t_{11;99\%}\\[4pt]
+t &\geq 2,718
+\end{aligned}\]
+
+Graphisch ist der Ablehnungsbereich für unser Beispiel in \@ref(fig:tkrit) dargestellt.
+
+```{r tkrit, cache=T, fig.cap="Ablehnungsbereich bei gerichteter Alternativhypothese nach oben, $n=12$ und $\\alpha=0{,}01$"}
+t11 <- function(x){dt(x,11)}
+
+ggplot(data.frame(x=c(-4, 4)), aes(x)) +
+  stat_function(n=250,fun=t11, fill=light_blue, geom="area",xlim=c(qt(0.99,11),4))+
+  stat_function(n=250,fun=t11, aes(color="blue")) +
+  scale_x_continuous(NULL, breaks=c(0,qt(0.99,11)), labels=expression(0,t["11;99%"]==2.718), expand = c(0,0)) +
+  scale_color_manual(NULL,values = c("blue"=goethe_blue), breaks=c("blue"), labels=expression(t[11]))+  
+  scale_y_continuous(NULL, expand = c(0,0), limits=c(0,dnorm(0)*1.05))+
+  theme_goethe()
+```
+
+### Prüfgröße berechnen
+
+Die Formel für die Berechnung der Prüfgröße $t$ im 1-Stichproben-$t$-Test lautet ganz ähnlich wie die für die Prüfgröße $z$ im $z$-Test -- mit dem Unterschied, dass statt der (hier unbekannten) Standardabweichung der Grundgesamtheit ($\sigma$) die Standardabweichung der Stichprobe ($s$) eingesetzt wird:
+
+\[
+t=\sqrt{n}\cdot\frac{\bar{x}-\mu_0}{s}
+(\#eq:t)
+\]
+
+Zum direkten Vergleich noch einmal die Prüfgröße im $z$-Test:
+
+\[
+z=\sqrt{n}\cdot\frac{\bar{x}-\mu_0}{\sigma}
+\]
+
+#### Beispiel (ausführlich)
+
+Wir erheben die Stichprobe von $n=12$ Anträgen im Oktober und erhalten folgende Werte für die Bearbeitungsdauer (in Tagen):
+
+\[
+45\quad41\quad37\quad41\quad35\quad44\quad34\quad44\quad38\quad41\quad39\quad36
+\]
+
+Wir errechnen zunächst das arithmetische Mittel $\bar{x}$ (s. [Sitzung 2](#arithmetisches-mittel)):
+
+\[\begin{aligned}
+\bar{x}&=\frac{\sum\limits_{i=1}^nx_i}{n}\\[5pt]
+&=\frac{45+41+37+41+35+44+34+44+38+41+39+36}{12}\\
+&\approx 39{,}58
+\end{aligned}\]
+
+Damit können wir die Standardabweichung $s$ berechnen:
+
+\[\begin{aligned}
+s&=\sqrt{\frac{\sum\limits_{i=1}^n(x_i-\bar{x})^2}{n-1}}\\[6pt]
+&\approx\sqrt{\frac{29{,}38+2{,}02+6{,}66+2{,}02+20{,}98+19{,}54+31{,}14+19{,}54+2{,}5+2{,}02+0{,}34+12{,}82}{11}}\\
+&\approx 3{,}67
+\end{aligned}\]
+
+Schließlich setzen wir diese Werte in die Formel für die Prüfgröße $t$ \@ref(eq:t) ein:
+
+\[\begin{aligned}
+t&=\sqrt{n}\cdot\frac{\bar{x}-\mu_0}{s}\\[6pt]
+&\approx\sqrt{12}\cdot\frac{39{,}58-30{,}2}{3{,}67}\\
+&\approx8{,}854
+\end{aligned}\]
+
+### Ergebnis interpretieren
+
+Genau wie beim $z$-Test kommt es darauf an, ob die Prüfgröße in den Ablehnungsbereich fällt (ob der kritische Wert also unter- bzw. überschritten wird). Wenn dies der Fall ist, können wir die Nullhypothese ablehnen (und damit unsere Alternativhypothese bestätigen). Wenn nicht, müssen wir die Nullhypothese beibehalten.
+
+#### Beispiel
+
+In unserem Beispiel liegt der $t$-Wert deutlich über dem kritischen Wert von 2,718. Wir können also die Nullhypothese ablehnen und unsere Alternativhypothese annehmen. Unsere statistische Untersuchung hat gezeigt, dass die Bearbeitungsdauer von Anträgen, die im Oktober eingehen, länger ist als im Jahresdurchschnitt (und zwar mit Signifikanzniveau $\alpha=0,01$).
+
+<div class="rtip">Softwarehinweis</div>
+<div class="rtip_content">In R kann ein $t$-Test mit dem Befehl `t.test()` durchgeführt werden.\
+Neben der Prüfgröße $t$ gibt der Befehl einen $p$-Wert aus -- ist dieser kleiner als $\alpha$, so liegt eine signifikante Abweichung vor.</div>
+
+
+## Tipps zur Vertiefung {-}
+
+- YouTube-Kanal "Kurzes Tutorium Statistik": [p-Wert, Nullhypothese, Signifikanzniveau - die Idee erklärt](https://www.youtube.com/watch?v=gSyGVDMcg-U)
+- YouTube-Kanal "Benedict K": [p-Wert: einseitiger und beidseitiger Hypothesentest / Signifikanztest - erklärt](https://www.youtube.com/watch?v=sNlxShUM4io)
+- YouTube-Kanal "Kurzes Tutorium Statistik": [Einstichproben t-Test](https://www.youtube.com/watch?v=rbYg5IsOYaM)
+- Kapitel 7, 8.1 in @bortz
+- Kapitel 8.2.2.1 und 8.2.3 in @delange 
+- Kapitel 5.5.2 in @bahrenberg
+- Kapitel 9 in @klemm
+- *Englisch:* Kapitel 9.1 in @burt

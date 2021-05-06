@@ -1,0 +1,1118 @@
+---
+title: "Lösungen der Aufgaben aus den Skripten" 
+subtitle: Statistische Verfahren in der Geographie
+author:
+  name: Till Straube
+  email: straube@geo.uni-frankfurt.de
+  affiliation: |
+    | Institut für Humangeographie
+    | Goethe-Universität Frankfurt
+bibliography: ../statistik.bib
+output: pubIHG::pdf_document
+csl: /Users/till/bib/styles/chicago-author-date-de.csl
+link-citations: yes
+---
+```{r setup, include=FALSE}
+pubIHG::setup()
+```
+
+# Sitzung 1
+
+## Aufgabe 1
+
+```{r, cache=T}
+variablen <- c(
+  "Lebensalter in Jahren", "Verhältnisskala", "diskret", "ganze Zahlen vorausgesetzt",
+  "Regenmenge in mm", "Verhältnisskala", "stetig", "",
+  "Güteklasse", "Ordinalskala", "qualitativ",  "",
+  "Passagieraufkommen", "Verhältnisskala", "diskret", "",
+  "Baujahr", "Intervallskala", "diskret", "",
+  "Geschwindigkeit in km/h", "Verhältnisskala", "diskret", "",
+  "Sozialstatus (Unter-, Mittel und Oberschicht)", "Ordinalskala", "qualitativ", "",
+  "Temperatur in °F", "Intervallskala", "stetig", "",
+  "Fläche eines Bundeslands in km²", "Verhältnisskala", "stetig", "",
+  "Temperatur in K", "Verhältnisskala", "stetig", "0 K ist ein natürlicher Nullpunkt",
+  "Einwohnerzahl", "Verhältnisskala", "diskret", "",
+  "Pegelstand", "Intervallskala", "stetig", "willkürlicher Nullpunkt",
+  "Staatsangehörigkeit", "Nominalskala", "qualitativ", "",
+  "Interesse an Statistik (gering bis hoch)", "Ordinalskala", "qualitativ", "",
+  "Klausurnote", "Ordinalskala", "qualitativ", "wird jedoch oft als Intervallskala / metrisch verwendet",
+  "Bodentyp", "Nominalskala", "qualitativ", "",
+  "Entfernung zum Stadtzentrum in km", "Verhältnisskala", "stetig", "",
+  "Körpergröße", "Verhältnisskala", "stetig", "",
+  "Kleidergröße (S bis XXL)", "Ordinalskala", "qualitativ", "",
+  "Monatliches Nettoeinkommen", "Verhältnisskala", "stetig", "oder diskret für Cent-Beträge"
+)
+
+df <- as.data.frame(matrix(variablen, ncol=4, byrow = T))
+df <- cbind(teil=paste0(letters[1:nrow(df)], ")"), df)
+kable(df, "latex", booktabs=T, linesep=c(""), col.names = c("", "Variable", "Skalenniveau", "Variablentyp", "Anmerkungen")) %>%
+  column_spec(1, width="0.4cm") %>%
+  column_spec(2, width="4.5cm") %>%
+  column_spec(5, width="4.5cm")
+```
+
+## Aufgabe 2
+
+a) Die Werte sind im Bereich zwischen 3 und 210 Stunden. Eine Klassengröße von 25 Stunden bietet sich an, es sind jedoch auch andere Größen denkbar. Da die Variable diskret zu sein scheint, können die Klassengrenzen als ganze Zahlen angegeben werden.
+
+```{r, cache=T}
+df <- boot::aircondit7$hours %>% cut(seq(0,225,25), right=T)%>% table %>% as.data.frame
+df$. <- as.character(df$.)
+von <- sub("^\\((\\d+).*$", "\\1", df$.) %>% as.numeric() %>% `+`(1)
+bis <- sub(".*,(\\d+)\\]$", "\\1", df$.)
+df$. <- paste0(von,"--", bis)
+colnames(df) <- c("$x_i$", "$f_i$")
+kable(df, "latex", linesep=c(""), escape = F, booktabs=T) %>%
+  add_header_above(c("Wertebereich", "Häufigkeit")) %>%
+  kable_styling()
+```
+
+b) Das Resultat sollte (je nach gewählter Klassengröße) in etwa so aussehen:
+
+```{r cache=T}
+ggplot(boot::aircondit7, aes(x= boot::aircondit7$hours)) +
+  geom_histogram(breaks = seq(0,225,25), closed="right", fill=orange) +
+  scale_x_continuous(breaks = seq(0,225,25)) +
+  scale_y_continuous(breaks = seq(0,9,1)) +
+  ylab("Häufigkeit") +
+  xlab("Lebensdauer in Stunden")
+```
+
+c) Die Verteilung ist unregelmäßig abfallend.
+
+# Sitzung 2
+
+## Aufgabe 1
+
+```{r}
+xs <- scan("../img/2_exercise")
+```
+
+a) Verhältnisskala (diskret).
+
+b) Die geordnete Liste ist:
+
+```{r, results='asis', comment=NA}
+cat('> `', sort(xs), '`') 
+```
+
+> Der häufigste Wert (und damit der Modalwert) ist 2.
+
+c) Die Stichprobengröße ist ungerade ($n=13$), daher ist der Median: $$x_{(\frac{n+1}{2})} = x_{(7)} = 2$$
+
+d) Für das arithmetische Mittel und die Varianz ist diese Tabelle hilfreich:
+
+\medskip
+\begin{center}
+\begin{tabular}{r|r|r|r|r|r}
+\toprule
+$x_i$ & $f_i$ & $f_i\cdot x_i$ & $(x_i-\bar{x})$ & $(x_i-\bar{x})^2$ & $f_i\cdot(x_i-\bar{x})^2$ \\
+\midrule
+```{r, results='asis', comment=NA}
+df <- data.frame(table(xs))
+df$xs <- as.numeric(levels(df$xs)[df$xs])
+df[,3] <- df$xs * df$Freq
+df[,4] <- df$xs - mean(xs)
+df[,5] <- (df$xs - mean(xs))^2
+df[,6] <- df$Freq*(df$xs - mean(xs))^2
+df[] <- round(df,2)
+df[] <- lapply(format(df, decimal.mark=","), as.character)
+write.table(df, quote=F, eol="\\\\\n", sep="&", row.names=F, col.names = F)
+```
+\bottomrule
+\end{tabular}
+\end{center}
+\medskip
+
+> Das arithmetische Mittel berechnet sich mit den Werten aus der Tabelle:
+
+> \[\bar{x}={\displaystyle\frac{\sum\limits_{x=1}^nx_i}{n}}=\frac{3+8+6+8+5+6}{13}=\frac{37}{13}\approx2.85\]
+
+e) Die Spannweite ist:
+
+$$R=x_{(n)}-x_{(1)}=7-1=6$$
+
+f) Der Quartilsabstand ist:
+
+$$\mathit{IQR}=Q_3-Q_1=4-2=2$$
+
+g) Für die Varianz bieten sich ebenfalls die Tabellenwerte an:
+
+$$s^2=\frac{\sum\limits_{x=1}^n(x_i-\bar{x})^2}{n-1}\approx\frac{10,22+ 2,86+ 0,05+ 2,66+ 4,64+17,25}{13-1}=\frac{37,68}{12}=3.14$$
+
+h) Schließlich ist die Standardabweichung:
+
+$$s=\sqrt{s^2}\approx\sqrt{3,14}\approx1,77$$
+
+i) Da der untere Angelpunkt und der Median zusammenfallen, sieht der Boxplot etwas ungewöhnlich aus:
+
+```{r, fig.height=6}
+boxplot(xs)
+```
+
+## Aufgabe 2
+
+a) Verhältnisskala (metrisch).
+
+b) Die Klassengröße 50 mm ergibt überschaubare neun Klassen und runde Zahlen. Andere Klassen sind natürlich auch möglich.
+
+> Um die Berechnung des arithmetischen Mittels zu vereinfachen berechnen wir auch gleich den Klassendurchnitt und Zwischensummen:
+
+\medskip
+\begin{center}
+\begin{tabular}{r|r|r|r|r}
+\toprule
+Wertebereich (mm)& Klassendurchschnitt & Häufigkeit & Kumulative Häufigkeit & Produkt \\
+$x$ & $k_i$ & $f_i$ & $f_{kum}$ &$f_i\cdot k_i$ \\
+\midrule
+```{r, results='asis', comment=NA}
+options(OutDec = ".")
+df <- data.frame(table(cut(DAAG::bomsoi[71:90,15], right=F, breaks=seq(350, 800, 50))))
+von <- sub("^\\[([0-9.]+),([0-9.]+)\\)", "\\1", df[,1]) %>% as.numeric
+bis <- sub("^\\[([0-9.]+),([0-9.]+)\\)", "\\2", df[,1]) %>% as.numeric
+df[,1] <- paste(format(von, decimal.mark = ","), "bis unter", format(bis, decimal.mark = ","))
+df[,3] <- df[,2]
+df[,2] <- (von + bis) / 2
+df[,4] <- cumsum(df[,3])
+df[,5] <- df[,2] * df[,3]
+df[,6] <- df[,2] - 495
+df[,7] <- (df[,2] - 495)^2
+df[,8] <- df[,3]*(df[,2] - 495)^2
+df[,5:8] <- round(df[,5:8],2)
+tf <- as.data.frame(lapply(format(df, decimal.mark=","), as.character))
+write.table(tf[,1:5], quote=F, eol="\\\\\n", sep=" & ", row.names=F, col.names = F)
+```
+\bottomrule
+\end{tabular}
+\end{center}
+\medskip
+
+c) Der Modalwert der klassierten Stichprobe ist die Klasse "450 bis unter 500 mm".
+
+d) Die geordnete Liste ist: 
+
+```{r results='asis', comment=NA}
+options(OutDec = ",")
+cat('> `', DAAG::bomsoi[71:90,15] %>% sort, '`')
+```
+
+> Bei $n=20$ ist:
+
+
+$$Q_1=\frac{x_{(5)}+x_{(6)}}{2}=\frac{421,36 +433,01}{2}\approx427,19$$
+$$Q_3\frac{x_{(15)}+x_{(16)}}{2}=\frac{527,75 + 535,12}{2}\approx531,44$$
+
+> Wenn uns nur die klassierte Verteilung zur Verfügung steht oder wenn der Datensatz besonders unübersichtlich ist, ist es auch legitim, aus der kumulativen Häufigkeit $Q_1\approx425$ und $Q_3\approx525$ für die klassierte Verteilung abzulesen.
+
+> Je nachdem beträgt der Quartilsabstand $\mathit{IQR}=Q_3-Q_1$ dann 104,25 oder glatte 100 mm.
+
+e) Die Summen für das arithmetische Mittel können wir der letzten Spalte der Wertetabelle entnehmen:
+
+\[\begin{aligned}
+  \bar{x}&=\frac{\sum\limits_{i=1}^nx_i}{n} \\
+         &\approx\frac{1500+ 850+3325+1575+ 575+ 625+ 675+   0+ 775}{20} \\
+         &=\frac{9900}{20} \\
+         &=495
+\end{aligned}\]
+
+> (Eine Berechnung mit Einzelwerten ergibt $\bar{x}\approx495,28$.)
+
+
+f) Für die Standardabweichung berechnen wir weitere Werte in der Tabelle:
+
+\medskip
+\begin{center}
+\begin{tabular}{r|r|r|r|r|r}
+\toprule
+Wertebereich $x$ & $k_i$ & $f_i$ & $(k_i-\bar{x})$ & $(k_i-\bar{x})^2$ & $f_i\cdot(k_i-\bar{x})^2$ \\
+\midrule
+```{r, results='asis', comment=NA}
+write.table(tf[,c(1:3, 6:8)], quote=F, eol="\\\\\n", sep=" & ", row.names=F, col.names = F)
+```
+\bottomrule
+\end{tabular}
+\end{center}
+\medskip
+
+> Die Varianz beträgt:
+
+\[\begin{aligned}
+  s^2&=\frac{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})^2}{n-1} \\[4pt]
+     &\approx\frac{57600+9800+2800+2700+6400+16900+32400+0+78400}{20-1}\\[4pt]
+     &=\frac{207000}{19}\\[4pt]
+     &={10894,74}
+\end{aligned}\]
+
+> Somit beträgt die Standardabweichung
+
+$$s\approx\sqrt{10894,74}\approx104,38$$
+
+\pagebreak
+
+f) Beim Boxplot stellt der Ausreißer nach oben (785,27 mm in 1974) eine Besonderheit dar, der größer als der Maximalwert $$Q_3+1,5\cdot\mathit{IQR}\approx 535,12+1,5\cdot104,25\approx 691,50$$ ist und somit als Punkt dargestellt wird:
+
+```{r, fig.height=5, fig.width=3, out.width='.3\\linewidth'}
+xs <- DAAG::bomsoi[71:90,15]
+ggplot(tibble(x=xs), aes(y=x)) +
+  stat_boxplot(geom = 'errorbar', width=0.5) +
+  geom_boxplot(fill = mustard_yellow) +
+  scale_x_continuous(limits = c(-0.6,0.4), breaks = NULL) +
+  scale_y_continuous(NULL) +
+  panel_border(colour = "black", size=1) +
+  theme(axis.line = element_blank())
+```
+
+
+# Sitzung 3
+
+## Aufgabe 1
+
+a) Siehe b)
+b) Die Dichtefunktion mit kritischem Wert sollte in etwa so aussehen:
+
+```{r cache=T, fig.pos="H"}
+f <- function(x){dnorm(x,9.01,2.23)}
+ggplot(data.frame(x=c(9.01-3*2.23, 9.01+3*2.23)), aes(x)) +
+      stat_function(fun=f) +
+    geom_vline(xintercept = 10,
+               linetype = "dashed") +
+  scale_y_continuous(NULL,expand=c(0,0), breaks=NULL, limits=c(0, dnorm(9.01,9.01,2.23)*1.05)) +
+  scale_x_continuous("Höchstwasserstand in m", limits=c(9.01-3*2.23, 9.01+3*2.23),breaks=seq(0,16,2))
+```
+
+c) $z_p=\frac{x_p- \mu}{\sigma} = \frac{10-9,01}{2,23}\approx0,44$
+
+d) $p=P(z<z_p)\approx P(z<0,44)\approx0,6700$
+
+> Die Wahrscheinlichkeit, dass der Deich unbeschädigt bleibt, beträgt 67%.
+
+## Aufgabe 2
+
+a) Die Übertretungswahrscheinlichkeit beträgt:
+
+> $$P(z>z_p) = 1- P(z<z_p) \approx 1-0,6700 = 0,3300 = 33\% $$
+
+b) Für $x_p=12$ ergibt sich:
+
+> $$ z_p=\frac{x_p- \mu}{\sigma} = \frac{12-9,01}{2,23}\approx1,34 $$
+
+> Und für die Übertretungswahrscheinlichkeit:
+
+> $$P(z>z_p) = 1- P(z<z_p) \approx 1-0,9099 = 0,0901= 9,01\% $$
+
+c) Wir kennen $P(x < 12)\approx0,9099$ aus Aufgabe 2 b) und $P(x<10)\approx0,6700$ aus Aufgabe 1 d). Also rechnen wir:
+
+> $$P(10<x<12) = P(x<12) - P(x<10) \approx 0,9099 - 0,6700 = 0,2399$$
+
+d) Für die Obergrenze soll gelten: $P(x<x_o) = 0,9$. Der Tabelle entnehmen wir $z_o \approx 1,28$. Entsprechend ist $z_u\approx-1,28$.
+
+> Die Umkehrung der $z$-Transformation ergibt:
+> $$x_o=z_o\cdot\sigma + \mu\approx1,28\cdot2,23 +9,01\approx11,86$$
+> $$x_u=z_u\cdot\sigma + \mu\approx-1,28\cdot2.23 +9.01\approx6,16$$
+
+> Die mittleren 80% der Werte liegen also zwichen 6,16 und 11,86 m.
+
+## Aufgabe 3
+
+a) $p=P(x<x_p)=1-P(x>x_p)=1-\frac{1}{200}=1-0,005=0,995$
+b) $z_{99,5\%}\approx2,58$
+c) $x_{99,5\%}=z_{99,5\%}\cdot\sigma + \mu\approx2,58\cdot2,23+9,01\approx14,76$
+
+> Der neue Deich muss 14,76 m hoch sein.
+
+## Aufgabe 4
+
+a) $z_p=1$ und $P(z<1)\approx84,13\%$, also $P(z>1)\approx15,87\%$
+b) $z_p=-2$ und $P(z<-2) = 1-P(z<2) \approx 1-0,9772 = 0,0228$
+
+> Es kann also 2,28 Mal in 100 Jahren (oder: in etwa 2 von 100 Jahren, in weniger als 3 von 100 Jahren) mit weniger als 200 mm Regen gerechnet werden.
+
+c) $z_u=-2$ und $P(z<z_u)\approx 0,0228$ (siehe b)
+
+> $z_o=\frac{x_o- \mu}{\sigma}=\frac{550-400}{100}=1,5$ und $P(z<z_o) \approx 0,9332$
+
+> $P(200 < x < 550) = P(x < 550) - P(x<200) \approx 91,04\%$
+
+d) Gesucht ist $x_p$, für das gilt: $P(x>x_p) = \frac{2}{100}=0,02$
+
+> Daraus folgt: $P(x<x_p) = 0,98$ und $z_p\approx2,05$
+
+> $x_p = 605$
+
+e) $z_{12,5\%}\approx -1,15$ und $z_{87,5\%}= 1,15$
+
+> Die mittleren 75% liegen zwischen $x_u=285$ und $x_o=515$ mm.
+
+# Sitzung 4
+
+## Aufgabe 1
+
+a) $\mu = \bar{x} = 162$
+
+> $\sigma = s \approx 13{,}30$
+
+b) $\sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}}\approx\frac{13{,}30}{\sqrt{6}}\approx5,43$
+
+## Aufgabe 2
+
+a) $\sigma_{\bar{x}}=\frac{\sigma}{\sqrt{n}}=\frac{4}{\sqrt{9}}\approx1{,}33$
+
+b) $\frac{\mathit{KIB}}{2}=z_{(1-\alpha/2)} \cdot \sigma_{\bar{x}}$
+
+> $\frac{\mathit{KIB}}{2}= z_{97{,}5\%}\cdot \sigma_{\bar{x}}$
+
+> $\frac{\mathit{KIB}}{2}\approx 1{,}96 \cdot 1{,}33 \approx 2{,}61$
+
+> $\mathit{KIB}=5{,}22$
+
+c) $\frac{\mathit{KIB}}{2}=z_{(1-\alpha/2)} \cdot \sigma_{\bar{x}}$
+
+> $z_{(1-\alpha/2)} = \frac{\mathit{KIB}}{2 \cdot \sigma_{\bar{x}}}\approx\frac{1}{2 \cdot 1{,}33}\approx0{,}38$
+
+> $1-\frac{\alpha}{2} \approx 0,6480$
+
+> $\alpha \approx 0,7040$
+
+> Das Konfidenzniveau beträgt ca. 70,40%.
+
+d) $\frac{\mathit{KIB}}{2} = z_{(1-\alpha/2)} \cdot \sigma_{\bar{x}}$
+
+> $\sigma_{\bar{x}} = \frac{\mathit{KIB}}{2\cdot z_{95\%}}$
+
+> $\sigma_{\bar{x}} = \frac{2}{2 \cdot z_{95\%}}$
+
+> $\sigma_{\bar{x}} \approx \frac{2}{2 \cdot 1{,}65}$
+
+> $\sigma_{\bar{x}} \approx 0{,}61$
+
+> $\sigma_{\bar{x}}=\frac{\sigma}{\sqrt{n}}$
+
+> $n = \big(\frac{\sigma}{\sigma_{\bar{x}}}\big)^2$
+
+> $n \approx \big(\frac{4}{0{,}61}\big)^2\approx43$
+
+## Aufgabe 3
+
+a) $\alpha=0{,}1$
+
+> $\sigma=\sqrt{\sigma^2}=\sqrt{4096}=64$
+
+> $\sigma_{\bar{x}}=\frac{\sigma}{\sqrt{n}}=\frac{64}{\sqrt{40}}\approx10{,}12$
+
+> $\frac{\mathit{KIB}}{2}=z_{95\%} \cdot \sigma_{\bar{x}}$
+
+> $\frac{\mathit{KIB}}{2}\approx 1{,}65 \cdot 10{,}12\approx16{,}70$
+
+> (Weil es um "Konfidenz" geht, sicherheitshalber der extremere $z$-Wert. 1,64 wäre aber nicht unbedingt falsch.)
+
+> $\textrm{Untergrenze} = \bar{x} - \frac{\mathit{KIB}}{2} \approx 2650 - 16{,}70 = 2633{,}30$
+
+> $\textrm{Obergrenze} = \bar{x} + \frac{\mathit{KIB}}{2} \approx 2650 + 16{,}70 = 2666{,}70$
+
+b) $\mathit{KIB}=20$
+
+> $\frac{\mathit{KIB}}{2}=z_{(1-\alpha/2)} \cdot \sigma_{\bar{x}}$
+
+> $z_{(1-\alpha/2)}=\frac{\mathit{KIB}}{2\cdot \sigma_{\bar{x}}}$
+
+> $z_{(1-\alpha/2)}=\frac{20}{2 \cdot 10{,}12}\approx0{,}99$
+
+> $1-\frac{\alpha}{2}\approx0{,}8389$
+
+> $\alpha\approx 0{,}3222$
+
+> Das Konfidenzniveau beträgt ca. 67,78%.
+
+# Sitzung 5
+
+## Aufgabe 1
+
+a) Ob die Grundgesamtheit normalverteilt ist oder nicht, ist nicht bekannt. (Vermutlich ist das sogar nicht der Fall.) Deshalb muss die Stichprobengröße mindestens 30 betragen.
+
+b) $H_0 : \mu = 2{,}30$
+
+> $H_1 : \mu \neq 2{,}30$
+
+c) $z \leq -1{,}96$ und $z \geq 1{,}96$
+
+d) $z=\sqrt{n}\cdot\frac{\bar{x}-\mu}{\sigma}$
+
+> $z=\sqrt{40}\cdot\frac{1{,}82-2{,}30}{1{,}42}\approx-2{,}14$
+
+e) Der $z$-Wert ist mit -2,14 kleiner als der kritische Wert -1,96 und damit im Ablehnungsbereich. Die Nullhypothese kann verworfen werden. Die Vermutung, dass sich die Frankfurter Haushaltsgröße vom europäischen Durchschnitt unterscheidet, ist damit bestätigt.
+
+## Aufgabe 2
+
+a)  -4,604 
+a)  -3,579 
+a)  -2,365 
+a)  -1,771 
+a)  2,201 
+a)  2,353 
+a)  3,707 
+a)  3,686 
+a)  3,365 
+a)  -2,528 
+
+## Aufgabe 3
+
+1. Voraussetzungen prüfen (Test wählen):
+
+> $z$-Test, da $\sigma$ bekannt
+
+2. Hypothesen formulieren:
+
+> $H_0 : \mu = 61{,}5$
+
+> $H_1 : \mu < 61{,}5$
+
+3. Signifikanzniveau entscheiden:
+
+> Signifikanzniveau z.B. $alpha=0,05$, weil ein zu großes $alpha$ hier nicht in besonderer Weise problematisch ist.
+
+4. Kritischen Wert bestimmen:
+
+> $z \leq -1{,}65$
+
+5. Prüfgröße berechnen:
+
+> Zunächst muss $\bar{x} = 57{,}75$ berechnet werden (s. Sitzung 2)
+
+> $z=\sqrt{n}\cdot\frac{\bar{x}-\mu}{\sigma}$
+
+> $z\approx\sqrt{4}\cdot\frac{57{,}75-61{,}5}{10{,}3}\approx-0{,}73$
+
+6. Nullhypothese ablehnen oder beibehalten:
+
+> Der kritsche Wert wurde nicht erreicht. Die Nullhypothese muss beibehalten werden, eine systematisch schlechtere Prüfungsleistung von berufstätigen Studierenden ließ sich hier nicht bestätigen.
+
+## Aufgabe 4
+
+a) Es geht um den Vergleich des Mittelwerts einer Stichprobe mit dem Mittelwert der Grundgesamtheit bei unbekanntem $\sigma$,s deshalb 1-Stichproben-$t$-Test.
+
+b) Gerichtete Alternativhypothese nach unten:
+
+\[\begin{aligned}
+H_0: \mu=3042,43\\
+H_1: \mu < 3042,43
+\end{aligned}\] 
+
+c) Stichprobengröße 6, also 5 Freiheitsgrade:
+
+\[\begin{aligned}
+t &\leq t_{5;1\%}\\
+t &\leq -3,365
+\end{aligned}\] 
+
+## Aufgabe 5
+
+a) Wir berechnen zunächst die Parameter der Stichprobe (s. Sitzung 2):
+
+\[\begin{aligned}
+\bar{x}&\approx2964,50\\
+s&\approx 51,93
+\end{aligned}\] 
+
+> Und setzen anschließend ein:
+
+\[\begin{aligned}
+t &= \sqrt{n}\cdot\frac{\bar{x}-\mu_0}{s}\\[5pt]
+&=\sqrt{6}\cdot\frac{2964,50-3042,43}{51,93}\\
+&\approx-3,676
+\end{aligned}\]
+
+b) Der kritische Wert wurde unterschritten, die Nullhypothese wird abgelehnt. Wir haben gezeigt, dass in diesem Betrieb Angestellte mit Migrationshintergrund schlechter bezahlt werden ($\alpha=0,01$).
+
+# Sitzung 6
+
+
+## Aufgabe 1
+
+a) 0,13
+a) 3,23
+a) 3,14
+a) 6,00
+a) 3,29
+a) 0,20
+a) 0,05
+a) 0,72
+a) 4,35
+a) 1,78
+
+## Aufgabe 2
+
+a) Es geht um den Vergleich der Varianzen von zwei Stichproben, deshalb $F$-Test.
+b) Ungerichtete Alternativhypothese:
+\[\begin{aligned}
+H_0: \sigma^2_1 = \sigma^2_2\\[5pt]
+H_1: \sigma^2_1 \neq \sigma^2_2
+\end{aligned}\]
+
+c) Ein Signifikanzniveau von $\alpha=0{,}1$ bedeutet, dass wir die Nullhypothese genau dann verwerfen, wenn das empirische Ergebnis unter Annahme der Nullhypothese eine Wahrscheinlichkeit von 10% oder weniger hat.
+
+d) Bei ungerichteter Hypothese:
+\[\begin{aligned}
+F &\leq F_{4;6;5\%}\quad \textrm{und} \quad F\geq F_{4;6;95\%}\\[4pt]
+F &\leq 0,16 \quad \textrm{und} \quad F\geq 4,53
+\end{aligned}\]
+
+## Aufgabe 3
+
+a) Die Varianzen lauten:
+
+\[\begin{aligned}
+s^2_1= 1{,}967\\
+s^2_2\approx 0{,}123
+\end{aligned}\]
+
+> $F$ berechnet sich durch:
+
+\[\begin{aligned}
+F&=\frac{s^2_1}{s^2_2}\\[6pt]
+&\approx\frac{1{,}967}{0{,}123}\\[4pt]
+&\approx15,992
+\end{aligned}\]
+
+b) Der kritische Wert wurde deutlich übertroffen. Ein Unterschied in der Streuung der Wassertemperaturen konnte nachgewiesen werden ($\alpha=0{,}1$).
+
+## Aufgabe 4
+
+a) Es geht um den Vergleich von Mittelwerten von zwei Stichproben, also ist der 2-Stichproben-$t$-Test angedacht.
+
+> Die Normalverteilung des Merkmals „durchschnittliche Antwortzeit“ ist nicht gesichert, (aber auch nicht ganz abwegig).
+
+> Ein weiteres Problem stellt die Bedingung der reinen Zufallsstichprobe dar, was hier allerdings auch nur sehr schwer zu konstruieren wäre (also zufällig ausgewählte Proband\*innen aus *allen* WhatsApp-Nutzer\*innen im relevanten Alter).
+
+> Schließlich ist die Voraussetzung $\sigma^2_1=\sigma^2_2$ nicht unbedingt gegeben. Bei sehr unterschiedlichen Varianzen der Stichproben sollte daher der Test abgebrochen werden.
+
+b) Wenn Nutzer\*innen ohne Benachtigungsfunktion die Population $x_1$ darstellen und jene mit $x_2$, dann lauten die Hypothesen:
+
+\[\begin{aligned}
+H_0: \mu_1=\mu_2\\
+H_1: \mu_1 > \mu_2
+\end{aligned}\]
+
+c) Freiheitsgrade:
+
+\[\begin{aligned}
+\mathit{fg}&=2\cdot n-2\\
+&=2\cdot 6-2\\
+&=10
+\end{aligned}\] 
+
+> Kritischer Wert:
+
+\[\begin{aligned}
+t &\geq t_{10;95\%}\\
+t &\geq 1,812
+\end{aligned}\]
+
+## Aufgabe 5
+
+a) Zunächst die Mittelwerte und Varianzen:
+\[\begin{aligned}
+\bar{x}_1 =27,05 \quad &s^2_1\approx165,16\\
+\bar{x}_2 \approx22,18 \quad &s^2_2\approx107,77
+\end{aligned}\]
+
+> Dabei fällt auf, dass die Varianzen gar nicht so unterschiedlich sind (was ja beim 2-Stichproben-$t$-Test vorausgesetzt ist. In der Praxis sollte dies aber noch mit einem $F$-Test abgesichert werden.
+
+b) Durch Einsetzen in die Formel für $t$ ergibt sich:
+\[\begin{aligned}
+t&=\frac{\bar{x}_1-\bar{x}_2}{\sqrt{\frac{s^2_1+s^2_2}{n}}}\\[8pt]
+&\approx\frac{27,05-22,18}{\sqrt{\frac{165,16+107,77}{6}}}\\[5pt]
+&\approx0,722
+\end{aligned}\]
+
+c) Der kritische Wert (1,812) wurde nicht überschritten. Die Nullhypothese muss beibehalten werden. Dass jugendliche Nutzer\*innen mit Benachrichtigungsfunktion schneller antworten, konnte in dieser Untersuchung nicht belegt werden ($\alpha=0,05$).
+
+# Sitzung 7
+
+## Aufgabe 1
+
+a) Streudiagramm:
+
+```{r}
+exa.raw <- read.table("../img/7_exercise_dt")
+exa<-exa.raw
+ggplot(exa, aes(xa, ya)) +
+  geom_point(color=goethe_blue) +
+  xlab("x") +
+  ylab("y")
+```
+
+> Berechnungstabelle:
+
+```{r}
+exa<- cbind(1:nrow(exa), exa)
+exa$diffx <- round(exa$xa - mean(exa$xa),2)
+exa$diffy <- round(exa$ya - mean(exa$ya),2)
+exa$produkt <- round(exa$diffx*exa$diffy, 2)
+exa$sqx <- round(exa$diffx^2,2)
+exa$sqy <- round(exa$diffy^2,2)
+sums <- colSums(exa)
+sums[1] <- "Summe:"
+sums[4:5] <- ""
+exa <- rbind(exa,sums)
+kable(exa, "latex", align="r", booktabs=T, linesep=c(""), longtable=F, col.names = c("$i$", "$x_i$", "$y_i$", "$(x_i-\\bar{x})$", "$(y_i-\\bar{y})$", "$(x_i-\\bar{x})\\cdot(y_i-\\bar{y})$", "$(x_i-\\bar{x})^2$", "$(y_i-\\bar{y})^2$"), escape = F, row.names =F) %>%
+  kable_styling() %>% row_spec(nrow(exa), bold = T) %>% row_spec(nrow(exa)-1, hline_after = T)
+```
+
+> Kovarianz:
+\[\begin{aligned}
+\bar{x} &\approx 14,48\\
+\bar{y} &=134,5\\
+s_{xy}&\approx 3,32\\
+\end{aligned}\]
+
+> Korrelationskoeffizient:
+\[\begin{aligned}
+s_x &\approx 1,98\\
+s_y &\approx 1,77\\
+r &\approx 0,95
+\end{aligned}\]
+
+b) Streudiagramm:
+
+```{r}
+exa.raw <- read.table("../img/7_exercise_b_dt")
+exa<-exa.raw
+ggplot(exa, aes(x, y)) +
+  geom_point(color=goethe_blue) +
+  xlab("x") +
+  ylab("y")
+```
+
+> Berechnungstabelle:
+
+```{r}
+exa<- cbind(1:nrow(exa), exa)
+exa$diffx <- round(exa$x - mean(exa$x),2)
+exa$diffy <- round(exa$y - mean(exa$y),2)
+exa$produkt <- round(exa$diffx*exa$diffy, 2)
+exa$sqx <- round(exa$diffx^2,2)
+exa$sqy <- round(exa$diffy^2,2)
+sums <- colSums(exa)
+sums[1] <- "Summe:"
+sums[4:5] <- ""
+exa <- rbind(exa,sums)
+kable(exa, "latex", align="r", booktabs=T, linesep=c(""), longtable=F, col.names = c("$i$", "$x_i$", "$y_i$", "$(x_i-\\bar{x})$", "$(y_i-\\bar{y})$", "$(x_i-\\bar{x})\\cdot(y_i-\\bar{y})$", "$(x_i-\\bar{x})^2$", "$(y_i-\\bar{y})^2$"), escape = F, row.names =F) %>%
+  kable_styling() %>% row_spec(nrow(exa), bold = T) %>% row_spec(nrow(exa)-1, hline_after = T)
+```
+
+
+> Kovarianz:
+\[\begin{aligned}
+\bar{x} &\approx 0,09\\
+\bar{y} &\approx -0,55\\
+s_{xy}&\approx -9,86\\
+\end{aligned}\]
+
+> Korrelationskoeffizient:
+\[\begin{aligned}
+s_x &\approx 1,00\\
+s_y &\approx 10,11\\
+r &\approx -0,98
+\end{aligned}\]
+
+## Aufgabe 3
+
+Berechnungstabelle:
+
+```{r}
+w <- read.table("../img/7_wasserhäuschen_dt")
+exa<- data.frame(i=1:nrow(w), x=w$dist, y=w$rev)
+exa$diffx <- round(exa$x - mean(exa$x),2)
+exa$diffy <- round(exa$y - mean(exa$y),2)
+exa$produkt <- round(exa$diffx*exa$diffy, 2)
+exa$sqx <- round(exa$diffx^2,2)
+exa$sqy <- round(exa$diffy^2,2)
+sums <- colSums(exa)
+sums[1] <- "Summe:"
+sums[4:5] <- ""
+exa <- rbind(exa,sums)
+kable(exa, "latex", align="r", booktabs=T, linesep=c(""), longtable=F, col.names = c("$i$", "$x_i$", "$y_i$", "$(x_i-\\bar{x})$", "$(y_i-\\bar{y})$", "$(x_i-\\bar{x})\\cdot(y_i-\\bar{y})$", "$(x_i-\\bar{x})^2$", "$(y_i-\\bar{y})^2$"), escape = F, row.names =F) %>%
+  kable_styling() %>% row_spec(nrow(exa), bold = T) %>% row_spec(nrow(exa)-1, hline_after = T)
+```
+
+Kovarianz:
+
+> Kovarianz:
+\[\begin{aligned}
+\bar{x} &\approx 133,67\\
+\bar{y} &\approx 375,25\\
+s_{xy}&\approx -3925,18\\
+\end{aligned}\]
+
+> Korrelationskoeffizient:
+\[\begin{aligned}
+s_x &\approx 116,73\\
+s_y &\approx 61,28\\
+r &\approx -0,55
+\end{aligned}\]
+
+Es lässt sich eine schwache (bis mäßige) negative Korrelation zwischen Entfernung und Umsatz feststellen.
+
+## Aufgabe 3
+
+a)
+\[\begin{aligned}
+r&=\frac{s_{xy}}{s_x\cdot s_y}\\[6pt]
+&=\frac{\sum\limits^n_{i=1}(x_i-\bar{x})\cdot(y_i-\bar{y})}{(n-1)\cdot s_x \cdot s_y}\\[6pt]
+&=\frac{\sum\limits^n_{i=1}\frac{(x_i-\bar{x})\cdot(y_i-\bar{y})}{s_x\cdot s_y}}{n-1}\\[6pt]
+&=\frac{\sum\limits^n_{i=1}z_{xi}\cdot z_{yi}}{n-1}\\[6pt]
+\end{aligned}\]
+
+b) hier nicht ausgeführt
+
+c) nachzulesen bei @bortz[: 157]
+
+b) hier nicht ausgeführt
+
+# Sitzung 8
+
+## Aufgabe 1
+
+a) Berechnung durch die Formel
+\[\hat{y}_i=-1,48-0,975\cdot x_i\]
+
+> ergibt folgende Werte für $\hat{y}_i$:
+\[ -1,77\quad16,56\quad11,68\quad15,29\quad-30,54\quad-26,44\quad34,01\quad24,07 \]
+
+b) Umformen der Regressionsgleichung ergibt:
+\[x_i=\frac{\hat{y}_i+1,48}{-0,975}\]
+
+> Einsetzen ergibt die Werte:
+\[8,74\quad-16,9\quad49,76\quad8,74\quad60,02\quad54,89\quad18,99\quad-1,52\]
+
+c) Tabellarische Berechnung:
+```{r}
+ex1 <- read.table("../img/8_ex1_dt")
+ex1$x <- round(ex1$x,2)
+ex1$y <- round(ex1$y,2)
+ex1$pred <- (-1.48-0.975*ex1$x) %>% round(2)
+ex1$res <- (ex1$y-ex1$pred)  %>% round(2)
+kable(ex1, "latex", booktabs=T, col.names = c("$x_i$", "$y_i$", "$\\hat{y}_i$", "$e_i=y_i-\\hat{y}_i$"), escape = F, longtable=F, linesep=c("")) %>% 
+  kable_styling()
+```
+
+## Aufgabe 2
+
+a) Schritt 1: Steigung $b$
+
+\[\begin{aligned}
+b&=\frac{s_{xy}}{s^2_x}\\[5pt]
+ &=\frac{869,83}{1080,94}\\[4pt]
+ &\approx0,81
+\end{aligned}\]
+
+> Schritt 2: Achsenabschnitt $a$
+
+\[\begin{aligned}
+a&=\bar{y}-b\cdot\bar{x}\\
+&\approx 156,7-0,805\cdot157,5\\
+&\approx 29,91
+\end{aligned}\]
+
+> Schritt 3: Regressionsgleichung
+
+\[\begin{aligned}
+y&=a+b\cdot x\\
+y&\approx 29,91 + 0,805 \cdot x
+\end{aligned}\]
+
+b) Schritt 1: Bestimmung $r$ (s. Sitzung 7)
+
+\[\begin{aligned}
+r&=\frac{s_{xy}}{s_x\cdot s_y}\\[6pt]
+&\approx\frac{869,83}{\sqrt{1080,94}\cdot\sqrt{884,46}}\\[4pt]
+&\approx0,89
+\end{aligned}\]
+
+> Schritt 2: Bestimmung $R^2$
+
+\[\begin{aligned}
+R^2&=r^2 \quad \textrm{(für lineare Regression)}\\
+&\approx 0.89^2\\
+&\approx0,79
+\end{aligned}\]
+
+## Aufgabe 3
+
+Es wird eine Regressionsgleichung benötigt. Dazu müssen zunächst einige Kennwerte der Verteilung berechnet werden (s. Sitzungen 2 und 7):
+
+\[\begin{aligned}
+\bar{x}&\approx534,33\\
+s^2_x&=114919,9\\
+\bar{y} &= 70\\
+s^2_y &=620\\
+s_{xy}&= 7952,8
+\end{aligned}\]
+
+Dann lauten Regressionskoeffizienten und -gleichung:
+
+\[\begin{aligned}
+b &\approx 0,0692\\
+a &\approx 33,13\\
+y &\approx 33,13 + 0,0692 \cdot x
+\end{aligned}\]
+
+a) 
+\[\begin{aligned}
+\hat{y}_i &=a+b\cdot x\\
+&\approx 33,13 + 0,0692 \cdot (6\cdot 60)\\
+&\approx 58,04
+\end{aligned}\]
+
+b) 
+\[\begin{aligned}
+x_i&=\frac{\hat{y}_i-a}{b}\\[6pt]
+   &\approx\frac{50-33,13}{0,0692}\\[4pt]
+   &\approx 243,79
+\end{aligned}\]
+
+c)
+\[\begin{aligned}
+x_i&=\frac{\hat{y}_i-a}{b}\\[6pt]
+   &\approx\frac{100-33,13}{0,0692}\\[4pt]
+   &\approx 966.33
+\end{aligned}\]
+
+d) Gefragt ist nach $R^2$
+\[\begin{aligned}
+r &\approx 0,94 \quad \textrm{(s. Sitzung 7)}\\
+R^2 &\approx 0,88
+\end{aligned}\]
+
+e) Das Modell kann nur gültig sein für Wertebereiche $x > 0$ und $0 < y < 100$. Darüber hinaus ist eigentlich zu erwarten, dass in der erste Stunde Vorbereitungszeit die Punktezahl stärker verbessert wird als in der 10. oder 11. Stunde. Diese Abflachung der Kurve ist jedoch im linearen Modell nicht vorgesehen.
+
+# Sitzung 9
+
+## Aufgabe 1
+
+a) Überführung in Kreuztabelle
+
+```{r}
+ex1 <- read.table("../img/9_ex1_dt")
+xt1 <- crosstable(ex1, "latex")
+xt1$df
+```
+
+b) Erwartungswerte
+
+```{r}
+xt1 <- crosstable(ex1, "latex", expected = T)
+xt1$df
+```
+
+c) Teilwerte für $\chi^2$ berechnet durch
+
+\[
+\frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}
+\]
+
+> z.B. für die Kombination "Autobesitz" und "Stadt":
+
+\[\begin{aligned}
+\frac{(n_{21}-m_{21})^{2}}{m_{21}}=\frac{(2-4,95)^{2}}{4,95}\approx 1,758
+\end{aligned}\]
+
+```{r}
+xt1 <- crosstable(ex1, "latex", expected = T, chisq = T)
+xt1$df
+```
+
+> Summe der Teilwerte ergibt $\chi^2$:
+
+\[\begin{aligned}
+\chi^2&= \sum_{i=1}^{k}\sum_{j=1}^{\ell}\frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}\\[4pt]
+      &\approx1,438+1,758+1,758+2,149\\
+      &=7,103
+\end{aligned}\]
+
+d) $\phi$-Koeffizient:
+
+\[\begin{aligned}
+\phi&=\sqrt{\frac{\chi^2}{n}}\\[6pt]
+    &\approx\sqrt{\frac{7,103}{20}}\\[4pt]
+    &\approx0,596
+\end{aligned}\]
+
+e) Es besteht ein deutlicher Zusammenhang ($\phi=0,596$). Dabei übersteigt die beobachtete Kombination "Land/Auto" ihren Erwartungswert. Die Wohnumgebung "Land" korreliert also mit Autobesitz.
+
+## Aufgabe 2
+
+a) Vervollständigung der Kreuztabelle:
+
+```{r}
+ex2 <- read.table("../img/9_ex2_dt")
+colnames(ex2) <- c("Frage 1", "Frage 2")
+xt2 <- crosstable(ex2, format = "latex", expected=T)
+xt2$df %>% kable_styling(latex_options = c("hold_position"))
+```
+
+b) Teilwerte $\chi^2$:
+
+```{r}
+xt2 <- crosstable(ex2, format = "latex", expected=T, chisq = T)
+xt2$df %>% kable_styling(latex_options = c("hold_position"))
+```
+
+> Summe ergibt  $\chi^2$:
+
+\[\begin{aligned}
+\chi^2&= \sum_{i=1}^{k}\sum_{j=1}^{\ell}\frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}\\[4pt]
+      &\approx2,681+1,206+0,79+0,355\\
+      &=5,032
+\end{aligned}\]
+
+> Berechung $\phi$:
+
+\[\begin{aligned}
+\phi&=\sqrt{\frac{\chi^2}{n}}\\[6pt]
+    &\approx\sqrt{\frac{5,032}{145}}\\[4pt]
+    &\approx0,186
+\end{aligned}\]
+
+c) Es gibt eine mäßige Korrelation der beiden Antworten ($\phi\approx0,186$). Die Bejahung beider Fragen liegt unter dem Erwartungswert und korreliert also leicht negativ.
+
+## Aufgabe 3
+
+Erwartungswerte und Teilwerte für $\chi^2$:
+
+```{r}
+ex3 <- read.table("../img/9_ex3_dt")
+colnames(ex3) <- c("Herkunft des Namens", "Ergebnis")
+xt3 <- crosstable(ex3, format="latex", expected = T, chisq = T)
+xt3$df
+```
+
+
+Summe der Teilwerte ergibt  $\chi^2$:
+
+\[\begin{aligned}
+\chi^2&= \sum_{i=1}^{k}\sum_{j=1}^{\ell}\frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}\\[4pt]
+      &\approx13,37+3,29+0,535+0,132+5,851+1,44+3,877+0,954\\
+      &=29,449
+\end{aligned}\]
+
+Cramer-Index (wobei $k=4$ und $\ell=2$ und damit $\mathrm{min}(k,\ell)=2$):
+
+\[\begin{aligned}
+\mathit{CI}&=\sqrt{\frac{\chi^2}{n\cdot (\mathrm{min}(k, \ell)-1)}}\\[6pt]
+&\approx\sqrt{\frac{29,449}{400\cdot(2-1)}}\\[4pt]
+&\approx0,271
+\end{aligned}\]
+
+Der Cramer-Index weist auf einen Zusammenhang zwischen Namensherkunft und Bewerbungsergebnis hin ($\mathit{CI}\approx0,217$). Dabei lag die Anzahl erfolgreicher Bewerbungen bei Namen deutscher Herkunft deutlich über dem Erwartungswert und bei Namen türkischer und slawischer Herkunft deutlich unter dem Erwartungswert.
+
+# Sitzung 10
+
+## Aufgabe 1
+
+a) Es geht um die Überprüfung eines Zusammenhangs von zwei nominalskalierten Variablen, deshalb $\chi^2$-Unabhängigkeitstest.
+
+b) $H_0:$ Es gibt keinen Zusammenhang zwischen Geschlecht und Tätigkeitsbereich.
+
+> $H_1:$ Es gibt einen Zusammenhang zwischen Geschlecht und Tätigkeitsbereich.
+
+c) $\alpha=0,01$
+
+d) Freiheitsgrade:
+
+\[\begin{aligned}
+\mathit{df} &= (k - 1) \cdot (\ell - 1)\\
+ &= (2 - 1) \cdot (3 - 1)\\
+&=2
+\end{aligned}\]
+
+> Ablehnungsbereich:
+
+\[\begin{aligned}
+\chi^2 &\geq \chi^2_{\mathit{df};(1-\alpha)}\\
+\chi^2 &\geq \chi^2_{2;99\%}\\
+\chi^2 &\geq 9,210
+\end{aligned}\]
+
+e) Berechnung anhand Tabelle:
+
+```{r}
+firma <- read.table("../img/10_firma_dt")
+firmaxt <- crosstable(firma, "latex", sums=T, chisq = T, expected = T, varnames = F, col.order = c("Leitende Tätigkeit", "Administration", "Fertigung"))
+firmaxt$df
+```
+
+\[\begin{aligned}
+\chi^2&= \sum_{i=1}^{k}\sum_{j=1}^{\ell}\frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}\\
+&=12,297
+\end{aligned}\]
+
+f) Der Ablehnungsbereich wurde erreicht, die Nullhypothese muss abgelehnt werden. Es konnte ein signifikanter Zusammenhang zwischen Geschlecht und Tätigkeitsfeld festgestellt werden ($\alpha=0,01$).
+
+## Aufgabe 2
+
+Aus den angegebenen Werten ergibt sich folgende Darstellung in Tabellenform:
+
+```{r}
+read.table(text="\\makecell[tr]{42} \\makecell[tr]{28} \\makecell[tr]{70}") %>%
+  kable("latex", escape=F, booktabs=T, longtable=F, col.names=c("gewinnt", "verliert", " "), align = "r") %>%
+  kable_styling() %>%
+  column_spec(2, border_right = T) %>%
+  add_header_above(header=c("Das zuerst ausführende Team..."=2))
+```
+
+
+1. Voraussetzungen prüfen (Test wählen)
+
+> Es soll überprüft werden, ob die Verteilung eines Merkmals signifikant von einer gleichmäßigen (uniformen) Verteilung abweicht. Deshalb muss ein $\chi^2$-Anpassungstest durchgeführt werden.
+
+2. Hypothesen formulieren
+
+> $H_0:$ Beide Teams gewinnen das Elfmeterschießen mit gleicher Wahrscheinlichkeit.
+
+> $H_1:$ Das zuerst ausführende Team hat bessere Chancen, das Elfmeterschießen zu gewinnen.
+
+3. Signifikanzniveau wählen
+
+> $\alpha=0,05$
+
+4. Ablehnungsbereich bestimmen
+
+> Freiheitsgrade:
+
+\[\begin{aligned}
+\mathit{df} &= (k - 1)\\
+ &= (2 - 1)\\
+&=1
+\end{aligned}\]
+
+> Für den einseitigen Test dürfen wir den Ablehnungsbereich verdoppeln. Aus einem Signifikanzniveau von 5% und Freiheitsgrad 1 ergibt sich daher das Perzentil $\chi^2_{1;90\%}$:
+
+\[\begin{aligned}
+\chi^2 &\geq \chi^2_{\mathit{df};(1-2\cdot\alpha)}\\
+\chi^2 &\geq \chi^2_{1;90\%}\\
+\chi^2 &\geq 2,706
+\end{aligned}\]
+
+5. Prüfgröße berechnen
+
+> Ohne Zusammenhang wären die Fälle *theoretisch* gleich verteilt, d.h. der Erwartungswert für die beiden Beobachtungen beträgt je 35. Hieraus lassen sich wie gewohnt die Teilwerte für $\chi^2$ berechnen.
+
+```{r}
+read.table(text="\\makecell[tr]{42\\\\(35)\\\\\\color{goethe_blue}{1,400}} \\makecell[tr]{28\\\\(35)\\\\\\color{goethe_blue}{1,400}} \\makecell[tr]{70}") %>%
+  kable("latex", escape=F, booktabs=T, longtable=F, col.names=c("gewinnt", "verliert", " "), align = "r") %>%
+  kable_styling() %>%
+  column_spec(2, border_right = T) %>%
+  add_header_above(header=c("Das zuerst ausführende Team..."=2))
+```
+
+\[\begin{aligned}
+\chi^2 = 2,8
+\end{aligned}\]
+
+6. Ergebnis interpretieren
+
+> Der kritische Wert von 2,706 wurde überschritten, der Ablehnungsbereich somit erreicht. Die Nullhypothese kann abgelehnt werden. Es konnte bestätigt werden, dass das zuerst ausführende Team signifikant öfter gewinnt ($\alpha=0,05$).
+
+## Literaturverzeichnis
