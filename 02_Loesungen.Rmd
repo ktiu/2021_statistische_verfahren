@@ -11,11 +11,11 @@ runif(6, 10, 80) %>%
   lectuR::get_mean() -> mean_a
 
 tribble(
-  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
-  "Formel", mean_a$formel, 0, T,
-  "Einsetzen", mean_a$einsetzen, 0, T,
-  "Ergebnis", mean_a$ergebnis, 0, T,
-) %>% lectuR::solution_table(meta = F)
+  ~Schritt, ~Lösung,
+  "Formel", mean_a$formel,
+  "Einsetzen", mean_a$einsetzen,
+  "Ergebnis", mean_a$ergebnis
+) %>% tabelle(escape = F)
 ```
 
 #### b)
@@ -27,11 +27,11 @@ runif(8, -1, 1) %>%
   lectuR::get_mean() -> mean_b
 
 tribble(
-  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
-  "Formel", mean_b$formel, 0, T,
-  "Einsetzen", mean_b$einsetzen, 0, T,
-  "Ergebnis", mean_b$ergebnis, 0, T,
-) %>% lectuR::solution_table(meta = F)
+  ~Schritt, ~Lösung,
+  "Formel", mean_b$formel,
+  "Einsetzen", mean_b$einsetzen,
+  "Ergebnis", mean_b$ergebnis
+) %>% tabelle(escape = F)
 ```
 
 #### c)
@@ -42,11 +42,11 @@ runif(10, 600, 1000) %>%
   round(2) %>%
   lectuR::get_mean() -> mean_c
 tribble(
-  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
-  "Formel", mean_a$formel, 0, T,
-  "Einsetzen", mean_c$einsetzen, 0, T,
-  "Ergebnis", mean_c$ergebnis, 0, T,
-) %>% lectuR::solution_table(meta = F)
+  ~Schritt, ~Lösung,
+  "Formel", mean_a$formel,
+  "Einsetzen", mean_c$einsetzen,
+  "Ergebnis", mean_c$ergebnis
+) %>% tabelle(escape = F)
 ```
 
 `r naechste("lösung")`
@@ -61,14 +61,14 @@ runif(6, 10, 80) %>%
   lectuR::get_sd(a) -> sd_a
 
 tribble(
-  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
-  "Varianz: Formel", var_a$formel, 0, T,
-  "Varianz: Einsetzen", var_a$einsetzen, 0, T,
-  "Varianz: Ergebnis", var_a$ergebnis, 0, T,
-  "Standardabweichung: Formel", sd_a$formel, 0, T,
-  "Standardabweichung: Einsetzen", sd_a$einsetzen, 0, T,
-  "Varianz: Ergebnis", sd_a$ergebnis, 0, T,
-) %>% lectuR::solution_table(meta = F)
+  ~Schritt, ~Lösung,
+  "Varianz: Formel", var_a$formel,
+  "Varianz: Einsetzen", var_a$einsetzen,
+  "Varianz: Ergebnis", var_a$ergebnis,
+  "Standardabweichung: Formel", sd_a$formel,
+  "Standardabweichung: Einsetzen", sd_a$einsetzen,
+  "Varianz: Ergebnis", sd_a$ergebnis
+) %>% tabelle(escape = F)
 ```
 
 #### b)
@@ -82,14 +82,14 @@ runif(8, -1, 1) %>%
   lectuR::get_sd(b) -> sd_b
 
 tribble(
-  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
-  "Varianz: Formel", var_b$formel, 0, T,
-  "Varianz: Einsetzen", var_b$einsetzen, 0, T,
-  "Varianz: Ergebnis", var_b$ergebnis, 0, T,
-  "Standardabweichung: Formel", sd_b$formel, 0, T,
-  "Standardabweichung: Einsetzen", sd_b$einsetzen, 0, T,
-  "Varianz: Ergebnis", sd_b$ergebnis, 0, T,
-) %>% lectuR::solution_table(meta = F)
+  ~Schritt, ~Lösung,
+  "Varianz: Formel", var_b$formel,
+  "Varianz: Einsetzen", var_b$einsetzen,
+  "Varianz: Ergebnis", var_b$ergebnis,
+  "Standardabweichung: Formel", sd_b$formel,
+  "Standardabweichung: Einsetzen", sd_b$einsetzen,
+  "Varianz: Ergebnis", sd_b$ergebnis
+) %>% tabelle(escape = F)
 ```
 
 #### c)
@@ -102,14 +102,14 @@ runif(10, 600, 1000) %>%
   lectuR::get_sd(c) -> sd_c
 
 tribble(
-  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
-  "Varianz: Formel", var_c$formel, 0, T,
-  "Varianz: Einsetzen", var_c$einsetzen, 0, T,
-  "Varianz: Ergebnis", var_c$ergebnis, 0, T,
-  "Standardabweichung: Formel", sd_c$formel, 0, T,
-  "Standardabweichung: Einsetzen", sd_c$einsetzen, 0, T,
-  "Varianz: Ergebnis", sd_c$ergebnis, 0, T,
-) %>% lectuR::solution_table(meta = F)
+  ~Schritt, ~Lösung,
+  "Varianz: Formel", var_c$formel,
+  "Varianz: Einsetzen", var_c$einsetzen,
+  "Varianz: Ergebnis", var_c$ergebnis,
+  "Standardabweichung: Formel", sd_c$formel,
+  "Standardabweichung: Einsetzen", sd_c$einsetzen,
+  "Varianz: Ergebnis", sd_c$ergebnis
+) %>% tabelle(escape = F)
 ```
 
 
@@ -132,10 +132,10 @@ Für das arithmetische Mittel und die Varianz ist diese Tabelle hilfreich:
 ```{r}
 df <- data.frame(table(xs))
 df$xs <- as.numeric(levels(df$xs)[df$xs])
-df[,3] <- df$xs * df$Freq
-df[,4] <- df$xs - mean(xs)
-df[,5] <- (df$xs - mean(xs))^2
-df[,6] <- df$Freq*(df$xs - mean(xs))^2
+df[, 3] <- df$xs * df$Freq
+df[, 4] <- df$xs - mean(xs)
+df[, 5] <- (df$xs - mean(xs))^2
+df[, 6] <- df$Freq*(df$xs - mean(xs))^2
 df[] <- round(df,2)
 df[] <- lapply(format(df, decimal.mark=","), as.character)
 tabelle(df, escape = F, col.names = c("$x_i$", "$f_i$", "$f_i\\cdot x_i$", "$(x_i-\\bar{x})$", "$(x_i-\\bar{x})^2$", "$f_i\\cdot(x_i-\\bar{x})^2$"))
@@ -252,20 +252,20 @@ Somit beträgt die Standardabweichung
 set.seed(1616)
 ziegelei <- round(rnorm(6,80,10))
 moebellager <- round(rnorm(6,70,18))
-mean_ziegelei <- lectuR::get_mean(ziegelei)
-mean_moebellager <- lectuR::get_mean(moebellager, "y")
+mean_ziegelei <- get_mean(ziegelei)
+mean_moebellager <- get_mean(moebellager, "y")
 
 tribble(
-  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
-  "Formel", lectuR::get_mean()$formel, 1, F,
-  "Einsetzen", mean_ziegelei$einsetzen, 0.5, F,
-  "Ergebnis", mean_ziegelei$ergebnis, 1, F,
-  "Einsetzen", mean_moebellager$einsetzen, 0.5, F,
-  "Ergebnis", mean_moebellager$ergebnis, 1, F,
+  ~Schritt, ~Lösung,
+  "Formel", lectuR::get_mean()$formel,
+  "Einsetzen", mean_ziegelei$einsetzen,
+  "Ergebnis", mean_ziegelei$ergebnis,
+  "Einsetzen", mean_moebellager$einsetzen,
+  "Ergebnis", mean_moebellager$ergebnis,
   "Antwortsatz", sprintf("%s weist im Mittel die größere Passant\\*innenzahl auf.",
                          ifelse(mean_moebellager$raw > mean_ziegelei$raw,
-                                "Das Möbellager", "Die Ziegelei")), 1, F
-) %>% lectuR::solution_table(meta = F)
+                                "Das Möbellager", "Die Ziegelei"))
+) %>% tabelle(escape = F)
 ```
 
 #### b)
@@ -275,17 +275,17 @@ iqr_ziegellager <- lectuR::get_iqr(ziegelei, T)
 iqr_moebellager <- lectuR::get_iqr(moebellager, T, "y")
 
 tribble(
-  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
-  "Formel", lectuR::get_iqr()$formel, 1, F,
-  "Einsetzen", iqr_ziegellager$einsetzen, 0.5, F,
-  "Ergebnis", iqr_ziegellager$ergebnis, 1, F,
-  "Einsetzen", iqr_moebellager$einsetzen, 0.5, F,
-  "Ergebnis", iqr_moebellager$ergebnis, 1, F,
+  ~Schritt, ~Lösung,
+  "Formel", lectuR::get_iqr()$formel,
+  "Einsetzen", iqr_ziegellager$einsetzen,
+  "Ergebnis", iqr_ziegellager$ergebnis,
+  "Einsetzen", iqr_moebellager$einsetzen,
+  "Ergebnis", iqr_moebellager$ergebnis,
   "Antwortsatz", sprintf(
      "%s hat den größeren Quartilsabstand für die Passant\\*innenzahl.",
      ifelse(iqr_moebellager$raw > iqr_ziegellager$raw,
-            "Das Möbellager", "Die Ziegelei")), 1, F) %>%
-  lectuR::solution_table(meta = F)
+            "Das Möbellager", "Die Ziegelei"))) %>%
+  tabelle(escape = F)
 ```
 
 `r naechste("lösung")`

@@ -10,11 +10,11 @@ Zunächst brauchen wir das arithmetische Mittel:
 m <- get_mean(ex_3_1_a)
 
 tribble(
-  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
-  "Formel", m$formel, 0, F,
-  "Einsetzen", m$einsetzen, 0, F,
-  "Ergebnis", m$ergebnis, 0, F
-) %>% lectuR::solution_table(meta = F)
+  ~Schritt, ~Musterlösung,
+  "Formel", m$formel,
+  "Einsetzen", m$einsetzen,
+  "Ergebnis", m$ergebnis,
+) %>% tabelle(escape = F)
 ```
 
 Und die Standardabweichung:
@@ -23,11 +23,11 @@ Und die Standardabweichung:
 s <- get_sd(ex_3_1_a)
 
 tribble(
-  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
-  "Formel", s$formel, 0, F,
-  "Einsetzen", s$einsetzen, 0, F,
-  "Ergebnis", s$ergebnis, 0, F
-) %>% lectuR::solution_table(meta = F)
+  ~Schritt, ~Lösung,
+  "Formel", s$formel,
+  "Einsetzen", s$einsetzen,
+  "Ergebnis", s$ergebnis,
+) %>% tabelle(escape = F)
 ```
 
 Dann lässt sich die Formel bestimmen:
@@ -36,10 +36,10 @@ Dann lässt sich die Formel bestimmen:
 z <- get_z_trans(sd = s$raw, mean = m$raw)
 
 tribble(
-  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
-  "Formel", z$formel, 0, F,
-  "Einsetzen", z$general, 0, F,
-) %>% lectuR::solution_table(meta = F)
+  ~Schritt, ~Musterlösung,
+  "Formel", z$formel,
+  "Einsetzen", z$general,
+) %>% tabelle(escape = F)
 ```
 
 Und schließlich die einzelnen Werte berechnen. Hier sind die Berechnungen zum Prüfen ausformuliert, das wird in der Klausur nicht für jeden Wert erwartet.
@@ -69,22 +69,22 @@ Zunächst die Standardabweichung:
 
 ```{r}
 tribble(
-  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
-  "Formel", sd$formel, 0, F,
-  "Einsetzen", sd$einsetzen, 0, F,
-  "Ergebnis", sd$ergebnis, 0, F,
-) %>% lectuR::solution_table(meta = F)
+  ~Schritt, ~Musterlösung,
+  "Formel", sd$formel,
+  "Einsetzen", sd$einsetzen,
+  "Ergebnis", sd$ergebnis,
+) %>% tabelle(escape = F)
 ```
 
 Dann die Formel:
 
 ```{r}
 tribble(
-  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
-  "Formel", get_z_trans()$formel, 0, F,
-  "Umformen", rz$formel, 0, F,
-  "Einsetzen", rz$general_reverse, 0, F,
-) %>% lectuR::solution_table(meta = F)
+  ~Schritt, ~Musterlösung,
+  "Formel", get_z_trans()$formel,
+  "Umformen", rz$formel,
+  "Einsetzen", rz$general_reverse,
+) %>% tabelle(escape = F)
 ```
 
 Schließlich die einzelnen Werte:
@@ -402,21 +402,21 @@ Der neue Deich muss 14,76&nbsp;m hoch sein.
 var_ziegelei <- lectuR::get_var(alt=T, ziegelei)
 sd_ziegelei <- lectuR::get_sd(alt=T, ziegelei)
 tribble(
-  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
-  "Varianz: Formel", lectuR::get_var()$formel, 0.5, F,
-  "Varianz: Einsetzen", var_ziegelei$einsetzen, 0.5, T,
-  "Varianz: Ergebnis", var_ziegelei$ergebnis, 0.5, T,
-  "Standardabweichung: Formel", lectuR::get_sd()$formel, 0.5, T,
-  "Standardabweichung: Ergebnis", sd_ziegelei$ergebnis, 1, T,
-  "Variationskoeffizient: Formel",  "$v=\\frac{s}{|\\bar{x}|}\\cdot100\\%\\quad$", 0.5, F,
+  ~Schritt, ~Lösung,
+  "Varianz: Formel", lectuR::get_var()$formel,
+  "Varianz: Einsetzen", var_ziegelei$einsetzen,
+  "Varianz: Ergebnis", var_ziegelei$ergebnis,
+  "Standardabweichung: Formel", lectuR::get_sd()$formel,
+  "Standardabweichung: Ergebnis", sd_ziegelei$ergebnis,
+  "Variationskoeffizient: Formel",  "$v=\\frac{s}{|\\bar{x}|}\\cdot100\\%\\quad$",
   "Variationskoeffizient: Einsetzen", sprintf(
      "$v\\approx\\frac{%s}{%s}\\cdot100\\%%$",
      fmt(sd_ziegelei$raw), fmt(mean_ziegelei$raw)
-  ), 0.5, F,
+  ),
   "Variationskoeffizient: Ergebnis", sprintf(
     "$v \\approx %s\\%%$",
-    lectuR::fmt(sd_ziegelei$raw / mean_ziegelei$raw * 100)), 1, F
-) %>% lectuR::solution_table(meta = F)
+    lectuR::fmt(sd_ziegelei$raw / mean_ziegelei$raw * 100))
+) %>% tabelle(escape = F)
 ```
 
 **Für das Möbellager:**
@@ -425,18 +425,18 @@ tribble(
 var_moebellager <- lectuR::get_var(moebellager, alt=T, symbol="y")
 sd_moebellager <- lectuR::get_sd(moebellager, alt=T, symbol="y")
 tribble(
-  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
-  "Varianz: Formel", lectuR::get_var()$formel, 0.5, F,
-  "Varianz: Einsetzen", var_moebellager$einsetzen, 0.5, T,
-  "Varianz: Ergebnis", var_moebellager$ergebnis, 0.5, T,
-  "Standardabweichung: Formel", sd_moebellager$formel, 0.5, T,
-  "Standardabweichung: Ergebnis", sd_moebellager$ergebnis, 1, T,
-  "Variationskoeffizient: Formel",  "$v=\\frac{s}{|\\bar{x}|}\\cdot100\\%$", 0.5, F,
+  ~Schritt, ~Lösung,
+  "Varianz: Formel", lectuR::get_var()$formel,
+  "Varianz: Einsetzen", var_moebellager$einsetzen,
+  "Varianz: Ergebnis", var_moebellager$ergebnis,
+  "Standardabweichung: Formel", sd_moebellager$formel,
+  "Standardabweichung: Ergebnis", sd_moebellager$ergebnis,
+  "Variationskoeffizient: Formel",  "$v=\\frac{s}{|\\bar{x}|}\\cdot100\\%$",
   "Variationskoeffizient: Einsetzen", sprintf(
      "$v\\approx\\frac{%s}{%s}\\cdot100\\%%$",
      fmt(sd_moebellager$raw), fmt(mean_moebellager$raw)
-  ), 0.5, F,
+  ),
   "Variationskoeffizient: Ergebnis", sprintf("$v \\approx %s\\%%$",
-                                             lectuR::fmt(sd_moebellager$raw/mean_moebellager$raw*100)), 1, F
-) %>% lectuR::solution_table(meta = F)
+                                             lectuR::fmt(sd_moebellager$raw/mean_moebellager$raw*100))
+) %>% tabelle(escape = F)
 ```

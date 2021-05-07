@@ -100,11 +100,11 @@ Das Konfidenzniveau beträgt ca. 67,78%.
 data <- c(116.5, 94.5, 101.5, 109.0, 125.0, 112.5, 100.5)
 mean <- get_mean(data)
 tribble(
-  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
-  "Formel", mean$formel, 0.5, F,
-  "Einsetzen", mean$einsetzen, 1, F,
-  "Ergebnis", mean$ergebnis, 1, F
-) %>% solution_table(meta = F)
+  ~Schritt, ~Lösung,
+  "Formel", mean$formel,
+  "Einsetzen", mean$einsetzen,
+  "Ergebnis", mean$ergebnis
+) %>% tabelle(escape = F)
 ```
 
 #### b)
@@ -112,11 +112,11 @@ tribble(
 ```{r}
 sf <- get_stderr(data, sigma=11.5)
 tribble(
-  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
-  "Formel", sf$formel, 0.5, F,
-  "Einsetzen", sf$einsetzen, 1, F,
-  "Ergebnis", sf$ergebnis, 1, F
-) %>% solution_table(meta = F)
+  ~Schritt, ~Lösung,
+  "Formel", sf$formel,
+  "Einsetzen", sf$einsetzen,
+  "Ergebnis", sf$ergebnis
+) %>% tabelle(escape = F)
 ```
 
 #### c)
@@ -124,13 +124,13 @@ tribble(
 ```{r}
 kib2 <- get_intervall(stderr=sf$raw, alpha = 0.05)
 tribble(
-  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
-  "Formel", kib2$formel, 1, F,
-  "Einsetzen", kib2$einsetzen, 1, F,
-  "Ergebnis", kib2$ergebnis, 1, T,
+  ~Schritt, ~Lösung,
+  "Formel", kib2$formel,
+  "Einsetzen", kib2$einsetzen,
+  "Ergebnis", kib2$ergebnis,
   "Antwortsatz", "Die tatsächliche durchschnittliche Lieferzeit liegt mit 95%s Wahrscheinlichkeit zwischen %s und %s Tagen (%s $\\pm$ %s)." %>%
-    sprintf(percent(), mean$raw-kib2$raw, mean$raw+kib2$raw, mean$raw, kib2$raw), 1, F
-) %>% solution_table(meta = F)
+    sprintf(percent(), mean$raw-kib2$raw, mean$raw+kib2$raw, mean$raw, kib2$raw)
+) %>% tabelle(escape = F)
 ```
 
 #### d)
@@ -139,16 +139,16 @@ tribble(
 sf <- get_intervall(kib2=kib2$raw, alpha=0.01)
 n <- get_stderr(sigma=11.5, stderr=sf$raw)
 tribble(
-  ~Schritt, ~Musterlösung, ~Punkte, ~Implizit,
-  "Standardfehler: Formel", sf$formel, 0.5, F,
-  "Standardfehler: Umformen", sf$umformen, 0.5, F,
-  "Standardfehler: Einsetzen", sf$einsetzen, 0.5, F,
-  "Standardfehler: Ergebnis", sf$ergebnis, 1, F,
-  "$n$: Formel", n$formel, 0.5, F,
-  "$n$: Umformen", n$umformen, 0.5, F,
-  "$n$: Einsetzen", n$einsetzen, 0.5, F,
-  "$n$: Ergebnis", n$ergebnis, 1, F,
+  ~Schritt, ~Lösung,
+  "Standardfehler: Formel", sf$formel,
+  "Standardfehler: Umformen", sf$umformen,
+  "Standardfehler: Einsetzen", sf$einsetzen,
+  "Standardfehler: Ergebnis", sf$ergebnis,
+  "$n$: Formel", n$formel,
+  "$n$: Umformen", n$umformen,
+  "$n$: Einsetzen", n$einsetzen,
+  "$n$: Ergebnis", n$ergebnis,
   "Antwortsatz", "Es müssten %s zusätzliche Messungen  vorgenommen werden (%s insgesamt)." %>%
-    sprintf(ceiling(n$raw)-7, ceiling(n$raw)), 1, F
-) %>% solution_table(meta = F)
+    sprintf(ceiling(n$raw)-7, ceiling(n$raw))
+) %>% tabelle(escape = F)
 ```

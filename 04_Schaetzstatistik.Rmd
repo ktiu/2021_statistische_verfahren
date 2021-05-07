@@ -11,6 +11,7 @@ Sie können...
 ### Lehrvideos (Sommersester 2020) {-}
 
 - 4a) [Alphafehler](https://video01.uni-frankfurt.de/Mediasite/Play/7f5b3002871a4b18859db90d937e5f8a1d)
+  - Hier gibt es einen Fehler: In der Übungsaufgabe (Schritt c) setze ich den falschen Wert für $\mu$ ein. Die Werte müssten stattdessen $x_{(1-\alpha/2)}=27{,}84$ und $x_{\alpha/2}=20{,}16$ betragen.
 - 4b) [Stichprobenverteilung](https://video01.uni-frankfurt.de/Mediasite/Play/393be1f574c643f9a045a6b4cc60a4511d)
 - 4c) [Schätzungen](https://video01.uni-frankfurt.de/Mediasite/Play/ace60129a0c94894a66349f56e0b24a31d)
 
