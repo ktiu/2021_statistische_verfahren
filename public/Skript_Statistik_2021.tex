@@ -70,20 +70,6 @@
   \medskip
 }
 
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{array}
-\usepackage{multirow}
-\usepackage{wrapfig}
-\usepackage{float}
-\usepackage{colortbl}
-\usepackage{pdflscape}
-\usepackage{tabu}
-\usepackage{threeparttable}
-\usepackage{threeparttablex}
-\usepackage[normalem]{ulem}
-\usepackage{makecell}
-\usepackage{xcolor}
 
 %%%%%%%%%%%%
 %  custom  %
@@ -4435,61 +4421,62 @@ Variationskoeffizient: Ergebnis & $v \approx 38{,}13\%$\\
 
 \protect\hyperlink{aufgabe-4-2}{zur Aufgabenstellung}
 
-\hypertarget{a-15}{%
-\subsubsection{a)}\label{a-15}}
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\item
+  \(\sigma _{\bar{x}}=\frac{\sigma}{\sqrt{n}}=\frac{4}{\sqrt{9}}\approx1{,}33\)
+\item
+  \(\frac{\mathit{KIB}}{2}=z_{(1-\alpha/2)} \cdot \sigma_{\bar{x}}\)
 
-\(\sigma _{\bar{x}}=\frac{\sigma}{\sqrt{n}}=\frac{4}{\sqrt{9}}\approx1{,}33\)
+  \(\frac{\mathit{KIB}}{2}= z_{97{,}5\%}\cdot \sigma_{\bar{x}}\)
 
-\hypertarget{b-15}{%
-\subsubsection{b)}\label{b-15}}
+  \(\frac{\mathit{KIB}}{2}\approx 1{,}96 \cdot 1{,}33 \approx 2{,}61\)
 
-\(\frac{\mathit{KIB}}{2}=z_{(1-\alpha/2)} \cdot \sigma_{\bar{x}}\)
+  \(\mathit{KIB}=5{,}22\)
+\item
+  \(\frac{\mathit{KIB}}{2}=z_{(1-\alpha/2)} \cdot \sigma_{\bar{x}}\)
 
-\(\frac{\mathit{KIB}}{2}= z_{97{,}5\%}\cdot \sigma_{\bar{x}}\)
+  \(z_{(1-\alpha/2)} = \frac{\mathit{KIB}}{2 \cdot \sigma_{\bar{x}}}\approx\frac{1}{2 \cdot 1{,}33}\approx0{,}38\)
 
-\(\frac{\mathit{KIB}}{2}\approx 1{,}96 \cdot 1{,}33 \approx 2{,}61\)
+  \(1-\frac{\alpha}{2} \approx 0{,}648\)
 
-\(\mathit{KIB}=5{,}22\)
+  \(-\frac{\alpha}{2} \approx 0{,}648 - 1\)
 
-\hypertarget{b-16}{%
-\subsubsection{b)}\label{b-16}}
+  \(\frac{\alpha}{2} \approx 0{,}352\)
 
-\(\frac{\mathit{KIB}}{2}=z_{(1-\alpha/2)} \cdot \sigma_{\bar{x}}\)
+  \(\alpha \approx 0{,}704\)
+\end{enumerate}
 
-\(z_{(1-\alpha/2)} = \frac{\mathit{KIB}}{2 \cdot \sigma_{\bar{x}}}\approx\frac{1}{2 \cdot 1{,}33}\approx0{,}67\)
+Das Konfidenzniveau beträgt ca. 70,4\%.
 
-\(1-\frac{\alpha}{2} \approx 0,7486\)
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{3}
+\item
+  \(\frac{\mathit{KIB}}{2} = z_{(1-\alpha/2)} \cdot \sigma_{\bar{x}}\)
 
-\(\alpha \approx 0,5028\)
+  \(\sigma_{\bar{x}} = \frac{\mathit{KIB}}{2\cdot z_{95\%}}\)
 
-Das Konfidenzniveau beträgt ca. 50,28\%.
+  \(\sigma_{\bar{x}} = \frac{2}{2 \cdot z_{95\%}}\)
 
-\hypertarget{d-6}{%
-\subsubsection{d)}\label{d-6}}
+  \(\sigma_{\bar{x}} \approx \frac{2}{2 \cdot 1{,}65}\)
 
-\(\frac{\mathit{KIB}}{2} = z_{(1-\alpha/2)} \cdot \sigma_{\bar{x}}\)
+  \(\sigma_{\bar{x}} \approx 0{,}61\)
 
-\(\sigma_{\bar{x}} = \frac{\mathit{KIB}}{2\cdot z_{95\%}}\)
+  \(\sigma_{\bar{x}}=\frac{\sigma}{\sqrt{n}}\)
 
-\(\sigma_{\bar{x}} = \frac{2}{2 \cdot z_{95\%}}\)
+  \(n = \big(\frac{\sigma}{\sigma_{\bar{x}}}\big)^2\)
 
-\(\sigma_{\bar{x}} \approx \frac{2}{2 \cdot 1{,}65}\)
-
-\(\sigma_{\bar{x}} \approx 0{,}61\)
-
-\(\sigma_{\bar{x}}=\frac{\sigma}{\sqrt{n}}\)
-
-\(n = \big(\frac{\sigma}{\sigma_{\bar{x}}}\big)^2\)
-
-\(n \approx \big(\frac{4}{0{,}61}\big)^2\approx43\)
+  \(n \approx \big(\frac{4}{0{,}61}\big)^2\approx43\)
+\end{enumerate}
 
 \hypertarget{loesung-4-3}{%
 \subsection{Lösung~4-3}\label{loesung-4-3}}
 
 \protect\hyperlink{aufgabe-4-3}{zur Aufgabenstellung}
 
-\hypertarget{a-16}{%
-\subsubsection{a)}\label{a-16}}
+\hypertarget{a-15}{%
+\subsubsection{a)}\label{a-15}}
 
 \(\alpha=0{,}1\)
 
@@ -4505,8 +4492,8 @@ Das Konfidenzniveau beträgt ca. 50,28\%.
 
 \(\textrm{Obergrenze} = \bar{x} + \frac{\mathit{KIB}}{2} \approx 2650 + 16{,}70 = 2666{,}70\)
 
-\hypertarget{b-17}{%
-\subsubsection{b)}\label{b-17}}
+\hypertarget{b-15}{%
+\subsubsection{b)}\label{b-15}}
 
 \(\mathit{KIB}=20\)
 
@@ -4527,8 +4514,8 @@ Das Konfidenzniveau beträgt ca. 67,78\%.
 
 \protect\hyperlink{aufgabe-4-4}{zur Aufgabenstellung}
 
-\hypertarget{a-17}{%
-\subsubsection{a)}\label{a-17}}
+\hypertarget{a-16}{%
+\subsubsection{a)}\label{a-16}}
 
 \begin{table}[H]
 \centering
@@ -4543,8 +4530,8 @@ Ergebnis & $\bar{x}=108{,}50$\\
 \end{tabular}
 \end{table}
 
-\hypertarget{b-18}{%
-\subsubsection{b)}\label{b-18}}
+\hypertarget{b-16}{%
+\subsubsection{b)}\label{b-16}}
 
 \begin{table}[H]
 \centering
@@ -4576,8 +4563,8 @@ Antwortsatz & Die tatsächliche durchschnittliche Lieferzeit liegt mit 95\% Wahr
 \end{tabular}
 \end{table}
 
-\hypertarget{d-7}{%
-\subsubsection{d)}\label{d-7}}
+\hypertarget{d-6}{%
+\subsubsection{d)}\label{d-6}}
 
 \begin{table}[H]
 \centering
