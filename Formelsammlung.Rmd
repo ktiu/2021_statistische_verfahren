@@ -1,5 +1,5 @@
-# Formelsammlung und Wertetabellen {-}
+# Formelsammlung und Wertetabellen {.unnumbered #formeln}
 
 Die Formelsammlung mit Wertetabellen liegt als PDF vor. So (oder ähnlich) formatiert würden Ihnen diese Informationen auch in einer Präsenzklausur zur Verfügung stehen. Ich empfehle deshalb, das Dokument herunterzuladen und auszudrucken -- so gewöhnen Sie sich gleich an das Format.
 
-[Formelsammlung und Wertetabellen (PDF)](Formelsammlung und Wertetabellen.pdf){target="_blank"}
+[Als PDF herunterladen](Formelsammlung und Wertetabellen.pdf){target="_blank"}

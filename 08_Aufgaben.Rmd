@@ -1,0 +1,108 @@
+## Übungsaufgaben {-}
+
+`r naechste("aufgabe", T)`
+
+Sie haben für eine bivariate Verteilung die folgende Regressionsgleichung bestimmt:
+
+$$
+y=-1{,}48-0{,}975\cdot x
+$$
+
+a) Bestimmen Sie die erwarteten $\hat{y}_i$-Werte für diese $x_i$-Werte:
+
+    $$
+    0{,}3\quad-18{,}5\quad-13{,}5\quad-17{,}2\quad29{,}8\quad25{,}6\quad-36{,}4\quad-26{,}2
+    $$
+
+b) Für welche Werte $x_i$ sagt das Regressionsmodell diese Werte $\hat{y}_i$ voraus?
+
+    $$
+    -10\quad15\quad-50\quad-10\quad-60\quad-55\quad-20\quad0
+    $$
+
+c) Bestimmen Sie die Residuen für die tatsächlich beobachtete Messreihe:
+
+```{r}
+
+tribble(
+  ~x,                ~y,
+  -11.491499029897,  6.81923123333602,
+  8.21803739726201,  -8.58844690769121,
+  -25.6570935755282, 25.9224286572868,
+  23.8106657934002,  -26.9094918737781,
+  -3.14168943543309, 4.40695052028855,
+  -1.51746883873167, -3.38530712997025,
+  20.1510265632964,  -19.8947773569432,
+  -10.2163210933115, 9.29694651618136
+) -> ex_8_1_c
+
+ex1 <- read.table("img/8_ex1_dt")
+ex1[,3:4] <- NULL
+tabelle(ex1, escape = F, col.names = c("$x_i$", "$y_i$"),
+        format.args = list(digits = 3), full_width = F)
+```
+
+`r naechste("aufgabe") #2`
+
+Eine bivariate Verteilung sei gekennzeichnet durch die folgenden Parameter:
+
+$$
+\begin{aligned}
+\bar{x}&=157,5\\
+\bar{y}&=156,7\\
+s^2_{x}&=1080,94\\
+s^2_{y}&=884,46\\
+s_{xy}&=869,83
+\end{aligned}
+$$
+
+a) Bestimmen Sie die Regressionsgleichung im linearen Modell.
+
+b) Bestimmen Sie den Determinationskoeffizienten $R^2$.
+
+
+`r naechste("aufgabe") #3`
+
+Für die Messreihe der [Aufgabe 3 aus Sitzung 7](#aufgabe-7-3) sei gefragt:
+
+a) Welche Gleichung beschreibt ein geeignetes lineares Regressionsmodell?
+
+b) Wenn die Nutzfläche für Objekt A 318 m² und für Objekt B 380 m² beträgt, wie hoch können dann jeweils die Kosten für die Sanierung geschätzt werden?
+
+`r naechste("aufgabe") #4`
+
+Für die Messreihe der [Aufgabe 4 aus Sitzung 7](#aufgabe-7-4) sei gefragt:
+
+a) Die Stadtverwaltung hat unter Rückgriff auf diese Daten ein einfaches lineares Modell entwickelt, das eine Prognose der Mietpreise der Gewerbeimmobilien in Abhängigkeit von ihrer Entfernung zur nächstgelegenen Haltestelle des ÖPNV erlaubt. Wie lautet die Regressionsgleichung?
+
+b) Wie hoch fällt laut Modell der Mietpreis pro Quadratmeter für eine 500 Meter von der nächstgelegenen ÖPNV-Haltestelle entfernte Gewerbeimmobilie aus?
+
+`r naechste("aufgabe") #5`
+
+Sie fragen sich, wie die erreichte Punktzahl in einer Klausur mit der Vorbereitungszeit der geprüften Studierenden zusammenhängt. Sie erheben die folgende Messreihe:
+
+```{r}
+tribble(
+  ~x, ~y,
+  834, 88,
+  17,  41,
+  519, 75,
+  253, 39,
+  739, 77,
+  844, 100
+) -> ex_8_3
+tabelle(ex_8_3,
+        escape = F,
+        col.names = c("Vorbereitungszeit (min)", "Erreichte Punktzahl"),
+        full_width = F)
+```
+
+a) Welche Punktzahl ist mit einer Vorbereitungszeit von sechs Stunden zu erwarten?
+
+b) Ab welcher Vorbereitungszeit ist im Modell zu erwarten, dass ein\*e Studierende die Klausur besteht ($\geq$ 50 Punkte)?
+
+c) Ab welcher Vorbereitungszeit kann laut Modell mit der vollen Punktzahl (100 Punkte) gerechnet werden?
+
+c) Wie gut erklärt ein lineares Modell die Prüfungsleistungen anhand der Vorbereitungszeit?
+
+d) Welche Limitationen hat das Modell? Denken Sie an extreme Werte.

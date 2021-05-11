@@ -9,43 +9,60 @@ Sie können...
 - den Korrelationskoeffizienten von zwei Variablen berechnen.
 
 ### Lehrvideos (Sommersemester 2020) {-}
- 
+
+- [7a) Kovarianz](https://video01.uni-frankfurt.de/Mediasite/Play/ec3868ddd44f4d7490450b87723ad9cf1d)
+- [7b) Korrelation](https://video01.uni-frankfurt.de/Mediasite/Play/a70c949180d84883a8bd2324d89922fe1d)
+
 ## Bivariate Statistik
 
-Grundlage der bivariaten Statistik ist es, dass für eine Reihe von Untersuchungsheinheiten jeweils zwei Merkmale erfasst sind.
+Grundlage der bivariaten Statistik ist es, dass für eine Reihe von Untersuchungseinheiten jeweils zwei Merkmale erfasst sind.
 
 Diese Merkmale werden üblicherweise mit $x$ und $y$ gekennzeichnet. Für jedes $i$ (laufende Nummer der Merkmalsträger\*innen) gibt es dann ein $x_i$ (Ausprägung des Merkmals $x$) und ein $y_i$ (Ausprägung des Merkmals $y$).
 
-Das Streudiagramm (engl. *scatter plot*) stellt alle erfassten Werte dar, indem es die Untersuchungseinheiten als Punkte arrangiert -- und zwar anhand ihres jeweiligen Werts der Variable $x$ entlang der $x$-Achse und entlang der $y$-Achse anhand des $y$-Werts (s. \@ref(fig:scatter)).
+Das Streudiagramm (engl. *scatter plot*) stellt alle erfassten Werte dar, indem es die Untersuchungseinheiten als Punkte arrangiert -- und zwar anhand ihres jeweiligen Werts der Variable $x$ entlang der $x$-Achse und entlang der $y$-Achse anhand des $y$-Werts (s. Abbildung \@ref(fig:scatter)).
 
 ### Beispiel
 
 Die statistischen Verfahren dieser Sitzung sollen wieder an einem Beispiel illustriert werden.
 
-Wir fragen uns, ob der jährliche Ertrag in einem bestimmten Anbaugebiet für Klebreis in Nordostthailand mit dem jährlichen Niederschlag zusammenhängt. Die erfassten Werte sind in \@ref(tab:reis) festgehalten ("Rai" ist ein [in Thailand übliches Flächenmaß](https://de.wikipedia.org/wiki/Rai_\(Einheit\))).
+Wir fragen uns, ob der jährliche Ertrag in einem bestimmten Anbaugebiet für Klebreis in Nordostthailand mit dem jährlichen Niederschlag zusammenhängt. Die erfassten Werte sind in Tabelle \@ref(tab:reis) festgehalten ("Rai" ist ein [in Thailand übliches Flächenmaß](https://de.wikipedia.org/wiki/Rai_\(Einheit\))).
 
-```{r reis, cache=T}
-reis <- read.table("img/7_reis_dt")
-reis <- cbind(data.frame(i=(1:10)), reis)
-kable(reis, "html", caption = "\\label{tab:reis}Niederschlag und Ertrag im Reisanbau", linesep=c(""), longtable=F, col.names = c("$i$", "", "$x_i$", "$y_i$"), escape = F, row.names =F) %>%
-  add_header_above(c("Laufende Nr.", "Jahr", "Niederschlag (mm)", "Ertrag (kg/Rai)")) %>%
-  scroll_box(box_css = "overflow-y: auto;")
+```{r reis}
+
+tribble(
+  ~i, ~year, ~rain, ~yield,
+  1,  2008,  1449,  1860,
+  2,  2009,  1472,  2118,
+  3,  2010,  1607,  2225,
+  4,  2011,  1494,  2172,
+  5,  2012,  1390,  1816,
+  6,  2013,  1764,  2430,
+  7,  2014,  1767,  2580,
+  8,  2015,  1765,  2563,
+  9,  2016,  1671,  2276,
+  10, 2017,  1838,  2455,
+) -> reis
+
+tabelle(reis,
+        caption = "\\label{tab:reis}Niederschlag und Ertrag im Reisanbau",
+        col.names = c("$i$", "", "$x_i$", "$y_i$"),
+        escape = F,
+        header_above = c("Laufende Nr.", "Jahr", "Niederschlag (mm)", "Ertrag (kg/Rai)"))
 ```
 
 In einem Streudiagramm können diese Werte veranschaulicht werden. Dabei ist es üblich, die unabhängige Variable auf der $x$-Achse und die abhängige Variable auf der $y$-Achse einzutragen. Im Beispiel liegt nahe, dass der Ertrag vom Regen abhängt, und nicht etwa umgekehrt.
 
-\@ref(fig:scatter) ist das Streudiagramm für unser Beispiel. Es fällt schon rein optisch auf, dass ein Zusammenhang zu bestehen scheint: Je mehr Regen, desto reicher die Ernte. Doch wie lässt sich dieser Zusammenhang beziffern?
+Abbildung \@ref(fig:scatter) ist das Streudiagramm für unser Beispiel. Es fällt schon rein optisch auf, dass ein Zusammenhang zu bestehen scheint: Je mehr Regen, desto reicher die Ernte. Doch wie lässt sich dieser Zusammenhang beziffern?
 
-```{r scatter, cache=T, fig.cap="Streudiagramm zum Reisanbau"}
+```{r scatter, fig.cap="Streudiagramm zum Reisanbau"}
 ggplot(reis, aes(rain, yield)) +
-  geom_point(color=goethe_blue) +
+  geom_point(color = goethe_blue) +
   xlab("x : Niederschlag (mm)") +
   ylab("y : Ertrag (kg/Rai)") +
   theme_goethe()
 ```
 
-
-## Kovarianz
+## Kovarianz `r symbol_header("sxy")` {#kovarianz}
 
 Die Kovarianz (engl. *covariance*) $s_{xy}$ gibt an, inwiefern die beiden Variablen $x$ und $y$ *gemeinsam variieren*. Die Kovarianz ergibt sich durch die Summe der jeweiligen Produkte der Differenzen zu den Mittelwerten $(x_i-\bar{x})$ und $(y_i-\bar{y})$, geteilt durch $(n-1)$. Die Formel lautet also:
 
@@ -54,62 +71,74 @@ s_{xy}=\frac{\sum\limits^n_{i=1}(x_i-\bar{x})\cdot(y_i-\bar{y})}{n-1}
 (\#eq:cov)
 \]
 
-\@ref(eq:cov) lässt erahnen: Wenn sowohl $x$ als auch $y$ in die gleiche Richtung vom jeweiligen Mittelwert abweichen (also beide Differenzen positiv oder beide Differenzen negativ), dann ist das Produkt positiv, sonst ist es negativ. Eine positive Kovarianz lässt also auf einen positiven Zusammenhang schließen (je größer $x$, desto größer auch $y$), eine negative Kovarianz auf einen negativen Zusammenhang (je größer $x$, desto *kleiner* $y$).
+Gleichung \@ref(eq:cov) lässt erahnen: Wenn sowohl $x$ als auch $y$ in die gleiche Richtung vom jeweiligen Mittelwert abweichen (also beide Differenzen positiv oder beide Differenzen negativ), dann ist das Produkt positiv, sonst ist es negativ. Eine positive Kovarianz lässt also auf einen positiven Zusammenhang schließen (je größer $x$, desto größer auch $y$), eine negative Kovarianz auf einen negativen Zusammenhang (je größer $x$, desto *kleiner* $y$).
 
-<div class="rtip">Softwarehinweis</div>
-<div class="rtip_content">Der Befehl `cov()` berechnet die Kovarianz einer bivariaten Verteilung in R.</div>
+```{r}
+rtip("Der Befehl `cov()` berechnet die Kovarianz einer bivariaten Verteilung in R.")
+```
 
 ### Beispiel
 
-Es macht Sinn, eine Tabelle anzulgen, in der Teilrechenschritte durchgeführt werden. \@ref(tab:ricemath) veranschaulicht dies.
+Es macht Sinn, eine Tabelle anzulegen, in der Teilrechenschritte durchgeführt werden. Tabelle \@ref(tab:ricemath) veranschaulicht dies.
 
-```{r ricemath, cache=T}
-reis$diffx <- reis$rain-mean(reis$rain)
-reis$diffy <- reis$yield-mean(reis$yield)
-reis$produkt <- round(reis$diffx * reis$diffy,2)
-reis$year <- NULL
-reis.copy <- reis
+```{r ricemath}
+
+reis %<>%
+  mutate(diffx = rain - mean(rain),
+         diffy = yield - mean(yield),
+         produkt = round(diffx * diffy, 2)) %>%
+  select(-year)
+
 sums <- colSums(reis)
 sums[1] <- "Summe:"
 sums[4:5] <- ""
-reis <- rbind(reis, sums)
-kable(reis, "html", align="r", caption = "\\label{tab:ricemath}Hilfstabelle für die Berechnung der Kovarianz", linesep=c(""), longtable=F, col.names = c("$i$", "$x_i$", "$y_i$", "$(x_i-\\bar{x})$", "$(y_i-\\bar{y})$", "$(x_i-\\bar{x})\\cdot(y_i-\\bar{y})$"), escape = F, row.names =F) %>% 
-  row_spec(11, bold = T) %>% row_spec(10, hline_after = T) %>%
-  scroll_box(box_css = "overflow-y: auto;")
+
+reis %>%
+  rbind(sums) %>%
+  tabelle(align = "r",
+          caption = paste("\\label{tab:ricemath}Hilfstabelle für die",
+                          "Berechnung der Kovarianz"),
+          col.names = c("$i$", "$x_i$",
+                        "$y_i$",
+                        "$(x_i-\\bar{x})$",
+                        "$(y_i-\\bar{y})$",
+                        "$(x_i-\\bar{x})\\cdot(y_i-\\bar{y})$"),
+          escape = F,
+          sum_row = T)
 ```
 
 Als Zwischenschritt müssen die Mittelwerte $\bar{x}$ und $\bar{y}$ berechnet werden, wofür die Summen der ersten beiden Spalten herangezogen werden können:
 
-\[
+$$
 \begin{aligned}
 \bar{x}&=\frac{\sum\limits^n_{i=1}x_i}{n}\\[5pt]
        &=\frac{16217}{10}=1621,7\\[6pt]
 \bar{y}&=\frac{\sum\limits^n_{i=1}y_i}{n}\\[5pt]
        &=\frac{22495}{10}=2249,5
 \end{aligned}
-\]
+$$
 
-Schließlich ergibt Einsetzen der Produktsumme in \@ref(eq:cov) die Kovarianz:
+Schließlich ergibt Einsetzen der Produktsumme in Gleichung \@ref(eq:cov) die Kovarianz:
 
-\[\begin{aligned}
+$$\begin{aligned}
 s_{xy}&=\frac{\sum\limits^n_{i=1}(x_i-\bar{x})\cdot(y_i-\bar{y})}{n-1}\\[5pt]
-&\approx\frac{362038,5}{9}=40226,5
-\end{aligned}\]
+&\approx\frac{362038{,}5}{9}=40226{,}5
+\end{aligned}$$
 
-Die Kovarianz ist also $s_{xy}=40226,5$. Was sagt uns diese Zahl? Zunächst ist sie positiv, womit wir von einer positiven Korrelation (je mehr Regen, desto mehr Ertrag) ausgehen können. Sie ist auch "irgendwie" ziemlich groß, was einen deutlichen Zusammenhang nahelegt. Aber die Kovarianz ist abhängig vom Maßstab -- wäre der Ertrag nicht in Kilogramm pro Rai, sondern (wie in Deutschland üblich) in Dezitonnen pro Hektar angegeben, dann wäre die Zahl deutlich kleiner (2514,156 um genau zu sein). Wie lässt sich die Stärke der Korrelation also unabhängig von den Maßeinheiten angeben?
+Die Kovarianz ist also $s_{xy}=40226{,}5$. Was sagt uns diese Zahl? Zunächst ist sie positiv, womit wir von einer positiven Korrelation (je mehr Regen, desto mehr Ertrag) ausgehen können. Sie ist auch "irgendwie" ziemlich groß, was einen deutlichen Zusammenhang nahelegt. Aber die Kovarianz ist abhängig vom Maßstab -- wäre der Ertrag nicht in Kilogramm pro Rai, sondern (wie in Deutschland üblich) in Dezitonnen pro Hektar angegeben, dann wäre die Zahl deutlich kleiner (2514,156 um genau zu sein). Wie lässt sich die Stärke der Korrelation also unabhängig von den Maßeinheiten angeben?
 
-## Korrelationskoeffizient
+## Korrelationskoeffizient `r symbol_header("r")` {#korrelationskoeffizient}
 
-Der Korrelationskoeffizent $r$ (auch Produkt-Moment-Korrelation, Bravais-Pearson-Korrelation, Pearsons $r$, engl. *correlation coefficient*) standardisiert die Kovarianz $s_{xy}$ anhand der Standardabweichungen $s_x$ und $s_y$. Die Formel lautet:
+Der Korrelationskoeffizient $r$ (auch Produkt-Moment-Korrelation, Bravais-Pearson-Korrelation, Pearsons $r$, engl. *correlation coefficient*) standardisiert die Kovarianz $s_{xy}$ anhand der Standardabweichungen $s_x$ und $s_y$. Die Formel lautet:
 
-\[
+$$
 r=\frac{s_{xy}}{s_x\cdot s_y}
 (\#eq:cor)
-\]
+$$
 
-Durch diese Standardisierung kann der Korrelationskoeffizient nur noch Werte zwischen $r=-1$ (perfekte negative Korrelation) und $r=1$ (perfekte positive Korrelation) annehmen. Ein Korrelationskoeffizient nahe $r=0$ bedeutet, dass es keinen Zusammenhang zwischen den Variablen $x$ und $y$ gibt (s. \@ref(fig:corrs)).
+Durch diese Standardisierung kann der Korrelationskoeffizient nur noch Werte zwischen $r=-1$ (perfekte negative Korrelation) und $r=1$ (perfekte positive Korrelation) annehmen. Ein Korrelationskoeffizient nahe $r=0$ bedeutet, dass es keinen Zusammenhang zwischen den Variablen $x$ und $y$ gibt (s. Abbildung \@ref(fig:corrs)).
 
-```{r corrs, cache=T, fig.cap="Verschiedene Korrelationskoeffizienten", echo=FALSE, out.width='30%', fig.width=3, fig.height=3, fig.show='hold', fig.align='center'} 
+```{r corrs, fig.cap="Verschiedene Korrelationskoeffizienten", out.width='30%', fig.width=3, fig.height=3, fig.show='hold', fig.align='center'} 
 corex <- read.table("img/7_corex_dt")
 ggplot(corex, aes(x,yn1)) +
   ggtitle(bquote(r==-1)) +
@@ -176,25 +205,37 @@ ggplot(corex, aes(x,y1)) +
         axis.text = element_blank())
 ```
 
-<div class="rtip">Softwarehinweis</div>
-<div class="rtip_content">In R kann der Korrelationskoeffizient von zwei Merkmalen mit dem Befehl `cor()` bestimmt werden.</div>
+```{r}
+rtip("In R kann der Korrelationskoeffizient von zwei Merkmalen mit dem Befehl `cor()` bestimmt werden.")
+```
 
 ### Beispiel
 
-In der Formel für den Korrelationskoeffizienten $r$ \@ref(eq:cor) werden die Standardabweichungen $s_x$ und $s_y$ benötigt. Es ist daher sinnvoll, die Hilfstabelle um die Quadrate der Differenzen (und deren Summen) zu erweitern (s. \@ref(tab:mathcor)).
+In der Formel für den Korrelationskoeffizienten $r$ \@ref(eq:cor) werden die Standardabweichungen $s_x$ und $s_y$ benötigt. Es ist daher sinnvoll, die Hilfstabelle um die Quadrate der Differenzen (und deren Summen) zu erweitern (s. Tabelle \@ref(tab:mathcor)).
 
-```{r mathcor, cache=T}
-reis <- reis.copy
-reis$produkt <- NULL
-reis$sqx <- round(reis$diffx^2,2)
-reis$sqy <- round(reis$diffy^2,2)
+```{r mathcor}
+
+reis %<>%
+  mutate(
+    sqx = round(diffx ^ 2, 2),
+    sqy = round(diffy ^ 2, 2)
+  ) %>%
+  select(-produkt)
+
 sums <- colSums(reis)
 sums[1] <- "Summe:"
 sums[4:5] <- ""
-reis <- rbind(reis, sums)
-kable(reis, "html", align="r", caption = "\\label{tab:mathcor}Hilfstabelle für die Berechnung des Korrelationskoeffizienten", linesep=c(""), longtable=F, col.names = c("$i$", "$x_i$", "$y_i$", "$(x_i-\\bar{x})$", "$(y_i-\\bar{y})$", "$(x_i-\\bar{x})^2$", "$(y_i-\\bar{y})^2$"), escape = F, row.names =F) %>% 
-  row_spec(11, bold = T) %>% row_spec(10, hline_after = T) %>%
-  scroll_box(box_css = "overflow-y: auto;")
+
+reis %>%
+  rbind(sums) %>%
+  tabelle(align = "r",
+          caption = paste("\\label{tab:mathcor}Hilfstabelle für die Berechnung",
+                          "des Korrelationskoeffizienten"),
+          col.names = c("$i$", "$x_i$", "$y_i$", "$(x_i-\\bar{x})$",
+                        "$(y_i-\\bar{y})$", "$(x_i-\\bar{x})^2$",
+                        "$(y_i-\\bar{y})^2$"),
+          escape = F,
+          sum_row = T)
 ```
 
 Die Standardabweichungen ergeben sich nun wie gewohnt aus:
@@ -206,7 +247,7 @@ s_{y}&=\sqrt{\frac{\sum\limits^n_{i=1}(y_i-\bar{y})^2}{n-1}}\\[5pt]
      &=\sqrt{\frac{646556,5}{9}}=\sqrt{71839,61} \approx268,03
 \end{aligned}\]
 
-Nun lassen sich die errechneten Werte in \@ref(eq:cor) einsetzen:
+Nun lassen sich die errechneten Werte in Gleichung \@ref(eq:cor) einsetzen:
 
 \[\begin{aligned}
 r&=\frac{s_{xy}}{s_x\cdot s_y}\\[4pt]
@@ -215,54 +256,12 @@ r&=\frac{s_{xy}}{s_x\cdot s_y}\\[4pt]
 
 Wir können bei einem Korrelationskoeffizienten $r\approx0,93$ von einem deutlichen positiven Zusammenhang zwischen Niederschlag und Ertrag ausgehen.
 
-## Aufgaben
-
-### Aufgabe 1
-
-Zeichnen Sie ein Streudiagramm und berechnen Sie die Kovarianz sowie den Korrelationskoeffizenten für die folgenden Messreihen.
-
-a) Messreihe:
-
-```{r}
-ex <- read.table("img/7_exercise_dt")
-kable(data.frame(ex$xa, ex$ya), "html", longtable=F, linesep=c(""), col.names = c("$x_i$", "$y_i$"), escape = F) %>%
-  kable_styling(full_width = F)
-```
-
-b) Messreihe:
-
-```{r}
-kable(read.table("img/7_exercise_b_dt"),"html", longtable=F, linesep=c(""), col.names = c("$x_i$", "$y_i$"), escape = F) %>%
-  kable_styling(full_width = F)
-```
-
-
-### Aufgabe 2
-
-Sie erheben für zufällige „Wasserhäuschen“ in Frankfurt die Entfernung zur nächsten Haltestelle der S- oder U-Bahn sowie den durchschnitllichen Tagesumsatz. Die Erhebung ergibt:
-
-```{r}
-kable(read.table("img/7_wasserhäuschen_dt"),"html", longtable=F, linesep=c(""), col.names = c("Entfernung (m)", "Umsatz (€/Tag)"), escape = F) %>%
-  kable_styling(full_width = F)
-```
-
-Gibt es einen Zusammenhang zwischen Entfernung und Umsatz? Wenn ja: Wie hängen die Variablen zusammen? Wie stark ist der Zusammenhang?
-
-### Aufgabe 3
-
-*(weiterführend, nicht klausurrelevant... wirklich nur für Leute, die Spaß an Mathematik haben!)*
-
-a) Zeigen Sie, dass der Korrelationskoeffizent $r$ ein standardisierter Wert ist, indem Sie ihn in $z$-Werten ausdrücken.
-b) Überprüfen Sie die Formel anhand Aufgabe 1 a).
-b) Angenommen, Sie wollen $r$ angeben, ohne die Koviarianz berechnet zu haben. Wie lassen sich die Rechenschritte dann vereinfachen?
-c) Überprüfen Sie den Rechenweg anhand Aufgabe 2.
-
-## Tipps zur Vertiefung
+## Tipps zur Vertiefung {-}
 
 - YouTube-Kanal "Kurzes Tutorium Statistik": [Streudiagramm und Korrelation](https://www.youtube.com/watch?v=IwJ7RPIAxUo)
 - YouTube-Kanal "Methodenlehre Mainz": [Bivariate Daten (Playlist)](https://www.youtube.com/playlist?list=PLJ-Cm_fyeZdwUkkeXkl2D1Czukhhl-9B2)
 - Kapitel 10 in @bortz
+- Kapitel 4.5.1 -- 4.5.6 in @delange
 - Kapitel 6.1, 6.3 und 6.4 in @bahrenberg
 - Kapitel 16 in @klemm
-
-## Quellen
+- *Englisch:* Kapitel 13.1 -- 13.4 in @burt

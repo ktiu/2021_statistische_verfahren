@@ -1,0 +1,295 @@
+# `r symbol_header("chi2")`-Tests
+
+### Lernziele dieser Sitzung {-}
+
+Sie können...
+
+- einen $\chi^2$-Unabhängigkeitstest durchführen.
+- einen $\chi^2$-Anpassungstest durchführen.
+
+### Anwendungsbereich {-}
+
+In [Sitzung 9](#bivariate-verteilungen-mit-nominalen-variablen) haben wir gelernt, wie für bivariate Verteilungen Korrelationen beschrieben werden können, wenn beide Variablen nominalskaliert sind. Grundlage dafür waren die Häufigkeiten von Wertekombinationen in der Kreuztabelle.
+
+Auch für $\chi^2$-Tests sind beobachtete Häufigkeiten in einer Kreuztabelle unser Ausgangspunkt. Wir fragen jedoch nicht nach einem Kennwert für die Stärke der Korrelation, sondern wollen wissen, ob es einen statistisch signifikanten Zusammenhang zwischen den beiden Variablen gibt -- also einen Zusammenhang, der höchstens mit einer Wahrscheinlichkeit $\alpha$ (Signifikanzniveau) zufällig zustande gekommen sein kann.
+
+Um den Unterschied zu verdeutlichen: Bei sehr großen Fallzahlen kann auch eine leichte Korrelation statistisch signifikant sein, bei kleinen Fallzahlen wird es es selbst für starke Korrelationen schwierig, eine statistische Signifikanz nachzuweisen.
+
+Mit dem $\chi^2$-Unabhängigkeitstest und dem $\chi^2$-Anpassungstest lernen wir im Folgenden zwei unterschiedliche Varianten des $\chi^2$-Tests kennen. Beide sollen direkt an Beispielen ausgeführt werden.
+
+## `r symbol_header("chi2")`-Unabhängigkeitstest
+
+Grundlage sind bivariate Häufigkeiten, die in einer Kreuztabelle dargestellt werden können (s. Tabelle \@ref(tab:zivi1)). Wie Kreuztabellen erstellt werden, haben wir bereits in [Sitzung 9](#kreuztabelle) behandelt.
+
+```{r zivi1}
+construct("Dienst" = c("Grundwehrdienst", "Zivildienst"),
+          "Wohnort" = c("Land",
+                        "Stadt"),
+          counts = c(18, 11,
+                     10, 23)) %>%
+  get_crosstable() ->
+  zivi
+
+print_crosstable(zivi, caption = "Kreuztabelle der Beispieldaten", question = T)
+```
+
+Unser Beispieldatensatz beschäftigt sich mit Kriegsdienstverweigerern. Zwischen 1956 und 2011 galt in der BRD die Wehrpflicht, d. h. alle vom Staat als "männlich" erfassten und als "tauglich" gemusterte jungen Menschen mussten Dienst an der Waffe leisten -- es sei denn, sie verweigerten den Kriegsdienst und leisteten stattdessen Zivildienst (z. B. in sozialen Einrichtungen).
+
+Zusätzlich zur Frage der Kriegsdienstverweigerung sei in einer Zufallsstichprobe von als tauglich gemusterten erhoben, ob der Wohnort eine Gemeinde mit über oder unter 20 000 Einwohner\*innen ("Stadt" oder "Land") ist.^[Hier wird also eine verhältnisskalierte Variable (Bevölkerungszahl der Gemeinde) in eine nominalskalierte Variable transformiert. In Fällen wie diesen, wo die Variable nach der Transformation nur zwei Werte annehmen kann, sprechen wir auch von der "Dichotomisierung" einer Variable.] Die Ergebnisse sind in Tabelle \@ref(tab:zivi1) zusammengefasst.
+
+Wir interessieren uns für den statistischen Zusammenhang dieser beiden Variablen, und zwar möchten wir die Hypothese prüfen, dass Menschen aus der Stadt eher den Kriegsdienst verweigerten als Menschen vom Land. Der Test wird entlang der bekannten sechs Schritte ausgeführt.
+
+### Test wählen und Voraussetzungen prüfen
+
+Für den $\chi^2$-Unabhängigkeitstest müssen folgende Voraussetzungen erfüllt sein:
+
+- Ziel ist die Überprüfung einer bivariaten Verteilung auf einen statistisch signifikanten Zusammenhang zwischen zwei nominalskalierten Variablen.
+- Grundlage sind beobachtete Häufigkeiten aus einer einfachen, unabhängigen Zufallsstichprobe.
+- Alle Tabellenfelder enthalten beobachtete Häufigkeiten $(n_{ij}\geq 5)$.
+
+Für unsere Beispieldaten sind diese Voraussetzungen gegeben.
+
+### Hypothesen formulieren
+
+Wir haben wieder zwei Möglichkeiten: die gerichtete und die ungerichtete Alternativhypothese.
+
+#### Ungerichtete Alternativhypothese
+
+Wir verzichten an dieser Stelle auf mathematische Notationen und würden bei ungerichteter Alternativhypothese im Klartext schreiben:
+
+$$
+\begin{aligned}
+H_0 &: \textrm{Es gibt keinen Zusammenhang zwischen Wohnort und Verweigerungsentscheidung.}\\
+H_1 &: \textrm{Es gibt einen Zusammenhang zwischen Wohnort und Verweigerungsentscheidung.}
+\end{aligned}
+$$
+
+#### Gerichtete Alternativhypothese
+
+Im Falle einer gerichteten Alternativhypothese bleibt die Nullhypothese bestehen, aber die Alternativhypothese gibt eine bestimmte Richtung des Zusammenhangs vor.
+
+$$
+\begin{aligned}
+H_0 &: \textrm{Es gibt keinen Zusammenhang zwischen Wohnort und Verweigerungsentscheidung.}\\
+H_1 &: \textrm{Es gibt einen positiven Zusammenhang zwischen Wohnort in der Stadt} \\
+&\quad\textrm{und Kriegsdienstverweigerung.}
+\end{aligned}
+$$
+
+Gerichtete Alternativhypothesen sind im $\chi^2$-Unabhängigkeitstest *nur* für $2\times2$-Tabellen möglich.
+
+Im Beispiel entscheiden wir uns für die gerichtete Alternativhypothese, denn wir vermuten einen Zusammenhang in diese bestimmte Richtung.
+
+### Signifikanzniveau entscheiden
+
+Wie in anderen Tests ist ein Signifikanzniveau von $\alpha=0{,}05$ üblich, wofür wir uns auch im Beispiel entscheiden.
+
+### Kritischen Wert bestimmen
+
+Bei $\chi^2$-Tests gibt es immer nur einen kritischen Wert. Zunächst müssen beim $\chi^2$-Unabhängigkeitstest die Freiheitsgrade bestimmt werden mit der Formel:
+
+$$
+\mathit{df} = (k - 1) \cdot (\ell - 1)
+(\#eq:dfu)
+$$
+
+wobei auch hier wieder $k$ für die Zeilenanzahl und $\ell$ für die Spaltenanzahl steht.
+
+Im Beispiel also:
+
+$$
+\begin{aligned}
+\mathit{df} &= (k - 1) \cdot (\ell - 1)\\
+&=(2-1)\cdot (2 - 1) = 1
+\end{aligned}
+$$
+
+Damit lässt sich der kritische Wert aus der [Formelsammlung](#formeln) ablesen, die allerdings für *ungerichtete* Alternativhypothesen ausgelegt ist.
+
+Hätten wir eine ungerichtete Alternativhypothese gewählt, würde der Ablehnungsbereich also definiert durch:
+
+$$
+\begin{aligned}
+\chi^2 &\geq \chi^2_{df;(1-\alpha)}\\
+\chi^2 &\geq \chi^2_{1;95\%}\\
+\chi^2 &\geq 3{,}841
+\end{aligned}
+ $$
+
+Für unsere *gerichtete* Alternativhypothese "dürfen" wir den Ablehnungsbereich jedoch verdoppeln (müssen aber einem späteren Schritt unbedingt auch prüfen, ob die Richtung stimmt):
+
+$$
+\begin{aligned}
+\chi^2 &\geq \chi^2_{df;(1-2\cdot\alpha)}\\
+\chi^2 &\geq \chi^2_{1;90\%}\\
+\chi^2 &\geq 2{,}706
+\end{aligned}
+$$
+
+### Prüfgröße berechnen
+
+Wie in [Sitzung 9](#berechnung-des-kontingenzkoeffizenten-chi2) besprochen, wird die Prüfgröße $\chi^2$ anhand der Formel
+
+$$
+\chi^2= \sum_{i=1}^{k}\sum_{j=1}^{\ell}\frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}
+(\#eq:chisq)
+$$
+
+errechnet. Dabei ist die Ermittlung der Randsummen und Erwartungswerte $m_{ij}$ ein notwendiger Schritt, und auch die Teilwerte für $\chi^2$ können wieder direkt in die Kreuztabelle eingetragen werden.
+
+```{r zivi2, cache = F}
+print_crosstable(zivi, caption = paste("Kreuztabelle mit Erwartungswerten und",
+                                       "Teilwerten für $\\chi^2$"))
+```
+
+Für unser Beispiel erfolgt die Berechnung anhand Tabelle \@ref(tab:zivi2).
+
+Zunächst muss dabei geprüft werden, ob die Richtung unserer Alternativhypothese stimmt. Die beobachtete Häufigkeit der Zivildienstleistenden in der Stadt $n_{22}=23$ ist größer als der Erwartungswert $m_{22}=18{,}1$. Wenn eine Signifikanz nachgewiesen werden kann, dann also für den *positiven* Zusammenhang zwischen Wohnort in der Stadt und Kriegsdienstverweigerung (wie in unserer Alternativhypothese spezifiziert).
+
+Für $\chi^2$ ergibt sich im Beispiel:
+
+$$
+\begin{aligned}
+\chi^2 &= \sum_{i=1}^{k}\sum_{j=1}^{\ell}\frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}\\[4pt]
+&=1{,}833+1{,}51+1{,}611+1{,}327\\
+&=6{,}281
+\end{aligned}
+$$
+
+### Ergebnis interpretieren
+
+Der Wert der Prüfgröße $\chi^2=6{,}281$ liegt deutlich im Ablehnungsbereich $\chi^2\geq 2{,}706$. Die Nullhypothese kann abgelehnt werden. Es wurde ein statistisch signifikanter positiver Zusammenhang zwischen Wohnort in Gemeinden mit über 20 000 Einwohner\*innen und Kriegsdienstverweigerung festgestellt ($\alpha=0{,}05$).
+
+```{r}
+rtip("In R lässt sich ein $\\chi^2$-Unabhängigkeitstest mit dem Befehl `chisq.test()` durchführen.")
+```
+
+## `r symbol_header("chi2")`-Anpassungstest
+
+Beim $\chi^2$-Anpassungstest geht es um die Häufigkeiten *eines* nominalskalierten Merkmals -- er ist deshalb der univariaten Teststatistik zuzuordnen. Der Test überprüft, ob das Merkmal entlang einer vorgegebenen Verteilung (im Normalfall gleichmäßig) verteilt ist, oder ob es signifikante Abweichungen von dieser erwarteten Verteilung gibt.
+
+Ein Beispiel: Für größere Verspätungen ($\geq$ 10 Minuten) beim ÖPNV einer Großstadt wird festgehalten, an welchen Wochentagen sie auftreten. Wir ignorieren Wochenenden und Feiertage und fragen uns, ob sich die Verzögerungen gleichmäßig auf Werktage verteilen, oder ob es signifikante Abweichungen in Bezug auf den Wochentag gibt. Die Werte in Tabelle \@ref(tab:late) seien über drei Monate hinweg erhoben worden.
+
+```{r late}
+tribble(
+~Wochentag, ~Häufigkeit,
+"Montag",     459,
+"Dienstag",   409,
+"Mittwoch",   414,
+"Donnerstag", 387,
+"Freitag",    437
+) %>% tabelle(caption = "Häufigkeiten größerer Verspätungen im ÖPNV",
+              full_width = F)
+```
+
+Wir befolgen wieder die sechs Schritte für statistische Testverfahren.
+
+### Test wählen und Voraussetzungen prüfen
+
+Für den $\chi^2$-Anpassungstest müssen folgende Voraussetzungen erfüllt sein:
+
+- Ziel ist die Überprüfung einer nominalskalierten Variable auf eine statistisch signifikante Abweichung von einer vorgegebenen Verteilung.
+- Grundlage sind beobachtete Häufigkeiten aus einer einfachen, unabhängigen Zufallsstichprobe.
+- Alle Tabellenfelder enthalten beobachtete Häufigkeiten $(n_{i}\geq 5)$.
+
+In unserem Beispiel sind diese Voraussetzungen gegeben.
+
+### Hypothesen formulieren
+
+\[\begin{aligned}
+H_0 &: \textrm{Starke Verspätungen sind an allen Werktagen gleich wahrscheinlich.}\\
+H_1 &: \textrm{Starke Verspätungen sind an manchen Werktagen wahrscheinlicher als an anderen.}
+\end{aligned}\]
+
+Gerichtete Hypothesen dürften hier wieder nur bei dichotomen Variablen formuliert werden (also bei zwei Tabellenfeldern).
+
+### Signifikanzniveau entscheiden
+
+Wie gewohnt: $\alpha=0{,}05$
+
+### Kritischen Wert bestimmen
+
+Die Freiheitsgrade bestimmen sich aus
+
+$$
+\mathit{df}=k-1
+(\#eq:dfe)
+$$
+
+wobei $k$ hier einfach die Anzahl der Katorien ist.
+
+In unserem Beispiel (bei fünf Werktagen) also:
+
+$$
+\begin{aligned}
+\mathit{df}&=k-1\\
+&=5-1=4
+\end{aligned}
+$$
+
+Der kritische Wert für den Ablehnungsbereich ist der [Formelsammlung](#formeln) zu entnehmen.
+
+$$
+\begin{aligned}
+\chi^2 &\geq \chi^2_{\mathit{df};(1-\alpha)}\\
+\chi^2 &\geq \chi^2_{4;95\%}\\
+\chi^2 &\geq 9{,}488
+\end{aligned}
+$$
+
+Auch hier dürften wir bei einer gerichteten Hypothese den Ablehnungsbereich verdoppeln, d. h. der kritische Wert $\chi^2_{\mathit{df};(1-2\cdot \alpha)}$ wäre anzuwenden -- dies ist allerdings wie bereits erwähnt nur für dichotome Variablen möglich.
+
+### Prüfgröße berechnen
+
+Die Prüfgröße $\chi^2$ berechnet sich analog zu vorherigen Beispielen. Einzige Besonderheit: Die Erwartungswerte werden direkt anhand der zu erwartenden (im unserem Fall: gleichmäßigen) Verteilung bestimmt.
+
+Im Beispiel ergibt sich in den fünf Kategorien jeweils ein Erwartungswert von
+
+$$\frac{n}{k}=\frac{2106}{5}=421{,}2$$
+
+```{r xtlate, eval = F}
+options(knitr.kable.NA = '')
+read.table(sep="|", header=T, text = "
+       |          |          |            |         |
+459    | 409      | 414      | 387        | 437     | 2106
+(421,2)| (421,2)  | (421,2)  | (421,2)    | (421,2) | 
+3,392  | 0,353    | 0,123    |  2,777     | 0,593   | 
+") %>%
+  kable("html", escape=F, longtable=F, col.names=c("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", " "), caption = "Tabelle für den $\\chi^2$-Anpassungstest") %>%
+  column_spec(5, border_right = T) %>%
+  row_spec(3, color = goethe_blue) %>%
+  scroll_box(box_css = "overflow-y: auto;")
+```
+
+Dann nehmen wir wieder eine Tabelle zu Hilfe um die Prüfgröße $\chi^2$ zu berechnen (s. Tabelle \@ref(tab:xtlate)). Wie gehabt werden einfach die Teilwerte zusammengezählt:
+
+$$
+\begin{aligned}
+\chi^2 &= \sum_{i=1}^{k}\frac{(n_{i}-m_{i})^{2}}{m_{i}}\\[4pt]
+&=3{,}392 +  0{,}353 +  0{,}123 +  2{,}777 + 0{,}593\\
+&=7{,}238
+\end{aligned}
+$$
+
+### Ergebnis interpretieren
+
+Der Ablehnungsbereich $\chi^2 \geq 9{,}488$ wurde nicht erreicht. Die Nullhypothese muss beibehalten werden. Eine statistisch signifikante Abweichung von einer gleichmäßigen Verteilung konnte nicht nachgewiesen werden ($\alpha=0{,}05$).
+
+```{r}
+rtip("Mit einer univariaten Verteilung als Eingabe führt der Befehl `chisq.test()` einen $\\chi^2$-Anpassungstest durch.")
+```
+
+### Andere Verteilungen
+
+Die theoretische Verteilung, von der eine signifikante Abweichung festgestellt werden soll, ist im obigen Beispiel uniform, d. h. die Erwartungswerte sind gleichmäßig über die Wochentage verteilt.
+Allerdings kann beim Anpassungstest auch von anderen Verteilungen ausgegangen werden -- so könnte eine (begründete) Nullhypothese auch lauten, dass Kategorie A doppelt so viele Fallzahlen aufweist wie Kategorie B und C.
+
+In der Praxis wird der $\chi^2$-Anpassungstest oft verwendet, um nachzuweisen, dass *keine* signifikante Abweichung von der Normalverteilung zu beobachten ist -- nur dann dürfen nämlich viele statistische Verfahren durchgeführt werden.
+
+## Tipps zur Vertiefung {-}
+
+- Kapitel 9 in @bortz
+- Kapitel 8.2.7 in @delange ($\chi^2$-Anpassungstest)
+- Kapitel 5.3.4 in @bahrenberg
+- Kapitel 13 in @klemm
+- *Englisch:* Kapitel 11.3 in @burt

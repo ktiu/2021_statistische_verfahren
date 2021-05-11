@@ -28,7 +28,7 @@ Das grundsätzliche Verfahren bleibt dabei stets das gleiche. Zur Erinnerung noc
 5. Prüfgröße berechnen
 6. Ergebnis interpretieren
 
-## 2-Stichproben-$t$-Test
+## 2-Stichproben-`r symbol_header("t")`-Test {#2-stichproben-t-test}
 
 Bei der folgenden Variante des $t$-Tests (und beim $F$-Test) wird nicht wie gehabt *eine* Stichprobe  auf signifikante Abweichungen *von der Grundgesamtheit* überprüft, sondern *zwei* Stichproben auf signifikante Abweichungen *voneinander.* An den sechs Schritten ändert sich nichts.
 
@@ -46,7 +46,7 @@ Der hier behandelte 2-Stichproben-$t$-Test hat folgende Voraussetzungen (bzw. An
 - Das Merkmal ist grundsätzlich (annähernd) normalverteilt.
 - Die Varianzen der zu vergleichenden Populationen sind gleich ($\sigma^2_1=\sigma^2_2$).
 
-Die letzte Voraussetzung ist etwas merkwürdig, denn beim $t$-Test kennen wir ja die Varianzen der Grundgesamtheiten gar nicht. [Der $F$-Test](#f) kann diese Voraussetzung anhand der Stichprobenverteilungen prüfen.
+Die letzte Voraussetzung ist etwas merkwürdig, denn beim $t$-Test kennen wir ja die Varianzen der Grundgesamtheiten gar nicht. [Der $F$-Test](#f-test) kann diese Voraussetzung anhand der Stichprobenverteilungen prüfen.
 
 #### Beispiel 
 
@@ -175,7 +175,7 @@ Andererseits sind ja auch die Stichprobenvarianzen zu einem gewissen Grad Zufall
 
 Wir entscheiden uns zunächst dazu, den Test fortzuführen und lernen gleich eine Methode kennen, wie wir überprüfen können, ob das auch gerechtfertigt ist.
 
-Um die Prüfgröße $t$ zu bestimmen, setzen wir einfach unsere Stichprobenwerte in die Formel aus \@ref(eq:t2sp) ein:
+Um die Prüfgröße $t$ zu bestimmen, setzen wir einfach unsere Stichprobenwerte in Formel \@ref(eq:t2sp) ein:
 
 \[\begin{aligned}
 t&=\frac{\bar{x}_1-\bar{x}_2}{\sqrt{\frac{s^2_1+s^2_2}{n}}}\\[6pt]
@@ -191,12 +191,13 @@ Genau wie bei den anderen Tests wird je nach erreichen des kritischen Werts (des
 
 Der kritische Wert von $t \geq 2{,}228$ wurde nicht überschritten. Wir müssen die Nullhypothese beibehalten, d.h. wir konnten keinen signifikanten Unterschied zwischen den Mietpreisen in Höchst und Praunheim feststellen ($\alpha=0{,}05$).
 
-<div class="rtip">Softwarehinweis</div>
-<div class="rtip_content">In R wird auch der 2-Stichproben-$t$-Test mit dem Befehl `t.test()` durchgeführt. Im Gegensatz zum 1-Stichproben-$t$-Test werden dabei zwei Verteilungen als Argumente eingegeben.</div>
+```{r}
+rtip("In R wird auch der 2-Stichproben-$t$-Test mit dem Befehl `t.test()` durchgeführt. Im Gegensatz zum 1-Stichproben-$t$-Test werden dabei zwei Verteilungen als Argumente eingegeben.")
+```
 
-## Die $F$-Verteilung
+## Die `r symbol_header("F")`-Verteilung {#die-f-verteilung}
 
-Die Prüfgröße $F$ im $F$-Test ist unter Annahme der Nullhypothese $F$-verteilt. Im Gegensatz zu den Verteilungen von $z$ und $t$ ist die $F$-Verteilung nicht symmetrisch und nimmt nur positive Werte an (s. \@ref(fig:fdf)).
+Die Prüfgröße $F$ im $F$-Test ist unter Annahme der Nullhypothese $F$-verteilt. Im Gegensatz zu den Verteilungen von $z$ und $t$ ist die $F$-Verteilung nicht symmetrisch und nimmt nur positive Werte an (s. Abbildung \@ref(fig:fdf)).
 
 Dazu ist die $F$-Verteilung nicht wie $t$ von einem, sondern von zwei Freiheitsgraden abhängig. Die Reihenfolge dieser Freiheitsgrade ist auch wichtig: Wir sprechen vom Zähler-Freiheitsgrad ($\mathit{df}_1$) und vom Nenner-Freiheitsgrad ($\mathit{df}_2$). Die $F$-Verteilung wird also notiert mit: $F_{\mathit{df}_1;\mathit{df}_2}$
 
@@ -216,7 +217,7 @@ ggplot(data.frame(x=c(0, 3)), aes(x)) +
   theme_goethe()
 ```
 
-## $F$-Test{#f}
+## `r symbol_header("F")`-Test {#f-test}
  
 Auch der $F$-Test untersucht zwei unabhängige Stichproben. Er unterscheidet sich jedoch insofern grundlegend von den zuvor besprochenen Testverfahren, als dass sein Untersuchungsgegenstand nicht der Mittelwert ($\mu$) sondern die Varianz ($\sigma^2$) der beiden Populationen ist.
 
@@ -297,40 +298,43 @@ Wir entscheiden uns für das (für unsere Zwecke sehr übliche) Signifikanznivea
 
 Für die ungerichtete Alternativhypothese sind die kritischen Werte:
 
-\[
+$$
 F \leq F_{\mathit{df}_1;\mathit{df}_2;\alpha/2} \quad \textrm{und} \quad F \geq F_{\mathit{df}_1;\mathit{df}_2;(1-\alpha/2)}
 (\#eq:kritFu)
-\]
+$$
 
 Für die gerichtete Alternativhypothese:
-\[
+
+$$
 F \leq F_{\mathit{df}_1;\mathit{df}_2;\alpha}
 (\#eq:kritFl)
-\]
+$$
 
 bzw.
 
-\[
+$$
 F \geq F_{\mathit{df}_1;\mathit{df}_2;(1-\alpha)}
 (\#eq:kritFg)
-\]
+$$
 
 Die Besonderheit der $F$-Verteilung ist, dass sie gleich von zwei Freiheitsgraden abhängt: dem Zähler-Freiheitsgrad $\mathit{df}_1$ und dem Nenner-Freiheitsgrad $\mathit{df}_2$.
 
 Dabei bestimmen sich die Freiheitsgrade wieder durch die Stichprobengrößen:
 
-\[\begin{aligned}
+$$
+\begin{aligned}
 \mathit{df}_1=n_1-1\\
 \mathit{df}_2=n_2-1
 \end{aligned}
-(\#eq:Fdfs)\]
+(\#eq:Fdfs)
+$$
 
-In der [Formelsammlung](Formelsammlung und Wertetabellen.pdf){target="_blank"} sind nur die Werte für Flächenanteile von 0,95 vermerkt. Die Werte für Flächenanteile von 0,05 (also am linken Rand) können durch \@ref(eq:Frev) bestimmt werden:
+In der [Formelsammlung](#formeln) sind nur die Werte für Flächenanteile von 0,95 vermerkt. Die Werte für Flächenanteile von 0,05 (also am linken Rand) können durch Gleichung \@ref(eq:Frev) bestimmt werden:
 
-\[
+$$
 F_{\mathit{df}_1;\mathit{df}_2;\alpha}=\frac{1}{F_{\mathit{df}_2;\mathit{df}_1;(1-\alpha)}}
 (\#eq:Frev)
-\]
+$$
 
 Dabei ist zu beachten, dass im Nenner die Reihenfolge der Freiheitsgrade getauscht wird!
 
@@ -343,24 +347,26 @@ F_{13;20;5\%}&=\frac{1}{F_{20;13;95\%}} \\[5pt]
 
 #### Beispiel
 
-Die Freiheitsgrade berechnen sich durch \@ref(eq:Fdfs):
+Die Freiheitsgrade berechnen sich durch Gleichung \@ref(eq:Fdfs):
 
 \[\begin{aligned}
 \mathit{df}_1=n_1-1=5\\[4pt]
 \mathit{df}_2=n_2-1=5
 \end{aligned}\]
 
-Durch unsere gerichtete Alternativhypothese ergibt sich der kritische Wert aus \@ref(eq:kritFl) (unter Anwendung des Tricks aus \@ref(eq:Frev)):
+Durch unsere gerichtete Alternativhypothese ergibt sich der kritische Wert aus Gleichung \@ref(eq:kritFl) (unter Anwendung des Tricks aus Gleichung \@ref(eq:Frev)):
 
-\[\begin{aligned}
+$$
+\begin{aligned}
 F &\leq F_{\mathit{df}_1;\mathit{df}_2;\alpha}\\
 F &\leq F_{5;5;5\%}\\[5pt]
 F &\leq \frac{1}{F_{5;5;95\%}}\\[5pt]
 F &\leq \frac{1}{5{,}05}\\[4pt]
 F &\leq 0{,}20\\[4pt]
-\end{aligned}\]
+\end{aligned}
+$$
 
-Der so berechnete Ablehnungsbereich ist grafisch in \@ref(fig:falpha) aufbereitet.
+Der so berechnete Ablehnungsbereich ist grafisch in Abbildung \@ref(fig:falpha) aufbereitet.
 
 ```{r falpha, fig.cap="Ablehnungsbereich für $F \\leq F_{5;5;5\\%}$"}
 fun=function(x){df(x,5,5)}
@@ -408,8 +414,9 @@ Der kritische Wert von 0,20 müsste *unterschritten* werden, um die Nullhypothes
 
 Damit haben wir im vorherigen Beispiel die Voraussetzungen des 2-Stichproben-$t$-Tests also nicht verletzt.
 
-<div class="rtip">Softwarehinweis</div>
-<div class="rtip_content">In R lautet der Befehl für den $F$-Test `var.test()`.</div>
+```{r}
+rtip("In R lautet der Befehl für den $F$-Test `var.test()`.")
+```
 
 ## Fehlerarten
 

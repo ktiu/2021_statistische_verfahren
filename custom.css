@@ -33,6 +33,10 @@ q {
   quotes: auto
 }
 
+.blue-text {
+  color: var(--goethe_blue);
+}
+
 /************
 *  Titles  *
 ************/
@@ -120,11 +124,6 @@ nav ul.summary ul ul b {
 }
 .book .book-body .page-wrapper .page-inner section.normal table tr {
   border-color: var(--sand_gray);
-}
-
-.book .book-body .page-wrapper .page-inner section.normal td ol {
-  padding-bottom: 0;
-  margin-bottom: 0;
 }
 
 /**********

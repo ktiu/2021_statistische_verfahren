@@ -27,7 +27,11 @@ csquotes: true
 
 ```{r setup, include=F}
 
-library(tidyverse)
+library(dplyr)
+library(purrr)
+library(tibble)
+library(ggplot2)
+library(magrittr)
 library(lectuR)
 
 options(OutDec = ",")

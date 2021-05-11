@@ -409,12 +409,14 @@ $endif$
 
 
 \pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \fancyhf{}
 \usepackage{xpatch}
 \xpretocmd\headrule{\color{dark_gray}}{}{\PatchFailed}
 \lhead{\color{dark_gray}\footnotesize $if(header_title)$$header_title$$else$$title$$endif$}
 \chead{\color{dark_gray}\footnotesize$if(emphasize_notation)$\itshape\color{emo_red}\MakeUppercase{$endif$ $if(header_notation)$$header_notation$$else$$notation$$endif$$if(emphasize_notation)$}$endif$}
-\rhead{\color{dark_gray}\footnotesize $if(header_subtitle)$$header_subtitle$$else$$subtitle$$endif$}
+%\rhead{\color{dark_gray}\footnotesize $if(header_subtitle)$$header_subtitle$$else$$subtitle$$endif$}
+\rhead{\color{dark_gray}\footnotesize\chaptername~\thechapter:~\leftmark}
 $if(keinstand)$
 $else$
   \lfoot{\color{dark_gray}\footnotesize\lastupdate\today}

@@ -32,7 +32,7 @@ Dabei folgt die grundsätzliche Vorgehensweise von (hier behandelten) statistisc
 
 Die einzelnen Schritte werden im Folgenden direkt anhand des $z$-Tests besprochen.
 
-## $z$-Test
+## `r symbol_header("z")`-Test {#z-test}
 
 Die mathematischen Grundlagen des $z$-Tests leiten sich direkt aus der in [Sitzung 4](#stichprobenverteilung) besprochenen Stichprobenverteilung für $\bar{x}$ ab.
 
@@ -40,7 +40,7 @@ Ein illustrierendes Beispiel: Wir wissen, dass die Anzahl der täglichen Besuche
 
 An fünf zufälligen bewölkten Tagen zählen wir die Besucher\*innen und kommen auf einen Mittelwert der Stichprobe von $\bar{x} = 103{,}0$.
 
-Dieser Wert ist höher als das arithmetische Mittel der Grundgesamtheit ($\mu$). Aber heißt das auch, dass unsere Vermutung stimmt? Wir wissen aus [Sitzung 4](#stichprobenverteilung), dass die Stichprobenverteilung einem Standardfehler ($\sigma_{\bar{x}}$) unterliegt (s. \@ref(fig:eis)).
+Dieser Wert ist höher als das arithmetische Mittel der Grundgesamtheit ($\mu$). Aber heißt das auch, dass unsere Vermutung stimmt? Wir wissen aus [Sitzung 4](#stichprobenverteilung), dass die Stichprobenverteilung einem Standardfehler ($\sigma_{\bar{x}}$) unterliegt (s. Abbildung \@ref(fig:eis)).
 
 Ist das Ergebnis also nur zufällig zustande gekommen, oder liegt ein *statistisch signifikantes* Ergebnis vor? Mit anderen Worten: Ist die Stichprobe überhaupt der Verteilung $x_0$ um $\mu_0$ entnommen, oder gibt es eine *andere* Verteilung ($x$ um ein anderes $\mu$) für bewölkte Tage, denen unser Stichprobenmittelwert $\bar{x}$ entstammt? Genau diese Art von Frage versuchen statistische Tests zu beantworten.
 
@@ -169,7 +169,7 @@ Ein Irrtum in der statistischen Signifikanz der Besucherzahl hat vermutlich kein
 
 Zusammen mit der (Un-)Gerichtetheit der Alternativhypothese bestimmt das Signifikanzniveau $\alpha$ den *Ablehnungsbereich* -- also den Bereich für die zu errechnende Prüfgröße $z$, in dem die Nullhypothese abgelehnt würde.
 
-Der Ablehnungsbereich für die ungerichtete Alternativhypothese ist $\frac{\alpha}{2}$ auf beiden Seiten (s. \@ref(fig:ablung)). Die kritischen Werte sind dann die Schwellen des Ablehnungsbereich auf beiden Seiten:
+Der Ablehnungsbereich für die ungerichtete Alternativhypothese ist $\frac{\alpha}{2}$ auf beiden Seiten (s. Abbildung \@ref(fig:ablung)). Die kritischen Werte sind dann die Schwellen des Ablehnungsbereich auf beiden Seiten:
 
 \[
 z \leq z_{\alpha/2} \quad \textrm{und} \quad z \geq z_{(1-\alpha/2)} \quad \textrm{für} \quad H_1: \mu \neq \mu_0
@@ -185,7 +185,7 @@ ggplot(data.frame(x=c(-3, 3)), aes(x)) +
   scale_y_continuous(NULL, expand = c(0,0), limits=c(0,dnorm(0)*1.05)) +
   theme_goethe()
 ```
-Bei den gerichteten Alternativhypothesen ist der Ablehnungsbereich jeweils nur auf einer Seite (s. Abbildungen \@ref(fig:ablger1) und \@ref(fig:ablger2)). Die kritischen Werte ergeben sich aus:
+Bei den gerichteten Alternativhypothesen ist der Ablehnungsbereich jeweils nur auf einer Seite (s. Abbildungen \@ref(fig:ablger1) und \@ref(fig:ablger2)). Die kritischen Werte ergeben sich aus:
 
 \[
 z \leq z_{\alpha} \quad \textrm{für} \quad H_1: \mu < \mu_0
@@ -256,7 +256,7 @@ An dieser Stelle (also *nachdem* wir uns für einen Test und ein Signifikanznive
 
 Diese ergibt bei $n=5$ den Mittelwert $\bar{x}=103{,}0$. Die Verteilung $x_0$ (also unter Annahme der Nullhypothese) hatte die Kennwerte $\mu_0=94{,}2$ und $\sigma=11{,}8$.
 
-Wir setzen ein in die Formel aus \@ref(eq:5z):
+Wir setzen ein in die Formel aus Gleichung \@ref(eq:5z):
 
 \[\begin{aligned}
 z&=\sqrt{n}\cdot\frac{\bar{x}-\mu_0}{\sigma}\\[4pt]
@@ -278,14 +278,15 @@ In unserem Beispiel liegt der $z$-Wert knapp über dem kritischen Wert von 1,65.
 
 Gut, dass wir eine gerichtete Alternativhypothese aufgestellt haben. Hätten wir nur vermutet, dass sich die Besuchszahlen je nach Wetter unterscheiden (ohne Angabe einer Richtung), dann wäre der kritische Wert nicht erreicht worden und wir hätten die Nullhypothese beibehalten müssen. Hinterher die Hypothesen anzupassen ist natürlich nicht zulässig!
 
-<div class="rtip">Softwarehinweis</div>
-<div class="rtip_content">R hat in der Grundversion keinen dezidierten Befehl für einen $z$-Test. Mit der Funktion `qnorm()` können kritische Werte jedoch einfach bestimmt werden.</div>
+```{r}
+rtip("R hat in der Grundversion keinen dezidierten Befehl für einen $z$-Test. Mit der Funktion `qnorm()` können kritische Werte jedoch einfach bestimmt werden.")
+```
 
-## Die $t$-Verteilung
+## Die `r symbol_header("t")`-Verteilung {#t-verteilung}
 
 Wenn die Standardabweichung $\sigma$ eines Merkmals in der Grundgesamtheit *unbekannt* ist, kann sie durch die Standardabweichung $s$ der Stichprobe geschätzt werden (s. [Sitzung 4](schätzstatistik-1.html)). Dann ist die Stichprobenverteilung für $\bar{x}$ jedoch nicht mehr normalverteilt, sondern sie folgt einer $t$-Verteilung.
 
-Im Gegensatz zur Standardnormalverteilung (die wir für den $z$-Test benutzen) gibt es aber nicht nur eine $t$-Verteilung, sondern die Form der $t$-Verteilung hängt von so genannten Freiheitsgraden (engl. *degrees of freedom*) ab. Mit steigender Zahl der Freiheitsgrade nähert sich die $t$-Verteilung einer Standardnormalverteilung an (s. \@ref(fig:tdf)).
+Im Gegensatz zur Standardnormalverteilung (die wir für den $z$-Test benutzen) gibt es aber nicht nur eine $t$-Verteilung, sondern die Form der $t$-Verteilung hängt von so genannten Freiheitsgraden (engl. *degrees of freedom*) ab. Mit steigender Zahl der Freiheitsgrade nähert sich die $t$-Verteilung einer Standardnormalverteilung an (s. Abbildung \@ref(fig:tdf)).
 
 ```{r tdf, cache=T, fig.cap="$t$-Verteilungen mit verschiedenen Freiheitsgraden"}
 t3 <- function(x){dt(x,3)}
@@ -307,10 +308,10 @@ ggplot(data.frame(x=c(-4, 4)), aes(x)) +
 
 In Anlehnung an @bortz kürzen wir Freiheitsgrade mit $\mathit{df}$ ab. Dort findet sich auch eine brauchbare Erklärung dieses Phänomens:
 
-> „Die Freiheitsgrade, welche mit einem Kennwert verbunden sind, entsprechen der Anzahl der Werte, die bei seiner Berechnung frei variieren können. Der Mittelwert $\bar{x}$ besitzt beispielsweise $n$ Freiheitsgrade, weil es keinerlei Bedingung gibt, der die $n$ Werte genügen müssen. Dies ist für die Varianz $s^2=\mathit{QS}/(n-1)$ nicht der Fall. Nur $n-1$ Abweichungen, welche in die Berechnung der Quadratsumme $\mathit{QS}=\sum_i(x_i-\bar{x})^2$ eingehen, können frei variieren. [D]ie Summe der Abweichungen von ihrem Mittelwert [ist] null, d.h. $\sum_i(x_i-\bar{x})=0$. Von $n$ Abweichungen können deshalb nur $n - 1$ frei variieren. Ergeben sich beispielsweise bei einer Stichprobe aus drei Werten die Abweichungen $x_1 - \bar{x} = -4$ und $x_2 - \bar{x} = 0$, muss zwangsläufig $x_3 -\bar{x} = 4$ sein, damit die Summe aller Abweichungen null ergibt. Bei der Varianzberechnung ist eine der $n$ Abweichungen festgelegt, d.h. die Varianz hat nur $n - 1$ Freiheitsgrade. Man schreibt die Stichprobenvarianz deshalb gelegentlich auch als $s^2 = \mathit{QS}/\mathit{df}$. Da die Varianz mit $n - 1$ Freiheitsgraden verbunden ist, gilt dies auch für die Standardabweichung $s$.“ [@bortz: 121]
+> Die Freiheitsgrade, welche mit einem Kennwert verbunden sind, entsprechen der Anzahl der Werte, die bei seiner Berechnung frei variieren können. Der Mittelwert $\bar{x}$ besitzt beispielsweise $n$ Freiheitsgrade, weil es keinerlei Bedingung gibt, der die $n$ Werte genügen müssen. Dies ist für die Varianz $s^2=\mathit{QS}/(n-1)$ nicht der Fall. Nur $n-1$ Abweichungen, welche in die Berechnung der Quadratsumme $\mathit{QS}=\sum_i(x_i-\bar{x})^2$ eingehen, können frei variieren. [D]ie Summe der Abweichungen von ihrem Mittelwert [ist] null, d.h. $\sum_i(x_i-\bar{x})=0$. Von $n$ Abweichungen können deshalb nur $n - 1$ frei variieren. Ergeben sich beispielsweise bei einer Stichprobe aus drei Werten die Abweichungen $x_1 - \bar{x} = -4$ und $x_2 - \bar{x} = 0$, muss zwangsläufig $x_3 -\bar{x} = 4$ sein, damit die Summe aller Abweichungen null ergibt. Bei der Varianzberechnung ist eine der $n$ Abweichungen festgelegt, d.h. die Varianz hat nur $n - 1$ Freiheitsgrade. Man schreibt die Stichprobenvarianz deshalb gelegentlich auch als $s^2 = \mathit{QS}/\mathit{df}$. Da die Varianz mit $n - 1$ Freiheitsgraden verbunden ist, gilt dies auch für die Standardabweichung $s$. [@bortz: 121]
 
 
-## 1-Stichproben-$t$-Test
+## 1-Stichproben-`r symbol_header("t")`-Test {#t-test}
 
 Der 1-Stichproben-$t$-Test vergleicht (wie der $z$-Test) die Werte einer Stichprobe mit der Grundgesamtheit. Das Vorgehen ist dabei analog zum $z$-Test, mit dem einzigen Unterschied, dass eine $t$-Verteilung mit $(n-1)$ Freiheitsgraden herangezogen wird.
 
@@ -388,28 +389,29 @@ Genau wie beim $z$-Test bestimmt das Signifikanzniveau $\alpha$ den *Ablehnungsb
 
 Der Ablehnungsbereich für die ungerichtete Alternativhypothese ist $\frac{\alpha}{2}$ auf beiden Seiten. Die kritischen Werte sind dann die Schwellen des Ablehnungsbereich auf beiden Seiten:
 
-\[
+$$
 t \leq t_{\mathit{df};\alpha/2} \quad \textrm{und} \quad t \geq t_{\mathit{df};(1-\alpha/2)} \quad \textrm{für} \quad H_1: \mu \neq \mu_0
 (\#eq:kritneq)
-\]
+$$
 
 Bei den gerichteten Alternativhypothesen ist der Ablehnungsbereich jeweils nur auf einer Seite. Die kritischen Werte ergeben sich aus:
 
-\[
+$$
 t \leq t_{\mathit{df};\alpha} \quad \textrm{für} \quad H_1: \mu < \mu_0
 (\#eq:kritless)
-\]
-\[
+$$
+
+$$
 t \geq t_{\mathit{df};(1-\alpha)} \quad \textrm{für} \quad H_1: \mu > \mu_0
 (\#eq:kritless)
-\]
+$$
 
-Die kritischen Werte für $t$ bei gegebenem Freiheitsgrad $(n-1)$ und Flächenabschnitt lassen sich aus der [Formelsammlung](Formelsammlung und Wertetabellen.pdf){target="_blank"} ablesen. Dabei ist zu beachten, dass aufgrund der Symmetrie die Werte für Flächenanteile unter 50% nicht in der Tabelle verzeichnet sind. Es gilt die Formel:
+Die kritischen Werte für $t$ bei gegebenem Freiheitsgrad $(n-1)$ und Flächenabschnitt lassen sich aus der [Formelsammlung](#formeln) ablesen. Dabei ist zu beachten, dass aufgrund der Symmetrie die Werte für Flächenanteile unter 50% nicht in der Tabelle verzeichnet sind. Es gilt die Formel:
 
-\[
+$$
 P(-t_\mathit{df})=1-P(t_\mathit{df})
 (\#eq:negt)
-\]
+$$
 
 So ist zum Beispiel der Wert für $t_{5;1\%}=-t_{5;99\%}=-3{,}365$.
 
@@ -419,13 +421,15 @@ In unserem Beispiel haben wir eine gerichtete Alternativhypothese nach oben und 
 
 Der kritische Wert (bei dessen Überschreitung wir die Nullhypothese ablehnen und unsere Vermutung bestätigt sehen) lautet also:
 
-\[\begin{aligned}
+$$
+\begin{aligned}
 t &\geq t_{\mathit{df};(1-\alpha)}\\[4pt]
 t &\geq t_{11;99\%}\\[4pt]
 t &\geq 2,718
-\end{aligned}\]
+\end{aligned}
+$$
 
-Graphisch ist der Ablehnungsbereich für unser Beispiel in \@ref(fig:tkrit) dargestellt.
+Graphisch ist der Ablehnungsbereich für unser Beispiel in Abbildung \@ref(fig:tkrit) dargestellt.
 
 ```{r tkrit, cache=T, fig.cap="Ablehnungsbereich bei gerichteter Alternativhypothese nach oben, $n=12$ und $\\alpha=0{,}01$"}
 t11 <- function(x){dt(x,11)}
@@ -494,10 +498,9 @@ Genau wie beim $z$-Test kommt es darauf an, ob die Prüfgröße in den Ablehnung
 
 In unserem Beispiel liegt der $t$-Wert deutlich über dem kritischen Wert von 2,718. Wir können also die Nullhypothese ablehnen und unsere Alternativhypothese annehmen. Unsere statistische Untersuchung hat gezeigt, dass die Bearbeitungsdauer von Anträgen, die im Oktober eingehen, länger ist als im Jahresdurchschnitt (und zwar mit Signifikanzniveau $\alpha=0,01$).
 
-<div class="rtip">Softwarehinweis</div>
-<div class="rtip_content">In R kann ein $t$-Test mit dem Befehl `t.test()` durchgeführt werden.\
-Neben der Prüfgröße $t$ gibt der Befehl einen $p$-Wert aus -- ist dieser kleiner als $\alpha$, so liegt eine signifikante Abweichung vor.</div>
-
+```{r}
+rtip("In R kann ein $t$-Test mit dem Befehl `t.test()` durchgeführt werden. Neben der Prüfgröße $t$ gibt der Befehl einen $p$-Wert aus -- ist dieser kleiner als $\\alpha$, so liegt eine signifikante Abweichung vor.")
+```
 
 ## Tipps zur Vertiefung {-}
 

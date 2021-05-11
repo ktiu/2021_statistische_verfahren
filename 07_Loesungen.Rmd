@@ -1,0 +1,249 @@
+## Sitzung 7 {-}
+
+`r naechste("lösung", T)`
+
+a) Streudiagramm:
+
+    ```{r}
+    exa <- ex_7_1_a
+    ggplot(exa, aes(xa, ya)) +
+      geom_point(color = goethe_blue) +
+      xlab("x") +
+      ylab("y") +
+      theme_goethe()
+    ```
+
+    Berechnungstabelle:
+
+    ```{r}
+    exa <- cbind(1:nrow(exa), exa)
+    exa$diffx <- round(exa$xa - mean(exa$xa),2)
+    exa$diffy <- round(exa$ya - mean(exa$ya),2)
+    exa$produkt <- round(exa$diffx*exa$diffy, 2)
+    exa$sqx <- round(exa$diffx^2,2)
+    exa$sqy <- round(exa$diffy^2,2)
+    sums <- colSums(exa)
+    sums[1] <- "Summe:"
+    sums[4:5] <- ""
+    exa <- rbind(exa,sums)
+    tabelle(exa, align = "r", col.names = c(
+      "$i$", "$x_i$", "$y_i$", "$(x_i-\\bar{x})$", "$(y_i-\\bar{y})$", 
+      "$(x_i-\\bar{x})\\cdot(y_i-\\bar{y})$", "$(x_i-\\bar{x})^2$",
+      "$(y_i-\\bar{y})^2$"), escape = F, sum_row = T)
+    ```
+
+    Kovarianz:
+
+    \[\begin{aligned}
+    \bar{x} &\approx 14{,}48\\
+    \bar{y} &=134{,}5\\
+    s_{xy}&\approx 3{,}32\\
+    \end{aligned}\]
+
+    Korrelationskoeffizient:
+
+    \[\begin{aligned}
+    s_x &\approx 1{,}98\\
+    s_y &\approx 1{,}77\\
+    r &\approx 0{,}95
+    \end{aligned}\]
+
+b) Streudiagramm:
+
+    ```{r}
+    exa <- ex_7_1_b
+    ggplot(exa, aes(x, y)) +
+      geom_point(color = goethe_blue) +
+      xlab("x") +
+      ylab("y")
+    ```
+
+    Berechnungstabelle:
+
+    ```{r}
+    exa<- cbind(1:nrow(exa), exa)
+    exa$diffx <- round(exa$x - mean(exa$x),2)
+    exa$diffy <- round(exa$y - mean(exa$y),2)
+    exa$produkt <- round(exa$diffx*exa$diffy, 2)
+    exa$sqx <- round(exa$diffx^2,2)
+    exa$sqy <- round(exa$diffy^2,2)
+    sums <- colSums(exa)
+    sums[1] <- "Summe:"
+    sums[4:5] <- ""
+    exa <- rbind(exa, sums)
+    tabelle(exa, align="r",col.names = c(
+      "$i$", "$x_i$", "$y_i$", "$(x_i-\\bar{x})$",
+      "$(y_i-\\bar{y})$", "$(x_i-\\bar{x})\\cdot(y_i-\\bar{y})$",
+      "$(x_i-\\bar{x})^2$", "$(y_i-\\bar{y})^2$"), escape = F, sum_row = T)
+    ```
+
+    Kovarianz:
+
+    $$\begin{aligned}
+    \bar{x} &\approx 0{,}09\\
+    \bar{y} &\approx -0{,}55\\
+    s_{xy}&\approx -9{,}86\\
+    \end{aligned}$$
+
+    Korrelationskoeffizient:
+
+    \[\begin{aligned}
+    s_x &\approx 1{,}00\\
+    s_y &\approx 10{,}11\\
+    r &\approx -0{,}98
+    \end{aligned}\]
+
+`r naechste("lösung") # 2`
+
+Berechnungstabelle:
+
+```{r}
+w <- ex_7_2
+exa<- data.frame(i=1:nrow(w), x=w$dist, y=w$rev)
+exa$diffx <- round(exa$x - mean(exa$x),2)
+exa$diffy <- round(exa$y - mean(exa$y),2)
+exa$produkt <- round(exa$diffx*exa$diffy, 2)
+exa$sqx <- round(exa$diffx^2,2)
+exa$sqy <- round(exa$diffy^2,2)
+sums <- colSums(exa)
+sums[1] <- "Summe:"
+sums[4:5] <- ""
+exa <- rbind(exa, sums)
+tabelle(exa, align="r", col.names = c(
+  "$i$", "$x_i$", "$y_i$", "$(x_i-\\bar{x})$", "$(y_i-\\bar{y})$",
+  "$(x_i-\\bar{x})\\cdot(y_i-\\bar{y})$", "$(x_i-\\bar{x})^2$",
+  "$(y_i-\\bar{y})^2$"
+), escape = F, sum_row = T)
+```
+
+Kovarianz:
+
+\[\begin{aligned}
+\bar{x} &\approx 133{,}67\\
+\bar{y} &\approx 375{,}25\\
+s_{xy}&\approx -3925{,}18\\
+\end{aligned}\]
+
+Korrelationskoeffizient:
+
+\[\begin{aligned}
+s_x &\approx 116{,}73\\
+s_y &\approx 61{,}28\\
+r &\approx -0{,}55
+\end{aligned}\]
+
+Es lässt sich eine schwache (bis mäßige) negative Korrelation zwischen Entfernung und Umsatz feststellen.
+
+`r naechste("lösung") # 3`
+
+```{r}
+meanx <- get_mean(ex_7_3$qm)
+meany <- get_mean(ex_7_3$eur, symbol = "y")
+varx  <- get_var(ex_7_3$qm, alt = T)
+vary  <- get_var(ex_7_3$eur, alt = T, symbol = "y")
+cov   <- get_cov(ex_7_3$qm, ex_7_3$eur)
+sdx   <- get_sd(variance = varx$raw)
+sdy   <- get_sd(variance = vary$raw, alt = T, symbol = "y")
+corr  <- get_corr(cov = cov$raw, sdx = sdx$raw, sdy = sdy$raw)
+````
+
+### Berechnung Mittelwerte
+
+```{r}
+tribble(
+  ~Schritt,                        ~Lösung,
+  "Arithm. Mittel: Formel",        meanx$formel,
+  "Arithm. Mittel x: Einsetzen",   meanx$einsetzen,
+  "Arithm. Mittel x: Ergebnis",    meanx$ergebnis,
+  "Arithm. Mittel y: Einsetzen",   meany$einsetzen,
+  "Arithm. Mittel y: Ergebnis",    meany$ergebnis
+) %>%
+  tabelle(escape = F)
+````
+
+#### Tabelle
+
+```{r}
+ex_7_3 %>%
+  transmute(`$x_i$` = qm,
+           `$y_i$` = eur,
+           `$(x_i-\\bar{x})$` = round(qm - meanx$raw, 2),
+           `$(y_i-\\bar{y})$` = round(eur - meany$raw, 2),
+           `$(x_i-\\bar{x})\\cdot(y_i-\\bar{y})$`= round(`$(x_i-\\bar{x})$`*`$(y_i-\\bar{y})$`,2)) %>%
+  tabelle(escape = F, full_width = F)
+```
+
+#### Berechnung
+
+```{r}
+tribble(
+  ~Schritt,                        ~Lösung,
+  "Kovarianz: Formel",             cov$formel,
+  "Kovarianz: Einsetzen",          cov$einsetzen,
+  "Kovarianz: Ergebnis",           cov$ergebnis,
+  "Varianz: Formel",               get_var()$formel,
+  "Varianz x",                     varx$ergebnis,
+  "Varianz y",                     vary$ergebnis,
+  "Standardabweichung: Formel",    get_sd()$formel,
+  "Standardabweichung x",          sdx$ergebnis,
+  "Standardabweichung y",          sdy$ergebnis,
+  "Korrelationskoeff.: Formel",    corr$formel,
+  "Korrelationskoeff.: Einsetzen", corr$einsetzen,
+  "Korrelationskoeff.: Ergebnis",  corr$ergebnis,
+  "Antwortsatz", sprintf("Es lässt sich %s Korrelation zwischen Fläche und Kosten feststellen.", corr$interpretieren)) %>%
+  tabelle(escape = F)
+```
+
+`r naechste("lösung") # 4`
+
+#### Tabelle
+
+```{r}
+meanx <- 921.00
+meany <- 41.83
+sdx <- 128.97
+sdy <- 7.57
+
+ex_7_4 %>%
+  transmute(`$x_i$` = m,
+           `$y_i$` = eur,
+           `$(x_i-\\bar{x})$` = round(m - meanx, 2),
+           `$(y_i-\\bar{y})$` = round(eur - meany, 2),
+           `$(x_i-\\bar{x})\\cdot(y_i-\\bar{y})$`= round(`$(x_i-\\bar{x})$`*`$(y_i-\\bar{y})$`,2)) %>%
+  tabelle(escape = F, full_width=F)
+```
+
+#### Berechnung
+
+```{r}
+kov <- get_cov(ex_7_4$m, ex_7_4$eur)
+korr <- get_corr(kov$raw, sdx = sdx, sdy =sdy) 
+
+tribble(
+  ~Schritt, ~Lösung,
+  "Kovarianz: Formel", kov$formel,
+  "Kovarianz: Einsetzen", kov$einsetzen,
+  "Kovarianz: Ergebnis", kov$ergebnis,
+  "Korr.koeff.: Formel", korr$formel,
+  "Korr.koeff.: Einsetzen", korr$einsetzen,
+  "Korr.koeff.: Ergebnis", korr$ergebnis,
+  "Interpretieren", sprintf("Mit dem Korrelationskoeffizienten $r\\approx%s$ konnte %s Korrelation festgestellt werden. Je kleiner die Entfernung zum ÖPNV, desto höher der Mietpreis.", korr$fmt, korr$interpretieren),
+) %>% tabelle(escape = F)
+```
+
+`r naechste("lösung") # 5`
+
+a)
+
+    \[\begin{aligned}
+    r&=\frac{s_{xy}}{s_x\cdot s_y}\\[6pt]
+    &=\frac{\sum\limits^n_{i=1}(x_i-\bar{x})\cdot(y_i-\bar{y})}{(n-1)\cdot s_x \cdot s_y}\\[6pt]
+    &=\frac{\sum\limits^n_{i=1}\frac{(x_i-\bar{x})\cdot(y_i-\bar{y})}{s_x\cdot s_y}}{n-1}\\[6pt]
+    &=\frac{\sum\limits^n_{i=1}z_{xi}\cdot z_{yi}}{n-1}\\[6pt]
+    \end{aligned}\]
+
+b) hier nicht ausgeführt
+
+c) nachzulesen bei @bortz[: 157]
+
+b) hier nicht ausgeführt

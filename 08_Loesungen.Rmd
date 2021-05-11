@@ -1,0 +1,223 @@
+## Sitzung 8 {-}
+
+`r naechste("lösung", T)`
+
+a) Berechnung durch die Formel
+
+    \[\hat{y}_i=-1{,}48-0{,}975\cdot x_i\]
+
+    ergibt folgende Werte für $\hat{y}_i$:
+
+    \[ -1{,}77\quad16{,}56\quad11{,}68\quad15{,}29\quad-30{,}54\quad-26{,}44\quad34{,}01\quad24{,}07 \]
+
+b) Umformen der Regressionsgleichung ergibt:
+
+    \[x_i=\frac{\hat{y}_i+1,48}{-0,975}\]
+
+    Einsetzen ergibt die Werte:
+
+    \[8{,}74\quad-16{,}9\quad49{,}76\quad8{,}74\quad60{,}02\quad54{,}89\quad18{,}99\quad-1{,}52\]
+
+c) Tabellarische Berechnung:
+
+    ```{r}
+    ex1 <- ex_8_1_c
+    ex1$x <- round(ex1$x,2)
+    ex1$y <- round(ex1$y,2)
+    ex1$pred <- (-1.48-0.975*ex1$x) %>% round(2)
+    ex1$res <- (ex1$y-ex1$pred)  %>% round(2)
+    tabelle(ex1, col.names = c("$x_i$", "$y_i$", "$\\hat{y}_i$", "$e_i=y_i-\\hat{y}_i$"),
+            escape = F)
+    ```
+
+`r naechste("lösung") #2`
+
+a) Schritt 1: Steigung $b$
+
+    \[\begin{aligned}
+    b&=\frac{s_{xy}}{s^2_x}\\
+     &=\frac{869{,}83}{1080{,}94}\\
+     &\approx0{,}81
+    \end{aligned}\]
+
+    Schritt 2: Achsenabschnitt $a$
+
+    \[\begin{aligned}
+    a&=\bar{y}-b\cdot\bar{x}\\
+    &\approx 156{,}7-0{,}805\cdot157{,}5\\
+    &\approx 29{,}91
+    \end{aligned}\]
+
+    Schritt 3: Regressionsgleichung
+
+    \[\begin{aligned}
+    y&=a+b\cdot x\\
+    y&\approx 29{,}91 + 0{,}805 \cdot x
+    \end{aligned}\]
+
+b) Schritt 1: Bestimmung $r$ (s. Sitzung 7)
+
+    \[\begin{aligned}
+    r&=\frac{s_{xy}}{s_x\cdot s_y}\\
+    &\approx\frac{869{,}83}{\sqrt{1080{,}94}\cdot\sqrt{884{,}46}}\\
+    &\approx0{,}89
+    \end{aligned}\]
+
+    Schritt 2: Bestimmung $R^2$
+
+    \[\begin{aligned}
+    R^2&=r^2 \quad \textrm{(für lineare Regression)}\\
+    &\approx 0{,}89^2\\
+    &\approx0{,}79
+    \end{aligned}\]
+
+`r naechste("lösung") #3`
+
+*(Fortführung von [Lösung 7-3](#loesung-7-3))*
+
+a) Welche Gleichung beschreibt ein geeignetes lineares Regressionsmodell?
+
+    ```{r}
+    meanx <- get_mean(ex_7_3$qm)
+    meany <- get_mean(ex_7_3$eur, symbol = "y")
+    varx  <- get_var(ex_7_3$qm, alt = T)
+    vary  <- get_var(ex_7_3$eur, alt = T, symbol = "y")
+    cov   <- get_cov(ex_7_3$qm, ex_7_3$eur)
+    sdx   <- get_sd(variance = varx$raw)
+    sdy   <- get_sd(variance = vary$raw, alt = T, symbol = "y")
+    corr  <- get_corr(cov = cov$raw, sdx = sdx$raw, sdy = sdy$raw)
+    b     <- get_b(cov = cov$raw, varx = varx$raw, sdx = sdx$raw)
+    a     <- get_a(b = b$raw, meanx = meanx$raw, meany = meany$raw)
+    reg   <- get_reg(a = a$raw, b = b$raw)
+
+    tribble(
+      ~Schritt,                         ~Lösung,
+      "Regressionsgleichung: Formel",   reg$formel,
+      "Steigung: Formel",               b$formel,
+      "Steigung: Einsetzen",            b$einsetzen,
+      "Steigung: Ergebnis",             b$ergebnis,
+      "Achsenabschnitt: Formel",        a$formel,
+      "Achsenabschnitt: Einsetzen",     a$einsetzen,
+      "Achsenabschnitt: Ergebnis",      a$ergebnis,
+      "Regressionsgleichung: Ergebnis", reg$ergebnis,
+    ) %>% tabelle(escape = T)
+    ```
+
+b) Wenn die Nutzfläche für Objekt A 318 m² und für Objekt B 380 m² beträgt, wie hoch können dann jeweils die Kosten für die Sanierung geschätzt werden?
+
+    ```{r}
+    obja <- get_pred(a = a$raw, b = b$raw, x = 318, symbol = "A")
+    objb <- get_pred(a = a$raw, b = b$raw, x = 380, symbol = "B")
+    tribble(
+      ~Schritt,              ~Lösung,
+      "Formel",              get_pred(a = a$raw, b = b$raw)$formel,
+      "Objekt A: Einsetzen", obja$einsetzen,
+      "Objekt A: Ergebnis",  obja$ergebnis,
+      "Objekt B: Einsetzen", objb$einsetzen,
+      "Objekt B: Ergebnis",  objb$ergebnis,
+      "Antwortsatz", "Die Kosten der Sanierung können auf %s € für Objekt A und auf %s € für Objekt B geschätzt werden." %>%
+        sprintf(format(obja$raw * 1000, big.mark = "."),
+                format(objb$raw*1000, big.mark = "."))
+    ) %>%
+      tabelle(escape = F)
+    ```
+
+`r naechste("lösung") #4`
+
+
+a)
+
+    ```{r}
+    meanx <- 921.00
+    meany <- 41.83
+    sdx <- 128.97
+    sdy <- 7.57
+    kov <- get_cov(ex_7_4$m, ex_7_4$eur)
+    korr <- get_corr(kov$raw, sdx = sdx, sdy = sdy) 
+    b <- get_b(cov = kov$raw, sdx = sdx)
+    a <- get_a(b = b$raw, meanx = meanx, meany = meany)
+    reg <- get_reg(a = a$raw, b = b$raw)
+    tribble(
+      ~Schritt, ~Lösung,
+      "Steigung: Formel", b$formel,
+      "Steigung: Einsetzen", b$einsetzen,
+      "Steigung: Ergebnis", b$ergebnis,
+      "Achsenabschnitt: Formel", a$formel,
+      "Achsenabschnitt: Einsetzen", a$einsetzen,
+      "Achsenabschnitt: Ergebnis", a$ergebnis,
+      "Regression: Formel", reg$formel,
+      "Regression: Ergebnis", reg$ergebnis,
+    ) %>%
+      tabelle(escape = F)
+    ```
+
+b)
+
+    ```{r}
+    pred <- get_pred(a = a$raw, b = b$raw, x= 500)
+    tribble(
+      ~Schritt, ~Lösung,
+      "Formel", pred$formel,
+      "Einsetzen", pred$einsetzen,
+      "Ergenbis", pred$ergebnis,
+      "Antwortsatz", sprintf("Der Quadradmeterpreis für die Immoblie beträgt laut Modell %s.", pred$raw)
+    ) %>%
+      tabelle(escape = F)
+    ```
+
+`r naechste("lösung") #5`
+
+Es wird eine Regressionsgleichung benötigt. Dazu müssen zunächst einige Kennwerte der Verteilung berechnet werden:
+
+$$
+\begin{aligned}
+\bar{x}&\approx534{,}33\\
+s^2_x&=114919{,}9\\
+\bar{y} &= 70\\
+s^2_y &=620\\
+s_{xy}&= 7952{,}8
+\end{aligned}
+$$
+
+Dann lauten Regressionskoeffizienten und -gleichung:
+
+$$
+\begin{aligned}
+b &\approx 0{,}0692\\
+a &\approx 33{,}13\\
+y &\approx 33{,}13 + 0{,}0692 \cdot x
+\end{aligned}
+$$
+
+a)
+
+    \[\begin{aligned}
+    \hat{y}_i &=a+b\cdot x\\
+    &\approx 33{,}13 + 0{,}0692 \cdot (6\cdot 60)\\
+    &\approx 58{,}04
+    \end{aligned}\]
+
+b)
+
+    \[\begin{aligned}
+    x_i&=\frac{\hat{y}_i-a}{b}\\[6pt]
+       &\approx\frac{50-33{,}13}{0{,}0692}\\[4pt]
+       &\approx 243{,}79
+    \end{aligned}\]
+
+c)
+
+    \[\begin{aligned}
+    x_i&=\frac{\hat{y}_i-a}{b}\\[6pt]
+       &\approx\frac{100-33{,}13}{0{,}0692}\\[4pt]
+       &\approx 966.33
+    \end{aligned}\]
+
+d) Gefragt ist nach $R^2$
+
+    \[\begin{aligned}
+    r &\approx 0{,}94 \quad \textrm{(s. Sitzung 7)}\\
+    R^2 &\approx 0{,}88
+    \end{aligned}\]
+
+e) Das Modell kann nur gültig sein für Wertebereiche $x > 0$ und $0 < y < 100$. Darüber hinaus ist eigentlich zu erwarten, dass in der ersten Stunde Vorbereitungszeit die Punktezahl stärker verbessert wird als in der 10. oder 11. Stunde. Diese Abflachung der Kurve ist jedoch im linearen Modell nicht vorgesehen.

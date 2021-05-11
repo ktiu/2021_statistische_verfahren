@@ -1,0 +1,30 @@
+## Aufgaben
+
+### Aufgabe 1
+
+Sie interessieren sich dafür, ob in einem Unternehmen der Tätigkeitsbereich mit dem Geschlecht der Angestellten zusammenhängt.
+
+In den Personalakten sind Angestellte als "männlich" oder "weiblich" erfasst und ihre Tätigkeitsfelder in "Leitende Tätigkeit", "Administration" und "Fertigung" unterteilt.
+
+Folgende Häufigkeiten sind erfasst:
+
+```{r}
+firma <- read.table("img/10_firma_dt")
+#firmaxt <- crosstable(firma, "html", sums=F, varnames = F, col.order = c("Leitende Tätigkeit", "Administration", "Fertigung"))
+#firmaxt$df
+```
+
+a) Welchen Test führen Sie durch?
+b) Formulieren Sie die Hypothesen.
+c) Das Thema wird in der Unternehmensleitung bereits kontrovers diskutiert, weshalb Sie einen Fehler 1. Art zu 99% ausschließen möchten. Wie lautet das Signifikanzniveau?
+d) Bestimmen Sie die Freiheitsgrade und den kritischen Wert.
+e) Berechnen Sie die Prüfgröße.
+f) Wie interpretieren Sie das Ergebnis?
+
+### Aufgabe 2
+
+Eine Ihrer Bekannten behauptet, dass beim Elfmeterschießen -- "statistisch gesehen" -- das Team häufiger gewinnt, das den ersten Elfmeter ausführt.
+
+Sie möchten das empirisch überprüfen und schauen sich Archivmaterial von siebzig Fußballpartien an, die durch Elfmeterschießen entschieden wurden. Tatsächlich stellen Sie fest, dass in genau 60% der Fälle das zuerst ausführende Team gewann.
+
+Prüfen Sie, ob diese Beobachtung auch statistisch relevant ist. Wählen Sie 5% als Signifikanzniveau.

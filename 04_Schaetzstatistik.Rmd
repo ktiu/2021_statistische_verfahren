@@ -10,10 +10,10 @@ Sie können...
 
 ### Lehrvideos (Sommersester 2020) {-}
 
-- 4a) [Alphafehler](https://video01.uni-frankfurt.de/Mediasite/Play/7f5b3002871a4b18859db90d937e5f8a1d)
-  - Hier gibt es einen Fehler: In der Übungsaufgabe (Schritt c) setze ich den falschen Wert für $\mu$ ein. Die Werte müssten stattdessen $x_{(1-\alpha/2)}=27{,}84$ und $x_{\alpha/2}=20{,}16$ betragen.
-- 4b) [Stichprobenverteilung](https://video01.uni-frankfurt.de/Mediasite/Play/393be1f574c643f9a045a6b4cc60a4511d)
-- 4c) [Schätzungen](https://video01.uni-frankfurt.de/Mediasite/Play/ace60129a0c94894a66349f56e0b24a31d)
+- [4a) Alphafehler](https://video01.uni-frankfurt.de/Mediasite/Play/7f5b3002871a4b18859db90d937e5f8a1d)
+  - In diesem Video gibt es einen Fehler: In Schritt c) der Übungsaufgabe setze ich den falschen Wert für $\mu$ ein. Die Werte müssten stattdessen $x_{(1-\alpha/2)}=27{,}84$ und $x_{\alpha/2}=20{,}16$ betragen.
+- [4b) Stichprobenverteilung](https://video01.uni-frankfurt.de/Mediasite/Play/393be1f574c643f9a045a6b4cc60a4511d)
+- [4c) Schätzungen](https://video01.uni-frankfurt.de/Mediasite/Play/ace60129a0c94894a66349f56e0b24a31d)
 
 ## Stichprobenverteilung
 
@@ -37,7 +37,7 @@ Die Standardabweichung der Population beträgt entsprechend:
 \sigma&=\sqrt{\sigma^2}\\[4pt]
 &=\sqrt{25}=5\end{aligned}\]
 
-Graphisch ist die Dichtefunktion der Verteilung in Abbildung \@ref(fig:pop) veranschaulicht.
+Graphisch ist die Dichtefunktion der Verteilung in Abbildung \@ref(fig:pop) veranschaulicht.
 
 ```{r pop, fig.cap="Dichtefunktion der Grundgesamtheit", cache=T}
 mu = 50
@@ -53,7 +53,7 @@ ggplot(data.frame(x=c(mu-(2*sigma),mu+(2*sigma))), aes(x))+
 
 Wenn eine einzelne Stichprobe der Größe $n=3$ aus dieser Verteilung gezogen würde, hätte sie drei konkrete Werte ($x_1$, $x_2$ und $x_3$) sowie ein konkretes arithmetisches Mittel ($\bar{x}$).
 
-Es lässt sich jedoch auch eine Wahrscheinlichkeitsdichtefunktion der Mittelwerte *aller theoretisch möglichen Stichproben* der Größe $n=3$ (und zusätzlich der Größe $n=6$) zeichnen (s. Abbildung \@ref(fig:stich)).
+Es lässt sich jedoch auch eine Wahrscheinlichkeitsdichtefunktion der Mittelwerte *aller theoretisch möglichen Stichproben* der Größe $n=3$ (und zusätzlich der Größe $n=6$) zeichnen (s. Abbildung \@ref(fig:stich)).
 
 ```{r stich, cache=T, fig.cap="Dichtefunktionen der Stichprobenverteilungen"}
 mu=50
@@ -86,7 +86,7 @@ Wir können auch sagen: $\bar{x}$ ist ein "erwartungstreuer" Schätzparameter f�
 
 #### Standardfehler
 
-Zusätzlich fällt in \@ref(fig:stich) auf: Je größer die Stichprobe, desto gestauchter die Dichtekurve der Stichprobenverteilung: Die theoretische Verteilung von $\bar{x}$ bei $n=6$ weist eine kleinere Varianz auf als bei $n=3$. Das ist einigermaßen intuitiv, denn wir können uns vorstellen, dass das arithmetische Mittel $\bar{x}$ bei steigender Stichprobengröße ein immer präziserer Schätzwert für $\mu$ wird.
+Zusätzlich fällt in Abbildung \@ref(fig:stich) auf: Je größer die Stichprobe, desto gestauchter die Dichtekurve der Stichprobenverteilung: Die theoretische Verteilung von $\bar{x}$ bei $n=6$ weist eine kleinere Varianz auf als bei $n=3$. Das ist einigermaßen intuitiv, denn wir können uns vorstellen, dass das arithmetische Mittel $\bar{x}$ bei steigender Stichprobengröße ein immer präziserer Schätzwert für $\mu$ wird.
 
 Die Varianz der Stichprobenverteilung für $\bar{x}$ bezeichnen wir mit $\sigma^2_{\bar{x}}$. Sie hängt von der Varianz der Population ab und ist invers proportional zur Stichprobengröße. Es gilt:
 
@@ -118,13 +118,13 @@ $$
 
 ### Szenario 2: Nicht normalverteilte Grundgesamtheit
 
-Die Gleichungen \@ref(eq:mean), \@ref(eq:4var) und \@ref(eq:4sd) gelten uneingeschränkt auch für die Stichprobenverteilungen von nicht normalverteilten Populationen. Nur die Normalverteilung der Stichprobenverteilung \@ref(eq:4norm) ist bei nicht normalverteilten Grundgesamtheiten nicht automatisch gegeben.
+Die Gleichungen \@ref(eq:mean), \@ref(eq:4var) und \@ref(eq:4sd) gelten uneingeschränkt auch für die Stichprobenverteilungen von nicht normalverteilten Populationen. Nur die Normalverteilung der Stichprobenverteilung (Gleichung \@ref(eq:4norm)) ist bei nicht normalverteilten Grundgesamtheiten nicht automatisch gegeben.
 
 Das zentrale Grenzwerttheorem (engl. *central limit theorem*) besagt jedoch:
 
 > Die Verteilung von Mittelwerten aus Stichproben des Umfangs $n$, die derselben Grundgesamtheit entnommen wurden, geht mit wachsendem Stichprobenumfang in eine Normalverteilung über. [@bortz: 86]
 
-Abbildung \@ref(fig:beta) veranschaulicht diesen Effekt für eine nicht normalverteilte Grundgesamtheit.
+Abbildung \@ref(fig:beta) veranschaulicht diesen Effekt für eine nicht normalverteilte Grundgesamtheit.
 
 ```{r beta, fig.cap="Stichprobenverteilung bei nicht normalverteilter Population", cache=T}
 fun <- function(x){dbeta(x,1,3)}
@@ -168,7 +168,7 @@ xs <- c(22, 26, 12, 23, 48, 31, 15, 71, 17, 35)
 cat("`", paste(xs, collapse = " "), "`")
 ```
 - Das arithmetische Mittel der Messreihe lässt sich -- wie in [Sitzung&nbsp;2](#arithmetisches-mittel) ausführlich besprochen -- berechnen: $\bar{x}=30$
-- Da es sich um eine erwartungstreue Schätzgröße (und eine valide Zufallsstichprobe) handelt, kann die durchschnittliche Pendelzeit *aller* Studierenden der Humangeographie gemäß Gleichung \@ref(eq:muhat) auf $\hat{\mu}=\bar{x}=30$ Minuten geschätzt werden.
+- Da es sich um eine erwartungstreue Schätzgröße (und eine valide Zufallsstichprobe) handelt, kann die durchschnittliche Pendelzeit *aller* Studierenden der Humangeographie gemäß Gleichung \@ref(eq:muhat) auf $\hat{\mu}=\bar{x}=30$ Minuten geschätzt werden.
 
 Gleichzeitig wissen wir jedoch, dass diese Punktschätzung des arithmetischen Mittels vermutlich nicht ganz präzise ist, sondern einem Standardfehler ($\sigma_{\bar{x}}$) unterliegt. Woher wissen wir, wie groß dieser Standardfehler ist (und wie unpräzise damit unsere Schätzung)?
 
@@ -193,9 +193,9 @@ $$
 Wir führen das obige Beispiel fort:
 
 - Die Varianz der Stichprobe können wir berechnen: $s^2\approx319{,}78$ (s.[Sitzung&nbsp;2](#varianz)).
-- Die Varianz der Grundgesamtheit kann also mit Gleichung \@ref(eq:muhat) auch auf $\hat{\sigma^2}=s^2\approx319{,}78$ geschätzt werden.
+- Die Varianz der Grundgesamtheit kann also mit Gleichung \@ref(eq:muhat) auch auf $\hat{\sigma^2}=s^2\approx319{,}78$ geschätzt werden.
 - Analog können wir die Standardabweichung der Population auf $\hat{\sigma}=s\approx17{,}88$ schätzen.
-- Den Standardfehler können wir mit diesem Schätzwert anhand Gleichung \@ref(eq:4sd) berechnen. Allerdings benutzen wir statt $\sigma_{\bar{x}}$ das Symbol $s_{\bar{x}}$, da es sich um einen Schätzwert handelt:
+- Den Standardfehler können wir mit diesem Schätzwert anhand Gleichung \@ref(eq:4sd) berechnen. Allerdings benutzen wir statt $\sigma_{\bar{x}}$ das Symbol $s_{\bar{x}}$, da es sich um einen Schätzwert handelt:
 
 \nopagebreak
 
@@ -230,7 +230,7 @@ Die Grundüberlegung ist dabei folgende:
 - Den Mittelwert unserer empirischen Stichprobe $\bar{x}$ können wir uns als zufälligen Wert der theoretischen Stichprobenverteilung von $\bar{x}$ vorstellen.
 - Wo genau in dieser theoretischen Verteilung wir mit unserem empirischen Wert "gelandet" sind, wissen wir nicht.
 - Wenn wir den Wert $\mu$ kennen würden, könnten wir (mit den Methoden aus [Sitzung&nbsp;3](#wahrscheinlichkeitsrechnung-mit-standardnormalverteilung)) die Wahrscheinlichkeit für einen beliebeigen Bereich angeben, in den ein zufälliges $\bar{x}$ fällt.
-- Der entscheidende Trick: Weil die Normalverteilung symmetrisch ist, sind diese Wahrscheinlichkeiten analog anzuwenden auf die Bereiche einer konstruierten Verteilung mit gleichem $\sigma_{\bar{x}}$ um unser $\bar{x}$, in die der wirkliche Wert $\mu$ fällt. (s. Abbildung \@ref(fig:double)).
+- Der entscheidende Trick: Weil die Normalverteilung symmetrisch ist, sind diese Wahrscheinlichkeiten analog anzuwenden auf die Bereiche einer konstruierten Verteilung mit gleichem $\sigma_{\bar{x}}$ um unser $\bar{x}$, in die der wirkliche Wert $\mu$ fällt. (s. Abbildung \@ref(fig:double)).
 
 ```{r double, cache=T, fig.cap="Konstruierte Verteilung um $\\bar{x}$"}
 mu=50
@@ -248,7 +248,7 @@ ggplot(data.frame(x=c(25,80)), aes(x))+
   theme_goethe()
 ```
 
-Dabei heißt der Bereich Konfidenzintervall (engl. *confidence interval*), und seine Breite wird mit $\textrm{KIB}$ abgekürzt. Die Wahrscheinlichkeit, dass wir mit unserer Schätzung *außerhalb* des Konfidenzintervalls liegen wird mit $\alpha$ gekennzeichnet. Ein 95%-Konfidenzintervall hat also ein $\alpha$ von 0,05 (s. \@ref(fig:konf)).
+Dabei heißt der Bereich Konfidenzintervall (engl. *confidence interval*), und seine Breite wird mit $\textrm{KIB}$ abgekürzt. Die Wahrscheinlichkeit, dass wir mit unserer Schätzung *außerhalb* des Konfidenzintervalls liegen wird mit $\alpha$ gekennzeichnet. Ein 95%-Konfidenzintervall hat also ein $\alpha$ von 0,05 (s. Abbildung \@ref(fig:konf)).
 
 ```{r konf, fig.cap="Konfidenzintervall"}
 ggplot(data.frame(x=c(-3,3)), aes(x)) +
@@ -284,7 +284,7 @@ $$
 \end{aligned}
 $$
 
-Dann errechnen wir anhand Gleichung \@ref(eq:4sd) den Standardfehler der theoretischen Verteilung von $\bar{x}$:
+Dann errechnen wir anhand Gleichung \@ref(eq:4sd) den Standardfehler der theoretischen Verteilung von $\bar{x}$:
 
 \nopagebreak
 
@@ -348,7 +348,7 @@ z_{(1-\alpha/2)} &= \frac{x_{(1-\alpha/2)}-\bar{x}}{\sigma_{\bar{x}}}\\[4pt]
 &\approx\frac{861{,}47-856,47}{3,86}\approx1,30
 \end{aligned}$$
 
-Es ist wenig überraschend, dass die $z$-transformierten Werte symmetrisch sind. Wir setzen in \@ref(eq:konf) ein:
+Es ist wenig überraschend, dass die $z$-transformierten Werte symmetrisch sind. Wir setzen in Gleichung \@ref(eq:konf) ein:
 
 \nopagebreak
 
@@ -468,7 +468,7 @@ Die Intervallgrenzen ergeben sich dann trivial aus $\bar{x} \pm \frac{\mathit{KI
 
 Eine letzte Fragerichtung lautet: Wie viele Messwerte müssten vorliegen, um den durchschnittlichen Niederschlag mit einem Konfidenzniveau von 99% und einer Genauigkeit von ± 5 l/m² schätzen zu können?
 
-Gegeben sind also das Konfidenzintervall und $\alpha=0{,}01$, gesucht wird $n$. Wir wissen, dass die Stichprobengröße $n$ den Standardfehler $\sigma_{\bar{x}}$ bestimmt. Also benutzen wir zunächst Gleichung \@ref(eq:kib) und formen um:
+Gegeben sind also das Konfidenzintervall und $\alpha=0{,}01$, gesucht wird $n$. Wir wissen, dass die Stichprobengröße $n$ den Standardfehler $\sigma_{\bar{x}}$ bestimmt. Also benutzen wir zunächst Gleichung \@ref(eq:kib) und formen um:
 
 \nopagebreak
 
@@ -487,7 +487,7 @@ Durch Einsetzen und mit Blick auf die Tabelle erhalten wir:
  &\approx 1{,}94
 \end{aligned}\]
 
-Dieser Standardfehler $\sigma_{\bar{x}}\approx1{,}94$ würde unseren Anforderungen genügen. Welches $n$ ist nötig, um diesen Standardfehler zu erreichen? Wir formen Gleichung \@ref(eq:4sd) um...
+Dieser Standardfehler $\sigma_{\bar{x}}\approx1{,}94$ würde unseren Anforderungen genügen. Welches $n$ ist nötig, um diesen Standardfehler zu erreichen? Wir formen Gleichung \@ref(eq:4sd) um...
 
 \nopagebreak
 

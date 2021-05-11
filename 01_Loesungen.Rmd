@@ -72,7 +72,7 @@ tbbl %>%
 
 Das Resultat sollte je nach gewählter Klassengröße in etwa so aussehen:
 
-```{r cache = F}
+```{r}
 boot::aircondit7 %>%
   tibble() %>%
   ggplot(aes(x=hours)) +

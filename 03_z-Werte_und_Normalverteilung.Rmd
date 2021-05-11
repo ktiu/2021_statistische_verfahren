@@ -1,4 +1,4 @@
-# z-Werte und Normalverteilung
+# `r symbol_header("z")`-Werte und Normalverteilung {#z-werte-und-normalverteilung}
 
 ### Lernziele dieser Sitzung {-}
 
@@ -12,9 +12,9 @@ Sie können...
 
 ### Lehrvideos (Sommersemster 2020) {-}
 
-- 3a) [$z$-Transformation](https://video01.uni-frankfurt.de/Mediasite/Play/8c755eed883b4ea0924481da818b742f1d) 
-- 3b) [Normalverteilung](https://video01.uni-frankfurt.de/Mediasite/Play/26e839cc0d8d43d2a74c2c03b76aa6421d) 
-- 3c) [Quantile der Normalverteilung](https://video01.uni-frankfurt.de/Mediasite/Play/902e68deb21045a79473a249303558d11d)
+- [3a) $z$-Transformation](https://video01.uni-frankfurt.de/Mediasite/Play/8c755eed883b4ea0924481da818b742f1d) 
+- [3b) Normalverteilung](https://video01.uni-frankfurt.de/Mediasite/Play/26e839cc0d8d43d2a74c2c03b76aa6421d) 
+- [3c) Quantile der Normalverteilung](https://video01.uni-frankfurt.de/Mediasite/Play/902e68deb21045a79473a249303558d11d)
 
 
 ## Variationskoeffizient
@@ -37,7 +37,7 @@ xs <- c(1007.1, 1003.4, 990.7, 994.2, 1000.9, 993, 1016, 983.9, 1007.4,
 cat(format(xs, nsmall=1), sep="  ", fill=T)
 ```
 
-Mit den bekannten Methoden ([Sitzung&nbsp;2](#maßzahlen)) können wir das arithmetische Mittel $\bar{x}\approx 999,37$ und die Standardabweichung $s\approx8,56$ der Stichprobe bestimmen. Durch einsetzen dieser Werte in Formel \@ref(eq:cv) ergibt sich:
+Mit den bekannten Methoden ([Sitzung&nbsp;2](#maßzahlen)) können wir das arithmetische Mittel $\bar{x}\approx 999,37$ und die Standardabweichung $s\approx8,56$ der Stichprobe bestimmen. Durch einsetzen dieser Werte in Formel \@ref(eq:cv) ergibt sich:
 
 \[\begin{aligned}
 v&\approx\frac{8{,}56}{999{,}37}\cdot 100\%\\[4pt]
@@ -49,7 +49,7 @@ Da die Standardabweichung im Vergleich zu den absoluten Werten sehr klein ist, i
 
 Ein Problem ergibt sich, wenn der Mittelwert einer Verteilung nahe Null liegt (z.&nbsp;B. wenn die Reihe auch negative Messwerte enthält). Der Variationskoeffizient wird in diesem Fall sehr groß und verliert stark an Aussagekraft.
 
-## z-Transformation
+## `r symbol_header("z")`-Transformation {#z-transformation}
 
 Ein weiterer Ansatz, Verteilungsmuster vergleichbar zu machen, ist die $z$-Transformation (auch Standardisierung, engl. *standardization*).
 
@@ -62,7 +62,7 @@ z=\frac{x-\bar{x}}{s}
 
 Der $z$-Wert eines Werts $x$ ist also der Abstand des Werts zum arithmetischen Mittel $\bar{x}$ der Verteilung, ausgedrückt im Verhältnis zu ihrer Standardabweichung $s$.
 
-Die einzelnen $z$-Werte für die Luftdruckmessungen ergeben sich wie in Tabelle \@ref(tab:trans) dargestellt.
+Die einzelnen $z$-Werte für die Luftdruckmessungen ergeben sich wie in Tabelle \@ref(tab:trans) dargestellt.
 
 ```{r trans, cache=T}
 df <- data.frame(xs)
@@ -75,8 +75,9 @@ tabelle(df, full_width = F, escape = F, align = "rcr", caption = "$z$-Transforma
 
 Eine so $z$-transformierte Verteilung hat *immer* automatisch das arithmetische Mittel $\bar{z}=0$ und die Standardabweichung $s_z=1$. Außerdem haben $z$-Werte keine Maßeinheit. So kann jede Verteilung "standardisiert" und systematisch vergleichbar gemacht werden.
 
-<div class="rtip">Softwarehinweis</div>
-<div class="rtip_content">In R kann eine empirische Verteilung mit dem Behfehl `scale()` $z$-transformiert werden.</div>
+```{r}
+rtip("In R kann eine empirische Verteilung mit dem Behfehl `scale()` $z$-transformiert werden.")
+```
 
 Andersherum lassen sich $z$-Werte folgendermaßen wieder umwandeln in $x$-Werte:
 
@@ -113,11 +114,11 @@ ggplot(data = data.frame(x = c(-7,22)), aes(x)) +
 
 Die Normalverteilung (auch: Gaußverteilung, engl. *normal distribution*) ist unimodal und symmetrisch. Die Normalverteilung ist eine theoretische Verteilung, für die bekannt ist, mit welcher Wahrscheinlichkeit bestimmte Werte unter- und überschritten werden bzw. mit welcher Wahrscheinlichkeit Werte in einem bestimmten Intervall liegen.
 
-Die Dichtefunktion einer Normalverteilung hat eine markante Glockenform (s. Abbildungen \@ref(fig:norms) und \@ref(fig:stdnorm)). Die beiden Wendepunkte einer Normalverteilung (also dort, wo die Steigung zwischen zu- und abnehmend wechselt; oder mathematisch: wo die Ableitung der Dichtefunktion einen Extremwert annimmt) sind je eine Standardabweichung vom Mittelwert entfernt.
+Die Dichtefunktion einer Normalverteilung hat eine markante Glockenform (s. Abbildungen \@ref(fig:norms) und \@ref(fig:stdnorm)). Die beiden Wendepunkte einer Normalverteilung (also dort, wo die Steigung zwischen zu- und abnehmend wechselt; oder mathematisch: wo die Ableitung der Dichtefunktion einen Extremwert annimmt) sind je eine Standardabweichung vom Mittelwert entfernt.
 
 Die Dichtefunktion nimmt nie den Wert Null an -- Extremwerte sind also sehr selten bzw. unwahrscheinlich, aber nie unmöglich. Perfekte Normalverteilungen kommen in empirischen Beobachtungen nicht vor, sondern nur Annäherungen.
 
-Da es sich um eine *theoretische* Verteilung handelt, ist die Normalverteilung zunächst insbesondere in Bezug auf die Grundgesamtheit interessant. Im Kontext der Grundgesamtheit wird das arithmetische Mittel mit $\mu$ ("Mü") und die Standardabweichung mit $\sigma$ ("Sigma") bezeichnet (s. Tabelle \@ref(tab:param)).
+Da es sich um eine *theoretische* Verteilung handelt, ist die Normalverteilung zunächst insbesondere in Bezug auf die Grundgesamtheit interessant. Im Kontext der Grundgesamtheit wird das arithmetische Mittel mit $\mu$ ("Mü") und die Standardabweichung mit $\sigma$ ("Sigma") bezeichnet (s. Tabelle \@ref(tab:param)).
 
 ```{r param, cache=T}
 read.table(sep="|", header=T, text = "
@@ -138,11 +139,11 @@ x \sim N(\mu,\enspace\sigma^2)
 \end{aligned}
 (\#eq:norm)\]
 
-Der Mittelwert $\mu$ bestimmt die Lage der Kurve auf der x-Achse, die Varianz $\sigma^2$ bestimmt die "Stauchung" der Kurve (je größer desto flacher). Es gibt also unendlich viele verschiedene Normalverteilungen (s. Abbildung \@ref(fig:norms)).
+Der Mittelwert $\mu$ bestimmt die Lage der Kurve auf der x-Achse, die Varianz $\sigma^2$ bestimmt die "Stauchung" der Kurve (je größer desto flacher). Es gibt also unendlich viele verschiedene Normalverteilungen (s. Abbildung \@ref(fig:norms)).
 
 ## Standardnormalverteilung
 
-Die Standardnormalverteilung (engl. *standard normal distribution*) ist sozusagen das Grundmuster aller Normalverteilungen. Sie hat den Mittelwert $\mu=0$ und die Standardabweichung $\sigma=1$ (s. Abbildung \@ref(fig:stdnorm)).
+Die Standardnormalverteilung (engl. *standard normal distribution*) ist sozusagen das Grundmuster aller Normalverteilungen. Sie hat den Mittelwert $\mu=0$ und die Standardabweichung $\sigma=1$ (s. Abbildung \@ref(fig:stdnorm)).
 
 Alle Normalverteilungen lassen sich durch die $z$-Transformation auf die Standardnormalverteilung standardisieren.
 
@@ -187,7 +188,7 @@ Für die im Rest dieser Sitzung vorgestellten Verfahren müssen folgende Vorauss
 - Die Grundgesamtheit ist (annähernd) normalverteilt.
 - Arithmetisches Mittel $\mu$ und Standardabweichung $\sigma$ der Grundgesamtheit sind bekannt.
 
-Die Verfahren sollen anhand eines Beispiels illustriert werden: Es sei bekannt, dass der Luftdruck auf dem Feldberg annähernd normalverteilt ist, und zwar mit dem arithmetischen Mittel $\mu=1003$ und Varianz $\sigma^2=73$. Graphisch stellt sich die Wahrscheinlichkeitsdichtefunktion wie in Abbildung \@ref(fig:dens) dar.
+Die Verfahren sollen anhand eines Beispiels illustriert werden: Es sei bekannt, dass der Luftdruck auf dem Feldberg annähernd normalverteilt ist, und zwar mit dem arithmetischen Mittel $\mu=1003$ und Varianz $\sigma^2=73$. Graphisch stellt sich die Wahrscheinlichkeitsdichtefunktion wie in Abbildung \@ref(fig:dens) dar.
 
 ```{r dens, cache=T, fig.pos='t', fig.cap="Theoretische Wahrscheinlichkeitsdichtefunktion des Luftdrucks"}
 ggplot(data.frame(x=c(1003-3*sqrt(73),1003+3*sqrt(73))), aes(x)) +
@@ -199,7 +200,7 @@ ggplot(data.frame(x=c(1003-3*sqrt(73),1003+3*sqrt(73))), aes(x)) +
   theme_goethe()
 ```
 
-Wir können auch (analog zu Formel \@ref(eq:norm)) schreiben:
+Wir können auch (analog zu Formel \@ref(eq:norm)) schreiben:
 
 \[
 x \sim N(1003,\enspace73)
@@ -218,7 +219,7 @@ $$\begin{aligned}
 
 Die einfachste Art der Fragestellung ist nun, mit welcher Wahrscheinlichkeit ein bestimmter Wert $x_p$ unterschritten wird.
 
-Nehmen wir an, es sei gefragt, mit welcher Wahrscheinlichkeit zu einem beliebigen Zeitpunkt der Luftdruck weniger als 1015&nbsp;hPa beträgt. Anders gesagt interessiert uns der Anteil der Fläche unter der Verteilung, der zwischen $-\infty$ und $x_p=1015$ liegt (s. Abbildung \@ref(fig:unter)).
+Nehmen wir an, es sei gefragt, mit welcher Wahrscheinlichkeit zu einem beliebigen Zeitpunkt der Luftdruck weniger als 1015&nbsp;hPa beträgt. Anders gesagt interessiert uns der Anteil der Fläche unter der Verteilung, der zwischen $-\infty$ und $x_p=1015$ liegt (s. Abbildung \@ref(fig:unter)).
 
 ```{r unter, fig.pos='H', cache=T, fig.cap="Unterschreitung eines Messwerts"}
 mu = 1003
@@ -248,7 +249,7 @@ Um den entsprechenden Wert für $P(x < x_p)$ (also die Wahrscheinlichkeit, dass 
   \end{aligned}
 \]
 
-Graphisch ist das standardisierte Perzentil in Abbildung \@ref(fig:z) dargestellt.
+Graphisch ist das standardisierte Perzentil in Abbildung \@ref(fig:z) dargestellt.
 
 ```{r z, cache=T, fig.pos='H', fig.cap="Standardnormalverteilung des Luftdrucks"}
 ggplot(data.frame(x=c(-3,3)), aes(x)) +
@@ -265,16 +266,17 @@ ggplot(data.frame(x=c(-3,3)), aes(x)) +
   theme_goethe()
 ```
 
-Die [Formelsammlung](Formelsammlung und Wertetabellen.pdf){target="_blank"} gibt für $z$-Werte die Wahrscheinlichkeit ihrer Unterschreitung in ener Normalverteilung an. Diese Wahrscheinlichkeit kann notiert werden als $P(z<z_p)$.
+Die [Formelsammlung](#formeln) gibt für $z$-Werte die Wahrscheinlichkeit ihrer Unterschreitung in ener Normalverteilung an. Diese Wahrscheinlichkeit kann notiert werden als $P(z<z_p)$.
 
-Der [Formelsammlung](Formelsammlung und Wertetabellen.pdf){target="_blank"} können wir den Wert $P(z < 1,41) \approx 0,9207$ entnehmen. Die Wahrscheinlichkeit, dass der Luftdruck zu einem zufälligen Zeitpunkt weniger als 1015 hPA beträgt, ist somit 92,07%.
+Der [Formelsammlung](#formeln) können wir den Wert $P(z < 1,41) \approx 0,9207$ entnehmen. Die Wahrscheinlichkeit, dass der Luftdruck zu einem zufälligen Zeitpunkt weniger als 1015 hPA beträgt, ist somit 92,07%.
 
-<div class="rtip">Softwarehinweis</div>
-<div class="rtip_content">In R lässt sich die Unterschreitungswahrscheinlichkeit eines $z$-Werts mit dem Befehl `pnorm()` ermitteln.</div>
+```{r}
+rtip("In R lässt sich die Unterschreitungswahrscheinlichkeit eines $z$-Werts mit dem Befehl `pnorm()` ermitteln.")
+```
 
 #### Überschreitungswahrscheinlichkeit
 
-Wird nach der Wahrscheinlichkeit der Überschreitung eines Werts gefragt, ist in anderen Worten die Fläche unter der Wahrscheinlichkeitsdichtefunktion zwischen $x_p$ und $\infty$ gemeint. Wir bleiben bei unserem Beispiel $x_p=1015$ (s. Abbildung \@ref(fig:ueber)).
+Wird nach der Wahrscheinlichkeit der Überschreitung eines Werts gefragt, ist in anderen Worten die Fläche unter der Wahrscheinlichkeitsdichtefunktion zwischen $x_p$ und $\infty$ gemeint. Wir bleiben bei unserem Beispiel $x_p=1015$ (s. Abbildung \@ref(fig:ueber)).
 
 
 ```{r ueber, cache=T, fig.cap="Überschreitung eines Messwerts"}
@@ -348,12 +350,13 @@ Für unser Beispiel ergibt sich (mit dem Wert $P(z < 1,52) = 0{,}9357$ aus der T
 
 Ein Luftdruck von 990&nbsp;hPa wird also nur in ca. 6,43% der Fälle unterschritten.
 
-<div class="rtip">Softwarehinweis</div>
-<div class="rtip_content">Der Befehl `pnorm()` funktioniert auch mit negativen $z$-Werten.</div>
+```{r}
+rtip("Der Befehl `pnorm()` funktioniert auch mit negativen $z$-Werten.")
+```
 
 #### Wert in einem Intervall
 
-Nun wollen wir wissen, mit welcher Wahrscheinlichkeit ein zufälliger Meßwert zwischen 1005 und 1015&nbsp;hPa liegt. Graphisch ist dies in Abbildung \@ref(fig:intervall) aufbereitet.
+Nun wollen wir wissen, mit welcher Wahrscheinlichkeit ein zufälliger Meßwert zwischen 1005 und 1015&nbsp;hPa liegt. Graphisch ist dies in Abbildung \@ref(fig:intervall) aufbereitet.
 
 ```{r intervall, cache=T, fig.cap="Messwertintervall"}
 xu=1005
@@ -421,23 +424,24 @@ Mit der umgekehrten $z$-Transformation erhalten wir:
 
 Die Marke von 1017,10&nbsp;hPa wird also nur in 5% der Fälle überschritten.
 
-<div class="rtip">Softwarehinweis</div>
-<div class="rtip_content">Das Perzentil für eine gegebene Unterschreitungswahrscheinlichkeit lässt sich in R mit `qnorm()` bestimmen.</div>
+```{r}
+rtip("Das Perzentil für eine gegebene Unterschreitungswahrscheinlichkeit lässt sich in R mit `qnorm()` bestimmen.")
+```
 
 #### Gesuchte Grenzwerte eines Intervalls
 
-Eine übliche Art der Fragestellung ist auch: Zwischen welchen beiden Werten liegen die mittleren 85% der Fälle (s. Abbiddung \@ref(fig:mitte))?
+Eine übliche Art der Fragestellung ist auch: Zwischen welchen beiden Werten liegen die mittleren 85% der Fälle (s. Abbiddung \@ref(fig:mitte))?
 
 ```{r mitte, cache = T, fig.cap="Die mittleren 85\\% der Normalverteilung"}
-xu=qnorm(.925, mu,sigma)
-xo=qnorm(.075, mu,sigma)
-ggplot(data.frame(x=c(xl, xr)), aes(x)) +
-  stat_function(fun=f, xlim=c(xu,xo), geom = "area", fill=light_blue) +
-  stat_function(fun=f, color = goethe_blue) +
-  geom_vline(xintercept=xu, color=goethe_blue, linetype="dashed") +
-  geom_vline(xintercept=xo, color=goethe_blue, linetype="dashed") +
-  scale_y_continuous(expand=c(0,0), limits=c(0,f(mu)*1.05)) +
-  scale_x_continuous(expand=c(0,0)) +
+xu <- qnorm(.925, mu, sigma)
+xo <- qnorm(.075, mu, sigma)
+ggplot(data.frame(x = c(xl, xr)), aes(x)) +
+  stat_function(fun = f, xlim = c(xu,xo), geom = "area", fill = light_blue) +
+  stat_function(fun = f, color = goethe_blue) +
+  geom_vline(xintercept = xu, color = goethe_blue, linetype = "dashed") +
+  geom_vline(xintercept = xo, color = goethe_blue, linetype = "dashed") +
+  scale_y_continuous(expand = c(0,0), limits = c(0,f(mu)*1.05)) +
+  scale_x_continuous(expand = c(0,0)) +
   xlab("x (Luftdruck in hPa)") +
   ylab(NULL) +
   theme_goethe()
@@ -451,30 +455,31 @@ Die Untergrenze ist entsprechend der Wert, der in 7,5% der Fälle unterschritten
 
 Der Wert für $z_u=z_{7{,}5\%}$ ist in der Tabelle nicht enthalten. Weil die Verteilung aber symmetrisch ist, wissen wir uns zu helfen:
 
-\[
+$$
   \begin{aligned}
     z_u=z_{7{,}5\%}=-z_{92{,}5\%}\approx-1{,}44
   \end{aligned}
-\]
+  $$
 
 Die absoluten Werte ergeben sich schließlich aus:
-\[
+
+$$
   \begin{aligned}
     x_u&=z_u\cdot \sigma + \mu \\
     &\approx-1{,}44 \cdot 8{,}54 + 1003\\
     &\approx990{,}70
   \end{aligned}
-\]
-
+$$
 
 Und:
-\[
+
+$$
   \begin{aligned}
     x_o&=z_o\cdot \sigma + \mu  \\
     &\approx1{,}44 \cdot 8{,}54 + 1003\\
     & \approx 1015{,}30
   \end{aligned}
-\]
+$$
 
 Die mittleren 85% der Messwerte liegen also zwischen 990,7 und 1015,3&nbsp;hPa.
 
@@ -489,10 +494,10 @@ Die mittleren 85% der Messwerte liegen also zwischen 990,7 und 1015,3&nbsp;hPa.
 
 ### $z$-Transformation
 
-- Kapitel 2.4 in @bortz
-- Kapitel 3.5.2 in @delange
-- Kapitel 4.2.2 in @bahrenberg
-- Kapitel 3.3.3 in @benninghaus
+- Kapitel 2.4 in @bortz
+- Kapitel 3.5.2 in @delange
+- Kapitel 4.2.2 in @bahrenberg
+- Kapitel 3.3.3 in @benninghaus
 - YouTube-Kanal "Methodenlehre Mainz": [WT.012.09 Äpfel mit Birnen vergleichen: Die z-Standardisierung](https://www.youtube.com/watch?v=AiucvUlIP8k)
 - *Englisch:* Kapitel 6.3 in @burt
 

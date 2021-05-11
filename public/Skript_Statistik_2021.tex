@@ -70,6 +70,20 @@
   \medskip
 }
 
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
 
 %%%%%%%%%%%%
 %  custom  %
@@ -143,12 +157,14 @@
 
 
 \pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \fancyhf{}
 \usepackage{xpatch}
 \xpretocmd\headrule{\color{dark_gray}}{}{\PatchFailed}
 \lhead{\color{dark_gray}\footnotesize Statistische Verfahren in der Geographie}
 \chead{\color{dark_gray}\footnotesize }
-\rhead{\color{dark_gray}\footnotesize Skript für den Theorieteil}
+%\rhead{\color{dark_gray}\footnotesize Skript für den Theorieteil}
+\rhead{\color{dark_gray}\footnotesize\chaptername~\thechapter:~\leftmark}
   \lfoot{\color{dark_gray}\footnotesize\lastupdate\today}
 \rfoot{\color{dark_gray}\footnotesize\pagestring\thepage/\begin{NoHyper}\pageref{LastPage}\end{NoHyper}}
 \fancypagestyle{plain}{ %
@@ -260,7 +276,7 @@ Datum & Sitzung & Inhalt \\
 13. April 2021 & & \protect\hyperlink{vorbesprechung}{Vorbesprechung} \\
 20. April 2021 & 1 & \protect\hyperlink{datenerhebung-und-huxe4ufigkeiten}{Datenerhebung und Häufigkeiten} \\
 27. April 2021 & 2 & \protect\hyperlink{mauxdfzahlen}{Maßzahlen} \\
-4. Mai 2021 & 3 & \protect\hyperlink{z-werte-und-normalverteilung}{z-Werte und Normalverteilung} \\
+4. Mai 2021 & 3 & {[}z-Werte und Normalverteilung{]} \\
 11. Mai 2021 & 4 & \protect\hyperlink{schuxe4tzstatistik}{Schätzstatistik} \\
 18. Mai 2021 & 5 & {[}Grundlagen der Teststatistik{]} \\
 25. Mai 2021 & 6 & {[}Testverfahren mit zwei Stichproben{]} \\
@@ -1233,11 +1249,11 @@ Sie können\ldots{}
 \begin{itemize}
 \tightlist
 \item
-  2a) \href{https://video01.uni-frankfurt.de/Mediasite/Play/bbb30f8025cf48e99a48700b0600e1e11d}{Lagemaße}
+  \href{https://video01.uni-frankfurt.de/Mediasite/Play/bbb30f8025cf48e99a48700b0600e1e11d}{2a) Lagemaße}
 \item
-  2b) \href{https://video01.uni-frankfurt.de/Mediasite/Play/cfdb254c058f44228e7b026f36986cc31d}{Streumaße}
+  \href{https://video01.uni-frankfurt.de/Mediasite/Play/cfdb254c058f44228e7b026f36986cc31d}{2b) Streumaße}
 \item
-  2c) \href{https://video01.uni-frankfurt.de/Mediasite/Play/d115769da4ee4e25a9062a9b2e2e11c41d}{Klassierte Verteilungen}
+  \href{https://video01.uni-frankfurt.de/Mediasite/Play/d115769da4ee4e25a9062a9b2e2e11c41d}{2c) Klassierte Verteilungen}
 
   \begin{itemize}
   \tightlist
@@ -1881,7 +1897,7 @@ Jahr & Niederschlag (mm)\\
 \end{enumerate}
 
 \hypertarget{z-werte-und-normalverteilung}{%
-\chapter{z-Werte und Normalverteilung}\label{z-werte-und-normalverteilung}}
+\chapter{\texorpdfstring{\(z\)-Werte und Normalverteilung}{z-Werte und Normalverteilung}}\label{z-werte-und-normalverteilung}}
 
 \hypertarget{lernziele-dieser-sitzung-2}{%
 \subsection*{Lernziele dieser Sitzung}\label{lernziele-dieser-sitzung-2}}
@@ -1914,11 +1930,11 @@ Sie können\ldots{}
 \begin{itemize}
 \tightlist
 \item
-  3a) \href{https://video01.uni-frankfurt.de/Mediasite/Play/8c755eed883b4ea0924481da818b742f1d}{\(z\)-Transformation}
+  \href{https://video01.uni-frankfurt.de/Mediasite/Play/8c755eed883b4ea0924481da818b742f1d}{3a) \(z\)-Transformation}
 \item
-  3b) \href{https://video01.uni-frankfurt.de/Mediasite/Play/26e839cc0d8d43d2a74c2c03b76aa6421d}{Normalverteilung}
+  \href{https://video01.uni-frankfurt.de/Mediasite/Play/26e839cc0d8d43d2a74c2c03b76aa6421d}{3b) Normalverteilung}
 \item
-  3c) \href{https://video01.uni-frankfurt.de/Mediasite/Play/902e68deb21045a79473a249303558d11d}{Quantile der Normalverteilung}
+  \href{https://video01.uni-frankfurt.de/Mediasite/Play/902e68deb21045a79473a249303558d11d}{3c) Quantile der Normalverteilung}
 \end{itemize}
 
 \hypertarget{variationskoeffizient}{%
@@ -1941,7 +1957,7 @@ Zur Illustration: An zufälligen Tagen hat die Wetterstation auf dem Feldberg fo
  997,9  1000,2
 \end{verbatim}
 
-Mit den bekannten Methoden (\protect\hyperlink{mauxdfzahlen}{Sitzung~2}) können wir das arithmetische Mittel \(\bar{x}\approx 999,37\) und die Standardabweichung \(s\approx8,56\) der Stichprobe bestimmen. Durch einsetzen dieser Werte in Formel \eqref{eq:cv} ergibt sich:
+Mit den bekannten Methoden (\protect\hyperlink{mauxdfzahlen}{Sitzung~2}) können wir das arithmetische Mittel \(\bar{x}\approx 999,37\) und die Standardabweichung \(s\approx8,56\) der Stichprobe bestimmen. Durch einsetzen dieser Werte in Formel~\eqref{eq:cv} ergibt sich:
 
 \[\begin{aligned}
 v&\approx\frac{8{,}56}{999{,}37}\cdot 100\%\\[4pt]
@@ -1954,7 +1970,7 @@ Da die Standardabweichung im Vergleich zu den absoluten Werten sehr klein ist, i
 Ein Problem ergibt sich, wenn der Mittelwert einer Verteilung nahe Null liegt (z.~B. wenn die Reihe auch negative Messwerte enthält). Der Variationskoeffizient wird in diesem Fall sehr groß und verliert stark an Aussagekraft.
 
 \hypertarget{z-transformation}{%
-\section{z-Transformation}\label{z-transformation}}
+\section{\texorpdfstring{\(z\)-Transformation}{z-Transformation}}\label{z-transformation}}
 
 Ein weiterer Ansatz, Verteilungsmuster vergleichbar zu machen, ist die \(z\)-Transformation (auch Standardisierung, engl. \emph{standardization}).
 
@@ -1967,7 +1983,7 @@ z=\frac{x-\bar{x}}{s}
 
 Der \(z\)-Wert eines Werts \(x\) ist also der Abstand des Werts zum arithmetischen Mittel \(\bar{x}\) der Verteilung, ausgedrückt im Verhältnis zu ihrer Standardabweichung \(s\).
 
-Die einzelnen \(z\)-Werte für die Luftdruckmessungen ergeben sich wie in Tabelle \ref{tab:trans} dargestellt.
+Die einzelnen \(z\)-Werte für die Luftdruckmessungen ergeben sich wie in Tabelle~\ref{tab:trans} dargestellt.
 
 \begin{table}
 
@@ -1995,9 +2011,9 @@ $x_i$ & Berechnung & $z_i$\\
 
 Eine so \(z\)-transformierte Verteilung hat \emph{immer} automatisch das arithmetische Mittel \(\bar{z}=0\) und die Standardabweichung \(s_z=1\). Außerdem haben \(z\)-Werte keine Maßeinheit. So kann jede Verteilung \enquote{standardisiert} und systematisch vergleichbar gemacht werden.
 
-Softwarehinweis
-
-In R kann eine empirische Verteilung mit dem Behfehl \texttt{scale()} \(z\)-transformiert werden.
+\begin{rtip}
+In R kann eine empirische Verteilung mit dem Behfehl \verb|scale()| $z$-transformiert werden.
+\end{rtip}
 
 Andersherum lassen sich \(z\)-Werte folgendermaßen wieder umwandeln in \(x\)-Werte:
 
@@ -2020,11 +2036,11 @@ Andersherum lassen sich \(z\)-Werte folgendermaßen wieder umwandeln in \(x\)-We
 
 Die Normalverteilung (auch: Gaußverteilung, engl. \emph{normal distribution}) ist unimodal und symmetrisch. Die Normalverteilung ist eine theoretische Verteilung, für die bekannt ist, mit welcher Wahrscheinlichkeit bestimmte Werte unter- und überschritten werden bzw. mit welcher Wahrscheinlichkeit Werte in einem bestimmten Intervall liegen.
 
-Die Dichtefunktion einer Normalverteilung hat eine markante Glockenform (s. Abbildungen \ref{fig:norms} und \ref{fig:stdnorm}). Die beiden Wendepunkte einer Normalverteilung (also dort, wo die Steigung zwischen zu- und abnehmend wechselt; oder mathematisch: wo die Ableitung der Dichtefunktion einen Extremwert annimmt) sind je eine Standardabweichung vom Mittelwert entfernt.
+Die Dichtefunktion einer Normalverteilung hat eine markante Glockenform (s. Abbildungen~\ref{fig:norms} und \ref{fig:stdnorm}). Die beiden Wendepunkte einer Normalverteilung (also dort, wo die Steigung zwischen zu- und abnehmend wechselt; oder mathematisch: wo die Ableitung der Dichtefunktion einen Extremwert annimmt) sind je eine Standardabweichung vom Mittelwert entfernt.
 
 Die Dichtefunktion nimmt nie den Wert Null an -- Extremwerte sind also sehr selten bzw. unwahrscheinlich, aber nie unmöglich. Perfekte Normalverteilungen kommen in empirischen Beobachtungen nicht vor, sondern nur Annäherungen.
 
-Da es sich um eine \emph{theoretische} Verteilung handelt, ist die Normalverteilung zunächst insbesondere in Bezug auf die Grundgesamtheit interessant. Im Kontext der Grundgesamtheit wird das arithmetische Mittel mit \(\mu\) (\enquote{Mü}) und die Standardabweichung mit \(\sigma\) (\enquote{Sigma}) bezeichnet (s. Tabelle \ref{tab:param}).
+Da es sich um eine \emph{theoretische} Verteilung handelt, ist die Normalverteilung zunächst insbesondere in Bezug auf die Grundgesamtheit interessant. Im Kontext der Grundgesamtheit wird das arithmetische Mittel mit \(\mu\) (\enquote{Mü}) und die Standardabweichung mit \(\sigma\) (\enquote{Sigma}) bezeichnet (s. Tabelle~\ref{tab:param}).
 
 \begin{table}
 
@@ -2051,12 +2067,12 @@ x \sim N(\mu,\enspace\sigma^2)
 \end{aligned}
 \label{eq:norm}\]
 
-Der Mittelwert \(\mu\) bestimmt die Lage der Kurve auf der x-Achse, die Varianz \(\sigma^2\) bestimmt die \enquote{Stauchung} der Kurve (je größer desto flacher). Es gibt also unendlich viele verschiedene Normalverteilungen (s. Abbildung \ref{fig:norms}).
+Der Mittelwert \(\mu\) bestimmt die Lage der Kurve auf der x-Achse, die Varianz \(\sigma^2\) bestimmt die \enquote{Stauchung} der Kurve (je größer desto flacher). Es gibt also unendlich viele verschiedene Normalverteilungen (s. Abbildung~\ref{fig:norms}).
 
 \hypertarget{standardnormalverteilung}{%
 \section{Standardnormalverteilung}\label{standardnormalverteilung}}
 
-Die Standardnormalverteilung (engl. \emph{standard normal distribution}) ist sozusagen das Grundmuster aller Normalverteilungen. Sie hat den Mittelwert \(\mu=0\) und die Standardabweichung \(\sigma=1\) (s. Abbildung \ref{fig:stdnorm}).
+Die Standardnormalverteilung (engl. \emph{standard normal distribution}) ist sozusagen das Grundmuster aller Normalverteilungen. Sie hat den Mittelwert \(\mu=0\) und die Standardabweichung \(\sigma=1\) (s. Abbildung~\ref{fig:stdnorm}).
 
 Alle Normalverteilungen lassen sich durch die \(z\)-Transformation auf die Standardnormalverteilung standardisieren.
 
@@ -2105,7 +2121,7 @@ Für die im Rest dieser Sitzung vorgestellten Verfahren müssen folgende Vorauss
   Arithmetisches Mittel \(\mu\) und Standardabweichung \(\sigma\) der Grundgesamtheit sind bekannt.
 \end{itemize}
 
-Die Verfahren sollen anhand eines Beispiels illustriert werden: Es sei bekannt, dass der Luftdruck auf dem Feldberg annähernd normalverteilt ist, und zwar mit dem arithmetischen Mittel \(\mu=1003\) und Varianz \(\sigma^2=73\). Graphisch stellt sich die Wahrscheinlichkeitsdichtefunktion wie in Abbildung \ref{fig:dens} dar.
+Die Verfahren sollen anhand eines Beispiels illustriert werden: Es sei bekannt, dass der Luftdruck auf dem Feldberg annähernd normalverteilt ist, und zwar mit dem arithmetischen Mittel \(\mu=1003\) und Varianz \(\sigma^2=73\). Graphisch stellt sich die Wahrscheinlichkeitsdichtefunktion wie in Abbildung~\ref{fig:dens} dar.
 
 \begin{figure}[t]
 
@@ -2116,7 +2132,7 @@ Die Verfahren sollen anhand eines Beispiels illustriert werden: Es sei bekannt, 
 \caption{Theoretische Wahrscheinlichkeitsdichtefunktion des Luftdrucks}\label{fig:dens}
 \end{figure}
 
-Wir können auch (analog zu Formel \eqref{eq:norm}) schreiben:
+Wir können auch (analog zu Formel~\eqref{eq:norm}) schreiben:
 
 \[
 x \sim N(1003,\enspace73)
@@ -2136,7 +2152,7 @@ Daraus ergibt sich für die Standardabweichung \(\sigma\):
 
 Die einfachste Art der Fragestellung ist nun, mit welcher Wahrscheinlichkeit ein bestimmter Wert \(x_p\) unterschritten wird.
 
-Nehmen wir an, es sei gefragt, mit welcher Wahrscheinlichkeit zu einem beliebigen Zeitpunkt der Luftdruck weniger als 1015~hPa beträgt. Anders gesagt interessiert uns der Anteil der Fläche unter der Verteilung, der zwischen \(-\infty\) und \(x_p=1015\) liegt (s. Abbildung \ref{fig:unter}).
+Nehmen wir an, es sei gefragt, mit welcher Wahrscheinlichkeit zu einem beliebigen Zeitpunkt der Luftdruck weniger als 1015~hPa beträgt. Anders gesagt interessiert uns der Anteil der Fläche unter der Verteilung, der zwischen \(-\infty\) und \(x_p=1015\) liegt (s. Abbildung~\ref{fig:unter}).
 
 \begin{figure}[H]
 
@@ -2156,7 +2172,7 @@ Um den entsprechenden Wert für \(P(x < x_p)\) (also die Wahrscheinlichkeit, das
   \end{aligned}
 \]
 
-Graphisch ist das standardisierte Perzentil in Abbildung \ref{fig:z} dargestellt.
+Graphisch ist das standardisierte Perzentil in Abbildung~\ref{fig:z} dargestellt.
 
 \begin{figure}[H]
 
@@ -2167,18 +2183,18 @@ Graphisch ist das standardisierte Perzentil in Abbildung \ref{fig:z} dargestellt
 \caption{Standardnormalverteilung des Luftdrucks}\label{fig:z}
 \end{figure}
 
-Die \href{Formelsammlung\%20und\%20Wertetabellen.pdf}{Formelsammlung} gibt für \(z\)-Werte die Wahrscheinlichkeit ihrer Unterschreitung in ener Normalverteilung an. Diese Wahrscheinlichkeit kann notiert werden als \(P(z<z_p)\).
+Die \protect\hyperlink{formeln}{Formelsammlung} gibt für \(z\)-Werte die Wahrscheinlichkeit ihrer Unterschreitung in ener Normalverteilung an. Diese Wahrscheinlichkeit kann notiert werden als \(P(z<z_p)\).
 
-Der \href{Formelsammlung\%20und\%20Wertetabellen.pdf}{Formelsammlung} können wir den Wert \(P(z < 1,41) \approx 0,9207\) entnehmen. Die Wahrscheinlichkeit, dass der Luftdruck zu einem zufälligen Zeitpunkt weniger als 1015 hPA beträgt, ist somit 92,07\%.
+Der \protect\hyperlink{formeln}{Formelsammlung} können wir den Wert \(P(z < 1,41) \approx 0,9207\) entnehmen. Die Wahrscheinlichkeit, dass der Luftdruck zu einem zufälligen Zeitpunkt weniger als 1015 hPA beträgt, ist somit 92,07\%.
 
-Softwarehinweis
-
-In R lässt sich die Unterschreitungswahrscheinlichkeit eines \(z\)-Werts mit dem Befehl \texttt{pnorm()} ermitteln.
+\begin{rtip}
+In R lässt sich die Unterschreitungswahrscheinlichkeit eines $z$-Werts mit dem Befehl \verb|pnorm()| ermitteln.
+\end{rtip}
 
 \hypertarget{uxfcberschreitungswahrscheinlichkeit}{%
 \subsubsection{Überschreitungswahrscheinlichkeit}\label{uxfcberschreitungswahrscheinlichkeit}}
 
-Wird nach der Wahrscheinlichkeit der Überschreitung eines Werts gefragt, ist in anderen Worten die Fläche unter der Wahrscheinlichkeitsdichtefunktion zwischen \(x_p\) und \(\infty\) gemeint. Wir bleiben bei unserem Beispiel \(x_p=1015\) (s. Abbildung \ref{fig:ueber}).
+Wird nach der Wahrscheinlichkeit der Überschreitung eines Werts gefragt, ist in anderen Worten die Fläche unter der Wahrscheinlichkeitsdichtefunktion zwischen \(x_p\) und \(\infty\) gemeint. Wir bleiben bei unserem Beispiel \(x_p=1015\) (s. Abbildung~\ref{fig:ueber}).
 
 \begin{figure}[!h]
 
@@ -2249,14 +2265,14 @@ Für unser Beispiel ergibt sich (mit dem Wert \(P(z < 1,52) = 0{,}9357\) aus der
 
 Ein Luftdruck von 990~hPa wird also nur in ca. 6,43\% der Fälle unterschritten.
 
-Softwarehinweis
-
-Der Befehl \texttt{pnorm()} funktioniert auch mit negativen \(z\)-Werten.
+\begin{rtip}
+Der Befehl \verb|pnorm()| funktioniert auch mit negativen $z$-Werten.
+\end{rtip}
 
 \hypertarget{wert-in-einem-intervall}{%
 \subsubsection{Wert in einem Intervall}\label{wert-in-einem-intervall}}
 
-Nun wollen wir wissen, mit welcher Wahrscheinlichkeit ein zufälliger Meßwert zwischen 1005 und 1015~hPa liegt. Graphisch ist dies in Abbildung \ref{fig:intervall} aufbereitet.
+Nun wollen wir wissen, mit welcher Wahrscheinlichkeit ein zufälliger Meßwert zwischen 1005 und 1015~hPa liegt. Graphisch ist dies in Abbildung~\ref{fig:intervall} aufbereitet.
 
 \begin{figure}[!h]
 
@@ -2319,14 +2335,14 @@ Mit der umgekehrten \(z\)-Transformation erhalten wir:
 
 Die Marke von 1017,10~hPa wird also nur in 5\% der Fälle überschritten.
 
-Softwarehinweis
-
-Das Perzentil für eine gegebene Unterschreitungswahrscheinlichkeit lässt sich in R mit \texttt{qnorm()} bestimmen.
+\begin{rtip}
+Das Perzentil für eine gegebene Unterschreitungswahrscheinlichkeit lässt sich in R mit \verb|qnorm()| bestimmen.
+\end{rtip}
 
 \hypertarget{gesuchte-grenzwerte-eines-intervalls}{%
 \subsubsection{Gesuchte Grenzwerte eines Intervalls}\label{gesuchte-grenzwerte-eines-intervalls}}
 
-Eine übliche Art der Fragestellung ist auch: Zwischen welchen beiden Werten liegen die mittleren 85\% der Fälle (s. Abbiddung \ref{fig:mitte})?
+Eine übliche Art der Fragestellung ist auch: Zwischen welchen beiden Werten liegen die mittleren 85\% der Fälle (s. Abbiddung~\ref{fig:mitte})?
 
 \begin{figure}[!h]
 
@@ -2349,9 +2365,10 @@ Der Wert für \(z_u=z_{7{,}5\%}\) ist in der Tabelle nicht enthalten. Weil die V
   \begin{aligned}
     z_u=z_{7{,}5\%}=-z_{92{,}5\%}\approx-1{,}44
   \end{aligned}
-\]
+  \]
 
 Die absoluten Werte ergeben sich schließlich aus:
+
 \[
   \begin{aligned}
     x_u&=z_u\cdot \sigma + \mu \\
@@ -2361,6 +2378,7 @@ Die absoluten Werte ergeben sich schließlich aus:
 \]
 
 Und:
+
 \[
   \begin{aligned}
     x_o&=z_o\cdot \sigma + \mu  \\
@@ -2396,13 +2414,13 @@ Die mittleren 85\% der Messwerte liegen also zwischen 990,7 und 1015,3~hPa.
 \begin{itemize}
 \tightlist
 \item
-  Kapitel 2.4 in \protect\hyperlink{ref-bortz}{Bortz und Schuster} (\protect\hyperlink{ref-bortz}{2010})
+  Kapitel~2.4 in \protect\hyperlink{ref-bortz}{Bortz und Schuster} (\protect\hyperlink{ref-bortz}{2010})
 \item
-  Kapitel 3.5.2 in \protect\hyperlink{ref-delange}{Lange und Nipper} (\protect\hyperlink{ref-delange}{2018})
+  Kapitel~3.5.2 in \protect\hyperlink{ref-delange}{Lange und Nipper} (\protect\hyperlink{ref-delange}{2018})
 \item
-  Kapitel 4.2.2 in \protect\hyperlink{ref-bahrenberg}{Bahrenberg, Giese und Nipper} (\protect\hyperlink{ref-bahrenberg}{2010})
+  Kapitel~4.2.2 in \protect\hyperlink{ref-bahrenberg}{Bahrenberg, Giese und Nipper} (\protect\hyperlink{ref-bahrenberg}{2010})
 \item
-  Kapitel 3.3.3 in \protect\hyperlink{ref-benninghaus}{Benninghaus} (\protect\hyperlink{ref-benninghaus}{2007})
+  Kapitel~3.3.3 in \protect\hyperlink{ref-benninghaus}{Benninghaus} (\protect\hyperlink{ref-benninghaus}{2007})
 \item
   YouTube-Kanal \enquote{Methodenlehre Mainz}: \href{https://www.youtube.com/watch?v=AiucvUlIP8k}{WT.012.09 Äpfel mit Birnen vergleichen: Die z-Standardisierung}
 \item
@@ -2612,17 +2630,17 @@ Sie können\ldots{}
 \begin{itemize}
 \tightlist
 \item
-  4a) \href{https://video01.uni-frankfurt.de/Mediasite/Play/7f5b3002871a4b18859db90d937e5f8a1d}{Alphafehler}
+  \href{https://video01.uni-frankfurt.de/Mediasite/Play/7f5b3002871a4b18859db90d937e5f8a1d}{4a) Alphafehler}
 
   \begin{itemize}
   \tightlist
   \item
-    Hier gibt es einen Fehler: In der Übungsaufgabe (Schritt c) setze ich den falschen Wert für \(\mu\) ein. Die Werte müssten stattdessen \(x_{(1-\alpha/2)}=27{,}84\) und \(x_{\alpha/2}=20{,}16\) betragen.
+    In diesem Video gibt es einen Fehler: In Schritt c) der Übungsaufgabe setze ich den falschen Wert für \(\mu\) ein. Die Werte müssten stattdessen \(x_{(1-\alpha/2)}=27{,}84\) und \(x_{\alpha/2}=20{,}16\) betragen.
   \end{itemize}
 \item
-  4b) \href{https://video01.uni-frankfurt.de/Mediasite/Play/393be1f574c643f9a045a6b4cc60a4511d}{Stichprobenverteilung}
+  \href{https://video01.uni-frankfurt.de/Mediasite/Play/393be1f574c643f9a045a6b4cc60a4511d}{4b) Stichprobenverteilung}
 \item
-  4c) \href{https://video01.uni-frankfurt.de/Mediasite/Play/ace60129a0c94894a66349f56e0b24a31d}{Schätzungen}
+  \href{https://video01.uni-frankfurt.de/Mediasite/Play/ace60129a0c94894a66349f56e0b24a31d}{4c) Schätzungen}
 \end{itemize}
 
 \hypertarget{stichprobenverteilung}{%
@@ -2651,7 +2669,7 @@ Die Standardabweichung der Population beträgt entsprechend:
 \sigma&=\sqrt{\sigma^2}\\[4pt]
 &=\sqrt{25}=5\end{aligned}\]
 
-Graphisch ist die Dichtefunktion der Verteilung in Abbildung \ref{fig:pop} veranschaulicht.
+Graphisch ist die Dichtefunktion der Verteilung in Abbildung~\ref{fig:pop} veranschaulicht.
 
 \begin{figure}[!h]
 
@@ -2664,7 +2682,7 @@ Graphisch ist die Dichtefunktion der Verteilung in Abbildung \ref{fig:pop} veran
 
 Wenn eine einzelne Stichprobe der Größe \(n=3\) aus dieser Verteilung gezogen würde, hätte sie drei konkrete Werte (\(x_1\), \(x_2\) und \(x_3\)) sowie ein konkretes arithmetisches Mittel (\(\bar{x}\)).
 
-Es lässt sich jedoch auch eine Wahrscheinlichkeitsdichtefunktion der Mittelwerte \emph{aller theoretisch möglichen Stichproben} der Größe \(n=3\) (und zusätzlich der Größe \(n=6\)) zeichnen (s. Abbildung \ref{fig:stich}).
+Es lässt sich jedoch auch eine Wahrscheinlichkeitsdichtefunktion der Mittelwerte \emph{aller theoretisch möglichen Stichproben} der Größe \(n=3\) (und zusätzlich der Größe \(n=6\)) zeichnen (s. Abbildung~\ref{fig:stich}).
 
 \begin{figure}[!h]
 
@@ -2694,7 +2712,7 @@ Wir können auch sagen: \(\bar{x}\) ist ein \enquote{erwartungstreuer} Schätzpa
 \hypertarget{standardfehler}{%
 \subsubsection{Standardfehler}\label{standardfehler}}
 
-Zusätzlich fällt in \ref{fig:stich} auf: Je größer die Stichprobe, desto gestauchter die Dichtekurve der Stichprobenverteilung: Die theoretische Verteilung von \(\bar{x}\) bei \(n=6\) weist eine kleinere Varianz auf als bei \(n=3\). Das ist einigermaßen intuitiv, denn wir können uns vorstellen, dass das arithmetische Mittel \(\bar{x}\) bei steigender Stichprobengröße ein immer präziserer Schätzwert für \(\mu\) wird.
+Zusätzlich fällt in Abbildung~\ref{fig:stich} auf: Je größer die Stichprobe, desto gestauchter die Dichtekurve der Stichprobenverteilung: Die theoretische Verteilung von \(\bar{x}\) bei \(n=6\) weist eine kleinere Varianz auf als bei \(n=3\). Das ist einigermaßen intuitiv, denn wir können uns vorstellen, dass das arithmetische Mittel \(\bar{x}\) bei steigender Stichprobengröße ein immer präziserer Schätzwert für \(\mu\) wird.
 
 Die Varianz der Stichprobenverteilung für \(\bar{x}\) bezeichnen wir mit \(\sigma^2_{\bar{x}}\). Sie hängt von der Varianz der Population ab und ist invers proportional zur Stichprobengröße. Es gilt:
 
@@ -2727,7 +2745,7 @@ Zusammenfassend lässt sich sagen:
 \hypertarget{szenario-2-nicht-normalverteilte-grundgesamtheit}{%
 \subsection{Szenario 2: Nicht normalverteilte Grundgesamtheit}\label{szenario-2-nicht-normalverteilte-grundgesamtheit}}
 
-Die Gleichungen \eqref{eq:mean}, \eqref{eq:4var} und \eqref{eq:4sd} gelten uneingeschränkt auch für die Stichprobenverteilungen von nicht normalverteilten Populationen. Nur die Normalverteilung der Stichprobenverteilung \eqref{eq:4norm} ist bei nicht normalverteilten Grundgesamtheiten nicht automatisch gegeben.
+Die Gleichungen~\eqref{eq:mean}, \eqref{eq:4var} und \eqref{eq:4sd} gelten uneingeschränkt auch für die Stichprobenverteilungen von nicht normalverteilten Populationen. Nur die Normalverteilung der Stichprobenverteilung (Gleichung~\eqref{eq:4norm}) ist bei nicht normalverteilten Grundgesamtheiten nicht automatisch gegeben.
 
 Das zentrale Grenzwerttheorem (engl. \emph{central limit theorem}) besagt jedoch:
 
@@ -2735,7 +2753,7 @@ Das zentrale Grenzwerttheorem (engl. \emph{central limit theorem}) besagt jedoch
 Die Verteilung von Mittelwerten aus Stichproben des Umfangs \(n\), die derselben Grundgesamtheit entnommen wurden, geht mit wachsendem Stichprobenumfang in eine Normalverteilung über. (\protect\hyperlink{ref-bortz}{Bortz und Schuster 2010}: 86)
 \end{quote}
 
-Abbildung \ref{fig:beta} veranschaulicht diesen Effekt für eine nicht normalverteilte Grundgesamtheit.
+Abbildung~\ref{fig:beta} veranschaulicht diesen Effekt für eine nicht normalverteilte Grundgesamtheit.
 
 \begin{figure}[!h]
 
@@ -2779,7 +2797,7 @@ Beispiel:
 \item
   Das arithmetische Mittel der Messreihe lässt sich -- wie in \protect\hyperlink{arithmetisches-mittel}{Sitzung~2} ausführlich besprochen -- berechnen: \(\bar{x}=30\)
 \item
-  Da es sich um eine erwartungstreue Schätzgröße (und eine valide Zufallsstichprobe) handelt, kann die durchschnittliche Pendelzeit \emph{aller} Studierenden der Humangeographie gemäß Gleichung \eqref{eq:muhat} auf \(\hat{\mu}=\bar{x}=30\) Minuten geschätzt werden.
+  Da es sich um eine erwartungstreue Schätzgröße (und eine valide Zufallsstichprobe) handelt, kann die durchschnittliche Pendelzeit \emph{aller} Studierenden der Humangeographie gemäß Gleichung~\eqref{eq:muhat} auf \(\hat{\mu}=\bar{x}=30\) Minuten geschätzt werden.
 \end{itemize}
 
 Gleichzeitig wissen wir jedoch, dass diese Punktschätzung des arithmetischen Mittels vermutlich nicht ganz präzise ist, sondern einem Standardfehler (\(\sigma_{\bar{x}}\)) unterliegt. Woher wissen wir, wie groß dieser Standardfehler ist (und wie unpräzise damit unsere Schätzung)?
@@ -2811,11 +2829,11 @@ Wir führen das obige Beispiel fort:
 \item
   Die Varianz der Stichprobe können wir berechnen: \(s^2\approx319{,}78\) (s.\protect\hyperlink{varianz}{Sitzung~2}).
 \item
-  Die Varianz der Grundgesamtheit kann also mit Gleichung \eqref{eq:muhat} auch auf \(\hat{\sigma^2}=s^2\approx319{,}78\) geschätzt werden.
+  Die Varianz der Grundgesamtheit kann also mit Gleichung~\eqref{eq:muhat} auch auf \(\hat{\sigma^2}=s^2\approx319{,}78\) geschätzt werden.
 \item
   Analog können wir die Standardabweichung der Population auf \(\hat{\sigma}=s\approx17{,}88\) schätzen.
 \item
-  Den Standardfehler können wir mit diesem Schätzwert anhand Gleichung \eqref{eq:4sd} berechnen. Allerdings benutzen wir statt \(\sigma_{\bar{x}}\) das Symbol \(s_{\bar{x}}\), da es sich um einen Schätzwert handelt:
+  Den Standardfehler können wir mit diesem Schätzwert anhand Gleichung~\eqref{eq:4sd} berechnen. Allerdings benutzen wir statt \(\sigma_{\bar{x}}\) das Symbol \(s_{\bar{x}}\), da es sich um einen Schätzwert handelt:
 \end{itemize}
 
 \nopagebreak
@@ -2871,7 +2889,7 @@ Die Grundüberlegung ist dabei folgende:
 \item
   Wenn wir den Wert \(\mu\) kennen würden, könnten wir (mit den Methoden aus \protect\hyperlink{wahrscheinlichkeitsrechnung-mit-standardnormalverteilung}{Sitzung~3}) die Wahrscheinlichkeit für einen beliebeigen Bereich angeben, in den ein zufälliges \(\bar{x}\) fällt.
 \item
-  Der entscheidende Trick: Weil die Normalverteilung symmetrisch ist, sind diese Wahrscheinlichkeiten analog anzuwenden auf die Bereiche einer konstruierten Verteilung mit gleichem \(\sigma_{\bar{x}}\) um unser \(\bar{x}\), in die der wirkliche Wert \(\mu\) fällt. (s. Abbildung \ref{fig:double}).
+  Der entscheidende Trick: Weil die Normalverteilung symmetrisch ist, sind diese Wahrscheinlichkeiten analog anzuwenden auf die Bereiche einer konstruierten Verteilung mit gleichem \(\sigma_{\bar{x}}\) um unser \(\bar{x}\), in die der wirkliche Wert \(\mu\) fällt. (s. Abbildung~\ref{fig:double}).
 \end{itemize}
 
 \begin{figure}[!h]
@@ -2883,7 +2901,7 @@ Die Grundüberlegung ist dabei folgende:
 \caption{Konstruierte Verteilung um $\bar{x}$}\label{fig:double}
 \end{figure}
 
-Dabei heißt der Bereich Konfidenzintervall (engl. \emph{confidence interval}), und seine Breite wird mit \(\textrm{KIB}\) abgekürzt. Die Wahrscheinlichkeit, dass wir mit unserer Schätzung \emph{außerhalb} des Konfidenzintervalls liegen wird mit \(\alpha\) gekennzeichnet. Ein 95\%-Konfidenzintervall hat also ein \(\alpha\) von 0,05 (s. \ref{fig:konf}).
+Dabei heißt der Bereich Konfidenzintervall (engl. \emph{confidence interval}), und seine Breite wird mit \(\textrm{KIB}\) abgekürzt. Die Wahrscheinlichkeit, dass wir mit unserer Schätzung \emph{außerhalb} des Konfidenzintervalls liegen wird mit \(\alpha\) gekennzeichnet. Ein 95\%-Konfidenzintervall hat also ein \(\alpha\) von 0,05 (s. Abbildung~\ref{fig:konf}).
 
 \begin{figure}[!h]
 
@@ -2925,7 +2943,7 @@ Zunächst errechnen wir den Mittelwert unserer empirischen Stichprobe:
 \end{aligned}
 \]
 
-Dann errechnen wir anhand Gleichung \eqref{eq:4sd} den Standardfehler der theoretischen Verteilung von \(\bar{x}\):
+Dann errechnen wir anhand Gleichung~\eqref{eq:4sd} den Standardfehler der theoretischen Verteilung von \(\bar{x}\):
 
 \nopagebreak
 
@@ -2991,7 +3009,7 @@ z_{(1-\alpha/2)} &= \frac{x_{(1-\alpha/2)}-\bar{x}}{\sigma_{\bar{x}}}\\[4pt]
 &\approx\frac{861{,}47-856,47}{3,86}\approx1,30
 \end{aligned}\]
 
-Es ist wenig überraschend, dass die \(z\)-transformierten Werte symmetrisch sind. Wir setzen in \eqref{eq:konf} ein:
+Es ist wenig überraschend, dass die \(z\)-transformierten Werte symmetrisch sind. Wir setzen in Gleichung~\eqref{eq:konf} ein:
 
 \nopagebreak
 
@@ -3114,7 +3132,7 @@ Die Intervallgrenzen ergeben sich dann trivial aus \(\bar{x} \pm \frac{\mathit{K
 
 Eine letzte Fragerichtung lautet: Wie viele Messwerte müssten vorliegen, um den durchschnittlichen Niederschlag mit einem Konfidenzniveau von 99\% und einer Genauigkeit von ± 5 l/m² schätzen zu können?
 
-Gegeben sind also das Konfidenzintervall und \(\alpha=0{,}01\), gesucht wird \(n\). Wir wissen, dass die Stichprobengröße \(n\) den Standardfehler \(\sigma_{\bar{x}}\) bestimmt. Also benutzen wir zunächst Gleichung \eqref{eq:kib} und formen um:
+Gegeben sind also das Konfidenzintervall und \(\alpha=0{,}01\), gesucht wird \(n\). Wir wissen, dass die Stichprobengröße \(n\) den Standardfehler \(\sigma_{\bar{x}}\) bestimmt. Also benutzen wir zunächst Gleichung~\eqref{eq:kib} und formen um:
 
 \nopagebreak
 
@@ -3133,7 +3151,7 @@ Durch Einsetzen und mit Blick auf die Tabelle erhalten wir:
  &\approx 1{,}94
 \end{aligned}\]
 
-Dieser Standardfehler \(\sigma_{\bar{x}}\approx1{,}94\) würde unseren Anforderungen genügen. Welches \(n\) ist nötig, um diesen Standardfehler zu erreichen? Wir formen Gleichung \eqref{eq:4sd} um\ldots{}
+Dieser Standardfehler \(\sigma_{\bar{x}}\approx1{,}94\) würde unseren Anforderungen genügen. Welches \(n\) ist nötig, um diesen Standardfehler zu erreichen? Wir formen Gleichung~\eqref{eq:4sd} um\ldots{}
 
 \nopagebreak
 
@@ -3176,13 +3194,101 @@ Wir müssten also 28 Stichproben vorliegen haben.
   \emph{English:} Kapitel 8 in \protect\hyperlink{ref-burt}{Burt und Barber} (\protect\hyperlink{ref-burt}{1996})
 \end{itemize}
 
-\hypertarget{formelsammlung-und-wertetabellen}{%
-\chapter*{Formelsammlung und Wertetabellen}\label{formelsammlung-und-wertetabellen}}
+\hypertarget{uxfcbungsaufgaben-3}{%
+\section*{Übungsaufgaben}\label{uxfcbungsaufgaben-3}}
+\addcontentsline{toc}{section}{Übungsaufgaben}
+
+Die folgenden Aufgaben sind zur eigenständigen Überprüfung Ihrer Lernleistung gedacht (als Vor- oder Nachbereitung der Vorlesung, oder als Klausurübung) und nicht etwa als Hausaufgabe.
+
+\hypertarget{aufgabe-4-1}{%
+\subsection{Aufgabe~4-1}\label{aufgabe-4-1}}
+
+\protect\hyperlink{loesung-4-1}{zur~Lösung}
+
+Eine Messreihe habe die Werte:
+
+\begin{verbatim}
+165  173  155  179  158  142
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Führen Sie eine Punktschätzung für \(\mu\) und \(\sigma\) der Grundgesamtheit durch.
+\item
+  Welcher Standardfehler für \(\bar{x}\) ist zu erwarten?
+\end{enumerate}
+
+\hypertarget{aufgabe-4-2}{%
+\subsection{Aufgabe~4-2}\label{aufgabe-4-2}}
+
+\protect\hyperlink{loesung-4-2}{zur~Lösung}
+
+Die Sonnenstunden auf einer Ferieninsel (pro Tag, im Jahresdurschnitt) sind annähernd normalverteilt mit einer Standardabweichung von vier Minuten. Der Mittelwert \(\mu\) ist unbekannt, es liegen neun Messwerte vor.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Welcher Standardfehler für \(\bar{x}\) ist zu erwarten?
+\item
+  Welche Konfidenzintervallbreite korrespondiert mit einem Konfidenzniveau von 95\%?
+\item
+  Mit welchem Konfidenzniveau lässt sich \(\mu\) \enquote{auf die Minute genau} (± 30 Sekunden) schätzen?
+\item
+  Welche Stichprobengröße ist nötig um den Mittelwert mit einer Konfidenzintervallbreite von zwei Minuten und -niveau von 90\% zu schätzen?
+\end{enumerate}
+
+\hypertarget{aufgabe-4-3}{%
+\subsection{Aufgabe~4-3}\label{aufgabe-4-3}}
+
+\protect\hyperlink{loesung-4-3}{zur~Lösung}
+
+Sie intressieren sich für das Durchschnittseinkommen (in EUR) der Haushalte eines Stadtteils. Die Varianz ist mit \(\sigma^2=4096\) bekannt. Eine Zufallsstichprobe von 40 befragten Haushalten weist einen Mittelwert von \(\bar{x}=2650\) auf.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Wie lautet das 90\%-Konfidenzintervall?
+\item
+  Mit welcher Wahrscheinlichkeit liegt das Durchschnittseinkommen zwischen 2640 und 2660 EUR?
+\end{enumerate}
+
+\hypertarget{aufgabe-4-4}{%
+\subsection{Aufgabe~4-4}\label{aufgabe-4-4}}
+
+\protect\hyperlink{loesung-4-4}{zur~Lösung}
+
+Es sei bekannt, dass die Lieferzeit eines Bauteils aus Übersee annähernd normalverteilt ist mit einer Standardabweichung von 11,5 Tagen.
+
+Bei sieben Bestellvorgängen werden folgende Lieferzeiten festgestellt (in Tagen):
+
+\[116{,}5\quad 94{,}5\quad101{,}5\quad109{,}0\quad125{,}0\quad112{,}5\quad100{,}5\]
+
+Sie interessieren sich für die tatsächliche durchschnittliche Lieferzeit, von der Sie auch in Zukunft ausgehen können.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Berechnen Sie das arithmetische Mittel der beobachteten Werte für die Lieferzeit.
+\item
+  Was ist der Standardfehler für die Stichprobenverteilung von \(\bar{x}\)?
+\item
+  Zwischen welchen Werten liegt die tatsächliche durchschnittliche Lieferzeit mit 95\% Wahrscheinlichkeit?
+\item
+  Wie viele zusätzliche Messungen müssten Sie vornehmen, um den tatsächlichen Mittelwert im selben Wertebereich zu 99\% verorten zu können?
+\end{enumerate}
+
+\hypertarget{formeln}{%
+\chapter*{Formelsammlung und Wertetabellen}\label{formeln}}
 \addcontentsline{toc}{chapter}{Formelsammlung und Wertetabellen}
 
 Die Formelsammlung mit Wertetabellen liegt als PDF vor. So (oder ähnlich) formatiert würden Ihnen diese Informationen auch in einer Präsenzklausur zur Verfügung stehen. Ich empfehle deshalb, das Dokument herunterzuladen und auszudrucken -- so gewöhnen Sie sich gleich an das Format.
 
-\href{Formelsammlung\%20und\%20Wertetabellen.pdf}{Formelsammlung und Wertetabellen (PDF)}
+\href{Formelsammlung\%20und\%20Wertetabellen.pdf}{Als PDF herunterladen}
 
 \hypertarget{luxf6sungen-der-uxfcbungsaufgaben}{%
 \chapter*{Lösungen der Übungsaufgaben}\label{luxf6sungen-der-uxfcbungsaufgaben}}
@@ -3215,7 +3321,7 @@ Die Formelsammlung mit Wertetabellen liegt als PDF vor. So (oder ähnlich) forma
 \centering
 \begin{tabular}{lllll}
 \toprule
-  & Variable & Skalenniveau & Variablentyp & Anmerkungen\\
+\textbf{ } & \textbf{Variable} & \textbf{Skalenniveau} & \textbf{Variablentyp} & \textbf{Anmerkungen}\\
 \midrule
 a) & Lebensalter in Jahren & Verhältnisskala & diskret & ganze Zahlen vorausgesetzt\\
 b) & Regenmenge in mm & Verhältnisskala & stetig & \\
@@ -3255,7 +3361,7 @@ Die Werte sind im Bereich zwischen 3 und 210 Stunden. Eine Klassengröße von 25
 \centering
 \begin{tabular}{lr}
 \toprule
-Wert $x_i$ & Häufigkeit $f_i$\\
+\textbf{Wert $x_i$} & \textbf{Häufigkeit $f_i$}\\
 \midrule
 von 0 bis unter 25 h & 9\\
 von 25 bis unter 50 h & 5\\
@@ -3275,7 +3381,7 @@ von 200 bis unter 225 h & 1\\
 
 Das Resultat sollte je nach gewählter Klassengröße in etwa so aussehen:
 
-\begin{center}\includegraphics[width=.6\linewidth]{Skript_Statistik_2021_files/figure-latex/unnamed-chunk-28-1} \end{center}
+\begin{center}\includegraphics[width=.6\linewidth]{Skript_Statistik_2021_files/figure-latex/unnamed-chunk-33-1} \end{center}
 
 \hypertarget{c-1}{%
 \subsubsection{c)}\label{c-1}}
@@ -3346,7 +3452,7 @@ Sind die folgenden Aussagen wahr oder unwahr?
 \centering
 \begin{tabular}{ll}
 \toprule
-Schritt & Lösung\\
+\textbf{Schritt} & \textbf{Lösung}\\
 \midrule
 Formel & $\bar{x}=\frac{\sum\limits_{i=1}^{n}x_{i}}{n}$\\
 Einsetzen & $\bar{x}=\frac{356{,}00}{6}$\\
@@ -3362,7 +3468,7 @@ Ergebnis & $\bar{x}=59{,}33$\\
 \centering
 \begin{tabular}{ll}
 \toprule
-Schritt & Lösung\\
+\textbf{Schritt} & \textbf{Lösung}\\
 \midrule
 Formel & $\bar{x}=\frac{\sum\limits_{i=1}^{n}x_{i}}{n}$\\
 Einsetzen & $\bar{x}=\frac{2{,}08}{8}$\\
@@ -3378,7 +3484,7 @@ Ergebnis & $\bar{x}=0{,}26$\\
 \centering
 \begin{tabular}{ll}
 \toprule
-Schritt & Lösung\\
+\textbf{Schritt} & \textbf{Lösung}\\
 \midrule
 Formel & $\bar{x}=\frac{\sum\limits_{i=1}^{n}x_{i}}{n}$\\
 Einsetzen & $\bar{x}=\frac{8350{,}16}{10}$\\
@@ -3399,7 +3505,7 @@ Ergebnis & $\bar{x}=835{,}02$\\
 \centering
 \begin{tabular}{ll}
 \toprule
-Schritt & Lösung\\
+\textbf{Schritt} & \textbf{Lösung}\\
 \midrule
 Varianz: Formel & $s^2=\frac{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})^2}{n-1}$\\
 Varianz: Einsetzen & $s^2=\frac{1229{,}33}{5}$\\
@@ -3418,7 +3524,7 @@ Varianz: Ergebnis & $s\approx15{,}68$\\
 \centering
 \begin{tabular}{ll}
 \toprule
-Schritt & Lösung\\
+\textbf{Schritt} & \textbf{Lösung}\\
 \midrule
 Varianz: Formel & $s^2=\frac{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})^2}{n-1}$\\
 Varianz: Einsetzen & $s^2=\frac{1{,}63}{7}$\\
@@ -3437,7 +3543,7 @@ Varianz: Ergebnis & $s\approx0{,}48$\\
 \centering
 \begin{tabular}{ll}
 \toprule
-Schritt & Lösung\\
+\textbf{Schritt} & \textbf{Lösung}\\
 \midrule
 Varianz: Formel & $s^2=\frac{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})^2}{n-1}$\\
 Varianz: Einsetzen & $s^2=\frac{95338{,}94}{9}$\\
@@ -3469,7 +3575,7 @@ Für das arithmetische Mittel und die Varianz ist diese Tabelle hilfreich:
 \centering
 \begin{tabular}{llllll}
 \toprule
-$x_i$ & $f_i$ & $f_i\cdot x_i$ & $(x_i-\bar{x})$ & $(x_i-\bar{x})^2$ & $f_i\cdot(x_i-\bar{x})^2$\\
+\textbf{$x_i$} & \textbf{$f_i$} & \textbf{$f_i\cdot x_i$} & \textbf{$(x_i-\bar{x})$} & \textbf{$(x_i-\bar{x})^2$} & \textbf{$f_i\cdot(x_i-\bar{x})^2$}\\
 \midrule
 1 & 3 & 3 & -1,85 & 3,41 & 10,22\\
 2 & 4 & 8 & -0,85 & 0,72 & 2,86\\
@@ -3505,7 +3611,7 @@ Schließlich ist die Standardabweichung: \[s=\sqrt{s^2}\approx\sqrt{3,14}\approx
 
 Da der untere Angelpunkt und der Median zusammenfallen, sieht der Boxplot etwas ungewöhnlich aus:
 
-\begin{center}\includegraphics[width=.6\linewidth]{Skript_Statistik_2021_files/figure-latex/unnamed-chunk-38-1} \end{center}
+\begin{center}\includegraphics[width=.6\linewidth]{Skript_Statistik_2021_files/figure-latex/unnamed-chunk-43-1} \end{center}
 
 \hypertarget{loesung-2-4}{%
 \subsection{Lösung~2-4}\label{loesung-2-4}}
@@ -3521,7 +3627,7 @@ Für den Quartilsabstand brauchen wir den Klassendurchschnitt und kumulative Hä
 \centering
 \begin{tabular}{lrrr}
 \toprule
-$x$ & $k_i$ & $f_i$ & $f_{kum}$\\
+\textbf{$x$} & \textbf{$k_i$} & \textbf{$f_i$} & \textbf{$f_{kum}$}\\
 \midrule
 von 75 bis unter 77,5 cm & 76,25 & 1 & 1\\
 von 77,5 bis unter 80 cm & 78,75 & 0 & 1\\
@@ -3557,7 +3663,7 @@ Um die Berechnung des arithmetischen Mittels zu vereinfachen berechnen wir den K
 \centering
 \begin{tabular}{lrrrr}
 \toprule
-$x$ & $k_i$ & $f_i$ & $f_{kum}$ & $f_i \cdot k_i$\\
+\textbf{$x$} & \textbf{$k_i$} & \textbf{$f_i$} & \textbf{$f_{kum}$} & \textbf{$f_i \cdot k_i$}\\
 \midrule
 von 75 bis unter 77,5 cm & 76,25 & 1 & 1 & 76,25\\
 von 77,5 bis unter 80 cm & 78,75 & 0 & 1 & 0,00\\
@@ -3590,7 +3696,7 @@ Für die Varianz erweitern wir die Tabelle:
 \centering
 \begin{tabular}{lrrrrr}
 \toprule
-$x_i$ & $k_i$ & $f_i$ & $(k_i - \bar{x})$ & $(k_i - \bar{x})^2$ & $f_i \cdot (k_i - \bar{x})^2$\\
+\textbf{$x_i$} & \textbf{$k_i$} & \textbf{$f_i$} & \textbf{$(k_i - \bar{x})$} & \textbf{$(k_i - \bar{x})^2$} & \textbf{$f_i \cdot (k_i - \bar{x})^2$}\\
 \midrule
 von 75 bis unter 77,5 cm & 76,25 & 1 & -11,8 & 139,24 & 139,24\\
 von 77,5 bis unter 80 cm & 78,75 & 0 & -9,3 & 86,49 & 0,00\\
@@ -3637,7 +3743,7 @@ Somit beträgt die Standardabweichung
 \centering
 \begin{tabular}{ll}
 \toprule
-Schritt & Lösung\\
+\textbf{Schritt} & \textbf{Lösung}\\
 \midrule
 Formel & $\bar{x}=\frac{\sum\limits_{i=1}^{n}x_{i}}{n}$\\
 Einsetzen & $\bar{x}=\frac{511{,}00}{6}$\\
@@ -3656,7 +3762,7 @@ Antwortsatz & Die Ziegelei weist im Mittel die größere Passant\*innenzahl auf.
 \centering
 \begin{tabular}{ll}
 \toprule
-Schritt & Lösung\\
+\textbf{Schritt} & \textbf{Lösung}\\
 \midrule
 Formel & $\mathit{IQR}=Q_3-Q_1$\\
 Einsetzen & $\mathit{IQR}_x=91-77$\\
@@ -3687,7 +3793,7 @@ Klassen könnten z.~B. wie in der folgenden Tabelle gewählt werden. Um die Bere
 \centering
 \begin{tabular}{lrrrr}
 \toprule
-$x$ & $k_i$ & $f_i$ & $f_{kum}$ & $f_i \cdot k_i$\\
+\textbf{$x$} & \textbf{$k_i$} & \textbf{$f_i$} & \textbf{$f_{kum}$} & \textbf{$f_i \cdot k_i$}\\
 \midrule
 von 300 bis unter 400 mm & 350 & 4 & 4 & 1400\\
 von 400 bis unter 500 mm & 450 & 9 & 13 & 4050\\
@@ -3751,17 +3857,13 @@ Für die Standardabweichung erweitern wir die Tabelle:
 \centering
 \begin{tabular}{lrrrrr}
 \toprule
-$x_i$ & $k_i$ & $f_i$ & $(k_i - \bar{x})$ & $(k_i - \bar{x})^2$ & $f_i \cdot (k_i - \bar{x})^2$\\
+\textbf{$x_i$} & \textbf{$k_i$} & \textbf{$f_i$} & \textbf{$(k_i - \bar{x})$} & \textbf{$(k_i - \bar{x})^2$} & \textbf{$f_i \cdot (k_i - \bar{x})^2$}\\
 \midrule
-von 75 bis unter 77,5 cm & 76,25 & 1 & -11,8 & 139,24 & 139,24\\
-von 77,5 bis unter 80 cm & 78,75 & 0 & -9,3 & 86,49 & 0,00\\
-von 80 bis unter 82,5 cm & 81,25 & 3 & -6,8 & 46,24 & 138,72\\
-von 82,5 bis unter 85 cm & 83,75 & 5 & -4,3 & 18,49 & 92,45\\
-von 85 bis unter 87,5 cm & 86,25 & 7 & -1,8 & 3,24 & 22,68\\
-von 87,5 bis unter 90 cm & 88,75 & 14 & 0,7 & 0,49 & 6,86\\
-von 90 bis unter 92,5 cm & 91,25 & 9 & 3,2 & 10,24 & 92,16\\
-von 92,5 bis unter 95 cm & 93,75 & 2 & 5,7 & 32,49 & 64,98\\
-von 95 bis unter 97,5 cm & 96,25 & 2 & 8,2 & 67,24 & 134,48\\
+von 300 bis unter 400 mm & 350 & 4 & -135 & 18225 & 72900\\
+von 400 bis unter 500 mm & 450 & 9 & -35 & 1225 & 11025\\
+von 500 bis unter 600 mm & 550 & 4 & 65 & 4225 & 16900\\
+von 600 bis unter 700 mm & 650 & 2 & 165 & 27225 & 54450\\
+von 700 bis unter 800 mm & 750 & 1 & 265 & 70225 & 70225\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -3808,7 +3910,7 @@ Zunächst brauchen wir das arithmetische Mittel:
 \centering
 \begin{tabular}{ll}
 \toprule
-Schritt & Musterlösung\\
+\textbf{Schritt} & \textbf{Musterlösung}\\
 \midrule
 Formel & $\bar{x}=\frac{\sum\limits_{i=1}^{n}x_{i}}{n}$\\
 Einsetzen & $\bar{x}=\frac{-170{,}47}{9}$\\
@@ -3823,7 +3925,7 @@ Und die Standardabweichung:
 \centering
 \begin{tabular}{ll}
 \toprule
-Schritt & Lösung\\
+\textbf{Schritt} & \textbf{Lösung}\\
 \midrule
 Formel & $s=\sqrt{s^2}$\\
 Einsetzen & $s=\sqrt{61{,}08}$\\
@@ -3838,7 +3940,7 @@ Dann lässt sich die Formel bestimmen:
 \centering
 \begin{tabular}{ll}
 \toprule
-Schritt & Musterlösung\\
+\textbf{Schritt} & \textbf{Musterlösung}\\
 \midrule
 Formel & $z_{i} = \frac{x_{i} - \bar{x}}{s}$\\
 Einsetzen & $z_{i} = \frac{x_{i} +18{,}94}{7{,}82}$\\
@@ -3852,7 +3954,7 @@ Und schließlich die einzelnen Werte berechnen. Hier sind die Berechnungen zum P
 \centering
 \begin{tabular}{rl}
 \toprule
-$x_i$ & Berechnung\\
+\textbf{$x_i$} & \textbf{Berechnung}\\
 \midrule
 -16,93 & $z_{1}=\frac{-16{,}93+18{,}94}{7{,}82}\approx0{,}26$\\
 -16,09 & $z_{2}=\frac{-16{,}09+18{,}94}{7{,}82}\approx0{,}36$\\
@@ -3876,7 +3978,7 @@ Zunächst die Standardabweichung:
 \centering
 \begin{tabular}{ll}
 \toprule
-Schritt & Musterlösung\\
+\textbf{Schritt} & \textbf{Musterlösung}\\
 \midrule
 Formel & $s=\sqrt{s^2}$\\
 Einsetzen & $s=\sqrt{13{,}02}$\\
@@ -3891,7 +3993,7 @@ Dann die Formel:
 \centering
 \begin{tabular}{ll}
 \toprule
-Schritt & Musterlösung\\
+\textbf{Schritt} & \textbf{Musterlösung}\\
 \midrule
 Formel & $z_{i} = \frac{x_{i} - \bar{x}}{s}$\\
 Umformen & $z_{i} = \frac{x_{i} - \bar{x}}{s}$\\
@@ -3906,7 +4008,7 @@ Schließlich die einzelnen Werte:
 \centering
 \begin{tabular}{rl}
 \toprule
-$z_i$ & Berechnung\\
+\textbf{$z_i$} & \textbf{Berechnung}\\
 \midrule
 0,90 & $x_{1} = 0{,}9 \cdot 3{,}61 + 221{,}54\approx224{,}79$\\
 -1,40 & $x_{2} = -1{,}4 \cdot 3{,}61 + 221{,}54\approx216{,}49$\\
@@ -3938,7 +4040,7 @@ $z_i$ & Berechnung\\
 \centering
 \begin{tabular}{ll}
 \toprule
-Schritt & Lösung\\
+\textbf{Schritt} & \textbf{Lösung}\\
 \midrule
 Formel & $\sigma=\sqrt{\sigma^2}$\\
 Einsetzen & $\sigma=\sqrt{19{,}36}$\\
@@ -3953,7 +4055,7 @@ Dann geht es zunächst darum, die \(x\)-Werte in \(z\)-Werte zu transformieren:
 \centering
 \begin{tabular}{lc}
 \toprule
-Schritt & Lösung\\
+\textbf{Schritt} & \textbf{Lösung}\\
 \midrule
 Formel & $z_{i} = \frac{x_{i} - \mu}{\sigma}$\\
 Einsetzen & $z_{i} = \frac{x_{i} - 32{,}2}{4{,}4}$\\
@@ -3967,7 +4069,7 @@ Durch Einsetzen ergeben sich die folgenden Werte. (So ausführlich muss es in de
 \centering
 \begin{tabular}{rc}
 \toprule
-$x_i$ & Berechnung\\
+\textbf{$x_i$} & \textbf{Berechnung}\\
 \midrule
 40,63 & $z_{1}=\frac{40{,}63-32{,}2}{4{,}4}\approx1{,}92$\\
 20,77 & $z_{2}=\frac{20{,}77-32{,}2}{4{,}4}\approx-2{,}60$\\
@@ -3989,7 +4091,7 @@ Die Unterschreitungswerte ergeben:
 \centering
 \begin{tabular}{rllll}
 \toprule
-$x_i$ & $z_i$ & Formel & Ergebnis & In Prozent\\
+\textbf{$x_i$} & \textbf{$z_i$} & \textbf{Formel} & \textbf{Ergebnis} & \textbf{In Prozent}\\
 \midrule
 40,63 & 1,92 & $p=P(z \leq 1{,}92)$ & $p \approx 0{,}9726$ & 97,26\%\\
 20,77 & -2,6 & $p=1-P(z \leq 2{,}6)$ & $p \approx 0{,}0047$ & 0,47\%\\
@@ -4014,7 +4116,7 @@ So lässt sich jeweils sagen:
 \centering
 \begin{tabular}{rrlll}
 \toprule
-Überschr. $p_{i}$ & Unterschr. $(1-p_{1})$ & Berechnung & .... & Ergebnis\\
+\textbf{Überschr. $p_{i}$} & \textbf{Unterschr. $(1-p_{1})$} & \textbf{Berechnung} & \textbf{....} & \textbf{Ergebnis}\\
 \midrule
 0,015 & 0,985 & $P(z \leq z_{1}) = 0{,}985$ &  & $z_{1} \approx 2{,}17$\\
 0,025 & 0,975 & $P(z \leq z_{2}) = 0{,}975$ &  & $z_{2} \approx 1{,}96$\\
@@ -4036,7 +4138,7 @@ Für die Rücktransformation gilt die Formel:
 \centering
 \begin{tabular}{lll}
 \toprule
-$z_i$ & Einsetzen & $x_i$\\
+\textbf{$z_i$} & \textbf{Einsetzen} & \textbf{$x_i$}\\
 \midrule
 2,17 & $x_{1} = 2{,}17 \cdot 4{,}4 + 32{,}2$ & $x_{1}\approx41{,}75$\\
 1,96 & $x_{2} = 1{,}96 \cdot 4{,}4 + 32{,}2$ & $x_{2}\approx40{,}82$\\
@@ -4065,7 +4167,7 @@ Nun noch rückwärts transformieren:
 \centering
 \begin{tabular}{ll}
 \toprule
-Schritt & Lösung\\
+\textbf{Schritt} & \textbf{Lösung}\\
 \midrule
 Formel & $x_{i} = z_{i} \cdot \sigma + \mu$\\
 Untergrenze: Einsetzen & $x_{u} = -1{,}96 \cdot 4{,}4 + 32{,}2$\\
@@ -4090,7 +4192,7 @@ Diese Unterschreitungs­wahrscheinlichkeiten bestimmen wir wieder über die \(z\
 \centering
 \begin{tabular}{ll}
 \toprule
-Schritt & Lösung\\
+\textbf{Schritt} & \textbf{Lösung}\\
 \midrule
 Formel & $z_{i} = \frac{x_{i} - \mu}{\sigma}$\\
 Untergrenze: $z$-Wert & $z_{u}=\frac{30-32{,}2}{4{,}4}\approx-0{,}50$\\
@@ -4120,7 +4222,7 @@ Siehe b)
 
 Die Dichtefunktion mit kritischem Wert sollte in etwa so aussehen:
 
-\begin{center}\includegraphics[width=.6\linewidth]{Skript_Statistik_2021_files/figure-latex/unnamed-chunk-65-1} \end{center}
+\begin{center}\includegraphics[width=.6\linewidth]{Skript_Statistik_2021_files/figure-latex/unnamed-chunk-70-1} \end{center}
 
 \hypertarget{c-8}{%
 \subsubsection{c)}\label{c-8}}
@@ -4273,7 +4375,7 @@ Der neue Deich muss 14,76~m hoch sein.
 \centering
 \begin{tabular}{ll}
 \toprule
-Schritt & Lösung\\
+\textbf{Schritt} & \textbf{Lösung}\\
 \midrule
 Varianz: Formel & $s^2=\frac{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})^2}{n-1}$\\
 Varianz: Einsetzen & $s^2_x=\frac{610{,}83}{5}$\\
@@ -4293,7 +4395,7 @@ Variationskoeffizient: Ergebnis & $v \approx 12{,}97\%$\\
 \centering
 \begin{tabular}{ll}
 \toprule
-Schritt & Lösung\\
+\textbf{Schritt} & \textbf{Lösung}\\
 \midrule
 Varianz: Formel & $s^2=\frac{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})^2}{n-1}$\\
 Varianz: Einsetzen & $s^2_y=\frac{4015{,}33}{5}$\\
@@ -4303,6 +4405,195 @@ Standardabweichung: Ergebnis & $s_y\approx28{,}34$\\
 Variationskoeffizient: Formel & $v=\frac{s}{|\bar{x}|}\cdot100\%$\\
 Variationskoeffizient: Einsetzen & $v\approx\frac{28{,}34}{74{,}33}\cdot100\%$\\
 Variationskoeffizient: Ergebnis & $v \approx 38{,}13\%$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\hypertarget{sitzung-4}{%
+\section*{Sitzung 4}\label{sitzung-4}}
+\addcontentsline{toc}{section}{Sitzung 4}
+
+\hypertarget{loesung-4-1}{%
+\subsection{Lösung~4-1}\label{loesung-4-1}}
+
+\protect\hyperlink{aufgabe-4-1}{zur Aufgabenstellung}
+
+\hypertarget{a-14}{%
+\subsubsection{a)}\label{a-14}}
+
+\(\mu = \bar{x} = 162\)
+
+\(\sigma = s \approx 13{,}30\)
+
+\hypertarget{b-14}{%
+\subsubsection{b)}\label{b-14}}
+
+\(\sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}}\approx\frac{13{,}30}{\sqrt{6}} \approx 5,42\)
+
+\hypertarget{loesung-4-2}{%
+\subsection{Lösung~4-2}\label{loesung-4-2}}
+
+\protect\hyperlink{aufgabe-4-2}{zur Aufgabenstellung}
+
+\hypertarget{a-15}{%
+\subsubsection{a)}\label{a-15}}
+
+\(\sigma _{\bar{x}}=\frac{\sigma}{\sqrt{n}}=\frac{4}{\sqrt{9}}\approx1{,}33\)
+
+\hypertarget{b-15}{%
+\subsubsection{b)}\label{b-15}}
+
+\(\frac{\mathit{KIB}}{2}=z_{(1-\alpha/2)} \cdot \sigma_{\bar{x}}\)
+
+\(\frac{\mathit{KIB}}{2}= z_{97{,}5\%}\cdot \sigma_{\bar{x}}\)
+
+\(\frac{\mathit{KIB}}{2}\approx 1{,}96 \cdot 1{,}33 \approx 2{,}61\)
+
+\(\mathit{KIB}=5{,}22\)
+
+\hypertarget{b-16}{%
+\subsubsection{b)}\label{b-16}}
+
+\(\frac{\mathit{KIB}}{2}=z_{(1-\alpha/2)} \cdot \sigma_{\bar{x}}\)
+
+\(z_{(1-\alpha/2)} = \frac{\mathit{KIB}}{2 \cdot \sigma_{\bar{x}}}\approx\frac{1}{2 \cdot 1{,}33}\approx0{,}67\)
+
+\(1-\frac{\alpha}{2} \approx 0,7486\)
+
+\(\alpha \approx 0,5028\)
+
+Das Konfidenzniveau beträgt ca. 50,28\%.
+
+\hypertarget{d-6}{%
+\subsubsection{d)}\label{d-6}}
+
+\(\frac{\mathit{KIB}}{2} = z_{(1-\alpha/2)} \cdot \sigma_{\bar{x}}\)
+
+\(\sigma_{\bar{x}} = \frac{\mathit{KIB}}{2\cdot z_{95\%}}\)
+
+\(\sigma_{\bar{x}} = \frac{2}{2 \cdot z_{95\%}}\)
+
+\(\sigma_{\bar{x}} \approx \frac{2}{2 \cdot 1{,}65}\)
+
+\(\sigma_{\bar{x}} \approx 0{,}61\)
+
+\(\sigma_{\bar{x}}=\frac{\sigma}{\sqrt{n}}\)
+
+\(n = \big(\frac{\sigma}{\sigma_{\bar{x}}}\big)^2\)
+
+\(n \approx \big(\frac{4}{0{,}61}\big)^2\approx43\)
+
+\hypertarget{loesung-4-3}{%
+\subsection{Lösung~4-3}\label{loesung-4-3}}
+
+\protect\hyperlink{aufgabe-4-3}{zur Aufgabenstellung}
+
+\hypertarget{a-16}{%
+\subsubsection{a)}\label{a-16}}
+
+\(\alpha=0{,}1\)
+
+\(\sigma=\sqrt{\sigma^2}=\sqrt{4096}=64\)
+
+\(\sigma_{\bar{x}}=\frac{\sigma}{\sqrt{n}}=\frac{64}{\sqrt{40}}\approx10{,}12\)
+
+\(\frac{\mathit{KIB}}{2}=z_{95\%} \cdot \sigma_{\bar{x}}\)
+
+\(\frac{\mathit{KIB}}{2}\approx 1{,}65 \cdot 10{,}12\approx16{,}70\)
+
+\(\textrm{Untergrenze} = \bar{x} - \frac{\mathit{KIB}}{2} \approx 2650 - 16{,}70 = 2633{,}30\)
+
+\(\textrm{Obergrenze} = \bar{x} + \frac{\mathit{KIB}}{2} \approx 2650 + 16{,}70 = 2666{,}70\)
+
+\hypertarget{b-17}{%
+\subsubsection{b)}\label{b-17}}
+
+\(\mathit{KIB}=20\)
+
+\(\frac{\mathit{KIB}}{2}=z_{(1-\alpha/2)} \cdot \sigma_{\bar{x}}\)
+
+\(z_{(1-\alpha/2)}=\frac{\mathit{KIB}}{2\cdot \sigma_{\bar{x}}}\)
+
+\(z_{(1-\alpha/2)}=\frac{20}{2 \cdot 10{,}12}\approx0{,}99\)
+
+\(1-\frac{\alpha}{2}\approx0{,}8389\)
+
+\(\alpha\approx 0{,}3222\)
+
+Das Konfidenzniveau beträgt ca. 67,78\%.
+
+\hypertarget{loesung-4-4}{%
+\subsection{Lösung~4-4}\label{loesung-4-4}}
+
+\protect\hyperlink{aufgabe-4-4}{zur Aufgabenstellung}
+
+\hypertarget{a-17}{%
+\subsubsection{a)}\label{a-17}}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Schritt} & \textbf{Lösung}\\
+\midrule
+Formel & $\bar{x}=\frac{\sum\limits_{i=1}^{n}x_{i}}{n}$\\
+Einsetzen & $\bar{x}=\frac{759{,}50}{7}$\\
+Ergebnis & $\bar{x}=108{,}50$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\hypertarget{b-18}{%
+\subsubsection{b)}\label{b-18}}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Schritt} & \textbf{Lösung}\\
+\midrule
+Formel & $\sigma_{\bar{x}}=\frac{\sigma}{\sqrt{n}}$\\
+Einsetzen & $\sigma_{\bar{x}}=\frac{11{,}5}{\sqrt{7}}$\\
+Ergebnis & $\sigma_{\bar{x}}\approx4{,}35$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\hypertarget{c-12}{%
+\subsubsection{c)}\label{c-12}}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Schritt} & \textbf{Lösung}\\
+\midrule
+Formel & $\frac{\mathit{KIB}}{2} = z_{(1-\alpha/2)} \cdot \sigma_{\bar{x}}$\\
+Einsetzen & $\frac{\mathit{KIB}}{2} = z_{97{,}5\%} \cdot \sigma_{\bar{x}} \approx 1{,}96 \cdot 4{,}35$\\
+Ergebnis & $\frac{\mathit{KIB}}{2} \approx 8{,}53$\\
+Antwortsatz & Die tatsächliche durchschnittliche Lieferzeit liegt mit 95\% Wahrscheinlichkeit zwischen 99,97 und 117,03 Tagen (108,5 $\pm$ 8,53).\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\hypertarget{d-7}{%
+\subsubsection{d)}\label{d-7}}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Schritt} & \textbf{Lösung}\\
+\midrule
+Standardfehler: Formel & $\frac{\mathit{KIB}}{2} = z_{(1-\alpha/2)} \cdot \sigma_{\bar{x}}$\\
+Standardfehler: Umformen & $\sigma_{\bar{x}} = \frac{\mathit{KIB}}{2} \cdot \frac{1}{z_{(1-\alpha/2)}}$\\
+Standardfehler: Einsetzen & $\sigma_{\bar{x}}=\frac{\mathit{KIB}}{2}\cdot \frac{1}{z_{99{,}5\%}} = 8{,}53 \cdot \frac{1}{2{,}58}$\\
+Standardfehler: Ergebnis & $\sigma_{\bar{x}} \approx 3{,}31$\\
+$n$: Formel & $\sigma_{\bar{x}}=\frac{\sigma}{\sqrt{n}}$\\
+$n$: Umformen & $n=\Big(\frac{\sigma}{\sigma_{\bar{x}}}\Big)^2$\\
+$n$: Einsetzen & $n=\Big(\frac{11{,}5}{3{,}31}\Big)^2$\\
+$n$: Ergebnis & $n\approx12{,}07$\\
+Antwortsatz & Es müssten 6 zusätzliche Messungen  vorgenommen werden (13 insgesamt).\\
 \bottomrule
 \end{tabular}
 \end{table}

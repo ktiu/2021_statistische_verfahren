@@ -1,0 +1,302 @@
+# Lineare Regression
+
+### Lernziele dieser Sitzung {-}
+
+Sie können...
+
+- eine Regressionsgerade berechnen.
+- Werte aus der Regressionsgerade ableiten.
+- Residuen errechnen.
+- den Determinationskoeffizienten $R^2$ berechnen und interpretieren.
+
+### Lehrvideos (Sommersemester 2020) {-}
+
+- [8a) Regressionsgerade](https://video01.uni-frankfurt.de/Mediasite/Play/420909b80f8b467eb43ec85108200d2a1d)
+- [8b) Residuen und Determinationskoeffizient](https://video01.uni-frankfurt.de/Mediasite/Play/d6a9160c2ba0402fa64395cbdf5d25531d)
+  - Beim Teil "Klausur-Update" gilt der **Ablauf** und die **Struktur** der Klausur auch dieses Semester.
+  - Die administrative Anmeldung für die Theorieklausur ist auf OLAT bis ... möglich.
+  - [Probeklausuren sind hier zu finden.](#probeklausuren)
+  - Zur formalen Anmeldung und zur Versuchsregelung kann ich dieses Jahr keine Angaben machen. (Fragen Sie im Zweifel Ihr Prüfungsamt!)
+
+
+## Regresssionsanalyse
+
+> Sind zwei stochastisch abhängige Variablen $x$ und $y$ durch eine Regressionsgleichung miteinander verknüpft, kann die eine Variable zur Vorhersage der anderen eingesetzt werden. [@bortz: 183]
+
+Es gibt viele Möglichkeiten, Regressionen zu modellieren. Im Rahmen dieser Veranstaltung wird nur die lineare Regression (engl. *linear regression*) behandelt. Lineare Regressionsmodelle werden immer durch eine lineare Gleichung des Formats
+
+$$
+y=a+b\cdot x
+(\#eq:lin)
+$$
+
+ausgedrückt, wobei $a$ der Achsenabschnitt ist und $b$ die Steigung. Ist die Gleichung bekannt, so können wir für jeden Wert $x$ einen entsprechenden Wert $y$ "vorhersagen".
+
+Abbildung \@ref(fig:lin) zeigt ein solches lineares Regressionsmodell als Gerade durch ein Streudiagramm.
+
+```{r lin, cache=T, fig.cap="Regressionslinie durch ein Streudiagramm"}
+df <- read.table("img/8_lin_dt")
+model <- lm(df$y~df$x)
+ggplot(df,aes(x,y)) +
+  geom_point() +
+  geom_abline(intercept=model$coefficients[1],slope=model$coefficients[2], color=goethe_blue) +
+  annotate("text", x=5, y=15, label=paste0("y%~~%",
+                                           model$coefficients[1] %>% round(1) %>% format(decimal.mark = "."),
+                                           "+",
+                                           model$coefficients[2] %>% round(1) %>% format(decimal.mark = "."),
+                                           "%.%x"), parse=T, color=goethe_blue) +
+  scale_x_continuous(limits = c(0,11), expand = c(0,0)) +
+  scale_y_continuous(limits = c(0,26), expand = c(0,0)) +
+  theme_goethe()
+```
+
+Der Achsenabschnitt $a\approx2,2$ bedeutet, dass die Regressionsgerade die $y$-Achse etwa auf der Höhe 2,2 schneidet (bei $x=0$). Die Steigung $b\approx1,7$ heißt, dass für jede zusätzliche Einheit der Variable $x$ ca. 1,7 zusätzliche Einheiten der Variable $y$ erwartet werden können.
+
+Wenn die Regressionsgleichung bekannt ist, kann für jedes gültige (grundsätzlich: jedes beliebige) $x$ ein erwarteter Wert $\hat{y}$ berechnet werden. So könnte uns bei der Beispielregression interessieren, welchen Wert $\hat{y}_i$ im Modell annimmt, wenn $x_i=20$ beträgt:
+
+$$
+\begin{aligned}
+\hat{y}_i&=a+b\cdot x_i\\
+   &\approx2{,}2+1{,}7\cdot20\\
+   &=36{,}2
+\end{aligned}
+$$
+
+Bei solchen Schätzungen *außerhalb* des bekannten Wertebereichs spricht man auch vom "Extrapolieren", sonst -- für fehlende Werte innerhalb des bekannten Wertebereich -- vom "Interpolieren".
+
+Umgekehrt könnte die Frage lauten: Wie groß muss ein $x_i$ sein, damit (im Modell) $\hat{y}_i=12$ beträgt? Dies lässt sich durch eine einfache Umformung der Gleichung \@ref(eq:lin) berechnen:
+
+$$
+\begin{aligned}
+\hat{y}_i&=a+b\cdot x_i\\[5pt]
+x_i&=\frac{\hat{y}_i-a}{b}\\[5pt]
+&=\frac{12-2{,}2}{1{,}7}\\
+   &\approx5{,}8
+\end{aligned}
+$$
+
+Bei der Regressionsanalyse wird ein gerichtetes Abhängigkeitsverhältnis der Variablen impliziert: $y$ hängt hier von $x$ ab. Daher wird $x$ auch die "Prädiktorvariable" und $y$ die "Kriteriumsvariable" genannt.
+
+```{r}
+rtip("Wenn in R ein lineares Modell (eine Regressionsgerade) vorliegt, können Werte mit `predict()` geschätzt werden.")
+```
+
+Es ist also für derartige Fragestellungen nötig, die Gleichung der Regressionsgeraden zu kennen. Im Folgenden wird gezeigt, wie diese anhand einer bivariaten Verteilung bestimmt werden kann.
+
+## Bestimmung der Regressionsgeraden
+
+Der Koeffizient $b$ (also die Steigung der Regressionsgeraden) lässt sich berechnen, indem man die Kovarianz $s_{xy}$ durch die Varianz von $x$ dividiert:
+
+$$
+b=\frac{s_{xy}}{s^2_x}
+(\#eq:b)
+$$
+
+Der Koeffizient $a$ (also der Achsenabschnitt) ergibt sich wiederum aus $b$ und den Mittelwerten $\bar{x}$ und $\bar{y}$:
+
+\nopagebreak
+
+$$
+a=\bar{y}-b\cdot\bar{x}
+(\#eq:a)
+$$
+
+```{r}
+rtip("In R lässt sich ein lineares Regressionsmodell mit dem Befehl `lm()` erstellen.")
+```
+
+Die Bestimmung der Regressionsgeraden soll nun mit einem Beispiel illustriert werden.
+
+### Beispiel
+
+Wir fragen uns, wie die Aufenthaltszeit von Passagieren am Frankfurter Flughafen mit dem Betrag zusammenhängt, den sie in den dortigen Geschäften ausgeben. Eine Zufallserhebung habe die Werte in Tabelle \@ref(tab:duty1) ergeben.
+
+```{r duty1}
+duty <- tribble(
+  ~x, ~y,
+  121, 17.94,
+  125, 23.15,
+  293, 44.31,
+  370, 42.46,
+  246, 35.51,
+  281, 28.46,
+  169, 18.47,
+  328, 56.77,
+  388, 40.11,
+  131, 12.64,
+  299, 24.54,
+  324, 46.37
+)
+tabelle(duty,
+        col.names = c("$x_i$", "$y_i$"),
+        escape = F,
+        caption = "Messwerte am Frankfurter Flughafen",
+        header_above = c("Aufenthaltszeit (min)", "Ausgaben (€)"),
+        full_width = F)
+```
+
+Mit den Methoden aus [Sitzung 2](#einleitende-bemerkungen) und [7](#kovarianz) können wir folgende Werte für die Mittelwerte $\bar{x}$ und $\bar{y}$, die Varianz $s^2_x$ sowie die Kovarianz $s_{xy}$ berechnen:
+
+$$
+\begin{aligned}
+\bar{x}&=256{,}25\\
+\bar{y}&\approx 32{,}56\\
+s^2_{x}&\approx9340{,}93\\
+s_{xy}&\approx 1062{,}50
+\end{aligned}
+$$
+
+Für die Steigung der Regressionsgeraden $b$ setzen wir die entsprechenden Werte in Gleichung \@ref(eq:b) ein:
+
+\nopagebreak
+
+$$
+\begin{aligned}
+b&=\frac{s_{xy}}{s^2_x}\\
+ &\approx\frac{1062{,}50}{9340{,}93}\\
+ &\approx0{,}114
+\end{aligned}
+$$
+
+Die Steigung von 0,114 bedeutet, dass -- im linearen Regressionsmodell -- Passagiere in jeder zusätzlichen Minute, die sie am Flughafen verbringen, in etwa 11,4 zusätzliche Cent ausgeben.
+
+Der Achsenabschnitt $a$ berechnet sich dann gemäß Gleichung \@ref(eq:a):
+
+\nopagebreak
+
+$$
+\begin{aligned}
+a&=\bar{y}-b\cdot\bar{x}\\
+&\approx 32{,}56-0{,}114\cdot256{,}25\\
+&\approx 3{,}35
+\end{aligned}
+$$
+
+Dieser Wert ergibt nur einen abstrakt-mathematischen Sinn -- es dürfte in der Praxis wohl kaum Passagiere geben, die 0 Minuten am Flughafen verbringen und € 3,35 ausgeben.
+
+Mit dem Achsenabschnitt $a$ und der Steigung $b$ lässt sich folgende Gleichung für die Regressionsgerade aufstellen (s. Gleichung \@ref(eq:lin)):
+
+$$
+\begin{aligned}
+y&=a+b\cdot x\\
+y&\approx3{,}35 + 0{,}114 \cdot x
+\end{aligned}
+$$
+
+Graphisch ist diese lineare Regression in Abbildung \@ref(fig:duty2) dargestellt.
+
+```{r duty2, cache=T, fig.cap="Regressionslinie durch ein Streudiagramm"}
+model <- lm(duty$y~duty$x)
+ggplot(duty,aes(x,y)) +
+  geom_point() +
+  geom_abline(intercept=model$coefficients[1],slope=model$coefficients[2], color=goethe_blue) +
+  annotate("text", x=180, y=40, label=paste0("y%~~%3.35+0.114%.%x"), parse=T, color=goethe_blue) +
+  scale_x_continuous("x : Aufenthaltszeit (min)", limits=c(0,400), expand = c(0,0)) +
+  scale_y_continuous("y : Ausgaben (EUR)", limits=c(0,60), expand = c(0,0)) +
+  theme_goethe()
+```
+
+## Residuen
+
+Residuen (engl. *residuals*) werden mit $e$ bezeichnet und sind die Differenzen zwischen den tatsächlichen $y$-Werten und den im Modell erwarteten $\hat{y}$-Werten für die jeweiligen $x$-Werte:
+
+\nopagebreak
+
+$$
+e_i=y_i-\hat{y}_i
+(\#eq:res)
+$$
+
+Residuen sind also -- auch dem Wortstamm nach -- das, was nach der Vorhersage durch das Modell "übrig bleibt" von den tatsächlich beobachteten Werten (also der Teil des Werts, der *nicht* durch das Regressionsmodell erklärt wird).
+
+```{r}
+rtip("Residuen lassen sich in R durch den Befehl `resid()` errechnen.")
+```
+
+### Beispiel
+
+Graphisch sind die Residuen für unser Beispiel in Abbildung \@ref(fig:res1) dargestellt (positive Werte in grün, negative Werte in rot), tabellarisch in Tabelle \@ref(tab:res2).
+
+```{r res1, cache=T, fig.cap="Graphische Darstellung der Residuen"}
+model <- lm(duty$y~duty$x)
+ggplot(duty,aes(x,y)) +
+  annotate("text", x=180, y=40, label=paste0("y%~~%3.35+0.114%.%x"), parse=T, color=goethe_blue) +
+  geom_segment(aes(x=x, y=y, xend=x, yend=model$coefficients[1]+x*model$coefficients[2]), data=subset(duty, y-(model$coefficients[1]+x*model$coefficients[2])>0), color=green) +
+  geom_segment(aes(x=x, y=y, xend=x, yend=model$coefficients[1]+x*model$coefficients[2]), data=subset(duty, y-(model$coefficients[1]+x*model$coefficients[2])<0), color=emo_red) +
+  geom_abline(intercept=model$coefficients[1],slope=model$coefficients[2], color=goethe_blue) +
+  geom_point() +
+  scale_x_continuous("x : Aufenthaltszeit (min)", limits=c(0,400), expand = c(0,0)) +
+  scale_y_continuous("y : Ausgaben (EUR)", limits=c(0,60), expand = c(0,0)) +
+  theme_goethe()
+```
+
+
+```{r res2}
+duty$pred <- 3.35 + 0.114 * duty$x
+duty$res <- duty$y - duty$pred
+
+tabelle(duty,
+        col.names = c("$x_i$", "$y_i$",
+                      "$\\hat{y}_i\\approx3{,}35+0{,}114\\cdot x_i$",
+                      "$e_i=y_i-\\hat{y}_i$"),
+        escape = F,
+        caption = "Residuen der Beispielwerte",
+        header_above = c("Aufenthaltszeit (min)", "Ausgaben (€)",
+                         "Erwartete Ausgaben (€)", "Residuen (€)"))
+```
+
+Residuen spielen in vielen statistischen Verfahren eine Rolle, z.B. in der Residuenanalyse. Diese Verfahren werden im Rahmen dieser Veranstaltung jedoch nicht behandelt.
+
+## Determinationskoeffizient `r symbol_header("R2")` {#determinationskoeffizient}
+
+Der Determinationskoeffizient $R^2$ (engl. *coefficient of determination*) ist formal definiert als das Verhältnis der Varianz der vorhergesagten $\hat{y}$-Werte zur Varianz der tatsächlich beobachteten $y$-Werte (wobei sich der Term $[n-1]$ auskürzt):
+
+$$
+R^2=\frac{\sum\limits^n_{i=1}(\hat{y}_i-\bar{y})^2}{\sum\limits^n_{i=1}(y_i-\bar{y})^2}
+(\#eq:rsqformal)
+$$
+
+Da Zähler und Nenner als Quadratsummen stets positiv sind und die Varianz der $\hat{y}$-Werte immer *kleiner oder gleich* der Varianz der $y$-Werte ist, nimmt der Determinationskoeffizient immer einen Wert zwischen 0 und 1 an.
+
+Je größer $R^2$, desto besser erklärt das lineare Regressionsmodell die tatsächlich beobachteten Werte. $R^2=1$ bedeutet, dass das Modell die Werte perfekt erklärt.
+
+Für lineare Regressionsmodelle (also für die einzige Regression, die im Rahmen dieser Veranstaltung behandelt wird) lässt sich $R^2$ auch berechnen, indem wir den Korrelationskoeffizienten $r$ quadrieren:
+
+$$
+R^2=r^2
+(\#eq:rsq)
+$$
+
+```{r}
+rtip("In R wird mit dem Befehl `summary()` unter anderem der Determinationskoeffizient eines linearen Regressionsmodells ausgegeben.")
+```
+
+### Beispiel
+
+Mit den Methoden aus [Sitzung 7](#korrelationskoeffizient) können wir den Korrelationskoeffizienten für unser Beispiel errechnen:
+
+$$
+\begin{aligned}
+r&=\frac{s_{xy}}{s_x\cdot s_y}\\
+&\approx\frac{1062{,}50}{96{,}65\cdot13,68}\\
+&\approx0{,}804
+\end{aligned}
+$$
+
+Der Determinationskoeffizient ergibt sich dann mit Gleichung \@ref(eq:rsq):
+
+$$
+\begin{aligned}
+R^2&=r^2\\
+&\approx 0{,}804^2\\
+&\approx 0{,}646
+\end{aligned}
+$$
+
+## Tipps zur Vertiefung {-}
+
+- Kapitel 11 in @bortz
+- Kapitel 4.5.1 -- 4.5.6 in @delange
+- Kapitel 6.2 in @bahrenberg
+- Kapitel 17 in @klemm
+- *Englisch:* Kapitel 13.1 -- 13.4 in @burt

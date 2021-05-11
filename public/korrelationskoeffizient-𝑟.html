@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="de" xml:lang="de">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7.3 Korrelationskoeffizient 𝑟 | Statistische Verfahren in der Geographie</title>
+  <meta name="description" content="Projektseminar" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7.3 Korrelationskoeffizient 𝑟 | Statistische Verfahren in der Geographie" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Projektseminar" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7.3 Korrelationskoeffizient 𝑟 | Statistische Verfahren in der Geographie" />
+  
+  <meta name="twitter:description" content="Projektseminar" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="kovarianz-𝑠𝑥𝑦.html"/>
+<link rel="next" href="tipps-zur-vertiefung-6.html"/>
+<script src="assets/header-attrs-2.6/header-attrs.js"></script>
+<script src="assets/jquery-2.2.3/jquery.min.js"></script>
+<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="assets/kePrint-0.0.1/kePrint.js"></script>
+<link href="assets/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link rel="icon" href="https://www.uni-frankfurt.de/favicon.ico" type="image/x-icon">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<script src="solutions.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet"> 
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Terminüberblick</a></li>
+<li class="chapter" data-level="" data-path="vorbesprechung.html"><a href="vorbesprechung.html"><i class="fa fa-check"></i>Vorbesprechung</a>
+<ul>
+<li class="chapter" data-level="" data-path="vorbesprechung.html"><a href="vorbesprechung.html#lernziele-der-veranstaltung"><i class="fa fa-check"></i>Lernziele der Veranstaltung</a></li>
+<li class="chapter" data-level="" data-path="vorbesprechung.html"><a href="vorbesprechung.html#konzept-der-veranstaltung"><i class="fa fa-check"></i>Konzept der Veranstaltung</a></li>
+<li class="chapter" data-level="" data-path="vorbesprechung.html"><a href="vorbesprechung.html#sitzungsvorbereitung"><i class="fa fa-check"></i>Sitzungsvorbereitung</a></li>
+<li class="chapter" data-level="" data-path="vorbesprechung.html"><a href="vorbesprechung.html#sitzungsablauf"><i class="fa fa-check"></i>Sitzungsablauf</a></li>
+<li class="chapter" data-level="" data-path="vorbesprechung.html"><a href="vorbesprechung.html#empfehlungen"><i class="fa fa-check"></i>Empfehlungen</a></li>
+<li class="chapter" data-level="" data-path="vorbesprechung.html"><a href="vorbesprechung.html#literaturempfehlungen"><i class="fa fa-check"></i>Literaturempfehlungen</a></li>
+<li class="chapter" data-level="" data-path="vorbesprechung.html"><a href="vorbesprechung.html#taschenrechner"><i class="fa fa-check"></i>Taschenrechner</a></li>
+<li class="chapter" data-level="" data-path="vorbesprechung.html"><a href="vorbesprechung.html#klausur"><i class="fa fa-check"></i>Klausur</a></li>
+<li class="chapter" data-level="" data-path="vorbesprechung.html"><a href="vorbesprechung.html#nachklausur"><i class="fa fa-check"></i>Nachklausur</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html"><i class="fa fa-check"></i><b>1</b> Datenerhebung und Häufigkeiten</a>
+<ul>
+<li class="chapter" data-level="" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#lernziele-dieser-sitzung"><i class="fa fa-check"></i>Lernziele dieser Sitzung</a></li>
+<li class="chapter" data-level="" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#lehrvideos-sommersemester-2020"><i class="fa fa-check"></i>Lehrvideos (Sommersemester 2020)</a></li>
+<li class="chapter" data-level="1.1" data-path="statistische-praxis.html"><a href="statistische-praxis.html"><i class="fa fa-check"></i><b>1.1</b> Statistische Praxis</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="statistische-praxis.html"><a href="statistische-praxis.html#grundbegriffe-der-statistik"><i class="fa fa-check"></i><b>1.1.1</b> Grundbegriffe der Statistik</a></li>
+<li class="chapter" data-level="1.1.2" data-path="statistische-praxis.html"><a href="statistische-praxis.html#taxonomien-statistischer-verfahren"><i class="fa fa-check"></i><b>1.1.2</b> Taxonomien statistischer Verfahren</a></li>
+<li class="chapter" data-level="1.1.3" data-path="statistische-praxis.html"><a href="statistische-praxis.html#ablauf-einer-statistischen-untersuchung"><i class="fa fa-check"></i><b>1.1.3</b> Ablauf einer statistischen Untersuchung</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="grundlagen-der-datenerhebung.html"><a href="grundlagen-der-datenerhebung.html"><i class="fa fa-check"></i><b>1.2</b> Grundlagen der Datenerhebung</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="grundlagen-der-datenerhebung.html"><a href="grundlagen-der-datenerhebung.html#typen-von-stichproben"><i class="fa fa-check"></i><b>1.2.1</b> Typen von Stichproben</a></li>
+<li class="chapter" data-level="1.2.2" data-path="grundlagen-der-datenerhebung.html"><a href="grundlagen-der-datenerhebung.html#variablentypen"><i class="fa fa-check"></i><b>1.2.2</b> Variablentypen</a></li>
+<li class="chapter" data-level="1.2.3" data-path="grundlagen-der-datenerhebung.html"><a href="grundlagen-der-datenerhebung.html#skalenniveaus"><i class="fa fa-check"></i><b>1.2.3</b> Skalenniveaus</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="häufigkeitsverteilungen.html"><a href="häufigkeitsverteilungen.html"><i class="fa fa-check"></i><b>1.3</b> Häufigkeitsverteilungen</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="häufigkeitsverteilungen.html"><a href="häufigkeitsverteilungen.html#urliste"><i class="fa fa-check"></i><b>1.3.1</b> Urliste</a></li>
+<li class="chapter" data-level="1.3.2" data-path="häufigkeitsverteilungen.html"><a href="häufigkeitsverteilungen.html#geordnete-liste"><i class="fa fa-check"></i><b>1.3.2</b> Geordnete Liste</a></li>
+<li class="chapter" data-level="1.3.3" data-path="häufigkeitsverteilungen.html"><a href="häufigkeitsverteilungen.html#häufigkeiten"><i class="fa fa-check"></i><b>1.3.3</b> Häufigkeiten</a></li>
+<li class="chapter" data-level="1.3.4" data-path="häufigkeitsverteilungen.html"><a href="häufigkeitsverteilungen.html#stabdiagramme"><i class="fa fa-check"></i><b>1.3.4</b> Stabdiagramme</a></li>
+<li class="chapter" data-level="1.3.5" data-path="häufigkeitsverteilungen.html"><a href="häufigkeitsverteilungen.html#quantitative-variablen-1"><i class="fa fa-check"></i><b>1.3.5</b> Quantitative Variablen</a></li>
+<li class="chapter" data-level="1.3.6" data-path="häufigkeitsverteilungen.html"><a href="häufigkeitsverteilungen.html#polygone"><i class="fa fa-check"></i><b>1.3.6</b> Polygone</a></li>
+<li class="chapter" data-level="1.3.7" data-path="häufigkeitsverteilungen.html"><a href="häufigkeitsverteilungen.html#eigenschaften-von-häufigkeitsverteilungen"><i class="fa fa-check"></i><b>1.3.7</b> Eigenschaften von Häufigkeitsverteilungen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="tipps-zur-vertiefung.html"><a href="tipps-zur-vertiefung.html"><i class="fa fa-check"></i>Tipps zur Vertiefung</a>
+<ul>
+<li class="chapter" data-level="1.3.8" data-path="tipps-zur-vertiefung.html"><a href="tipps-zur-vertiefung.html#grundbegriffe"><i class="fa fa-check"></i><b>1.3.8</b> Grundbegriffe</a></li>
+<li class="chapter" data-level="1.3.9" data-path="tipps-zur-vertiefung.html"><a href="tipps-zur-vertiefung.html#stichproben"><i class="fa fa-check"></i><b>1.3.9</b> Stichproben</a></li>
+<li class="chapter" data-level="1.3.10" data-path="tipps-zur-vertiefung.html"><a href="tipps-zur-vertiefung.html#skalenniveaus-1"><i class="fa fa-check"></i><b>1.3.10</b> Skalenniveaus</a></li>
+<li class="chapter" data-level="1.3.11" data-path="tipps-zur-vertiefung.html"><a href="tipps-zur-vertiefung.html#häufigkeiten-und-diagramme"><i class="fa fa-check"></i><b>1.3.11</b> Häufigkeiten und Diagramme</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="übungsaufgaben.html"><a href="übungsaufgaben.html"><i class="fa fa-check"></i>Übungsaufgaben</a>
+<ul>
+<li class="chapter" data-level="1.3.12" data-path="übungsaufgaben.html"><a href="übungsaufgaben.html#aufgabe-1-1"><i class="fa fa-check"></i><b>1.3.12</b> Aufgabe 1-1</a></li>
+<li class="chapter" data-level="1.3.13" data-path="übungsaufgaben.html"><a href="übungsaufgaben.html#aufgabe-1-2"><i class="fa fa-check"></i><b>1.3.13</b> Aufgabe 1-2</a></li>
+<li class="chapter" data-level="1.3.14" data-path="übungsaufgaben.html"><a href="übungsaufgaben.html#aufgabe-1-3"><i class="fa fa-check"></i><b>1.3.14</b> Aufgabe 1-3</a></li>
+<li class="chapter" data-level="1.3.15" data-path="übungsaufgaben.html"><a href="übungsaufgaben.html#aufgabe-1-4"><i class="fa fa-check"></i><b>1.3.15</b> Aufgabe 1-4</a></li>
+<li class="chapter" data-level="1.3.16" data-path="übungsaufgaben.html"><a href="übungsaufgaben.html#aufgabe-1-5"><i class="fa fa-check"></i><b>1.3.16</b> Aufgabe 1-5</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="maßzahlen.html"><a href="maßzahlen.html"><i class="fa fa-check"></i><b>2</b> Maßzahlen</a>
+<ul>
+<li class="chapter" data-level="" data-path="maßzahlen.html"><a href="maßzahlen.html#lernziele-dieser-sitzung-1"><i class="fa fa-check"></i>Lernziele dieser Sitzung</a></li>
+<li class="chapter" data-level="" data-path="maßzahlen.html"><a href="maßzahlen.html#lehrvideos-sommersemester-2020-1"><i class="fa fa-check"></i>Lehrvideos (Sommersemester 2020)</a></li>
+<li class="chapter" data-level="2.1" data-path="einleitende-bemerkungen.html"><a href="einleitende-bemerkungen.html"><i class="fa fa-check"></i><b>2.1</b> Einleitende Bemerkungen</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="einleitende-bemerkungen.html"><a href="einleitende-bemerkungen.html#beispielverteilung"><i class="fa fa-check"></i><b>2.1.1</b> Beispielverteilung</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="lagemaße.html"><a href="lagemaße.html"><i class="fa fa-check"></i><b>2.2</b> Lagemaße</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="lagemaße.html"><a href="lagemaße.html#median"><i class="fa fa-check"></i><b>2.2.1</b> Median</a></li>
+<li class="chapter" data-level="2.2.2" data-path="lagemaße.html"><a href="lagemaße.html#modalwert"><i class="fa fa-check"></i><b>2.2.2</b> Modalwert</a></li>
+<li class="chapter" data-level="2.2.3" data-path="lagemaße.html"><a href="lagemaße.html#arithmetisches-mittel"><i class="fa fa-check"></i><b>2.2.3</b> Arithmetisches Mittel</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="streumaße.html"><a href="streumaße.html"><i class="fa fa-check"></i><b>2.3</b> Streumaße</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="streumaße.html"><a href="streumaße.html#spannweite"><i class="fa fa-check"></i><b>2.3.1</b> Spannweite</a></li>
+<li class="chapter" data-level="2.3.2" data-path="streumaße.html"><a href="streumaße.html#quartilsabstand"><i class="fa fa-check"></i><b>2.3.2</b> Quartilsabstand</a></li>
+<li class="chapter" data-level="2.3.3" data-path="streumaße.html"><a href="streumaße.html#varianz"><i class="fa fa-check"></i><b>2.3.3</b> Varianz</a></li>
+<li class="chapter" data-level="2.3.4" data-path="streumaße.html"><a href="streumaße.html#standardabweichung"><i class="fa fa-check"></i><b>2.3.4</b> Standardabweichung</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="boxplot.html"><a href="boxplot.html"><i class="fa fa-check"></i><b>2.4</b> Boxplot</a></li>
+<li class="chapter" data-level="" data-path="tipps-zur-vertiefung-1.html"><a href="tipps-zur-vertiefung-1.html"><i class="fa fa-check"></i>Tipps zur Vertiefung</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="tipps-zur-vertiefung-1.html"><a href="tipps-zur-vertiefung-1.html#lagemaße-1"><i class="fa fa-check"></i><b>2.4.1</b> Lagemaße</a></li>
+<li class="chapter" data-level="2.4.2" data-path="tipps-zur-vertiefung-1.html"><a href="tipps-zur-vertiefung-1.html#streumaße-1"><i class="fa fa-check"></i><b>2.4.2</b> Streumaße</a></li>
+<li class="chapter" data-level="2.4.3" data-path="tipps-zur-vertiefung-1.html"><a href="tipps-zur-vertiefung-1.html#boxplot-1"><i class="fa fa-check"></i><b>2.4.3</b> Boxplot</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="übungsaufgaben-1.html"><a href="übungsaufgaben-1.html"><i class="fa fa-check"></i>Übungsaufgaben</a>
+<ul>
+<li class="chapter" data-level="2.4.4" data-path="übungsaufgaben-1.html"><a href="übungsaufgaben-1.html#aufgabe-2-1"><i class="fa fa-check"></i><b>2.4.4</b> Aufgabe 2-1</a></li>
+<li class="chapter" data-level="2.4.5" data-path="übungsaufgaben-1.html"><a href="übungsaufgaben-1.html#aufgabe-2-2"><i class="fa fa-check"></i><b>2.4.5</b> Aufgabe 2-2</a></li>
+<li class="chapter" data-level="2.4.6" data-path="übungsaufgaben-1.html"><a href="übungsaufgaben-1.html#aufgabe-2-3"><i class="fa fa-check"></i><b>2.4.6</b> Aufgabe 2-3</a></li>
+<li class="chapter" data-level="2.4.7" data-path="übungsaufgaben-1.html"><a href="übungsaufgaben-1.html#aufgabe-2-4"><i class="fa fa-check"></i><b>2.4.7</b> Aufgabe 2-4</a></li>
+<li class="chapter" data-level="2.4.8" data-path="übungsaufgaben-1.html"><a href="übungsaufgaben-1.html#aufgabe-2-5"><i class="fa fa-check"></i><b>2.4.8</b> Aufgabe 2-5</a></li>
+<li class="chapter" data-level="2.4.9" data-path="übungsaufgaben-1.html"><a href="übungsaufgaben-1.html#aufgabe-2-6"><i class="fa fa-check"></i><b>2.4.9</b> Aufgabe 2-6</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="𝑧-werte-und-normalverteilung.html"><a href="𝑧-werte-und-normalverteilung.html"><i class="fa fa-check"></i><b>3</b> <em>𝑧</em>-Werte und Normalverteilung</a>
+<ul>
+<li class="chapter" data-level="" data-path="𝑧-werte-und-normalverteilung.html"><a href="𝑧-werte-und-normalverteilung.html#lernziele-dieser-sitzung-2"><i class="fa fa-check"></i>Lernziele dieser Sitzung</a></li>
+<li class="chapter" data-level="" data-path="𝑧-werte-und-normalverteilung.html"><a href="𝑧-werte-und-normalverteilung.html#lehrvideos-sommersemster-2020"><i class="fa fa-check"></i>Lehrvideos (Sommersemster 2020)</a></li>
+<li class="chapter" data-level="3.1" data-path="variationskoeffizient.html"><a href="variationskoeffizient.html"><i class="fa fa-check"></i><b>3.1</b> Variationskoeffizient</a></li>
+<li class="chapter" data-level="3.2" data-path="𝑧-transformation.html"><a href="𝑧-transformation.html"><i class="fa fa-check"></i><b>3.2</b> <em>𝑧</em>-Transformation</a></li>
+<li class="chapter" data-level="3.3" data-path="normalverteilung.html"><a href="normalverteilung.html"><i class="fa fa-check"></i><b>3.3</b> Normalverteilung</a></li>
+<li class="chapter" data-level="3.4" data-path="standardnormalverteilung.html"><a href="standardnormalverteilung.html"><i class="fa fa-check"></i><b>3.4</b> Standardnormalverteilung</a></li>
+<li class="chapter" data-level="3.5" data-path="crash-kurs-wahrscheinlichkeitsrechnung.html"><a href="crash-kurs-wahrscheinlichkeitsrechnung.html"><i class="fa fa-check"></i><b>3.5</b> Crash-Kurs Wahrscheinlichkeitsrechnung</a></li>
+<li class="chapter" data-level="3.6" data-path="wahrscheinlichkeitsdichtefunktionen.html"><a href="wahrscheinlichkeitsdichtefunktionen.html"><i class="fa fa-check"></i><b>3.6</b> Wahrscheinlichkeitsdichtefunktionen</a></li>
+<li class="chapter" data-level="3.7" data-path="wahrscheinlichkeitsrechnung-mit-standardnormalverteilung.html"><a href="wahrscheinlichkeitsrechnung-mit-standardnormalverteilung.html"><i class="fa fa-check"></i><b>3.7</b> Wahrscheinlichkeitsrechnung mit Standardnormalverteilung</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="wahrscheinlichkeitsrechnung-mit-standardnormalverteilung.html"><a href="wahrscheinlichkeitsrechnung-mit-standardnormalverteilung.html#unter"><i class="fa fa-check"></i><b>3.7.1</b> Unterschreitungswahrscheinlichkeit</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="tipps-zur-vertiefung-2.html"><a href="tipps-zur-vertiefung-2.html"><i class="fa fa-check"></i>Tipps zur Vertiefung</a>
+<ul>
+<li class="chapter" data-level="3.7.2" data-path="tipps-zur-vertiefung-2.html"><a href="tipps-zur-vertiefung-2.html#variationskoeffizient-1"><i class="fa fa-check"></i><b>3.7.2</b> Variationskoeffizient</a></li>
+<li class="chapter" data-level="3.7.3" data-path="tipps-zur-vertiefung-2.html"><a href="tipps-zur-vertiefung-2.html#z-transformation"><i class="fa fa-check"></i><b>3.7.3</b> <span class="math inline">\(z\)</span>-Transformation</a></li>
+<li class="chapter" data-level="3.7.4" data-path="tipps-zur-vertiefung-2.html"><a href="tipps-zur-vertiefung-2.html#normalverteilung-1"><i class="fa fa-check"></i><b>3.7.4</b> Normalverteilung</a></li>
+<li class="chapter" data-level="3.7.5" data-path="tipps-zur-vertiefung-2.html"><a href="tipps-zur-vertiefung-2.html#wahrscheinlichkeitsdichtefunktion"><i class="fa fa-check"></i><b>3.7.5</b> Wahrscheinlichkeitsdichtefunktion</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="übungsaufgaben-2.html"><a href="übungsaufgaben-2.html"><i class="fa fa-check"></i>Übungsaufgaben</a>
+<ul>
+<li class="chapter" data-level="3.7.6" data-path="übungsaufgaben-2.html"><a href="übungsaufgaben-2.html#aufgabe-3-1"><i class="fa fa-check"></i><b>3.7.6</b> Aufgabe 3-1</a></li>
+<li class="chapter" data-level="3.7.7" data-path="übungsaufgaben-2.html"><a href="übungsaufgaben-2.html#aufgabe-3-2"><i class="fa fa-check"></i><b>3.7.7</b> Aufgabe 3-2</a></li>
+<li class="chapter" data-level="3.7.8" data-path="übungsaufgaben-2.html"><a href="übungsaufgaben-2.html#aufgabe-3-3"><i class="fa fa-check"></i><b>3.7.8</b> Aufgabe 3-3</a></li>
+<li class="chapter" data-level="3.7.9" data-path="übungsaufgaben-2.html"><a href="übungsaufgaben-2.html#aufgabe-3-4"><i class="fa fa-check"></i><b>3.7.9</b> Aufgabe 3-4</a></li>
+<li class="chapter" data-level="3.7.10" data-path="übungsaufgaben-2.html"><a href="übungsaufgaben-2.html#aufgabe-3-5"><i class="fa fa-check"></i><b>3.7.10</b> Aufgabe 3-5</a></li>
+<li class="chapter" data-level="3.7.11" data-path="übungsaufgaben-2.html"><a href="übungsaufgaben-2.html#aufgabe-3-6"><i class="fa fa-check"></i><b>3.7.11</b> Aufgabe 3-6</a></li>
+<li class="chapter" data-level="3.7.12" data-path="übungsaufgaben-2.html"><a href="übungsaufgaben-2.html#aufgabe-3-7"><i class="fa fa-check"></i><b>3.7.12</b> Aufgabe 3-7</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="schätzstatistik.html"><a href="schätzstatistik.html"><i class="fa fa-check"></i><b>4</b> Schätzstatistik</a>
+<ul>
+<li class="chapter" data-level="" data-path="schätzstatistik.html"><a href="schätzstatistik.html#lernziele-dieser-sitzung-3"><i class="fa fa-check"></i>Lernziele dieser Sitzung</a></li>
+<li class="chapter" data-level="" data-path="schätzstatistik.html"><a href="schätzstatistik.html#lehrvideos-sommersester-2020"><i class="fa fa-check"></i>Lehrvideos (Sommersester 2020)</a></li>
+<li class="chapter" data-level="4.1" data-path="stichprobenverteilung.html"><a href="stichprobenverteilung.html"><i class="fa fa-check"></i><b>4.1</b> Stichprobenverteilung</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="stichprobenverteilung.html"><a href="stichprobenverteilung.html#szenario-1-normalverteilte-grundgesamtheit"><i class="fa fa-check"></i><b>4.1.1</b> Szenario 1: Normalverteilte Grundgesamtheit</a></li>
+<li class="chapter" data-level="4.1.2" data-path="stichprobenverteilung.html"><a href="stichprobenverteilung.html#szenario-2-nicht-normalverteilte-grundgesamtheit"><i class="fa fa-check"></i><b>4.1.2</b> Szenario 2: Nicht normalverteilte Grundgesamtheit</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="punktschätzung.html"><a href="punktschätzung.html"><i class="fa fa-check"></i><b>4.2</b> Punktschätzung</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="punktschätzung.html"><a href="punktschätzung.html#punktschätzung-des-arithmetischen-mittels"><i class="fa fa-check"></i><b>4.2.1</b> Punktschätzung des arithmetischen Mittels</a></li>
+<li class="chapter" data-level="4.2.2" data-path="punktschätzung.html"><a href="punktschätzung.html#punktschätzung-der-varianz-und-der-standardabweichung"><i class="fa fa-check"></i><b>4.2.2</b> Punktschätzung der Varianz und der Standardabweichung</a></li>
+<li class="chapter" data-level="4.2.3" data-path="punktschätzung.html"><a href="punktschätzung.html#schätzung-des-standardfehlers"><i class="fa fa-check"></i><b>4.2.3</b> Schätzung des Standardfehlers</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="intervallschätzung.html"><a href="intervallschätzung.html"><i class="fa fa-check"></i><b>4.3</b> Intervallschätzung</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="intervallschätzung.html"><a href="intervallschätzung.html#gesuchtes-alpha"><i class="fa fa-check"></i><b>4.3.1</b> Gesuchtes <span class="math inline">\(\alpha\)</span></a></li>
+<li class="chapter" data-level="4.3.2" data-path="intervallschätzung.html"><a href="intervallschätzung.html#gesuchtes-konfidenzintervall"><i class="fa fa-check"></i><b>4.3.2</b> Gesuchtes Konfidenzintervall</a></li>
+<li class="chapter" data-level="4.3.3" data-path="intervallschätzung.html"><a href="intervallschätzung.html#gesuchtes-n"><i class="fa fa-check"></i><b>4.3.3</b> Gesuchtes <span class="math inline">\(n\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="tipps-zur-vertiefung-3.html"><a href="tipps-zur-vertiefung-3.html"><i class="fa fa-check"></i>Tipps zur Vertiefung</a></li>
+<li class="chapter" data-level="" data-path="übungsaufgaben-3.html"><a href="übungsaufgaben-3.html"><i class="fa fa-check"></i>Übungsaufgaben</a>
+<ul>
+<li class="chapter" data-level="4.3.4" data-path="übungsaufgaben-3.html"><a href="übungsaufgaben-3.html#aufgabe-4-1"><i class="fa fa-check"></i><b>4.3.4</b> Aufgabe 4-1</a></li>
+<li class="chapter" data-level="4.3.5" data-path="übungsaufgaben-3.html"><a href="übungsaufgaben-3.html#aufgabe-4-2"><i class="fa fa-check"></i><b>4.3.5</b> Aufgabe 4-2</a></li>
+<li class="chapter" data-level="4.3.6" data-path="übungsaufgaben-3.html"><a href="übungsaufgaben-3.html#aufgabe-4-3"><i class="fa fa-check"></i><b>4.3.6</b> Aufgabe 4-3</a></li>
+<li class="chapter" data-level="4.3.7" data-path="übungsaufgaben-3.html"><a href="übungsaufgaben-3.html#aufgabe-4-4"><i class="fa fa-check"></i><b>4.3.7</b> Aufgabe 4-4</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html"><i class="fa fa-check"></i><b>5</b> Grundlagen der Teststatistik</a>
+<ul>
+<li class="chapter" data-level="" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html#lernziele-dieser-sitzung-4"><i class="fa fa-check"></i>Lernziele dieser Sitzung</a></li>
+<li class="chapter" data-level="" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html#lernvideos-sommersemester-2020"><i class="fa fa-check"></i>Lernvideos (Sommersemester 2020)</a></li>
+<li class="chapter" data-level="5.1" data-path="statistische-tests.html"><a href="statistische-tests.html"><i class="fa fa-check"></i><b>5.1</b> Statistische Tests</a></li>
+<li class="chapter" data-level="5.2" data-path="𝑧-test.html"><a href="𝑧-test.html"><i class="fa fa-check"></i><b>5.2</b> <em>𝑧</em>-Test</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="𝑧-test.html"><a href="𝑧-test.html#test-wählen-und-voraussetzungen-prüfen"><i class="fa fa-check"></i><b>5.2.1</b> Test wählen und Voraussetzungen prüfen</a></li>
+<li class="chapter" data-level="5.2.2" data-path="𝑧-test.html"><a href="𝑧-test.html#hypothesen-formulieren"><i class="fa fa-check"></i><b>5.2.2</b> Hypothesen formulieren</a></li>
+<li class="chapter" data-level="5.2.3" data-path="𝑧-test.html"><a href="𝑧-test.html#signifikanzniveau-entscheiden"><i class="fa fa-check"></i><b>5.2.3</b> Signifikanzniveau entscheiden</a></li>
+<li class="chapter" data-level="5.2.4" data-path="𝑧-test.html"><a href="𝑧-test.html#ablehnungsbereich-bestimmen"><i class="fa fa-check"></i><b>5.2.4</b> Ablehnungsbereich bestimmen</a></li>
+<li class="chapter" data-level="5.2.5" data-path="𝑧-test.html"><a href="𝑧-test.html#prüfgröße-berechnen"><i class="fa fa-check"></i><b>5.2.5</b> Prüfgröße berechnen</a></li>
+<li class="chapter" data-level="5.2.6" data-path="𝑧-test.html"><a href="𝑧-test.html#ergebnis-inerpretieren"><i class="fa fa-check"></i><b>5.2.6</b> Ergebnis inerpretieren</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="die-𝑡-verteilung.html"><a href="die-𝑡-verteilung.html"><i class="fa fa-check"></i><b>5.3</b> Die <em>𝑡</em>-Verteilung</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="die-𝑡-verteilung.html"><a href="die-𝑡-verteilung.html#freiheitsgrade"><i class="fa fa-check"></i><b>5.3.1</b> Freiheitsgrade</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="stichproben-𝑡-test.html"><a href="stichproben-𝑡-test.html"><i class="fa fa-check"></i><b>5.4</b> 1-Stichproben-<em>𝑡</em>-Test</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="stichproben-𝑡-test.html"><a href="stichproben-𝑡-test.html#test-wählen-und-voraussetzungen-prüfen-1"><i class="fa fa-check"></i><b>5.4.1</b> Test wählen und Voraussetzungen prüfen</a></li>
+<li class="chapter" data-level="5.4.2" data-path="stichproben-𝑡-test.html"><a href="stichproben-𝑡-test.html#hypothesen-formulieren-1"><i class="fa fa-check"></i><b>5.4.2</b> Hypothesen formulieren</a></li>
+<li class="chapter" data-level="5.4.3" data-path="stichproben-𝑡-test.html"><a href="stichproben-𝑡-test.html#signifikanzniveau-entscheiden-1"><i class="fa fa-check"></i><b>5.4.3</b> Signifikanzniveau entscheiden</a></li>
+<li class="chapter" data-level="5.4.4" data-path="stichproben-𝑡-test.html"><a href="stichproben-𝑡-test.html#ablehnungsbereich-bestimmen-1"><i class="fa fa-check"></i><b>5.4.4</b> Ablehnungsbereich bestimmen</a></li>
+<li class="chapter" data-level="5.4.5" data-path="stichproben-𝑡-test.html"><a href="stichproben-𝑡-test.html#prüfgröße-berechnen-1"><i class="fa fa-check"></i><b>5.4.5</b> Prüfgröße berechnen</a></li>
+<li class="chapter" data-level="5.4.6" data-path="stichproben-𝑡-test.html"><a href="stichproben-𝑡-test.html#ergebnis-interpretieren"><i class="fa fa-check"></i><b>5.4.6</b> Ergebnis interpretieren</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="tipps-zur-vertiefung-4.html"><a href="tipps-zur-vertiefung-4.html"><i class="fa fa-check"></i>Tipps zur Vertiefung</a></li>
+<li class="chapter" data-level="" data-path="übungsaufgaben-4.html"><a href="übungsaufgaben-4.html"><i class="fa fa-check"></i>Übungsaufgaben</a>
+<ul>
+<li class="chapter" data-level="5.4.7" data-path="übungsaufgaben-4.html"><a href="übungsaufgaben-4.html#aufgabe-5-1"><i class="fa fa-check"></i><b>5.4.7</b> Aufgabe 5-1</a></li>
+<li class="chapter" data-level="5.4.8" data-path="übungsaufgaben-4.html"><a href="übungsaufgaben-4.html#aufgabe-5-2"><i class="fa fa-check"></i><b>5.4.8</b> Aufgabe 5-2</a></li>
+<li class="chapter" data-level="5.4.9" data-path="übungsaufgaben-4.html"><a href="übungsaufgaben-4.html#aufgabe-5-3"><i class="fa fa-check"></i><b>5.4.9</b> Aufgabe 5-3</a></li>
+<li class="chapter" data-level="5.4.10" data-path="übungsaufgaben-4.html"><a href="übungsaufgaben-4.html#aufgabe-5-4"><i class="fa fa-check"></i><b>5.4.10</b> Aufgabe 5-4</a></li>
+<li class="chapter" data-level="5.4.11" data-path="übungsaufgaben-4.html"><a href="übungsaufgaben-4.html#aufgabe-5-5"><i class="fa fa-check"></i><b>5.4.11</b> Aufgabe 5-5</a></li>
+<li class="chapter" data-level="5.4.12" data-path="übungsaufgaben-4.html"><a href="übungsaufgaben-4.html#aufgabe-5-6"><i class="fa fa-check"></i><b>5.4.12</b> Aufgabe 5-6</a></li>
+<li class="chapter" data-level="5.4.13" data-path="übungsaufgaben-4.html"><a href="übungsaufgaben-4.html#aufgabe-5-7"><i class="fa fa-check"></i><b>5.4.13</b> Aufgabe 5-7</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html"><i class="fa fa-check"></i><b>6</b> Testverfahren mit zwei Stichproben</a>
+<ul>
+<li class="chapter" data-level="" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#lernziele-dieser-sitzung-5"><i class="fa fa-check"></i>Lernziele dieser Sitzung</a></li>
+<li class="chapter" data-level="" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#lehrvideos-sommersemester-2020-2"><i class="fa fa-check"></i>Lehrvideos (Sommersemester 2020)</a></li>
+<li class="chapter" data-level="6.1" data-path="statistische-tests-1.html"><a href="statistische-tests-1.html"><i class="fa fa-check"></i><b>6.1</b> Statistische Tests</a></li>
+<li class="chapter" data-level="6.2" data-path="stichproben-𝑡-test-1.html"><a href="stichproben-𝑡-test-1.html"><i class="fa fa-check"></i><b>6.2</b> 2-Stichproben-<em>𝑡</em>-Test</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="stichproben-𝑡-test-1.html"><a href="stichproben-𝑡-test-1.html#test-wählen-und-voraussetzungen-prüfen-2"><i class="fa fa-check"></i><b>6.2.1</b> Test wählen und Voraussetzungen prüfen</a></li>
+<li class="chapter" data-level="6.2.2" data-path="stichproben-𝑡-test-1.html"><a href="stichproben-𝑡-test-1.html#hypothesen-formulieren-2"><i class="fa fa-check"></i><b>6.2.2</b> Hypothesen formulieren</a></li>
+<li class="chapter" data-level="6.2.3" data-path="stichproben-𝑡-test-1.html"><a href="stichproben-𝑡-test-1.html#signifikanzniveau-entscheiden-2"><i class="fa fa-check"></i><b>6.2.3</b> Signifikanzniveau entscheiden</a></li>
+<li class="chapter" data-level="6.2.4" data-path="stichproben-𝑡-test-1.html"><a href="stichproben-𝑡-test-1.html#ablehnungsbereich-bestimmen-2"><i class="fa fa-check"></i><b>6.2.4</b> Ablehnungsbereich bestimmen</a></li>
+<li class="chapter" data-level="6.2.5" data-path="stichproben-𝑡-test-1.html"><a href="stichproben-𝑡-test-1.html#prüfgröße-berechnen-2"><i class="fa fa-check"></i><b>6.2.5</b> Prüfgröße berechnen</a></li>
+<li class="chapter" data-level="6.2.6" data-path="stichproben-𝑡-test-1.html"><a href="stichproben-𝑡-test-1.html#ergebnis-interpretieren-1"><i class="fa fa-check"></i><b>6.2.6</b> Ergebnis interpretieren</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="die-𝐹-verteilung.html"><a href="die-𝐹-verteilung.html"><i class="fa fa-check"></i><b>6.3</b> Die <em>𝐹</em>-Verteilung</a></li>
+<li class="chapter" data-level="6.4" data-path="f.html"><a href="f.html"><i class="fa fa-check"></i><b>6.4</b> <em>𝐹</em>-Test</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="f.html"><a href="f.html#test-wählen-und-voraussetzungen-prüfen-3"><i class="fa fa-check"></i><b>6.4.1</b> Test wählen und Voraussetzungen prüfen</a></li>
+<li class="chapter" data-level="6.4.2" data-path="f.html"><a href="f.html#hypothesen-formulieren-3"><i class="fa fa-check"></i><b>6.4.2</b> Hypothesen formulieren</a></li>
+<li class="chapter" data-level="6.4.3" data-path="f.html"><a href="f.html#signifikanzniveau-entscheiden-3"><i class="fa fa-check"></i><b>6.4.3</b> Signifikanzniveau entscheiden</a></li>
+<li class="chapter" data-level="6.4.4" data-path="f.html"><a href="f.html#ablehnungsbereich-bestimmen-3"><i class="fa fa-check"></i><b>6.4.4</b> Ablehnungsbereich bestimmen</a></li>
+<li class="chapter" data-level="6.4.5" data-path="f.html"><a href="f.html#prüfgröße-berechnen-3"><i class="fa fa-check"></i><b>6.4.5</b> Prüfgröße berechnen</a></li>
+<li class="chapter" data-level="6.4.6" data-path="f.html"><a href="f.html#nullhypothese-ablehnen-oder-beibehalten"><i class="fa fa-check"></i><b>6.4.6</b> Nullhypothese ablehnen oder beibehalten</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="fehlerarten.html"><a href="fehlerarten.html"><i class="fa fa-check"></i><b>6.5</b> Fehlerarten</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="fehlerarten.html"><a href="fehlerarten.html#fehler-1.-art"><i class="fa fa-check"></i><b>6.5.1</b> Fehler 1. Art</a></li>
+<li class="chapter" data-level="6.5.2" data-path="fehlerarten.html"><a href="fehlerarten.html#fehler-2.-art"><i class="fa fa-check"></i><b>6.5.2</b> Fehler 2. Art</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="tipps-zur-vertiefung-5.html"><a href="tipps-zur-vertiefung-5.html"><i class="fa fa-check"></i>Tipps zur Vertiefung</a></li>
+<li class="chapter" data-level="" data-path="übungsaufgaben-5.html"><a href="übungsaufgaben-5.html"><i class="fa fa-check"></i>Übungsaufgaben</a>
+<ul>
+<li class="chapter" data-level="6.5.3" data-path="übungsaufgaben-5.html"><a href="übungsaufgaben-5.html#aufgabe-6-1"><i class="fa fa-check"></i><b>6.5.3</b> Aufgabe 6-1</a></li>
+<li class="chapter" data-level="6.5.4" data-path="übungsaufgaben-5.html"><a href="übungsaufgaben-5.html#aufgabe-6-2"><i class="fa fa-check"></i><b>6.5.4</b> Aufgabe 6-2</a></li>
+<li class="chapter" data-level="6.5.5" data-path="übungsaufgaben-5.html"><a href="übungsaufgaben-5.html#aufgabe-6-3"><i class="fa fa-check"></i><b>6.5.5</b> Aufgabe 6-3</a></li>
+<li class="chapter" data-level="6.5.6" data-path="übungsaufgaben-5.html"><a href="übungsaufgaben-5.html#aufgabe-6-4"><i class="fa fa-check"></i><b>6.5.6</b> Aufgabe 6-4</a></li>
+<li class="chapter" data-level="6.5.7" data-path="übungsaufgaben-5.html"><a href="übungsaufgaben-5.html#aufgabe-6-5"><i class="fa fa-check"></i><b>6.5.7</b> Aufgabe 6-5</a></li>
+<li class="chapter" data-level="6.5.8" data-path="übungsaufgaben-5.html"><a href="übungsaufgaben-5.html#aufgabe-6-6"><i class="fa fa-check"></i><b>6.5.8</b> Aufgabe 6-6</a></li>
+<li class="chapter" data-level="6.5.9" data-path="übungsaufgaben-5.html"><a href="übungsaufgaben-5.html#aufgabe-6-7"><i class="fa fa-check"></i><b>6.5.9</b> Aufgabe 6-7</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="korrelation.html"><a href="korrelation.html"><i class="fa fa-check"></i><b>7</b> Korrelation</a>
+<ul>
+<li class="chapter" data-level="" data-path="korrelation.html"><a href="korrelation.html#lernziele-dieser-sitzung-6"><i class="fa fa-check"></i>Lernziele dieser Sitzung</a></li>
+<li class="chapter" data-level="" data-path="korrelation.html"><a href="korrelation.html#lehrvideos-sommersemester-2020-3"><i class="fa fa-check"></i>Lehrvideos (Sommersemester 2020)</a></li>
+<li class="chapter" data-level="7.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html"><i class="fa fa-check"></i><b>7.1</b> Bivariate Statistik</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="bivariate-statistik.html"><a href="bivariate-statistik.html#beispiel-23"><i class="fa fa-check"></i><b>7.1.1</b> Beispiel</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="kovarianz-𝑠𝑥𝑦.html"><a href="kovarianz-𝑠𝑥𝑦.html"><i class="fa fa-check"></i><b>7.2</b> Kovarianz <em>𝑠<sub>𝑥𝑦</sub></em></a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="kovarianz-𝑠𝑥𝑦.html"><a href="kovarianz-𝑠𝑥𝑦.html#beispiel-24"><i class="fa fa-check"></i><b>7.2.1</b> Beispiel</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="korrelationskoeffizient-𝑟.html"><a href="korrelationskoeffizient-𝑟.html"><i class="fa fa-check"></i><b>7.3</b> Korrelationskoeffizient <em>𝑟</em></a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="korrelationskoeffizient-𝑟.html"><a href="korrelationskoeffizient-𝑟.html#beispiel-25"><i class="fa fa-check"></i><b>7.3.1</b> Beispiel</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="tipps-zur-vertiefung-6.html"><a href="tipps-zur-vertiefung-6.html"><i class="fa fa-check"></i>Tipps zur Vertiefung</a></li>
+<li class="chapter" data-level="" data-path="übungsaufgaben-6.html"><a href="übungsaufgaben-6.html"><i class="fa fa-check"></i>Übungsaufgaben</a>
+<ul>
+<li class="chapter" data-level="7.3.2" data-path="übungsaufgaben-6.html"><a href="übungsaufgaben-6.html#aufgabe-7-1"><i class="fa fa-check"></i><b>7.3.2</b> Aufgabe 7-1</a></li>
+<li class="chapter" data-level="7.3.3" data-path="übungsaufgaben-6.html"><a href="übungsaufgaben-6.html#aufgabe-7-2"><i class="fa fa-check"></i><b>7.3.3</b> Aufgabe 7-2</a></li>
+<li class="chapter" data-level="7.3.4" data-path="übungsaufgaben-6.html"><a href="übungsaufgaben-6.html#aufgabe-7-3"><i class="fa fa-check"></i><b>7.3.4</b> Aufgabe 7-3</a></li>
+<li class="chapter" data-level="7.3.5" data-path="übungsaufgaben-6.html"><a href="übungsaufgaben-6.html#aufgabe-7-4"><i class="fa fa-check"></i><b>7.3.5</b> Aufgabe 7-4</a></li>
+<li class="chapter" data-level="7.3.6" data-path="übungsaufgaben-6.html"><a href="übungsaufgaben-6.html#aufgabe-7-5"><i class="fa fa-check"></i><b>7.3.6</b> Aufgabe 7-5</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="lineare-regression.html"><a href="lineare-regression.html"><i class="fa fa-check"></i><b>8</b> Lineare Regression</a>
+<ul>
+<li class="chapter" data-level="" data-path="lineare-regression.html"><a href="lineare-regression.html#lernziele-dieser-sitzung-7"><i class="fa fa-check"></i>Lernziele dieser Sitzung</a></li>
+<li class="chapter" data-level="" data-path="lineare-regression.html"><a href="lineare-regression.html#lehrvideos-sommersemester-2020-4"><i class="fa fa-check"></i>Lehrvideos (Sommersemester 2020)</a></li>
+<li class="chapter" data-level="8.1" data-path="regresssionsanalyse.html"><a href="regresssionsanalyse.html"><i class="fa fa-check"></i><b>8.1</b> Regresssionsanalyse</a></li>
+<li class="chapter" data-level="8.2" data-path="bestimmung-der-regressionsgeraden.html"><a href="bestimmung-der-regressionsgeraden.html"><i class="fa fa-check"></i><b>8.2</b> Bestimmung der Regressionsgeraden</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="bestimmung-der-regressionsgeraden.html"><a href="bestimmung-der-regressionsgeraden.html#beispiel-26"><i class="fa fa-check"></i><b>8.2.1</b> Beispiel</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="residuen.html"><a href="residuen.html"><i class="fa fa-check"></i><b>8.3</b> Residuen</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="residuen.html"><a href="residuen.html#beispiel-27"><i class="fa fa-check"></i><b>8.3.1</b> Beispiel</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="determinationskoeffizient-𝑅-.html"><a href="determinationskoeffizient-𝑅-.html"><i class="fa fa-check"></i><b>8.4</b> Determinationskoeffizient <em>𝑅²</em></a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="determinationskoeffizient-𝑅-.html"><a href="determinationskoeffizient-𝑅-.html#beispiel-28"><i class="fa fa-check"></i><b>8.4.1</b> Beispiel</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="tipps-zur-vertiefung-7.html"><a href="tipps-zur-vertiefung-7.html"><i class="fa fa-check"></i>Tipps zur Vertiefung</a></li>
+<li class="chapter" data-level="" data-path="übungsaufgaben-7.html"><a href="übungsaufgaben-7.html"><i class="fa fa-check"></i>Übungsaufgaben</a>
+<ul>
+<li class="chapter" data-level="8.4.2" data-path="übungsaufgaben-7.html"><a href="übungsaufgaben-7.html#aufgabe-8-1"><i class="fa fa-check"></i><b>8.4.2</b> Aufgabe 8-1</a></li>
+<li class="chapter" data-level="8.4.3" data-path="übungsaufgaben-7.html"><a href="übungsaufgaben-7.html#aufgabe-8-2"><i class="fa fa-check"></i><b>8.4.3</b> Aufgabe 8-2</a></li>
+<li class="chapter" data-level="8.4.4" data-path="übungsaufgaben-7.html"><a href="übungsaufgaben-7.html#aufgabe-8-3"><i class="fa fa-check"></i><b>8.4.4</b> Aufgabe 8-3</a></li>
+<li class="chapter" data-level="8.4.5" data-path="übungsaufgaben-7.html"><a href="übungsaufgaben-7.html#aufgabe-8-4"><i class="fa fa-check"></i><b>8.4.5</b> Aufgabe 8-4</a></li>
+<li class="chapter" data-level="8.4.6" data-path="übungsaufgaben-7.html"><a href="übungsaufgaben-7.html#aufgabe-8-5"><i class="fa fa-check"></i><b>8.4.6</b> Aufgabe 8-5</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="kreuztabellen.html"><a href="kreuztabellen.html"><i class="fa fa-check"></i><b>9</b> Kreuztabellen</a>
+<ul>
+<li class="chapter" data-level="" data-path="kreuztabellen.html"><a href="kreuztabellen.html#lernziele-dieser-sitzung-8"><i class="fa fa-check"></i>Lernziele dieser Sitzung</a></li>
+<li class="chapter" data-level="" data-path="kreuztabellen.html"><a href="kreuztabellen.html#lehrvideos-sommersemester-2020-5"><i class="fa fa-check"></i>Lehrvideos (Sommersemester 2020)</a></li>
+<li class="chapter" data-level="9.1" data-path="bivariate-verteilungen-mit-nominalen-variablen.html"><a href="bivariate-verteilungen-mit-nominalen-variablen.html"><i class="fa fa-check"></i><b>9.1</b> Bivariate Verteilungen mit nominalen Variablen</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="bivariate-verteilungen-mit-nominalen-variablen.html"><a href="bivariate-verteilungen-mit-nominalen-variablen.html#beispiel-29"><i class="fa fa-check"></i><b>9.1.1</b> Beispiel</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="kreuztabelle.html"><a href="kreuztabelle.html"><i class="fa fa-check"></i><b>9.2</b> Kreuztabelle</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="kreuztabelle.html"><a href="kreuztabelle.html#beispiel-30"><i class="fa fa-check"></i><b>9.2.1</b> Beispiel</a></li>
+<li class="chapter" data-level="9.2.2" data-path="kreuztabelle.html"><a href="kreuztabelle.html#verallgemeinerung"><i class="fa fa-check"></i><b>9.2.2</b> Verallgemeinerung</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="erwartungswerte.html"><a href="erwartungswerte.html"><i class="fa fa-check"></i><b>9.3</b> Erwartungswerte</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="erwartungswerte.html"><a href="erwartungswerte.html#beispiel-31"><i class="fa fa-check"></i><b>9.3.1</b> Beispiel</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="kontingenzkoeffizent-𝜒-.html"><a href="kontingenzkoeffizent-𝜒-.html"><i class="fa fa-check"></i><b>9.4</b> Kontingenzkoeffizent <em>𝜒²</em></a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="kontingenzkoeffizent-𝜒-.html"><a href="kontingenzkoeffizent-𝜒-.html#beispiel-32"><i class="fa fa-check"></i><b>9.4.1</b> Beispiel</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="𝜙-koeffizient.html"><a href="𝜙-koeffizient.html"><i class="fa fa-check"></i><b>9.5</b> <em>𝜙</em>-Koeffizient</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="𝜙-koeffizient.html"><a href="𝜙-koeffizient.html#beispiel-33"><i class="fa fa-check"></i><b>9.5.1</b> Beispiel</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="cramér-index.html"><a href="cramér-index.html"><i class="fa fa-check"></i><b>9.6</b> Cramér-Index</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="cramér-index.html"><a href="cramér-index.html#beispiel-34"><i class="fa fa-check"></i><b>9.6.1</b> Beispiel</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="tipps-zur-vertiefung-8.html"><a href="tipps-zur-vertiefung-8.html"><i class="fa fa-check"></i>Tipps zur Vertiefung</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="formeln.html"><a href="formeln.html"><i class="fa fa-check"></i>Formelsammlung und Wertetabellen</a></li>
+<li class="chapter" data-level="" data-path="lösungen-der-übungsaufgaben.html"><a href="lösungen-der-übungsaufgaben.html"><i class="fa fa-check"></i>Lösungen der Übungsaufgaben</a>
+<ul>
+<li class="chapter" data-level="" data-path="sitzung-1.html"><a href="sitzung-1.html"><i class="fa fa-check"></i>Sitzung 1</a>
+<ul>
+<li class="chapter" data-level="9.6.2" data-path="sitzung-1.html"><a href="sitzung-1.html#loesung-1-1"><i class="fa fa-check"></i><b>9.6.2</b> Lösung 1-1</a></li>
+<li class="chapter" data-level="9.6.3" data-path="sitzung-1.html"><a href="sitzung-1.html#loesung-1-2"><i class="fa fa-check"></i><b>9.6.3</b> Lösung 1-2</a></li>
+<li class="chapter" data-level="9.6.4" data-path="sitzung-1.html"><a href="sitzung-1.html#loesung-1-3"><i class="fa fa-check"></i><b>9.6.4</b> Lösung 1-3</a></li>
+<li class="chapter" data-level="9.6.5" data-path="sitzung-1.html"><a href="sitzung-1.html#loesung-1-4"><i class="fa fa-check"></i><b>9.6.5</b> Lösung 1-4</a></li>
+<li class="chapter" data-level="9.6.6" data-path="sitzung-1.html"><a href="sitzung-1.html#loesung-1-5"><i class="fa fa-check"></i><b>9.6.6</b> Lösung 1-5</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="sitzung-2.html"><a href="sitzung-2.html"><i class="fa fa-check"></i>Sitzung 2</a>
+<ul>
+<li class="chapter" data-level="9.6.7" data-path="sitzung-2.html"><a href="sitzung-2.html#loesung-2-1"><i class="fa fa-check"></i><b>9.6.7</b> Lösung 2-1</a></li>
+<li class="chapter" data-level="9.6.8" data-path="sitzung-2.html"><a href="sitzung-2.html#loesung-2-2"><i class="fa fa-check"></i><b>9.6.8</b> Lösung 2-2</a></li>
+<li class="chapter" data-level="9.6.9" data-path="sitzung-2.html"><a href="sitzung-2.html#loesung-2-3"><i class="fa fa-check"></i><b>9.6.9</b> Lösung 2-3</a></li>
+<li class="chapter" data-level="9.6.10" data-path="sitzung-2.html"><a href="sitzung-2.html#loesung-2-4"><i class="fa fa-check"></i><b>9.6.10</b> Lösung 2-4</a></li>
+<li class="chapter" data-level="9.6.11" data-path="sitzung-2.html"><a href="sitzung-2.html#loesung-2-5"><i class="fa fa-check"></i><b>9.6.11</b> Lösung 2-5</a></li>
+<li class="chapter" data-level="9.6.12" data-path="sitzung-2.html"><a href="sitzung-2.html#loesung-2-6"><i class="fa fa-check"></i><b>9.6.12</b> Lösung 2-6</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="sitzung-3.html"><a href="sitzung-3.html"><i class="fa fa-check"></i>Sitzung 3</a>
+<ul>
+<li class="chapter" data-level="9.6.13" data-path="sitzung-3.html"><a href="sitzung-3.html#loesung-3-1"><i class="fa fa-check"></i><b>9.6.13</b> Lösung 3-1</a></li>
+<li class="chapter" data-level="9.6.14" data-path="sitzung-3.html"><a href="sitzung-3.html#loesung-3-2"><i class="fa fa-check"></i><b>9.6.14</b> Lösung 3-2</a></li>
+<li class="chapter" data-level="9.6.15" data-path="sitzung-3.html"><a href="sitzung-3.html#loesung-3-3"><i class="fa fa-check"></i><b>9.6.15</b> Lösung 3-3</a></li>
+<li class="chapter" data-level="9.6.16" data-path="sitzung-3.html"><a href="sitzung-3.html#loesung-3-4"><i class="fa fa-check"></i><b>9.6.16</b> Lösung 3-4</a></li>
+<li class="chapter" data-level="9.6.17" data-path="sitzung-3.html"><a href="sitzung-3.html#loesung-3-5"><i class="fa fa-check"></i><b>9.6.17</b> Lösung 3-5</a></li>
+<li class="chapter" data-level="9.6.18" data-path="sitzung-3.html"><a href="sitzung-3.html#loesung-3-6"><i class="fa fa-check"></i><b>9.6.18</b> Lösung 3-6</a></li>
+<li class="chapter" data-level="9.6.19" data-path="sitzung-3.html"><a href="sitzung-3.html#loesung-3-7"><i class="fa fa-check"></i><b>9.6.19</b> Lösung 3-7</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="sitzung-4.html"><a href="sitzung-4.html"><i class="fa fa-check"></i>Sitzung 4</a>
+<ul>
+<li class="chapter" data-level="9.6.20" data-path="sitzung-4.html"><a href="sitzung-4.html#loesung-4-1"><i class="fa fa-check"></i><b>9.6.20</b> Lösung 4-1</a></li>
+<li class="chapter" data-level="9.6.21" data-path="sitzung-4.html"><a href="sitzung-4.html#loesung-4-2"><i class="fa fa-check"></i><b>9.6.21</b> Lösung 4-2</a></li>
+<li class="chapter" data-level="9.6.22" data-path="sitzung-4.html"><a href="sitzung-4.html#loesung-4-3"><i class="fa fa-check"></i><b>9.6.22</b> Lösung 4-3</a></li>
+<li class="chapter" data-level="9.6.23" data-path="sitzung-4.html"><a href="sitzung-4.html#loesung-4-4"><i class="fa fa-check"></i><b>9.6.23</b> Lösung 4-4</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="sitzung-5.html"><a href="sitzung-5.html"><i class="fa fa-check"></i>Sitzung 5</a>
+<ul>
+<li class="chapter" data-level="9.6.24" data-path="sitzung-5.html"><a href="sitzung-5.html#loesung-5-1"><i class="fa fa-check"></i><b>9.6.24</b> Lösung 5-1</a></li>
+<li class="chapter" data-level="9.6.25" data-path="sitzung-5.html"><a href="sitzung-5.html#loesung-5-2"><i class="fa fa-check"></i><b>9.6.25</b> Lösung 5-2</a></li>
+<li class="chapter" data-level="9.6.26" data-path="sitzung-5.html"><a href="sitzung-5.html#loesung-5-3"><i class="fa fa-check"></i><b>9.6.26</b> Lösung 5-3</a></li>
+<li class="chapter" data-level="9.6.27" data-path="sitzung-5.html"><a href="sitzung-5.html#loesung-5-4"><i class="fa fa-check"></i><b>9.6.27</b> Lösung 5-4</a></li>
+<li class="chapter" data-level="9.6.28" data-path="sitzung-5.html"><a href="sitzung-5.html#loesung-5-5"><i class="fa fa-check"></i><b>9.6.28</b> Lösung 5-5</a></li>
+<li class="chapter" data-level="9.6.29" data-path="sitzung-5.html"><a href="sitzung-5.html#loesung-5-6"><i class="fa fa-check"></i><b>9.6.29</b> Lösung 5-6</a></li>
+<li class="chapter" data-level="9.6.30" data-path="sitzung-5.html"><a href="sitzung-5.html#loesung-5-7"><i class="fa fa-check"></i><b>9.6.30</b> Lösung 5-7</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="sitzung-6.html"><a href="sitzung-6.html"><i class="fa fa-check"></i>Sitzung 6</a>
+<ul>
+<li class="chapter" data-level="9.6.31" data-path="sitzung-6.html"><a href="sitzung-6.html#loesung-6-1"><i class="fa fa-check"></i><b>9.6.31</b> Lösung 6-1</a></li>
+<li class="chapter" data-level="9.6.32" data-path="sitzung-6.html"><a href="sitzung-6.html#loesung-6-2"><i class="fa fa-check"></i><b>9.6.32</b> Lösung 6-2</a></li>
+<li class="chapter" data-level="9.6.33" data-path="sitzung-6.html"><a href="sitzung-6.html#loesung-6-3"><i class="fa fa-check"></i><b>9.6.33</b> Lösung 6-3</a></li>
+<li class="chapter" data-level="9.6.34" data-path="sitzung-6.html"><a href="sitzung-6.html#loesung-6-4"><i class="fa fa-check"></i><b>9.6.34</b> Lösung 6-4</a></li>
+<li class="chapter" data-level="9.6.35" data-path="sitzung-6.html"><a href="sitzung-6.html#loesung-6-5"><i class="fa fa-check"></i><b>9.6.35</b> Lösung 6-5</a></li>
+<li class="chapter" data-level="9.6.36" data-path="sitzung-6.html"><a href="sitzung-6.html#loesung-6-6"><i class="fa fa-check"></i><b>9.6.36</b> Lösung 6-6</a></li>
+<li class="chapter" data-level="9.6.37" data-path="sitzung-6.html"><a href="sitzung-6.html#loesung-6-7"><i class="fa fa-check"></i><b>9.6.37</b> Lösung 6-7</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="sitzung-7.html"><a href="sitzung-7.html"><i class="fa fa-check"></i>Sitzung 7</a>
+<ul>
+<li class="chapter" data-level="9.6.38" data-path="sitzung-7.html"><a href="sitzung-7.html#loesung-7-1"><i class="fa fa-check"></i><b>9.6.38</b> Lösung 7-1</a></li>
+<li class="chapter" data-level="9.6.39" data-path="sitzung-7.html"><a href="sitzung-7.html#loesung-7-2"><i class="fa fa-check"></i><b>9.6.39</b> Lösung 7-2</a></li>
+<li class="chapter" data-level="9.6.40" data-path="sitzung-7.html"><a href="sitzung-7.html#loesung-7-3"><i class="fa fa-check"></i><b>9.6.40</b> Lösung 7-3</a></li>
+<li class="chapter" data-level="9.6.41" data-path="sitzung-7.html"><a href="sitzung-7.html#berechnung-mittelwerte"><i class="fa fa-check"></i><b>9.6.41</b> Berechnung Mittelwerte</a></li>
+<li class="chapter" data-level="9.6.42" data-path="sitzung-7.html"><a href="sitzung-7.html#loesung-7-4"><i class="fa fa-check"></i><b>9.6.42</b> Lösung 7-4</a></li>
+<li class="chapter" data-level="9.6.43" data-path="sitzung-7.html"><a href="sitzung-7.html#loesung-7-5"><i class="fa fa-check"></i><b>9.6.43</b> Lösung 7-5</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="sitzung-8.html"><a href="sitzung-8.html"><i class="fa fa-check"></i>Sitzung 8</a>
+<ul>
+<li class="chapter" data-level="9.6.44" data-path="sitzung-8.html"><a href="sitzung-8.html#loesung-8-1"><i class="fa fa-check"></i><b>9.6.44</b> Lösung 8-1</a></li>
+<li class="chapter" data-level="9.6.45" data-path="sitzung-8.html"><a href="sitzung-8.html#loesung-8-2"><i class="fa fa-check"></i><b>9.6.45</b> Lösung 8-2</a></li>
+<li class="chapter" data-level="9.6.46" data-path="sitzung-8.html"><a href="sitzung-8.html#loesung-8-3"><i class="fa fa-check"></i><b>9.6.46</b> Lösung 8-3</a></li>
+<li class="chapter" data-level="9.6.47" data-path="sitzung-8.html"><a href="sitzung-8.html#loesung-8-4"><i class="fa fa-check"></i><b>9.6.47</b> Lösung 8-4</a></li>
+<li class="chapter" data-level="9.6.48" data-path="sitzung-8.html"><a href="sitzung-8.html#loesung-8-5"><i class="fa fa-check"></i><b>9.6.48</b> Lösung 8-5</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="quellenverzeichnis.html"><a href="quellenverzeichnis.html"><i class="fa fa-check"></i>Quellenverzeichnis</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistische Verfahren in der Geographie</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="korrelationskoeffizient-𝑟" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Korrelationskoeffizient <em>𝑟</em></h2>
+<p>Der Korrelationskoeffizient <span class="math inline">\(r\)</span> (auch Produkt-Moment-Korrelation, Bravais-Pearson-Korrelation, Pearsons <span class="math inline">\(r\)</span>, engl. <em>correlation coefficient</em>) standardisiert die Kovarianz <span class="math inline">\(s_{xy}\)</span> anhand der Standardabweichungen <span class="math inline">\(s_x\)</span> und <span class="math inline">\(s_y\)</span>. Die Formel lautet:</p>
+<p><span class="math display" id="eq:cor">\[
+r=\frac{s_{xy}}{s_x\cdot s_y}
+\tag{7.2}
+\]</span></p>
+<p>Durch diese Standardisierung kann der Korrelationskoeffizient nur noch Werte zwischen <span class="math inline">\(r=-1\)</span> (perfekte negative Korrelation) und <span class="math inline">\(r=1\)</span> (perfekte positive Korrelation) annehmen. Ein Korrelationskoeffizient nahe <span class="math inline">\(r=0\)</span> bedeutet, dass es keinen Zusammenhang zwischen den Variablen <span class="math inline">\(x\)</span> und <span class="math inline">\(y\)</span> gibt (s. Abbildung <a href="korrelationskoeffizient-𝑟.html#fig:corrs">7.2</a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:corrs"></span>
+<img src="Skript_Statistik_2021_files/figure-html/corrs-1.svg" alt="Verschiedene Korrelationskoeffizienten" width="30%" /><img src="Skript_Statistik_2021_files/figure-html/corrs-2.svg" alt="Verschiedene Korrelationskoeffizienten" width="30%" /><img src="Skript_Statistik_2021_files/figure-html/corrs-3.svg" alt="Verschiedene Korrelationskoeffizienten" width="30%" /><img src="Skript_Statistik_2021_files/figure-html/corrs-4.svg" alt="Verschiedene Korrelationskoeffizienten" width="30%" /><img src="Skript_Statistik_2021_files/figure-html/corrs-5.svg" alt="Verschiedene Korrelationskoeffizienten" width="30%" /><img src="Skript_Statistik_2021_files/figure-html/corrs-6.svg" alt="Verschiedene Korrelationskoeffizienten" width="30%" /><img src="Skript_Statistik_2021_files/figure-html/corrs-7.svg" alt="Verschiedene Korrelationskoeffizienten" width="30%" /><img src="Skript_Statistik_2021_files/figure-html/corrs-8.svg" alt="Verschiedene Korrelationskoeffizienten" width="30%" /><img src="Skript_Statistik_2021_files/figure-html/corrs-9.svg" alt="Verschiedene Korrelationskoeffizienten" width="30%" />
+<p class="caption">
+Abbildung 7.2: Verschiedene Korrelationskoeffizienten
+</p>
+</div>
+<div class="rtip">
+Softwarehinweis
+</div>
+<div class="rtip_content">
+In R kann der Korrelationskoeffizient von zwei Merkmalen mit dem Befehl <code>cor()</code> bestimmt werden.
+</div>
+<div id="beispiel-25" class="section level3" number="7.3.1">
+<h3><span class="header-section-number">7.3.1</span> Beispiel</h3>
+<p>In der Formel für den Korrelationskoeffizienten <span class="math inline">\(r\)</span> <a href="korrelationskoeffizient-𝑟.html#eq:cor">(7.2)</a> werden die Standardabweichungen <span class="math inline">\(s_x\)</span> und <span class="math inline">\(s_y\)</span> benötigt. Es ist daher sinnvoll, die Hilfstabelle um die Quadrate der Differenzen (und deren Summen) zu erweitern (s. Tabelle <a href="korrelationskoeffizient-𝑟.html#tab:mathcor">7.3</a>).</p>
+<div style="overflow-y: auto;">
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:mathcor">Tabelle 7.3: </span>Hilfstabelle für die Berechnung des Korrelationskoeffizienten
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+<span class="math inline">\(i\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(x_i\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(y_i\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\((x_i-\bar{x})\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\((y_i-\bar{y})\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\((x_i-\bar{x})^2\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\((y_i-\bar{y})^2\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1449
+</td>
+<td style="text-align:right;">
+1860
+</td>
+<td style="text-align:right;">
+-172,7
+</td>
+<td style="text-align:right;">
+-389,5
+</td>
+<td style="text-align:right;">
+29825,29
+</td>
+<td style="text-align:right;">
+151710,25
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1472
+</td>
+<td style="text-align:right;">
+2118
+</td>
+<td style="text-align:right;">
+-149,7
+</td>
+<td style="text-align:right;">
+-131,5
+</td>
+<td style="text-align:right;">
+22410,09
+</td>
+<td style="text-align:right;">
+17292,25
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1607
+</td>
+<td style="text-align:right;">
+2225
+</td>
+<td style="text-align:right;">
+-14,7
+</td>
+<td style="text-align:right;">
+-24,5
+</td>
+<td style="text-align:right;">
+216,09
+</td>
+<td style="text-align:right;">
+600,25
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1494
+</td>
+<td style="text-align:right;">
+2172
+</td>
+<td style="text-align:right;">
+-127,7
+</td>
+<td style="text-align:right;">
+-77,5
+</td>
+<td style="text-align:right;">
+16307,29
+</td>
+<td style="text-align:right;">
+6006,25
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+1390
+</td>
+<td style="text-align:right;">
+1816
+</td>
+<td style="text-align:right;">
+-231,7
+</td>
+<td style="text-align:right;">
+-433,5
+</td>
+<td style="text-align:right;">
+53684,89
+</td>
+<td style="text-align:right;">
+187922,25
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+1764
+</td>
+<td style="text-align:right;">
+2430
+</td>
+<td style="text-align:right;">
+142,3
+</td>
+<td style="text-align:right;">
+180,5
+</td>
+<td style="text-align:right;">
+20249,29
+</td>
+<td style="text-align:right;">
+32580,25
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+1767
+</td>
+<td style="text-align:right;">
+2580
+</td>
+<td style="text-align:right;">
+145,3
+</td>
+<td style="text-align:right;">
+330,5
+</td>
+<td style="text-align:right;">
+21112,09
+</td>
+<td style="text-align:right;">
+109230,25
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+1765
+</td>
+<td style="text-align:right;">
+2563
+</td>
+<td style="text-align:right;">
+143,3
+</td>
+<td style="text-align:right;">
+313,5
+</td>
+<td style="text-align:right;">
+20534,89
+</td>
+<td style="text-align:right;">
+98282,25
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+1671
+</td>
+<td style="text-align:right;">
+2276
+</td>
+<td style="text-align:right;">
+49,3
+</td>
+<td style="text-align:right;">
+26,5
+</td>
+<td style="text-align:right;">
+2430,49
+</td>
+<td style="text-align:right;">
+702,25
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-bottom: 1px solid; ">
+10
+</td>
+<td style="text-align:right;border-bottom: 1px solid; ">
+1838
+</td>
+<td style="text-align:right;border-bottom: 1px solid; ">
+2455
+</td>
+<td style="text-align:right;border-bottom: 1px solid; ">
+216,3
+</td>
+<td style="text-align:right;border-bottom: 1px solid; ">
+205,5
+</td>
+<td style="text-align:right;border-bottom: 1px solid; ">
+46785,69
+</td>
+<td style="text-align:right;border-bottom: 1px solid; ">
+42230,25
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;">
+Summe:
+</td>
+<td style="text-align:right;font-weight: bold;">
+16217
+</td>
+<td style="text-align:right;font-weight: bold;">
+22495
+</td>
+<td style="text-align:right;font-weight: bold;">
+</td>
+<td style="text-align:right;font-weight: bold;">
+</td>
+<td style="text-align:right;font-weight: bold;">
+233556,1
+</td>
+<td style="text-align:right;font-weight: bold;">
+646556,5
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Die Standardabweichungen ergeben sich nun wie gewohnt aus:</p>
+<p><span class="math display">\[\begin{aligned}
+s_{x}&amp;=\sqrt{\frac{\sum\limits^n_{i=1}(x_i-\bar{x})^2}{n-1}}\\[5pt]
+     &amp;=\sqrt{\frac{233556,1}{9}}=\sqrt{25950,68}\approx161,09\\[6pt]
+s_{y}&amp;=\sqrt{\frac{\sum\limits^n_{i=1}(y_i-\bar{y})^2}{n-1}}\\[5pt]
+     &amp;=\sqrt{\frac{646556,5}{9}}=\sqrt{71839,61} \approx268,03
+\end{aligned}\]</span></p>
+<p>Nun lassen sich die errechneten Werte in Gleichung <a href="korrelationskoeffizient-𝑟.html#eq:cor">(7.2)</a> einsetzen:</p>
+<p><span class="math display">\[\begin{aligned}
+r&amp;=\frac{s_{xy}}{s_x\cdot s_y}\\[4pt]
+&amp;\approx\frac{40226,5}{161,09\cdot268,03}\approx0,93
+\end{aligned}\]</span></p>
+<p>Wir können bei einem Korrelationskoeffizienten <span class="math inline">\(r\approx0,93\)</span> von einem deutlichen positiven Zusammenhang zwischen Niederschlag und Ertrag ausgehen.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="kovarianz-𝑠𝑥𝑦.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tipps-zur-vertiefung-6.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
+<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Skript_Statistik_2021.pdf"],
+"toc": {
+"collapse": "section"
+},
+"toolbar": {
+"position": "fixed",
+"download": "pdf",
+"search": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

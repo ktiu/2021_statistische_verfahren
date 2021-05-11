@@ -36,7 +36,7 @@ Es sei bekannt, dass die Lieferzeit eines Bauteils aus Übersee annähernd norma
 
 Bei sieben Bestellvorgängen werden folgende Lieferzeiten festgestellt (in Tagen):
 
-$$116,5\quad 94,5\quad101,5\quad109,0\quad125,0\quad112,5\quad100,5$$
+$$116{,}5\quad 94{,}5\quad101{,}5\quad109{,}0\quad125{,}0\quad112{,}5\quad100{,}5$$
 
 Sie interessieren sich für die tatsächliche durchschnittliche Lieferzeit, von der Sie auch in Zukunft ausgehen können.
 

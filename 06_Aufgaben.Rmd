@@ -17,7 +17,7 @@ a) $F_{100;100;5\%}$
 a) $F_{1;20;95\%}$
 a) $F_{20;50;95\%}$
 
-`r naechste("aufgabe", T) #2`
+`r naechste("aufgabe") #2`
 
 Sie wissen, dass in städtischen Freibädern die Wassertemperatur an verschiedenen Tagen normalverteilt ist. Sie vermuten, dass die  Temperatur in zwei Bädern unterschiedlich stark variiert. Sie planen zwei unabhängige Erhebungen an zufälligen Tagen während der Badesaison. Aus organisatorischen Gründen beträgt die Stichprobengröße in „Schwimmbad 1“ $n_1=5$ und in „Schwimmbad 2“ $n_2=7$.
 
@@ -26,7 +26,7 @@ a) Formulieren Sie die Hypothesen.
 c) Sie wählen das Signifikanzniveau $\alpha=0{,}1$. Was bedeutet diese Zahl?
 b) Bestimmen Sie den Ablehnungsbereich.
 
-`r naechste("aufgabe", T) #3`
+`r naechste("aufgabe") #3`
 
 *(Fortführung von Aufgabe 2)*
 
@@ -41,7 +41,7 @@ a) Berechnen Sie die Prüfgröße.
 b) Welche Schlüsse ziehen Sie aus der Untersuchung?
 
 
-`r naechste("aufgabe", T) #4`
+`r naechste("aufgabe") #4`
 
 Sie interessieren sich für das Kommunikationsverhalten von Jugendlichen über WhatsApp. Sie vermuten, dass Nutzer\*innen, die die [„Gelesen-Benachrichtigung“](https://faq.whatsapp.com/en/android/28000015/?lang=de) deaktiviert haben, im Durchschnitt langsamer antworten als diejenigen, die die Benachrichtigung aktiviert lassen.
 
@@ -51,7 +51,7 @@ a) Welchen Test wollen Sie durchführen? Prüfen Sie die Voraussetzungen. Was k�
 a) Formulieren Sie die Hypothesen.
 b) Bestimmen Sie den Ablehnungsbereich bei Signifikanzniveau $\alpha=0{,}05$.
 
-`r naechste("aufgabe", T) #5`
+`r naechste("aufgabe") #5`
 
 Sie ermitteln die folgenden durchschnittlichen Antwortzeiten der individuellen Nutzer\*innen (in Minuten):
 \[\begin{aligned}
@@ -62,7 +62,7 @@ Sie ermitteln die folgenden durchschnittlichen Antwortzeiten der individuellen N
 a) Berechnen Sie die Prüfgröße.
 b) Welche Schlüsse ziehen Sie aus der Untersuchung?
 
-`r naechste("aufgabe", T) #6`
+`r naechste("aufgabe") #6`
 
 In zwei Naturschutzgebieten werden zu zufälligen Zeitpunkten die Storchenpopulationen gezählt:
 
@@ -73,7 +73,7 @@ In zwei Naturschutzgebieten werden zu zufälligen Zeitpunkten die Storchenpopula
 
 Sie berechnen Mittelwerte, die sich sehr ähneln: 18,0 für Esselrode und 18,5 für Albwald. Sie haben jedoch die Vermutung, dass die Varianzen signifikant voneinander abweichen. Prüfen Sie die Vermutung mit $\alpha=0{,}1$. (Es sei bekannt, dass die Populationen annähernd normalverteilt sind.)
 
-`r naechste("aufgabe", T) #7`
+`r naechste("aufgabe") #7`
 
 Ein Musikstreaming-Portal zeichnet die Anzahl der Aufrufe einzelner Tracks nach Aufenthaltsort auf. Sie sind  beauftragt nachvollziehen, ob sich die täglichen Aufrufzahlen eines angehenden Sommerhits in Hessen und in Niedersachsen -- zwei Länder mit vergleichbaren Abonnent\*innenzahlen -- signifikant voneinander unterscheiden.
 

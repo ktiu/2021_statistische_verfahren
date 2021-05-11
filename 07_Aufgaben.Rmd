@@ -1,0 +1,118 @@
+## Übungsaufgaben {-}
+
+`r naechste("aufgabe", T)`
+
+Zeichnen Sie ein Streudiagramm und berechnen Sie die Kovarianz sowie den Korrelationskoeffizenten für die folgenden Messreihen.
+
+a) Messreihe:
+
+```{r}
+tribble(
+~xa,    ~ya,
+14.21,  134,
+10.32,  131,
+13.82,  134,
+15.79,  135,
+14.70,  134,
+17.23,  137,
+14.84,  136,
+14.96,  135
+) -> ex_7_1_a
+
+tabelle(ex_7_1_a, col.names = c("$x_i$", "$y_i$"), escape = F, full_width = F)
+```
+
+b) Messreihe:
+
+```{r}
+tribble(
+  ~x,    ~y,
+  -1.17, 14.4,
+  -0.1,  2.31,
+  -0.15, 2.95,
+  0.46,  -1.39,
+  0.34,  -2.96,
+  -0.44, 2.44,
+  2.13,  -20.47,
+  0.66,  -10.51,
+  -1.37, 11.81,
+  0.56,  -4.05
+) -> ex_7_1_b
+
+tabelle(ex_7_1_b, col.names = c("$x_i$", "$y_i$"), escape = F, full_width = F)
+```
+
+`r naechste("aufgabe", F) #2`
+
+Sie erheben für zufällige [Wasserhäuschen](https://frankfurt.de/frankfurt-entdecken-und-erleben/stadtportrait/typisch-frankfurt/wasserhaeuschen) in Frankfurt die Entfernung zur nächsten Haltestelle der S- oder U-Bahn sowie den durchschnittlichen Tagesumsatz. Die Erhebung ergibt:
+
+```{r}
+tribble(
+  ~dist, ~rev,
+  35,    394.61,
+  79,    468.92,
+  234,   385.75,
+  105,   376.17,
+  318,   283.26,
+  31,    342.77
+) -> ex_7_2
+
+tabelle(ex_7_2, col.names = c("Entfernung (m)", "Umsatz (€/Tag)"), escape = F,
+        full_width = F)
+```
+
+Gibt es einen Zusammenhang zwischen Entfernung und Umsatz?
+Wenn ja: Wie hängen die Variablen zusammen? Wie stark ist der Zusammenhang?
+
+
+`r naechste("aufgabe", F) #3`
+
+Für eine Umnutzung zu Kulturzentren sollen zwei Gebäude kernsaniert werden. Um die Kosten schätzen zu können, werden die Nutzflächen und Kosten von fünf ähnlichen Sanierungsprojekten herangezogen. Sie berechnen zunächst die Mittelwerte und Varianzen der erfassten Merkmale.
+
+```{r}
+set.seed(8848)
+tibble(
+  projekt = c(1:6),
+  qm = runif(6, 200, 700) %>% round(),
+  eur = round(160 + 0.3 * qm + rnorm(6, -50, 50))
+) -> ex_7_3
+
+tabelle(ex_7_3, full_width = F,
+        col.names = c("Projekt", "Nutzfläche (m²)", "Kosten (Tsd. €)"))
+```
+
+Wie deutlich fällt der Zusammenhang zwischen Fläche und Kosten aus?
+
+`r naechste("aufgabe", F) #4`
+
+
+Eine Stadtverwaltung möchte die Mietpreisentwicklung für Gewerbeimmobilien in der innerstädtischen Einkaufspassage abschätzen. Sie folgt dabei der These: Entscheidend für die Höhe der monatlichen Mietpreise (in Euro pro Quadratmeter) sei die Entfernung zur nächstgelegenen Haltestelle des ÖPNV: Je näher an der Haltestation gelegen, desto höher der Mietpreis.
+
+Für Aussagen über den angenommenen Zusammenhang stehen die Daten von sechs zufällig ausgewählten Gewerbeimmobilien in der Einkaufspassage zur Verfügung.
+
+```{r}
+tribble(
+ ~i, ~m,   ~eur,
+  1, 1141, 30,
+  2, 850,  49,
+  3, 862,  40,
+  4, 1000, 39,
+  5, 783,  51,
+  6, 890,  42
+) -> ex_7_4
+
+tabelle(ex_7_4, col.names = c("Immobilie", "Entfernung (m)", "Quadratmeterpreis (€)"))
+```
+
+Die (gerundeten) arithmetischen Mittel betragen $\bar{x} = 921{,}00$ Meter und $\bar{y} \approx 41{,}83$ Euro, und die (gerundeten) Standardabweichungen liegen bei $s_x = 128{,}97$ Meter und $s_y = 7{,}57$ Euro.
+
+Wie groß ist der Zusammenhang zwischen der Entfernung zur nächstgelegenen Haltestelle und dem gemessenen Mietpreis pro Quadratmeter? Berechnen Sie den angemessenen Korrelationskoeffizienten und interpretieren Sie das Ergebnis.
+
+`r naechste("aufgabe", F) #5`
+
+*(weiterführend, nicht klausurrelevant)*
+
+a) Zeigen Sie, dass der Korrelationskoeffizent $r$ ein standardisierter Wert ist, indem Sie ihn in $z$-Werten ausdrücken.
+b) Überprüfen Sie die Formel anhand Aufgabe 1 a).
+b) Angenommen, Sie wollen $r$ angeben, ohne die Koviarianz berechnet zu haben. Wie lassen sich die Rechenschritte dann vereinfachen?
+c) Überprüfen Sie den Rechenweg anhand Aufgabe 2.
