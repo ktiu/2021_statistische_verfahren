@@ -42,7 +42,7 @@ c)
 
     $\alpha \approx 0{,}704$
 
-Das Konfidenzniveau beträgt ca. 70,4%.
+    Das Konfidenzniveau beträgt ca. 70,4%.
 
 d)
 
