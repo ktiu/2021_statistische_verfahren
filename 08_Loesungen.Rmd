@@ -100,7 +100,7 @@ a) Welche Gleichung beschreibt ein geeignetes lineares Regressionsmodell?
       "Achsenabschnitt: Einsetzen",     a$einsetzen,
       "Achsenabschnitt: Ergebnis",      a$ergebnis,
       "Regressionsgleichung: Ergebnis", reg$ergebnis,
-    ) %>% tabelle(escape = T)
+    ) %>% tabelle(escape = F)
     ```
 
 b) Wenn die Nutzfläche für Objekt A 318 m² und für Objekt B 380 m² beträgt, wie hoch können dann jeweils die Kosten für die Sanierung geschätzt werden?

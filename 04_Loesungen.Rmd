@@ -2,15 +2,15 @@
 
 `r naechste("lösung", T)`
 
-#### a)
+a)
 
-$\mu = \bar{x} = 162$
+    $\mu = \bar{x} = 162$
 
-$\sigma = s \approx 13{,}30$
+    $\sigma = s \approx 13{,}30$
 
-#### b)
+b)
 
-$\sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}}\approx\frac{13{,}30}{\sqrt{6}} \approx 5,42$
+    $\sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}}\approx\frac{13{,}30}{\sqrt{6}} \approx 5,43$
 
 `r naechste("lösung")`
 

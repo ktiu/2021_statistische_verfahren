@@ -7,7 +7,13 @@ Sie können...
 - einen $\chi^2$-Unabhängigkeitstest durchführen.
 - einen $\chi^2$-Anpassungstest durchführen.
 
-### Anwendungsbereich {-}
+### Lernvideos (Sommersemester 2020) {-}
+
+- [10a) $\chi^2$-Unabhängigkeitstest](https://video01.uni-frankfurt.de/Mediasite/Play/201d31a1bd8448a8a22dd61396f3126c1d)
+- [10a) $\chi^2$-Anpassungstest](https://video01.uni-frankfurt.de/Mediasite/Play/587c77b97ba84bb696efec95b25591d61d)
+  - Der Hinweis am Ende auf die Vorbereitungssitzung ist natürlich nicht mehr aktuell. Wir treffen uns am 29. Juni und am 6. Juli 2021 zur Klausurvorbereitung.
+
+## Anwendungsbereich {-}
 
 In [Sitzung 9](#bivariate-verteilungen-mit-nominalen-variablen) haben wir gelernt, wie für bivariate Verteilungen Korrelationen beschrieben werden können, wenn beide Variablen nominalskaliert sind. Grundlage dafür waren die Häufigkeiten von Wertekombinationen in der Kreuztabelle.
 
@@ -37,7 +43,7 @@ Unser Beispieldatensatz beschäftigt sich mit Kriegsdienstverweigerern. Zwischen
 
 Zusätzlich zur Frage der Kriegsdienstverweigerung sei in einer Zufallsstichprobe von als tauglich gemusterten erhoben, ob der Wohnort eine Gemeinde mit über oder unter 20 000 Einwohner\*innen ("Stadt" oder "Land") ist.^[Hier wird also eine verhältnisskalierte Variable (Bevölkerungszahl der Gemeinde) in eine nominalskalierte Variable transformiert. In Fällen wie diesen, wo die Variable nach der Transformation nur zwei Werte annehmen kann, sprechen wir auch von der "Dichotomisierung" einer Variable.] Die Ergebnisse sind in Tabelle \@ref(tab:zivi1) zusammengefasst.
 
-Wir interessieren uns für den statistischen Zusammenhang dieser beiden Variablen, und zwar möchten wir die Hypothese prüfen, dass Menschen aus der Stadt eher den Kriegsdienst verweigerten als Menschen vom Land. Der Test wird entlang der bekannten sechs Schritte ausgeführt.
+Wir interessieren uns für den statistischen Zusammenhang dieser beiden Variablen, und zwar möchten wir die Hypothese prüfen, dass Menschen aus der Stadt eher den Kriegsdienst verweigerten als Menschen vom Land. Der Test wird entlang der [bekannten sechs Schritte](#statistische-tests) ausgeführt.
 
 ### Test wählen und Voraussetzungen prüfen
 
@@ -170,25 +176,26 @@ Beim $\chi^2$-Anpassungstest geht es um die Häufigkeiten *eines* nominalskalier
 
 Ein Beispiel: Für größere Verspätungen ($\geq$ 10 Minuten) beim ÖPNV einer Großstadt wird festgehalten, an welchen Wochentagen sie auftreten. Wir ignorieren Wochenenden und Feiertage und fragen uns, ob sich die Verzögerungen gleichmäßig auf Werktage verteilen, oder ob es signifikante Abweichungen in Bezug auf den Wochentag gibt. Die Werte in Tabelle \@ref(tab:late) seien über drei Monate hinweg erhoben worden.
 
-```{r late}
-tribble(
-~Wochentag, ~Häufigkeit,
-"Montag",     459,
-"Dienstag",   409,
-"Mittwoch",   414,
-"Donnerstag", 387,
-"Freitag",    437
-) %>% tabelle(caption = "Häufigkeiten größerer Verspätungen im ÖPNV",
-              full_width = F)
+```{r late, eval = T}
+tibble("Wochentag" = c(rep("Montag",     459),
+                       rep("Dienstag",   409),
+                       rep("Mittwoch",   414),
+                       rep("Donnerstag", 387),
+                       rep("Freitag",    437))) %>%
+  get_crosstable(row_order = c("Montag", "Dienstag", "Mittwoch",
+                               "Donnerstag", "Freitag")) -> verspaetungen
+
+print_crosstable(verspaetungen, question = T,
+                 caption = "Beispielwerte für Verspätungen nach Wochentagen")
 ```
 
-Wir befolgen wieder die sechs Schritte für statistische Testverfahren.
+Wir befolgen wieder die [sechs Schritte für statistische Testverfahren](#statistische-tests).
 
 ### Test wählen und Voraussetzungen prüfen
 
 Für den $\chi^2$-Anpassungstest müssen folgende Voraussetzungen erfüllt sein:
 
-- Ziel ist die Überprüfung einer nominalskalierten Variable auf eine statistisch signifikante Abweichung von einer vorgegebenen Verteilung.
+- Ziel ist die Überprüfung *einer* nominalskalierten Variable auf eine statistisch signifikante Abweichung von einer vorgegebenen Verteilung.
 - Grundlage sind beobachtete Häufigkeiten aus einer einfachen, unabhängigen Zufallsstichprobe.
 - Alle Tabellenfelder enthalten beobachtete Häufigkeiten $(n_{i}\geq 5)$.
 
@@ -201,7 +208,7 @@ H_0 &: \textrm{Starke Verspätungen sind an allen Werktagen gleich wahrscheinlic
 H_1 &: \textrm{Starke Verspätungen sind an manchen Werktagen wahrscheinlicher als an anderen.}
 \end{aligned}\]
 
-Gerichtete Hypothesen dürften hier wieder nur bei dichotomen Variablen formuliert werden (also bei zwei Tabellenfeldern).
+Gerichtete Hypothesen dürften hier wieder nur bei dichotomen Variablen formuliert werden (also bei genau zwei Tabellenfeldern) -- denn sonst können wir die Richtung der Vermutung nicht genau genug formulieren.
 
 ### Signifikanzniveau entscheiden
 
@@ -247,18 +254,9 @@ Im Beispiel ergibt sich in den fünf Kategorien jeweils ein Erwartungswert von
 
 $$\frac{n}{k}=\frac{2106}{5}=421{,}2$$
 
-```{r xtlate, eval = F}
-options(knitr.kable.NA = '')
-read.table(sep="|", header=T, text = "
-       |          |          |            |         |
-459    | 409      | 414      | 387        | 437     | 2106
-(421,2)| (421,2)  | (421,2)  | (421,2)    | (421,2) | 
-3,392  | 0,353    | 0,123    |  2,777     | 0,593   | 
-") %>%
-  kable("html", escape=F, longtable=F, col.names=c("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", " "), caption = "Tabelle für den $\\chi^2$-Anpassungstest") %>%
-  column_spec(5, border_right = T) %>%
-  row_spec(3, color = goethe_blue) %>%
-  scroll_box(box_css = "overflow-y: auto;")
+```{r xtlate}
+print_crosstable(verspaetungen,
+                 caption = "Tabelle für den $\\chi^2$-Anpassungstest")
 ```
 
 Dann nehmen wir wieder eine Tabelle zu Hilfe um die Prüfgröße $\chi^2$ zu berechnen (s. Tabelle \@ref(tab:xtlate)). Wie gehabt werden einfach die Teilwerte zusammengezählt:
@@ -266,7 +264,7 @@ Dann nehmen wir wieder eine Tabelle zu Hilfe um die Prüfgröße $\chi^2$ zu ber
 $$
 \begin{aligned}
 \chi^2 &= \sum_{i=1}^{k}\frac{(n_{i}-m_{i})^{2}}{m_{i}}\\[4pt]
-&=3{,}392 +  0{,}353 +  0{,}123 +  2{,}777 + 0{,}593\\
+&\approx 0{,}353 +  2{,}777 + 0{,}593 + 0{,}123 +  3{,}392 \\
 &=7{,}238
 \end{aligned}
 $$

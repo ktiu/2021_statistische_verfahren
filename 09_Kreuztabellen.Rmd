@@ -10,8 +10,8 @@ Sie können...
 
 ### Lehrvideos (Sommersemester 2020) {-}
 
-- [9a) ]()
-- [9b) ]()
+- [9a) Kreuztabellen](https://video01.uni-frankfurt.de/Mediasite/Play/24a54089cd474c5f936a2dfeecfc43281d)
+- [9b) Kontingenzkoeffizenten](https://video01.uni-frankfurt.de/Mediasite/Play/007a5399d62a4e27a09e1e31e9b04e461d)
 
 ## Bivariate Verteilungen mit nominalen Variablen
 

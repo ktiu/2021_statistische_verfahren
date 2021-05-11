@@ -403,7 +403,8 @@
 <li class="chapter" data-level="10" data-path="𝜒-tests.html"><a href="𝜒-tests.html"><i class="fa fa-check"></i><b>10</b> 𝜒²-Tests</a>
 <ul>
 <li class="chapter" data-level="" data-path="𝜒-tests.html"><a href="𝜒-tests.html#lernziele-dieser-sitzung-9"><i class="fa fa-check"></i>Lernziele dieser Sitzung</a></li>
-<li class="chapter" data-level="" data-path="𝜒-tests.html"><a href="𝜒-tests.html#anwendungsbereich"><i class="fa fa-check"></i>Anwendungsbereich</a></li>
+<li class="chapter" data-level="" data-path="𝜒-tests.html"><a href="𝜒-tests.html#lernvideos-sommersemester-2020-1"><i class="fa fa-check"></i>Lernvideos (Sommersemester 2020)</a></li>
+<li class="chapter" data-level="" data-path="anwendungsbereich.html"><a href="anwendungsbereich.html"><i class="fa fa-check"></i>Anwendungsbereich</a></li>
 <li class="chapter" data-level="10.1" data-path="𝜒-unabhängigkeitstest.html"><a href="𝜒-unabhängigkeitstest.html"><i class="fa fa-check"></i><b>10.1</b> 𝜒²-Unabhängigkeitstest</a>
 <ul>
 <li class="chapter" data-level="10.1.1" data-path="𝜒-unabhängigkeitstest.html"><a href="𝜒-unabhängigkeitstest.html#test-wählen-und-voraussetzungen-prüfen-4"><i class="fa fa-check"></i><b>10.1.1</b> Test wählen und Voraussetzungen prüfen</a></li>
@@ -530,70 +531,56 @@
 <p>Beim <span class="math inline">\(\chi^2\)</span>-Anpassungstest geht es um die Häufigkeiten <em>eines</em> nominalskalierten Merkmals – er ist deshalb der univariaten Teststatistik zuzuordnen. Der Test überprüft, ob das Merkmal entlang einer vorgegebenen Verteilung (im Normalfall gleichmäßig) verteilt ist, oder ob es signifikante Abweichungen von dieser erwarteten Verteilung gibt.</p>
 <p>Ein Beispiel: Für größere Verspätungen (<span class="math inline">\(\geq\)</span> 10 Minuten) beim ÖPNV einer Großstadt wird festgehalten, an welchen Wochentagen sie auftreten. Wir ignorieren Wochenenden und Feiertage und fragen uns, ob sich die Verzögerungen gleichmäßig auf Werktage verteilen, oder ob es signifikante Abweichungen in Bezug auf den Wochentag gibt. Die Werte in Tabelle <a href="𝜒-anpassungstest.html#tab:late">10.3</a> seien über drei Monate hinweg erhoben worden.</p>
 <div style="overflow-y: auto;">
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:late">Tabelle 10.3: </span>Häufigkeiten größerer Verspätungen im ÖPNV
+<span id="tab:late">Tabelle 10.3: </span>Beispielwerte für Verspätungen nach Wochentagen
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;border-bottom: 1px solid; ">
-Wochentag
+<th style="text-align:right;border-bottom: 1px solid; ">
+Montag
 </th>
 <th style="text-align:right;border-bottom: 1px solid; ">
-Häufigkeit
+Dienstag
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+Mittwoch
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+Donnerstag
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+Freitag
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
-Montag
+<td style="text-align:right;">
+409
+</td>
+<td style="text-align:right;">
+387
+</td>
+<td style="text-align:right;">
+437
+</td>
+<td style="text-align:right;">
+414
 </td>
 <td style="text-align:right;">
 459
 </td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Dienstag
-</td>
-<td style="text-align:right;">
-409
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Mittwoch
-</td>
-<td style="text-align:right;">
-414
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Donnerstag
-</td>
-<td style="text-align:right;">
-387
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Freitag
-</td>
-<td style="text-align:right;">
-437
-</td>
-</tr>
 </tbody>
 </table>
 </div>
-<p>Wir befolgen wieder die sechs Schritte für statistische Testverfahren.</p>
+<p>Wir befolgen wieder die <a href="statistische-tests.html#statistische-tests">sechs Schritte für statistische Testverfahren</a>.</p>
 <div id="test-wählen-und-voraussetzungen-prüfen-5" class="section level3" number="10.2.1">
 <h3><span class="header-section-number">10.2.1</span> Test wählen und Voraussetzungen prüfen</h3>
 <p>Für den <span class="math inline">\(\chi^2\)</span>-Anpassungstest müssen folgende Voraussetzungen erfüllt sein:</p>
 <ul>
-<li>Ziel ist die Überprüfung einer nominalskalierten Variable auf eine statistisch signifikante Abweichung von einer vorgegebenen Verteilung.</li>
+<li>Ziel ist die Überprüfung <em>einer</em> nominalskalierten Variable auf eine statistisch signifikante Abweichung von einer vorgegebenen Verteilung.</li>
 <li>Grundlage sind beobachtete Häufigkeiten aus einer einfachen, unabhängigen Zufallsstichprobe.</li>
 <li>Alle Tabellenfelder enthalten beobachtete Häufigkeiten <span class="math inline">\((n_{i}\geq 5)\)</span>.</li>
 </ul>
@@ -605,7 +592,7 @@ Freitag
 H_0 &amp;: \textrm{Starke Verspätungen sind an allen Werktagen gleich wahrscheinlich.}\\
 H_1 &amp;: \textrm{Starke Verspätungen sind an manchen Werktagen wahrscheinlicher als an anderen.}
 \end{aligned}\]</span></p>
-<p>Gerichtete Hypothesen dürften hier wieder nur bei dichotomen Variablen formuliert werden (also bei zwei Tabellenfeldern).</p>
+<p>Gerichtete Hypothesen dürften hier wieder nur bei dichotomen Variablen formuliert werden (also bei genau zwei Tabellenfeldern) – denn sonst können wir die Richtung der Vermutung nicht genau genug formulieren.</p>
 </div>
 <div id="signifikanzniveau-entscheiden-5" class="section level3" number="10.2.3">
 <h3><span class="header-section-number">10.2.3</span> Signifikanzniveau entscheiden</h3>
@@ -641,11 +628,61 @@ H_1 &amp;: \textrm{Starke Verspätungen sind an manchen Werktagen wahrscheinlich
 <p>Die Prüfgröße <span class="math inline">\(\chi^2\)</span> berechnet sich analog zu vorherigen Beispielen. Einzige Besonderheit: Die Erwartungswerte werden direkt anhand der zu erwartenden (im unserem Fall: gleichmäßigen) Verteilung bestimmt.</p>
 <p>Im Beispiel ergibt sich in den fünf Kategorien jeweils ein Erwartungswert von</p>
 <p><span class="math display">\[\frac{n}{k}=\frac{2106}{5}=421{,}2\]</span></p>
-<p>Dann nehmen wir wieder eine Tabelle zu Hilfe um die Prüfgröße <span class="math inline">\(\chi^2\)</span> zu berechnen (s. Tabelle <a href="#tab:xtlate"><strong>??</strong></a>). Wie gehabt werden einfach die Teilwerte zusammengezählt:</p>
+<div style="overflow-y: auto;">
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:xtlate">Tabelle 10.4: </span>Tabelle für den <span class="math inline">\(\chi^2\)</span>-Anpassungstest
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;border-bottom: 1px solid; ">
+Montag
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+Dienstag
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+Mittwoch
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+Donnerstag
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+Freitag
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+409<br>(421,2)<br><span class="blue-text">0,353</span>
+</td>
+<td style="text-align:right;">
+387<br>(421,2)<br><span class="blue-text">2,777</span>
+</td>
+<td style="text-align:right;">
+437<br>(421,2)<br><span class="blue-text">0,593</span>
+</td>
+<td style="text-align:right;">
+414<br>(421,2)<br><span class="blue-text">0,123</span>
+</td>
+<td style="text-align:right;border-right:1px solid;">
+459<br>(421,2)<br><span class="blue-text">3,392</span>
+</td>
+<td style="text-align:right;font-weight: bold;">
+2106
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Dann nehmen wir wieder eine Tabelle zu Hilfe um die Prüfgröße <span class="math inline">\(\chi^2\)</span> zu berechnen (s. Tabelle <a href="𝜒-anpassungstest.html#tab:xtlate">10.4</a>). Wie gehabt werden einfach die Teilwerte zusammengezählt:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \chi^2 &amp;= \sum_{i=1}^{k}\frac{(n_{i}-m_{i})^{2}}{m_{i}}\\[4pt]
-&amp;=3{,}392 +  0{,}353 +  0{,}123 +  2{,}777 + 0{,}593\\
+&amp;\approx 0{,}353 +  2{,}777 + 0{,}593 + 0{,}123 +  3{,}392 \\
 &amp;=7{,}238
 \end{aligned}
 \]</span></p>

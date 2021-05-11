@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8.4 Determinationskoeffizient 𝑅² | Statistische Verfahren in der Geographie</title>
+  <title>Anwendungsbereich | Statistische Verfahren in der Geographie</title>
   <meta name="description" content="Projektseminar" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8.4 Determinationskoeffizient 𝑅² | Statistische Verfahren in der Geographie" />
+  <meta property="og:title" content="Anwendungsbereich | Statistische Verfahren in der Geographie" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8.4 Determinationskoeffizient 𝑅² | Statistische Verfahren in der Geographie" />
+  <meta name="twitter:title" content="Anwendungsbereich | Statistische Verfahren in der Geographie" />
   
   <meta name="twitter:description" content="Projektseminar" />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="residuen.html"/>
-<link rel="next" href="tipps-zur-vertiefung-7.html"/>
+<link rel="prev" href="𝜒-tests.html"/>
+<link rel="next" href="𝜒-unabhängigkeitstest.html"/>
 <script src="assets/header-attrs-2.6/header-attrs.js"></script>
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -526,53 +526,20 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="determinationskoeffizient" class="section level2" number="8.4">
-<h2><span class="header-section-number">8.4</span> Determinationskoeffizient 𝑅²</h2>
-<p>Der Determinationskoeffizient <span class="math inline">\(R^2\)</span> (engl. <em>coefficient of determination</em>) ist formal definiert als das Verhältnis der Varianz der vorhergesagten <span class="math inline">\(\hat{y}\)</span>-Werte zur Varianz der tatsächlich beobachteten <span class="math inline">\(y\)</span>-Werte (wobei sich der Term <span class="math inline">\([n-1]\)</span> auskürzt):</p>
-<p><span class="math display" id="eq:rsqformal">\[
-R^2=\frac{\sum\limits^n_{i=1}(\hat{y}_i-\bar{y})^2}{\sum\limits^n_{i=1}(y_i-\bar{y})^2}
-\tag{8.5}
-\]</span></p>
-<p>Da Zähler und Nenner als Quadratsummen stets positiv sind und die Varianz der <span class="math inline">\(\hat{y}\)</span>-Werte immer <em>kleiner oder gleich</em> der Varianz der <span class="math inline">\(y\)</span>-Werte ist, nimmt der Determinationskoeffizient immer einen Wert zwischen 0 und 1 an.</p>
-<p>Je größer <span class="math inline">\(R^2\)</span>, desto besser erklärt das lineare Regressionsmodell die tatsächlich beobachteten Werte. <span class="math inline">\(R^2=1\)</span> bedeutet, dass das Modell die Werte perfekt erklärt.</p>
-<p>Für lineare Regressionsmodelle (also für die einzige Regression, die im Rahmen dieser Veranstaltung behandelt wird) lässt sich <span class="math inline">\(R^2\)</span> auch berechnen, indem wir den Korrelationskoeffizienten <span class="math inline">\(r\)</span> quadrieren:</p>
-<p><span class="math display" id="eq:rsq">\[
-R^2=r^2
-\tag{8.6}
-\]</span></p>
-<div class="rtip">
-Softwarehinweis
-</div>
-<div class="rtip_content">
-In R wird mit dem Befehl <code>summary()</code> unter anderem der Determinationskoeffizient eines linearen Regressionsmodells ausgegeben.
-</div>
-<div id="beispiel-28" class="section level3" number="8.4.1">
-<h3><span class="header-section-number">8.4.1</span> Beispiel</h3>
-<p>Mit den Methoden aus <a href="korrelationskoeffizient.html#korrelationskoeffizient">Sitzung 7</a> können wir den Korrelationskoeffizienten für unser Beispiel errechnen:</p>
-<p><span class="math display">\[
-\begin{aligned}
-r&amp;=\frac{s_{xy}}{s_x\cdot s_y}\\
-&amp;\approx\frac{1062{,}50}{96{,}65\cdot13,68}\\
-&amp;\approx0{,}804
-\end{aligned}
-\]</span></p>
-<p>Der Determinationskoeffizient ergibt sich dann mit Gleichung <a href="determinationskoeffizient.html#eq:rsq">(8.6)</a>:</p>
-<p><span class="math display">\[
-\begin{aligned}
-R^2&amp;=r^2\\
-&amp;\approx 0{,}804^2\\
-&amp;\approx 0{,}646
-\end{aligned}
-\]</span></p>
-</div>
+<div id="anwendungsbereich" class="section level2 unnumbered">
+<h2>Anwendungsbereich</h2>
+<p>In <a href="bivariate-verteilungen-mit-nominalen-variablen.html#bivariate-verteilungen-mit-nominalen-variablen">Sitzung 9</a> haben wir gelernt, wie für bivariate Verteilungen Korrelationen beschrieben werden können, wenn beide Variablen nominalskaliert sind. Grundlage dafür waren die Häufigkeiten von Wertekombinationen in der Kreuztabelle.</p>
+<p>Auch für <span class="math inline">\(\chi^2\)</span>-Tests sind beobachtete Häufigkeiten in einer Kreuztabelle unser Ausgangspunkt. Wir fragen jedoch nicht nach einem Kennwert für die Stärke der Korrelation, sondern wollen wissen, ob es einen statistisch signifikanten Zusammenhang zwischen den beiden Variablen gibt – also einen Zusammenhang, der höchstens mit einer Wahrscheinlichkeit <span class="math inline">\(\alpha\)</span> (Signifikanzniveau) zufällig zustande gekommen sein kann.</p>
+<p>Um den Unterschied zu verdeutlichen: Bei sehr großen Fallzahlen kann auch eine leichte Korrelation statistisch signifikant sein, bei kleinen Fallzahlen wird es es selbst für starke Korrelationen schwierig, eine statistische Signifikanz nachzuweisen.</p>
+<p>Mit dem <span class="math inline">\(\chi^2\)</span>-Unabhängigkeitstest und dem <span class="math inline">\(\chi^2\)</span>-Anpassungstest lernen wir im Folgenden zwei unterschiedliche Varianten des <span class="math inline">\(\chi^2\)</span>-Tests kennen. Beide sollen direkt an Beispielen ausgeführt werden.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="residuen.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="tipps-zur-vertiefung-7.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="𝜒-tests.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="𝜒-unabhängigkeitstest.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
