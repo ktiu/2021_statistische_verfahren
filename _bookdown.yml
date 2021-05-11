@@ -18,7 +18,7 @@ rmd_files:
   - 03_Aufgaben.Rmd
   - 04_Schaetzstatistik.Rmd
   - 04_Aufgaben.Rmd
-  # - 05_Grundlagen_der_Teststatistik.Rmd
+  - 05_Grundlagen_der_Teststatistik.Rmd
   # - 05_Aufgaben.Rmd
   # - 06_Testverfahren_mit_zwei_Stichproben.Rmd
   # - 06_Aufgaben.Rmd

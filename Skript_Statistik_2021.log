@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.4.21)  11 MAY 2021 15:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.4.21)  11 MAY 2021 16:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -975,7 +975,32 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'ngerman'.
-(./Skript_Statistik_2021.aux)
+(./Skript_Statistik_2021.aux
+
+LaTeX Warning: Label `eq:kritless' multiply defined.
+
+
+LaTeX Warning: Label `eq:h0' multiply defined.
+
+
+LaTeX Warning: Label `eq:h1u' multiply defined.
+
+
+LaTeX Warning: Label `eq:h1l' multiply defined.
+
+
+LaTeX Warning: Label `eq:h1g' multiply defined.
+
+
+LaTeX Warning: Label `eq:kritneq' multiply defined.
+
+
+LaTeX Warning: Label `eq:kritless' multiply defined.
+
+
+LaTeX Warning: Label `eq:kritless' multiply defined.
+
+)
 \openout1 = `Skript_Statistik_2021.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 244.
@@ -1239,7 +1264,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 788--789
 T T T T T T T T T T
  []
 
-<Skript_Statistik_2021_files/figure-latex/stab-1.pdf, id=284, 351.3125pt x 206.
+<Skript_Statistik_2021_files/figure-latex/stab-1.pdf, id=298, 351.3125pt x 206.
 7725pt>
 File: Skript_Statistik_2021_files/figure-latex/stab-1.pdf Graphic file (type pd
 f)
@@ -1253,7 +1278,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 857--858
  11,4 11,7 12,0 12,9
  []
 
-<Skript_Statistik_2021_files/figure-latex/hist-1.pdf, id=313, 351.3125pt x 207.
+<Skript_Statistik_2021_files/figure-latex/hist-1.pdf, id=327, 351.3125pt x 207.
 77625pt>
 File: Skript_Statistik_2021_files/figure-latex/hist-1.pdf Graphic file (type pd
 f)
@@ -1264,7 +1289,7 @@ sed on input line 914.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Skript_Statistik_2021_files/figure-latex/poly-1.pdf, id=315, 351.3125pt x 207.
+<Skript_Statistik_2021_files/figure-latex/poly-1.pdf, id=329, 351.3125pt x 207.
 77625pt>
 File: Skript_Statistik_2021_files/figure-latex/poly-1.pdf Graphic file (type pd
 f)
@@ -1276,7 +1301,7 @@ sed on input line 928.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [15]
-<img/shapes.png, id=329, 414.54875pt x 772.8875pt>
+<img/shapes.png, id=343, 414.54875pt x 772.8875pt>
 File: img/shapes.png Graphic file (type png)
 <use img/shapes.png>
 Package pdftex.def Info: img/shapes.png  used on input line 942.
@@ -1303,7 +1328,7 @@ Overfull \hbox (14.80573pt too wide) in paragraph at lines 1262--1275
 [21
 
 ] [22] [23] [24] [25] [26] [27]
-<Skript_Statistik_2021_files/figure-latex/box-1.pdf, id=575, 206.7725pt x 351.3
+<Skript_Statistik_2021_files/figure-latex/box-1.pdf, id=589, 206.7725pt x 351.3
 125pt>
 File: Skript_Statistik_2021_files/figure-latex/box-1.pdf Graphic file (type pdf
 )
@@ -1349,7 +1374,7 @@ LaTeX Font Info:    Font shape `TS1/SourceSansPro-TLF/m/n' aliased to
 (Font)              `TS1/SourceSansPro-TLF/regular/n' on input line 1959.
 LaTeX Font Info:    Font shape `TS1/SourceSansPro-TLF/regular/n' will be
 (Font)              scaled to size 7.0pt on input line 1959.
-<Skript_Statistik_2021_files/figure-latex/norms-1.pdf, id=729, 351.3125pt x 204
+<Skript_Statistik_2021_files/figure-latex/norms-1.pdf, id=744, 351.3125pt x 204
 .765pt>
 File: Skript_Statistik_2021_files/figure-latex/norms-1.pdf Graphic file (type p
 df)
@@ -1358,7 +1383,7 @@ Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/norms-1.pdf
 used on input line 2016.
 (pdftex.def)             Requested size: 273.14923pt x 159.21925pt.
 [34] [35]
-<Skript_Statistik_2021_files/figure-latex/stdnorm-1.pdf, id=751, 353.32pt x 204
+<Skript_Statistik_2021_files/figure-latex/stdnorm-1.pdf, id=765, 353.32pt x 204
 .765pt>
 File: Skript_Statistik_2021_files/figure-latex/stdnorm-1.pdf Graphic file (type
  pdf)
@@ -1370,7 +1395,7 @@ Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/stdnorm-1.pdf
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [36 <./Skript_Statistik_2021_files/figure-latex/norms-1.pdf>]
-<Skript_Statistik_2021_files/figure-latex/dens-1.pdf, id=771, 351.3125pt x 207.
+<Skript_Statistik_2021_files/figure-latex/dens-1.pdf, id=785, 351.3125pt x 207.
 77625pt>
 File: Skript_Statistik_2021_files/figure-latex/dens-1.pdf Graphic file (type pd
 f)
@@ -1379,7 +1404,7 @@ Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/dens-1.pdf  u
 sed on input line 2114.
 (pdftex.def)             Requested size: 273.14923pt x 161.56071pt.
 [37 <./Skript_Statistik_2021_files/figure-latex/stdnorm-1.pdf>]
-<Skript_Statistik_2021_files/figure-latex/unter-1.pdf, id=793, 351.3125pt x 207
+<Skript_Statistik_2021_files/figure-latex/unter-1.pdf, id=807, 351.3125pt x 207
 .77625pt>
 File: Skript_Statistik_2021_files/figure-latex/unter-1.pdf Graphic file (type p
 df)
@@ -1389,14 +1414,14 @@ used on input line 2145.
 (pdftex.def)             Requested size: 273.14923pt x 161.56071pt.
 [38 <./Skript_Statistik_2021_files/figure-latex/dens-1.pdf> <./Skript_Statistik
 _2021_files/figure-latex/unter-1.pdf>]
-<Skript_Statistik_2021_files/figure-latex/z-1.pdf, id=816, 353.32pt x 204.765pt
+<Skript_Statistik_2021_files/figure-latex/z-1.pdf, id=830, 353.32pt x 204.765pt
 >
 File: Skript_Statistik_2021_files/figure-latex/z-1.pdf Graphic file (type pdf)
 <use Skript_Statistik_2021_files/figure-latex/z-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/z-1.pdf  used
  on input line 2165.
 (pdftex.def)             Requested size: 273.14923pt x 158.30379pt.
-<Skript_Statistik_2021_files/figure-latex/ueber-1.pdf, id=820, 351.3125pt x 207
+<Skript_Statistik_2021_files/figure-latex/ueber-1.pdf, id=834, 351.3125pt x 207
 .77625pt>
 File: Skript_Statistik_2021_files/figure-latex/ueber-1.pdf Graphic file (type p
 df)
@@ -1409,7 +1434,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [39 <./Skript_Statistik_2021_files/figure-latex/z-1.pdf>] [40 <./Skript_Statist
 ik_2021_files/figure-latex/ueber-1.pdf>]
-<Skript_Statistik_2021_files/figure-latex/intervall-1.pdf, id=853, 351.3125pt x
+<Skript_Statistik_2021_files/figure-latex/intervall-1.pdf, id=868, 351.3125pt x
  207.77625pt>
 File: Skript_Statistik_2021_files/figure-latex/intervall-1.pdf Graphic file (ty
 pe pdf)
@@ -1418,7 +1443,7 @@ Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/intervall-1.p
 df  used on input line 2265.
 (pdftex.def)             Requested size: 273.14923pt x 161.56071pt.
 [41 <./Skript_Statistik_2021_files/figure-latex/intervall-1.pdf>]
-<Skript_Statistik_2021_files/figure-latex/mitte-1.pdf, id=872, 351.3125pt x 207
+<Skript_Statistik_2021_files/figure-latex/mitte-1.pdf, id=886, 351.3125pt x 207
 .77625pt>
 File: Skript_Statistik_2021_files/figure-latex/mitte-1.pdf Graphic file (type p
 df)
@@ -1445,7 +1470,7 @@ Sitzung 4.
 [47
 
 ]
-<Skript_Statistik_2021_files/figure-latex/pop-1.pdf, id=1024, 351.3125pt x 204.
+<Skript_Statistik_2021_files/figure-latex/pop-1.pdf, id=1038, 351.3125pt x 204.
 765pt>
 File: Skript_Statistik_2021_files/figure-latex/pop-1.pdf Graphic file (type pdf
 )
@@ -1453,7 +1478,7 @@ File: Skript_Statistik_2021_files/figure-latex/pop-1.pdf Graphic file (type pdf
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/pop-1.pdf  us
 ed on input line 2662.
 (pdftex.def)             Requested size: 273.14923pt x 159.21925pt.
-<Skript_Statistik_2021_files/figure-latex/stich-1.pdf, id=1026, 351.3125pt x 20
+<Skript_Statistik_2021_files/figure-latex/stich-1.pdf, id=1040, 351.3125pt x 20
 4.765pt>
 File: Skript_Statistik_2021_files/figure-latex/stich-1.pdf Graphic file (type p
 df)
@@ -1463,7 +1488,7 @@ used on input line 2675.
 (pdftex.def)             Requested size: 273.14923pt x 159.21925pt.
 [48 <./Skript_Statistik_2021_files/figure-latex/pop-1.pdf> <./Skript_Statistik_
 2021_files/figure-latex/stich-1.pdf>]
-<Skript_Statistik_2021_files/figure-latex/beta-1.pdf, id=1057, 350.30875pt x 20
+<Skript_Statistik_2021_files/figure-latex/beta-1.pdf, id=1071, 350.30875pt x 20
 5.76875pt>
 File: Skript_Statistik_2021_files/figure-latex/beta-1.pdf Graphic file (type pd
 f)
@@ -1475,7 +1500,7 @@ sed on input line 2746.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [49] [50 <./Skript_Statistik_2021_files/figure-latex/beta-1.pdf>] [51]
-<Skript_Statistik_2021_files/figure-latex/double-1.pdf, id=1100, 352.31625pt x 
+<Skript_Statistik_2021_files/figure-latex/double-1.pdf, id=1114, 352.31625pt x 
 204.765pt>
 File: Skript_Statistik_2021_files/figure-latex/double-1.pdf Graphic file (type 
 pdf)
@@ -1483,7 +1508,7 @@ pdf)
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/double-1.pdf 
  used on input line 2883.
 (pdftex.def)             Requested size: 273.14923pt x 158.75371pt.
-<Skript_Statistik_2021_files/figure-latex/konf-1.pdf, id=1102, 352.31625pt x 20
+<Skript_Statistik_2021_files/figure-latex/konf-1.pdf, id=1116, 352.31625pt x 20
 4.765pt>
 File: Skript_Statistik_2021_files/figure-latex/konf-1.pdf Graphic file (type pd
 f)
@@ -1495,93 +1520,169 @@ sed on input line 2894.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [52 <./Skript_Statistik_2021_files/figure-latex/double-1.pdf>] [53 <./Skript_St
-atistik_2021_files/figure-latex/konf-1.pdf>] [54] [55] [56] [57] [58] [59
+atistik_2021_files/figure-latex/konf-1.pdf>] [54] [55] [56] [57] [58]
+Sitzung 5.
+[59
 
 ]
-Overfull \hbox (112.64859pt too wide) in paragraph at lines 3308--3334
+<Skript_Statistik_2021_files/figure-latex/eis-1.pdf, id=1249, 351.3125pt x 204.
+765pt>
+File: Skript_Statistik_2021_files/figure-latex/eis-1.pdf Graphic file (type pdf
+)
+<use Skript_Statistik_2021_files/figure-latex/eis-1.pdf>
+Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/eis-1.pdf  us
+ed on input line 3347.
+(pdftex.def)             Requested size: 273.14923pt x 159.21925pt.
+[60 <./Skript_Statistik_2021_files/figure-latex/eis-1.pdf>] [61]
+<Skript_Statistik_2021_files/figure-latex/ablung-1.pdf, id=1285, 351.3125pt x 2
+04.765pt>
+File: Skript_Statistik_2021_files/figure-latex/ablung-1.pdf Graphic file (type 
+pdf)
+<use Skript_Statistik_2021_files/figure-latex/ablung-1.pdf>
+Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/ablung-1.pdf 
+ used on input line 3481.
+(pdftex.def)             Requested size: 273.14923pt x 159.21925pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[62]
+<Skript_Statistik_2021_files/figure-latex/ablger1-1.pdf, id=1302, 351.3125pt x 
+204.765pt>
+File: Skript_Statistik_2021_files/figure-latex/ablger1-1.pdf Graphic file (type
+ pdf)
+<use Skript_Statistik_2021_files/figure-latex/ablger1-1.pdf>
+Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/ablger1-1.pdf
+  used on input line 3501.
+(pdftex.def)             Requested size: 273.14923pt x 159.21925pt.
+<Skript_Statistik_2021_files/figure-latex/ablger2-1.pdf, id=1303, 351.3125pt x 
+204.765pt>
+File: Skript_Statistik_2021_files/figure-latex/ablger2-1.pdf Graphic file (type
+ pdf)
+<use Skript_Statistik_2021_files/figure-latex/ablger2-1.pdf>
+Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/ablger2-1.pdf
+  used on input line 3510.
+(pdftex.def)             Requested size: 273.14923pt x 159.21925pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[63 <./Skript_Statistik_2021_files/figure-latex/ablung-1.pdf> <./Skript_Statist
+ik_2021_files/figure-latex/ablger1-1.pdf>] [64 <./Skript_Statistik_2021_files/f
+igure-latex/ablger2-1.pdf>]
+<Skript_Statistik_2021_files/figure-latex/tdf-1.pdf, id=1345, 351.3125pt x 204.
+765pt>
+File: Skript_Statistik_2021_files/figure-latex/tdf-1.pdf Graphic file (type pdf
+)
+<use Skript_Statistik_2021_files/figure-latex/tdf-1.pdf>
+Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/tdf-1.pdf  us
+ed on input line 3598.
+(pdftex.def)             Requested size: 273.14923pt x 159.21925pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[65] [66 <./Skript_Statistik_2021_files/figure-latex/tdf-1.pdf>] [67]
+<Skript_Statistik_2021_files/figure-latex/tkrit-1.pdf, id=1394, 351.3125pt x 20
+4.765pt>
+File: Skript_Statistik_2021_files/figure-latex/tkrit-1.pdf Graphic file (type p
+df)
+<use Skript_Statistik_2021_files/figure-latex/tkrit-1.pdf>
+Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/tkrit-1.pdf  
+used on input line 3754.
+(pdftex.def)             Requested size: 273.14923pt x 159.21925pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[68] [69 <./Skript_Statistik_2021_files/figure-latex/tkrit-1.pdf>] [70] [71] [7
+2
+
+]
+Overfull \hbox (112.64859pt too wide) in paragraph at lines 3885--3911
  [][] 
  []
 
-[60
+[73
 
 ]
-<Skript_Statistik_2021_files/figure-latex/unnamed-chunk-33-1.pdf, id=1232, 355.
+<Skript_Statistik_2021_files/figure-latex/unnamed-chunk-35-1.pdf, id=1471, 355.
 3275pt x 206.7725pt>
-File: Skript_Statistik_2021_files/figure-latex/unnamed-chunk-33-1.pdf Graphic f
+File: Skript_Statistik_2021_files/figure-latex/unnamed-chunk-35-1.pdf Graphic f
 ile (type pdf)
-<use Skript_Statistik_2021_files/figure-latex/unnamed-chunk-33-1.pdf>
+<use Skript_Statistik_2021_files/figure-latex/unnamed-chunk-35-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/unnamed-chunk
--33-1.pdf  used on input line 3370.
+-35-1.pdf  used on input line 3947.
 (pdftex.def)             Requested size: 273.14923pt x 158.95659pt.
-[61] [62 <./Skript_Statistik_2021_files/figure-latex/unnamed-chunk-33-1.pdf>] [
-63] [64]
-<Skript_Statistik_2021_files/figure-latex/unnamed-chunk-43-1.pdf, id=1315, 299.
+[74] [75 <./Skript_Statistik_2021_files/figure-latex/unnamed-chunk-35-1.pdf>] [
+76] [77]
+<Skript_Statistik_2021_files/figure-latex/unnamed-chunk-45-1.pdf, id=1553, 299.
 1175pt x 302.12875pt>
-File: Skript_Statistik_2021_files/figure-latex/unnamed-chunk-43-1.pdf Graphic f
+File: Skript_Statistik_2021_files/figure-latex/unnamed-chunk-45-1.pdf Graphic f
 ile (type pdf)
-<use Skript_Statistik_2021_files/figure-latex/unnamed-chunk-43-1.pdf>
+<use Skript_Statistik_2021_files/figure-latex/unnamed-chunk-45-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/unnamed-chunk
--43-1.pdf  used on input line 3600.
+-45-1.pdf  used on input line 4177.
 (pdftex.def)             Requested size: 273.14923pt x 275.91954pt.
-[65 <./Skript_Statistik_2021_files/figure-latex/unnamed-chunk-43-1.pdf>] [66] [
-67] [68] [69]
-<Skript_Statistik_2021_files/figure-latex/solve_2_6_g-1.pdf, id=1384, 206.7725p
+[78 <./Skript_Statistik_2021_files/figure-latex/unnamed-chunk-45-1.pdf>] [79] [
+80] [81] [82]
+<Skript_Statistik_2021_files/figure-latex/solve_2_6_g-1.pdf, id=1622, 206.7725p
 t x 351.3125pt>
 File: Skript_Statistik_2021_files/figure-latex/solve_2_6_g-1.pdf Graphic file (
 type pdf)
 <use Skript_Statistik_2021_files/figure-latex/solve_2_6_g-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/solve_2_6_g-1
-.pdf  used on input line 3879.
+.pdf  used on input line 4456.
 (pdftex.def)             Requested size: 159.33821pt x 270.72588pt.
-[70] [71 <./Skript_Statistik_2021_files/figure-latex/solve_2_6_g-1.pdf>] [72] [
-73]
-Overfull \hbox (11.5761pt too wide) in paragraph at lines 4103--4117
+[83] [84 <./Skript_Statistik_2021_files/figure-latex/solve_2_6_g-1.pdf>] [85] [
+86]
+Overfull \hbox (11.5761pt too wide) in paragraph at lines 4680--4694
  [][] 
  []
 
-[74]
-Overfull \hbox (131.25604pt too wide) in paragraph at lines 4179--4194
+[87]
+Overfull \hbox (131.25604pt too wide) in paragraph at lines 4756--4771
  [][] 
  []
 
-[75]
-<Skript_Statistik_2021_files/figure-latex/unnamed-chunk-70-1.pdf, id=1453, 352.
+[88]
+<Skript_Statistik_2021_files/figure-latex/unnamed-chunk-72-1.pdf, id=1691, 352.
 31625pt x 207.77625pt>
-File: Skript_Statistik_2021_files/figure-latex/unnamed-chunk-70-1.pdf Graphic f
+File: Skript_Statistik_2021_files/figure-latex/unnamed-chunk-72-1.pdf Graphic f
 ile (type pdf)
-<use Skript_Statistik_2021_files/figure-latex/unnamed-chunk-70-1.pdf>
+<use Skript_Statistik_2021_files/figure-latex/unnamed-chunk-72-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/unnamed-chunk
--70-1.pdf  used on input line 4211.
+-72-1.pdf  used on input line 4788.
 (pdftex.def)             Requested size: 273.14923pt x 161.08832pt.
-[76 <./Skript_Statistik_2021_files/figure-latex/unnamed-chunk-70-1.pdf>] [77] [
-78] [79] [80]
-Overfull \hbox (195.0153pt too wide) in paragraph at lines 4549--4559
+[89 <./Skript_Statistik_2021_files/figure-latex/unnamed-chunk-72-1.pdf>] [90] [
+91] [92] [93]
+Overfull \hbox (195.0153pt too wide) in paragraph at lines 5126--5136
  [][] 
  []
 
 
-Overfull \hbox (34.9512pt too wide) in paragraph at lines 4566--4581
+Overfull \hbox (34.9512pt too wide) in paragraph at lines 5143--5158
  [][] 
  []
 
-[81] [82] 
+[94] [95] 
 AED: lastpage setting LastPage
-[83
+[96
 
-] (./Skript_Statistik_2021.aux) ) 
+] (./Skript_Statistik_2021.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 28214 strings out of 478994
- 506853 string characters out of 5858184
- 831307 words of memory out of 5000000
- 43870 multiletter control sequences out of 15000+600000
- 625278 words of font info for 431 fonts, out of 8000000 for 9000
+ 28446 strings out of 478994
+ 512100 string characters out of 5858184
+ 834485 words of memory out of 5000000
+ 43970 multiletter control sequences out of 15000+600000
+ 627294 words of font info for 445 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 112i,19n,117p,752b,615s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Mauxdfzahlen} has 
-been referenced but does not exist, replaced by a fixed one
+ 112i,19n,117p,1335b,615s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{Schuxe4tzstatistik} has been referenced but does 
+not exist, replaced by a fixed one
 
-pdfTeX warning (dest): name{freiheitsgrade} has been referenced but does not ex
-ist, replaced by a fixed one
+pdfTeX warning (dest): name{Mauxdfzahlen} has been referenced but does not exis
+t, replaced by a fixed one
 
 pdfTeX warning (dest): name{formelsammlung-und-wertetabellen} has been referenc
 ed but does not exist, replaced by a fixed one
@@ -1614,10 +1715,10 @@ msfonts/cm/cmti8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-
 super/sfrm1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-su
 per/sftt0900.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-supe
 r/sftt1095.pfb>
-Output written on Skript_Statistik_2021.pdf (83 pages, 803457 bytes).
+Output written on Skript_Statistik_2021.pdf (96 pages, 894364 bytes).
 PDF statistics:
- 1934 PDF objects out of 2073 (max. 8388607)
- 1740 compressed objects within 18 object streams
- 766 named destinations out of 1000 (max. 500000)
- 139691 words of extra memory for PDF output out of 154059 (max. 10000000)
+ 2211 PDF objects out of 2487 (max. 8388607)
+ 1984 compressed objects within 20 object streams
+ 869 named destinations out of 1000 (max. 500000)
+ 139769 words of extra memory for PDF output out of 154059 (max. 10000000)
 
