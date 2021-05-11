@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.4.21)  11 MAY 2021 17:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.4.21)  11 MAY 2021 18:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -759,116 +759,189 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 \tcb@temp=\box70
 \tcb@out=\write4
 \tcb@record@out=\write5
-) (/usr/local/texlive/2021/texmf-dist/tex/latex/was/gensymb.sty
-Package: gensymb 2003/07/02 v1.0 (WaS)
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
+\multirow@colwidth=\skip63
+\multirow@cntb=\count311
+\multirow@dima=\skip64
+\bigstrutjot=\dimen277
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen278
+\WF@size=\dimen279
+\c@WF@wrappedlines=\count312
+\WF@box=\box71
+\WF@everypar=\toks41
+Package: wrapfig 2003/01/31  v 3.6
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count313
+\float@exts=\toks42
+\float@box=\box72
+\@float@everytoks=\toks43
+\@floatcapt=\box73
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2020/01/04 v1.0e Color table columns (DPC)
+\everycr=\toks44
+\minrowclearance=\skip65
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
+(/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/tabu/tabu.sty
+Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
+(/usr/local/texlive/2021/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box74
+\sift@deathcycles=\count314
+\@vwid@loff=\dimen280
+\@vwid@roff=\dimen281
+)
+\c@taburow=\count315
+\tabu@nbcols=\count316
+\tabu@cnt=\count317
+\tabu@Xcol=\count318
+\tabu@alloc=\count319
+\tabu@nested=\count320
+\tabu@target=\dimen282
+\tabu@spreadtarget=\dimen283
+\tabu@naturalX=\dimen284
+\tabucolX=\dimen285
+\tabu@Xsum=\dimen286
+\extrarowdepth=\dimen287
+\abovetabulinesep=\dimen288
+\belowtabulinesep=\dimen289
+\tabustrutrule=\dimen290
+\tabu@thebody=\toks45
+\tabu@footnotes=\toks46
+\tabu@box=\box75
+\tabu@arstrutbox=\box76
+\tabu@hleads=\box77
+\tabu@vleads=\box78
+\tabu@cellskip=\skip66
+)
+(/usr/local/texlive/2021/texmf-dist/tex/latex/threeparttable/threeparttable.sty
+Package: threeparttable 2003/06/13  v 3.0
+\@tempboxb=\box79
+)
+(/usr/local/texlive/2021/texmf-dist/tex/latex/threeparttablex/threeparttablex.s
+ty
+Package: threeparttablex 2013/07/23 v0.3 by daleif
+\TPTL@width=\skip67
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box80
+\UL@hyphenbox=\box81
+\UL@skip=\skip68
+\UL@hook=\toks47
+\UL@height=\dimen291
+\UL@pe=\count321
+\UL@pixel=\dimen292
+\ULC@box=\box82
+Package: ulem 2019/11/18
+\ULdepth=\dimen293
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/makecell/makecell.sty
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
-\rotheadsize=\dimen277
-\c@nlinenum=\count311
-\TeXr@lab=\toks41
+\rotheadsize=\dimen294
+\c@nlinenum=\count322
+\TeXr@lab=\toks48
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/was/gensymb.sty
+Package: gensymb 2003/07/02 v1.0 (WaS)
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
-\TX@col@width=\dimen278
-\TX@old@table=\dimen279
-\TX@old@col=\dimen280
-\TX@target=\dimen281
-\TX@delta=\dimen282
-\TX@cols=\count312
-\TX@ftn=\toks42
+\TX@col@width=\dimen295
+\TX@old@table=\dimen296
+\TX@old@col=\dimen297
+\TX@target=\dimen298
+\TX@delta=\dimen299
+\TX@cols=\count323
+\TX@ftn=\toks49
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/arydshln/arydshln.sty
 Package: arydshln 2019/02/21 v1.76 
-\dashlinedash=\dimen283
-\dashlinegap=\dimen284
-\adl@box=\box71
-\adl@height=\dimen285
-\adl@heightsave=\dimen286
-\adl@depth=\dimen287
-\adl@depthsave=\dimen288
-\adl@finaldepth=\dimen289
-\adl@columns=\count313
-\adl@ncol=\count314
-\adl@currentcolumn=\count315
-\adl@currentcolumnsave=\count316
-\adl@totalheight=\count317
-\adl@totalheightsave=\count318
-\adl@dash=\count319
-\adl@gap=\count320
-\adl@cla=\count321
-\adl@clb=\count322
-\adl@everyvbox=\toks43
-\adl@LTpagetotal=\dimen290
+\dashlinedash=\dimen300
+\dashlinegap=\dimen301
+\adl@box=\box83
+\adl@height=\dimen302
+\adl@heightsave=\dimen303
+\adl@depth=\dimen304
+\adl@depthsave=\dimen305
+\adl@finaldepth=\dimen306
+\adl@columns=\count324
+\adl@ncol=\count325
+\adl@currentcolumn=\count326
+\adl@currentcolumnsave=\count327
+\adl@totalheight=\count328
+\adl@totalheightsave=\count329
+\adl@dash=\count330
+\adl@gap=\count331
+\adl@cla=\count332
+\adl@clb=\count333
+\adl@everyvbox=\toks50
+\adl@LTpagetotal=\dimen307
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2020/10/26 v3.5g Customizing captions (AR)
 (/usr/local/texlive/2021/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
-\captionmargin=\dimen291
-\captionmargin@=\dimen292
-\captionwidth=\dimen293
-\caption@tempdima=\dimen294
-\caption@indent=\dimen295
-\caption@parindent=\dimen296
-\caption@hangindent=\dimen297
+\captionmargin=\dimen308
+\captionmargin@=\dimen309
+\captionwidth=\dimen310
+\caption@tempdima=\dimen311
+\caption@indent=\dimen312
+\caption@parindent=\dimen313
+\caption@hangindent=\dimen314
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count323
-\c@continuedfloat=\count324
+\c@caption@flags=\count334
+\c@continuedfloat=\count335
+Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: longtable package is loaded.
 (/usr/local/texlive/2021/texmf-dist/tex/latex/caption/ltcaption.sty
 Package: ltcaption 2020/05/30 v1.4b longtable captions (AR)
-)) (/usr/local/texlive/2021/texmf-dist/tex/latex/bbding/bbding.sty
+)
+Package caption Info: threeparttable package is loaded.
+Package caption Info: wrapfig package is loaded.
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/bbding/bbding.sty
 Package: bbding 1999/04/15 v1.01 Dingbats symbols
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/was/icomma.sty
 Package: icomma 2002/03/10 v2.0 (WaS)
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and foote
 rs
-\f@nch@headwidth=\skip63
-\f@nch@O@elh=\skip64
-\f@nch@O@erh=\skip65
-\f@nch@O@olh=\skip66
-\f@nch@O@orh=\skip67
-\f@nch@O@elf=\skip68
-\f@nch@O@erf=\skip69
-\f@nch@O@olf=\skip70
-\f@nch@O@orf=\skip71
+\f@nch@headwidth=\skip69
+\f@nch@O@elh=\skip70
+\f@nch@O@erh=\skip71
+\f@nch@O@olh=\skip72
+\f@nch@O@orh=\skip73
+\f@nch@O@elf=\skip74
+\f@nch@O@erf=\skip75
+\f@nch@O@olf=\skip76
+\f@nch@O@orf=\skip77
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/lastpage/lastpage.sty
 Package: lastpage 2015/03/29 v1.2m Refers to last page's name (HMM; JPG)
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
-\c@tracingmulticols=\count325
-\mult@box=\box72
-\multicol@leftmargin=\dimen298
-\c@unbalance=\count326
-\c@collectmore=\count327
-\doublecol@number=\count328
-\multicoltolerance=\count329
-\multicolpretolerance=\count330
-\full@width=\dimen299
-\page@free=\dimen300
-\premulticols=\dimen301
-\postmulticols=\dimen302
-\multicolsep=\skip72
-\multicolbaselineskip=\skip73
-\partial@page=\box73
-\last@line=\box74
-\maxbalancingoverflow=\dimen303
-\mult@rightbox=\box75
-\mult@grightbox=\box76
-\mult@gfirstbox=\box77
-\mult@firstbox=\box78
-\@tempa=\box79
-\@tempa=\box80
-\@tempa=\box81
-\@tempa=\box82
-\@tempa=\box83
-\@tempa=\box84
-\@tempa=\box85
-\@tempa=\box86
-\@tempa=\box87
-\@tempa=\box88
-\@tempa=\box89
-\@tempa=\box90
+\c@tracingmulticols=\count336
+\mult@box=\box84
+\multicol@leftmargin=\dimen315
+\c@unbalance=\count337
+\c@collectmore=\count338
+\doublecol@number=\count339
+\multicoltolerance=\count340
+\multicolpretolerance=\count341
+\full@width=\dimen316
+\page@free=\dimen317
+\premulticols=\dimen318
+\postmulticols=\dimen319
+\multicolsep=\skip78
+\multicolbaselineskip=\skip79
+\partial@page=\box85
+\last@line=\box86
+\maxbalancingoverflow=\dimen320
+\mult@rightbox=\box87
+\mult@grightbox=\box88
+\mult@gfirstbox=\box89
+\mult@firstbox=\box90
 \@tempa=\box91
 \@tempa=\box92
 \@tempa=\box93
@@ -894,40 +967,45 @@ Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
 \@tempa=\box113
 \@tempa=\box114
 \@tempa=\box115
-\c@minrows=\count331
-\c@columnbadness=\count332
-\c@finalcolumnbadness=\count333
-\last@try=\dimen304
-\multicolovershoot=\dimen305
-\multicolundershoot=\dimen306
-\mult@nat@firstbox=\box116
-\colbreak@box=\box117
-\mc@col@check@num=\count334
-) (/usr/local/texlive/2021/texmf-dist/tex/latex/float/float.sty
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count335
-\float@exts=\toks44
-\float@box=\box118
-\@float@everytoks=\toks45
-\@floatcapt=\box119
+\@tempa=\box116
+\@tempa=\box117
+\@tempa=\box118
+\@tempa=\box119
+\@tempa=\box120
+\@tempa=\box121
+\@tempa=\box122
+\@tempa=\box123
+\@tempa=\box124
+\@tempa=\box125
+\@tempa=\box126
+\@tempa=\box127
+\c@minrows=\count342
+\c@columnbadness=\count343
+\c@finalcolumnbadness=\count344
+\last@try=\dimen321
+\multicolovershoot=\dimen322
+\multicolundershoot=\dimen323
+\mult@nat@firstbox=\box128
+\colbreak@box=\box129
+\mc@col@check@num=\count345
 ) (/usr/local/texlive/2021/texmf-dist/tex/generic/oberdiek/iflang.sty
 Package: iflang 2018/01/21 v1.7 Checks for the current language (HO)
 Package iflang Info: Naming convention for patterns: babel.
 )
-Package hyperref Info: Option `unicode' set `true' on input line 113.
-Package hyperref Info: Option `colorlinks' set `true' on input line 113.
-Package hyperref Info: Option `breaklinks' set `true' on input line 113.
+Package hyperref Info: Option `unicode' set `true' on input line 127.
+Package hyperref Info: Option `colorlinks' set `true' on input line 127.
+Package hyperref Info: Option `breaklinks' set `true' on input line 127.
 (/usr/local/texlive/2021/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2021/03/24 3.56 The Babel package
 (/usr/local/texlive/2021/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2021/03/24 3.56 Babel common definitions
-\babel@savecnt=\count336
-\U@D=\dimen307
+\babel@savecnt=\count346
+\U@D=\dimen324
 \l@babelnohyphens=\language87
 (/usr/local/texlive/2021/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read4
 )
-\bbl@dirlevel=\count337
+\bbl@dirlevel=\count347
 (/usr/local/texlive/2021/texmf-dist/tex/generic/babel-german/ngerman.ldf
 Language: ngerman 2021/02/27 v2.13 German support for babel (post-1996 orthogra
 phy)
@@ -943,8 +1021,8 @@ texlive/2021/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2021-02-18 L3 programming layer (loader) 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count338
-\l__pdf_internal_box=\box120
+\l__color_backend_stack_int=\count348
+\l__pdf_internal_box=\box130
 ))
 Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
 (/usr/local/texlive/2021/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
@@ -952,17 +1030,17 @@ Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
 01.sty
 (/usr/local/texlive/2021/texmf-dist/tex/latex/l3packages/xparse/xparse-generic.
 tex))))
-\cslhangindent=\skip74
-\csllabelwidth=\skip75
+\cslhangindent=\skip80
+\csllabelwidth=\skip81
 (/usr/local/texlive/2021/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2021-02-22 v5.2l context-sensitive quotations (JAW)
-\csq@reset=\count339
-\csq@gtype=\count340
-\csq@glevel=\count341
-\csq@qlevel=\count342
-\csq@maxlvl=\count343
-\csq@tshold=\count344
-\csq@ltx@everypar=\toks46
+\csq@reset=\count349
+\csq@gtype=\count350
+\csq@glevel=\count351
+\csq@qlevel=\count352
+\csq@maxlvl=\count353
+\csq@tshold=\count354
+\csq@ltx@everypar=\toks51
 (/usr/local/texlive/2021/texmf-dist/tex/latex/csquotes/csquotes.def
 File: csquotes.def 2021-02-22 v5.2l csquotes generic definitions (JAW)
 )
@@ -1018,39 +1096,39 @@ LaTeX Warning: Label `eq:chisq' multiply defined.
 )
 \openout1 = `Skript_Statistik_2021.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 244.
-LaTeX Font Info:    ... okay on input line 244.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 244.
-LaTeX Font Info:    ... okay on input line 244.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 244.
-LaTeX Font Info:    ... okay on input line 244.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 244.
-LaTeX Font Info:    ... okay on input line 244.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 244.
-LaTeX Font Info:    ... okay on input line 244.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 244.
-LaTeX Font Info:    ... okay on input line 244.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 244.
-LaTeX Font Info:    ... okay on input line 244.
-LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 244.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 258.
+LaTeX Font Info:    ... okay on input line 258.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 258.
+LaTeX Font Info:    ... okay on input line 258.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 258.
+LaTeX Font Info:    ... okay on input line 258.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 258.
+LaTeX Font Info:    ... okay on input line 258.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 258.
+LaTeX Font Info:    ... okay on input line 258.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 258.
+LaTeX Font Info:    ... okay on input line 258.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 258.
+LaTeX Font Info:    ... okay on input line 258.
+LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 258.
 LaTeX Font Info:    Trying to load font information for LY1+ptm on input line 2
-44.
+58.
 (/usr/local/texlive/2021/texmf-dist/tex/latex/ly1/ly1ptm.fd
 File: ly1ptm.fd 2001/02/01 font definitions for LY1/ptm using Berry names.
 )
-LaTeX Font Info:    ... okay on input line 244.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 244.
-LaTeX Font Info:    ... okay on input line 244.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 244.
-LaTeX Font Info:    ... okay on input line 244.
-LaTeX Info: Redefining \microtypecontext on input line 244.
+LaTeX Font Info:    ... okay on input line 258.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 258.
+LaTeX Font Info:    ... okay on input line 258.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 258.
+LaTeX Font Info:    ... okay on input line 258.
+LaTeX Info: Redefining \microtypecontext on input line 258.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 244.
+LaTeX Info: Redefining \showhyphens on input line 258.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1060,17 +1138,17 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 (/usr/local/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count345
-\scratchdimen=\dimen308
-\scratchbox=\box121
-\nofMPsegments=\count346
-\nofMParguments=\count347
-\everyMPshowfont=\toks47
-\MPscratchCnt=\count348
-\MPscratchDim=\dimen309
-\MPnumerator=\count349
-\makeMPintoPDFobject=\count350
-\everyMPtoPDFconversion=\toks48
+\scratchcounter=\count355
+\scratchdimen=\dimen325
+\scratchbox=\box131
+\nofMPsegments=\count356
+\nofMParguments=\count357
+\everyMPshowfont=\toks52
+\MPscratchCnt=\count358
+\MPscratchDim=\dimen326
+\MPnumerator=\count359
+\makeMPintoPDFobject=\count360
+\everyMPtoPDFconversion=\toks53
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -1079,7 +1157,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring ON on input line 244.
+Package hyperref Info: Link coloring ON on input line 258.
 (/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
 (/usr/local/texlive/2021/texmf-dist/tex/latex/refcount/refcount.sty
@@ -1089,11 +1167,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count351
+\c@section@level=\count361
 )
-LaTeX Info: Redefining \ref on input line 244.
-LaTeX Info: Redefining \pageref on input line 244.
-LaTeX Info: Redefining \nameref on input line 244.
+LaTeX Info: Redefining \ref on input line 258.
+LaTeX Info: Redefining \pageref on input line 258.
+LaTeX Info: Redefining \nameref on input line 258.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1131,33 +1209,32 @@ LaTeX Info: Redefining \nameref on input line 244.
 \symgns@font=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
 (Font)                  TS1/SourceSansPro-TLF/m/n --> TS1/SourceSansPro-TLF/b/n
- on input line 244.
-Package gensymb Info: Math companion symbols declared on input line 244.
-LaTeX Info: Redefining \degree on input line 244.
-LaTeX Info: Redefining \celsius on input line 244.
+ on input line 258.
+Package gensymb Info: Math companion symbols declared on input line 258.
+LaTeX Info: Redefining \degree on input line 258.
+LaTeX Info: Redefining \celsius on input line 258.
 Package gensymb Info: Using text companion symbols for \degree, \celsius and \p
-erthousand on input line 244.
-LaTeX Info: Redefining \ohm on input line 244.
-Package gensymb Info: Using \textohm for \ohm on input line 244.
-Package gensymb Info: Using \textmu for \micro on input line 244.
+erthousand on input line 258.
+LaTeX Info: Redefining \ohm on input line 258.
+Package gensymb Info: Using \textohm for \ohm on input line 258.
+Package gensymb Info: Using \textmu for \micro on input line 258.
 Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 244.
+(lastpage)             ! on input line 258.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/b/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/bold/n' on input line 245.
+(Font)              `T1/SourceSansPro-TLF/bold/n' on input line 259.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/bold/n' will be
-(Font)              scaled to size 10.95pt on input line 245.
+(Font)              scaled to size 10.95pt on input line 259.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/b/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/bold/n' on input line 245.
+(Font)              `T1/SourceSansPro-TLF/bold/n' on input line 259.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/bold/n' will be
-(Font)              scaled to size 24.88pt on input line 245.
+(Font)              scaled to size 24.88pt on input line 259.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/l/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/light/n' on input line 245.
+(Font)              `T1/SourceSansPro-TLF/light/n' on input line 259.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/light/n' will be
-(Font)              scaled to size 17.28pt on input line 245.
+(Font)              scaled to size 17.28pt on input line 259.
 (/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/mt-cmr.cfg) (/usr/local
 /texlive/2021/texmf-dist/tex/latex/amsfonts/umsa.fd) (/usr/local/texlive/2021/t
 exmf-dist/tex/latex/microtype/mt-msa.cfg) (/usr/local/texlive/2021/texmf-dist/t
@@ -1166,16 +1243,16 @@ ype/mt-msb.cfg)
 (/usr/local/texlive/2021/texmf-dist/tex/latex/sourcesanspro/TS1SourceSansPro-TL
 F.fd)
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 249.
+(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 263.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 9.0pt on input line 249.
+(Font)              scaled to size 9.0pt on input line 263.
 [1
 
 {/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 249.
+(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 263.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 24.88pt on input line 249.
+(Font)              scaled to size 24.88pt on input line 263.
 (./Skript_Statistik_2021.toc [2
 
 ] [3])
@@ -1184,42 +1261,42 @@ LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
 
 [4]
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/it' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/it' on input line 255.
+(Font)              `T1/SourceSansPro-TLF/regular/it' on input line 269.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/it' will be
-(Font)              scaled to size 10.95pt on input line 255.
+(Font)              scaled to size 10.95pt on input line 269.
 [5
 
 ]
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 286.
+(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 300.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 12.0pt on input line 286.
+(Font)              scaled to size 12.0pt on input line 300.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/b/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/bold/n' on input line 286.
+(Font)              `T1/SourceSansPro-TLF/bold/n' on input line 300.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/bold/n' will be
-(Font)              scaled to size 12.0pt on input line 286.
+(Font)              scaled to size 12.0pt on input line 300.
 [6
 
 ] [7]
 Sitzung 1.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 462.
+(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 476.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 20.74pt on input line 462.
+(Font)              scaled to size 20.74pt on input line 476.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/b/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/bold/n' on input line 462.
+(Font)              `T1/SourceSansPro-TLF/bold/n' on input line 476.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/bold/n' will be
-(Font)              scaled to size 20.74pt on input line 462.
+(Font)              scaled to size 20.74pt on input line 476.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 497.
+(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 511.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 14.4pt on input line 497.
+(Font)              scaled to size 14.4pt on input line 511.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/b/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/bold/n' on input line 497.
+(Font)              `T1/SourceSansPro-TLF/bold/n' on input line 511.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/bold/n' will be
-(Font)              scaled to size 14.4pt on input line 497.
+(Font)              scaled to size 14.4pt on input line 511.
 
-Underfull \hbox (badness 10000) in paragraph at lines 515--516
+Underfull \hbox (badness 10000) in paragraph at lines 529--530
 \T1/SourceSansPro-TLF/regular/n/10.95 (+20) Untersuchungselemente (auch Un-ter-
 su-chungs-ein-hei-ten, Merk-mals-trä-ger, bei Per-so-nen: Pro-
  []
@@ -1228,53 +1305,53 @@ su-chungs-ein-hei-ten, Merk-mals-trä-ger, bei Per-so-nen: Pro-
 
 ] [9] [10] [11] [12]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 7
-81.
+95.
 (/usr/local/texlive/2021/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-Underfull \hbox (badness 10000) in paragraph at lines 781--782
+Underfull \hbox (badness 10000) in paragraph at lines 795--796
 []\T1/cmtt/m/n/10.95 T J D T E N D F F M A J V T T V A L V P J K P M F M A J N 
 A C I T P B A P H T L
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 781--782
+Underfull \hbox (badness 10000) in paragraph at lines 795--796
 \T1/cmtt/m/n/10.95 N S P C K J K L J R E Y M K H M N L A A L L M L J G P L B F 
 L J J V M P C J M J
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 781--782
+Underfull \hbox (badness 10000) in paragraph at lines 795--796
 \T1/cmtt/m/n/10.95 S A M M M P A A L L O C J L P L V F J R M A V K S B B B N C 
 A A T J P C F L E B
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 781--782
+Underfull \hbox (badness 10000) in paragraph at lines 795--796
 \T1/cmtt/m/n/10.95 L C A K A L T V Y P F L J S T T N R J A S E L M L T A E B M 
 N M V D P P L N L B
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 788--789
+Underfull \hbox (badness 10000) in paragraph at lines 802--803
 []\T1/cmtt/m/n/10.95 A A A A A A A A A A A A A A A A A A A B B B B B B B B C C 
 C C C C C D D D E E E
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 788--789
+Underfull \hbox (badness 10000) in paragraph at lines 802--803
 \T1/cmtt/m/n/10.95 E E F F F F F F F G H H H I J J J J J J J J J J J J J J J J 
 J K K K K K K L L L
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 788--789
+Underfull \hbox (badness 10000) in paragraph at lines 802--803
 \T1/cmtt/m/n/10.95 L L L L L L L L L L L L L L L L L L L M M M M M M M M M M M 
 M M M M M M N N N N
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 788--789
+Underfull \hbox (badness 10000) in paragraph at lines 802--803
 \T1/cmtt/m/n/10.95 N N N N N N O P P P P P P P P P P P P P R R R S S S S S S T 
 T T T T T T T T T T
  []
@@ -1285,10 +1362,10 @@ File: Skript_Statistik_2021_files/figure-latex/stab-1.pdf Graphic file (type pd
 f)
 <use Skript_Statistik_2021_files/figure-latex/stab-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/stab-1.pdf  u
-sed on input line 843.
+sed on input line 857.
 (pdftex.def)             Requested size: 273.14923pt x 160.78023pt.
 [14 <./Skript_Statistik_2021_files/figure-latex/stab-1.pdf>] [15]
-Underfull \hbox (badness 10000) in paragraph at lines 857--858
+Underfull \hbox (badness 10000) in paragraph at lines 871--872
 []\T1/cmtt/m/n/10.95 8,3  8,6  8,8 10,5 10,7 10,8 11,0 11,0 11,1 11,2 11,3 11,4
  11,4 11,7 12,0 12,9
  []
@@ -1299,7 +1376,7 @@ File: Skript_Statistik_2021_files/figure-latex/hist-1.pdf Graphic file (type pd
 f)
 <use Skript_Statistik_2021_files/figure-latex/hist-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/hist-1.pdf  u
-sed on input line 914.
+sed on input line 928.
 (pdftex.def)             Requested size: 273.14923pt x 161.56071pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1310,7 +1387,7 @@ File: Skript_Statistik_2021_files/figure-latex/poly-1.pdf Graphic file (type pd
 f)
 <use Skript_Statistik_2021_files/figure-latex/poly-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/poly-1.pdf  u
-sed on input line 928.
+sed on input line 942.
 (pdftex.def)             Requested size: 273.14923pt x 161.56071pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1319,7 +1396,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <img/shapes.png, id=437, 414.54875pt x 772.8875pt>
 File: img/shapes.png Graphic file (type png)
 <use img/shapes.png>
-Package pdftex.def Info: img/shapes.png  used on input line 942.
+Package pdftex.def Info: img/shapes.png  used on input line 956.
 (pdftex.def)             Requested size: 273.14923pt x 509.27pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1328,15 +1405,15 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 _2021_files/figure-latex/poly-1.pdf>] [18 <./img/shapes.png>] [19] [20] [21]
 Sitzung 2.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 1267.
+(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 1281.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 8.0pt on input line 1267.
+(Font)              scaled to size 8.0pt on input line 1281.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 1267.
+(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 1281.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 6.0pt on input line 1267.
+(Font)              scaled to size 6.0pt on input line 1281.
 
-Overfull \hbox (14.80573pt too wide) in paragraph at lines 1262--1275
+Overfull \hbox (14.80566pt too wide) in paragraph at lines 1276--1289
  [][] 
  []
 
@@ -1349,53 +1426,53 @@ File: Skript_Statistik_2021_files/figure-latex/box-1.pdf Graphic file (type pdf
 )
 <use Skript_Statistik_2021_files/figure-latex/box-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/box-1.pdf  us
-ed on input line 1612.
+ed on input line 1626.
 (pdftex.def)             Requested size: 159.33821pt x 270.72588pt.
 [29 <./Skript_Statistik_2021_files/figure-latex/box-1.pdf>] [30] [31]
 LaTeX Font Info:    Font shape `TS1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `TS1/SourceSansPro-TLF/regular/n' on input line 1833.
+(Font)              `TS1/SourceSansPro-TLF/regular/n' on input line 1847.
 LaTeX Font Info:    Font shape `TS1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 9.0pt on input line 1833.
+(Font)              scaled to size 9.0pt on input line 1847.
 LaTeX Font Info:    Font shape `TS1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `TS1/SourceSansPro-TLF/regular/n' on input line 1833.
+(Font)              `TS1/SourceSansPro-TLF/regular/n' on input line 1847.
 LaTeX Font Info:    Font shape `TS1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 5.0pt on input line 1833.
+(Font)              scaled to size 5.0pt on input line 1847.
 [32] [33]
 Sitzung 3.
 LaTeX Font Info:    Font shape `TS1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `TS1/SourceSansPro-TLF/regular/n' on input line 1886.
+(Font)              `TS1/SourceSansPro-TLF/regular/n' on input line 1900.
 LaTeX Font Info:    Font shape `TS1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 24.88pt on input line 1886.
+(Font)              scaled to size 24.88pt on input line 1900.
 LaTeX Font Info:    Font shape `TS1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `TS1/SourceSansPro-TLF/regular/n' on input line 1886.
+(Font)              `TS1/SourceSansPro-TLF/regular/n' on input line 1900.
 LaTeX Font Info:    Font shape `TS1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 20.74pt on input line 1886.
+(Font)              scaled to size 20.74pt on input line 1900.
 LaTeX Font Info:    Font shape `TS1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `TS1/SourceSansPro-TLF/regular/n' on input line 1886.
+(Font)              `TS1/SourceSansPro-TLF/regular/n' on input line 1900.
 LaTeX Font Info:    Font shape `TS1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 17.28pt on input line 1886.
+(Font)              scaled to size 17.28pt on input line 1900.
 [34
 
 ]
 LaTeX Font Info:    Font shape `TS1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `TS1/SourceSansPro-TLF/regular/n' on input line 1959.
+(Font)              `TS1/SourceSansPro-TLF/regular/n' on input line 1973.
 LaTeX Font Info:    Font shape `TS1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 14.4pt on input line 1959.
+(Font)              scaled to size 14.4pt on input line 1973.
 LaTeX Font Info:    Font shape `TS1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `TS1/SourceSansPro-TLF/regular/n' on input line 1959.
+(Font)              `TS1/SourceSansPro-TLF/regular/n' on input line 1973.
 LaTeX Font Info:    Font shape `TS1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 10.0pt on input line 1959.
+(Font)              scaled to size 10.0pt on input line 1973.
 LaTeX Font Info:    Font shape `TS1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `TS1/SourceSansPro-TLF/regular/n' on input line 1959.
+(Font)              `TS1/SourceSansPro-TLF/regular/n' on input line 1973.
 LaTeX Font Info:    Font shape `TS1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 7.0pt on input line 1959.
+(Font)              scaled to size 7.0pt on input line 1973.
 <Skript_Statistik_2021_files/figure-latex/norms-1.pdf, id=838, 351.3125pt x 204
 .765pt>
 File: Skript_Statistik_2021_files/figure-latex/norms-1.pdf Graphic file (type p
 df)
 <use Skript_Statistik_2021_files/figure-latex/norms-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/norms-1.pdf  
-used on input line 2016.
+used on input line 2030.
 (pdftex.def)             Requested size: 273.14923pt x 159.21925pt.
 [35] [36]
 <Skript_Statistik_2021_files/figure-latex/stdnorm-1.pdf, id=859, 353.32pt x 204
@@ -1404,7 +1481,7 @@ File: Skript_Statistik_2021_files/figure-latex/stdnorm-1.pdf Graphic file (type
  pdf)
 <use Skript_Statistik_2021_files/figure-latex/stdnorm-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/stdnorm-1.pdf
-  used on input line 2067.
+  used on input line 2081.
 (pdftex.def)             Requested size: 273.14923pt x 158.30379pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1416,7 +1493,7 @@ File: Skript_Statistik_2021_files/figure-latex/dens-1.pdf Graphic file (type pd
 f)
 <use Skript_Statistik_2021_files/figure-latex/dens-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/dens-1.pdf  u
-sed on input line 2114.
+sed on input line 2128.
 (pdftex.def)             Requested size: 273.14923pt x 161.56071pt.
 [38 <./Skript_Statistik_2021_files/figure-latex/stdnorm-1.pdf>]
 <Skript_Statistik_2021_files/figure-latex/unter-1.pdf, id=902, 351.3125pt x 207
@@ -1425,7 +1502,7 @@ File: Skript_Statistik_2021_files/figure-latex/unter-1.pdf Graphic file (type p
 df)
 <use Skript_Statistik_2021_files/figure-latex/unter-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/unter-1.pdf  
-used on input line 2145.
+used on input line 2159.
 (pdftex.def)             Requested size: 273.14923pt x 161.56071pt.
 [39 <./Skript_Statistik_2021_files/figure-latex/dens-1.pdf> <./Skript_Statistik
 _2021_files/figure-latex/unter-1.pdf>]
@@ -1434,7 +1511,7 @@ _2021_files/figure-latex/unter-1.pdf>]
 File: Skript_Statistik_2021_files/figure-latex/z-1.pdf Graphic file (type pdf)
 <use Skript_Statistik_2021_files/figure-latex/z-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/z-1.pdf  used
- on input line 2165.
+ on input line 2179.
 (pdftex.def)             Requested size: 273.14923pt x 158.30379pt.
 <Skript_Statistik_2021_files/figure-latex/ueber-1.pdf, id=929, 351.3125pt x 207
 .77625pt>
@@ -1442,7 +1519,7 @@ File: Skript_Statistik_2021_files/figure-latex/ueber-1.pdf Graphic file (type p
 df)
 <use Skript_Statistik_2021_files/figure-latex/ueber-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/ueber-1.pdf  
-used on input line 2187.
+used on input line 2201.
 (pdftex.def)             Requested size: 273.14923pt x 161.56071pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1455,7 +1532,7 @@ File: Skript_Statistik_2021_files/figure-latex/intervall-1.pdf Graphic file (ty
 pe pdf)
 <use Skript_Statistik_2021_files/figure-latex/intervall-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/intervall-1.p
-df  used on input line 2265.
+df  used on input line 2279.
 (pdftex.def)             Requested size: 273.14923pt x 161.56071pt.
 [42 <./Skript_Statistik_2021_files/figure-latex/intervall-1.pdf>]
 <Skript_Statistik_2021_files/figure-latex/mitte-1.pdf, id=980, 351.3125pt x 207
@@ -1464,18 +1541,18 @@ File: Skript_Statistik_2021_files/figure-latex/mitte-1.pdf Graphic file (type p
 df)
 <use Skript_Statistik_2021_files/figure-latex/mitte-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/mitte-1.pdf  
-used on input line 2335.
+used on input line 2349.
 (pdftex.def)             Requested size: 273.14923pt x 161.56071pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [43]
 LaTeX Font Info:    Font shape `TS1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `TS1/SourceSansPro-TLF/regular/n' on input line 2398.
+(Font)              `TS1/SourceSansPro-TLF/regular/n' on input line 2412.
 LaTeX Font Info:    Font shape `TS1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 12.0pt on input line 2398.
+(Font)              scaled to size 12.0pt on input line 2412.
 [44 <./Skript_Statistik_2021_files/figure-latex/mitte-1.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 2411--2413
+Underfull \hbox (badness 10000) in paragraph at lines 2425--2427
 []\T1/SourceSansPro-TLF/regular/n/10.95 (+20) YouTube-Kanal ^^R  Me-tho-den-leh
 -re Mainz^^P: [][]WT.012.09 Äp-fel mit Bir-nen ver-glei-chen: Die
  []
@@ -1491,7 +1568,7 @@ File: Skript_Statistik_2021_files/figure-latex/pop-1.pdf Graphic file (type pdf
 )
 <use Skript_Statistik_2021_files/figure-latex/pop-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/pop-1.pdf  us
-ed on input line 2662.
+ed on input line 2676.
 (pdftex.def)             Requested size: 273.14923pt x 159.21925pt.
 <Skript_Statistik_2021_files/figure-latex/stich-1.pdf, id=1135, 351.3125pt x 20
 4.765pt>
@@ -1499,7 +1576,7 @@ File: Skript_Statistik_2021_files/figure-latex/stich-1.pdf Graphic file (type p
 df)
 <use Skript_Statistik_2021_files/figure-latex/stich-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/stich-1.pdf  
-used on input line 2675.
+used on input line 2689.
 (pdftex.def)             Requested size: 273.14923pt x 159.21925pt.
 [49 <./Skript_Statistik_2021_files/figure-latex/pop-1.pdf> <./Skript_Statistik_
 2021_files/figure-latex/stich-1.pdf>]
@@ -1509,7 +1586,7 @@ File: Skript_Statistik_2021_files/figure-latex/beta-1.pdf Graphic file (type pd
 f)
 <use Skript_Statistik_2021_files/figure-latex/beta-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/beta-1.pdf  u
-sed on input line 2746.
+sed on input line 2760.
 (pdftex.def)             Requested size: 273.14923pt x 160.455pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1521,7 +1598,7 @@ File: Skript_Statistik_2021_files/figure-latex/double-1.pdf Graphic file (type
 pdf)
 <use Skript_Statistik_2021_files/figure-latex/double-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/double-1.pdf 
- used on input line 2883.
+ used on input line 2897.
 (pdftex.def)             Requested size: 273.14923pt x 158.75371pt.
 <Skript_Statistik_2021_files/figure-latex/konf-1.pdf, id=1210, 352.31625pt x 20
 4.765pt>
@@ -1529,7 +1606,7 @@ File: Skript_Statistik_2021_files/figure-latex/konf-1.pdf Graphic file (type pd
 f)
 <use Skript_Statistik_2021_files/figure-latex/konf-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/konf-1.pdf  u
-sed on input line 2894.
+sed on input line 2908.
 (pdftex.def)             Requested size: 273.14923pt x 158.75371pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1546,7 +1623,7 @@ File: Skript_Statistik_2021_files/figure-latex/eis-1.pdf Graphic file (type pdf
 )
 <use Skript_Statistik_2021_files/figure-latex/eis-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/eis-1.pdf  us
-ed on input line 3347.
+ed on input line 3361.
 (pdftex.def)             Requested size: 273.14923pt x 159.21925pt.
 [61 <./Skript_Statistik_2021_files/figure-latex/eis-1.pdf>] [62]
 <Skript_Statistik_2021_files/figure-latex/ablung-1.pdf, id=1380, 351.3125pt x 2
@@ -1555,7 +1632,7 @@ File: Skript_Statistik_2021_files/figure-latex/ablung-1.pdf Graphic file (type
 pdf)
 <use Skript_Statistik_2021_files/figure-latex/ablung-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/ablung-1.pdf 
- used on input line 3481.
+ used on input line 3495.
 (pdftex.def)             Requested size: 273.14923pt x 159.21925pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1567,7 +1644,7 @@ File: Skript_Statistik_2021_files/figure-latex/ablger1-1.pdf Graphic file (type
  pdf)
 <use Skript_Statistik_2021_files/figure-latex/ablger1-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/ablger1-1.pdf
-  used on input line 3501.
+  used on input line 3515.
 (pdftex.def)             Requested size: 273.14923pt x 159.21925pt.
 <Skript_Statistik_2021_files/figure-latex/ablger2-1.pdf, id=1398, 351.3125pt x 
 204.765pt>
@@ -1575,7 +1652,7 @@ File: Skript_Statistik_2021_files/figure-latex/ablger2-1.pdf Graphic file (type
  pdf)
 <use Skript_Statistik_2021_files/figure-latex/ablger2-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/ablger2-1.pdf
-  used on input line 3510.
+  used on input line 3524.
 (pdftex.def)             Requested size: 273.14923pt x 159.21925pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1589,7 +1666,7 @@ File: Skript_Statistik_2021_files/figure-latex/tdf-1.pdf Graphic file (type pdf
 )
 <use Skript_Statistik_2021_files/figure-latex/tdf-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/tdf-1.pdf  us
-ed on input line 3598.
+ed on input line 3612.
 (pdftex.def)             Requested size: 273.14923pt x 159.21925pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1601,7 +1678,7 @@ File: Skript_Statistik_2021_files/figure-latex/tkrit-1.pdf Graphic file (type p
 df)
 <use Skript_Statistik_2021_files/figure-latex/tkrit-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/tkrit-1.pdf  
-used on input line 3754.
+used on input line 3768.
 (pdftex.def)             Requested size: 273.14923pt x 159.21925pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1618,7 +1695,7 @@ File: Skript_Statistik_2021_files/figure-latex/fdf-1.pdf Graphic file (type pdf
 )
 <use Skript_Statistik_2021_files/figure-latex/fdf-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/fdf-1.pdf  us
-ed on input line 4262.
+ed on input line 4276.
 (pdftex.def)             Requested size: 273.14923pt x 160.63177pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1630,7 +1707,7 @@ File: Skript_Statistik_2021_files/figure-latex/falpha-1.pdf Graphic file (type
 pdf)
 <use Skript_Statistik_2021_files/figure-latex/falpha-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/falpha-1.pdf 
- used on input line 4440.
+ used on input line 4454.
 (pdftex.def)             Requested size: 273.14923pt x 159.21925pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1647,7 +1724,7 @@ File: Skript_Statistik_2021_files/figure-latex/scatter-1.pdf Graphic file (type
  pdf)
 <use Skript_Statistik_2021_files/figure-latex/scatter-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/scatter-1.pdf
-  used on input line 4755.
+  used on input line 4769.
 (pdftex.def)             Requested size: 273.14923pt x 159.72821pt.
 [88 <./Skript_Statistik_2021_files/figure-latex/scatter-1.pdf>] [89]
 <Skript_Statistik_2021_files/figure-latex/corrs-1.pdf, id=1883, 204.765pt x 204
@@ -1656,7 +1733,7 @@ File: Skript_Statistik_2021_files/figure-latex/corrs-1.pdf Graphic file (type p
 df)
 <use Skript_Statistik_2021_files/figure-latex/corrs-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/corrs-1.pdf  
-used on input line 4841.
+used on input line 4855.
 (pdftex.def)             Requested size: 136.57462pt x 136.58255pt.
 <Skript_Statistik_2021_files/figure-latex/corrs-2.pdf, id=1884, 204.765pt x 204
 .765pt>
@@ -1664,7 +1741,7 @@ File: Skript_Statistik_2021_files/figure-latex/corrs-2.pdf Graphic file (type p
 df)
 <use Skript_Statistik_2021_files/figure-latex/corrs-2.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/corrs-2.pdf  
-used on input line 4841.
+used on input line 4855.
 (pdftex.def)             Requested size: 136.57462pt x 136.58255pt.
 <Skript_Statistik_2021_files/figure-latex/corrs-3.pdf, id=1885, 204.765pt x 204
 .765pt>
@@ -1672,7 +1749,7 @@ File: Skript_Statistik_2021_files/figure-latex/corrs-3.pdf Graphic file (type p
 df)
 <use Skript_Statistik_2021_files/figure-latex/corrs-3.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/corrs-3.pdf  
-used on input line 4841.
+used on input line 4855.
 (pdftex.def)             Requested size: 136.57462pt x 136.58255pt.
 <Skript_Statistik_2021_files/figure-latex/corrs-4.pdf, id=1886, 204.765pt x 204
 .765pt>
@@ -1680,7 +1757,7 @@ File: Skript_Statistik_2021_files/figure-latex/corrs-4.pdf Graphic file (type p
 df)
 <use Skript_Statistik_2021_files/figure-latex/corrs-4.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/corrs-4.pdf  
-used on input line 4841.
+used on input line 4855.
 (pdftex.def)             Requested size: 136.57462pt x 136.58255pt.
 <Skript_Statistik_2021_files/figure-latex/corrs-5.pdf, id=1887, 204.765pt x 204
 .765pt>
@@ -1688,7 +1765,7 @@ File: Skript_Statistik_2021_files/figure-latex/corrs-5.pdf Graphic file (type p
 df)
 <use Skript_Statistik_2021_files/figure-latex/corrs-5.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/corrs-5.pdf  
-used on input line 4841.
+used on input line 4855.
 (pdftex.def)             Requested size: 136.57462pt x 136.58255pt.
 <Skript_Statistik_2021_files/figure-latex/corrs-6.pdf, id=1888, 204.765pt x 204
 .765pt>
@@ -1696,7 +1773,7 @@ File: Skript_Statistik_2021_files/figure-latex/corrs-6.pdf Graphic file (type p
 df)
 <use Skript_Statistik_2021_files/figure-latex/corrs-6.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/corrs-6.pdf  
-used on input line 4841.
+used on input line 4855.
 (pdftex.def)             Requested size: 136.57462pt x 136.58255pt.
 <Skript_Statistik_2021_files/figure-latex/corrs-7.pdf, id=1889, 204.765pt x 204
 .765pt>
@@ -1704,7 +1781,7 @@ File: Skript_Statistik_2021_files/figure-latex/corrs-7.pdf Graphic file (type p
 df)
 <use Skript_Statistik_2021_files/figure-latex/corrs-7.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/corrs-7.pdf  
-used on input line 4841.
+used on input line 4855.
 (pdftex.def)             Requested size: 136.57462pt x 136.58255pt.
 <Skript_Statistik_2021_files/figure-latex/corrs-8.pdf, id=1890, 204.765pt x 204
 .765pt>
@@ -1712,7 +1789,7 @@ File: Skript_Statistik_2021_files/figure-latex/corrs-8.pdf Graphic file (type p
 df)
 <use Skript_Statistik_2021_files/figure-latex/corrs-8.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/corrs-8.pdf  
-used on input line 4841.
+used on input line 4855.
 (pdftex.def)             Requested size: 136.57462pt x 136.58255pt.
 <Skript_Statistik_2021_files/figure-latex/corrs-9.pdf, id=1891, 204.765pt x 204
 .765pt>
@@ -1720,7 +1797,7 @@ File: Skript_Statistik_2021_files/figure-latex/corrs-9.pdf Graphic file (type p
 df)
 <use Skript_Statistik_2021_files/figure-latex/corrs-9.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/corrs-9.pdf  
-used on input line 4841.
+used on input line 4855.
 (pdftex.def)             Requested size: 136.57462pt x 136.58255pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1733,9 +1810,9 @@ re-latex/corrs-3.pdf> <./Skript_Statistik_2021_files/figure-latex/corrs-4.pdf>
 corrs-7.pdf> <./Skript_Statistik_2021_files/figure-latex/corrs-8.pdf> <./Skript
 _Statistik_2021_files/figure-latex/corrs-9.pdf>] [92]
 LaTeX Font Info:    Font shape `TS1/SourceSansPro-TLF/b/n' aliased to
-(Font)              `TS1/SourceSansPro-TLF/bold/n' on input line 4996.
+(Font)              `TS1/SourceSansPro-TLF/bold/n' on input line 5010.
 LaTeX Font Info:    Font shape `TS1/SourceSansPro-TLF/bold/n' will be
-(Font)              scaled to size 10.95pt on input line 4996.
+(Font)              scaled to size 10.95pt on input line 5010.
 [93] [94] [95]
 Sitzung 8.
 <Skript_Statistik_2021_files/figure-latex/lin-1.pdf, id=2050, 349.305pt x 204.7
@@ -1744,7 +1821,7 @@ File: Skript_Statistik_2021_files/figure-latex/lin-1.pdf Graphic file (type pdf
 )
 <use Skript_Statistik_2021_files/figure-latex/lin-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/lin-1.pdf  us
-ed on input line 5150.
+ed on input line 5164.
 (pdftex.def)             Requested size: 273.14923pt x 160.13159pt.
 [96
 
@@ -1755,7 +1832,7 @@ File: Skript_Statistik_2021_files/figure-latex/duty2-1.pdf Graphic file (type p
 df)
 <use Skript_Statistik_2021_files/figure-latex/duty2-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/duty2-1.pdf  
-used on input line 5298.
+used on input line 5312.
 (pdftex.def)             Requested size: 273.14923pt x 159.77882pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1767,7 +1844,7 @@ File: Skript_Statistik_2021_files/figure-latex/res1-1.pdf Graphic file (type pd
 f)
 <use Skript_Statistik_2021_files/figure-latex/res1-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/res1-1.pdf  u
-sed on input line 5330.
+sed on input line 5344.
 (pdftex.def)             Requested size: 273.14923pt x 159.77882pt.
 [100 <./Skript_Statistik_2021_files/figure-latex/duty2-1.pdf> <./Skript_Statist
 ik_2021_files/figure-latex/res1-1.pdf>] [101] [102] [103] [104]
@@ -1778,13 +1855,8 @@ Sitzung 9.
 Sitzung 10.
 [115
 
-] [116] [117] [118] [119]
-
-LaTeX Warning: Reference `tab:xtlate' on page 120 undefined on input line 6434.
-
-
-[120]
-Underfull \hbox (badness 2293) in paragraph at lines 6450--6451
+] [116] [117] [118] [119] [120]
+Underfull \hbox (badness 2293) in paragraph at lines 6473--6474
 []\T1/SourceSansPro-TLF/regular/n/10.95 (+20) Mit ei-ner uni-va-ria-ten Ver-tei
 -lung als Ein-ga-be führt der Be-fehl [][]\T1/cmtt/m/n/10.95 chisq.test() []\T1
 /SourceSansPro-TLF/regular/n/10.95 (+20) einen $\OML/cmm/m/it/10.95 ^^_[]$\T1/S
@@ -1794,128 +1866,128 @@ ourceSansPro-TLF/regular/n/10.95 (+20) -
 [121] [122
 
 ]
-Overfull \hbox (112.64859pt too wide) in paragraph at lines 6516--6542
+Overfull \hbox (112.64851pt too wide) in paragraph at lines 6539--6565
  [][] 
  []
 
 [123
 
 ]
-<Skript_Statistik_2021_files/figure-latex/unnamed-chunk-60-1.pdf, id=2459, 355.
+<Skript_Statistik_2021_files/figure-latex/unnamed-chunk-60-1.pdf, id=2463, 355.
 3275pt x 206.7725pt>
 File: Skript_Statistik_2021_files/figure-latex/unnamed-chunk-60-1.pdf Graphic f
 ile (type pdf)
 <use Skript_Statistik_2021_files/figure-latex/unnamed-chunk-60-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/unnamed-chunk
--60-1.pdf  used on input line 6578.
+-60-1.pdf  used on input line 6601.
 (pdftex.def)             Requested size: 273.14923pt x 158.95659pt.
 [124] [125 <./Skript_Statistik_2021_files/figure-latex/unnamed-chunk-60-1.pdf>]
 [126] [127]
-<Skript_Statistik_2021_files/figure-latex/unnamed-chunk-70-1.pdf, id=2542, 299.
+<Skript_Statistik_2021_files/figure-latex/unnamed-chunk-70-1.pdf, id=2546, 299.
 1175pt x 302.12875pt>
 File: Skript_Statistik_2021_files/figure-latex/unnamed-chunk-70-1.pdf Graphic f
 ile (type pdf)
 <use Skript_Statistik_2021_files/figure-latex/unnamed-chunk-70-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/unnamed-chunk
--70-1.pdf  used on input line 6808.
+-70-1.pdf  used on input line 6831.
 (pdftex.def)             Requested size: 273.14923pt x 275.91954pt.
 [128 <./Skript_Statistik_2021_files/figure-latex/unnamed-chunk-70-1.pdf>] [129]
 [130] [131] [132]
-<Skript_Statistik_2021_files/figure-latex/solve_2_6_g-1.pdf, id=2611, 206.7725p
+<Skript_Statistik_2021_files/figure-latex/solve_2_6_g-1.pdf, id=2615, 206.7725p
 t x 351.3125pt>
 File: Skript_Statistik_2021_files/figure-latex/solve_2_6_g-1.pdf Graphic file (
 type pdf)
 <use Skript_Statistik_2021_files/figure-latex/solve_2_6_g-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/solve_2_6_g-1
-.pdf  used on input line 7087.
+.pdf  used on input line 7110.
 (pdftex.def)             Requested size: 159.33821pt x 270.72588pt.
 [133] [134 <./Skript_Statistik_2021_files/figure-latex/solve_2_6_g-1.pdf>] [135
 ] [136]
-Overfull \hbox (11.5761pt too wide) in paragraph at lines 7311--7325
+Overfull \hbox (11.57602pt too wide) in paragraph at lines 7334--7348
  [][] 
  []
 
 [137]
-Overfull \hbox (131.25604pt too wide) in paragraph at lines 7387--7402
+Overfull \hbox (131.25601pt too wide) in paragraph at lines 7410--7425
  [][] 
  []
 
 [138]
-<Skript_Statistik_2021_files/figure-latex/unnamed-chunk-97-1.pdf, id=2679, 352.
+<Skript_Statistik_2021_files/figure-latex/unnamed-chunk-97-1.pdf, id=2683, 352.
 31625pt x 207.77625pt>
 File: Skript_Statistik_2021_files/figure-latex/unnamed-chunk-97-1.pdf Graphic f
 ile (type pdf)
 <use Skript_Statistik_2021_files/figure-latex/unnamed-chunk-97-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/unnamed-chunk
--97-1.pdf  used on input line 7419.
+-97-1.pdf  used on input line 7442.
 (pdftex.def)             Requested size: 273.14923pt x 161.08832pt.
 [139 <./Skript_Statistik_2021_files/figure-latex/unnamed-chunk-97-1.pdf>] [140]
 [141] [142] [143]
-Overfull \hbox (195.0153pt too wide) in paragraph at lines 7755--7765
+Overfull \hbox (195.01527pt too wide) in paragraph at lines 7778--7788
  [][] 
  []
 
 
-Overfull \hbox (34.9512pt too wide) in paragraph at lines 7772--7787
+Overfull \hbox (34.95117pt too wide) in paragraph at lines 7795--7810
  [][] 
  []
 
 [144] [145] [146]
-Overfull \hbox (104.99803pt too wide) in paragraph at lines 7943--7966
+Overfull \hbox (104.998pt too wide) in paragraph at lines 7966--7989
  [][] 
  []
 
 
-Overfull \hbox (651.34816pt too wide) in paragraph at lines 7975--8004
+Overfull \hbox (651.34813pt too wide) in paragraph at lines 7998--8027
  [][] 
  []
 
 [147] [148] [149] [150]
-Overfull \hbox (344.00258pt too wide) in paragraph at lines 8167--8193
+Overfull \hbox (344.00255pt too wide) in paragraph at lines 8190--8216
  [][] 
  []
 
 
-Overfull \hbox (166.44409pt too wide) in paragraph at lines 8202--8229
+Overfull \hbox (166.44406pt too wide) in paragraph at lines 8225--8252
  [][] 
  []
 
 [151]
-<Skript_Statistik_2021_files/figure-latex/unnamed-chunk-108-1.pdf, id=2904, 349
+<Skript_Statistik_2021_files/figure-latex/unnamed-chunk-108-1.pdf, id=2908, 349
 .305pt x 204.765pt>
 File: Skript_Statistik_2021_files/figure-latex/unnamed-chunk-108-1.pdf Graphic 
 file (type pdf)
 <use Skript_Statistik_2021_files/figure-latex/unnamed-chunk-108-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/unnamed-chunk
--108-1.pdf  used on input line 8245.
+-108-1.pdf  used on input line 8268.
 (pdftex.def)             Requested size: 256.72403pt x 150.50201pt.
 [152 <./Skript_Statistik_2021_files/figure-latex/unnamed-chunk-108-1.pdf>]
-<Skript_Statistik_2021_files/figure-latex/unnamed-chunk-110-1.pdf, id=2920, 349
+<Skript_Statistik_2021_files/figure-latex/unnamed-chunk-110-1.pdf, id=2924, 349
 .305pt x 204.765pt>
 File: Skript_Statistik_2021_files/figure-latex/unnamed-chunk-110-1.pdf Graphic 
 file (type pdf)
 <use Skript_Statistik_2021_files/figure-latex/unnamed-chunk-110-1.pdf>
 Package pdftex.def Info: Skript_Statistik_2021_files/figure-latex/unnamed-chunk
--110-1.pdf  used on input line 8287.
+-110-1.pdf  used on input line 8310.
 (pdftex.def)             Requested size: 256.72403pt x 150.50201pt.
 [153 <./Skript_Statistik_2021_files/figure-latex/unnamed-chunk-110-1.pdf>] [154
 ]
-Overfull \hbox (115.61949pt too wide) in paragraph at lines 8420--8439
+Overfull \hbox (115.61946pt too wide) in paragraph at lines 8443--8462
  [][] 
  []
 
 [155]
-Overfull \hbox (432.43326pt too wide) in paragraph at lines 8470--8483
+Overfull \hbox (432.43323pt too wide) in paragraph at lines 8493--8506
  [][] 
  []
 
 [156] [157] [158]
-Overfull \hbox (150.52803pt too wide) in paragraph at lines 8638--8650
+Overfull \hbox (150.528pt too wide) in paragraph at lines 8661--8673
  [][] 
  []
 
 [159] [160] [161] [162] [163] [164]
-Overfull \hbox (730.86884pt too wide) in paragraph at lines 8994--9007
+Overfull \hbox (730.8688pt too wide) in paragraph at lines 9017--9030
  [][] 
  []
 
@@ -1925,18 +1997,15 @@ AED: lastpage setting LastPage
 
 ] (./Skript_Statistik_2021.aux)
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 29549 strings out of 478994
- 532426 string characters out of 5858184
- 848211 words of memory out of 5000000
- 44366 multiletter control sequences out of 15000+600000
- 632532 words of font info for 481 fonts, out of 8000000 for 9000
+ 30604 strings out of 478994
+ 548109 string characters out of 5858184
+ 872517 words of memory out of 5000000
+ 45380 multiletter control sequences out of 15000+600000
+ 632638 words of font info for 482 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  112i,19n,117p,1335b,615s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{berechnung-des-kontingenzkoeffizenten-chi2} has b
@@ -1984,10 +2053,10 @@ nts/cm/cmti8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-supe
 r/sfrm1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/
 sftt0900.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sf
 tt1095.pfb>
-Output written on Skript_Statistik_2021.pdf (167 pages, 1220052 bytes).
+Output written on Skript_Statistik_2021.pdf (167 pages, 1219933 bytes).
 PDF statistics:
- 3745 PDF objects out of 4296 (max. 8388607)
- 3380 compressed objects within 34 object streams
- 1502 named destinations out of 1728 (max. 500000)
+ 3749 PDF objects out of 4296 (max. 8388607)
+ 3384 compressed objects within 34 object streams
+ 1503 named destinations out of 1728 (max. 500000)
  144278 words of extra memory for PDF output out of 154059 (max. 10000000)
 

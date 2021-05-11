@@ -70,6 +70,20 @@
   \medskip
 }
 
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
 
 %%%%%%%%%%%%
 %  custom  %
@@ -6177,7 +6191,7 @@ Unser Beispieldatensatz beschäftigt sich mit Kriegsdienstverweigerern. Zwischen
 
 Zusätzlich zur Frage der Kriegsdienstverweigerung sei in einer Zufallsstichprobe von als tauglich gemusterten erhoben, ob der Wohnort eine Gemeinde mit über oder unter 20~000 Einwohner*innen (\enquote{Stadt} oder \enquote{Land}) ist.\footnote{Hier wird also eine verhältnisskalierte Variable (Bevölkerungszahl der Gemeinde) in eine nominalskalierte Variable transformiert. In Fällen wie diesen, wo die Variable nach der Transformation nur zwei Werte annehmen kann, sprechen wir auch von der \enquote{Dichotomisierung} einer Variable.} Die Ergebnisse sind in Tabelle~\ref{tab:zivi1} zusammengefasst.
 
-Wir interessieren uns für den statistischen Zusammenhang dieser beiden Variablen, und zwar möchten wir die Hypothese prüfen, dass Menschen aus der Stadt eher den Kriegsdienst verweigerten als Menschen vom Land. Der Test wird entlang der bekannten sechs Schritte ausgeführt.
+Wir interessieren uns für den statistischen Zusammenhang dieser beiden Variablen, und zwar möchten wir die Hypothese prüfen, dass Menschen aus der Stadt eher den Kriegsdienst verweigerten als Menschen vom Land. Der Test wird entlang der \protect\hyperlink{statistische-tests}{bekannten sechs Schritte} ausgeführt.
 
 \hypertarget{test-wuxe4hlen-und-voraussetzungen-pruxfcfen-4}{%
 \subsection{Test wählen und Voraussetzungen prüfen}\label{test-wuxe4hlen-und-voraussetzungen-pruxfcfen-4}}
@@ -6340,22 +6354,18 @@ Ein Beispiel: Für größere Verspätungen (\(\geq\) 10 Minuten) beim ÖPNV eine
 
 \begin{table}
 
-\caption{\label{tab:late}Häufigkeiten größerer Verspätungen im ÖPNV}
+\caption{\label{tab:late}Beispielwerte für Verspätungen nach Wochentagen}
 \centering
-\begin{tabular}[t]{lr}
+\begin{tabular}[t]{rrrrr}
 \toprule
-\textbf{Wochentag} & \textbf{Häufigkeit}\\
+\textbf{Montag} & \textbf{Dienstag} & \textbf{Mittwoch} & \textbf{Donnerstag} & \textbf{Freitag}\\
 \midrule
-Montag & 459\\
-Dienstag & 409\\
-Mittwoch & 414\\
-Donnerstag & 387\\
-Freitag & 437\\
+\makecell[tr]{409} & \makecell[tr]{387} & \makecell[tr]{437} & \makecell[tr]{414} & \makecell[tr]{459}\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Wir befolgen wieder die sechs Schritte für statistische Testverfahren.
+Wir befolgen wieder die \protect\hyperlink{statistische-tests}{sechs Schritte für statistische Testverfahren}.
 
 \hypertarget{test-wuxe4hlen-und-voraussetzungen-pruxfcfen-5}{%
 \subsection{Test wählen und Voraussetzungen prüfen}\label{test-wuxe4hlen-und-voraussetzungen-pruxfcfen-5}}
@@ -6365,7 +6375,7 @@ Für den \(\chi^2\)-Anpassungstest müssen folgende Voraussetzungen erfüllt sei
 \begin{itemize}
 \tightlist
 \item
-  Ziel ist die Überprüfung einer nominalskalierten Variable auf eine statistisch signifikante Abweichung von einer vorgegebenen Verteilung.
+  Ziel ist die Überprüfung \emph{einer} nominalskalierten Variable auf eine statistisch signifikante Abweichung von einer vorgegebenen Verteilung.
 \item
   Grundlage sind beobachtete Häufigkeiten aus einer einfachen, unabhängigen Zufallsstichprobe.
 \item
@@ -6382,7 +6392,7 @@ H_0 &: \textrm{Starke Verspätungen sind an allen Werktagen gleich wahrscheinlic
 H_1 &: \textrm{Starke Verspätungen sind an manchen Werktagen wahrscheinlicher als an anderen.}
 \end{aligned}\]
 
-Gerichtete Hypothesen dürften hier wieder nur bei dichotomen Variablen formuliert werden (also bei zwei Tabellenfeldern).
+Gerichtete Hypothesen dürften hier wieder nur bei dichotomen Variablen formuliert werden (also bei genau zwei Tabellenfeldern) -- denn sonst können wir die Richtung der Vermutung nicht genau genug formulieren.
 
 \hypertarget{signifikanzniveau-entscheiden-5}{%
 \subsection{Signifikanzniveau entscheiden}\label{signifikanzniveau-entscheiden-5}}
@@ -6431,12 +6441,25 @@ Im Beispiel ergibt sich in den fünf Kategorien jeweils ein Erwartungswert von
 
 \[\frac{n}{k}=\frac{2106}{5}=421{,}2\]
 
+\begin{table}
+
+\caption{\label{tab:xtlate}Tabelle für den $\chi^2$-Anpassungstest}
+\centering
+\begin{tabular}[t]{rrrr>{}r|>{}r}
+\toprule
+\textbf{Montag} & \textbf{Dienstag} & \textbf{Mittwoch} & \textbf{Donnerstag} & \textbf{Freitag} & \textbf{  }\\
+\midrule
+\makecell[tr]{409\\(421,2)\\\textcolor{goethe_blue}{0,353}} & \makecell[tr]{387\\(421,2)\\\textcolor{goethe_blue}{2,777}} & \makecell[tr]{437\\(421,2)\\\textcolor{goethe_blue}{0,593}} & \makecell[tr]{414\\(421,2)\\\textcolor{goethe_blue}{0,123}} & \makecell[tr]{459\\(421,2)\\\textcolor{goethe_blue}{3,392}} & \textbf{2106}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
 Dann nehmen wir wieder eine Tabelle zu Hilfe um die Prüfgröße \(\chi^2\) zu berechnen (s. Tabelle~\ref{tab:xtlate}). Wie gehabt werden einfach die Teilwerte zusammengezählt:
 
 \[
 \begin{aligned}
 \chi^2 &= \sum_{i=1}^{k}\frac{(n_{i}-m_{i})^{2}}{m_{i}}\\[4pt]
-&=3{,}392 +  0{,}353 +  0{,}123 +  2{,}777 + 0{,}593\\
+&\approx 0{,}353 +  2{,}777 + 0{,}593 + 0{,}123 +  3{,}392 \\
 &=7{,}238
 \end{aligned}
 \]
