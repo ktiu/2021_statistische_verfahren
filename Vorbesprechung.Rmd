@@ -30,7 +30,7 @@ Sie können...
 - Dienstags, 14 h c.&nbsp;t.. auf Zoom (Link in OLAT)
 - Übungsaufgaben (und Lösungen) werden online bereit gestellt
 - Teilnehmer\*innen bearbeiten die Aufgaben in Break-Out-Sessions
-- Bei Problemen fragen Sie sich erstmal gegenseitig
+- Bei Problemen fragen Sie sich erst mal gegenseitig
 - Sonst bin ich ansprechbar (Zoom-Funktion: Um Hilfe bitten)
 
 ### Empfehlungen {-}
@@ -38,40 +38,42 @@ Sie können...
 - Lassen Sie sich auf den wöchentlichen Rhythmus ein
 - Bereiten Sie die Sitzungen vor und nach
 - Bilden Sie Lerngruppen
-- Melden Sie mir gerne Break-Out-Wünsche per E-Mail (aber keine Garantie)
+- Melden Sie mir gerne Break-Out-Wünsche per E-Mail
 - Gleichen Sie in Lerngruppen Ihre Ziele ab
 - Machen Sie sich mit Ihrem Taschenrechner vertraut
 
 ### Literaturempfehlungen {-}
 
 - Ganz besonders:
-  - @bortz (als E-Book bei der UB erhältich; dieselben Notationskonventionen wie in der Veranstaltung)
+  - @bortz (als E-Book bei der UB erhältlich; dieselben Notationskonventionen wie in der Veranstaltung)
 - Ergänzend:
+  - @delange (geographiebezogen)
   - @bahrenberg (geographiebezogen)
-  - @benninghaus (als E-Book bei der UB erhältich)
+  - @benninghaus (als E-Book bei der UB erhältlich)
 - Bedingt:
-  - @zimmermann-janschitz2014a (geographiebezogen; als E-Book bei der UB erhältich)
+  - @zimmermann-janschitz2014a (geographiebezogen; als E-Book bei der UB erhältlich)
+- Englisch:
+  - @burt
 
 ### Taschenrechner {-}
 
 - Zulassungsregeln für Klausur wie für Mathe-Abi (Hessen)
 - Also kein "programmierbarer" Taschenrechner
-- Erlaubt ist z.B. CASIO FX-991DE Plus
+- Erlaubt ist z. B. CASIO FX-991DE Plus
 - "Wissenschaftlicher" Taschenrechner kann von großem Vorteil sein... aber den statistischen Funktionen nicht blind vertrauen!
 
 ### Klausur {-}
 
-- Termin: 13. Juli 2021, 14 h s.&nbsp;t.
-- Präsenz oder online möglich
-- Berechnung der Aufgaben "von Hand" auf Papier
-- Bearbeitungsdauer: 60 Minuten
-- Bei Online-Klausur wird zusätzliche Zeit für technische Abwicklung gewährt
-- Hilfsmittel: Taschenrechner, [Formelsammlung](#formelsammlung-und-wertetabellen)
-- Vier Teilaufgaben, immer nach demselben Schema (dazu im Laufe des Semesters mehr)
-- Viele Probeklausuren zur Vorbereitung
+- Termin: 13. Juli 2021, 14 h s. t.
+- Klausur wird online geschrieben
+- (Wer darauf besteht, in Präsenz zu schreiben, kann sich gerne bei mir melden. Ich werde das ermöglichen.)
+- Berechnung der Aufgaben von Hand auf Papier, Ergebnisse werden eingescannt oder abfotografiert, dann hochgeladen
+- Hilfsmittel: Taschenrechner, [Formelsammlung](#formeln), Skript
+- Bearbeitungsdauer: 60 Minuten
+- Für die Online-Klausur wird zusätzliche Zeit für technische Abwicklung gewährt
 
 ### Nachklausur {-}
 
-- Termin: 12. Oktober 2021, 14 h s.&nbsp;t.
+- Termin: 12. Oktober 2021, 14 h s. t.
 - Gleiches Schema wie die reguläre Klausur (mit anderen Aufgaben)
 - Nicht einfacher als die reguläre Klausur
