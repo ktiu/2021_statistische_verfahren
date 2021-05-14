@@ -1,17 +1,22 @@
-## Aufgaben
+## Übungsaufgaben {-}
 
-### Aufgabe 1
+`r naechste("aufgabe", T)`
 
 Sie interessieren sich dafür, ob in einem Unternehmen der Tätigkeitsbereich mit dem Geschlecht der Angestellten zusammenhängt.
 
-In den Personalakten sind Angestellte als "männlich" oder "weiblich" erfasst und ihre Tätigkeitsfelder in "Leitende Tätigkeit", "Administration" und "Fertigung" unterteilt.
+In den Personalakten sind Angestellte als "weiblich" oder "männlich" erfasst und ihre Tätigkeitsfelder in "Leitende Tätigkeit", "Administration" und "Fertigung" unterteilt.
 
 Folgende Häufigkeiten sind erfasst:
 
 ```{r}
-firma <- read.table("img/10_firma_dt")
-#firmaxt <- crosstable(firma, "html", sums=F, varnames = F, col.order = c("Leitende Tätigkeit", "Administration", "Fertigung"))
-#firmaxt$df
+read.table("img/10_firma_dt") %>%
+  as_tibble() %>%
+  get_crosstable(col.order = c("Leitende Tätigkeit",
+                               "Administration",
+                               "Fertigung")) ->
+  firma
+
+lectuR::print_crosstable(firma, variable_names = F, question = T)
 ```
 
 a) Welchen Test führen Sie durch?
@@ -21,7 +26,7 @@ d) Bestimmen Sie die Freiheitsgrade und den kritischen Wert.
 e) Berechnen Sie die Prüfgröße.
 f) Wie interpretieren Sie das Ergebnis?
 
-### Aufgabe 2
+`r naechste("aufgabe", T)`
 
 Eine Ihrer Bekannten behauptet, dass beim Elfmeterschießen -- "statistisch gesehen" -- das Team häufiger gewinnt, das den ersten Elfmeter ausführt.
 

@@ -179,7 +179,7 @@ Die Fläche unter einer Wahrscheinlichkeitsdichtefunktion (engl. *probability de
 Das Perzentil $x_p$ (engl. *percentile*) ist definiert als der Wert, unter dem der Anteil $p$ der Verteilung liegt. In [Sitzung&nbsp;2](#Maßzahlen) haben wir also bereits den Median $x_{50\%}$ sowie die Angelpunkte $Q_1=x_{25\%}$ und $Q_3=x_{75\%}$ kennengelernt.
 
 Die Fläche unter einer Wahrscheinlichkeitsdichtefunktion innerhalb der Limits $-\infty$ und $x_p$ beträgt $p$. Für einen zufälligen Wert $x$ ist die Wahrscheinlichkeit $P(x < x_p) = p$, dass er kleiner als $x_p$ ausfällt.
-Für die Standardnormalverteilung finden sich die $p$-Werte für positive $z$ in der [Formelsammlung](Formelsammlung und Wertetabellen.pdf){target="_blank"}.^[Manchmal wird die Funktion $z_p \rightarrow P(z < z_p)$ für normalverteilte Werte auch mit $\Phi(z)$ bezeichnet [z.&nbsp;B. in @bahrenberg].]
+Für die Standardnormalverteilung finden sich die $p$-Werte für positive $z$ in der [Formelsammlung](#formeln).^[Manchmal wird die Funktion $z_p \rightarrow P(z < z_p)$ für normalverteilte Werte auch mit $\Phi(z)$ bezeichnet [z.&nbsp;B. in @bahrenberg].]
 
 ## Wahrscheinlichkeitsrechnung mit Standardnormalverteilung
 
@@ -319,7 +319,7 @@ In 7,93% der Fälle beträgt der Luftdruck also über 1015&nbsp;hPA.
 
 #### Negativer $z$-Wert
 
-Wenn nach der Unterschreitungswahrscheinlichkeit eines unterdurchschnittlichen Werts gefragt ist (z.&nbsp;B. 990&nbsp;hPA), dann ergibt sich ein negativer Wert für $z_p$:
+Wenn nach der Unterschreitungswahrscheinlichkeit eines unterdurchschnittlichen Werts gefragt ist (z. B. 990 hPA), dann ergibt sich ein negativer Wert für $z_p$:
 
 \begin{equation}
   \begin{aligned}
@@ -329,7 +329,7 @@ Wenn nach der Unterschreitungswahrscheinlichkeit eines unterdurchschnittlichen W
   \end{aligned}
 \end{equation}
 
-Die [Formelsammlung](Formelsammlung und Wertetabellen.pdf){target="_blank"} enthält keine $p$ für negative $z_p$. Da die Standardnormalverteilung jedoch um $z=0$ symmetrisch ist, gilt ganz allgemein:
+Die [Formelsammlung](#formeln) enthält keine $p$ für negative $z_p$. Da die Standardnormalverteilung jedoch um $z=0$ symmetrisch ist, gilt ganz allgemein:
 
 \[
   \begin{aligned}
@@ -391,7 +391,7 @@ Für unseren Fall ist $x_u=1005$ und $x_o=1015$. In den [vorherigen Aufgaben](#u
         &\approx 0{,}23
 \end{aligned}\]
 
-Dann können wir die entsprechende Wahrscheinlichkeit berechnen, indem wir wieder die Werte aus der [Formelsammlung](Formelsammlung und Wertetabellen.pdf){target="_blank"} einsetzen:
+Dann können wir die entsprechende Wahrscheinlichkeit berechnen, indem wir wieder die Werte aus der [Formelsammlung](#formeln) einsetzen:
 
 \[
   \begin{aligned}
