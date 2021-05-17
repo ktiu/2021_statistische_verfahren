@@ -9,14 +9,14 @@ In den Personalakten sind Angestellte als "weiblich" oder "männlich" erfasst un
 Folgende Häufigkeiten sind erfasst:
 
 ```{r}
-read.table("img/10_firma_dt") %>%
-  as_tibble() %>%
-  get_crosstable(col.order = c("Leitende Tätigkeit",
-                               "Administration",
-                               "Fertigung")) ->
-  firma
+construct("Tätigkeitsfeld" = c("Leitende Tätigkeit", "Administration", "Fertigung"),
+                  "Geschlecht" = c("weiblich",
+                                   "männlich"),
+                  counts = c(38,  185, 397,
+                             102, 290, 888)) %>%
+  get_crosstable() -> ex_10_1
 
-lectuR::print_crosstable(firma, variable_names = F, question = T)
+print_crosstable(ex_10_1, variable_names = F, question = T)
 ```
 
 a) Welchen Test führen Sie durch?
@@ -25,11 +25,57 @@ c) Das Thema wird in der Unternehmensleitung bereits kontrovers diskutiert, wesh
 d) Bestimmen Sie die Freiheitsgrade und den kritischen Wert.
 e) Berechnen Sie die Prüfgröße.
 f) Wie interpretieren Sie das Ergebnis?
+g) Der Aufsichtsratsvorsitzende kritisiert die Untersuchung in einem Interview: "Dass im Betrieb nur etwa die Hälfte der Führungskräfte Frauen sind, ist insofern nicht verwunderlich, als dass insgesamt ungefähr doppelt so viele Männer wie Frauen bei uns arbeiten." Wie antworten Sie?
 
-`r naechste("aufgabe", T)`
+`r naechste("aufgabe") #2`
 
 Eine Ihrer Bekannten behauptet, dass beim Elfmeterschießen -- "statistisch gesehen" -- das Team häufiger gewinnt, das den ersten Elfmeter ausführt.
 
 Sie möchten das empirisch überprüfen und schauen sich Archivmaterial von siebzig Fußballpartien an, die durch Elfmeterschießen entschieden wurden. Tatsächlich stellen Sie fest, dass in genau 60% der Fälle das zuerst ausführende Team gewann.
 
 Prüfen Sie, ob diese Beobachtung auch statistisch relevant ist. Wählen Sie 5% als Signifikanzniveau.
+
+`r naechste("aufgabe") #3`
+
+Sie führen eine Untersuchung zum Konsumverhalten von Studierenden mit und ohne Nebenjob in Hinblick auf Bio-Produkte durch. Eine Umfrage ergibt folgendes Ergebnis:
+
+```{r}
+construct("Tätigkeit" = c("mit Nebenjob", "ohne Nebenjob"),
+          "Bio-Kaufverhalten" = c("regelmäßiger Kauf",
+                                  "kein regelmäßiger Kauf"),
+          counts = c(141, 70, 253, 149)) %>%
+  get_crosstable() -> ex_10_3
+
+print_crosstable(ex_10_3, question = T)
+```
+
+a) Überprüfen Sie anhand dieser Daten, ob ein signifikanter positiver Zusammenhang zwischen der Ausübung eines Nebenjobs und dem regelmäßigen Konsum von Bio-Produkten besteht. Wählen Sie 0,05 als Signifikanzniveau.
+
+b) Berechnen Sie eine Kennzahl, die aussagt, wie stark der Zusammenhang ausfällt.
+
+`r naechste("aufgabe") #4`
+
+Das *Global Volcanism Program* des @smithsonian stellt eine Datenbank für Vulkanaktivitäten zur Verfügung.
+In Indonesien wurden für die Jahre 1919 bis inklusive 2018 insgesamt 643 Ausbrüche aufgezeichnet, für die der Monat erfasst ist, in dem die Aktivität begann.
+Die Verteilung aller Ausbrüche auf Monate ist in der folgenden Grafik festgehalten:
+
+```{r}
+construct("Monat" = c("Januar", "Februar", "März", "April", "Mai", "Juni",
+                      "Juli", "August", "September", "Oktober", "November",
+                      "Dezember"),
+          counts = c(48, 49, 62, 56, 64, 51, 85, 46, 46, 41, 50, 45)) %>%
+  get_crosstable() -> ex_10_4
+
+ex_10_4$table %>%
+  transmute(month = factor(ex_10_4$rows, levels = ex_10_4$rows),
+            n) %>%
+  ggplot(aes(x = month, y = n, label = n)) +
+    geom_col() +
+    geom_text(vjust = 2, color = "white") +
+    scale_y_continuous(NULL, expand = c(0,0)) +
+    scale_x_discrete(NULL) +
+    theme_goethe() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+Prüfen Sie, ob bei einem Signifikanzniveau von 1% ein systematischer Zusammenhang zwischen Monat und Zahl der Ausbrüche vorliegt.

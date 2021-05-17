@@ -143,7 +143,7 @@ $$
 
 errechnet. Dabei ist die Ermittlung der Randsummen und Erwartungswerte $m_{ij}$ ein notwendiger Schritt, und auch die Teilwerte für $\chi^2$ können wieder direkt in die Kreuztabelle eingetragen werden.
 
-```{r zivi2, cache = F}
+```{r zivi2}
 print_crosstable(zivi, caption = paste("Kreuztabelle mit Erwartungswerten und",
                                        "Teilwerten für $\\chi^2$"))
 ```
@@ -176,16 +176,15 @@ Beim $\chi^2$-Anpassungstest geht es um die Häufigkeiten *eines* nominalskalier
 
 Ein Beispiel: Für größere Verspätungen ($\geq$ 10 Minuten) beim ÖPNV einer Großstadt wird festgehalten, an welchen Wochentagen sie auftreten. Wir ignorieren Wochenenden und Feiertage und fragen uns, ob sich die Verzögerungen gleichmäßig auf Werktage verteilen, oder ob es signifikante Abweichungen in Bezug auf den Wochentag gibt. Die Werte in Tabelle \@ref(tab:late) seien über drei Monate hinweg erhoben worden.
 
-```{r late, eval = T}
-tibble("Wochentag" = c(rep("Montag",     459),
-                       rep("Dienstag",   409),
-                       rep("Mittwoch",   414),
-                       rep("Donnerstag", 387),
-                       rep("Freitag",    437))) %>%
-  get_crosstable(row_order = c("Montag", "Dienstag", "Mittwoch",
-                               "Donnerstag", "Freitag")) -> verspaetungen
+```{r late}
+construct("Wochentag" = c("Montag", "Dienstag", "Mittwoch",
+                          "Donnerstag", "Freitag"),
+          counts = c(459, 409, 414, 387, 437)) %>%
+  get_crosstable() -> verspaetungen
 
-print_crosstable(verspaetungen, question = T,
+print_crosstable(verspaetungen,
+                 variable_names = F,
+                 question = T,
                  caption = "Beispielwerte für Verspätungen nach Wochentagen")
 ```
 
@@ -256,6 +255,7 @@ $$\frac{n}{k}=\frac{2106}{5}=421{,}2$$
 
 ```{r xtlate}
 print_crosstable(verspaetungen,
+                 variable_names = F,
                  caption = "Tabelle für den $\\chi^2$-Anpassungstest")
 ```
 
@@ -264,7 +264,7 @@ Dann nehmen wir wieder eine Tabelle zu Hilfe um die Prüfgröße $\chi^2$ zu ber
 $$
 \begin{aligned}
 \chi^2 &= \sum_{i=1}^{k}\frac{(n_{i}-m_{i})^{2}}{m_{i}}\\[4pt]
-&\approx 0{,}353 +  2{,}777 + 0{,}593 + 0{,}123 +  3{,}392 \\
+&\approx 3{,}392 + 0{,}353 + 0{,}123 + 2{,}777 + 0{,}593\\
 &=7{,}238
 \end{aligned}
 $$

@@ -82,7 +82,9 @@ Der durchschnittliche Ertrag aller 60 Felder beträgt 69 Tonnen pro Hektar (t/ha
 tibble(
   Feld = 1:6,
   `Ertrag in t/ha` = c(93, 74, 65, 69, 89, 85),
-) %>% tabelle(full_width = F)
+) -> ex_05_7
+
+tabelle(ex_05_7, full_width = F)
 ```
 
 Prüfen Sie, ob der Einsatz des neuen Düngemittels zu einem signifikanten Unterschied im Ertrag der Felder geführt hat. Akzeptieren Sie in Ihrer Analyse 5% als Wahrscheinlichkeit für einen Fehler 1. Art.

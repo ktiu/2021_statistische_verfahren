@@ -5,31 +5,13 @@
 Sie fragen sich, wie die Wohnumgebung einer Person (Stadt oder Land) damit zusammenhängt, ob die Person ein eigenes Auto besitzt. Sie erheben die folgende Messreihe:
 
 ```{r}
-tribble(
-  ~Wohnort, ~Autobesitz,
-  "Land",   "Ja",
-  "Land",   "Ja",
-  "Stadt",  "Nein",
-  "Stadt",  "Nein",
-  "Stadt",  "Ja",
-  "Stadt",  "Nein",
-  "Land",   "Ja",
-  "Land",   "Nein",
-  "Land",   "Ja",
-  "Land",   "Ja",
-  "Stadt",  "Nein",
-  "Land",   "Ja",
-  "Land",   "Ja",
-  "Land",   "Ja",
-  "Stadt",  "Nein",
-  "Land",   "Ja",
-  "Stadt",  "Nein",
-  "Land",   "Nein",
-  "Stadt",  "Ja",
-  "Stadt",  "Nein"
-) -> ex_9_1
+construct("Autobesitz" = c("Ja", "Nein"),
+          "Wohnort" = c("Land",
+                        "Stadt"),
+          counts = c(9, 2,
+                     2, 7)) -> ex_9_1
 
-tabelle(ex_9_1, full_width = F)
+tabelle(ex_9_1$table, full_width = F)
 ```
 
 a) Überführen Sie die Daten in eine Kreuztabelle.
@@ -49,12 +31,11 @@ Sie interessieren sich dafür, ob zwei "Ja/Nein"-Fragen auf einem Fragebogen kor
 Sie ermitteln folgende Häufigkeiten:
 
 ```{r}
-ex2 <- read.table("img/9_ex2_dt")
-colnames(ex2) <- c("Frage 1", "Frage 2")
-
-ex_9_2 <- get_crosstable(ex2,
-                         col_order = c("Ja", "Nein"),
-                         row_order = c("Ja", "Nein"))
+construct("Frage 2" = c("Ja", "Nein"),
+          "Frage 1" = c("Ja", "Nein"),
+          counts = c(5, 28, 40, 72)) %>%
+  get_crosstable() ->
+  ex_9_2
 
 print_crosstable(ex_9_2, question = T)
 ```
@@ -72,9 +53,17 @@ Sie möchten überprüfen, ob auf dem Arbeitsmarkt anhand von Namen diskriminier
 Sie erheben diese Daten:^[Diese Zahlen sind fiktiv. Echte Ergebnisse sogenannter Korrenspondenztests zu ähnlichen Fragestellungen sind bei @ringeisen zusammengefasst.]
 
 ```{r}
-ex3 <- read.table("img/9_ex3_dt")
-colnames(ex3) <- c("Herkunft des Namens", "Ergebnis")
-ex_9_3 <- get_crosstable(ex3)
+construct("Ergebnis" = c("eingeladen", "nicht eingeladen"),
+          "Herkunft des Namens" = c("deutsch",
+                                    "italienisch",
+                                    "slawisch",
+                                    "türkisch"),
+          counts = c(36, 64,
+                     23, 77,
+                     9, 91,
+                     11, 89)) %>%
+  get_crosstable() ->
+  ex_9_3
 
 print_crosstable(ex_9_3, question = T)
 ```
@@ -91,15 +80,18 @@ In einer breit angelegten Befragung von Haushalten wird erhoben,
 Sie fassen die Ergebnisse in einer Kreuztabelle zusammen:
 
 ```{r}
-cols <- c("Miete", "Eigentum")
-rows <- c("Glasfaser", "DSL", "Koaxialkabel", "Kein fester Anschluss")
-construct("Wohnverhältnis" = cols,
-          "Internetanschluss" = rows,
+construct("Wohnverhältnis" = c("Miete", "Eigentum"),
+          "Internetanschluss" = c("Glasfaser",
+                                  "DSL",
+                                  "Koaxialkabel",
+                                  "Kein fester Anschluss"),
           counts = c(1926, 1567,
                      2758, 3686,
                      3002, 1903,
                      1277, 167)) %>%
-  get_crosstable(col_order = cols, row_order = rows) -> ex_9_4
+  get_crosstable() ->
+  ex_9_4
+
   print_crosstable(ex_9_4, question = T)
 ```
 

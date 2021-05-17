@@ -1,0 +1,212 @@
+## Sitzung 10 {-}
+
+`r naechste("lösung", T) #2`
+
+a) Es geht um die Überprüfung eines Zusammenhangs von zwei nominalskalierten Variablen, deshalb $\chi^2$-Unabhängigkeitstest.
+
+b) $H_0:$ Es gibt keinen Zusammenhang zwischen Geschlecht und Tätigkeitsbereich.
+
+    $H_1:$ Es gibt einen Zusammenhang zwischen Geschlecht und Tätigkeitsbereich.
+
+c) $\alpha=0{,}01$
+
+d) Freiheitsgrade:
+
+    $$
+    \begin{aligned}
+    \mathit{df} &= (k - 1) \cdot (\ell - 1)\\
+     &= (2 - 1) \cdot (3 - 1)\\
+    &=2
+    \end{aligned}
+    $$
+
+    Ablehnungsbereich:
+
+    $$
+    \begin{aligned}
+    \chi^2 &\geq \chi^2_{\mathit{df};(1-\alpha)}\\
+    \chi^2 &\geq \chi^2_{2;99\%}\\
+    \chi^2 &\geq 9{,}210
+    \end{aligned}
+    $$
+
+e) Berechnung anhand Tabelle:
+
+    ```{r}
+    print_crosstable(ex_10_1)
+    ```
+
+    $$\begin{aligned}
+    \chi^2&= \sum_{i=1}^{k}\sum_{j=1}^{\ell}\frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}\\
+    &\approx 1{,}291+5{,}806+1{,}188+0{,}625+2{,}812+0{,}575\\
+    &=12{,}297
+    \end{aligned}$$
+
+f) Der Ablehnungsbereich wurde erreicht, die Nullhypothese muss abgelehnt werden. Es konnte ein signifikanter Zusammenhang zwischen Geschlecht und Tätigkeitsfeld festgestellt werden ($\alpha=0{,}01$).
+
+g) Es ließe sich darauf hinweisen, dass die dem Test zu Grunde liegende Prüfgröße $\chi^2$ auf Abweichungen beruht, die die ungleiche Anzahl von weiblichen und männlichen Beschäftigten bereits miteinbezieht. Der statistisch signifikante Zusammenhang ist außerdem nicht nur auf Führungskräfte bezogen, aber auch auf dieser Ebene tragen eindeutige Abweichungen von den jeweiligen Erwartungswerten (weniger Frauen, mehr Männer) zum Ergebnis bei.
+
+`r naechste("lösung") #2`
+
+Aus den angegebenen Werten ergibt sich folgende Darstellung in Tabellenform:
+
+```{r}
+construct("Das zuerst ausführende Team..." = c("gewinnt", "verliert"),
+          counts = c(42, 28)) %>%
+  get_crosstable() -> ex_10_2
+
+print_crosstable(ex_10_2, expected = F, chisq = F)
+```
+
+1. Test wählen und Voraussetzungen prüfen
+
+    Es soll überprüft werden, ob die Verteilung eines Merkmals signifikant von einer gleichmäßigen (uniformen) Verteilung abweicht. Deshalb muss ein $\chi^2$-Anpassungstest durchgeführt werden.
+
+    Die Werte in allen Zellen sind $\geq 5$.
+
+2. Hypothesen formulieren
+
+    $H_0:$ Beide Teams gewinnen das Elfmeterschießen mit gleicher Wahrscheinlichkeit.
+
+    $H_1:$ Das zuerst ausführende Team hat bessere Chancen, das Elfmeterschießen zu gewinnen.
+
+3. Signifikanzniveau entscheiden
+
+    $\alpha=0{,}05$
+
+4. Ablehnungsbereich bestimmen
+
+    Freiheitsgrade:
+
+    $$
+    \begin{aligned}
+    \mathit{df} &= (k - 1)\\
+     &= (2 - 1)\\
+    &=1
+    \end{aligned}
+    $$
+
+    Für den einseitigen Test dürfen wir den Ablehnungsbereich verdoppeln. Aus einem Signifikanzniveau von 5% und Freiheitsgrad 1 ergibt sich daher das Perzentil $\chi^2_{1;90\%}$:
+
+    $$\begin{aligned}
+    \chi^2 &\geq \chi^2_{\mathit{df};(1-2\cdot\alpha)}\\
+    \chi^2 &\geq \chi^2_{1;90\%}\\
+    \chi^2 &\geq 2{,}706
+    \end{aligned}$$
+
+5. Prüfgröße berechnen
+
+    Ohne Zusammenhang wären die Fälle *theoretisch* gleich verteilt, d.h. der Erwartungswert für die beiden Beobachtungen beträgt je 35. Hieraus lassen sich wie gewohnt die Teilwerte für $\chi^2$ berechnen.
+
+    ```{r}
+    print_crosstable(ex_10_2)
+    ```
+
+    \[\begin{aligned}
+    \chi^2 = 2{,}8
+    \end{aligned}\]
+
+6. Ergebnis interpretieren
+
+    Der kritische Wert von 2,706 wurde überschritten, der Ablehnungsbereich somit erreicht. Die Nullhypothese kann abgelehnt werden. Es konnte bestätigt werden, dass das zuerst ausführende Team signifikant öfter gewinnt ($\alpha=0{,}05$).
+
+`r naechste("lösung") #3`
+
+a) Berechnung anhand von Tabelle:
+
+    ```{r xtable}
+    print_crosstable(ex_10_3)
+    ```
+
+    ```{r}
+    chisq <- get_chisq(ex_10_3)
+    test <- get_chisq_test(ex_10_3,
+                           alpha = 0.05,
+                           gerichtet = T)
+    tribble(
+      ~Schritt, ~Lösung,
+      "Test wählen", paste(
+        "Überprüfung eines Zusammenhangs von nominalskalierten Variablen,",
+        "deshalb: $\\chi^2$-Unabhängigkeitstest."
+      ),
+      "Voraussetzungen prüfen", multi("Alle Felder haben eine Häufigkeit von 5
+                                       oder mehr"),
+      "Nullhypothese", multi("$H_0:$ Es besteht kein Zusammenhang zwischen
+                              Nebenjob und Bio-Konsum."),
+      "Alternativhypothese", multi("$H_1:$ Es besteht ein positiver (!)
+                                    Zusammenhang zwischen Nebenjob und
+                                    Bio-Konsum."),
+      "Signifikanzniveau", test$alpha,
+      "Freiheitsgrade: Formel", test$fg_formel,
+      "Freiheitsgrade: Ergebnis", test$fg_ergebnis,
+      "Ablehnungsbereich", test$ablehnung_formel,
+      "Ablehnungsbereich", test$ablehnung_einsetzen,
+      "Ablehnungsbereich", test$ablehnung_ergebnis,
+      "Erwartungswerte: Formel", chisq$m_formel,
+      "Prüfgröße: Formel", chisq$formel,
+      "Prüfgröße: Einsetzen", chisq$einsetzen,
+      "Prüfgröße: Ergebnis", chisq$ergebnis,
+      "Interpretieren", "Der Ablehnungsbereich wurde nicht erreicht",
+      "Interpretieren", "Die Nullhypothese muss beibehalten werden.",
+      "Interpretieren", multi("Ein Zusammenhang zwischen Ausübung eines
+                               Nebenjobs und regelmäßigem Kauf von Bio-Produkten
+                               konnte nicht nachgewiesen werden
+                               ($\\alpha=0,05$).")
+    ) %>%
+      tabelle(escape = F)
+    ```
+
+b) Berechnen Sie eine Kennzahl, die aussagt, wie stark der Zusammenhang ausfällt.
+
+    ```{r}
+    phi <- get_phi(chisq = 0.911, n = 613)
+    tribble(
+      ~Schritt, ~Lösung,
+      "Formel", phi$formel,
+      "Einsetzen", phi$einsetzen,
+      "Ergebnis", phi$ergebnis,
+      "Antwortsatz", multi("Der $\\phi$-Koeffizient liegt mit %s sehr nah am
+                            Minimalwert 0, es ist also auch mit diesem Kennwert
+                            keine Korrelation festzustellen.") %>%
+        sprintf(phi$raw)
+    ) %>%
+      tabelle(escape = F)
+    ```
+
+`r naechste("lösung") #4`
+
+Berechnung mit Tabelle:
+
+```{r}
+print_crosstable(ex_10_4)
+```
+
+```{r}
+chisq <- get_chisq(ex_10_4)
+test <- get_chisq_test(ex_10_4, alpha=0.01)
+tribble(
+  ~Schritt, ~Lösung,
+  "Test wählen", multi("Es soll geprüft werden, ob eine empirische Verteilung
+                        von einer erwarteten (uniformen) Verteilung abweicht.
+                        Deshalb muss ein $\\chi^2$-Anpassungstest durchgeführt
+                        werden."),
+  "Nullhypothese", multi("$H_0:$ Es gibt keinen systematischen Zusammenhang
+                          zwischen Monat und Zahl der Ausbrüche."),
+  "Alternativhypothese", multi("$H_1:$ Es gibt einen systematischen Zusammenhang
+                                zwischen Monat und Zahl der Ausbrüche."),
+  "Signifikanzniveau", test$alpha,
+  "Freiheitsgrade: Formel", test$fg_formel,
+  "Freiheitsgrade: Ergebnis", test$fg_ergebnis,
+  "Ablehnungsbereich: Formel", test$ablehnung_formel,
+  "Ablehnungsbereich: Einsetzen", test$ablehnung_einsetzen,
+  "Ablehnungsbereich: Ergebnis", test$ablehnung_ergebnis,
+  "Erwartungswerte: Formel", chisq$m_formel,
+  "Prüfgröße", chisq$formel,
+  "Prüfgröße: Ergebnis", chisq$ergebnis,
+  "Interpretieren", "Der Ablehnungsbereich wurde erreicht.",
+  "Interpretieren", "Die Nullhypothese kann abgelehnt werden.",
+  "Interpretieren", multi("Es gibt einen signifikanten Zusammenhang zwischen
+                           Monat und Anzahl der Vulkanausbrüche (%s).") %>%
+                      sprintf(test$alpha)
+) %>% tabelle(escape = F)
+```
