@@ -5,7 +5,7 @@
 a) Überführung in Kreuztabelle
 
     ```{r}
-    get_crosstable(ex_9_1, col_order = c("Ja", "Nein")) -> xt
+    get_crosstable(ex_9_1) -> xt
     print_crosstable(xt, expected = F, chisq = F)
     ```
 
@@ -87,7 +87,7 @@ b) Teilwerte $\chi^2$:
     \end{aligned}
     $$
 
-c) Es gibt eine mäßige Korrelation der beiden Antworten ($\phi\approx0{,}186$). Die Bejahung beider Fragen liegt unter dem Erwartungswert und korreliert also leicht negativ.
+c) Es gibt eine schwache Korrelation der beiden Antworten ($\phi\approx0{,}186$). Die Bejahung beider Fragen liegt unter dem Erwartungswert und korreliert also leicht negativ.
 
 `r naechste("lösung") #3`
 
@@ -116,7 +116,7 @@ $$
 \end{aligned}
 $$
 
-Der Cramér-Index weist auf einen leichten Zusammenhang zwischen Namensherkunft und Bewerbungsergebnis hin ($\mathit{CI}\approx0{,}217$). Dabei lag die Anzahl erfolgreicher Bewerbungen bei Namen deutscher Herkunft deutlich über dem Erwartungswert und bei Namen türkischer und slawischer Herkunft deutlich unter dem Erwartungswert.
+Der Cramér-Index weist auf einen mäßigen Zusammenhang zwischen Namensherkunft und Bewerbungsergebnis hin ($\mathit{CI}\approx0{,}217$). Dabei lag die Anzahl erfolgreicher Bewerbungen bei Namen deutscher Herkunft deutlich über dem Erwartungswert und bei Namen türkischer und slawischer Herkunft deutlich unter dem Erwartungswert.
 
 `r naechste("lösung") #4`
 

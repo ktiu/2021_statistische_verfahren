@@ -121,7 +121,7 @@ tribble(
   "Test wählen", f$wählen,
   "Nullhypothese", f$nullhypothese,
   "Alternativhypothese", f$alternativhypothese,
-  "Signifikanzniveau entscheiden", f$signifikanz,
+  "Signifikanzniveau entscheiden", f$alpha,
   "Freiheitsgrade 1", f$df1,
   "Freiheitsgrade 2", f$df2,
   "Ablehnungsbereich: Formel", f$ablehnungsbereich$formel,

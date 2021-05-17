@@ -34,16 +34,16 @@ construct(Transportmittel = c("Fahrrad", "anderes Transportmittel"),
           counts = c(11, 28,
                      9, 42)) -> rad
 
-rad %>%
+rad$table %>%
   add_column(`$i$` = format(1:90), .before = "Studienfach") -> numbered
 
 numbered %>%
   head() %>%
   add_row(`$i$` = "...", Studienfach = "...", Transportmittel = "...") %>%
   rbind(tail(numbered)) %>%
-  tabelle(align = "rll",
+  tabelle(align   = "rll",
           caption = "\\label{tab:roh}Ungeordnete Rohdaten der Erhebung",
-          escape = F)
+          escape  = F)
 ```
 
 ## Kreuztabelle
@@ -57,10 +57,7 @@ Bei zwei dichotomen Variablen ergeben sich zwei Spalten und zwei Zeilen, also vi
 Die Kreuztabelle für unser Beispiel ist in \@ref(tab:crossrad) dargestellt. Die Spaltenüberschriften sind die beiden Werte der dichotomen Variable "Transportmittel", und die Zeilennamen sind die beiden Werte für "Studienfach". In den Zellen stehen die Häufigkeiten. Es lässt sich also z. B. ablesen, dass die Kombination "Fahrrad" und "anderes Studienfach" neun mal vorkommt.
 
 ```{r crossrad}
-get_crosstable(rad,
-               row_order = c("Geistes-/Sozialwissenschaft",
-                             "anderes Studienfach"),
-               col_order = c("Fahrrad", "anderes Transportmittel")) -> xt_rad
+get_crosstable(rad) -> xt_rad
 
 print_crosstable(xt_rad, expected = F, chisq = F, variable_names = F,
                  caption = "Kreuztabelle für die Beispielerhebung")
@@ -247,31 +244,16 @@ Hätten wir im Beispiel die Erhebung nicht auf dichotome Variablen reduziert, so
 Dabei werden die Erwartungswerte wie gehabt mit Gleichung \@ref(eq:m) und die Teilwerte für $\chi^2$ mit Gleichung \@ref(eq:contrib) errechnet.
 
 ```{r ci}
-tibble(
-  Studienfach = c(replicate(19, "Geisteswissenschaft"),
-                  replicate(20, "Sozialwissenschaft"),
-                  replicate(23, "Naturwissenschaft"),
-                  replicate(28, "Ingenieurswissenschaft")),
-  Transportmittel = c(
-                      c(replicate(5, "Fahrrad"),
-                        replicate(5, "Auto"),
-                        replicate(9, "Öffentliche")),
-                      c(replicate(6, "Fahrrad"),
-                        replicate(6, "Auto"),
-                        replicate(8, "Öffentliche")),
-                      c(replicate(5, "Fahrrad"),
-                        replicate(9, "Auto"),
-                        replicate(9, "Öffentliche")),
-                      c(replicate(4, "Fahrrad"),
-                        replicate(18, "Auto"),
-                        replicate(6, "Öffentliche")))) %>%
-  get_crosstable(col_order = c("Fahrrad",
-                               "Auto",
-                               "Öffentliche"),
-                 row_order = c("Geisteswissenschaft",
-                               "Sozialwissenschaft",
-                               "Naturwissenschaft",
-                               "Ingenieurswissenschaft")) %>%
+construct("Transportmittel" = c("Fahrrad", "Auto", "Öffentliche"),
+          "Studienfach" = c("Geisteswissenschaft",
+                            "Sozialwissenschaft",
+                            "Naturwissenschaft",
+                            "Ingenieurswissenschaft"),
+          counts = c(5, 5, 9,
+                     6, 6, 8,
+                     5, 9, 9,
+                     4, 18, 6)) %>%
+  get_crosstable() %>%
   print_crosstable(caption = "Kreuztabelle des Beispiels ohne Dichotomisierung")
 ```
 

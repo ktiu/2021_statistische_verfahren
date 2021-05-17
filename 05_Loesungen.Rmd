@@ -18,16 +18,16 @@ e) Der $z$-Wert ist mit -2,14 kleiner als der kritische Wert -1,96 und damit im 
 
 `r naechste("lösung") #2`
 
-a)  -4,604 
-a)  -3,579 
-a)  -2,365 
-a)  -1,771 
-a)  2,201 
-a)  2,353 
-a)  3,707 
-a)  3,686 
-a)  3,365 
-a)  -2,528 
+a)  -4,604
+a)  -3,579
+a)  -2,365
+a)  -1,771
+a)  2,201
+a)  2,353
+a)  3,707
+a)  3,686
+a)  3,365
+a)  -2,528
 
 `r naechste("lösung") #3`
 
@@ -43,7 +43,7 @@ a)  -2,528
 
 3. Signifikanzniveau entscheiden:
 
-    Signifikanzniveau z.B. $alpha=0,05$, weil ein zu großes $alpha$ hier nicht in besonderer Weise problematisch ist.
+    Signifikanzniveau z.B. $\alpha=0,05$, weil ein zu großes $\alpha$ hier nicht in besonderer Weise problematisch ist.
 
 4. Kritischen Wert bestimmen:
 
@@ -100,7 +100,7 @@ b) Der kritische Wert wurde unterschritten, die Nullhypothese wird abgelehnt. Wi
 
 `r naechste("lösung") #6`
 
-```{r}
+```{r cache = F}
 set.seed(134323)
 rnorm(5, 10, sqrt(5.2)) %>%
   round(2) -> preise
@@ -111,16 +111,16 @@ z <- get_z1(preise, mu = 11.8, sigma = sigma$raw, mode = "abwärts")
 tribble(
   ~Schritt, ~Lösung,
   "Test wählen", "Varianz bekannt, deshalb $z$-Test",
-  "Nullhypothese", "$H_0: \\mu = \\mu_0$",
-  "Alternativhypothese", "$H_1: \\mu < \\mu_0$",
-  "Signifikanzniveau", "$\\alpha=0{,}05$",
-  "Ablehnungsbereich", "$z \\leq z_{\\alpha}$",
-  "Ablehnungsbereich", "$z \\leq z_{5\\%}$",
-  "Ablehnungsbereich", "$z \\leq -1,65\\quad\\textrm{oder} -1,65$",
+  "Nullhypothese", z$nullhypothese,
+  "Alternativhypothese", z$alternativhypothese,
+  "Signifikanzniveau", z$alpha,
+  "Ablehnungsbereich", z$ablehnungsbereich$formel,
+  "Ablehnungsbereich", z$ablehnungsbereich$einsetzen,
+  "Ablehnungsbereich", z$ablehnungsbereich$ergebnis,
   "Mittel: Formel", mittel$formel,
   "Mittel: Einsetzen", mittel$einsetzen,
   "Mittel: Ergebnis", mittel$ergebnis,
-  "Standardabweichung", sigma$ergebnis,
+  "Standardabweichung", sigma$quick,
   "Prüfgröße: Formel", z$formel,
   "Prüfgröße: Einsetzen", z$einsetzen,
   "Prüfgröße: Ergebnis", z$ergebnis,
@@ -132,7 +132,7 @@ tribble(
 `r naechste("lösung") #7`
 
 ```{r}
-data <- c(85, 78, 73, 76, 76, 81)
+data <- ex_05_7$`Ertrag in t/ha`
 mu0 <- 73
 barx <- get_mean(data)
 var <- get_var(data)
@@ -147,7 +147,7 @@ tribble(
   "Test wählen",                       t$wählen,
   "Nullhypothese",                     t$nullhypothese,
   "Alternativhypothese",               t$alternativhypothese,
-  "Signifikanzniveau",                 t$signifikanz,
+  "Signifikanzniveau",                 t$alpha,
   "Freiheitsgrade",                    t$df,
   "Ablehnungsbereich: Formel",         t$ablehnungsbereich$formel,
   "Ablehnungsbereich: Einsetzen",      t$ablehnungsbereich$einsetzen,
@@ -158,9 +158,7 @@ tribble(
   "Varianz: Formel",                   var$formel,
   "Varianz: Einsetzen",                var$einsetzen,
   "Varianz: Ergebnis",                 var$ergebnis,
-  "Standardabweichung: Formel",        s$formel,
-  "Standardabweichung: Einsetzen",     s$einsetzen,
-  "Standardabweichung: Ergebnis",      s$ergebnis,
+  "Standardabweichung",                s$quick,
   "Prüfgröße: Formel",                 t$formel,
   "Prüfgröße: Einsetzen",              t$einsetzen,
   "Prüfgröße: Ergebnis",               t$ergebnis,
