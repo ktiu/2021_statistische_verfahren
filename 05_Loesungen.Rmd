@@ -133,7 +133,7 @@ tribble(
 
 ```{r}
 data <- ex_05_7$`Ertrag in t/ha`
-mu0 <- 73
+mu0 <- 69
 barx <- get_mean(data)
 var <- get_var(data)
 s <- get_sd(data)
