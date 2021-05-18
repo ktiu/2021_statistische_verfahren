@@ -14,7 +14,7 @@ Sie können...
 - [6a) $F$-Test](https://video01.uni-frankfurt.de/mediasite/mymediasite/presentations/cb5fc2416bcf4c4c8ebd7c645dbbaee21d)
 - [6c) Fehler 1. und 2. Art](https://video01.uni-frankfurt.de/Mediasite/Play/e437fdc1ee5147bb88cbf9b9d03262961d)
   - Ich rede am Ende über mögliche Klausurformen. Letztes Jahr haben wir eine "Online-Papierklausur" geschrieben, das machen wir dieses Jahr auch.
- 
+
 ## Statistische Tests
 
 In [Sitzung 5](grundlagen-der-teststatistik.html) haben wir mit dem $z$-Test und dem 1-Stichproben-$t$-Test die ersten Testverfahren kennengelernt. In dieser Sitzung kommt der 2-Stichproben-$t$-Test sowie der $F$-Test dazu.
@@ -24,21 +24,21 @@ Das grundsätzliche Verfahren bleibt dabei stets das gleiche. Zur Erinnerung noc
 1. Test auswählen und Voraussetzungen prüfen
 2. Hypothesen formulieren
 3. Signifikanzniveau entscheiden
-4. Ablenhnungsbereich bestimmen
+4. Ablehnungsbereich bestimmen
 5. Prüfgröße berechnen
 6. Ergebnis interpretieren
 
-## 2-Stichproben-`r symbol_header("t")`-Test {#2-stichproben-t-test}
+## 2-Stichproben-`r symbol_header("t")`-Test
 
 Bei der folgenden Variante des $t$-Tests (und beim $F$-Test) wird nicht wie gehabt *eine* Stichprobe  auf signifikante Abweichungen *von der Grundgesamtheit* überprüft, sondern *zwei* Stichproben auf signifikante Abweichungen *voneinander.* An den sechs Schritten ändert sich nichts.
 
-Den 2-Stichproben-$t$-Test gibt es je nach Voraussetzungen bzw. Annahmen in vielen unterschiedlichen Varianten. In dieser Veranstaltung wird nur eine bestimmte (vergleichsweise einfache) Variante behandelt. In der Praxis geht es aber oft darum, für ganz bestimmte empirische Bedinungen den „richtigen“ 2-Stichproben-$t$-Test auszuwählen.
+Den 2-Stichproben-$t$-Test gibt es je nach Voraussetzungen bzw. Annahmen in vielen unterschiedlichen Varianten. In dieser Veranstaltung wird nur eine bestimmte (vergleichsweise einfache) Variante behandelt. In der Praxis geht es aber oft darum, für ganz bestimmte empirische Bedingungen den „richtigen“ 2-Stichproben-$t$-Test auszuwählen.
 
 Die hier behandelte Variante soll mit folgendem Beispiel illustriert werden: Wir interessieren uns für die Mietpreise von kleine Gewerbeflächen in den beiden Frankfurter Stadtteilen Höchst und Praunheim. Wir vermuten, dass es einen signifikanten Unterschied gibt, wissen aber nicht in welche Richtung. Wir planen eine Befragung von je 6 Mieter\*innen von kleinen Gewerberäumen, die nach Zufallsprinzip ausgewählt werden.
 
 ### Test wählen und Voraussetzungen prüfen
 
-Der hier behandelte 2-Stichproben-$t$-Test hat folgende Voraussetzungen (bzw. Annahmen):
+Der hier behandelte 2-Stichproben-$t$-Test hat folgende Voraussetzungen und Annahmen:
 
 - Es soll untersucht werden, ob ein Merkmal in zwei Stichproben signifikant voneinander abweicht.
 - Die Stichproben sind einfache Zufallsstichproben und unabhängig voneinander erhoben.
@@ -48,13 +48,13 @@ Der hier behandelte 2-Stichproben-$t$-Test hat folgende Voraussetzungen (bzw. An
 
 Die letzte Voraussetzung ist etwas merkwürdig, denn beim $t$-Test kennen wir ja die Varianzen der Grundgesamtheiten gar nicht. [Der $F$-Test](#f-test) kann diese Voraussetzung anhand der Stichprobenverteilungen prüfen.
 
-#### Beispiel 
+#### Beispiel
 
 Probleme bereiten hier die Voraussetzungen der Normalverteilung und der gleichen Varianzen. Mit der Annahme der Normalverteilung können wir leben (weil wir uns mit Statistik gut auskennen und wissen, dass der $t$-Test „robust“ auf nicht-ganz-normalverteilte Merkmale reagiert). Wenn sich während des Tests jedoch herausstellen sollte, dass die Varianzen zu unterschiedlich sind, müssten wir das Vorgehen neu überdenken.
 
 ### Hypothesen formulieren
 
-Im Unterschied zu zuvor besprochenen Verfahren gibt es hier keine übergeordnete Grundgesamtheit, und damit kein $\mu_0$. Stattdessen werden Hypothesen über die Populationen der beiden Stichproben ($\mu_1$ und $\mu_2$) formuliert. 
+Im Unterschied zu zuvor besprochenen Verfahren gibt es hier keine übergeordnete Grundgesamtheit, und damit kein $\mu_0$. Stattdessen werden Hypothesen über die Populationen der beiden Stichproben ($\mu_1$ und $\mu_2$) formuliert.
 
 #### Nullhypothese
 
@@ -80,7 +80,7 @@ H_1 : \mu_1 \neq \mu_2
 
 ##### Gerichtete Alternativhypothese
 
-Die gerichtete Alternativhyptothese gibt eine Richtung des vermuteten Unterschieds vor. Sie lautet entweder:
+Die gerichtete Alternativhypothese gibt eine Richtung des vermuteten Unterschieds vor. Sie lautet entweder:
 
 \[
 H_1 : \mu_1 < \mu_2
@@ -99,7 +99,7 @@ H_1 : \mu_1 > \mu_2
 Wir vermuten zwar einen Unterschied, wissen aber nicht in welche Richtung. Deshalb formulieren wir neben der Nullhypothese eine ungerichtete Alternativhypothese:
 
 \[\begin{aligned}
-H_0 : \mu_1 = \mu_2\\[4pt]
+H_0 : \mu_1 = \mu_2\\
 H_1 : \mu_1 \neq \mu_2
 \end{aligned}\]
 
@@ -113,7 +113,7 @@ Wir entscheiden uns für das Signifikanzniveau $\alpha=0{,}05$.
 
 ### Ablehnungsbereich bestimmen
 
-Der kritische Wert wird genau wie bei dem 1-Stichproben-$t$-Test aus der [Formelsammlung](Formelsammlung und Wertetabellen.pdf){target="_blank"} abgelesen. Der einzige (wichtige!) Unterschied ist die Bestimmung der Freiheitsgrade: Bei zwei Stichproben der Größe $n$ werden die Freiheitsgrade bestimmt durch:
+Der kritische Wert wird genau wie bei dem 1-Stichproben-$t$-Test aus der [Formelsammlung](#formeln) abgelesen. Der einzige (wichtige!) Unterschied ist die Bestimmung der Freiheitsgrade: Bei zwei Stichproben der Größe $n$ werden die Freiheitsgrade bestimmt durch:
 
 \[
 \mathit{df}=2\cdot n -2
@@ -125,15 +125,15 @@ Der kritische Wert wird genau wie bei dem 1-Stichproben-$t$-Test aus der [Formel
 Wir planen mit je 6 Stichproben. Deswegen berechnen wir die Freiheitsgrade:
 
 \[\begin{aligned}
-\mathit{df}&=2\cdot n -2\\[4pt]
-&=2\cdot6-2=10 
+\mathit{df}&=2\cdot n -2\\
+&=2\cdot6-2=10
 \end{aligned}\]
 
 Kritische Werte gibt es nun in beide Richtungen. Aufgrund der Symmetrie der $t$-Verteilung reicht es, wenn wir einen Wert (mit $\alpha=0{,}05$) nachschlagen:
 
 \[\begin{aligned}
-t &\leq t_{\mathit{df};\alpha/2} \quad \textrm{und} \quad t \geq t_{\mathit{df};(1-\alpha/2)}\\[4pt]
-t &\leq t_{10;2{,}5\%} \quad \textrm{und} \quad t \geq t_{10;97{,}5\%}\\[4pt]
+t &\leq t_{\mathit{df};\alpha/2} \quad \textrm{und} \quad t \geq t_{\mathit{df};(1-\alpha/2)}\\
+t &\leq t_{10;2{,}5\%} \quad \textrm{und} \quad t \geq t_{10;97{,}5\%}\\
 t &\leq -2{,}228 \quad \textrm{und} \quad t \geq 2{,}228
 \end{aligned}\]
 
@@ -150,24 +150,30 @@ t=\frac{\bar{x}_1-\bar{x}_2}{\sqrt{\frac{s^2_1+s^2_2}{n}}}
 
 Wir erheben folgende Werte für die Kaltmiete pro m²:
 
-\[\begin{aligned}
-\textrm{Höchst} (x_1):\quad7{,}96\quad8{,}46\quad7{,}13\quad8{,}95\quad7{,}62\quad8{,}22\\[4pt]
-\textrm{Praunheim} (x_2):\quad5{,}54\quad5{,}80\quad8{,}70\quad7{,}99\quad6{,}23\quad6{,}75
-\end{aligned}\]
+$$
+\begin{aligned}
+\textrm{Höchst} (x_1): \quad7{,}96\quad8{,}46\quad7{,}13\quad8{,}95\quad7{,}62\quad8{,}22\\
+\textrm{Praunheim} (x_2): \quad5{,}54\quad5{,}80\quad8{,}70\quad7{,}99\quad6{,}23\quad6{,}75
+\end{aligned}
+$$
 
-Für die arithmetischen Mittel ergibt sich (s. [Sitzung 2](#arithmetisches-mittel)):
+Für die [arithmetischen Mittel](#arithmetisches-mittel) ergibt sich:
 
-\[\begin{aligned}
+$$
+\begin{aligned}
 \bar{x}_1\approx8{,}06\\[4pt]
 \bar{x}_2\approx6{,}84
-\end{aligned}\]
+\end{aligned}
+$$
 
-Die Varianzen (s. [Sitzung 2](#varianz)):
+Für die [Varianzen](#varianz):
 
-\[\begin{aligned}
+$$
+\begin{aligned}
 s^2_1\approx0{,}41\\[4pt]
 s^2_2\approx1{,}59
-\end{aligned}\]
+\end{aligned}
+$$
 
 Diese Varianzen sehen auf den ersten Blick sehr unterschiedlich aus, was ein Problem ist: Der 2-Stichproben-$t$-Test hat ja zur Annahme, dass die Varianzen in den beiden Populationen gleich sind.
 
@@ -177,11 +183,13 @@ Wir entscheiden uns zunächst dazu, den Test fortzuführen und lernen gleich ein
 
 Um die Prüfgröße $t$ zu bestimmen, setzen wir einfach unsere Stichprobenwerte in Formel \@ref(eq:t2sp) ein:
 
-\[\begin{aligned}
-t&=\frac{\bar{x}_1-\bar{x}_2}{\sqrt{\frac{s^2_1+s^2_2}{n}}}\\[6pt]
-&\approx\frac{8{,}06-6{,}84}{\sqrt{\frac{0{,}41+1{,}59}{6}}}\\[4pt]
+$$
+\begin{aligned}
+t&=\frac{\bar{x}_1-\bar{x}_2}{\sqrt{\frac{s^2_1+s^2_2}{n}}}\\
+&\approx\frac{8{,}06-6{,}84}{\sqrt{\frac{0{,}41+1{,}59}{6}}}\\
 &\approx2{,}113
-\end{aligned}\]
+\end{aligned}
+$$
 
 ### Ergebnis interpretieren
 
@@ -189,19 +197,21 @@ Genau wie bei den anderen Tests wird je nach erreichen des kritischen Werts (des
 
 #### Beispiel
 
-Der kritische Wert von $t \geq 2{,}228$ wurde nicht überschritten. Wir müssen die Nullhypothese beibehalten, d.h. wir konnten keinen signifikanten Unterschied zwischen den Mietpreisen in Höchst und Praunheim feststellen ($\alpha=0{,}05$).
+Der kritische Wert von $t \geq 2{,}228$ wurde nicht überschritten. Wir müssen die Nullhypothese beibehalten, d. h. wir konnten keinen signifikanten Unterschied zwischen den Mietpreisen in Höchst und Praunheim feststellen ($\alpha=0{,}05$).
 
 ```{r}
-rtip("In R wird auch der 2-Stichproben-$t$-Test mit dem Befehl `t.test()` durchgeführt. Im Gegensatz zum 1-Stichproben-$t$-Test werden dabei zwei Verteilungen als Argumente eingegeben.")
+rtip(multi("In R wird auch der 2-Stichproben-$t$-Test mit dem Befehl `t.test()`
+            durchgeführt. Im Gegensatz zum 1-Stichproben-$t$-Test werden dabei
+            zwei Verteilungen als Argumente eingegeben."))
 ```
 
 ## Die `r symbol_header("F")`-Verteilung {#die-f-verteilung}
 
-Die Prüfgröße $F$ im $F$-Test ist unter Annahme der Nullhypothese $F$-verteilt. Im Gegensatz zu den Verteilungen von $z$ und $t$ ist die $F$-Verteilung nicht symmetrisch und nimmt nur positive Werte an (s. Abbildung \@ref(fig:fdf)).
+Die Prüfgröße $F$ im $F$-Test ist unter Annahme der Nullhypothese $F$-verteilt. Im Gegensatz zu den Verteilungen von $z$ und $t$ ist die $F$-Verteilung nicht symmetrisch und nimmt nur positive Werte an (s. Abbildung \@ref(fig:fverteilungdf)).
 
 Dazu ist die $F$-Verteilung nicht wie $t$ von einem, sondern von zwei Freiheitsgraden abhängig. Die Reihenfolge dieser Freiheitsgrade ist auch wichtig: Wir sprechen vom Zähler-Freiheitsgrad ($\mathit{df}_1$) und vom Nenner-Freiheitsgrad ($\mathit{df}_2$). Die $F$-Verteilung wird also notiert mit: $F_{\mathit{df}_1;\mathit{df}_2}$
 
-```{r fdf, cache=T, fig.cap="$F$-Verteilungen mit verschiedenen Freiheitsgraden"}
+```{r fverteilungdf, fig.cap="$F$-Verteilungen mit verschiedenen Freiheitsgraden"}
 f1 <- function(x){df(x,2,5)}
 f2 <- function(x){df(x,6,1)}
 f3 <- function(x){df(x,5,10)}
@@ -218,7 +228,7 @@ ggplot(data.frame(x=c(0, 3)), aes(x)) +
 ```
 
 ## `r symbol_header("F")`-Test {#f-test}
- 
+
 Auch der $F$-Test untersucht zwei unabhängige Stichproben. Er unterscheidet sich jedoch insofern grundlegend von den zuvor besprochenen Testverfahren, als dass sein Untersuchungsgegenstand nicht der Mittelwert ($\mu$) sondern die Varianz ($\sigma^2$) der beiden Populationen ist.
 
 Die Prüfgröße $F$ ist dann unter Annahme der Nullhypothese $F$-verteilt.
@@ -240,7 +250,7 @@ Wir müssen also explizit die Annahme treffen, dass die Mietpreise annähernd no
 
 ### Hypothesen formulieren
 
-Alles wie gehabt -- nur, dass es um die Varianz $\sigma^2$ der jewiligen Populationen geht.
+Alles wie gehabt -- nur, dass es um die Varianz $\sigma^2$ der jeweiligen Populationen geht.
 
 #### Nullhypothese
 
@@ -369,13 +379,16 @@ $$
 Der so berechnete Ablehnungsbereich ist grafisch in Abbildung \@ref(fig:falpha) aufbereitet.
 
 ```{r falpha, fig.cap="Ablehnungsbereich für $F \\leq F_{5;5;5\\%}$"}
-fun=function(x){df(x,5,5)}
-ggplot(data.frame(x=c(0,3.5)),aes(x))+
-  stat_function(n=250,fun=fun, geom="area", fill=light_blue, xlim=c(0,qf(0.05,5,5)))+
-  stat_function(n=250,fun=fun, color=goethe_blue) +
-  geom_vline(color=goethe_blue,xintercept=qf(0.05,5,5),linetype="dashed")+
-  scale_x_continuous("F", breaks=c(round(qf(0.05,5,5),2),1:3),expand=c(0,0)) +
-  scale_y_continuous(NULL, expand=c(0,0), limits = c(0,0.65)) +
+fun <- function(x) df(x, 5, 5)
+ggplot(data.frame(x = c(0, 3.5)), aes(x)) +
+  stat_function(n = 250, fun = fun, geom = "area", fill = light_blue,
+                xlim = c(0, qf(0.05, 5, 5))) +
+  stat_function(n = 250, fun = fun, color = goethe_blue) +
+  geom_vline(color = goethe_blue, xintercept = qf(0.05, 5, 5),
+             linetype = "dashed") +
+  scale_x_continuous("F", breaks = c(round(qf(0.05, 5, 5), 2), 1:3),
+                     expand = c(0, 0)) +
+  scale_y_continuous(NULL, expand = c(0, 0), limits = c(0, 0.65)) +
   theme_goethe()
 ```
 
@@ -428,7 +441,7 @@ Der Fehler 1. Art (engl. *type I error*) steht für die Wahrscheinlichkeit, dass
 
 ### Fehler 2. Art
 
-Der Fehler 2. Art (engl. *type II error*) ist die Wahrscheinlichkeit, dass die Nullhypothese fälschlicherweise beibehalten wird. Das passiert immer dann, wenn die Vermutung also eigentlich stimmt, die Stichprobenwerte aber zufällig so ausfallen, dass der Ablehnungsbereich nicht erreicht wird. Konsequenz ist, dass eine korrekte Vermutung statistisch nicht belegt werden kann. Die Warscheinlichkeit für einen Fehler 2. Art wird mit $\beta$ gekennzeichnet.
+Der Fehler 2. Art (engl. *type II error*) ist die Wahrscheinlichkeit, dass die Nullhypothese fälschlicherweise beibehalten wird. Das passiert immer dann, wenn die Vermutung also eigentlich stimmt, die Stichprobenwerte aber zufällig so ausfallen, dass der Ablehnungsbereich nicht erreicht wird. Konsequenz ist, dass eine korrekte Vermutung statistisch nicht belegt werden kann. Die Wahrscheinlichkeit für einen Fehler 2. Art wird mit $\beta$ gekennzeichnet.
 
 ## Tipps zur Vertiefung {-}
 

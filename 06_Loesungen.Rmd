@@ -159,7 +159,7 @@ t <- (mean_hessen$raw-mean_niedersachsen$raw)/sqrt((var_hessen$raw+var_niedersac
 
 tribble(
   ~Schritt, ~Musterlösung,
-  "Test wählen", "2-Stichprobem-$t$-Test",
+  "Test wählen", "2-Stichproben-$t$-Test",
   "Nullhypothese", "$H_0: \\mu_1 = \\mu_2$",
   "Alternativhypothese", "$H_1: \\mu_1 \\neq \\mu_2$",
   "Signifikanzniveau entscheiden", "$\\alpha=0,01$",

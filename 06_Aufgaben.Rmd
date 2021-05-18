@@ -53,6 +53,8 @@ b) Bestimmen Sie den Ablehnungsbereich bei Signifikanzniveau $\alpha=0{,}05$.
 
 `r naechste("aufgabe") #5`
 
+*(Fortführung von Aufgabe 4)*
+
 Sie ermitteln die folgenden durchschnittlichen Antwortzeiten der individuellen Nutzer\*innen (in Minuten):
 \[\begin{aligned}
 \textrm{Ohne Benachrichtigung} &: \quad 24{,}7\quad32{,}0\quad48{,}9\quad23{,}7\quad23{,}0\quad10{,}0\\
