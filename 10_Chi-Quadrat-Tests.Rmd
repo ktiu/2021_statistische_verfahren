@@ -1,4 +1,4 @@
-# `r symbol_header("chi2")`-Tests
+# `r symbol_header("chi2")`-Tests {#chi-quadrat-tests}
 
 ### Lernziele dieser Sitzung {-}
 

@@ -11,9 +11,9 @@ Sie können...
 ### Lehrvideos (Sommersemester 2020) {-}
 
 - [6a) 2-Stichproben-$t$-Test](https://video01.uni-frankfurt.de/Mediasite/Play/ef4a65b5bd3748f19f2d3b5cef41be6a1d)
-- [6a) $F$-Test](https://video01.uni-frankfurt.de/mediasite/mymediasite/presentations/cb5fc2416bcf4c4c8ebd7c645dbbaee21d)
+- [6b) $F$-Test](https://video01.uni-frankfurt.de/Mediasite/Play/cb5fc2416bcf4c4c8ebd7c645dbbaee21d)
 - [6c) Fehler 1. und 2. Art](https://video01.uni-frankfurt.de/Mediasite/Play/e437fdc1ee5147bb88cbf9b9d03262961d)
-  - Ich rede am Ende über mögliche Klausurformen. Letztes Jahr haben wir eine "Online-Papierklausur" geschrieben, das machen wir dieses Jahr auch.
+  - Ich rede am Ende des Videos über mögliche Klausurformen. Letztes Jahr haben wir eine "Online-Papierklausur" geschrieben, das machen wir dieses Jahr auch.
 
 ## Statistische Tests
 
