@@ -28,7 +28,6 @@ Die statistischen Verfahren dieser Sitzung sollen wieder an einem Beispiel illus
 Wir fragen uns, ob der jährliche Ertrag in einem bestimmten Anbaugebiet für Klebreis in Nordostthailand mit dem jährlichen Niederschlag zusammenhängt. Die erfassten Werte sind in Tabelle \@ref(tab:reis) festgehalten ("Rai" ist ein [in Thailand übliches Flächenmaß](https://de.wikipedia.org/wiki/Rai_\(Einheit\))).
 
 ```{r reis}
-
 tribble(
   ~i, ~year, ~rain, ~yield,
   1,  2008,  1449,  1860,
@@ -47,7 +46,8 @@ tabelle(reis,
         caption = "\\label{tab:reis}Niederschlag und Ertrag im Reisanbau",
         col.names = c("$i$", "", "$x_i$", "$y_i$"),
         escape = F,
-        header_above = c("Laufende Nr.", "Jahr", "Niederschlag (mm)", "Ertrag (kg/Rai)"))
+        header_above = c("Laufende Nr.", "Jahr", "Niederschlag (mm)",
+                         "Ertrag (kg/Rai)"))
 ```
 
 In einem Streudiagramm können diese Werte veranschaulicht werden. Dabei ist es üblich, die unabhängige Variable auf der $x$-Achse und die abhängige Variable auf der $y$-Achse einzutragen. Im Beispiel liegt nahe, dass der Ertrag vom Regen abhängt, und nicht etwa umgekehrt.
@@ -66,10 +66,10 @@ ggplot(reis, aes(rain, yield)) +
 
 Die Kovarianz (engl. *covariance*) $s_{xy}$ gibt an, inwiefern die beiden Variablen $x$ und $y$ *gemeinsam variieren*. Die Kovarianz ergibt sich durch die Summe der jeweiligen Produkte der Differenzen zu den Mittelwerten $(x_i-\bar{x})$ und $(y_i-\bar{y})$, geteilt durch $(n-1)$. Die Formel lautet also:
 
-\[
+$$
 s_{xy}=\frac{\sum\limits^n_{i=1}(x_i-\bar{x})\cdot(y_i-\bar{y})}{n-1}
 (\#eq:cov)
-\]
+$$
 
 Gleichung \@ref(eq:cov) lässt erahnen: Wenn sowohl $x$ als auch $y$ in die gleiche Richtung vom jeweiligen Mittelwert abweichen (also beide Differenzen positiv oder beide Differenzen negativ), dann ist das Produkt positiv, sonst ist es negativ. Eine positive Kovarianz lässt also auf einen positiven Zusammenhang schließen (je größer $x$, desto größer auch $y$), eine negative Kovarianz auf einen negativen Zusammenhang (je größer $x$, desto *kleiner* $y$).
 
@@ -112,9 +112,9 @@ Als Zwischenschritt müssen die Mittelwerte $\bar{x}$ und $\bar{y}$ berechnet we
 $$
 \begin{aligned}
 \bar{x}&=\frac{\sum\limits^n_{i=1}x_i}{n}\\[5pt]
-       &=\frac{16217}{10}=1621,7\\[6pt]
+       &=\frac{16217}{10}=1621{,}7\\[6pt]
 \bar{y}&=\frac{\sum\limits^n_{i=1}y_i}{n}\\[5pt]
-       &=\frac{22495}{10}=2249,5
+       &=\frac{22495}{10}=2249{,}5
 \end{aligned}
 $$
 
@@ -240,21 +240,25 @@ reis %>%
 
 Die Standardabweichungen ergeben sich nun wie gewohnt aus:
 
-\[\begin{aligned}
-s_{x}&=\sqrt{\frac{\sum\limits^n_{i=1}(x_i-\bar{x})^2}{n-1}}\\[5pt]
-     &=\sqrt{\frac{233556,1}{9}}=\sqrt{25950,68}\approx161,09\\[6pt]
-s_{y}&=\sqrt{\frac{\sum\limits^n_{i=1}(y_i-\bar{y})^2}{n-1}}\\[5pt]
-     &=\sqrt{\frac{646556,5}{9}}=\sqrt{71839,61} \approx268,03
-\end{aligned}\]
+$$
+\begin{aligned}
+s_{x}&=\sqrt{\frac{\sum\limits^n_{i=1}(x_i-\bar{x})^2}{n-1}}\\
+     &=\sqrt{\frac{233556{,}1}{9}}=\sqrt{25950{,}68}\approx161{,}09\\
+s_{y}&=\sqrt{\frac{\sum\limits^n_{i=1}(y_i-\bar{y})^2}{n-1}}\\
+     &=\sqrt{\frac{646556{,}5}{9}}=\sqrt{71839{,}61} \approx268{,}03
+\end{aligned}
+$$
 
 Nun lassen sich die errechneten Werte in Gleichung \@ref(eq:cor) einsetzen:
 
-\[\begin{aligned}
+$$
+\begin{aligned}
 r&=\frac{s_{xy}}{s_x\cdot s_y}\\[4pt]
-&\approx\frac{40226,5}{161,09\cdot268,03}\approx0,93
-\end{aligned}\]
+&\approx\frac{40226{,}5}{161{,}09\cdot268{,}03}\approx0{,}93
+\end{aligned}
+$$
 
-Wir können bei einem Korrelationskoeffizienten $r\approx0,93$ von einem deutlichen positiven Zusammenhang zwischen Niederschlag und Ertrag ausgehen.
+Wir können bei einem Korrelationskoeffizienten $r\approx0{,}93$ von einem deutlichen positiven Zusammenhang zwischen Niederschlag und Ertrag ausgehen.
 
 ## Tipps zur Vertiefung {-}
 
