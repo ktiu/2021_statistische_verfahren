@@ -1,31 +1,8 @@
----
-title: Formelsammlung und Wertetabellen 
-subtitle: Statistische Verfahren in der Geographie
-author:
-  name: Till Straube
-  email: straube@geo.uni-frankfurt.de
-  affiliation: |
-    | Institut für Humangeographie
-    | Goethe-Universität Frankfurt
-bibliography: ../statistik.bib
-output: 
-  pubIHG::pdf_document:
-    number_sections: FALSE
-csl: /Users/till/bib/styles/chicago-author-date-de.csl
-biblio-title: Quellen
-link-citations: yes
----
-```{r setup, include=FALSE}
-pubIHG::setup()
-```
-
 # Hinweise
 
-* Die im Folgenden dargestellten Informationen werden Ihnen so oder ähnlich auch in der Klausur zur Verfügung stehen.
-
-* Bezeichnungen und Konventionen orientieren sich an @bortz, sind aber teilweise abweichend vereinfacht.
-
-* Die Wertetabellen wurden mit den entsprechenden Funktionen in R [@r] automatisch generiert.
+- Die im Folgenden dargestellten Informationen werden Ihnen so oder ähnlich auch in der Klausur zur Verfügung stehen.
+- Bezeichnungen und Konventionen orientieren sich an @bortz, sind aber teilweise abweichend vereinfacht.
+- Die Wertetabellen wurden mit den entsprechenden Funktionen in R [@r] automatisch generiert.
 
 \pagebreak
 
@@ -107,7 +84,7 @@ Eindimensionaler $\chi^2$-Test        | $$ \mathit{df} = k-1 $$
 \vfill
 ```{r, echo=F, fig.width=3, fig.height=1.5, fig.align='center', warning=F}
 
-draw.curve(
+lectuR::draw.curve(
   interval = c(-3,3),
   colorf = c(-3,1.2),
   xlabel = "z",
@@ -136,6 +113,7 @@ knitr::kable(m, "latex", format.args = list(digits = 4, decimal.mark = ","), boo
   add_header_above(c(" "=1, "$z$ (zweite Nachkommastelle)"=ncol(m)-1), escape = F) %>%
   column_spec(1, border_right = T)
 ```
+
 \pagebreak
 
 # $t$-Verteilungen
@@ -143,7 +121,7 @@ knitr::kable(m, "latex", format.args = list(digits = 4, decimal.mark = ","), boo
 \begin{multicols}{2}
 \vfill
 ```{r, echo=F, fig.width=3, fig.height=1.4, fig.align='center', warning=F}
-draw.curve(
+lectuR::draw.curve(
   interval = c(-4,4),
   colorf = c(-4,2),
   xlabel = "t",
@@ -181,7 +159,7 @@ knitr::kable(m, "latex", format.args = list(digits = 3, nsmall=3, decimal.mark =
 \vfill
 
 ```{r, echo=F, fig.width=3, fig.height=1.5, fig.align='center', warning=F}
-draw.curve(
+lectuR::draw.curve(
   interval = c(0,4),
   colorf = c(0,2.34),
   xlabel = "F",
@@ -224,7 +202,7 @@ knitr::kable(m, "latex", format.args = list(digits = 3, decimal.mark = ","), esc
 
 
 ```{r, echo=F, fig.height=2, fig.align='center', warning=F}
-draw.curve(
+lectuR::draw.curve(
   interval = c(0,24),
   colorf = c(0,15),
   xlabel = "$\\chi^2$",

@@ -1,0 +1,43 @@
+---
+title: Formelsammlung und Wertetabellen 
+subtitle: Statistische Verfahren in der Geographie
+lang: de
+author:
+  name: Till Straube
+  email: straube@geo.uni-frankfurt.de
+  affiliation: |
+    | Institut für Humangeographie
+    | Goethe-Universität Frankfurt
+bibliography: ../statistik.bib
+output: publishR::pdf_document
+papersize: a4
+fontsize: 11pt
+geometry: margin=2.5cm,top=3.5cm,bottom=3cm
+fontfamily: sourcesanspro
+fontfamilyoptions: default
+csl: ../chicago-author-date-de.csl
+target: "Formelsammlung_und_Wertetabellen.pdf"
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(magrittr)
+library(kableExtra)
+options(OutDec = ",")
+knitr::opts_chunk$set(
+  echo       = F,
+  warning    = F,
+  out.width  = ".6\\linewidth",
+  fig.width  = 5,
+  fig.height = 3,
+  cache      = T,
+  fig.pos    = "H"
+)
+```
+
+```{r child="formelsammlung_latex.Rmd"}
+```
+
+\pagebreak
+
+# Quellen

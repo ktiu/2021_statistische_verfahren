@@ -127,7 +127,7 @@ tribble(
   "Interpretieren", "Der Ablehnungsbereich wurde nicht erreicht.",
   "Interpretieren", "Die Nullhypothese muss beibehalten werden.",
   "Interpretieren", "Die Behauptung, im Neubaugebiet seien die Mietpreise günstiger, konnte nicht bestätigt werden.",
-) %>% tabelle(escape = F)
+) %>% tabelle(hold = T)
 ```
 `r naechste("lösung") #7`
 
@@ -169,5 +169,5 @@ tribble(
          "Der Ertrag mit dem neuen Düngemittel ist signifikant %s als ohne ($\\alpha=0{,}05$)." %>%
            sprintf(ifelse(barx$raw > mu0, "höher", "niedriger")),
          "Der Ertrag weicht nicht signifikant ab ($\\alpha=0{,}05$)."),
-) %>% tabelle(escape = F)
+) %>% tabelle(hold = T)
 ```

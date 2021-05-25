@@ -110,7 +110,7 @@ $$
 \end{aligned}
 $$
 
-Damit lässt sich der kritische Wert aus der [Formelsammlung](#formeln) ablesen, die allerdings für *ungerichtete* Alternativhypothesen ausgelegt ist.
+Damit lässt sich der kritische Wert aus der [Tabelle für $\chi^2$-Verteilungen](#tabelle-chisq) ablesen, die allerdings für *ungerichtete* Alternativhypothesen ausgelegt ist.
 
 Hätten wir eine ungerichtete Alternativhypothese gewählt, würde der Ablehnungsbereich also definiert durch:
 
@@ -233,7 +233,7 @@ $$
 \end{aligned}
 $$
 
-Der kritische Wert für den Ablehnungsbereich ist der [Formelsammlung](#formeln) zu entnehmen.
+Der kritische Wert für den Ablehnungsbereich ist der [Tabelle für $\chi^2$-Verteilungen](#tabelle-chisq) zu entnehmen.
 
 $$
 \begin{aligned}

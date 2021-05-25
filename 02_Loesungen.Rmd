@@ -15,7 +15,7 @@ tribble(
   "Formel", mean_a$formel,
   "Einsetzen", mean_a$einsetzen,
   "Ergebnis", mean_a$ergebnis
-) %>% tabelle(escape = F)
+) %>% tabelle(hold = T)
 ```
 
 #### b)
@@ -31,7 +31,7 @@ tribble(
   "Formel", mean_b$formel,
   "Einsetzen", mean_b$einsetzen,
   "Ergebnis", mean_b$ergebnis
-) %>% tabelle(escape = F)
+) %>% tabelle(hold = T)
 ```
 
 #### c)
@@ -46,7 +46,7 @@ tribble(
   "Formel", mean_a$formel,
   "Einsetzen", mean_c$einsetzen,
   "Ergebnis", mean_c$ergebnis
-) %>% tabelle(escape = F)
+) %>% tabelle(hold = T)
 ```
 
 `r naechste("lösung")`
@@ -68,7 +68,7 @@ tribble(
   "Standardabweichung: Formel", sd_a$formel,
   "Standardabweichung: Einsetzen", sd_a$einsetzen,
   "Varianz: Ergebnis", sd_a$ergebnis
-) %>% tabelle(escape = F)
+) %>% tabelle(hold = T)
 ```
 
 #### b)
@@ -89,7 +89,7 @@ tribble(
   "Standardabweichung: Formel", sd_b$formel,
   "Standardabweichung: Einsetzen", sd_b$einsetzen,
   "Varianz: Ergebnis", sd_b$ergebnis
-) %>% tabelle(escape = F)
+) %>% tabelle(hold = T)
 ```
 
 #### c)
@@ -109,7 +109,7 @@ tribble(
   "Standardabweichung: Formel", sd_c$formel,
   "Standardabweichung: Einsetzen", sd_c$einsetzen,
   "Varianz: Ergebnis", sd_c$ergebnis
-) %>% tabelle(escape = F)
+) %>% tabelle(hold = T)
 ```
 
 
@@ -138,7 +138,7 @@ df[, 5] <- (df$xs - mean(xs))^2
 df[, 6] <- df$Freq*(df$xs - mean(xs))^2
 df[] <- round(df,2)
 df[] <- lapply(format(df, decimal.mark=","), as.character)
-tabelle(df, escape = F, col.names = c("$x_i$", "$f_i$", "$f_i\\cdot x_i$", "$(x_i-\\bar{x})$", "$(x_i-\\bar{x})^2$", "$f_i\\cdot(x_i-\\bar{x})^2$"))
+tabelle(df, hold = T, col.names = c("$x_i$", "$f_i$", "$f_i\\cdot x_i$", "$(x_i-\\bar{x})$", "$(x_i-\\bar{x})^2$", "$f_i\\cdot(x_i-\\bar{x})^2$"))
 ```
 
 Der häufigste Wert (und damit der Modalwert) ist 2.
@@ -181,7 +181,7 @@ lectuR::klassieren(DAAG::fossum$totlngth,
 
 tbbl %>%
   select(x, k, f, fkum) %>%
-  tabelle(escape = F, col.names = c("$x$", "$k_i$", "$f_i$", "$f_{kum}$"))
+  tabelle(hold = T, col.names = c("$x$", "$k_i$", "$f_i$", "$f_{kum}$"))
 ```
 
 Bei $n=43$ ist $Q_1=\frac{x_{(11)}+x_{(12)}}{2}$ und $Q_3=\frac{x_{(32)}+x_{(33)}}{2}$.
@@ -203,7 +203,9 @@ Um die Berechnung des arithmetischen Mittels zu vereinfachen berechnen wir den K
 ```{r}
 tbbl %>%
   select(x, k, f, fkum, prod) %>%
-  tabelle(escape = F, col.names = c("$x$", "$k_i$", "$f_i$", "$f_{kum}$", "$f_i \\cdot k_i$"))
+  tabelle(hold = T,
+          col.names = c("$x$", "$k_i$", "$f_i$",
+                        "$f_{kum}$", "$f_i \\cdot k_i$"))
 ```
 
 Die Summen für das arithmetische Mittel entnehmen wir dann einfach der letzten Spalte:
@@ -222,7 +224,9 @@ Für die Varianz erweitern wir die Tabelle:
 ```{r}
 tbbl %>%
   select(x, k, f, diff, diffsq, prodsq) %>%
-  tabelle(escape = F, col.names = c("$x_i$", "$k_i$", "$f_i$", "$(k_i - \\bar{x})$", "$(k_i - \\bar{x})^2$", "$f_i \\cdot (k_i - \\bar{x})^2$"))
+  tabelle(hold = T, col.names = c("$x_i$", "$k_i$", "$f_i$",
+                                  "$(k_i - \\bar{x})$", "$(k_i - \\bar{x})^2$",
+                                  "$f_i \\cdot (k_i - \\bar{x})^2$"))
 ```
 
 Die Varianz beträgt:
@@ -265,7 +269,7 @@ tribble(
   "Antwortsatz", sprintf("%s weist im Mittel die größere Passant\\*innenzahl auf.",
                          ifelse(mean_moebellager$raw > mean_ziegelei$raw,
                                 "Das Möbellager", "Die Ziegelei"))
-) %>% tabelle(escape = F)
+) %>% tabelle(hold = T)
 ```
 
 #### b)
@@ -285,7 +289,7 @@ tribble(
      "%s hat den größeren Quartilsabstand für die Passant\\*innenzahl.",
      ifelse(iqr_moebellager$raw > iqr_ziegellager$raw,
             "Das Möbellager", "Die Ziegelei"))) %>%
-  tabelle(escape = F)
+  tabelle(hold = T)
 ```
 
 `r naechste("lösung")`
@@ -329,7 +333,7 @@ data$`Niederschlag (mm)` %>%
 
 tbbl %>%
   select(x, k, f, fkum, prod) %>%
-  tabelle(escape = F, col.names = c("$x$", "$k_i$", "$f_i$", "$f_{kum}$", "$f_i \\cdot k_i$"))
+  tabelle(hold = T, col.names = c("$x$", "$k_i$", "$f_i$", "$f_{kum}$", "$f_i \\cdot k_i$"))
 ```
 
 #### c)
@@ -380,7 +384,7 @@ Für die Standardabweichung erweitern wir die Tabelle:
 ```{r}
 tbbl %>%
   select(x, k, f, diff, diffsq, prodsq) %>%
-  tabelle(escape = F, col.names = c("$x_i$", "$k_i$", "$f_i$", "$(k_i - \\bar{x})$", "$(k_i - \\bar{x})^2$", "$f_i \\cdot (k_i - \\bar{x})^2$"))
+  tabelle(hold = T, col.names = c("$x_i$", "$k_i$", "$f_i$", "$(k_i - \\bar{x})$", "$(k_i - \\bar{x})^2$", "$f_i \\cdot (k_i - \\bar{x})^2$"))
 ```
 
 Die Varianz beträgt:

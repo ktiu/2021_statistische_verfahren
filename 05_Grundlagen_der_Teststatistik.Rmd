@@ -110,7 +110,7 @@ Die Nullhypothese (engl. *null hypothesis*) geht immer davon aus, das die forsch
 
 \[
 H_0 : \mu = \mu_0
-(\#eq:h0)
+(\#eq:zh0)
 \]
 
 #### Alternativhypothese
@@ -123,7 +123,7 @@ Die ungerichtete Alternativhypothese besagt nur, *dass* es einen Unterschied zwi
 
 \[
 H_1 : \mu \neq \mu_0
-(\#eq:h1u)
+(\#eq:zh1u)
 \]
 
 ##### Gerichtete Alternativhypothese
@@ -132,14 +132,14 @@ Die gerichtete Alternativhyptothese gibt eine Richtung des vermuteten Unterschie
 
 \[
 H_1 : \mu < \mu_0 \quad \textrm{(abwärts gerichtet)}
-(\#eq:h1l)
+(\#eq:zh1l)
 \]
 
 oder:
 
 \[
 H_1 : \mu > \mu_0 \quad \textrm{(aufwärts gerichtet)}
-(\#eq:h1g)
+(\#eq:zh1g)
 \]
 
 #### Beispiel 
@@ -171,10 +171,10 @@ Zusammen mit der (Un-)Gerichtetheit der Alternativhypothese bestimmt das Signifi
 
 Der Ablehnungsbereich für die ungerichtete Alternativhypothese ist $\frac{\alpha}{2}$ auf beiden Seiten (s. Abbildung \@ref(fig:ablung)). Die kritischen Werte sind dann die Schwellen des Ablehnungsbereich auf beiden Seiten:
 
-\[
+$$
 z \leq z_{\alpha/2} \quad \textrm{und} \quad z \geq z_{(1-\alpha/2)} \quad \textrm{für} \quad H_1: \mu \neq \mu_0
-(\#eq:kritneq)
-\]
+(\#eq:zkritneq)
+$$
 
 ```{r ablung, fig.cap="Kritische Werte für $z$ bei ungerichteter Alternativhypothese und $\\alpha=0{,}05$"}
 ggplot(data.frame(x=c(-3, 3)), aes(x)) +
@@ -187,14 +187,15 @@ ggplot(data.frame(x=c(-3, 3)), aes(x)) +
 ```
 Bei den gerichteten Alternativhypothesen ist der Ablehnungsbereich jeweils nur auf einer Seite (s. Abbildungen \@ref(fig:ablger1) und \@ref(fig:ablger2)). Die kritischen Werte ergeben sich aus:
 
-\[
+$$
 z \leq z_{\alpha} \quad \textrm{für} \quad H_1: \mu < \mu_0
-(\#eq:kritless)
-\]
-\[
+(\#eq:zkritless)
+$$
+
+$$
 z \geq z_{(1-\alpha)} \quad \textrm{für} \quad H_1: \mu > \mu_0
-(\#eq:kritless)
-\]
+(\#eq:zkritgreat)
+$$
 
 ```{r ablger1, fig.cap="Kritischer Wert für $z$ bei gerichteter Alternativhypothese nach unten und $\\alpha=0{,}05$"}
 ggplot(data.frame(x=c(-3, 3)), aes(x)) +
@@ -340,28 +341,28 @@ Die Hypothesen werden genauso wie beim $z$-Test formuliert:
 
 \[
 H_0 : \mu = \mu_0
-(\#eq:h0)
+(\#eq:th0)
 \]
 
 #### Alternativhypothese
 
 \[
 H_1 : \mu \neq \mu_0 \quad \textrm{(ungerichtet)}
-(\#eq:h1u)
+(\#eq:th1u)
 \]
 
 oder
 
 \[
 H_1 : \mu < \mu_0 \quad \textrm{(abwärts gerichtet)}
-(\#eq:h1l)
+(\#eq:th1l)
 \]
 
 oder
 
 \[
 H_1 : \mu > \mu_0 \quad \textrm{(aufwärts gerichtet)}
-(\#eq:h1g)
+(\#eq:th1g)
 \]
 
 #### Beispiel 
@@ -391,7 +392,7 @@ Der Ablehnungsbereich für die ungerichtete Alternativhypothese ist $\frac{\alph
 
 $$
 t \leq t_{\mathit{df};\alpha/2} \quad \textrm{und} \quad t \geq t_{\mathit{df};(1-\alpha/2)} \quad \textrm{für} \quad H_1: \mu \neq \mu_0
-(\#eq:kritneq)
+(\#eq:tkritneq)
 $$
 
 Bei den gerichteten Alternativhypothesen ist der Ablehnungsbereich jeweils nur auf einer Seite. Die kritischen Werte ergeben sich aus:
@@ -403,10 +404,10 @@ $$
 
 $$
 t \geq t_{\mathit{df};(1-\alpha)} \quad \textrm{für} \quad H_1: \mu > \mu_0
-(\#eq:kritless)
+(\#eq:kritgreater)
 $$
 
-Die kritischen Werte für $t$ bei gegebenem Freiheitsgrad $(n-1)$ und Flächenabschnitt lassen sich aus der [Formelsammlung](#formeln) ablesen. Dabei ist zu beachten, dass aufgrund der Symmetrie die Werte für Flächenanteile unter 50% nicht in der Tabelle verzeichnet sind. Es gilt die Formel:
+Die kritischen Werte für $t$ bei gegebenem Freiheitsgrad $(n-1)$ und Flächenabschnitt lassen sich aus der [Tabelle für $t$-Vereilungen](#tabelle-t) ablesen. Dabei ist zu beachten, dass aufgrund der Symmetrie die Werte für Flächenanteile unter 50% nicht in der Tabelle verzeichnet sind. Es gilt die Formel:
 
 $$
 P(-t_\mathit{df})=1-P(t_\mathit{df})

@@ -24,7 +24,6 @@ Im Rahmen dieser Veranstaltung soll Statistik als eine Zusammenstellung von Prak
 > "Allgemein kann gesagt werden: Die Statistik hat es mit Zahlen zu tun, die entweder aus Abzählvorgängen oder aus Messungen gewonnen wurden. Ihre Aufgabe ist es, ein solches Zahlenmaterial in eine optimal übersichtliche und informationsreiche Form zu bringen, aus ihnen methodische Schlußfolgerungen zu ziehen und gegebenfalls auch die Ursachen der analysierten Zahlenverhältnisse mit sachlichen Methoden aufzudecken." [@haseloff: 27]
 
 ### Grundbegriffe der Statistik
-
 \nopagebreak
 
 #### Untersuchungselement

@@ -1,5 +1,4 @@
-bookdown::gitbook:
-  css: custom.css
+publishR::html_skript:
   split_by: section
   config:
     toc:
@@ -8,13 +7,6 @@ bookdown::gitbook:
       position: fixed
       download: 'pdf'
       search: yes
-  includes:
-    in_header: header.html
-  lib_dir: "assets"
-  pandoc_args: ["--html-q-tags"]
 
-bookdown::pdf_book:
+publishR::pdf_skript:
   keep_tex: true
-  template: template.tex
-  includes:
-    in_header: preamble.tex

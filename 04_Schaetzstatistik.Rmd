@@ -328,7 +328,7 @@ In [Sitzung&nbsp;3](#wahrscheinlichkeitsrechnung-mit-standardnormalverteilung) h
 
 #### Die umständliche Variante
 
-Zunächst müssen wir die Intervallgrenzen in$z$-Werte umwandeln, um die Unter- bzw. Überschreitungswahrscheinlichkeiten ermitteln zu können. Die z-Transformation muss hier jedoch anhand des Standardfehlers $\sigma_{\bar{x}}$ geschehen, da wir ja an der Stichprobenverteilung interessiert sind. Durch $z$-Transformation mit $\bar{x}$ und dem Standardfehler $\sigma_{\bar{x}}$ erhalten wir die standardisierten Intervallgrenzen.
+Zunächst müssen wir die Intervallgrenzen in$z$-Werte umwandeln, um die Unter- bzw. Überschreitungswahrscheinlichkeiten ermitteln zu können. Die $z$-Transformation muss hier jedoch anhand des Standardfehlers $\sigma_{\bar{x}}$ geschehen, da wir ja an der Stichprobenverteilung interessiert sind. Durch $z$-Transformation mit $\bar{x}$ und dem Standardfehler $\sigma_{\bar{x}}$ erhalten wir die standardisierten Intervallgrenzen.
 
 Untergrenze:
 
@@ -362,7 +362,7 @@ $$
 1-\alpha\approx P(z_{\mu}<1{,}08) - P(z_{\mu}<-1{,}08) 
 $$
 
-Die jeweiligen Wahrscheinlichkeiten lassen sich in der Tabelle für $p$-Werte der Normalverteilung nachschauen (bzw. für den negativen $z$-Wert errechnen, s. [Formelsammlung](Formelsammlung und Wertetabellen.pdf)):
+Die jeweiligen Wahrscheinlichkeiten lassen sich in der [Tabelle für $p$-Werte der Normalverteilung](#tabelle-z) nachschauen (bzw. für den negativen $z$-Wert errechnen):
 
 \nopagebreak
 
@@ -373,7 +373,7 @@ $$
 \end{aligned}
 $$
 
-Die Wahrscheinlichkeit, dass $\mu$ im Konfidenzintervalls 856,47 ± 5 l/m² liegt, beträgt also 80,64%.
+Die Wahrscheinlichkeit, dass $\mu$ im Konfidenzintervall 856,47 ± 5 l/m² liegt, beträgt also 80,64%.
 
 #### Die schnelle Variante
 

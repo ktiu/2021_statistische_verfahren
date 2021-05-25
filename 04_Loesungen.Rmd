@@ -108,7 +108,7 @@ tribble(
   "Formel", mean$formel,
   "Einsetzen", mean$einsetzen,
   "Ergebnis", mean$ergebnis
-) %>% tabelle(escape = F)
+) %>% tabelle(hold = T)
 ```
 
 #### b)
@@ -120,7 +120,7 @@ tribble(
   "Formel", sf$formel,
   "Einsetzen", sf$einsetzen,
   "Ergebnis", sf$ergebnis
-) %>% tabelle(escape = F)
+) %>% tabelle(hold = T)
 ```
 
 #### c)
@@ -134,7 +134,7 @@ tribble(
   "Ergebnis", kib2$ergebnis,
   "Antwortsatz", "Die tatsächliche durchschnittliche Lieferzeit liegt mit 95%s Wahrscheinlichkeit zwischen %s und %s Tagen (%s $\\pm$ %s)." %>%
     sprintf(percent(), mean$raw-kib2$raw, mean$raw+kib2$raw, mean$raw, kib2$raw)
-) %>% tabelle(escape = F)
+) %>% tabelle(hold = T)
 ```
 
 #### d)
@@ -154,5 +154,5 @@ tribble(
   "$n$: Ergebnis", n$ergebnis,
   "Antwortsatz", "Es müssten %s zusätzliche Messungen  vorgenommen werden (%s insgesamt)." %>%
     sprintf(ceiling(n$raw)-7, ceiling(n$raw))
-) %>% tabelle(escape = F)
+) %>% tabelle(hold = T)
 ```

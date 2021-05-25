@@ -28,7 +28,7 @@ Das grundsätzliche Verfahren bleibt dabei stets das gleiche. Zur Erinnerung noc
 5. Prüfgröße berechnen
 6. Ergebnis interpretieren
 
-## 2-Stichproben-`r symbol_header("t")`-Test {#2-stichproben-t-test}
+## 2-Stichproben-`r symbol_header("t")`-Test {#t2-test}
 
 Bei der folgenden Variante des $t$-Tests (und beim $F$-Test) wird nicht wie gehabt *eine* Stichprobe  auf signifikante Abweichungen *von der Grundgesamtheit* überprüft, sondern *zwei* Stichproben auf signifikante Abweichungen *voneinander.* An den sechs Schritten ändert sich nichts.
 
@@ -113,21 +113,24 @@ Wir entscheiden uns für das Signifikanzniveau $\alpha=0{,}05$.
 
 ### Ablehnungsbereich bestimmen
 
-Der kritische Wert wird genau wie bei dem 1-Stichproben-$t$-Test aus der [Formelsammlung](Formelsammlung und Wertetabellen.pdf){target="_blank"} abgelesen. Der einzige (wichtige!) Unterschied ist die Bestimmung der Freiheitsgrade: Bei zwei Stichproben der Größe $n$ werden die Freiheitsgrade bestimmt durch:
+Der kritische Wert wird genau wie bei dem 1-Stichproben-$t$-Test aus der [Wertetabelle für $t$-Verteilungen](#tabelle-t) abgelesen. Der einzige (wichtige!) Unterschied ist die Bestimmung der Freiheitsgrade: Bei zwei Stichproben der Größe $n$ werden die Freiheitsgrade bestimmt durch:
 
-\[
-\mathit{df}=2\cdot n -2
+$$
+\mathit{df}=2\cdot n - 2
 (\#eq:df2sp)
-\]
+$$
 
 #### Beispiel
 
 Wir planen mit je 6 Stichproben. Deswegen berechnen wir die Freiheitsgrade:
 
-\[\begin{aligned}
-\mathit{df}&=2\cdot n -2\\[4pt]
-&=2\cdot6-2=10 
-\end{aligned}\]
+$$
+\begin{aligned}
+\mathit{df} &= 2 \cdot n -2\\
+            &= 2 \cdot 6 - 2\\
+            &= 10
+\end{aligned}
+$$
 
 Kritische Werte gibt es nun in beide Richtungen. Aufgrund der Symmetrie der $t$-Verteilung reicht es, wenn wir einen Wert (mit $\alpha=0{,}05$) nachschlagen:
 
@@ -329,7 +332,7 @@ $$
 (\#eq:Fdfs)
 $$
 
-In der [Formelsammlung](#formeln) sind nur die Werte für Flächenanteile von 0,95 vermerkt. Die Werte für Flächenanteile von 0,05 (also am linken Rand) können durch Gleichung \@ref(eq:Frev) bestimmt werden:
+In der [Wertetabelle für $F$-Verteilungen](#tabelle-f) sind nur die Werte für Flächenanteile von 0,95 vermerkt. Die Werte für Flächenanteile von 0,05 (also am linken Rand) können durch Gleichung \@ref(eq:Frev) bestimmt werden:
 
 $$
 F_{\mathit{df}_1;\mathit{df}_2;\alpha}=\frac{1}{F_{\mathit{df}_2;\mathit{df}_1;(1-\alpha)}}

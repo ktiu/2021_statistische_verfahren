@@ -146,5 +146,5 @@ tribble(
                        "(Eigentum)") %>%
                    sprintf(ci$ergebnis)
 ) %>%
-  tabelle(escape = F)
+  tabelle(hold = T)
 ```

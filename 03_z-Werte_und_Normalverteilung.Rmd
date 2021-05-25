@@ -179,7 +179,7 @@ Die Fläche unter einer Wahrscheinlichkeitsdichtefunktion (engl. *probability de
 Das Perzentil $x_p$ (engl. *percentile*) ist definiert als der Wert, unter dem der Anteil $p$ der Verteilung liegt. In [Sitzung&nbsp;2](#Maßzahlen) haben wir also bereits den Median $x_{50\%}$ sowie die Angelpunkte $Q_1=x_{25\%}$ und $Q_3=x_{75\%}$ kennengelernt.
 
 Die Fläche unter einer Wahrscheinlichkeitsdichtefunktion innerhalb der Limits $-\infty$ und $x_p$ beträgt $p$. Für einen zufälligen Wert $x$ ist die Wahrscheinlichkeit $P(x < x_p) = p$, dass er kleiner als $x_p$ ausfällt.
-Für die Standardnormalverteilung finden sich die $p$-Werte für positive $z$ in der [Formelsammlung](#formeln).^[Manchmal wird die Funktion $z_p \rightarrow P(z < z_p)$ für normalverteilte Werte auch mit $\Phi(z)$ bezeichnet [z.&nbsp;B. in @bahrenberg].]
+Für die Standardnormalverteilung finden sich die $p$-Werte für positive $z$ in der [Wertetabelle in der Formelsammlung](#tabelle-z).^[Manchmal wird die Funktion $z_p \rightarrow P(z < z_p)$ für normalverteilte Werte auch mit $\Phi(z)$ bezeichnet [z.&nbsp;B. in @bahrenberg].]
 
 ## Wahrscheinlichkeitsrechnung mit Standardnormalverteilung
 
@@ -266,9 +266,9 @@ ggplot(data.frame(x=c(-3,3)), aes(x)) +
   theme_goethe()
 ```
 
-Die [Formelsammlung](#formeln) gibt für $z$-Werte die Wahrscheinlichkeit ihrer Unterschreitung in ener Normalverteilung an. Diese Wahrscheinlichkeit kann notiert werden als $P(z<z_p)$.
+Die [Wertetabelle für die Standardnormalverteilung](#tabelle-z) gibt für $z$-Werte die Wahrscheinlichkeit ihrer Unterschreitung in ener Normalverteilung an. Diese Wahrscheinlichkeit kann notiert werden als $P(z < z_p)$.
 
-Der [Formelsammlung](#formeln) können wir den Wert $P(z < 1,41) \approx 0,9207$ entnehmen. Die Wahrscheinlichkeit, dass der Luftdruck zu einem zufälligen Zeitpunkt weniger als 1015 hPA beträgt, ist somit 92,07%.
+Der Wertetabelle können wir den Wert $P(z < 1{,}41) \approx 0{,}9207$ entnehmen. Die Wahrscheinlichkeit, dass der Luftdruck zu einem zufälligen Zeitpunkt weniger als 1015 hPA beträgt, ist somit 92,07%.
 
 ```{r}
 rtip("In R lässt sich die Unterschreitungswahrscheinlichkeit eines $z$-Werts mit dem Befehl `pnorm()` ermitteln.")
@@ -329,7 +329,7 @@ Wenn nach der Unterschreitungswahrscheinlichkeit eines unterdurchschnittlichen W
   \end{aligned}
 \end{equation}
 
-Die [Formelsammlung](#formeln) enthält keine $p$ für negative $z_p$. Da die Standardnormalverteilung jedoch um $z=0$ symmetrisch ist, gilt ganz allgemein:
+Die [Wertetabelle](#tabell-z) enthält keine $p$ für negative $z_p$. Da die Standardnormalverteilung jedoch um $z=0$ symmetrisch ist, gilt ganz allgemein:
 
 \[
   \begin{aligned}
@@ -391,16 +391,16 @@ Für unseren Fall ist $x_u=1005$ und $x_o=1015$. In den [vorherigen Aufgaben](#u
         &\approx 0{,}23
 \end{aligned}\]
 
-Dann können wir die entsprechende Wahrscheinlichkeit berechnen, indem wir wieder die Werte aus der [Formelsammlung](#formeln) einsetzen:
+Dann können wir die entsprechende Wahrscheinlichkeit berechnen, indem wir wieder die Werte aus der [Wertetabelle](#tabelle-z) einsetzen:
 
-\[
+$$
   \begin{aligned}
     P(1005 \leq x < 1015) &= P(x < 1015) - P(x < 1005) \\
     &\approx P(z < 1{,}41) - P(z < 0{,}23) \\
     &\approx 0{,}9207- 0{,}5910  \\
     &= 0{,}3297
   \end{aligned}
-\]
+  $$
 
 Der Luftdruck liegt also mit einer Wahrscheinlichkeit von 32,97% zwischen 1005 und 1015&nbsp;hPa.
 
