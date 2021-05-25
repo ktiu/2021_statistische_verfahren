@@ -2,6 +2,7 @@
 
 ```{r}
 counter <- list(sitzung = 0, lösung = 0)
+knitr::opts_chunk$set(fig.pos = "H")
 ```
 
 ## Sitzung 1 {-}
@@ -48,7 +49,7 @@ tribble(
   "Monatliches Nettoeinkommen", "Verhältnisskala", "stetig",
     "oder diskret für Cent-Beträge") %>%
   bind_cols(` ` = paste0(letters[1:20], abcparen()), .) %>%
-  tabelle(escape = T)
+  tabelle(hold = T)
 ```
 
 `r naechste("lösung")`
@@ -65,7 +66,7 @@ klassieren(boot::aircondit7$hours,
 tbbl %>%
   transmute(`Wert $x_i$` = x,
             `Häufigkeit $f_i$` = f) %>%
-  tabelle(df, escape = F, full_width = F)
+  tabelle(hold = T, full_width = F)
 ```
 
 #### b)
@@ -75,10 +76,10 @@ Das Resultat sollte je nach gewählter Klassengröße in etwa so aussehen:
 ```{r}
 boot::aircondit7 %>%
   tibble() %>%
-  ggplot(aes(x=hours)) +
-    geom_histogram(breaks = seq(0,225,25), closed="right") +
-    scale_x_continuous("Häufigkeit", breaks = seq(0,225,25)) +
-    scale_y_continuous("Lebensdauer in Stunden", breaks = seq(0,9,1)) +
+  ggplot(aes(x = hours)) +
+    geom_histogram(breaks = seq(0, 225, 25), closed = "right") +
+    scale_x_continuous("Häufigkeit", breaks = seq(0, 225, 25)) +
+    scale_y_continuous("Lebensdauer in Stunden", breaks = seq(0, 9, 1)) +
     theme_goethe()
 ```
 

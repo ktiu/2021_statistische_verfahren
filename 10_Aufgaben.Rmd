@@ -2,7 +2,26 @@
 
 `r naechste("aufgabe", T)`
 
-Sie interessieren sich dafür, ob in einem Unternehmen der Tätigkeitsbereich mit dem Geschlecht der Angestellten zusammenhängt.
+Bestimmen Sie die folgenden Werte:
+
+```{r}
+set.seed(54698)
+purrr::map2(sample(wertetabellen$chisq$df, 8),
+            sample(wertetabellen$chisq$p, 8),
+            \(df, p) list(df = df, p = p)) ->
+  ex_10_1
+
+map(ex_10_1, \(x) {
+  sprintf("a) $\\chi^2_{%s;%s\\%%}$",
+          x$df, fmt(x$p * 100))
+}) %>%
+  paste(collapse = "\n") %>%
+  knitr::asis_output()
+```
+
+`r naechste("aufgabe") #2`
+
+Sie sollen untersuchen, ob in einem Unternehmen der Tätigkeitsbereich mit dem Geschlecht der Angestellten zusammenhängt.
 
 In den Personalakten sind Angestellte als "weiblich" oder "männlich" erfasst und ihre Tätigkeitsfelder in "Leitende Tätigkeit", "Administration" und "Fertigung" unterteilt.
 
@@ -14,9 +33,9 @@ construct("Tätigkeitsfeld" = c("Leitende Tätigkeit", "Administration", "Fertig
                                    "männlich"),
                   counts = c(38,  185, 397,
                              102, 290, 888)) %>%
-  get_crosstable() -> ex_10_1
+  get_crosstable() -> ex_10_2
 
-print_crosstable(ex_10_1, variable_names = F, question = T)
+print_crosstable(ex_10_2, variable_names = F, question = T)
 ```
 
 a) Welchen Test führen Sie durch?
@@ -25,9 +44,13 @@ c) Das Thema wird in der Unternehmensleitung bereits kontrovers diskutiert, wesh
 d) Bestimmen Sie die Freiheitsgrade und den kritischen Wert.
 e) Berechnen Sie die Prüfgröße.
 f) Wie interpretieren Sie das Ergebnis?
-g) Der Aufsichtsratsvorsitzende kritisiert die Untersuchung in einem Interview: "Dass im Betrieb nur etwa die Hälfte der Führungskräfte Frauen sind, ist insofern nicht verwunderlich, als dass insgesamt ungefähr doppelt so viele Männer wie Frauen bei uns arbeiten." Wie antworten Sie?
+g) Der Aufsichtsratsvorsitzende kritisiert die Studie in einem Interview:
 
-`r naechste("aufgabe") #2`
+    > "Dass im Betrieb nur etwa die Hälfte der Führungskräfte Frauen sind, ist nicht weiter verwunderlich. Schließlich arbeiten insgesamt doppelt so viele Männer wie Frauen bei uns. Dafür hätte ich keine wissenschaftliche Untersuchung gebraucht."
+
+    Wie antworten Sie (aus methodischer Perspektive) auf die Kritik am Testverfahren?
+
+`r naechste("aufgabe") #3`
 
 Eine Ihrer Bekannten behauptet, dass beim Elfmeterschießen -- "statistisch gesehen" -- das Team häufiger gewinnt, das den ersten Elfmeter ausführt.
 
@@ -35,7 +58,7 @@ Sie möchten das empirisch überprüfen und schauen sich Archivmaterial von sieb
 
 Prüfen Sie, ob diese Beobachtung auch statistisch relevant ist. Wählen Sie 5% als Signifikanzniveau.
 
-`r naechste("aufgabe") #3`
+`r naechste("aufgabe") #4`
 
 Sie führen eine Untersuchung zum Konsumverhalten von Studierenden mit und ohne Nebenjob in Hinblick auf Bio-Produkte durch. Eine Umfrage ergibt folgendes Ergebnis:
 
@@ -44,16 +67,16 @@ construct("Tätigkeit" = c("mit Nebenjob", "ohne Nebenjob"),
           "Bio-Kaufverhalten" = c("regelmäßiger Kauf",
                                   "kein regelmäßiger Kauf"),
           counts = c(141, 70, 253, 149)) %>%
-  get_crosstable() -> ex_10_3
+  get_crosstable() -> ex_10_4
 
-print_crosstable(ex_10_3, question = T)
+print_crosstable(ex_10_4, question = T)
 ```
 
 a) Überprüfen Sie anhand dieser Daten, ob ein signifikanter positiver Zusammenhang zwischen der Ausübung eines Nebenjobs und dem regelmäßigen Konsum von Bio-Produkten besteht. Wählen Sie 0,05 als Signifikanzniveau.
 
 b) Berechnen Sie eine Kennzahl, die aussagt, wie stark der Zusammenhang ausfällt.
 
-`r naechste("aufgabe") #4`
+`r naechste("aufgabe") #5`
 
 Das *Global Volcanism Program* des @smithsonian stellt eine Datenbank für Vulkanaktivitäten zur Verfügung.
 In Indonesien wurden für die Jahre 1919 bis inklusive 2018 insgesamt 643 Ausbrüche aufgezeichnet, für die der Monat erfasst ist, in dem die Aktivität begann.
@@ -64,10 +87,10 @@ construct("Monat" = c("Januar", "Februar", "März", "April", "Mai", "Juni",
                       "Juli", "August", "September", "Oktober", "November",
                       "Dezember"),
           counts = c(48, 49, 62, 56, 64, 51, 85, 46, 46, 41, 50, 45)) %>%
-  get_crosstable() -> ex_10_4
+  get_crosstable() -> ex_10_5
 
-ex_10_4$table %>%
-  transmute(month = factor(ex_10_4$rows, levels = ex_10_4$rows),
+ex_10_5$table %>%
+  transmute(month = factor(ex_10_5$rows, levels = ex_10_5$rows),
             n) %>%
   ggplot(aes(x = month, y = n, label = n)) +
     geom_col() +

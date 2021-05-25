@@ -1,5 +1,10 @@
 # Formelsammlung und Wertetabellen {.unnumbered #formeln}
 
-Die Formelsammlung mit Wertetabellen liegt als PDF vor. So (oder ähnlich) formatiert würden Ihnen diese Informationen auch in einer Präsenzklausur zur Verfügung stehen. Ich empfehle deshalb, das Dokument herunterzuladen und auszudrucken -- so gewöhnen Sie sich gleich an das Format.
+```{r}
+target <- knitr::opts_knit$get("rmarkdown.pandoc.to")
+source_formeln <- sprintf("formelsammlung/formelsammlung_%s.Rmd",
+                          knitr::opts_knit$get("rmarkdown.pandoc.to"))
+```
 
-[Als PDF herunterladen](Formelsammlung und Wertetabellen.pdf){target="_blank"}
+```{r formelsammlung, child = source_formeln}
+```

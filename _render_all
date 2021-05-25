@@ -1,4 +1,5 @@
 #!/usr/bin/env Rscript
 
-bookdown::render_book("index.Rmd", "bookdown::gitbook")
-bookdown::render_book("index.Rmd", "bookdown::pdf_book")
+bookdown::clean_book(T)
+bookdown::render_book("index.Rmd", "publishR::html_skript")
+bookdown::render_book("index.Rmd", "publishR::pdf_skript")

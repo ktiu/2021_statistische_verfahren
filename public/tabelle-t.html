@@ -1,0 +1,2777 @@
+<!DOCTYPE html>
+<html lang="de" xml:lang="de">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>𝑡-Verteilungen | Statistische Verfahren in der Geographie</title>
+  <meta name="description" content="𝑡-Verteilungen | Statistische Verfahren in der Geographie" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="𝑡-Verteilungen | Statistische Verfahren in der Geographie" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="𝑡-Verteilungen | Statistische Verfahren in der Geographie" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="tabelle-z.html"/>
+<link rel="next" href="tabelle-f.html"/>
+<script src="assets/header-attrs-2.8/header-attrs.js"></script>
+<script src="assets/jquery-2.2.3/jquery.min.js"></script>
+<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="assets/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="assets/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="assets/kePrint-0.0.1/kePrint.js"></script>
+<link href="assets/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link rel="icon" href="https://www.uni-frankfurt.de/favicon.ico" type="image/x-icon">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<script src="solutions.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet"> 
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="/usr/local/lib/R/4.1/site-library/publishR/custom_gitbook.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Terminüberblick</a></li>
+<li class="chapter" data-level="" data-path="vorbesprechung.html"><a href="vorbesprechung.html"><i class="fa fa-check"></i>Vorbesprechung</a>
+<ul>
+<li class="chapter" data-level="" data-path="vorbesprechung.html"><a href="vorbesprechung.html#lernziele-der-veranstaltung"><i class="fa fa-check"></i>Lernziele der Veranstaltung</a></li>
+<li class="chapter" data-level="" data-path="vorbesprechung.html"><a href="vorbesprechung.html#konzept-der-veranstaltung"><i class="fa fa-check"></i>Konzept der Veranstaltung</a></li>
+<li class="chapter" data-level="" data-path="vorbesprechung.html"><a href="vorbesprechung.html#sitzungsvorbereitung"><i class="fa fa-check"></i>Sitzungsvorbereitung</a></li>
+<li class="chapter" data-level="" data-path="vorbesprechung.html"><a href="vorbesprechung.html#sitzungsablauf"><i class="fa fa-check"></i>Sitzungsablauf</a></li>
+<li class="chapter" data-level="" data-path="vorbesprechung.html"><a href="vorbesprechung.html#empfehlungen"><i class="fa fa-check"></i>Empfehlungen</a></li>
+<li class="chapter" data-level="" data-path="vorbesprechung.html"><a href="vorbesprechung.html#literaturempfehlungen"><i class="fa fa-check"></i>Literaturempfehlungen</a></li>
+<li class="chapter" data-level="" data-path="vorbesprechung.html"><a href="vorbesprechung.html#taschenrechner"><i class="fa fa-check"></i>Taschenrechner</a></li>
+<li class="chapter" data-level="" data-path="vorbesprechung.html"><a href="vorbesprechung.html#klausur"><i class="fa fa-check"></i>Klausur</a></li>
+<li class="chapter" data-level="" data-path="vorbesprechung.html"><a href="vorbesprechung.html#nachklausur"><i class="fa fa-check"></i>Nachklausur</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html"><i class="fa fa-check"></i><b>1</b> Datenerhebung und Häufigkeiten</a>
+<ul>
+<li class="chapter" data-level="" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#lernziele-dieser-sitzung"><i class="fa fa-check"></i>Lernziele dieser Sitzung</a></li>
+<li class="chapter" data-level="" data-path="datenerhebung-und-häufigkeiten.html"><a href="datenerhebung-und-häufigkeiten.html#lehrvideos-sommersemester-2020"><i class="fa fa-check"></i>Lehrvideos (Sommersemester 2020)</a></li>
+<li class="chapter" data-level="1.1" data-path="statistische-praxis.html"><a href="statistische-praxis.html"><i class="fa fa-check"></i><b>1.1</b> Statistische Praxis</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="statistische-praxis.html"><a href="statistische-praxis.html#grundbegriffe-der-statistik"><i class="fa fa-check"></i><b>1.1.1</b> Grundbegriffe der Statistik</a></li>
+<li class="chapter" data-level="1.1.2" data-path="statistische-praxis.html"><a href="statistische-praxis.html#taxonomien-statistischer-verfahren"><i class="fa fa-check"></i><b>1.1.2</b> Taxonomien statistischer Verfahren</a></li>
+<li class="chapter" data-level="1.1.3" data-path="statistische-praxis.html"><a href="statistische-praxis.html#ablauf-einer-statistischen-untersuchung"><i class="fa fa-check"></i><b>1.1.3</b> Ablauf einer statistischen Untersuchung</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="grundlagen-der-datenerhebung.html"><a href="grundlagen-der-datenerhebung.html"><i class="fa fa-check"></i><b>1.2</b> Grundlagen der Datenerhebung</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="grundlagen-der-datenerhebung.html"><a href="grundlagen-der-datenerhebung.html#typen-von-stichproben"><i class="fa fa-check"></i><b>1.2.1</b> Typen von Stichproben</a></li>
+<li class="chapter" data-level="1.2.2" data-path="grundlagen-der-datenerhebung.html"><a href="grundlagen-der-datenerhebung.html#variablentypen"><i class="fa fa-check"></i><b>1.2.2</b> Variablentypen</a></li>
+<li class="chapter" data-level="1.2.3" data-path="grundlagen-der-datenerhebung.html"><a href="grundlagen-der-datenerhebung.html#skalenniveaus"><i class="fa fa-check"></i><b>1.2.3</b> Skalenniveaus</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="häufigkeitsverteilungen.html"><a href="häufigkeitsverteilungen.html"><i class="fa fa-check"></i><b>1.3</b> Häufigkeitsverteilungen</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="häufigkeitsverteilungen.html"><a href="häufigkeitsverteilungen.html#urliste"><i class="fa fa-check"></i><b>1.3.1</b> Urliste</a></li>
+<li class="chapter" data-level="1.3.2" data-path="häufigkeitsverteilungen.html"><a href="häufigkeitsverteilungen.html#geordnete-liste"><i class="fa fa-check"></i><b>1.3.2</b> Geordnete Liste</a></li>
+<li class="chapter" data-level="1.3.3" data-path="häufigkeitsverteilungen.html"><a href="häufigkeitsverteilungen.html#häufigkeiten"><i class="fa fa-check"></i><b>1.3.3</b> Häufigkeiten</a></li>
+<li class="chapter" data-level="1.3.4" data-path="häufigkeitsverteilungen.html"><a href="häufigkeitsverteilungen.html#stabdiagramme"><i class="fa fa-check"></i><b>1.3.4</b> Stabdiagramme</a></li>
+<li class="chapter" data-level="1.3.5" data-path="häufigkeitsverteilungen.html"><a href="häufigkeitsverteilungen.html#quantitative-variablen-1"><i class="fa fa-check"></i><b>1.3.5</b> Quantitative Variablen</a></li>
+<li class="chapter" data-level="1.3.6" data-path="häufigkeitsverteilungen.html"><a href="häufigkeitsverteilungen.html#polygone"><i class="fa fa-check"></i><b>1.3.6</b> Polygone</a></li>
+<li class="chapter" data-level="1.3.7" data-path="häufigkeitsverteilungen.html"><a href="häufigkeitsverteilungen.html#eigenschaften-von-häufigkeitsverteilungen"><i class="fa fa-check"></i><b>1.3.7</b> Eigenschaften von Häufigkeitsverteilungen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="tipps-zur-vertiefung.html"><a href="tipps-zur-vertiefung.html"><i class="fa fa-check"></i>Tipps zur Vertiefung</a>
+<ul>
+<li class="chapter" data-level="1.3.8" data-path="tipps-zur-vertiefung.html"><a href="tipps-zur-vertiefung.html#grundbegriffe"><i class="fa fa-check"></i><b>1.3.8</b> Grundbegriffe</a></li>
+<li class="chapter" data-level="1.3.9" data-path="tipps-zur-vertiefung.html"><a href="tipps-zur-vertiefung.html#stichproben"><i class="fa fa-check"></i><b>1.3.9</b> Stichproben</a></li>
+<li class="chapter" data-level="1.3.10" data-path="tipps-zur-vertiefung.html"><a href="tipps-zur-vertiefung.html#skalenniveaus-1"><i class="fa fa-check"></i><b>1.3.10</b> Skalenniveaus</a></li>
+<li class="chapter" data-level="1.3.11" data-path="tipps-zur-vertiefung.html"><a href="tipps-zur-vertiefung.html#häufigkeiten-und-diagramme"><i class="fa fa-check"></i><b>1.3.11</b> Häufigkeiten und Diagramme</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="übungsaufgaben.html"><a href="übungsaufgaben.html"><i class="fa fa-check"></i>Übungsaufgaben</a>
+<ul>
+<li class="chapter" data-level="1.3.12" data-path="übungsaufgaben.html"><a href="übungsaufgaben.html#aufgabe-1-1"><i class="fa fa-check"></i><b>1.3.12</b> Aufgabe 1-1</a></li>
+<li class="chapter" data-level="1.3.13" data-path="übungsaufgaben.html"><a href="übungsaufgaben.html#aufgabe-1-2"><i class="fa fa-check"></i><b>1.3.13</b> Aufgabe 1-2</a></li>
+<li class="chapter" data-level="1.3.14" data-path="übungsaufgaben.html"><a href="übungsaufgaben.html#aufgabe-1-3"><i class="fa fa-check"></i><b>1.3.14</b> Aufgabe 1-3</a></li>
+<li class="chapter" data-level="1.3.15" data-path="übungsaufgaben.html"><a href="übungsaufgaben.html#aufgabe-1-4"><i class="fa fa-check"></i><b>1.3.15</b> Aufgabe 1-4</a></li>
+<li class="chapter" data-level="1.3.16" data-path="übungsaufgaben.html"><a href="übungsaufgaben.html#aufgabe-1-5"><i class="fa fa-check"></i><b>1.3.16</b> Aufgabe 1-5</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="maßzahlen.html"><a href="maßzahlen.html"><i class="fa fa-check"></i><b>2</b> Maßzahlen</a>
+<ul>
+<li class="chapter" data-level="" data-path="maßzahlen.html"><a href="maßzahlen.html#lernziele-dieser-sitzung-1"><i class="fa fa-check"></i>Lernziele dieser Sitzung</a></li>
+<li class="chapter" data-level="" data-path="maßzahlen.html"><a href="maßzahlen.html#lehrvideos-sommersemester-2020-1"><i class="fa fa-check"></i>Lehrvideos (Sommersemester 2020)</a></li>
+<li class="chapter" data-level="2.1" data-path="einleitende-bemerkungen.html"><a href="einleitende-bemerkungen.html"><i class="fa fa-check"></i><b>2.1</b> Einleitende Bemerkungen</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="einleitende-bemerkungen.html"><a href="einleitende-bemerkungen.html#beispielverteilung"><i class="fa fa-check"></i><b>2.1.1</b> Beispielverteilung</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="lagemaße.html"><a href="lagemaße.html"><i class="fa fa-check"></i><b>2.2</b> Lagemaße</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="lagemaße.html"><a href="lagemaße.html#median"><i class="fa fa-check"></i><b>2.2.1</b> Median</a></li>
+<li class="chapter" data-level="2.2.2" data-path="lagemaße.html"><a href="lagemaße.html#modalwert"><i class="fa fa-check"></i><b>2.2.2</b> Modalwert</a></li>
+<li class="chapter" data-level="2.2.3" data-path="lagemaße.html"><a href="lagemaße.html#arithmetisches-mittel"><i class="fa fa-check"></i><b>2.2.3</b> Arithmetisches Mittel</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="streumaße.html"><a href="streumaße.html"><i class="fa fa-check"></i><b>2.3</b> Streumaße</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="streumaße.html"><a href="streumaße.html#spannweite"><i class="fa fa-check"></i><b>2.3.1</b> Spannweite</a></li>
+<li class="chapter" data-level="2.3.2" data-path="streumaße.html"><a href="streumaße.html#quartilsabstand"><i class="fa fa-check"></i><b>2.3.2</b> Quartilsabstand</a></li>
+<li class="chapter" data-level="2.3.3" data-path="streumaße.html"><a href="streumaße.html#varianz"><i class="fa fa-check"></i><b>2.3.3</b> Varianz</a></li>
+<li class="chapter" data-level="2.3.4" data-path="streumaße.html"><a href="streumaße.html#standardabweichung"><i class="fa fa-check"></i><b>2.3.4</b> Standardabweichung</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="boxplot.html"><a href="boxplot.html"><i class="fa fa-check"></i><b>2.4</b> Boxplot</a></li>
+<li class="chapter" data-level="" data-path="tipps-zur-vertiefung-1.html"><a href="tipps-zur-vertiefung-1.html"><i class="fa fa-check"></i>Tipps zur Vertiefung</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="tipps-zur-vertiefung-1.html"><a href="tipps-zur-vertiefung-1.html#lagemaße-1"><i class="fa fa-check"></i><b>2.4.1</b> Lagemaße</a></li>
+<li class="chapter" data-level="2.4.2" data-path="tipps-zur-vertiefung-1.html"><a href="tipps-zur-vertiefung-1.html#streumaße-1"><i class="fa fa-check"></i><b>2.4.2</b> Streumaße</a></li>
+<li class="chapter" data-level="2.4.3" data-path="tipps-zur-vertiefung-1.html"><a href="tipps-zur-vertiefung-1.html#boxplot-1"><i class="fa fa-check"></i><b>2.4.3</b> Boxplot</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="übungsaufgaben-1.html"><a href="übungsaufgaben-1.html"><i class="fa fa-check"></i>Übungsaufgaben</a>
+<ul>
+<li class="chapter" data-level="2.4.4" data-path="übungsaufgaben-1.html"><a href="übungsaufgaben-1.html#aufgabe-2-1"><i class="fa fa-check"></i><b>2.4.4</b> Aufgabe 2-1</a></li>
+<li class="chapter" data-level="2.4.5" data-path="übungsaufgaben-1.html"><a href="übungsaufgaben-1.html#aufgabe-2-2"><i class="fa fa-check"></i><b>2.4.5</b> Aufgabe 2-2</a></li>
+<li class="chapter" data-level="2.4.6" data-path="übungsaufgaben-1.html"><a href="übungsaufgaben-1.html#aufgabe-2-3"><i class="fa fa-check"></i><b>2.4.6</b> Aufgabe 2-3</a></li>
+<li class="chapter" data-level="2.4.7" data-path="übungsaufgaben-1.html"><a href="übungsaufgaben-1.html#aufgabe-2-4"><i class="fa fa-check"></i><b>2.4.7</b> Aufgabe 2-4</a></li>
+<li class="chapter" data-level="2.4.8" data-path="übungsaufgaben-1.html"><a href="übungsaufgaben-1.html#aufgabe-2-5"><i class="fa fa-check"></i><b>2.4.8</b> Aufgabe 2-5</a></li>
+<li class="chapter" data-level="2.4.9" data-path="übungsaufgaben-1.html"><a href="übungsaufgaben-1.html#aufgabe-2-6"><i class="fa fa-check"></i><b>2.4.9</b> Aufgabe 2-6</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="z-werte-und-normalverteilung.html"><a href="z-werte-und-normalverteilung.html"><i class="fa fa-check"></i><b>3</b> 𝑧-Werte und Normalverteilung</a>
+<ul>
+<li class="chapter" data-level="" data-path="z-werte-und-normalverteilung.html"><a href="z-werte-und-normalverteilung.html#lernziele-dieser-sitzung-2"><i class="fa fa-check"></i>Lernziele dieser Sitzung</a></li>
+<li class="chapter" data-level="" data-path="z-werte-und-normalverteilung.html"><a href="z-werte-und-normalverteilung.html#lehrvideos-sommersemster-2020"><i class="fa fa-check"></i>Lehrvideos (Sommersemster 2020)</a></li>
+<li class="chapter" data-level="3.1" data-path="variationskoeffizient.html"><a href="variationskoeffizient.html"><i class="fa fa-check"></i><b>3.1</b> Variationskoeffizient</a></li>
+<li class="chapter" data-level="3.2" data-path="z-transformation.html"><a href="z-transformation.html"><i class="fa fa-check"></i><b>3.2</b> 𝑧-Transformation</a></li>
+<li class="chapter" data-level="3.3" data-path="normalverteilung.html"><a href="normalverteilung.html"><i class="fa fa-check"></i><b>3.3</b> Normalverteilung</a></li>
+<li class="chapter" data-level="3.4" data-path="standardnormalverteilung.html"><a href="standardnormalverteilung.html"><i class="fa fa-check"></i><b>3.4</b> Standardnormalverteilung</a></li>
+<li class="chapter" data-level="3.5" data-path="crash-kurs-wahrscheinlichkeitsrechnung.html"><a href="crash-kurs-wahrscheinlichkeitsrechnung.html"><i class="fa fa-check"></i><b>3.5</b> Crash-Kurs Wahrscheinlichkeitsrechnung</a></li>
+<li class="chapter" data-level="3.6" data-path="wahrscheinlichkeitsdichtefunktionen.html"><a href="wahrscheinlichkeitsdichtefunktionen.html"><i class="fa fa-check"></i><b>3.6</b> Wahrscheinlichkeitsdichtefunktionen</a></li>
+<li class="chapter" data-level="3.7" data-path="wahrscheinlichkeitsrechnung-mit-standardnormalverteilung.html"><a href="wahrscheinlichkeitsrechnung-mit-standardnormalverteilung.html"><i class="fa fa-check"></i><b>3.7</b> Wahrscheinlichkeitsrechnung mit Standardnormalverteilung</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="wahrscheinlichkeitsrechnung-mit-standardnormalverteilung.html"><a href="wahrscheinlichkeitsrechnung-mit-standardnormalverteilung.html#unter"><i class="fa fa-check"></i><b>3.7.1</b> Unterschreitungswahrscheinlichkeit</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="tipps-zur-vertiefung-2.html"><a href="tipps-zur-vertiefung-2.html"><i class="fa fa-check"></i>Tipps zur Vertiefung</a>
+<ul>
+<li class="chapter" data-level="3.7.2" data-path="tipps-zur-vertiefung-2.html"><a href="tipps-zur-vertiefung-2.html#variationskoeffizient-1"><i class="fa fa-check"></i><b>3.7.2</b> Variationskoeffizient</a></li>
+<li class="chapter" data-level="3.7.3" data-path="tipps-zur-vertiefung-2.html"><a href="tipps-zur-vertiefung-2.html#z-transformation-1"><i class="fa fa-check"></i><b>3.7.3</b> <span class="math inline">\(z\)</span>-Transformation</a></li>
+<li class="chapter" data-level="3.7.4" data-path="tipps-zur-vertiefung-2.html"><a href="tipps-zur-vertiefung-2.html#normalverteilung-1"><i class="fa fa-check"></i><b>3.7.4</b> Normalverteilung</a></li>
+<li class="chapter" data-level="3.7.5" data-path="tipps-zur-vertiefung-2.html"><a href="tipps-zur-vertiefung-2.html#wahrscheinlichkeitsdichtefunktion"><i class="fa fa-check"></i><b>3.7.5</b> Wahrscheinlichkeitsdichtefunktion</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="übungsaufgaben-2.html"><a href="übungsaufgaben-2.html"><i class="fa fa-check"></i>Übungsaufgaben</a>
+<ul>
+<li class="chapter" data-level="3.7.6" data-path="übungsaufgaben-2.html"><a href="übungsaufgaben-2.html#aufgabe-3-1"><i class="fa fa-check"></i><b>3.7.6</b> Aufgabe 3-1</a></li>
+<li class="chapter" data-level="3.7.7" data-path="übungsaufgaben-2.html"><a href="übungsaufgaben-2.html#aufgabe-3-2"><i class="fa fa-check"></i><b>3.7.7</b> Aufgabe 3-2</a></li>
+<li class="chapter" data-level="3.7.8" data-path="übungsaufgaben-2.html"><a href="übungsaufgaben-2.html#aufgabe-3-3"><i class="fa fa-check"></i><b>3.7.8</b> Aufgabe 3-3</a></li>
+<li class="chapter" data-level="3.7.9" data-path="übungsaufgaben-2.html"><a href="übungsaufgaben-2.html#aufgabe-3-4"><i class="fa fa-check"></i><b>3.7.9</b> Aufgabe 3-4</a></li>
+<li class="chapter" data-level="3.7.10" data-path="übungsaufgaben-2.html"><a href="übungsaufgaben-2.html#aufgabe-3-5"><i class="fa fa-check"></i><b>3.7.10</b> Aufgabe 3-5</a></li>
+<li class="chapter" data-level="3.7.11" data-path="übungsaufgaben-2.html"><a href="übungsaufgaben-2.html#aufgabe-3-6"><i class="fa fa-check"></i><b>3.7.11</b> Aufgabe 3-6</a></li>
+<li class="chapter" data-level="3.7.12" data-path="übungsaufgaben-2.html"><a href="übungsaufgaben-2.html#aufgabe-3-7"><i class="fa fa-check"></i><b>3.7.12</b> Aufgabe 3-7</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="schätzstatistik.html"><a href="schätzstatistik.html"><i class="fa fa-check"></i><b>4</b> Schätzstatistik</a>
+<ul>
+<li class="chapter" data-level="" data-path="schätzstatistik.html"><a href="schätzstatistik.html#lernziele-dieser-sitzung-3"><i class="fa fa-check"></i>Lernziele dieser Sitzung</a></li>
+<li class="chapter" data-level="" data-path="schätzstatistik.html"><a href="schätzstatistik.html#lehrvideos-sommersester-2020"><i class="fa fa-check"></i>Lehrvideos (Sommersester 2020)</a></li>
+<li class="chapter" data-level="4.1" data-path="stichprobenverteilung.html"><a href="stichprobenverteilung.html"><i class="fa fa-check"></i><b>4.1</b> Stichprobenverteilung</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="stichprobenverteilung.html"><a href="stichprobenverteilung.html#szenario-1-normalverteilte-grundgesamtheit"><i class="fa fa-check"></i><b>4.1.1</b> Szenario 1: Normalverteilte Grundgesamtheit</a></li>
+<li class="chapter" data-level="4.1.2" data-path="stichprobenverteilung.html"><a href="stichprobenverteilung.html#szenario-2-nicht-normalverteilte-grundgesamtheit"><i class="fa fa-check"></i><b>4.1.2</b> Szenario 2: Nicht normalverteilte Grundgesamtheit</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="punktschätzung.html"><a href="punktschätzung.html"><i class="fa fa-check"></i><b>4.2</b> Punktschätzung</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="punktschätzung.html"><a href="punktschätzung.html#punktschätzung-des-arithmetischen-mittels"><i class="fa fa-check"></i><b>4.2.1</b> Punktschätzung des arithmetischen Mittels</a></li>
+<li class="chapter" data-level="4.2.2" data-path="punktschätzung.html"><a href="punktschätzung.html#punktschätzung-der-varianz-und-der-standardabweichung"><i class="fa fa-check"></i><b>4.2.2</b> Punktschätzung der Varianz und der Standardabweichung</a></li>
+<li class="chapter" data-level="4.2.3" data-path="punktschätzung.html"><a href="punktschätzung.html#schätzung-des-standardfehlers"><i class="fa fa-check"></i><b>4.2.3</b> Schätzung des Standardfehlers</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="intervallschätzung.html"><a href="intervallschätzung.html"><i class="fa fa-check"></i><b>4.3</b> Intervallschätzung</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="intervallschätzung.html"><a href="intervallschätzung.html#gesuchtes-alpha"><i class="fa fa-check"></i><b>4.3.1</b> Gesuchtes <span class="math inline">\(\alpha\)</span></a></li>
+<li class="chapter" data-level="4.3.2" data-path="intervallschätzung.html"><a href="intervallschätzung.html#gesuchtes-konfidenzintervall"><i class="fa fa-check"></i><b>4.3.2</b> Gesuchtes Konfidenzintervall</a></li>
+<li class="chapter" data-level="4.3.3" data-path="intervallschätzung.html"><a href="intervallschätzung.html#gesuchtes-n"><i class="fa fa-check"></i><b>4.3.3</b> Gesuchtes <span class="math inline">\(n\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="tipps-zur-vertiefung-3.html"><a href="tipps-zur-vertiefung-3.html"><i class="fa fa-check"></i>Tipps zur Vertiefung</a></li>
+<li class="chapter" data-level="" data-path="übungsaufgaben-3.html"><a href="übungsaufgaben-3.html"><i class="fa fa-check"></i>Übungsaufgaben</a>
+<ul>
+<li class="chapter" data-level="4.3.4" data-path="übungsaufgaben-3.html"><a href="übungsaufgaben-3.html#aufgabe-4-1"><i class="fa fa-check"></i><b>4.3.4</b> Aufgabe 4-1</a></li>
+<li class="chapter" data-level="4.3.5" data-path="übungsaufgaben-3.html"><a href="übungsaufgaben-3.html#aufgabe-4-2"><i class="fa fa-check"></i><b>4.3.5</b> Aufgabe 4-2</a></li>
+<li class="chapter" data-level="4.3.6" data-path="übungsaufgaben-3.html"><a href="übungsaufgaben-3.html#aufgabe-4-3"><i class="fa fa-check"></i><b>4.3.6</b> Aufgabe 4-3</a></li>
+<li class="chapter" data-level="4.3.7" data-path="übungsaufgaben-3.html"><a href="übungsaufgaben-3.html#aufgabe-4-4"><i class="fa fa-check"></i><b>4.3.7</b> Aufgabe 4-4</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html"><i class="fa fa-check"></i><b>5</b> Grundlagen der Teststatistik</a>
+<ul>
+<li class="chapter" data-level="" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html#lernziele-dieser-sitzung-4"><i class="fa fa-check"></i>Lernziele dieser Sitzung</a></li>
+<li class="chapter" data-level="" data-path="grundlagen-der-teststatistik.html"><a href="grundlagen-der-teststatistik.html#lernvideos-sommersemester-2020"><i class="fa fa-check"></i>Lernvideos (Sommersemester 2020)</a></li>
+<li class="chapter" data-level="5.1" data-path="statistische-tests.html"><a href="statistische-tests.html"><i class="fa fa-check"></i><b>5.1</b> Statistische Tests</a></li>
+<li class="chapter" data-level="5.2" data-path="z-test.html"><a href="z-test.html"><i class="fa fa-check"></i><b>5.2</b> 𝑧-Test</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="z-test.html"><a href="z-test.html#test-wählen-und-voraussetzungen-prüfen"><i class="fa fa-check"></i><b>5.2.1</b> Test wählen und Voraussetzungen prüfen</a></li>
+<li class="chapter" data-level="5.2.2" data-path="z-test.html"><a href="z-test.html#hypothesen-formulieren"><i class="fa fa-check"></i><b>5.2.2</b> Hypothesen formulieren</a></li>
+<li class="chapter" data-level="5.2.3" data-path="z-test.html"><a href="z-test.html#signifikanzniveau-entscheiden"><i class="fa fa-check"></i><b>5.2.3</b> Signifikanzniveau entscheiden</a></li>
+<li class="chapter" data-level="5.2.4" data-path="z-test.html"><a href="z-test.html#ablehnungsbereich-bestimmen"><i class="fa fa-check"></i><b>5.2.4</b> Ablehnungsbereich bestimmen</a></li>
+<li class="chapter" data-level="5.2.5" data-path="z-test.html"><a href="z-test.html#prüfgröße-berechnen"><i class="fa fa-check"></i><b>5.2.5</b> Prüfgröße berechnen</a></li>
+<li class="chapter" data-level="5.2.6" data-path="z-test.html"><a href="z-test.html#ergebnis-inerpretieren"><i class="fa fa-check"></i><b>5.2.6</b> Ergebnis inerpretieren</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="t-verteilung.html"><a href="t-verteilung.html"><i class="fa fa-check"></i><b>5.3</b> Die 𝑡-Verteilung</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="t-verteilung.html"><a href="t-verteilung.html#freiheitsgrade"><i class="fa fa-check"></i><b>5.3.1</b> Freiheitsgrade</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="t-test.html"><a href="t-test.html"><i class="fa fa-check"></i><b>5.4</b> 1-Stichproben-𝑡-Test</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="t-test.html"><a href="t-test.html#test-wählen-und-voraussetzungen-prüfen-1"><i class="fa fa-check"></i><b>5.4.1</b> Test wählen und Voraussetzungen prüfen</a></li>
+<li class="chapter" data-level="5.4.2" data-path="t-test.html"><a href="t-test.html#hypothesen-formulieren-1"><i class="fa fa-check"></i><b>5.4.2</b> Hypothesen formulieren</a></li>
+<li class="chapter" data-level="5.4.3" data-path="t-test.html"><a href="t-test.html#signifikanzniveau-entscheiden-1"><i class="fa fa-check"></i><b>5.4.3</b> Signifikanzniveau entscheiden</a></li>
+<li class="chapter" data-level="5.4.4" data-path="t-test.html"><a href="t-test.html#ablehnungsbereich-bestimmen-1"><i class="fa fa-check"></i><b>5.4.4</b> Ablehnungsbereich bestimmen</a></li>
+<li class="chapter" data-level="5.4.5" data-path="t-test.html"><a href="t-test.html#prüfgröße-berechnen-1"><i class="fa fa-check"></i><b>5.4.5</b> Prüfgröße berechnen</a></li>
+<li class="chapter" data-level="5.4.6" data-path="t-test.html"><a href="t-test.html#ergebnis-interpretieren"><i class="fa fa-check"></i><b>5.4.6</b> Ergebnis interpretieren</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="tipps-zur-vertiefung-4.html"><a href="tipps-zur-vertiefung-4.html"><i class="fa fa-check"></i>Tipps zur Vertiefung</a></li>
+<li class="chapter" data-level="" data-path="übungsaufgaben-4.html"><a href="übungsaufgaben-4.html"><i class="fa fa-check"></i>Übungsaufgaben</a>
+<ul>
+<li class="chapter" data-level="5.4.7" data-path="übungsaufgaben-4.html"><a href="übungsaufgaben-4.html#aufgabe-5-1"><i class="fa fa-check"></i><b>5.4.7</b> Aufgabe 5-1</a></li>
+<li class="chapter" data-level="5.4.8" data-path="übungsaufgaben-4.html"><a href="übungsaufgaben-4.html#aufgabe-5-2"><i class="fa fa-check"></i><b>5.4.8</b> Aufgabe 5-2</a></li>
+<li class="chapter" data-level="5.4.9" data-path="übungsaufgaben-4.html"><a href="übungsaufgaben-4.html#aufgabe-5-3"><i class="fa fa-check"></i><b>5.4.9</b> Aufgabe 5-3</a></li>
+<li class="chapter" data-level="5.4.10" data-path="übungsaufgaben-4.html"><a href="übungsaufgaben-4.html#aufgabe-5-4"><i class="fa fa-check"></i><b>5.4.10</b> Aufgabe 5-4</a></li>
+<li class="chapter" data-level="5.4.11" data-path="übungsaufgaben-4.html"><a href="übungsaufgaben-4.html#aufgabe-5-5"><i class="fa fa-check"></i><b>5.4.11</b> Aufgabe 5-5</a></li>
+<li class="chapter" data-level="5.4.12" data-path="übungsaufgaben-4.html"><a href="übungsaufgaben-4.html#aufgabe-5-6"><i class="fa fa-check"></i><b>5.4.12</b> Aufgabe 5-6</a></li>
+<li class="chapter" data-level="5.4.13" data-path="übungsaufgaben-4.html"><a href="übungsaufgaben-4.html#aufgabe-5-7"><i class="fa fa-check"></i><b>5.4.13</b> Aufgabe 5-7</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html"><i class="fa fa-check"></i><b>6</b> Testverfahren mit zwei Stichproben</a>
+<ul>
+<li class="chapter" data-level="" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#lernziele-dieser-sitzung-5"><i class="fa fa-check"></i>Lernziele dieser Sitzung</a></li>
+<li class="chapter" data-level="" data-path="testverfahren-mit-zwei-stichproben.html"><a href="testverfahren-mit-zwei-stichproben.html#lehrvideos-sommersemester-2020-2"><i class="fa fa-check"></i>Lehrvideos (Sommersemester 2020)</a></li>
+<li class="chapter" data-level="6.1" data-path="statistische-tests-1.html"><a href="statistische-tests-1.html"><i class="fa fa-check"></i><b>6.1</b> Statistische Tests</a></li>
+<li class="chapter" data-level="6.2" data-path="t2-test.html"><a href="t2-test.html"><i class="fa fa-check"></i><b>6.2</b> 2-Stichproben-𝑡-Test</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="t2-test.html"><a href="t2-test.html#test-wählen-und-voraussetzungen-prüfen-2"><i class="fa fa-check"></i><b>6.2.1</b> Test wählen und Voraussetzungen prüfen</a></li>
+<li class="chapter" data-level="6.2.2" data-path="t2-test.html"><a href="t2-test.html#hypothesen-formulieren-2"><i class="fa fa-check"></i><b>6.2.2</b> Hypothesen formulieren</a></li>
+<li class="chapter" data-level="6.2.3" data-path="t2-test.html"><a href="t2-test.html#signifikanzniveau-entscheiden-2"><i class="fa fa-check"></i><b>6.2.3</b> Signifikanzniveau entscheiden</a></li>
+<li class="chapter" data-level="6.2.4" data-path="t2-test.html"><a href="t2-test.html#ablehnungsbereich-bestimmen-2"><i class="fa fa-check"></i><b>6.2.4</b> Ablehnungsbereich bestimmen</a></li>
+<li class="chapter" data-level="6.2.5" data-path="t2-test.html"><a href="t2-test.html#prüfgröße-berechnen-2"><i class="fa fa-check"></i><b>6.2.5</b> Prüfgröße berechnen</a></li>
+<li class="chapter" data-level="6.2.6" data-path="t2-test.html"><a href="t2-test.html#ergebnis-interpretieren-1"><i class="fa fa-check"></i><b>6.2.6</b> Ergebnis interpretieren</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="die-f-verteilung.html"><a href="die-f-verteilung.html"><i class="fa fa-check"></i><b>6.3</b> Die 𝐹-Verteilung</a></li>
+<li class="chapter" data-level="6.4" data-path="f-test.html"><a href="f-test.html"><i class="fa fa-check"></i><b>6.4</b> 𝐹-Test</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="f-test.html"><a href="f-test.html#test-wählen-und-voraussetzungen-prüfen-3"><i class="fa fa-check"></i><b>6.4.1</b> Test wählen und Voraussetzungen prüfen</a></li>
+<li class="chapter" data-level="6.4.2" data-path="f-test.html"><a href="f-test.html#hypothesen-formulieren-3"><i class="fa fa-check"></i><b>6.4.2</b> Hypothesen formulieren</a></li>
+<li class="chapter" data-level="6.4.3" data-path="f-test.html"><a href="f-test.html#signifikanzniveau-entscheiden-3"><i class="fa fa-check"></i><b>6.4.3</b> Signifikanzniveau entscheiden</a></li>
+<li class="chapter" data-level="6.4.4" data-path="f-test.html"><a href="f-test.html#ablehnungsbereich-bestimmen-3"><i class="fa fa-check"></i><b>6.4.4</b> Ablehnungsbereich bestimmen</a></li>
+<li class="chapter" data-level="6.4.5" data-path="f-test.html"><a href="f-test.html#prüfgröße-berechnen-3"><i class="fa fa-check"></i><b>6.4.5</b> Prüfgröße berechnen</a></li>
+<li class="chapter" data-level="6.4.6" data-path="f-test.html"><a href="f-test.html#nullhypothese-ablehnen-oder-beibehalten"><i class="fa fa-check"></i><b>6.4.6</b> Nullhypothese ablehnen oder beibehalten</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="fehlerarten.html"><a href="fehlerarten.html"><i class="fa fa-check"></i><b>6.5</b> Fehlerarten</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="fehlerarten.html"><a href="fehlerarten.html#fehler-1.-art"><i class="fa fa-check"></i><b>6.5.1</b> Fehler 1. Art</a></li>
+<li class="chapter" data-level="6.5.2" data-path="fehlerarten.html"><a href="fehlerarten.html#fehler-2.-art"><i class="fa fa-check"></i><b>6.5.2</b> Fehler 2. Art</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="tipps-zur-vertiefung-5.html"><a href="tipps-zur-vertiefung-5.html"><i class="fa fa-check"></i>Tipps zur Vertiefung</a></li>
+<li class="chapter" data-level="" data-path="übungsaufgaben-5.html"><a href="übungsaufgaben-5.html"><i class="fa fa-check"></i>Übungsaufgaben</a>
+<ul>
+<li class="chapter" data-level="6.5.3" data-path="übungsaufgaben-5.html"><a href="übungsaufgaben-5.html#aufgabe-6-1"><i class="fa fa-check"></i><b>6.5.3</b> Aufgabe 6-1</a></li>
+<li class="chapter" data-level="6.5.4" data-path="übungsaufgaben-5.html"><a href="übungsaufgaben-5.html#aufgabe-6-2"><i class="fa fa-check"></i><b>6.5.4</b> Aufgabe 6-2</a></li>
+<li class="chapter" data-level="6.5.5" data-path="übungsaufgaben-5.html"><a href="übungsaufgaben-5.html#aufgabe-6-3"><i class="fa fa-check"></i><b>6.5.5</b> Aufgabe 6-3</a></li>
+<li class="chapter" data-level="6.5.6" data-path="übungsaufgaben-5.html"><a href="übungsaufgaben-5.html#aufgabe-6-4"><i class="fa fa-check"></i><b>6.5.6</b> Aufgabe 6-4</a></li>
+<li class="chapter" data-level="6.5.7" data-path="übungsaufgaben-5.html"><a href="übungsaufgaben-5.html#aufgabe-6-5"><i class="fa fa-check"></i><b>6.5.7</b> Aufgabe 6-5</a></li>
+<li class="chapter" data-level="6.5.8" data-path="übungsaufgaben-5.html"><a href="übungsaufgaben-5.html#aufgabe-6-6"><i class="fa fa-check"></i><b>6.5.8</b> Aufgabe 6-6</a></li>
+<li class="chapter" data-level="6.5.9" data-path="übungsaufgaben-5.html"><a href="übungsaufgaben-5.html#aufgabe-6-7"><i class="fa fa-check"></i><b>6.5.9</b> Aufgabe 6-7</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="formeln.html"><a href="formeln.html"><i class="fa fa-check"></i>Formelsammlung und Wertetabellen</a>
+<ul>
+<li class="chapter" data-level="" data-path="formeln.html"><a href="formeln.html#hinweise"><i class="fa fa-check"></i>Hinweise</a></li>
+<li class="chapter" data-level="" data-path="formelsammlung.html"><a href="formelsammlung.html"><i class="fa fa-check"></i>Formelsammlung</a></li>
+<li class="chapter" data-level="" data-path="tabelle-z.html"><a href="tabelle-z.html"><i class="fa fa-check"></i>Standardnormalverteilung</a></li>
+<li class="chapter" data-level="" data-path="tabelle-t.html"><a href="tabelle-t.html"><i class="fa fa-check"></i>𝑡-Verteilungen</a></li>
+<li class="chapter" data-level="" data-path="tabelle-f.html"><a href="tabelle-f.html"><i class="fa fa-check"></i>𝐹-Verteilungen</a></li>
+<li class="chapter" data-level="" data-path="tabelle-chisq.html"><a href="tabelle-chisq.html"><i class="fa fa-check"></i>𝜒²-Verteilungen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="lösungen-der-übungsaufgaben.html"><a href="lösungen-der-übungsaufgaben.html"><i class="fa fa-check"></i>Lösungen der Übungsaufgaben</a>
+<ul>
+<li class="chapter" data-level="" data-path="sitzung-1.html"><a href="sitzung-1.html"><i class="fa fa-check"></i>Sitzung 1</a>
+<ul>
+<li class="chapter" data-level="6.5.10" data-path="sitzung-1.html"><a href="sitzung-1.html#loesung-1-1"><i class="fa fa-check"></i><b>6.5.10</b> Lösung 1-1</a></li>
+<li class="chapter" data-level="6.5.11" data-path="sitzung-1.html"><a href="sitzung-1.html#loesung-1-2"><i class="fa fa-check"></i><b>6.5.11</b> Lösung 1-2</a></li>
+<li class="chapter" data-level="6.5.12" data-path="sitzung-1.html"><a href="sitzung-1.html#loesung-1-3"><i class="fa fa-check"></i><b>6.5.12</b> Lösung 1-3</a></li>
+<li class="chapter" data-level="6.5.13" data-path="sitzung-1.html"><a href="sitzung-1.html#loesung-1-4"><i class="fa fa-check"></i><b>6.5.13</b> Lösung 1-4</a></li>
+<li class="chapter" data-level="6.5.14" data-path="sitzung-1.html"><a href="sitzung-1.html#loesung-1-5"><i class="fa fa-check"></i><b>6.5.14</b> Lösung 1-5</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="sitzung-2.html"><a href="sitzung-2.html"><i class="fa fa-check"></i>Sitzung 2</a>
+<ul>
+<li class="chapter" data-level="6.5.15" data-path="sitzung-2.html"><a href="sitzung-2.html#loesung-2-1"><i class="fa fa-check"></i><b>6.5.15</b> Lösung 2-1</a></li>
+<li class="chapter" data-level="6.5.16" data-path="sitzung-2.html"><a href="sitzung-2.html#loesung-2-2"><i class="fa fa-check"></i><b>6.5.16</b> Lösung 2-2</a></li>
+<li class="chapter" data-level="6.5.17" data-path="sitzung-2.html"><a href="sitzung-2.html#loesung-2-3"><i class="fa fa-check"></i><b>6.5.17</b> Lösung 2-3</a></li>
+<li class="chapter" data-level="6.5.18" data-path="sitzung-2.html"><a href="sitzung-2.html#loesung-2-4"><i class="fa fa-check"></i><b>6.5.18</b> Lösung 2-4</a></li>
+<li class="chapter" data-level="6.5.19" data-path="sitzung-2.html"><a href="sitzung-2.html#loesung-2-5"><i class="fa fa-check"></i><b>6.5.19</b> Lösung 2-5</a></li>
+<li class="chapter" data-level="6.5.20" data-path="sitzung-2.html"><a href="sitzung-2.html#loesung-2-6"><i class="fa fa-check"></i><b>6.5.20</b> Lösung 2-6</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="sitzung-3.html"><a href="sitzung-3.html"><i class="fa fa-check"></i>Sitzung 3</a>
+<ul>
+<li class="chapter" data-level="6.5.21" data-path="sitzung-3.html"><a href="sitzung-3.html#loesung-3-1"><i class="fa fa-check"></i><b>6.5.21</b> Lösung 3-1</a></li>
+<li class="chapter" data-level="6.5.22" data-path="sitzung-3.html"><a href="sitzung-3.html#loesung-3-2"><i class="fa fa-check"></i><b>6.5.22</b> Lösung 3-2</a></li>
+<li class="chapter" data-level="6.5.23" data-path="sitzung-3.html"><a href="sitzung-3.html#loesung-3-3"><i class="fa fa-check"></i><b>6.5.23</b> Lösung 3-3</a></li>
+<li class="chapter" data-level="6.5.24" data-path="sitzung-3.html"><a href="sitzung-3.html#loesung-3-4"><i class="fa fa-check"></i><b>6.5.24</b> Lösung 3-4</a></li>
+<li class="chapter" data-level="6.5.25" data-path="sitzung-3.html"><a href="sitzung-3.html#loesung-3-5"><i class="fa fa-check"></i><b>6.5.25</b> Lösung 3-5</a></li>
+<li class="chapter" data-level="6.5.26" data-path="sitzung-3.html"><a href="sitzung-3.html#loesung-3-6"><i class="fa fa-check"></i><b>6.5.26</b> Lösung 3-6</a></li>
+<li class="chapter" data-level="6.5.27" data-path="sitzung-3.html"><a href="sitzung-3.html#loesung-3-7"><i class="fa fa-check"></i><b>6.5.27</b> Lösung 3-7</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="sitzung-4.html"><a href="sitzung-4.html"><i class="fa fa-check"></i>Sitzung 4</a>
+<ul>
+<li class="chapter" data-level="6.5.28" data-path="sitzung-4.html"><a href="sitzung-4.html#loesung-4-1"><i class="fa fa-check"></i><b>6.5.28</b> Lösung 4-1</a></li>
+<li class="chapter" data-level="6.5.29" data-path="sitzung-4.html"><a href="sitzung-4.html#loesung-4-2"><i class="fa fa-check"></i><b>6.5.29</b> Lösung 4-2</a></li>
+<li class="chapter" data-level="6.5.30" data-path="sitzung-4.html"><a href="sitzung-4.html#loesung-4-3"><i class="fa fa-check"></i><b>6.5.30</b> Lösung 4-3</a></li>
+<li class="chapter" data-level="6.5.31" data-path="sitzung-4.html"><a href="sitzung-4.html#loesung-4-4"><i class="fa fa-check"></i><b>6.5.31</b> Lösung 4-4</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="sitzung-5.html"><a href="sitzung-5.html"><i class="fa fa-check"></i>Sitzung 5</a>
+<ul>
+<li class="chapter" data-level="6.5.32" data-path="sitzung-5.html"><a href="sitzung-5.html#loesung-5-1"><i class="fa fa-check"></i><b>6.5.32</b> Lösung 5-1</a></li>
+<li class="chapter" data-level="6.5.33" data-path="sitzung-5.html"><a href="sitzung-5.html#loesung-5-2"><i class="fa fa-check"></i><b>6.5.33</b> Lösung 5-2</a></li>
+<li class="chapter" data-level="6.5.34" data-path="sitzung-5.html"><a href="sitzung-5.html#loesung-5-3"><i class="fa fa-check"></i><b>6.5.34</b> Lösung 5-3</a></li>
+<li class="chapter" data-level="6.5.35" data-path="sitzung-5.html"><a href="sitzung-5.html#loesung-5-4"><i class="fa fa-check"></i><b>6.5.35</b> Lösung 5-4</a></li>
+<li class="chapter" data-level="6.5.36" data-path="sitzung-5.html"><a href="sitzung-5.html#loesung-5-5"><i class="fa fa-check"></i><b>6.5.36</b> Lösung 5-5</a></li>
+<li class="chapter" data-level="6.5.37" data-path="sitzung-5.html"><a href="sitzung-5.html#loesung-5-6"><i class="fa fa-check"></i><b>6.5.37</b> Lösung 5-6</a></li>
+<li class="chapter" data-level="6.5.38" data-path="sitzung-5.html"><a href="sitzung-5.html#loesung-5-7"><i class="fa fa-check"></i><b>6.5.38</b> Lösung 5-7</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="sitzung-6.html"><a href="sitzung-6.html"><i class="fa fa-check"></i>Sitzung 6</a>
+<ul>
+<li class="chapter" data-level="6.5.39" data-path="sitzung-6.html"><a href="sitzung-6.html#loesung-6-1"><i class="fa fa-check"></i><b>6.5.39</b> Lösung 6-1</a></li>
+<li class="chapter" data-level="6.5.40" data-path="sitzung-6.html"><a href="sitzung-6.html#loesung-6-2"><i class="fa fa-check"></i><b>6.5.40</b> Lösung 6-2</a></li>
+<li class="chapter" data-level="6.5.41" data-path="sitzung-6.html"><a href="sitzung-6.html#loesung-6-3"><i class="fa fa-check"></i><b>6.5.41</b> Lösung 6-3</a></li>
+<li class="chapter" data-level="6.5.42" data-path="sitzung-6.html"><a href="sitzung-6.html#loesung-6-4"><i class="fa fa-check"></i><b>6.5.42</b> Lösung 6-4</a></li>
+<li class="chapter" data-level="6.5.43" data-path="sitzung-6.html"><a href="sitzung-6.html#loesung-6-5"><i class="fa fa-check"></i><b>6.5.43</b> Lösung 6-5</a></li>
+<li class="chapter" data-level="6.5.44" data-path="sitzung-6.html"><a href="sitzung-6.html#loesung-6-6"><i class="fa fa-check"></i><b>6.5.44</b> Lösung 6-6</a></li>
+<li class="chapter" data-level="6.5.45" data-path="sitzung-6.html"><a href="sitzung-6.html#loesung-6-7"><i class="fa fa-check"></i><b>6.5.45</b> Lösung 6-7</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="quellenverzeichnis.html"><a href="quellenverzeichnis.html"><i class="fa fa-check"></i>Quellenverzeichnis</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistische Verfahren in der Geographie</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="tabelle-t" class="section level2 unnumbered">
+<h2>𝑡-Verteilungen</h2>
+<div style="display: flex; justify-content: center; align-items: center">
+<div>
+<p><img src="Skript_Statistik_2021_files/figure-html/tcurve-1.svg" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+<div>
+<p><span class="math display">\[ P(t \leq - t_p) = 1 - P(t \leq t_p) \]</span></p>
+</div>
+</div>
+<div style="overflow-y: auto;">
+<table>
+<thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="15">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Fläche
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:right;">
+<span class="math inline">\(df\)</span>
+</th>
+<th style="text-align:right;">
+0,55
+</th>
+<th style="text-align:right;">
+0,6
+</th>
+<th style="text-align:right;">
+0,65
+</th>
+<th style="text-align:right;">
+0,7
+</th>
+<th style="text-align:right;">
+0,75
+</th>
+<th style="text-align:right;">
+0,8
+</th>
+<th style="text-align:right;">
+0,85
+</th>
+<th style="text-align:right;">
+0,9
+</th>
+<th style="text-align:right;">
+0,95
+</th>
+<th style="text-align:right;">
+0,975
+</th>
+<th style="text-align:right;">
+0,99
+</th>
+<th style="text-align:right;">
+0,995
+</th>
+<th style="text-align:right;">
+0,999
+</th>
+<th style="text-align:right;">
+0,9995
+</th>
+<th style="text-align:right;">
+0,9999
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+1
+</td>
+<td style="text-align:right;">
+0,158
+</td>
+<td style="text-align:right;">
+0,325
+</td>
+<td style="text-align:right;">
+0,510
+</td>
+<td style="text-align:right;">
+0,727
+</td>
+<td style="text-align:right;">
+1,000
+</td>
+<td style="text-align:right;">
+1,376
+</td>
+<td style="text-align:right;">
+1,963
+</td>
+<td style="text-align:right;">
+3,078
+</td>
+<td style="text-align:right;">
+6,314
+</td>
+<td style="text-align:right;">
+12,706
+</td>
+<td style="text-align:right;">
+31,821
+</td>
+<td style="text-align:right;">
+63,657
+</td>
+<td style="text-align:right;">
+318,309
+</td>
+<td style="text-align:right;">
+636,619
+</td>
+<td style="text-align:right;">
+3183,099
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+2
+</td>
+<td style="text-align:right;">
+0,142
+</td>
+<td style="text-align:right;">
+0,289
+</td>
+<td style="text-align:right;">
+0,445
+</td>
+<td style="text-align:right;">
+0,617
+</td>
+<td style="text-align:right;">
+0,816
+</td>
+<td style="text-align:right;">
+1,061
+</td>
+<td style="text-align:right;">
+1,386
+</td>
+<td style="text-align:right;">
+1,886
+</td>
+<td style="text-align:right;">
+2,920
+</td>
+<td style="text-align:right;">
+4,303
+</td>
+<td style="text-align:right;">
+6,965
+</td>
+<td style="text-align:right;">
+9,925
+</td>
+<td style="text-align:right;">
+22,327
+</td>
+<td style="text-align:right;">
+31,599
+</td>
+<td style="text-align:right;">
+70,700
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+3
+</td>
+<td style="text-align:right;">
+0,137
+</td>
+<td style="text-align:right;">
+0,277
+</td>
+<td style="text-align:right;">
+0,424
+</td>
+<td style="text-align:right;">
+0,584
+</td>
+<td style="text-align:right;">
+0,765
+</td>
+<td style="text-align:right;">
+0,978
+</td>
+<td style="text-align:right;">
+1,250
+</td>
+<td style="text-align:right;">
+1,638
+</td>
+<td style="text-align:right;">
+2,353
+</td>
+<td style="text-align:right;">
+3,182
+</td>
+<td style="text-align:right;">
+4,541
+</td>
+<td style="text-align:right;">
+5,841
+</td>
+<td style="text-align:right;">
+10,215
+</td>
+<td style="text-align:right;">
+12,924
+</td>
+<td style="text-align:right;">
+22,204
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+4
+</td>
+<td style="text-align:right;">
+0,134
+</td>
+<td style="text-align:right;">
+0,271
+</td>
+<td style="text-align:right;">
+0,414
+</td>
+<td style="text-align:right;">
+0,569
+</td>
+<td style="text-align:right;">
+0,741
+</td>
+<td style="text-align:right;">
+0,941
+</td>
+<td style="text-align:right;">
+1,190
+</td>
+<td style="text-align:right;">
+1,533
+</td>
+<td style="text-align:right;">
+2,132
+</td>
+<td style="text-align:right;">
+2,776
+</td>
+<td style="text-align:right;">
+3,747
+</td>
+<td style="text-align:right;">
+4,604
+</td>
+<td style="text-align:right;">
+7,173
+</td>
+<td style="text-align:right;">
+8,610
+</td>
+<td style="text-align:right;">
+13,034
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+5
+</td>
+<td style="text-align:right;">
+0,132
+</td>
+<td style="text-align:right;">
+0,267
+</td>
+<td style="text-align:right;">
+0,408
+</td>
+<td style="text-align:right;">
+0,559
+</td>
+<td style="text-align:right;">
+0,727
+</td>
+<td style="text-align:right;">
+0,920
+</td>
+<td style="text-align:right;">
+1,156
+</td>
+<td style="text-align:right;">
+1,476
+</td>
+<td style="text-align:right;">
+2,015
+</td>
+<td style="text-align:right;">
+2,571
+</td>
+<td style="text-align:right;">
+3,365
+</td>
+<td style="text-align:right;">
+4,032
+</td>
+<td style="text-align:right;">
+5,893
+</td>
+<td style="text-align:right;">
+6,869
+</td>
+<td style="text-align:right;">
+9,678
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+6
+</td>
+<td style="text-align:right;">
+0,131
+</td>
+<td style="text-align:right;">
+0,265
+</td>
+<td style="text-align:right;">
+0,404
+</td>
+<td style="text-align:right;">
+0,553
+</td>
+<td style="text-align:right;">
+0,718
+</td>
+<td style="text-align:right;">
+0,906
+</td>
+<td style="text-align:right;">
+1,134
+</td>
+<td style="text-align:right;">
+1,440
+</td>
+<td style="text-align:right;">
+1,943
+</td>
+<td style="text-align:right;">
+2,447
+</td>
+<td style="text-align:right;">
+3,143
+</td>
+<td style="text-align:right;">
+3,707
+</td>
+<td style="text-align:right;">
+5,208
+</td>
+<td style="text-align:right;">
+5,959
+</td>
+<td style="text-align:right;">
+8,025
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+7
+</td>
+<td style="text-align:right;">
+0,130
+</td>
+<td style="text-align:right;">
+0,263
+</td>
+<td style="text-align:right;">
+0,402
+</td>
+<td style="text-align:right;">
+0,549
+</td>
+<td style="text-align:right;">
+0,711
+</td>
+<td style="text-align:right;">
+0,896
+</td>
+<td style="text-align:right;">
+1,119
+</td>
+<td style="text-align:right;">
+1,415
+</td>
+<td style="text-align:right;">
+1,895
+</td>
+<td style="text-align:right;">
+2,365
+</td>
+<td style="text-align:right;">
+2,998
+</td>
+<td style="text-align:right;">
+3,499
+</td>
+<td style="text-align:right;">
+4,785
+</td>
+<td style="text-align:right;">
+5,408
+</td>
+<td style="text-align:right;">
+7,063
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+8
+</td>
+<td style="text-align:right;">
+0,130
+</td>
+<td style="text-align:right;">
+0,262
+</td>
+<td style="text-align:right;">
+0,399
+</td>
+<td style="text-align:right;">
+0,546
+</td>
+<td style="text-align:right;">
+0,706
+</td>
+<td style="text-align:right;">
+0,889
+</td>
+<td style="text-align:right;">
+1,108
+</td>
+<td style="text-align:right;">
+1,397
+</td>
+<td style="text-align:right;">
+1,860
+</td>
+<td style="text-align:right;">
+2,306
+</td>
+<td style="text-align:right;">
+2,896
+</td>
+<td style="text-align:right;">
+3,355
+</td>
+<td style="text-align:right;">
+4,501
+</td>
+<td style="text-align:right;">
+5,041
+</td>
+<td style="text-align:right;">
+6,442
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+9
+</td>
+<td style="text-align:right;">
+0,129
+</td>
+<td style="text-align:right;">
+0,261
+</td>
+<td style="text-align:right;">
+0,398
+</td>
+<td style="text-align:right;">
+0,543
+</td>
+<td style="text-align:right;">
+0,703
+</td>
+<td style="text-align:right;">
+0,883
+</td>
+<td style="text-align:right;">
+1,100
+</td>
+<td style="text-align:right;">
+1,383
+</td>
+<td style="text-align:right;">
+1,833
+</td>
+<td style="text-align:right;">
+2,262
+</td>
+<td style="text-align:right;">
+2,821
+</td>
+<td style="text-align:right;">
+3,250
+</td>
+<td style="text-align:right;">
+4,297
+</td>
+<td style="text-align:right;">
+4,781
+</td>
+<td style="text-align:right;">
+6,010
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+10
+</td>
+<td style="text-align:right;">
+0,129
+</td>
+<td style="text-align:right;">
+0,260
+</td>
+<td style="text-align:right;">
+0,397
+</td>
+<td style="text-align:right;">
+0,542
+</td>
+<td style="text-align:right;">
+0,700
+</td>
+<td style="text-align:right;">
+0,879
+</td>
+<td style="text-align:right;">
+1,093
+</td>
+<td style="text-align:right;">
+1,372
+</td>
+<td style="text-align:right;">
+1,812
+</td>
+<td style="text-align:right;">
+2,228
+</td>
+<td style="text-align:right;">
+2,764
+</td>
+<td style="text-align:right;">
+3,169
+</td>
+<td style="text-align:right;">
+4,144
+</td>
+<td style="text-align:right;">
+4,587
+</td>
+<td style="text-align:right;">
+5,694
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+11
+</td>
+<td style="text-align:right;">
+0,129
+</td>
+<td style="text-align:right;">
+0,260
+</td>
+<td style="text-align:right;">
+0,396
+</td>
+<td style="text-align:right;">
+0,540
+</td>
+<td style="text-align:right;">
+0,697
+</td>
+<td style="text-align:right;">
+0,876
+</td>
+<td style="text-align:right;">
+1,088
+</td>
+<td style="text-align:right;">
+1,363
+</td>
+<td style="text-align:right;">
+1,796
+</td>
+<td style="text-align:right;">
+2,201
+</td>
+<td style="text-align:right;">
+2,718
+</td>
+<td style="text-align:right;">
+3,106
+</td>
+<td style="text-align:right;">
+4,025
+</td>
+<td style="text-align:right;">
+4,437
+</td>
+<td style="text-align:right;">
+5,453
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+12
+</td>
+<td style="text-align:right;">
+0,128
+</td>
+<td style="text-align:right;">
+0,259
+</td>
+<td style="text-align:right;">
+0,395
+</td>
+<td style="text-align:right;">
+0,539
+</td>
+<td style="text-align:right;">
+0,695
+</td>
+<td style="text-align:right;">
+0,873
+</td>
+<td style="text-align:right;">
+1,083
+</td>
+<td style="text-align:right;">
+1,356
+</td>
+<td style="text-align:right;">
+1,782
+</td>
+<td style="text-align:right;">
+2,179
+</td>
+<td style="text-align:right;">
+2,681
+</td>
+<td style="text-align:right;">
+3,055
+</td>
+<td style="text-align:right;">
+3,930
+</td>
+<td style="text-align:right;">
+4,318
+</td>
+<td style="text-align:right;">
+5,263
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+13
+</td>
+<td style="text-align:right;">
+0,128
+</td>
+<td style="text-align:right;">
+0,259
+</td>
+<td style="text-align:right;">
+0,394
+</td>
+<td style="text-align:right;">
+0,538
+</td>
+<td style="text-align:right;">
+0,694
+</td>
+<td style="text-align:right;">
+0,870
+</td>
+<td style="text-align:right;">
+1,079
+</td>
+<td style="text-align:right;">
+1,350
+</td>
+<td style="text-align:right;">
+1,771
+</td>
+<td style="text-align:right;">
+2,160
+</td>
+<td style="text-align:right;">
+2,650
+</td>
+<td style="text-align:right;">
+3,012
+</td>
+<td style="text-align:right;">
+3,852
+</td>
+<td style="text-align:right;">
+4,221
+</td>
+<td style="text-align:right;">
+5,111
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+14
+</td>
+<td style="text-align:right;">
+0,128
+</td>
+<td style="text-align:right;">
+0,258
+</td>
+<td style="text-align:right;">
+0,393
+</td>
+<td style="text-align:right;">
+0,537
+</td>
+<td style="text-align:right;">
+0,692
+</td>
+<td style="text-align:right;">
+0,868
+</td>
+<td style="text-align:right;">
+1,076
+</td>
+<td style="text-align:right;">
+1,345
+</td>
+<td style="text-align:right;">
+1,761
+</td>
+<td style="text-align:right;">
+2,145
+</td>
+<td style="text-align:right;">
+2,624
+</td>
+<td style="text-align:right;">
+2,977
+</td>
+<td style="text-align:right;">
+3,787
+</td>
+<td style="text-align:right;">
+4,140
+</td>
+<td style="text-align:right;">
+4,985
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+15
+</td>
+<td style="text-align:right;">
+0,128
+</td>
+<td style="text-align:right;">
+0,258
+</td>
+<td style="text-align:right;">
+0,393
+</td>
+<td style="text-align:right;">
+0,536
+</td>
+<td style="text-align:right;">
+0,691
+</td>
+<td style="text-align:right;">
+0,866
+</td>
+<td style="text-align:right;">
+1,074
+</td>
+<td style="text-align:right;">
+1,341
+</td>
+<td style="text-align:right;">
+1,753
+</td>
+<td style="text-align:right;">
+2,131
+</td>
+<td style="text-align:right;">
+2,602
+</td>
+<td style="text-align:right;">
+2,947
+</td>
+<td style="text-align:right;">
+3,733
+</td>
+<td style="text-align:right;">
+4,073
+</td>
+<td style="text-align:right;">
+4,880
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+16
+</td>
+<td style="text-align:right;">
+0,128
+</td>
+<td style="text-align:right;">
+0,258
+</td>
+<td style="text-align:right;">
+0,392
+</td>
+<td style="text-align:right;">
+0,535
+</td>
+<td style="text-align:right;">
+0,690
+</td>
+<td style="text-align:right;">
+0,865
+</td>
+<td style="text-align:right;">
+1,071
+</td>
+<td style="text-align:right;">
+1,337
+</td>
+<td style="text-align:right;">
+1,746
+</td>
+<td style="text-align:right;">
+2,120
+</td>
+<td style="text-align:right;">
+2,583
+</td>
+<td style="text-align:right;">
+2,921
+</td>
+<td style="text-align:right;">
+3,686
+</td>
+<td style="text-align:right;">
+4,015
+</td>
+<td style="text-align:right;">
+4,791
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+17
+</td>
+<td style="text-align:right;">
+0,128
+</td>
+<td style="text-align:right;">
+0,257
+</td>
+<td style="text-align:right;">
+0,392
+</td>
+<td style="text-align:right;">
+0,534
+</td>
+<td style="text-align:right;">
+0,689
+</td>
+<td style="text-align:right;">
+0,863
+</td>
+<td style="text-align:right;">
+1,069
+</td>
+<td style="text-align:right;">
+1,333
+</td>
+<td style="text-align:right;">
+1,740
+</td>
+<td style="text-align:right;">
+2,110
+</td>
+<td style="text-align:right;">
+2,567
+</td>
+<td style="text-align:right;">
+2,898
+</td>
+<td style="text-align:right;">
+3,646
+</td>
+<td style="text-align:right;">
+3,965
+</td>
+<td style="text-align:right;">
+4,714
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+18
+</td>
+<td style="text-align:right;">
+0,127
+</td>
+<td style="text-align:right;">
+0,257
+</td>
+<td style="text-align:right;">
+0,392
+</td>
+<td style="text-align:right;">
+0,534
+</td>
+<td style="text-align:right;">
+0,688
+</td>
+<td style="text-align:right;">
+0,862
+</td>
+<td style="text-align:right;">
+1,067
+</td>
+<td style="text-align:right;">
+1,330
+</td>
+<td style="text-align:right;">
+1,734
+</td>
+<td style="text-align:right;">
+2,101
+</td>
+<td style="text-align:right;">
+2,552
+</td>
+<td style="text-align:right;">
+2,878
+</td>
+<td style="text-align:right;">
+3,610
+</td>
+<td style="text-align:right;">
+3,922
+</td>
+<td style="text-align:right;">
+4,648
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+19
+</td>
+<td style="text-align:right;">
+0,127
+</td>
+<td style="text-align:right;">
+0,257
+</td>
+<td style="text-align:right;">
+0,391
+</td>
+<td style="text-align:right;">
+0,533
+</td>
+<td style="text-align:right;">
+0,688
+</td>
+<td style="text-align:right;">
+0,861
+</td>
+<td style="text-align:right;">
+1,066
+</td>
+<td style="text-align:right;">
+1,328
+</td>
+<td style="text-align:right;">
+1,729
+</td>
+<td style="text-align:right;">
+2,093
+</td>
+<td style="text-align:right;">
+2,539
+</td>
+<td style="text-align:right;">
+2,861
+</td>
+<td style="text-align:right;">
+3,579
+</td>
+<td style="text-align:right;">
+3,883
+</td>
+<td style="text-align:right;">
+4,590
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+20
+</td>
+<td style="text-align:right;">
+0,127
+</td>
+<td style="text-align:right;">
+0,257
+</td>
+<td style="text-align:right;">
+0,391
+</td>
+<td style="text-align:right;">
+0,533
+</td>
+<td style="text-align:right;">
+0,687
+</td>
+<td style="text-align:right;">
+0,860
+</td>
+<td style="text-align:right;">
+1,064
+</td>
+<td style="text-align:right;">
+1,325
+</td>
+<td style="text-align:right;">
+1,725
+</td>
+<td style="text-align:right;">
+2,086
+</td>
+<td style="text-align:right;">
+2,528
+</td>
+<td style="text-align:right;">
+2,845
+</td>
+<td style="text-align:right;">
+3,552
+</td>
+<td style="text-align:right;">
+3,850
+</td>
+<td style="text-align:right;">
+4,539
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+25
+</td>
+<td style="text-align:right;">
+0,127
+</td>
+<td style="text-align:right;">
+0,256
+</td>
+<td style="text-align:right;">
+0,390
+</td>
+<td style="text-align:right;">
+0,531
+</td>
+<td style="text-align:right;">
+0,684
+</td>
+<td style="text-align:right;">
+0,856
+</td>
+<td style="text-align:right;">
+1,058
+</td>
+<td style="text-align:right;">
+1,316
+</td>
+<td style="text-align:right;">
+1,708
+</td>
+<td style="text-align:right;">
+2,060
+</td>
+<td style="text-align:right;">
+2,485
+</td>
+<td style="text-align:right;">
+2,787
+</td>
+<td style="text-align:right;">
+3,450
+</td>
+<td style="text-align:right;">
+3,725
+</td>
+<td style="text-align:right;">
+4,352
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+30
+</td>
+<td style="text-align:right;">
+0,127
+</td>
+<td style="text-align:right;">
+0,256
+</td>
+<td style="text-align:right;">
+0,389
+</td>
+<td style="text-align:right;">
+0,530
+</td>
+<td style="text-align:right;">
+0,683
+</td>
+<td style="text-align:right;">
+0,854
+</td>
+<td style="text-align:right;">
+1,055
+</td>
+<td style="text-align:right;">
+1,310
+</td>
+<td style="text-align:right;">
+1,697
+</td>
+<td style="text-align:right;">
+2,042
+</td>
+<td style="text-align:right;">
+2,457
+</td>
+<td style="text-align:right;">
+2,750
+</td>
+<td style="text-align:right;">
+3,385
+</td>
+<td style="text-align:right;">
+3,646
+</td>
+<td style="text-align:right;">
+4,234
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+35
+</td>
+<td style="text-align:right;">
+0,127
+</td>
+<td style="text-align:right;">
+0,255
+</td>
+<td style="text-align:right;">
+0,388
+</td>
+<td style="text-align:right;">
+0,529
+</td>
+<td style="text-align:right;">
+0,682
+</td>
+<td style="text-align:right;">
+0,852
+</td>
+<td style="text-align:right;">
+1,052
+</td>
+<td style="text-align:right;">
+1,306
+</td>
+<td style="text-align:right;">
+1,690
+</td>
+<td style="text-align:right;">
+2,030
+</td>
+<td style="text-align:right;">
+2,438
+</td>
+<td style="text-align:right;">
+2,724
+</td>
+<td style="text-align:right;">
+3,340
+</td>
+<td style="text-align:right;">
+3,591
+</td>
+<td style="text-align:right;">
+4,153
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+40
+</td>
+<td style="text-align:right;">
+0,126
+</td>
+<td style="text-align:right;">
+0,255
+</td>
+<td style="text-align:right;">
+0,388
+</td>
+<td style="text-align:right;">
+0,529
+</td>
+<td style="text-align:right;">
+0,681
+</td>
+<td style="text-align:right;">
+0,851
+</td>
+<td style="text-align:right;">
+1,050
+</td>
+<td style="text-align:right;">
+1,303
+</td>
+<td style="text-align:right;">
+1,684
+</td>
+<td style="text-align:right;">
+2,021
+</td>
+<td style="text-align:right;">
+2,423
+</td>
+<td style="text-align:right;">
+2,704
+</td>
+<td style="text-align:right;">
+3,307
+</td>
+<td style="text-align:right;">
+3,551
+</td>
+<td style="text-align:right;">
+4,094
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+45
+</td>
+<td style="text-align:right;">
+0,126
+</td>
+<td style="text-align:right;">
+0,255
+</td>
+<td style="text-align:right;">
+0,388
+</td>
+<td style="text-align:right;">
+0,528
+</td>
+<td style="text-align:right;">
+0,680
+</td>
+<td style="text-align:right;">
+0,850
+</td>
+<td style="text-align:right;">
+1,049
+</td>
+<td style="text-align:right;">
+1,301
+</td>
+<td style="text-align:right;">
+1,679
+</td>
+<td style="text-align:right;">
+2,014
+</td>
+<td style="text-align:right;">
+2,412
+</td>
+<td style="text-align:right;">
+2,690
+</td>
+<td style="text-align:right;">
+3,281
+</td>
+<td style="text-align:right;">
+3,520
+</td>
+<td style="text-align:right;">
+4,049
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+50
+</td>
+<td style="text-align:right;">
+0,126
+</td>
+<td style="text-align:right;">
+0,255
+</td>
+<td style="text-align:right;">
+0,388
+</td>
+<td style="text-align:right;">
+0,528
+</td>
+<td style="text-align:right;">
+0,679
+</td>
+<td style="text-align:right;">
+0,849
+</td>
+<td style="text-align:right;">
+1,047
+</td>
+<td style="text-align:right;">
+1,299
+</td>
+<td style="text-align:right;">
+1,676
+</td>
+<td style="text-align:right;">
+2,009
+</td>
+<td style="text-align:right;">
+2,403
+</td>
+<td style="text-align:right;">
+2,678
+</td>
+<td style="text-align:right;">
+3,261
+</td>
+<td style="text-align:right;">
+3,496
+</td>
+<td style="text-align:right;">
+4,014
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+55
+</td>
+<td style="text-align:right;">
+0,126
+</td>
+<td style="text-align:right;">
+0,255
+</td>
+<td style="text-align:right;">
+0,387
+</td>
+<td style="text-align:right;">
+0,527
+</td>
+<td style="text-align:right;">
+0,679
+</td>
+<td style="text-align:right;">
+0,848
+</td>
+<td style="text-align:right;">
+1,046
+</td>
+<td style="text-align:right;">
+1,297
+</td>
+<td style="text-align:right;">
+1,673
+</td>
+<td style="text-align:right;">
+2,004
+</td>
+<td style="text-align:right;">
+2,396
+</td>
+<td style="text-align:right;">
+2,668
+</td>
+<td style="text-align:right;">
+3,245
+</td>
+<td style="text-align:right;">
+3,476
+</td>
+<td style="text-align:right;">
+3,986
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+60
+</td>
+<td style="text-align:right;">
+0,126
+</td>
+<td style="text-align:right;">
+0,254
+</td>
+<td style="text-align:right;">
+0,387
+</td>
+<td style="text-align:right;">
+0,527
+</td>
+<td style="text-align:right;">
+0,679
+</td>
+<td style="text-align:right;">
+0,848
+</td>
+<td style="text-align:right;">
+1,045
+</td>
+<td style="text-align:right;">
+1,296
+</td>
+<td style="text-align:right;">
+1,671
+</td>
+<td style="text-align:right;">
+2,000
+</td>
+<td style="text-align:right;">
+2,390
+</td>
+<td style="text-align:right;">
+2,660
+</td>
+<td style="text-align:right;">
+3,232
+</td>
+<td style="text-align:right;">
+3,460
+</td>
+<td style="text-align:right;">
+3,962
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+65
+</td>
+<td style="text-align:right;">
+0,126
+</td>
+<td style="text-align:right;">
+0,254
+</td>
+<td style="text-align:right;">
+0,387
+</td>
+<td style="text-align:right;">
+0,527
+</td>
+<td style="text-align:right;">
+0,678
+</td>
+<td style="text-align:right;">
+0,847
+</td>
+<td style="text-align:right;">
+1,045
+</td>
+<td style="text-align:right;">
+1,295
+</td>
+<td style="text-align:right;">
+1,669
+</td>
+<td style="text-align:right;">
+1,997
+</td>
+<td style="text-align:right;">
+2,385
+</td>
+<td style="text-align:right;">
+2,654
+</td>
+<td style="text-align:right;">
+3,220
+</td>
+<td style="text-align:right;">
+3,447
+</td>
+<td style="text-align:right;">
+3,942
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+70
+</td>
+<td style="text-align:right;">
+0,126
+</td>
+<td style="text-align:right;">
+0,254
+</td>
+<td style="text-align:right;">
+0,387
+</td>
+<td style="text-align:right;">
+0,527
+</td>
+<td style="text-align:right;">
+0,678
+</td>
+<td style="text-align:right;">
+0,847
+</td>
+<td style="text-align:right;">
+1,044
+</td>
+<td style="text-align:right;">
+1,294
+</td>
+<td style="text-align:right;">
+1,667
+</td>
+<td style="text-align:right;">
+1,994
+</td>
+<td style="text-align:right;">
+2,381
+</td>
+<td style="text-align:right;">
+2,648
+</td>
+<td style="text-align:right;">
+3,211
+</td>
+<td style="text-align:right;">
+3,435
+</td>
+<td style="text-align:right;">
+3,926
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+75
+</td>
+<td style="text-align:right;">
+0,126
+</td>
+<td style="text-align:right;">
+0,254
+</td>
+<td style="text-align:right;">
+0,387
+</td>
+<td style="text-align:right;">
+0,527
+</td>
+<td style="text-align:right;">
+0,678
+</td>
+<td style="text-align:right;">
+0,846
+</td>
+<td style="text-align:right;">
+1,044
+</td>
+<td style="text-align:right;">
+1,293
+</td>
+<td style="text-align:right;">
+1,665
+</td>
+<td style="text-align:right;">
+1,992
+</td>
+<td style="text-align:right;">
+2,377
+</td>
+<td style="text-align:right;">
+2,643
+</td>
+<td style="text-align:right;">
+3,202
+</td>
+<td style="text-align:right;">
+3,425
+</td>
+<td style="text-align:right;">
+3,911
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+80
+</td>
+<td style="text-align:right;">
+0,126
+</td>
+<td style="text-align:right;">
+0,254
+</td>
+<td style="text-align:right;">
+0,387
+</td>
+<td style="text-align:right;">
+0,526
+</td>
+<td style="text-align:right;">
+0,678
+</td>
+<td style="text-align:right;">
+0,846
+</td>
+<td style="text-align:right;">
+1,043
+</td>
+<td style="text-align:right;">
+1,292
+</td>
+<td style="text-align:right;">
+1,664
+</td>
+<td style="text-align:right;">
+1,990
+</td>
+<td style="text-align:right;">
+2,374
+</td>
+<td style="text-align:right;">
+2,639
+</td>
+<td style="text-align:right;">
+3,195
+</td>
+<td style="text-align:right;">
+3,416
+</td>
+<td style="text-align:right;">
+3,899
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+90
+</td>
+<td style="text-align:right;">
+0,126
+</td>
+<td style="text-align:right;">
+0,254
+</td>
+<td style="text-align:right;">
+0,387
+</td>
+<td style="text-align:right;">
+0,526
+</td>
+<td style="text-align:right;">
+0,677
+</td>
+<td style="text-align:right;">
+0,846
+</td>
+<td style="text-align:right;">
+1,042
+</td>
+<td style="text-align:right;">
+1,291
+</td>
+<td style="text-align:right;">
+1,662
+</td>
+<td style="text-align:right;">
+1,987
+</td>
+<td style="text-align:right;">
+2,368
+</td>
+<td style="text-align:right;">
+2,632
+</td>
+<td style="text-align:right;">
+3,183
+</td>
+<td style="text-align:right;">
+3,402
+</td>
+<td style="text-align:right;">
+3,878
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+100
+</td>
+<td style="text-align:right;">
+0,126
+</td>
+<td style="text-align:right;">
+0,254
+</td>
+<td style="text-align:right;">
+0,386
+</td>
+<td style="text-align:right;">
+0,526
+</td>
+<td style="text-align:right;">
+0,677
+</td>
+<td style="text-align:right;">
+0,845
+</td>
+<td style="text-align:right;">
+1,042
+</td>
+<td style="text-align:right;">
+1,290
+</td>
+<td style="text-align:right;">
+1,660
+</td>
+<td style="text-align:right;">
+1,984
+</td>
+<td style="text-align:right;">
+2,364
+</td>
+<td style="text-align:right;">
+2,626
+</td>
+<td style="text-align:right;">
+3,174
+</td>
+<td style="text-align:right;">
+3,390
+</td>
+<td style="text-align:right;">
+3,862
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+110
+</td>
+<td style="text-align:right;">
+0,126
+</td>
+<td style="text-align:right;">
+0,254
+</td>
+<td style="text-align:right;">
+0,386
+</td>
+<td style="text-align:right;">
+0,526
+</td>
+<td style="text-align:right;">
+0,677
+</td>
+<td style="text-align:right;">
+0,845
+</td>
+<td style="text-align:right;">
+1,041
+</td>
+<td style="text-align:right;">
+1,289
+</td>
+<td style="text-align:right;">
+1,659
+</td>
+<td style="text-align:right;">
+1,982
+</td>
+<td style="text-align:right;">
+2,361
+</td>
+<td style="text-align:right;">
+2,621
+</td>
+<td style="text-align:right;">
+3,166
+</td>
+<td style="text-align:right;">
+3,381
+</td>
+<td style="text-align:right;">
+3,848
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+120
+</td>
+<td style="text-align:right;">
+0,126
+</td>
+<td style="text-align:right;">
+0,254
+</td>
+<td style="text-align:right;">
+0,386
+</td>
+<td style="text-align:right;">
+0,526
+</td>
+<td style="text-align:right;">
+0,677
+</td>
+<td style="text-align:right;">
+0,845
+</td>
+<td style="text-align:right;">
+1,041
+</td>
+<td style="text-align:right;">
+1,289
+</td>
+<td style="text-align:right;">
+1,658
+</td>
+<td style="text-align:right;">
+1,980
+</td>
+<td style="text-align:right;">
+2,358
+</td>
+<td style="text-align:right;">
+2,617
+</td>
+<td style="text-align:right;">
+3,160
+</td>
+<td style="text-align:right;">
+3,373
+</td>
+<td style="text-align:right;">
+3,837
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+130
+</td>
+<td style="text-align:right;">
+0,126
+</td>
+<td style="text-align:right;">
+0,254
+</td>
+<td style="text-align:right;">
+0,386
+</td>
+<td style="text-align:right;">
+0,526
+</td>
+<td style="text-align:right;">
+0,676
+</td>
+<td style="text-align:right;">
+0,844
+</td>
+<td style="text-align:right;">
+1,041
+</td>
+<td style="text-align:right;">
+1,288
+</td>
+<td style="text-align:right;">
+1,657
+</td>
+<td style="text-align:right;">
+1,978
+</td>
+<td style="text-align:right;">
+2,355
+</td>
+<td style="text-align:right;">
+2,614
+</td>
+<td style="text-align:right;">
+3,154
+</td>
+<td style="text-align:right;">
+3,367
+</td>
+<td style="text-align:right;">
+3,828
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+140
+</td>
+<td style="text-align:right;">
+0,126
+</td>
+<td style="text-align:right;">
+0,254
+</td>
+<td style="text-align:right;">
+0,386
+</td>
+<td style="text-align:right;">
+0,526
+</td>
+<td style="text-align:right;">
+0,676
+</td>
+<td style="text-align:right;">
+0,844
+</td>
+<td style="text-align:right;">
+1,040
+</td>
+<td style="text-align:right;">
+1,288
+</td>
+<td style="text-align:right;">
+1,656
+</td>
+<td style="text-align:right;">
+1,977
+</td>
+<td style="text-align:right;">
+2,353
+</td>
+<td style="text-align:right;">
+2,611
+</td>
+<td style="text-align:right;">
+3,149
+</td>
+<td style="text-align:right;">
+3,361
+</td>
+<td style="text-align:right;">
+3,820
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+150
+</td>
+<td style="text-align:right;">
+0,126
+</td>
+<td style="text-align:right;">
+0,254
+</td>
+<td style="text-align:right;">
+0,386
+</td>
+<td style="text-align:right;">
+0,526
+</td>
+<td style="text-align:right;">
+0,676
+</td>
+<td style="text-align:right;">
+0,844
+</td>
+<td style="text-align:right;">
+1,040
+</td>
+<td style="text-align:right;">
+1,287
+</td>
+<td style="text-align:right;">
+1,655
+</td>
+<td style="text-align:right;">
+1,976
+</td>
+<td style="text-align:right;">
+2,351
+</td>
+<td style="text-align:right;">
+2,609
+</td>
+<td style="text-align:right;">
+3,145
+</td>
+<td style="text-align:right;">
+3,357
+</td>
+<td style="text-align:right;">
+3,813
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+200
+</td>
+<td style="text-align:right;">
+0,126
+</td>
+<td style="text-align:right;">
+0,254
+</td>
+<td style="text-align:right;">
+0,386
+</td>
+<td style="text-align:right;">
+0,525
+</td>
+<td style="text-align:right;">
+0,676
+</td>
+<td style="text-align:right;">
+0,843
+</td>
+<td style="text-align:right;">
+1,039
+</td>
+<td style="text-align:right;">
+1,286
+</td>
+<td style="text-align:right;">
+1,653
+</td>
+<td style="text-align:right;">
+1,972
+</td>
+<td style="text-align:right;">
+2,345
+</td>
+<td style="text-align:right;">
+2,601
+</td>
+<td style="text-align:right;">
+3,131
+</td>
+<td style="text-align:right;">
+3,340
+</td>
+<td style="text-align:right;">
+3,789
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+300
+</td>
+<td style="text-align:right;">
+0,126
+</td>
+<td style="text-align:right;">
+0,254
+</td>
+<td style="text-align:right;">
+0,386
+</td>
+<td style="text-align:right;">
+0,525
+</td>
+<td style="text-align:right;">
+0,675
+</td>
+<td style="text-align:right;">
+0,843
+</td>
+<td style="text-align:right;">
+1,038
+</td>
+<td style="text-align:right;">
+1,284
+</td>
+<td style="text-align:right;">
+1,650
+</td>
+<td style="text-align:right;">
+1,968
+</td>
+<td style="text-align:right;">
+2,339
+</td>
+<td style="text-align:right;">
+2,592
+</td>
+<td style="text-align:right;">
+3,118
+</td>
+<td style="text-align:right;">
+3,323
+</td>
+<td style="text-align:right;">
+3,765
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+400
+</td>
+<td style="text-align:right;">
+0,126
+</td>
+<td style="text-align:right;">
+0,254
+</td>
+<td style="text-align:right;">
+0,386
+</td>
+<td style="text-align:right;">
+0,525
+</td>
+<td style="text-align:right;">
+0,675
+</td>
+<td style="text-align:right;">
+0,843
+</td>
+<td style="text-align:right;">
+1,038
+</td>
+<td style="text-align:right;">
+1,284
+</td>
+<td style="text-align:right;">
+1,649
+</td>
+<td style="text-align:right;">
+1,966
+</td>
+<td style="text-align:right;">
+2,336
+</td>
+<td style="text-align:right;">
+2,588
+</td>
+<td style="text-align:right;">
+3,111
+</td>
+<td style="text-align:right;">
+3,315
+</td>
+<td style="text-align:right;">
+3,754
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+500
+</td>
+<td style="text-align:right;">
+0,126
+</td>
+<td style="text-align:right;">
+0,253
+</td>
+<td style="text-align:right;">
+0,386
+</td>
+<td style="text-align:right;">
+0,525
+</td>
+<td style="text-align:right;">
+0,675
+</td>
+<td style="text-align:right;">
+0,842
+</td>
+<td style="text-align:right;">
+1,038
+</td>
+<td style="text-align:right;">
+1,283
+</td>
+<td style="text-align:right;">
+1,648
+</td>
+<td style="text-align:right;">
+1,965
+</td>
+<td style="text-align:right;">
+2,334
+</td>
+<td style="text-align:right;">
+2,586
+</td>
+<td style="text-align:right;">
+3,107
+</td>
+<td style="text-align:right;">
+3,310
+</td>
+<td style="text-align:right;">
+3,747
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+<span class="math inline">\(z\)</span>
+</td>
+<td style="text-align:right;">
+0,126
+</td>
+<td style="text-align:right;">
+0,253
+</td>
+<td style="text-align:right;">
+0,385
+</td>
+<td style="text-align:right;">
+0,524
+</td>
+<td style="text-align:right;">
+0,674
+</td>
+<td style="text-align:right;">
+0,842
+</td>
+<td style="text-align:right;">
+1,036
+</td>
+<td style="text-align:right;">
+1,282
+</td>
+<td style="text-align:right;">
+1,645
+</td>
+<td style="text-align:right;">
+1,960
+</td>
+<td style="text-align:right;">
+2,326
+</td>
+<td style="text-align:right;">
+2,576
+</td>
+<td style="text-align:right;">
+3,090
+</td>
+<td style="text-align:right;">
+3,291
+</td>
+<td style="text-align:right;">
+3,719
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="tabelle-z.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tabelle-f.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
+<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Skript_Statistik_2021.pdf"],
+"toc": {
+"collapse": "section"
+},
+"toolbar": {
+"position": "fixed",
+"download": "pdf",
+"search": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

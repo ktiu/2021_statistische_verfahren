@@ -19,14 +19,14 @@ e) Wie bewerten Sie das Ergebnis?
 
 Bestimmen Sie die folgenden kritischen Werte:
 
-a) $t_{4;0,5\%}$
-a) $t_{19;0,1\%}$
-a) $t_{7;2,5\%}$
+a) $t_{4;0{,}5\%}$
+a) $t_{19;0{,}1\%}$
+a) $t_{7;2{,}5\%}$
 a) $t_{13;5\%}$
-a) $t_{11;97,5\%}$
+a) $t_{11;97{,}5\%}$
 a) $t_{3;95\%}$
-a) $t_{6;99,5\%}$
-a) $t_{16;99,9\%}$
+a) $t_{6;99{,}5\%}$
+a) $t_{16;99{,}9\%}$
 a) $t_{5;99\%}$
 a) $t_{20;1\%}$
 
@@ -38,7 +38,7 @@ Prüfen Sie Ihre Vermutung. Begründen Sie die Wahl des Tests und des Signifikan
 
 `r naechste("aufgabe") #4`
 
-Sie vermuten, dass Angestellte mit Migrationshintergrund in einem bestimmten Betrieb weniger als das Durchschnittsgehalt verdienen. Die Personalabteilung bestätigt Ihnen gegenüber die annähernde Normalverteilung der Bruttogehälter mit Mittelwert $\mu=3042,43$ (in EUR). Sie planen, das Bruttogehalt von sechs zufälligen Angestellten mit Migrationshintergrund direkt zu ermitteln.\nopagebreak 
+Sie vermuten, dass Angestellte mit Migrationshintergrund in einem bestimmten Betrieb weniger als das Durchschnittsgehalt verdienen. Die Personalabteilung bestätigt Ihnen gegenüber die annähernde Normalverteilung der Bruttogehälter mit Mittelwert $\mu=3042{,}43$ (in EUR). Sie planen, das Bruttogehalt von sechs zufälligen Angestellten mit Migrationshintergrund direkt zu ermitteln.\nopagebreak 
   
 a) Welchen Test führen Sie durch?
 a) Formulieren Sie die Hypothesen.
@@ -50,7 +50,7 @@ b) Bestimmen Sie den kritischen Wert bei Signifikanzniveau $\alpha=0{,}01$.
 
 Sie ermitteln die folgenden Werte (in EUR):
 \[
-2927,35\quad2930,68\quad2903,58\quad3032,59\quad3013,37\quad2979,4
+2927{,}35\quad2930{,}68\quad2903{,}58\quad3032{,}59\quad3013{,}37\quad2979{,}4
 \]
 
 a) Berechnen Sie die Prüfgröße.
@@ -68,7 +68,7 @@ rnorm(5, 10, sqrt(5.2)) %>%
   round(2) -> preise
 ```
 
-$$8,54\quad7,16\quad14,47\quad11,84\quad10,27$$
+$$8{,}54\quad7{,}16\quad14{,}47\quad11{,}84\quad10{,}27$$
 
 Prüfen Sie die Behauptung. Schließen Sie einen Fehler 1. Art zu 95% aus.
 

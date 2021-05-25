@@ -78,7 +78,9 @@ $$
 Bei der Regressionsanalyse wird ein gerichtetes Abhängigkeitsverhältnis der Variablen impliziert: $y$ hängt hier von $x$ ab. Daher wird $x$ auch die "Prädiktorvariable" und $y$ die "Kriteriumsvariable" genannt.
 
 ```{r}
-rtip("Wenn in R ein lineares Modell (eine Regressionsgerade) vorliegt, können Werte mit `predict()` geschätzt werden.")
+multi("Wenn in R ein lineares Modell (eine Regressionsgerade) vorliegt, können
+       Werte mit `predict()` geschätzt werden.") %>%
+ rtip()
 ```
 
 Es ist also für derartige Fragestellungen nötig, die Gleichung der Regressionsgeraden zu kennen. Im Folgenden wird gezeigt, wie diese anhand einer bivariaten Verteilung bestimmt werden kann.
@@ -102,7 +104,9 @@ a=\bar{y}-b\cdot\bar{x}
 $$
 
 ```{r}
-rtip("In R lässt sich ein lineares Regressionsmodell mit dem Befehl `lm()` erstellen.")
+multi("In R lässt sich ein lineares Regressionsmodell mit dem Befehl `lm()`
+       erstellen.") %>%
+  rtip
 ```
 
 Die Bestimmung der Regressionsgeraden soll nun mit einem Beispiel illustriert werden.

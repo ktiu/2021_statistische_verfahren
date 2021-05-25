@@ -24,7 +24,6 @@ Im Rahmen dieser Veranstaltung soll Statistik als eine Zusammenstellung von Prak
 > "Allgemein kann gesagt werden: Die Statistik hat es mit Zahlen zu tun, die entweder aus Abzählvorgängen oder aus Messungen gewonnen wurden. Ihre Aufgabe ist es, ein solches Zahlenmaterial in eine optimal übersichtliche und informationsreiche Form zu bringen, aus ihnen methodische Schlußfolgerungen zu ziehen und gegebenfalls auch die Ursachen der analysierten Zahlenverhältnisse mit sachlichen Methoden aufzudecken." [@haseloff: 27]
 
 ### Grundbegriffe der Statistik
-
 \nopagebreak
 
 #### Untersuchungselement
@@ -270,7 +269,7 @@ Die so ermittelten Häufigkeiten lassen sich als Stabdiagramm (auch Säulen-, St
 rtip("In R lautet der Standardbefehl zur Erstellung eines Stabdiagramms `barplot()`.")
 ```
 
-```{r stab, fig.cap="Stabdiagramm"}
+```{r stabdiagramm, fig.cap="Stabdiagramm"}
 bar <- data.frame(xs)
 bar$xs <- as.factor(xs)
 ggplot(bar, aes(x=xs)) +
@@ -324,7 +323,7 @@ Die Darstellung erfolgt in so genannten Histogrammen (engl. *histogram*). Abbild
 rtip("In R können Histogramme mit `hist()` erstellt werden.")
 ```
 
-```{r hist, fig.cap="Histogramm"}
+```{r histogramm, fig.cap="Histogramm"}
 ggplot(data=trees, aes(x=Girth)) +
   geom_histogram(breaks=seq(8,22,2), closed='right', fill=goethe_blue) +
   scale_x_continuous(breaks = seq(8,22,2)) +

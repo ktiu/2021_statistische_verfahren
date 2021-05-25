@@ -8,13 +8,13 @@ author:
     affiliation: |
       | Institut für Humangeographie
       | Goethe-Universität Frankfurt
-date: "Sommersemester 2021"
+date: Sommersemester 2021
 site: bookdown::bookdown_site
 lang: de
 documentclass: report
+tables: true
 bibliography: ["statistik.bib"]
-description: "Projektseminar"
-csl: chicago-author-date-de.csl
+csl: /Users/till/.csl/chicago-author-date-de.csl
 link-citations: yes
 
 papersize: a4

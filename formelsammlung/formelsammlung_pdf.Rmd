@@ -1,0 +1,230 @@
+# Hinweise
+
+- Die im Folgenden dargestellten Informationen werden Ihnen so oder ähnlich auch in der Klausur zur Verfügung stehen.
+- Bezeichnungen und Konventionen orientieren sich an @bortz, sind aber teilweise abweichend vereinfacht.
+- Die Wertetabellen wurden mit den entsprechenden Funktionen in R [@r] automatisch generiert.
+
+\pagebreak
+
+# Formelsammlung
+
+\begin{multicols}{2}
+\scriptsize
+
+\[ \bar{x}=\frac{\sum\limits _{i=1}^{n}x_{i}}{n} \] % Arithmetisches Mittel
+
+\[ R=x_{(n)}-x_{(1)} \] % Spannweite
+
+\[ \mathit{IQR}=Q_3-Q_1 \] % Quartilsabstand
+
+\[ s^2=\dfrac{\displaystyle\sum_{i=1}^{n}(x_{i}-\bar{x})^2}{n-1} \] % Varianz
+
+\[ s=\sqrt{s^{2}} \] % Standardabweichung
+
+\[\def\arraystretch{1.2} \mathit{Md} = \Bigg\{\begin{array}{@{}c@{}}\frac{x_{(\frac{n}{2})}+x_{(\frac{n}{2}+1)}}{2} \quad \textrm{falls }n \textrm{ gerade}\\[6pt] x_{(\frac{n+1}{2})}\quad \textrm{falls }n \textrm{ ungerade}\end{array}\]
+
+\[ v=\frac{s}{|\bar{x}|} \cdot 100\%\] % Variationskoeffizient
+
+\[ z_i=\frac{x_i-\bar{x}}{s} \] % z-Transformation
+
+\[ x_i=z_i\cdot s+\bar{x} \] % z-Transformation zurück
+
+\[ P(x>x_p)=1-P(x\leq x_p)\]
+
+\[ 1-\alpha=P(z_{\alpha/2} < z_{\mu} < z_{(1-\alpha/2)}) \] % Konfidenzintervall
+
+\[ \sigma_{\bar{x}}=\frac{\sigma}{\sqrt{n}}\]
+
+\[ \frac{\mathit{KIB}}{2} = z_{(1-\alpha/2)} \cdot \sigma_{\bar{x}} \] % KIB
+
+\[ z=\sqrt{n}\cdot\frac{\bar{x}-\mu_0}{\sigma}\] % z-Test
+
+\[ t=\sqrt{n}\cdot\frac{\bar{x}-\mu_0}{s}\] % 1-SP-t-Test
+
+\[ t=\frac{\bar{x}_{1}-\bar{x}_{2}}{\sqrt{\frac{s_1^2+s^2_2}{n}}} \] % 2-SP-t-Test
+
+\[ F={\frac{s_{1}^{2}}{s_{2}^{2}}} \] % F-Test
+
+\[ s_{xy}=\frac{\displaystyle \sum_{i=1}^{n}(x_{i}-\bar{x})\cdot(y_{i}-\bar{y})}{n-1} \] % Kovarianz
+
+\[ r=\frac{s_{xy}}{s_x\cdot s_y} \] % Korrelationskoeffizient
+
+\[y=a + b\cdot x\]% Regressionsgerade
+
+\[b=\frac{s_{xy}}{s^2_x}\]% Regression: b
+
+\[a = \bar{y} - b \cdot \bar{x}\]% Regression: a
+
+\[ e_i=y_i-\hat{y}_i \] % resuduen
+
+\[ m_{ij}=\frac{n_{i\cdot}\cdot n_{\cdot j}}{n} \] % Erwartete Zahl
+
+\[ \chi^2= \sum_{i=1}^{k}\sum_{j=1}^{\ell}\frac{(n_{ij}-m_{ij})^{2}}{m_{ij}} \] % Chisq
+
+\[ \phi=\sqrt{\frac{\chi^2}{n}} \] % phi
+
+\[ \mathit{CI}=\sqrt{\frac{\chi^2}{n \cdot (\mathrm{min}(k, \ell)-1)}}\]% Cramer
+
+\end{multicols}
+
+\vfill
+
+Bestimmung der Freiheitsgrade für...  | Formel
+--------------------------------------|--------------------------------------------------
+1-Stichproben-$t$-Test                | $$ \mathit{df} = n -1 $$
+2-Stichproben-$t$-Test                | $$ \mathit{df} = 2\cdot n - 2 $$
+F-Test                                | $$ \mathit{df}_1 = n_1 -1; \quad \mathit{df}_2=n_2-1 $$
+$\chi^2$-Unabhängigkeitstest          | $$ \mathit{df} = (k - 1) \cdot (\ell - 1) $$
+Eindimensionaler $\chi^2$-Test        | $$ \mathit{df} = k-1 $$
+
+\pagebreak
+# Standardnormalverteilung
+
+\begin{multicols}{2}
+\vfill
+```{r, echo=F, fig.width=3, fig.height=1.5, fig.align='center', warning=F}
+
+lectuR::draw.curve(
+  interval = c(-3,3),
+  colorf = c(-3,1.2),
+  xlabel = "z",
+  curve = dnorm,
+  n = 250
+)
+
+```
+\vfill
+\columnbreak
+
+\vfill
+\[ P(z\leq -z_p) = 1-P(z \leq z_p) \]
+\vfill
+
+\end{multicols}
+
+```{r, echo=F}
+z0 <- seq(0,3,0.1)
+z00 <- seq(0,0.09,0.01)
+m <- outer(z0,z00,FUN=function(z0,z00){pnorm(z0+z00)})
+m <- cbind(z0,m)
+colnames(m) <- c("$z$", format(z00, decimal.mark = ","))
+knitr::kable(m, "latex", format.args = list(digits = 4, decimal.mark = ","), booktabs = T, escape = F) %>%
+  kable_styling(latex_options = c("striped", "scale_down", "hold_position")) %>%
+  add_header_above(c(" "=1, "$z$ (zweite Nachkommastelle)"=ncol(m)-1), escape = F) %>%
+  column_spec(1, border_right = T)
+```
+
+\pagebreak
+
+# $t$-Verteilungen
+
+\begin{multicols}{2}
+\vfill
+```{r, echo=F, fig.width=3, fig.height=1.4, fig.align='center', warning=F}
+lectuR::draw.curve(
+  interval = c(-4,4),
+  colorf = c(-4,2),
+  xlabel = "t",
+  curve = function(x){dt(x,2)},
+  n = 250
+)
+```
+\vfill
+\columnbreak
+\vfill
+\[ P(t\leq -t_p)= 1 - P(t\leq t_p) \]
+\vfill
+\end{multicols}
+```{r, echo = F}
+df <- c(1:20,seq(25,80,5),seq(90,150,10),200,300,400,500)
+area <- c(0.55, seq(0.6, 0.95, 0.05), 0.975, 0.990, 0.995, 0.999, 0.9995, 0.9999)
+m <- outer(df, area, FUN = function(df, area) {qt(area, df)})
+m <- cbind(df, m)
+m <- rbind(m, c(1, qnorm(area)))
+colnames(m) <- c("$df$", format(area, decimal.mark = ",", drop0trailing = T))
+m <- as.data.frame(m)
+m[nrow(m), 1] <- "$z$"
+knitr::kable(m, "latex", format.args = list(digits = 3, nsmall=3, decimal.mark = ","), booktabs = T, escape = F, align = "r") %>%
+  kable_styling(latex_options = c("striped", "scale_down", "hold_position")) %>%
+  add_header_above(c(" " = 1, "Fläche" = ncol(m)-1), escape = F) %>%
+  column_spec(1, border_right = T)
+```
+
+\pagebreak
+
+# $F$-Verteilungen
+
+\begin{multicols}{2}
+
+\vfill
+
+```{r, echo=F, fig.width=3, fig.height=1.5, fig.align='center', warning=F}
+lectuR::draw.curve(
+  interval = c(0,4),
+  colorf = c(0,2.34),
+  xlabel = "F",
+  curve = function(x){df(x,6,40)},
+  n = 250
+)
+```
+
+\vfill
+
+\columnbreak
+
+\vfill
+
+\[
+F_{\textit{df}_1;\textit{df}_2;\alpha}=\frac{1}{F_{\textit{df}_2;\textit{df}_1;(1-\alpha)}} 
+\]
+
+\vfill
+
+\end{multicols}
+
+*Alle Werte für Flächenanteil 0,95*
+
+```{r, echo=F, cache=T}
+df1 <- c(1:10,15,20,50,100)
+df2 <- c(1:20,seq(25,50,5),seq(60,150,10),200,300,400,500,1000)
+m <- outer(df2,df1,FUN=function(df2,df1){qf(0.95,df1,df2)})
+m <- cbind(df2,m)
+colnames(m) <- c("$df_2$", format(df1, digits = 2, decimal.mark = ","))
+knitr::kable(m, "latex", format.args = list(digits = 3, decimal.mark = ","), escape = F, booktabs = T) %>%
+  kable_styling(latex_options = c("striped", "scale_down", "hold_position")) %>%
+  add_header_above(c(" " = 1, "$df_1$" = ncol(m)-1), escape = F) %>%
+  column_spec(1, border_right = T)
+```
+
+\pagebreak
+
+# $\chi^2$-Verteilungen
+
+
+```{r, echo=F, fig.height=2, fig.align='center', warning=F}
+lectuR::draw.curve(
+  interval = c(0,24),
+  colorf = c(0,15),
+  xlabel = "$\\chi^2$",
+  curve = function(x){dchisq(x,8)},
+  n = 250
+)
+```
+
+
+```{r, echo = F}
+df <- c(1:20,seq(25,50,5),seq(60,150,10),200,300,400,500)
+area <- c(0.6, 0.7, 0.8, 0.85, 0.9, 0.95, 0.975, 0.990, 0.995, 0.999, 0.9995)
+m <- outer(df, area, FUN = function(df, area) {qchisq(area, df)})
+m <- cbind(as.character(df), format(m,digits = 3,nsmall=3))
+colnames(m) <- c("$df$", format(area, decimal.mark = ",", drop0trailing = T))
+m <- as.data.frame(m)
+knitr::kable(m, "latex", booktabs = T, escape = F, align = "r") %>%
+  kable_styling(latex_options = c("striped", "scale_down", "hold_position")) %>%
+  add_header_above(c(" " = 1, "Fläche" = ncol(m)-1), escape = F) %>%
+  column_spec(1, border_right = T)
+```
+
+\pagebreak
+
+# Quellen

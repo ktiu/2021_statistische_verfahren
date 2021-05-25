@@ -29,7 +29,7 @@ a) Streudiagramm:
     tabelle(exa, align = "r", col.names = c(
       "$i$", "$x_i$", "$y_i$", "$(x_i-\\bar{x})$", "$(y_i-\\bar{y})$", 
       "$(x_i-\\bar{x})\\cdot(y_i-\\bar{y})$", "$(x_i-\\bar{x})^2$",
-      "$(y_i-\\bar{y})^2$"), escape = F, sum_row = T)
+      "$(y_i-\\bar{y})^2$"), hold = T, sum_row = T)
     ```
 
     Kovarianz:
@@ -71,10 +71,10 @@ b) Streudiagramm:
     sums[1] <- "Summe:"
     sums[4:5] <- ""
     exa <- rbind(exa, sums)
-    tabelle(exa, align="r",col.names = c(
+    tabelle(exa, align="r", col.names = c(
       "$i$", "$x_i$", "$y_i$", "$(x_i-\\bar{x})$",
       "$(y_i-\\bar{y})$", "$(x_i-\\bar{x})\\cdot(y_i-\\bar{y})$",
-      "$(x_i-\\bar{x})^2$", "$(y_i-\\bar{y})^2$"), escape = F, sum_row = T)
+      "$(x_i-\\bar{x})^2$", "$(y_i-\\bar{y})^2$"), hold = T, sum_row = T)
     ```
 
     Kovarianz:
@@ -113,7 +113,7 @@ tabelle(exa, align="r", col.names = c(
   "$i$", "$x_i$", "$y_i$", "$(x_i-\\bar{x})$", "$(y_i-\\bar{y})$",
   "$(x_i-\\bar{x})\\cdot(y_i-\\bar{y})$", "$(x_i-\\bar{x})^2$",
   "$(y_i-\\bar{y})^2$"
-), escape = F, sum_row = T)
+), hold = T, sum_row = T)
 ```
 
 Kovarianz:
@@ -158,7 +158,7 @@ tribble(
   "Arithm. Mittel y: Einsetzen",   meany$einsetzen,
   "Arithm. Mittel y: Ergebnis",    meany$ergebnis
 ) %>%
-  tabelle(escape = F)
+  tabelle(hold = T)
 ````
 
 #### Tabelle
@@ -170,7 +170,7 @@ ex_7_3 %>%
            `$(x_i-\\bar{x})$` = round(qm - meanx$raw, 2),
            `$(y_i-\\bar{y})$` = round(eur - meany$raw, 2),
            `$(x_i-\\bar{x})\\cdot(y_i-\\bar{y})$`= round(`$(x_i-\\bar{x})$`*`$(y_i-\\bar{y})$`,2)) %>%
-  tabelle(escape = F, full_width = F)
+  tabelle(hold = T, full_width = F)
 ```
 
 #### Berechnung
@@ -191,7 +191,7 @@ tribble(
   "Korrelationskoeff.: Einsetzen", corr$einsetzen,
   "Korrelationskoeff.: Ergebnis",  corr$ergebnis,
   "Antwortsatz", sprintf("Es lässt sich %s Korrelation zwischen Fläche und Kosten feststellen.", corr$interpretieren)) %>%
-  tabelle(escape = F)
+  tabelle(hold = T)
 ```
 
 `r naechste("lösung") # 4`
@@ -210,7 +210,7 @@ ex_7_4 %>%
            `$(x_i-\\bar{x})$` = round(m - meanx, 2),
            `$(y_i-\\bar{y})$` = round(eur - meany, 2),
            `$(x_i-\\bar{x})\\cdot(y_i-\\bar{y})$`= round(`$(x_i-\\bar{x})$`*`$(y_i-\\bar{y})$`,2)) %>%
-  tabelle(escape = F, full_width=F)
+  tabelle(hold = T, full_width = F)
 ```
 
 #### Berechnung
@@ -228,7 +228,7 @@ tribble(
   "Korr.koeff.: Einsetzen", korr$einsetzen,
   "Korr.koeff.: Ergebnis", korr$ergebnis,
   "Interpretieren", sprintf("Mit dem Korrelationskoeffizienten $r\\approx%s$ konnte %s Korrelation festgestellt werden. Je kleiner die Entfernung zum ÖPNV, desto höher der Mietpreis.", korr$fmt, korr$interpretieren),
-) %>% tabelle(escape = F)
+) %>% tabelle(hold = T)
 ```
 
 `r naechste("lösung") # 5`

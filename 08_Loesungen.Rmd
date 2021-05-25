@@ -27,7 +27,7 @@ c) Tabellarische Berechnung:
     ex1$pred <- (-1.48-0.975*ex1$x) %>% round(2)
     ex1$res <- (ex1$y-ex1$pred)  %>% round(2)
     tabelle(ex1, col.names = c("$x_i$", "$y_i$", "$\\hat{y}_i$", "$e_i=y_i-\\hat{y}_i$"),
-            escape = F)
+            hold = T)
     ```
 
 `r naechste("lösung") #2`
@@ -100,7 +100,7 @@ a) Welche Gleichung beschreibt ein geeignetes lineares Regressionsmodell?
       "Achsenabschnitt: Einsetzen",     a$einsetzen,
       "Achsenabschnitt: Ergebnis",      a$ergebnis,
       "Regressionsgleichung: Ergebnis", reg$ergebnis,
-    ) %>% tabelle(escape = T)
+    ) %>% tabelle(hold = T)
     ```
 
 b) Wenn die Nutzfläche für Objekt A 318 m² und für Objekt B 380 m² beträgt, wie hoch können dann jeweils die Kosten für die Sanierung geschätzt werden?
@@ -119,7 +119,7 @@ b) Wenn die Nutzfläche für Objekt A 318 m² und für Objekt B 380 m² beträgt
         sprintf(format(obja$raw * 1000, big.mark = "."),
                 format(objb$raw*1000, big.mark = "."))
     ) %>%
-      tabelle(escape = F)
+      tabelle(hold = T)
     ```
 
 `r naechste("lösung") #4`
@@ -148,7 +148,7 @@ a)
       "Regression: Formel", reg$formel,
       "Regression: Ergebnis", reg$ergebnis,
     ) %>%
-      tabelle(escape = F)
+      tabelle(hold = T)
     ```
 
 b)
@@ -162,7 +162,7 @@ b)
       "Ergenbis", pred$ergebnis,
       "Antwortsatz", sprintf("Der Quadradmeterpreis für die Immoblie beträgt laut Modell %s.", pred$raw)
     ) %>%
-      tabelle(escape = F)
+      tabelle(hold = T)
     ```
 
 `r naechste("lösung") #5`

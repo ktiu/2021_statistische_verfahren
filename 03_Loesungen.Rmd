@@ -14,7 +14,7 @@ tribble(
   "Formel", m$formel,
   "Einsetzen", m$einsetzen,
   "Ergebnis", m$ergebnis,
-) %>% tabelle(escape = F)
+) %>% tabelle(hold = T)
 ```
 
 Und die Standardabweichung:
@@ -27,7 +27,7 @@ tribble(
   "Formel", s$formel,
   "Einsetzen", s$einsetzen,
   "Ergebnis", s$ergebnis,
-) %>% tabelle(escape = F)
+) %>% tabelle(hold = T)
 ```
 
 Dann lässt sich die Formel bestimmen:
@@ -39,7 +39,7 @@ tribble(
   ~Schritt, ~Musterlösung,
   "Formel", z$formel,
   "Einsetzen", z$general,
-) %>% tabelle(escape = F)
+) %>% tabelle(hold = T)
 ```
 
 Und schließlich die einzelnen Werte berechnen. Hier sind die Berechnungen zum Prüfen ausformuliert, das wird in der Klausur nicht für jeden Wert erwartet.
@@ -53,7 +53,7 @@ tibble(
   `$x_i$` = ex_3_1_a,
   Berechnung = map_chr(calc, "quick")
 ) %>%
-tabelle(full_width = F, escape = F)
+tabelle(hold = T)
 ```
 
 #### b)
@@ -73,7 +73,7 @@ tribble(
   "Formel", sd$formel,
   "Einsetzen", sd$einsetzen,
   "Ergebnis", sd$ergebnis,
-) %>% tabelle(escape = F)
+) %>% tabelle(hold = T)
 ```
 
 Dann die Formel:
@@ -84,7 +84,7 @@ tribble(
   "Formel", get_z_trans()$formel,
   "Umformen", rz$formel,
   "Einsetzen", rz$general_reverse,
-) %>% tabelle(escape = F)
+) %>% tabelle(hold = T)
 ```
 
 Schließlich die einzelnen Werte:
@@ -98,7 +98,7 @@ tibble(
   `$z_i$` = ex_3_1_b,
   Berechnung = map_chr(calc, "quick_reverse")
 ) %>%
-tabelle(full_width = F, escape = F)
+tabelle(full_width = F, hold = T)
 ```
 
 `r naechste("lösung")`
@@ -120,7 +120,7 @@ tribble(
   "Einsetzen", sigma$einsetzen,
   "Lösung", sigma$ergebnis
 ) %>%
-tabelle(escape = F)
+tabelle(hold = T)
 ```
 
 Dann geht es zunächst darum, die $x$-Werte in $z$-Werte zu transformieren:
@@ -132,7 +132,7 @@ tribble(
   ~Schritt, ~Lösung,
   "Formel", z$formel,
   "Einsetzen", z$general
-) %>% tabelle(align = "lc", escape = F)
+) %>% tabelle(align = "lc", hold = T)
 ```
 
 Durch Einsetzen ergeben sich die folgenden Werte. (So ausführlich muss es in der Klausur nicht sein.)
@@ -146,7 +146,7 @@ tibble(
   `$x_i$` = xs,
   Berechnung = map_chr(calc, "quick")
 ) %>%
-tabelle(full_width = F, align = "rc", escape = F)
+tabelle(full_width = F, align = "rc", hold = T)
 ```
 
 Für die positiven $z$-Werte können die Unterschreitungs&shy;wahrscheinlichkeiten direkt in der Wertetabelle nachgeschaut werden. Für negative $z$-Werte gilt die Formel:
@@ -169,7 +169,7 @@ tibble(
    `In Prozent` = map(ps, ~ sprintf("%s%s",
                                     round(.$raw * 100, 2),
                                     percent()))
-) %>% tabelle(escape = F)
+) %>% tabelle(hold = T)
 ```
 
 #### b)
@@ -202,7 +202,7 @@ tibble(
   Berechnung = map(calc, "umformen"),
   `....` = map(calc, "einsetzen"),
   Ergebnis = map(calc, "ergebnis")
-) %>% tabelle(escape = F)
+) %>% tabelle(hold = T)
 ```
 
 Für die Rücktransformation gilt die Formel:
@@ -220,7 +220,7 @@ tibble(
   `$z_i$` = map(calc, "raw"),
   Einsetzen = map(calcz, "einsetzen"),
   `$x_i$` = map(calcz, "ergebnis")
-) %>% tabelle(escape = F)
+) %>% tabelle(hold = T)
 ```
 
 #### c)
@@ -244,7 +244,7 @@ tribble(
   "Obergrenze: Einsetzen",  ober$einsetzen,
   "Obergrenze: Ergebnis",   ober$ergebnis,
   "Antwortsatz",            "Die mittleren 95 Prozent der Werte liegen zwischen %s und %s." %>% sprintf(unter$raw, ober$raw)
-) %>% tabelle(escape = F)
+) %>% tabelle(hold = T)
 ```
 
 #### d) 
@@ -276,7 +276,7 @@ tribble(
     "Ein zufälliger Wert der Verteilung liegt mit %s-prozentiger Wahrscheinlichkeit zwischen 30 und 40.",
     round((pober$raw - punter$raw) * 100, 2)
   )
-) %>% tabelle(escape = F)
+) %>% tabelle(hold = T)
 ```
 
 `r naechste("lösung")`
@@ -416,7 +416,7 @@ tribble(
   "Variationskoeffizient: Ergebnis", sprintf(
     "$v \\approx %s\\%%$",
     lectuR::fmt(sd_ziegelei$raw / mean_ziegelei$raw * 100))
-) %>% tabelle(escape = F)
+) %>% tabelle(hold = T)
 ```
 
 **Für das Möbellager:**
@@ -438,5 +438,5 @@ tribble(
   ),
   "Variationskoeffizient: Ergebnis", sprintf("$v \\approx %s\\%%$",
                                              lectuR::fmt(sd_moebellager$raw/mean_moebellager$raw*100))
-) %>% tabelle(escape = F)
+) %>% tabelle(hold = T)
 ```

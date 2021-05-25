@@ -1,6 +1,18 @@
 ## Sitzung 10 {-}
 
-`r naechste("lösung", T) #2`
+`r naechste("lösung", T)`
+
+```{r}
+map(ex_10_1, \(x) {
+  sprintf("a) %s",
+          qchisq(x$p, x$df) %>%
+            round(3))
+}) %>%
+  paste(collapse = "\n") %>%
+  knitr::asis_output()
+```
+
+`r naechste("lösung") #2`
 
 a) Es geht um die Überprüfung eines Zusammenhangs von zwei nominalskalierten Variablen, deshalb $\chi^2$-Unabhängigkeitstest.
 
@@ -32,8 +44,8 @@ d) Freiheitsgrade:
 
 e) Berechnung anhand Tabelle:
 
-    ```{r}
-    print_crosstable(ex_10_1)
+    ```{r cache = F}
+    print_crosstable(ex_10_2)
     ```
 
     $$\begin{aligned}
@@ -44,18 +56,20 @@ e) Berechnung anhand Tabelle:
 
 f) Der Ablehnungsbereich wurde erreicht, die Nullhypothese muss abgelehnt werden. Es konnte ein signifikanter Zusammenhang zwischen Geschlecht und Tätigkeitsfeld festgestellt werden ($\alpha=0{,}01$).
 
-g) Es ließe sich darauf hinweisen, dass die dem Test zu Grunde liegende Prüfgröße $\chi^2$ auf Abweichungen beruht, die die ungleiche Anzahl von weiblichen und männlichen Beschäftigten bereits miteinbezieht. Der statistisch signifikante Zusammenhang ist außerdem nicht nur auf Führungskräfte bezogen, aber auch auf dieser Ebene tragen eindeutige Abweichungen von den jeweiligen Erwartungswerten (weniger Frauen, mehr Männer) zum Ergebnis bei.
+g) Es ließe sich darauf hinweisen, dass die dem Test zu Grunde liegende Prüfgröße $\chi^2$ auf Abweichungen beruht, die die ungleiche Anzahl von weiblichen und männlichen Beschäftigten bereits miteinbezieht.
 
-`r naechste("lösung") #2`
+    Der statistisch signifikante Zusammenhang ist außerdem nicht nur auf Führungskräfte bezogen, die größten Diskrepanzen sind im Tätigkeitsfeld "Administration" zu finden -- aber auch in der Führungsebene tragen eindeutige Abweichungen von den jeweiligen Erwartungswerten (weniger Frauen, mehr Männer) zum Ergebnis bei.
+
+`r naechste("lösung") #3`
 
 Aus den angegebenen Werten ergibt sich folgende Darstellung in Tabellenform:
 
 ```{r}
 construct("Das zuerst ausführende Team..." = c("gewinnt", "verliert"),
           counts = c(42, 28)) %>%
-  get_crosstable() -> ex_10_2
+  get_crosstable() -> ex_10_3
 
-print_crosstable(ex_10_2, expected = F, chisq = F)
+print_crosstable(ex_10_3, expected = F, chisq = F)
 ```
 
 1. Test wählen und Voraussetzungen prüfen
@@ -99,7 +113,7 @@ print_crosstable(ex_10_2, expected = F, chisq = F)
     Ohne Zusammenhang wären die Fälle *theoretisch* gleich verteilt, d.h. der Erwartungswert für die beiden Beobachtungen beträgt je 35. Hieraus lassen sich wie gewohnt die Teilwerte für $\chi^2$ berechnen.
 
     ```{r}
-    print_crosstable(ex_10_2)
+    print_crosstable(ex_10_3)
     ```
 
     \[\begin{aligned}
@@ -110,17 +124,17 @@ print_crosstable(ex_10_2, expected = F, chisq = F)
 
     Der kritische Wert von 2,706 wurde überschritten, der Ablehnungsbereich somit erreicht. Die Nullhypothese kann abgelehnt werden. Es konnte bestätigt werden, dass das zuerst ausführende Team signifikant öfter gewinnt ($\alpha=0{,}05$).
 
-`r naechste("lösung") #3`
+`r naechste("lösung") #4`
 
 a) Berechnung anhand von Tabelle:
 
     ```{r xtable}
-    print_crosstable(ex_10_3)
+    print_crosstable(ex_10_4)
     ```
 
     ```{r}
-    chisq <- get_chisq(ex_10_3)
-    test <- get_chisq_test(ex_10_3,
+    chisq <- get_chisq(ex_10_4)
+    test <- get_chisq_test(ex_10_4,
                            alpha = 0.05,
                            gerichtet = T)
     tribble(
@@ -153,7 +167,7 @@ a) Berechnung anhand von Tabelle:
                                konnte nicht nachgewiesen werden
                                ($\\alpha=0,05$).")
     ) %>%
-      tabelle(escape = F)
+      tabelle(hold = T)
     ```
 
 b) Berechnen Sie eine Kennzahl, die aussagt, wie stark der Zusammenhang ausfällt.
@@ -170,20 +184,20 @@ b) Berechnen Sie eine Kennzahl, die aussagt, wie stark der Zusammenhang ausfäll
                             keine Korrelation festzustellen.") %>%
         sprintf(phi$raw)
     ) %>%
-      tabelle(escape = F)
+      tabelle(hold = T)
     ```
 
-`r naechste("lösung") #4`
+`r naechste("lösung") #5`
 
 Berechnung mit Tabelle:
 
 ```{r}
-print_crosstable(ex_10_4)
+print_crosstable(ex_10_5)
 ```
 
 ```{r}
-chisq <- get_chisq(ex_10_4)
-test <- get_chisq_test(ex_10_4, alpha=0.01)
+chisq <- get_chisq(ex_10_5)
+test <- get_chisq_test(ex_10_5, alpha = 0.01)
 tribble(
   ~Schritt, ~Lösung,
   "Test wählen", multi("Es soll geprüft werden, ob eine empirische Verteilung
@@ -208,5 +222,5 @@ tribble(
   "Interpretieren", multi("Es gibt einen signifikanten Zusammenhang zwischen
                            Monat und Anzahl der Vulkanausbrüche (%s).") %>%
                       sprintf(test$alpha)
-) %>% tabelle(escape = F)
+) %>% tabelle(hold = T)
 ```

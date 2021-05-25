@@ -140,7 +140,7 @@ tribble(
   "Interpretieren", ifelse(f$test,
                            "Die Vermutung konnte bestätigt werden: Die Storchpopulationen weichen signifikant voneinander ab $(\\alpha=0{,}01)$.",
                            "Die Vermutung konnte nicht bestätigt werden: Die Storchpopulationen weichen nicht signifikant voneinander ab $(\\alpha=0{,}1)$."),
-  ) %>% tabelle(escape = F)
+  ) %>% tabelle(hold = T)
 ```
 
 `r naechste("lösung") #7`
@@ -176,9 +176,9 @@ tribble(
   "Varianz 2: Ergebnis", var_niedersachsen$ergebnis,
   "Prüfgröße: Formel", "$t=\\frac{\\bar{x}_1-\\bar{x}_2}{\\sqrt{\\frac{s^2_1+s^2_2}{n}}}$",
   "Prüfgröße: Einsetzen", paste0("$t=\\frac{", mean_hessen$fmt ,"-", mean_niedersachsen$fmt, "}{\\sqrt{\\frac{", var_hessen$fmt, "+", var_niedersachsen$fmt, "}{9}}}$"),
-  "Prüfgröße: Ergebnis", paste0("$t =", fmt(t), "$"),
+  "Prüfgröße: Ergebnis", paste0("$t =", fmt(t,3), "$"),
   "Interpretieren", ifelse(t > qt(0.005,16) & t < qt(0.995,16), "Der Ablehungsbereich wurde nicht erreicht.", "Der Ablehnungsbereich wurde erreicht."),
   "Interpretieren", ifelse(t > qt(0.005,16) & t < qt(0.995,16), "Die Nullhypothese muss beibehalten werden.", "Die Nullhypothese kann abgelehnt werden."),
-  "Interpretieren", ifelse(t > qt(0.005,16) & t < qt(0.995,16), "Die Abrufzahlen zwischen Hessen und Niedersachsen unterscheiden sich nicht signifikant. ($\\alpha=0.01$)", ifelse(t > qt(0.005), "Die Abrufzahlen in Hessen sind signifikant höher als in Niedesachsen. ($\\alpha=0.01$)", "Die Abrufzahlen in Niedersachsen sind signifikant höher als in Hessen. ($\\alpha=0.01$)")),
-  ) %>% tabelle(escape = F)
+  "Interpretieren", ifelse(t > qt(0.005,16) & t < qt(0.995,16), "Die Abrufzahlen zwischen Hessen und Niedersachsen unterscheiden sich nicht signifikant. ($\\alpha=0{,}01$)", ifelse(t > qt(0.005), "Die Abrufzahlen in Hessen sind signifikant höher als in Niedesachsen. ($\\alpha=0{,}01$)", "Die Abrufzahlen in Niedersachsen sind signifikant höher als in Hessen. ($\\alpha=0{,}01$)")),
+  ) %>% tabelle(hold = T)
 ```
