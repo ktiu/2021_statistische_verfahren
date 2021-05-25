@@ -66,7 +66,7 @@ b) Welche Schlüsse ziehen Sie aus der Untersuchung?
 
 `r naechste("aufgabe") #6`
 
-In zwei Naturschutzgebieten werden zu zufälligen Zeitpunkten die Storchenpopulationen gezählt:
+In zwei Naturschutzgebieten wird zu zufälligen Zeitpunkten die jeweilige Storchenpopulation erhoben:
 
 \[\begin{aligned}
 \textrm{Naturschutzgebiet Esselrode}&: \quad17\quad15\quad16\quad22\quad17\quad21\\

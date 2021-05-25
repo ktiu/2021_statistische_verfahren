@@ -1,12 +1,20 @@
-publishR::html_skript:
-  split_by: section
+bookdown::gitbook:
+  css: templates/custom_gitbook.css
+  split-by: section
   config:
     toc:
-      collapse: section
+      collapse: subsection
     toolbar:
       position: fixed
-      download: 'pdf'
       search: yes
+      download: "PDF"
+  includes:
+    in_header: templates/skript_header.html
+  lib_dir: "assets"
+  pandoc_args: ["--html-q-tags"]
 
-publishR::pdf_skript:
+bookdown::pdf_book:
   keep_tex: true
+  template: templates/report.tex
+  includes:
+    in_header: templates/preamble.tex

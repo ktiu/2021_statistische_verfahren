@@ -263,7 +263,7 @@ tabelle(df, caption="Tabelle mit kumulierten Häufigkeiten", escape=F, align = "
 
 ### Stabdiagramme
 
-Die so ermittelten Häufigkeiten lassen sich als Stabdiagramm (auch Säulen-, Streifen-, Balkendiagramm, engl. *bar chart*) darstellen (s. Abbildung \@ref(fig:stab)).
+Die so ermittelten Häufigkeiten lassen sich als Stabdiagramm (auch Säulen-, Streifen-, Balkendiagramm, engl. *bar chart*) darstellen (s. Abbildung \@ref(fig:stabdiagramm)).
 
 ```{r}
 rtip("In R lautet der Standardbefehl zur Erstellung eines Stabdiagramms `barplot()`.")
@@ -317,7 +317,7 @@ Zusätzlich sollten die folgenden Konventionen nach Möglichkeit befolgt werden:
 - Aus Gründen der Übersichtlichkeit sollten nicht mehr als 20 Klassen gewählt werden.
 - Klassengrenzen sollten "Klumpen" mit ähnlichen Werten nicht trennen.
 
-Die Darstellung erfolgt in so genannten Histogrammen (engl. *histogram*). Abbildung \@ref(fig:hist) enthält ein Beispiel für ein Histogramm.
+Die Darstellung erfolgt in so genannten Histogrammen (engl. *histogram*). Abbildung \@ref(fig:histogramm) enthält ein Beispiel für ein Histogramm.
 
 ```{r}
 rtip("In R können Histogramme mit `hist()` erstellt werden.")
