@@ -10,6 +10,7 @@ language:
 rmd_files:
   - index.Rmd
   - Vorbesprechung.Rmd
+  # - Klausur.Rmd
   - 01_Datenerhebung_und_Haeufigkeiten.Rmd
   - 01_Aufgaben.Rmd
   - 02_Maßzahlen.Rmd
@@ -24,7 +25,7 @@ rmd_files:
   - 06_Aufgaben.Rmd
   - 07_Korrelation.Rmd
   - 07_Aufgaben.Rmd
-  # - 08_Lineare_Regression.Rmd
+  - 08_Lineare_Regression.Rmd
   # - 08_Aufgaben.Rmd
   # - 09_Kreuztabellen.Rmd
   # - 09_Aufgaben.Rmd

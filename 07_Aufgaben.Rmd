@@ -106,7 +106,7 @@ tabelle(ex_7_4, col.names = c("Immobilie", "Entfernung (m)", "Quadratmeterpreis 
 
 Die (gerundeten) arithmetischen Mittel betragen $\bar{x} = 921{,}00$ Meter und $\bar{y} \approx 41{,}83$ Euro, und die (gerundeten) Standardabweichungen liegen bei $s_x = 128{,}97$ Meter und $s_y = 7{,}57$ Euro.
 
-Wie groß ist der Zusammenhang zwischen der Entfernung zur nächstgelegenen Haltestelle und dem gemessenen Mietpreis pro Quadratmeter? Berechnen Sie den angemessenen Korrelationskoeffizienten und interpretieren Sie das Ergebnis.
+Wie groß ist der Zusammenhang zwischen der Entfernung zur nächstgelegenen Haltestelle und dem gemessenen Mietpreis pro Quadratmeter? Berechnen Sie den Korrelationskoeffizienten und interpretieren Sie das Ergebnis.
 
 `r naechste("aufgabe", F) #5`
 

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Sitzung 7 Korrelation | Statistische Verfahren in der Geographie</title>
-  <meta name="description" content="Sitzung 7 Korrelation | Statistische Verfahren in der Geographie" />
+  <title>Sitzung 8 Lineare Regression | Statistische Verfahren in der Geographie</title>
+  <meta name="description" content="Sitzung 8 Lineare Regression | Statistische Verfahren in der Geographie" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Sitzung 7 Korrelation | Statistische Verfahren in der Geographie" />
+  <meta property="og:title" content="Sitzung 8 Lineare Regression | Statistische Verfahren in der Geographie" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Sitzung 7 Korrelation | Statistische Verfahren in der Geographie" />
+  <meta name="twitter:title" content="Sitzung 8 Lineare Regression | Statistische Verfahren in der Geographie" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="testverfahren-mit-zwei-stichproben.html"/>
-<link rel="next" href="lineare-regression.html"/>
+<link rel="prev" href="korrelation.html"/>
+<link rel="next" href="formeln.html"/>
 <script src="assets/header-attrs-2.8/header-attrs.js"></script>
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -472,864 +472,117 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="korrelation" class="section level1" number="7">
-<h1><span class="header-section-number">Sitzung 7</span> Korrelation</h1>
-<div id="lernziele-dieser-sitzung-6" class="section level3 unnumbered">
+<div id="lineare-regression" class="section level1" number="8">
+<h1><span class="header-section-number">Sitzung 8</span> Lineare Regression</h1>
+<div id="lernziele-dieser-sitzung-7" class="section level3 unnumbered">
 <h3>Lernziele dieser Sitzung</h3>
 <p>Sie können…</p>
 <ul>
-<li>ein Streudiagramm interpretieren.</li>
-<li>die Kovarianz von zwei Variablen berechnen.</li>
-<li>den Korrelationskoeffizienten von zwei Variablen berechnen.</li>
+<li>eine Regressionsgerade berechnen.</li>
+<li>Werte aus der Regressionsgerade ableiten.</li>
+<li>Residuen errechnen.</li>
+<li>den Determinationskoeffizienten <span class="math inline">\(R^2\)</span> berechnen und interpretieren.</li>
 </ul>
 </div>
-<div id="lehrvideos-sommersemester-2020-3" class="section level3 unnumbered">
+<div id="lehrvideos-sommersemester-2020-4" class="section level3 unnumbered">
 <h3>Lehrvideos (Sommersemester 2020)</h3>
 <ul>
-<li><a href="https://video01.uni-frankfurt.de/Mediasite/Play/ec3868ddd44f4d7490450b87723ad9cf1d">7a) Kovarianz</a></li>
-<li><a href="https://video01.uni-frankfurt.de/Mediasite/Play/a70c949180d84883a8bd2324d89922fe1d">7b) Korrelation</a></li>
-</ul>
-</div>
-<div id="bivariate-statistik" class="section level2" number="7.1">
-<h2><span class="header-section-number">7.1</span> Bivariate Statistik</h2>
-<p>Grundlage der bivariaten Statistik ist es, dass für eine Reihe von Untersuchungseinheiten jeweils zwei Merkmale erfasst sind.</p>
-<p>Diese Merkmale werden üblicherweise mit <span class="math inline">\(x\)</span> und <span class="math inline">\(y\)</span> gekennzeichnet. Für jedes <span class="math inline">\(i\)</span> (laufende Nummer der Merkmalsträger*innen) gibt es dann ein <span class="math inline">\(x_i\)</span> (Ausprägung des Merkmals <span class="math inline">\(x\)</span>) und ein <span class="math inline">\(y_i\)</span> (Ausprägung des Merkmals <span class="math inline">\(y\)</span>).</p>
-<p>Das Streudiagramm (engl. <em>scatter plot</em>) stellt alle erfassten Werte dar, indem es die Untersuchungseinheiten als Punkte arrangiert – und zwar anhand ihres jeweiligen Werts der Variable <span class="math inline">\(x\)</span> entlang der <span class="math inline">\(x\)</span>-Achse und entlang der <span class="math inline">\(y\)</span>-Achse anhand des <span class="math inline">\(y\)</span>-Werts (s. Abbildung <a href="korrelation.html#fig:scatter">7.1</a>).</p>
-<div id="beispiel-23" class="section level3" number="7.1.1">
-<h3><span class="header-section-number">7.1.1</span> Beispiel</h3>
-<p>Die statistischen Verfahren dieser Sitzung sollen wieder an einem Beispiel illustriert werden.</p>
-<p>Wir fragen uns, ob der jährliche Ertrag in einem bestimmten Anbaugebiet für Klebreis in Nordostthailand mit dem jährlichen Niederschlag zusammenhängt. Die erfassten Werte sind in Tabelle <a href="korrelation.html#tab:reis">7.1</a> festgehalten (<q>Rai</q> ist ein <a href="https://de.wikipedia.org/wiki/Rai_(Einheit)">in Thailand übliches Flächenmaß</a>).</p>
-<div style="overflow-y: auto;">
-<table class="table" style="margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:reis">Tabelle 7.1: </span>Niederschlag und Ertrag im Reisanbau
-</caption>
-<thead>
-<tr>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="1">
-<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
-Laufende Nr.
-</div>
-</th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="1">
-<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
-Jahr
-</div>
-</th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="1">
-<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
-Niederschlag (mm)
-</div>
-</th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="1">
-<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
-Ertrag (kg/Rai)
-</div>
-</th>
-</tr>
-<tr>
-<th style="text-align:right;border-bottom: 1px solid; ">
-<span class="math inline">\(i\)</span>
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-<span class="math inline">\(x_i\)</span>
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-<span class="math inline">\(y_i\)</span>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2008
-</td>
-<td style="text-align:right;">
-1449
-</td>
-<td style="text-align:right;">
-1860
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2009
-</td>
-<td style="text-align:right;">
-1472
-</td>
-<td style="text-align:right;">
-2118
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-2010
-</td>
-<td style="text-align:right;">
-1607
-</td>
-<td style="text-align:right;">
-2225
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-2011
-</td>
-<td style="text-align:right;">
-1494
-</td>
-<td style="text-align:right;">
-2172
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-2012
-</td>
-<td style="text-align:right;">
-1390
-</td>
-<td style="text-align:right;">
-1816
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-2013
-</td>
-<td style="text-align:right;">
-1764
-</td>
-<td style="text-align:right;">
-2430
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-7
-</td>
-<td style="text-align:right;">
-2014
-</td>
-<td style="text-align:right;">
-1767
-</td>
-<td style="text-align:right;">
-2580
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-2015
-</td>
-<td style="text-align:right;">
-1765
-</td>
-<td style="text-align:right;">
-2563
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-9
-</td>
-<td style="text-align:right;">
-2016
-</td>
-<td style="text-align:right;">
-1671
-</td>
-<td style="text-align:right;">
-2276
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-10
-</td>
-<td style="text-align:right;">
-2017
-</td>
-<td style="text-align:right;">
-1838
-</td>
-<td style="text-align:right;">
-2455
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>In einem Streudiagramm können diese Werte veranschaulicht werden. Dabei ist es üblich, die unabhängige Variable auf der <span class="math inline">\(x\)</span>-Achse und die abhängige Variable auf der <span class="math inline">\(y\)</span>-Achse einzutragen. Im Beispiel liegt nahe, dass der Ertrag vom Regen abhängt, und nicht etwa umgekehrt.</p>
-<p>Abbildung <a href="korrelation.html#fig:scatter">7.1</a> ist das Streudiagramm für unser Beispiel. Es fällt schon rein optisch auf, dass ein Zusammenhang zu bestehen scheint: Je mehr Regen, desto reicher die Ernte. Doch wie lässt sich dieser Zusammenhang beziffern?</p>
-<div class="figure" style="text-align: center"><span id="fig:scatter"></span>
-<img src="Skript_Statistik_2021_files/figure-html/scatter-1.svg" alt="Streudiagramm zum Reisanbau" width="450px" />
-<p class="caption">
-Abbildung 7.1: Streudiagramm zum Reisanbau
-</p>
-</div>
-</div>
-</div>
-<div id="kovarianz" class="section level2" number="7.2">
-<h2><span class="header-section-number">7.2</span> Kovarianz 𝑠<sub>𝑥𝑦</sub></h2>
-<p>Die Kovarianz (engl. <em>covariance</em>) <span class="math inline">\(s_{xy}\)</span> gibt an, inwiefern die beiden Variablen <span class="math inline">\(x\)</span> und <span class="math inline">\(y\)</span> <em>gemeinsam variieren</em>. Die Kovarianz ergibt sich durch die Summe der jeweiligen Produkte der Differenzen zu den Mittelwerten <span class="math inline">\((x_i-\bar{x})\)</span> und <span class="math inline">\((y_i-\bar{y})\)</span>, geteilt durch <span class="math inline">\((n-1)\)</span>. Die Formel lautet also:</p>
-<p><span class="math display" id="eq:cov">\[
-s_{xy}=\frac{\sum\limits^n_{i=1}(x_i-\bar{x})\cdot(y_i-\bar{y})}{n-1}
-\tag{7.1}
-\]</span></p>
-<p>Gleichung <a href="korrelation.html#eq:cov">(7.1)</a> lässt erahnen: Wenn sowohl <span class="math inline">\(x\)</span> als auch <span class="math inline">\(y\)</span> in die gleiche Richtung vom jeweiligen Mittelwert abweichen (also beide Differenzen positiv oder beide Differenzen negativ), dann ist das Produkt positiv, sonst ist es negativ. Eine positive Kovarianz lässt also auf einen positiven Zusammenhang schließen (je größer <span class="math inline">\(x\)</span>, desto größer auch <span class="math inline">\(y\)</span>), eine negative Kovarianz auf einen negativen Zusammenhang (je größer <span class="math inline">\(x\)</span>, desto <em>kleiner</em> <span class="math inline">\(y\)</span>).</p>
-<div class="rtip">
-Softwarehinweis
-</div>
-<div class="rtip_content">
-Der Befehl <code>cov()</code> berechnet die Kovarianz einer bivariaten Verteilung in R.
-</div>
-<div id="beispiel-24" class="section level3" number="7.2.1">
-<h3><span class="header-section-number">7.2.1</span> Beispiel</h3>
-<p>Es macht Sinn, eine Tabelle anzulegen, in der Teilrechenschritte durchgeführt werden. Tabelle <a href="korrelation.html#tab:ricemath">7.2</a> veranschaulicht dies.</p>
-<div style="overflow-y: auto;">
-<table class="table" style="margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:ricemath">Tabelle 7.2: </span>Hilfstabelle für die Berechnung der Kovarianz
-</caption>
-<thead>
-<tr>
-<th style="text-align:right;border-bottom: 1px solid; ">
-<span class="math inline">\(i\)</span>
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-<span class="math inline">\(x_i\)</span>
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-<span class="math inline">\(y_i\)</span>
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-<span class="math inline">\((x_i-\bar{x})\)</span>
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-<span class="math inline">\((y_i-\bar{y})\)</span>
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-<span class="math inline">\((x_i-\bar{x})\cdot(y_i-\bar{y})\)</span>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1449
-</td>
-<td style="text-align:right;">
-1860
-</td>
-<td style="text-align:right;">
--172,7
-</td>
-<td style="text-align:right;">
--389,5
-</td>
-<td style="text-align:right;">
-67266,65
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-1472
-</td>
-<td style="text-align:right;">
-2118
-</td>
-<td style="text-align:right;">
--149,7
-</td>
-<td style="text-align:right;">
--131,5
-</td>
-<td style="text-align:right;">
-19685,55
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-1607
-</td>
-<td style="text-align:right;">
-2225
-</td>
-<td style="text-align:right;">
--14,7
-</td>
-<td style="text-align:right;">
--24,5
-</td>
-<td style="text-align:right;">
-360,15
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-1494
-</td>
-<td style="text-align:right;">
-2172
-</td>
-<td style="text-align:right;">
--127,7
-</td>
-<td style="text-align:right;">
--77,5
-</td>
-<td style="text-align:right;">
-9896,75
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-1390
-</td>
-<td style="text-align:right;">
-1816
-</td>
-<td style="text-align:right;">
--231,7
-</td>
-<td style="text-align:right;">
--433,5
-</td>
-<td style="text-align:right;">
-100441,95
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-1764
-</td>
-<td style="text-align:right;">
-2430
-</td>
-<td style="text-align:right;">
-142,3
-</td>
-<td style="text-align:right;">
-180,5
-</td>
-<td style="text-align:right;">
-25685,15
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-7
-</td>
-<td style="text-align:right;">
-1767
-</td>
-<td style="text-align:right;">
-2580
-</td>
-<td style="text-align:right;">
-145,3
-</td>
-<td style="text-align:right;">
-330,5
-</td>
-<td style="text-align:right;">
-48021,65
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-1765
-</td>
-<td style="text-align:right;">
-2563
-</td>
-<td style="text-align:right;">
-143,3
-</td>
-<td style="text-align:right;">
-313,5
-</td>
-<td style="text-align:right;">
-44924,55
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-9
-</td>
-<td style="text-align:right;">
-1671
-</td>
-<td style="text-align:right;">
-2276
-</td>
-<td style="text-align:right;">
-49,3
-</td>
-<td style="text-align:right;">
-26,5
-</td>
-<td style="text-align:right;">
-1306,45
-</td>
-</tr>
-<tr>
-<td style="text-align:right;border-bottom: 1px solid; ">
-10
-</td>
-<td style="text-align:right;border-bottom: 1px solid; ">
-1838
-</td>
-<td style="text-align:right;border-bottom: 1px solid; ">
-2455
-</td>
-<td style="text-align:right;border-bottom: 1px solid; ">
-216,3
-</td>
-<td style="text-align:right;border-bottom: 1px solid; ">
-205,5
-</td>
-<td style="text-align:right;border-bottom: 1px solid; ">
-44449,65
-</td>
-</tr>
-<tr>
-<td style="text-align:right;font-weight: bold;">
-Summe:
-</td>
-<td style="text-align:right;font-weight: bold;">
-16217
-</td>
-<td style="text-align:right;font-weight: bold;">
-22495
-</td>
-<td style="text-align:right;font-weight: bold;">
-</td>
-<td style="text-align:right;font-weight: bold;">
-</td>
-<td style="text-align:right;font-weight: bold;">
-362038,5
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Als Zwischenschritt müssen die Mittelwerte <span class="math inline">\(\bar{x}\)</span> und <span class="math inline">\(\bar{y}\)</span> berechnet werden, wofür die Summen der ersten beiden Spalten herangezogen werden können:</p>
-<p><span class="math display">\[
-\begin{aligned}
-\bar{x}&amp;=\frac{\sum\limits^n_{i=1}x_i}{n}\\[5pt]
-       &amp;=\frac{16217}{10}=1621{,}7\\[6pt]
-\bar{y}&amp;=\frac{\sum\limits^n_{i=1}y_i}{n}\\[5pt]
-       &amp;=\frac{22495}{10}=2249{,}5
-\end{aligned}
-\]</span></p>
-<p>Schließlich ergibt Einsetzen der Produktsumme in Gleichung <a href="korrelation.html#eq:cov">(7.1)</a> die Kovarianz:</p>
-<p><span class="math display">\[\begin{aligned}
-s_{xy}&amp;=\frac{\sum\limits^n_{i=1}(x_i-\bar{x})\cdot(y_i-\bar{y})}{n-1}\\[5pt]
-&amp;\approx\frac{362038{,}5}{9}=40226{,}5
-\end{aligned}\]</span></p>
-<p>Die Kovarianz ist also <span class="math inline">\(s_{xy}=40226{,}5\)</span>. Was sagt uns diese Zahl? Zunächst ist sie positiv, womit wir von einer positiven Korrelation (je mehr Regen, desto mehr Ertrag) ausgehen können. Sie ist auch <q>irgendwie</q> ziemlich groß, was einen deutlichen Zusammenhang nahelegt. Aber die Kovarianz ist abhängig vom Maßstab – wäre der Ertrag nicht in Kilogramm pro Rai, sondern (wie in Deutschland üblich) in Dezitonnen pro Hektar angegeben, dann wäre die Zahl deutlich kleiner (2514,156 um genau zu sein). Wie lässt sich die Stärke der Korrelation also unabhängig von den Maßeinheiten angeben?</p>
-</div>
-</div>
-<div id="korrelationskoeffizient" class="section level2" number="7.3">
-<h2><span class="header-section-number">7.3</span> Korrelationskoeffizient 𝑟</h2>
-<p>Der Korrelationskoeffizient <span class="math inline">\(r\)</span> (auch Produkt-Moment-Korrelation, Bravais-Pearson-Korrelation, Pearsons <span class="math inline">\(r\)</span>, engl. <em>correlation coefficient</em>) standardisiert die Kovarianz <span class="math inline">\(s_{xy}\)</span> anhand der Standardabweichungen <span class="math inline">\(s_x\)</span> und <span class="math inline">\(s_y\)</span>. Die Formel lautet:</p>
-<p><span class="math display" id="eq:cor">\[
-r=\frac{s_{xy}}{s_x\cdot s_y}
-\tag{7.2}
-\]</span></p>
-<p>Durch diese Standardisierung kann der Korrelationskoeffizient nur noch Werte zwischen <span class="math inline">\(r=-1\)</span> (perfekte negative Korrelation) und <span class="math inline">\(r=1\)</span> (perfekte positive Korrelation) annehmen. Ein Korrelationskoeffizient nahe <span class="math inline">\(r=0\)</span> bedeutet, dass es keinen Zusammenhang zwischen den Variablen <span class="math inline">\(x\)</span> und <span class="math inline">\(y\)</span> gibt (s. Abbildung <a href="korrelation.html#fig:corrs">7.2</a>).</p>
-<div class="figure" style="text-align: center"><span id="fig:corrs"></span>
-<img src="Skript_Statistik_2021_files/figure-html/corrs-1.svg" alt="Verschiedene Korrelationskoeffizienten" width="30%" /><img src="Skript_Statistik_2021_files/figure-html/corrs-2.svg" alt="Verschiedene Korrelationskoeffizienten" width="30%" /><img src="Skript_Statistik_2021_files/figure-html/corrs-3.svg" alt="Verschiedene Korrelationskoeffizienten" width="30%" /><img src="Skript_Statistik_2021_files/figure-html/corrs-4.svg" alt="Verschiedene Korrelationskoeffizienten" width="30%" /><img src="Skript_Statistik_2021_files/figure-html/corrs-5.svg" alt="Verschiedene Korrelationskoeffizienten" width="30%" /><img src="Skript_Statistik_2021_files/figure-html/corrs-6.svg" alt="Verschiedene Korrelationskoeffizienten" width="30%" /><img src="Skript_Statistik_2021_files/figure-html/corrs-7.svg" alt="Verschiedene Korrelationskoeffizienten" width="30%" /><img src="Skript_Statistik_2021_files/figure-html/corrs-8.svg" alt="Verschiedene Korrelationskoeffizienten" width="30%" /><img src="Skript_Statistik_2021_files/figure-html/corrs-9.svg" alt="Verschiedene Korrelationskoeffizienten" width="30%" />
-<p class="caption">
-Abbildung 7.2: Verschiedene Korrelationskoeffizienten
-</p>
-</div>
-<div class="rtip">
-Softwarehinweis
-</div>
-<div class="rtip_content">
-In R kann der Korrelationskoeffizient von zwei Merkmalen mit dem Befehl <code>cor()</code> bestimmt werden.
-</div>
-<div id="beispiel-25" class="section level3" number="7.3.1">
-<h3><span class="header-section-number">7.3.1</span> Beispiel</h3>
-<p>In der Formel für den Korrelationskoeffizienten <span class="math inline">\(r\)</span> <a href="korrelation.html#eq:cor">(7.2)</a> werden die Standardabweichungen <span class="math inline">\(s_x\)</span> und <span class="math inline">\(s_y\)</span> benötigt. Es ist daher sinnvoll, die Hilfstabelle um die Quadrate der Differenzen (und deren Summen) zu erweitern (s. Tabelle <a href="korrelation.html#tab:mathcor">7.3</a>).</p>
-<div style="overflow-y: auto;">
-<table class="table" style="margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:mathcor">Tabelle 7.3: </span>Hilfstabelle für die Berechnung des Korrelationskoeffizienten
-</caption>
-<thead>
-<tr>
-<th style="text-align:right;border-bottom: 1px solid; ">
-<span class="math inline">\(i\)</span>
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-<span class="math inline">\(x_i\)</span>
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-<span class="math inline">\(y_i\)</span>
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-<span class="math inline">\((x_i-\bar{x})\)</span>
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-<span class="math inline">\((y_i-\bar{y})\)</span>
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-<span class="math inline">\((x_i-\bar{x})^2\)</span>
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-<span class="math inline">\((y_i-\bar{y})^2\)</span>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1449
-</td>
-<td style="text-align:right;">
-1860
-</td>
-<td style="text-align:right;">
--172,7
-</td>
-<td style="text-align:right;">
--389,5
-</td>
-<td style="text-align:right;">
-29825,29
-</td>
-<td style="text-align:right;">
-151710,25
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-1472
-</td>
-<td style="text-align:right;">
-2118
-</td>
-<td style="text-align:right;">
--149,7
-</td>
-<td style="text-align:right;">
--131,5
-</td>
-<td style="text-align:right;">
-22410,09
-</td>
-<td style="text-align:right;">
-17292,25
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-1607
-</td>
-<td style="text-align:right;">
-2225
-</td>
-<td style="text-align:right;">
--14,7
-</td>
-<td style="text-align:right;">
--24,5
-</td>
-<td style="text-align:right;">
-216,09
-</td>
-<td style="text-align:right;">
-600,25
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-1494
-</td>
-<td style="text-align:right;">
-2172
-</td>
-<td style="text-align:right;">
--127,7
-</td>
-<td style="text-align:right;">
--77,5
-</td>
-<td style="text-align:right;">
-16307,29
-</td>
-<td style="text-align:right;">
-6006,25
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-1390
-</td>
-<td style="text-align:right;">
-1816
-</td>
-<td style="text-align:right;">
--231,7
-</td>
-<td style="text-align:right;">
--433,5
-</td>
-<td style="text-align:right;">
-53684,89
-</td>
-<td style="text-align:right;">
-187922,25
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-1764
-</td>
-<td style="text-align:right;">
-2430
-</td>
-<td style="text-align:right;">
-142,3
-</td>
-<td style="text-align:right;">
-180,5
-</td>
-<td style="text-align:right;">
-20249,29
-</td>
-<td style="text-align:right;">
-32580,25
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-7
-</td>
-<td style="text-align:right;">
-1767
-</td>
-<td style="text-align:right;">
-2580
-</td>
-<td style="text-align:right;">
-145,3
-</td>
-<td style="text-align:right;">
-330,5
-</td>
-<td style="text-align:right;">
-21112,09
-</td>
-<td style="text-align:right;">
-109230,25
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-1765
-</td>
-<td style="text-align:right;">
-2563
-</td>
-<td style="text-align:right;">
-143,3
-</td>
-<td style="text-align:right;">
-313,5
-</td>
-<td style="text-align:right;">
-20534,89
-</td>
-<td style="text-align:right;">
-98282,25
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-9
-</td>
-<td style="text-align:right;">
-1671
-</td>
-<td style="text-align:right;">
-2276
-</td>
-<td style="text-align:right;">
-49,3
-</td>
-<td style="text-align:right;">
-26,5
-</td>
-<td style="text-align:right;">
-2430,49
-</td>
-<td style="text-align:right;">
-702,25
-</td>
-</tr>
-<tr>
-<td style="text-align:right;border-bottom: 1px solid; ">
-10
-</td>
-<td style="text-align:right;border-bottom: 1px solid; ">
-1838
-</td>
-<td style="text-align:right;border-bottom: 1px solid; ">
-2455
-</td>
-<td style="text-align:right;border-bottom: 1px solid; ">
-216,3
-</td>
-<td style="text-align:right;border-bottom: 1px solid; ">
-205,5
-</td>
-<td style="text-align:right;border-bottom: 1px solid; ">
-46785,69
-</td>
-<td style="text-align:right;border-bottom: 1px solid; ">
-42230,25
-</td>
-</tr>
-<tr>
-<td style="text-align:right;font-weight: bold;">
-Summe:
-</td>
-<td style="text-align:right;font-weight: bold;">
-16217
-</td>
-<td style="text-align:right;font-weight: bold;">
-22495
-</td>
-<td style="text-align:right;font-weight: bold;">
-</td>
-<td style="text-align:right;font-weight: bold;">
-</td>
-<td style="text-align:right;font-weight: bold;">
-233556,1
-</td>
-<td style="text-align:right;font-weight: bold;">
-646556,5
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Die Standardabweichungen ergeben sich nun wie gewohnt aus:</p>
-<p><span class="math display">\[
-\begin{aligned}
-s_{x}&amp;=\sqrt{\frac{\sum\limits^n_{i=1}(x_i-\bar{x})^2}{n-1}}\\
-     &amp;=\sqrt{\frac{233556{,}1}{9}}=\sqrt{25950{,}68}\approx161{,}09\\
-s_{y}&amp;=\sqrt{\frac{\sum\limits^n_{i=1}(y_i-\bar{y})^2}{n-1}}\\
-     &amp;=\sqrt{\frac{646556{,}5}{9}}=\sqrt{71839{,}61} \approx268{,}03
-\end{aligned}
-\]</span></p>
-<p>Nun lassen sich die errechneten Werte in Gleichung <a href="korrelation.html#eq:cor">(7.2)</a> einsetzen:</p>
-<p><span class="math display">\[
-\begin{aligned}
-r&amp;=\frac{s_{xy}}{s_x\cdot s_y}\\[4pt]
-&amp;\approx\frac{40226{,}5}{161{,}09\cdot268{,}03}\approx0{,}93
-\end{aligned}
-\]</span></p>
-<p>Wir können bei einem Korrelationskoeffizienten <span class="math inline">\(r\approx0{,}93\)</span> von einem deutlichen positiven Zusammenhang zwischen Niederschlag und Ertrag ausgehen.</p>
-</div>
-</div>
-<div id="tipps-zur-vertiefung-6" class="section level2 unnumbered">
-<h2>Tipps zur Vertiefung</h2>
+<li><a href="https://video01.uni-frankfurt.de/Mediasite/Play/420909b80f8b467eb43ec85108200d2a1d">8a) Regressionsgerade</a></li>
+<li><a href="https://video01.uni-frankfurt.de/Mediasite/Play/d6a9160c2ba0402fa64395cbdf5d25531d">8b) Residuen und Determinationskoeffizient</a>
 <ul>
-<li>YouTube-Kanal <q>Kurzes Tutorium Statistik</q>: <a href="https://www.youtube.com/watch?v=IwJ7RPIAxUo">Streudiagramm und Korrelation</a></li>
-<li>YouTube-Kanal <q>Methodenlehre Mainz</q>: <a href="https://www.youtube.com/playlist?list=PLJ-Cm_fyeZdwUkkeXkl2D1Czukhhl-9B2">Bivariate Daten (Playlist)</a></li>
-<li>Kapitel 10 in <span class="citation"><a href="#ref-bortz" role="doc-biblioref">Bortz und Schuster</a> (<a href="#ref-bortz" role="doc-biblioref">2010</a>)</span></li>
-<li>Kapitel 4.5.1 – 4.5.6 in <span class="citation"><a href="#ref-delange" role="doc-biblioref">Lange und Nipper</a> (<a href="#ref-delange" role="doc-biblioref">2018</a>)</span></li>
-<li>Kapitel 6.1, 6.3 und 6.4 in <span class="citation"><a href="#ref-bahrenberg" role="doc-biblioref">Bahrenberg, Giese und Nipper</a> (<a href="#ref-bahrenberg" role="doc-biblioref">2010</a>)</span></li>
-<li>Kapitel 16 in <span class="citation"><a href="#ref-klemm" role="doc-biblioref">Klemm</a> (<a href="#ref-klemm" role="doc-biblioref">2002</a>)</span></li>
-<li><em>Englisch:</em> Kapitel 13.1 – 13.4 in <span class="citation"><a href="#ref-burt" role="doc-biblioref">Burt und Barber</a> (<a href="#ref-burt" role="doc-biblioref">1996</a>)</span></li>
+<li>Beim Teil <q>Klausur-Update</q> gilt der <strong>Ablauf</strong> und die <strong>Struktur</strong> der Klausur auch dieses Semester.</li>
+<li>Die administrative Anmeldung für die diesjährige Theorieklausur ist bis einschließlich 6. Juli auf OLAT möglich.</li>
+<li><a href="#probeklausuren">Probeklausuren sind hier zu finden.</a></li>
+<li>Zur formalen Anmeldung und zur Versuchsregelung kann ich dieses Jahr keine Angaben machen. (Fragen Sie im Zweifel Ihr Prüfungsamt!)</li>
+</ul></li>
 </ul>
-
 </div>
-<div id="übungsaufgaben-6" class="section level2 unnumbered">
-<h2>Übungsaufgaben</h2>
-<div id="aufgabe-7-1" class="section level3" number="7.3.2">
-<h3><span class="header-section-number">7.3.2</span> Aufgabe 7-1</h3>
-<p><a href="lösungen-der-übungsaufgaben.html#loesung-7-1">zur Lösung</a></p>
-<p>Zeichnen Sie ein Streudiagramm und berechnen Sie die Kovarianz sowie den Korrelationskoeffizenten für die folgenden Messreihen.</p>
-<ol style="list-style-type: lower-alpha">
-<li>Messreihe:</li>
-</ol>
+<div id="regresssionsanalyse" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Regresssionsanalyse</h2>
+<blockquote>
+<p>Sind zwei stochastisch abhängige Variablen <span class="math inline">\(x\)</span> und <span class="math inline">\(y\)</span> durch eine Regressionsgleichung miteinander verknüpft, kann die eine Variable zur Vorhersage der anderen eingesetzt werden. <span class="citation">(<a href="#ref-bortz" role="doc-biblioref">Bortz und Schuster 2010</a>: 183)</span></p>
+</blockquote>
+<p>Es gibt viele Möglichkeiten, Regressionen zu modellieren. Im Rahmen dieser Veranstaltung wird nur die lineare Regression (engl. <em>linear regression</em>) behandelt. Lineare Regressionsmodelle werden immer durch eine lineare Gleichung des Formats</p>
+<p><span class="math display" id="eq:lin">\[
+y=a+b\cdot x
+\tag{8.1}
+\]</span></p>
+<p>ausgedrückt, wobei <span class="math inline">\(a\)</span> der Achsenabschnitt ist und <span class="math inline">\(b\)</span> die Steigung. Ist die Gleichung bekannt, so können wir für jeden Wert <span class="math inline">\(x\)</span> einen entsprechenden Wert <span class="math inline">\(y\)</span> <q>vorhersagen</q>.</p>
+<p>Abbildung <a href="lineare-regression.html#fig:lin">8.1</a> zeigt ein solches lineares Regressionsmodell als Gerade durch ein Streudiagramm.</p>
+<div class="figure" style="text-align: center"><span id="fig:lin"></span>
+<img src="Skript_Statistik_2021_files/figure-html/lin-1.svg" alt="Regressionslinie durch ein Streudiagramm" width="450px" />
+<p class="caption">
+Abbildung 8.1: Regressionslinie durch ein Streudiagramm
+</p>
+</div>
+<p>Der Achsenabschnitt <span class="math inline">\(a\approx2,2\)</span> bedeutet, dass die Regressionsgerade die <span class="math inline">\(y\)</span>-Achse etwa auf der Höhe 2,2 schneidet (bei <span class="math inline">\(x=0\)</span>). Die Steigung <span class="math inline">\(b\approx1,7\)</span> heißt, dass für jede zusätzliche Einheit der Variable <span class="math inline">\(x\)</span> ca. 1,7 zusätzliche Einheiten der Variable <span class="math inline">\(y\)</span> erwartet werden können.</p>
+<p>Wenn die Regressionsgleichung bekannt ist, kann für jedes gültige (grundsätzlich: jedes beliebige) <span class="math inline">\(x\)</span> ein erwarteter Wert <span class="math inline">\(\hat{y}\)</span> berechnet werden. So könnte uns bei der Beispielregression interessieren, welchen Wert <span class="math inline">\(\hat{y}_i\)</span> im Modell annimmt, wenn <span class="math inline">\(x_i=20\)</span> beträgt:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\hat{y}_i&amp;=a+b\cdot x_i\\
+   &amp;\approx2{,}2+1{,}7\cdot20\\
+   &amp;=36{,}2
+\end{aligned}
+\]</span></p>
+<p>Bei solchen Schätzungen <em>außerhalb</em> des bekannten Wertebereichs spricht man auch vom <q>Extrapolieren</q>, sonst – für fehlende Werte innerhalb des bekannten Wertebereich – vom <q>Interpolieren</q>.</p>
+<p>Umgekehrt könnte die Frage lauten: Wie groß muss ein <span class="math inline">\(x_i\)</span> sein, damit (im Modell) <span class="math inline">\(\hat{y}_i=12\)</span> beträgt? Dies lässt sich durch eine einfache Umformung der Gleichung <a href="lineare-regression.html#eq:lin">(8.1)</a> berechnen:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\hat{y}_i&amp;=a+b\cdot x_i\\[5pt]
+x_i&amp;=\frac{\hat{y}_i-a}{b}\\[5pt]
+&amp;=\frac{12-2{,}2}{1{,}7}\\
+   &amp;\approx5{,}8
+\end{aligned}
+\]</span></p>
+<p>Bei der Regressionsanalyse wird ein gerichtetes Abhängigkeitsverhältnis der Variablen impliziert: <span class="math inline">\(y\)</span> hängt hier von <span class="math inline">\(x\)</span> ab. Daher wird <span class="math inline">\(x\)</span> auch die <q>Prädiktorvariable</q> und <span class="math inline">\(y\)</span> die <q>Kriteriumsvariable</q> genannt.</p>
+<div class="rtip">
+Softwarehinweis
+</div>
+<div class="rtip_content">
+Wenn in R ein lineares Modell (eine Regressionsgerade) vorliegt, können Werte mit <code>predict()</code> geschätzt werden.
+</div>
+<p>Es ist also für derartige Fragestellungen nötig, die Gleichung der Regressionsgeraden zu kennen. Im Folgenden wird gezeigt, wie diese anhand einer bivariaten Verteilung bestimmt werden kann.</p>
+</div>
+<div id="bestimmung-der-regressionsgeraden" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> Bestimmung der Regressionsgeraden</h2>
+<p>Der Koeffizient <span class="math inline">\(b\)</span> (also die Steigung der Regressionsgeraden) lässt sich berechnen, indem man die Kovarianz <span class="math inline">\(s_{xy}\)</span> durch die Varianz von <span class="math inline">\(x\)</span> dividiert:</p>
+<p><span class="math display" id="eq:b">\[
+b=\frac{s_{xy}}{s^2_x}
+\tag{8.2}
+\]</span></p>
+<p>Der Koeffizient <span class="math inline">\(a\)</span> (also der Achsenabschnitt) ergibt sich wiederum aus <span class="math inline">\(b\)</span> und den Mittelwerten <span class="math inline">\(\bar{x}\)</span> und <span class="math inline">\(\bar{y}\)</span>:</p>
+<p><span class="math display" id="eq:a">\[
+a=\bar{y}-b\cdot\bar{x}
+\tag{8.3}
+\]</span></p>
+<div class="rtip">
+Softwarehinweis
+</div>
+<div class="rtip_content">
+In R lässt sich ein lineares Regressionsmodell mit dem Befehl <code>lm()</code> erstellen.
+</div>
+<p>Die Bestimmung der Regressionsgeraden soll nun mit einem Beispiel illustriert werden.</p>
+<div id="beispiel-26" class="section level3" number="8.2.1">
+<h3><span class="header-section-number">8.2.1</span> Beispiel</h3>
+<p>Wir fragen uns, wie die Aufenthaltszeit von Passagieren am Frankfurter Flughafen mit dem Betrag zusammenhängt, den sie in den dortigen Geschäften ausgeben. Eine Zufallserhebung habe die Werte in Tabelle <a href="lineare-regression.html#tab:duty1">8.1</a> ergeben.</p>
 <div style="overflow-y: auto;">
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:duty1">Tabelle 8.1: </span>Messwerte am Frankfurter Flughafen
+</caption>
 <thead>
+<tr>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="1">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Aufenthaltszeit (min)
+</div>
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="1">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Ausgaben (€)
+</div>
+</th>
+</tr>
 <tr>
 <th style="text-align:right;border-bottom: 1px solid; ">
 <span class="math inline">\(x_i\)</span>
@@ -1342,77 +595,197 @@ r&amp;=\frac{s_{xy}}{s_x\cdot s_y}\\[4pt]
 <tbody>
 <tr>
 <td style="text-align:right;">
-14,21
+121
 </td>
 <td style="text-align:right;">
-134
+17,94
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-10,32
+125
 </td>
+<td style="text-align:right;">
+23,15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+293
+</td>
+<td style="text-align:right;">
+44,31
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+370
+</td>
+<td style="text-align:right;">
+42,46
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+246
+</td>
+<td style="text-align:right;">
+35,51
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+281
+</td>
+<td style="text-align:right;">
+28,46
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+169
+</td>
+<td style="text-align:right;">
+18,47
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+328
+</td>
+<td style="text-align:right;">
+56,77
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+388
+</td>
+<td style="text-align:right;">
+40,11
+</td>
+</tr>
+<tr>
 <td style="text-align:right;">
 131
 </td>
-</tr>
-<tr>
 <td style="text-align:right;">
-13,82
-</td>
-<td style="text-align:right;">
-134
+12,64
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-15,79
+299
 </td>
 <td style="text-align:right;">
-135
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-14,70
-</td>
-<td style="text-align:right;">
-134
+24,54
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-17,23
+324
 </td>
 <td style="text-align:right;">
-137
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-14,84
-</td>
-<td style="text-align:right;">
-136
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-14,96
-</td>
-<td style="text-align:right;">
-135
+46,37
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>Messreihe:</li>
-</ol>
+<p>Mit den Methoden aus <a href="maßzahlen.html#einleitende-bemerkungen">Sitzung 2</a> und <a href="korrelation.html#kovarianz">7</a> können wir folgende Werte für die Mittelwerte <span class="math inline">\(\bar{x}\)</span> und <span class="math inline">\(\bar{y}\)</span>, die Varianz <span class="math inline">\(s^2_x\)</span> sowie die Kovarianz <span class="math inline">\(s_{xy}\)</span> berechnen:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\bar{x}&amp;=256{,}25\\
+\bar{y}&amp;\approx 32{,}56\\
+s^2_{x}&amp;\approx9340{,}93\\
+s_{xy}&amp;\approx 1062{,}50
+\end{aligned}
+\]</span></p>
+<p>Für die Steigung der Regressionsgeraden <span class="math inline">\(b\)</span> setzen wir die entsprechenden Werte in Gleichung <a href="lineare-regression.html#eq:b">(8.2)</a> ein:</p>
+<p><span class="math display">\[
+\begin{aligned}
+b&amp;=\frac{s_{xy}}{s^2_x}\\
+ &amp;\approx\frac{1062{,}50}{9340{,}93}\\
+ &amp;\approx0{,}114
+\end{aligned}
+\]</span></p>
+<p>Die Steigung von 0,114 bedeutet, dass – im linearen Regressionsmodell – Passagiere in jeder zusätzlichen Minute, die sie am Flughafen verbringen, in etwa 11,4 zusätzliche Cent ausgeben.</p>
+<p>Der Achsenabschnitt <span class="math inline">\(a\)</span> berechnet sich dann gemäß Gleichung <a href="lineare-regression.html#eq:a">(8.3)</a>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+a&amp;=\bar{y}-b\cdot\bar{x}\\
+&amp;\approx 32{,}56-0{,}114\cdot256{,}25\\
+&amp;\approx 3{,}35
+\end{aligned}
+\]</span></p>
+<p>Dieser Wert ergibt nur einen abstrakt-mathematischen Sinn – es dürfte in der Praxis wohl kaum Passagiere geben, die 0 Minuten am Flughafen verbringen und € 3,35 ausgeben.</p>
+<p>Mit dem Achsenabschnitt <span class="math inline">\(a\)</span> und der Steigung <span class="math inline">\(b\)</span> lässt sich folgende Gleichung für die Regressionsgerade aufstellen (s. Gleichung <a href="lineare-regression.html#eq:lin">(8.1)</a>):</p>
+<p><span class="math display">\[
+\begin{aligned}
+y&amp;=a+b\cdot x\\
+y&amp;\approx3{,}35 + 0{,}114 \cdot x
+\end{aligned}
+\]</span></p>
+<p>Graphisch ist diese lineare Regression in Abbildung <a href="lineare-regression.html#fig:duty2">8.2</a> dargestellt.</p>
+<div class="figure" style="text-align: center"><span id="fig:duty2"></span>
+<img src="Skript_Statistik_2021_files/figure-html/duty2-1.svg" alt="Regressionslinie durch ein Streudiagramm" width="450px" />
+<p class="caption">
+Abbildung 8.2: Regressionslinie durch ein Streudiagramm
+</p>
+</div>
+</div>
+</div>
+<div id="residuen" class="section level2" number="8.3">
+<h2><span class="header-section-number">8.3</span> Residuen</h2>
+<p>Residuen (engl. <em>residuals</em>) werden mit <span class="math inline">\(e\)</span> bezeichnet und sind die Differenzen zwischen den tatsächlichen <span class="math inline">\(y\)</span>-Werten und den im Modell erwarteten <span class="math inline">\(\hat{y}\)</span>-Werten für die jeweiligen <span class="math inline">\(x\)</span>-Werte:</p>
+<p><span class="math display" id="eq:res">\[
+e_i=y_i-\hat{y}_i
+\tag{8.4}
+\]</span></p>
+<p>Residuen sind also – auch dem Wortstamm nach – das, was nach der Vorhersage durch das Modell <q>übrig bleibt</q> von den tatsächlich beobachteten Werten (also der Teil des Werts, der <em>nicht</em> durch das Regressionsmodell erklärt wird).</p>
+<div class="rtip">
+Softwarehinweis
+</div>
+<div class="rtip_content">
+Residuen lassen sich in R durch den Befehl <code>resid()</code> errechnen.
+</div>
+<div id="beispiel-27" class="section level3" number="8.3.1">
+<h3><span class="header-section-number">8.3.1</span> Beispiel</h3>
+<p>Graphisch sind die Residuen für unser Beispiel in Abbildung <a href="lineare-regression.html#fig:res1">8.3</a> dargestellt (positive Werte in grün, negative Werte in rot), tabellarisch in Tabelle <a href="lineare-regression.html#tab:res2">8.2</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:res1"></span>
+<img src="Skript_Statistik_2021_files/figure-html/res1-1.svg" alt="Graphische Darstellung der Residuen" width="450px" />
+<p class="caption">
+Abbildung 8.3: Graphische Darstellung der Residuen
+</p>
+</div>
 <div style="overflow-y: auto;">
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:res2">Tabelle 8.2: </span>Residuen der Beispielwerte
+</caption>
 <thead>
+<tr>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="1">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Aufenthaltszeit (min)
+</div>
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="1">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Ausgaben (€)
+</div>
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="1">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Erwartete Ausgaben (€)
+</div>
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="1">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Residuen (€)
+</div>
+</th>
+</tr>
 <tr>
 <th style="text-align:right;border-bottom: 1px solid; ">
 <span class="math inline">\(x_i\)</span>
@@ -1420,360 +793,239 @@ r&amp;=\frac{s_{xy}}{s_x\cdot s_y}\\[4pt]
 <th style="text-align:right;border-bottom: 1px solid; ">
 <span class="math inline">\(y_i\)</span>
 </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
--1,17
-</td>
-<td style="text-align:right;">
-14,40
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
--0,10
-</td>
-<td style="text-align:right;">
-2,31
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
--0,15
-</td>
-<td style="text-align:right;">
-2,95
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-0,46
-</td>
-<td style="text-align:right;">
--1,39
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-0,34
-</td>
-<td style="text-align:right;">
--2,96
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
--0,44
-</td>
-<td style="text-align:right;">
-2,44
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2,13
-</td>
-<td style="text-align:right;">
--20,47
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-0,66
-</td>
-<td style="text-align:right;">
--10,51
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
--1,37
-</td>
-<td style="text-align:right;">
-11,81
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-0,56
-</td>
-<td style="text-align:right;">
--4,05
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="aufgabe-7-2" class="section level3" number="7.3.3">
-<h3><span class="header-section-number">7.3.3</span> Aufgabe 7-2</h3>
-<p><a href="lösungen-der-übungsaufgaben.html#loesung-7-2">zur Lösung</a></p>
-<p>Sie erheben für zufällige <a href="https://frankfurt.de/frankfurt-entdecken-und-erleben/stadtportrait/typisch-frankfurt/wasserhaeuschen">Wasserhäuschen</a> in Frankfurt die Entfernung zur nächsten Haltestelle der S- oder U-Bahn sowie den durchschnittlichen Tagesumsatz. Die Erhebung ergibt:</p>
-<div style="overflow-y: auto;">
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
 <th style="text-align:right;border-bottom: 1px solid; ">
-Entfernung (m)
+<span class="math inline">\(\hat{y}_i\approx3{,}35+0{,}114\cdot x_i\)</span>
 </th>
 <th style="text-align:right;border-bottom: 1px solid; ">
-Umsatz (€/Tag)
+<span class="math inline">\(e_i=y_i-\hat{y}_i\)</span>
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:right;">
-35
+121
 </td>
 <td style="text-align:right;">
-394,61
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-79
+17,94
 </td>
 <td style="text-align:right;">
-468,92
+17,144
+</td>
+<td style="text-align:right;">
+0,796
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-234
+125
 </td>
 <td style="text-align:right;">
-385,75
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-105
+23,15
 </td>
 <td style="text-align:right;">
-376,17
+17,600
+</td>
+<td style="text-align:right;">
+5,550
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-318
+293
 </td>
 <td style="text-align:right;">
-283,26
+44,31
+</td>
+<td style="text-align:right;">
+36,752
+</td>
+<td style="text-align:right;">
+7,558
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-31
+370
 </td>
 <td style="text-align:right;">
-342,77
+42,46
+</td>
+<td style="text-align:right;">
+45,530
+</td>
+<td style="text-align:right;">
+-3,070
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+246
+</td>
+<td style="text-align:right;">
+35,51
+</td>
+<td style="text-align:right;">
+31,394
+</td>
+<td style="text-align:right;">
+4,116
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+281
+</td>
+<td style="text-align:right;">
+28,46
+</td>
+<td style="text-align:right;">
+35,384
+</td>
+<td style="text-align:right;">
+-6,924
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+169
+</td>
+<td style="text-align:right;">
+18,47
+</td>
+<td style="text-align:right;">
+22,616
+</td>
+<td style="text-align:right;">
+-4,146
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+328
+</td>
+<td style="text-align:right;">
+56,77
+</td>
+<td style="text-align:right;">
+40,742
+</td>
+<td style="text-align:right;">
+16,028
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+388
+</td>
+<td style="text-align:right;">
+40,11
+</td>
+<td style="text-align:right;">
+47,582
+</td>
+<td style="text-align:right;">
+-7,472
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+131
+</td>
+<td style="text-align:right;">
+12,64
+</td>
+<td style="text-align:right;">
+18,284
+</td>
+<td style="text-align:right;">
+-5,644
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+299
+</td>
+<td style="text-align:right;">
+24,54
+</td>
+<td style="text-align:right;">
+37,436
+</td>
+<td style="text-align:right;">
+-12,896
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+324
+</td>
+<td style="text-align:right;">
+46,37
+</td>
+<td style="text-align:right;">
+40,286
+</td>
+<td style="text-align:right;">
+6,084
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>Gibt es einen Zusammenhang zwischen Entfernung und Umsatz?
-Wenn ja: Wie hängen die Variablen zusammen? Wie stark ist der Zusammenhang?</p>
+<p>Residuen spielen in vielen statistischen Verfahren eine Rolle, z.B. in der Residuenanalyse. Diese Verfahren werden im Rahmen dieser Veranstaltung jedoch nicht behandelt.</p>
 </div>
-<div id="aufgabe-7-3" class="section level3" number="7.3.4">
-<h3><span class="header-section-number">7.3.4</span> Aufgabe 7-3</h3>
-<p><a href="lösungen-der-übungsaufgaben.html#loesung-7-3">zur Lösung</a></p>
-<p>Für eine Umnutzung zu Kulturzentren sollen zwei Gebäude kernsaniert werden. Um die Kosten schätzen zu können, werden die Nutzflächen und Kosten von fünf ähnlichen Sanierungsprojekten herangezogen. Sie berechnen zunächst die Mittelwerte und Varianzen der erfassten Merkmale.</p>
-<div style="overflow-y: auto;">
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:right;border-bottom: 1px solid; ">
-Projekt
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-Nutzfläche (m²)
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-Kosten (Tsd. €)
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-456
-</td>
-<td style="text-align:right;">
-264
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-628
-</td>
-<td style="text-align:right;">
-306
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-497
-</td>
-<td style="text-align:right;">
-348
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-275
-</td>
-<td style="text-align:right;">
-202
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-549
-</td>
-<td style="text-align:right;">
-322
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-313
-</td>
-<td style="text-align:right;">
-99
-</td>
-</tr>
-</tbody>
-</table>
 </div>
-<p>Wie deutlich fällt der Zusammenhang zwischen Fläche und Kosten aus?</p>
+<div id="determinationskoeffizient" class="section level2" number="8.4">
+<h2><span class="header-section-number">8.4</span> Determinationskoeffizient 𝑅²</h2>
+<p>Der Determinationskoeffizient <span class="math inline">\(R^2\)</span> (engl. <em>coefficient of determination</em>) ist formal definiert als das Verhältnis der Varianz der vorhergesagten <span class="math inline">\(\hat{y}\)</span>-Werte zur Varianz der tatsächlich beobachteten <span class="math inline">\(y\)</span>-Werte (wobei sich der Term <span class="math inline">\([n-1]\)</span> auskürzt):</p>
+<p><span class="math display" id="eq:rsqformal">\[
+R^2=\frac{\sum\limits^n_{i=1}(\hat{y}_i-\bar{y})^2}{\sum\limits^n_{i=1}(y_i-\bar{y})^2}
+\tag{8.5}
+\]</span></p>
+<p>Da Zähler und Nenner als Quadratsummen stets positiv sind und die Varianz der <span class="math inline">\(\hat{y}\)</span>-Werte immer <em>kleiner oder gleich</em> der Varianz der <span class="math inline">\(y\)</span>-Werte ist, nimmt der Determinationskoeffizient immer einen Wert zwischen 0 und 1 an.</p>
+<p>Je größer <span class="math inline">\(R^2\)</span>, desto besser erklärt das lineare Regressionsmodell die tatsächlich beobachteten Werte. <span class="math inline">\(R^2=1\)</span> bedeutet, dass das Modell die Werte perfekt erklärt.</p>
+<p>Für lineare Regressionsmodelle (also für die einzige Regression, die im Rahmen dieser Veranstaltung behandelt wird) lässt sich <span class="math inline">\(R^2\)</span> auch berechnen, indem wir den Korrelationskoeffizienten <span class="math inline">\(r\)</span> quadrieren:</p>
+<p><span class="math display" id="eq:rsq">\[
+R^2=r^2
+\tag{8.6}
+\]</span></p>
+<div class="rtip">
+Softwarehinweis
 </div>
-<div id="aufgabe-7-4" class="section level3" number="7.3.5">
-<h3><span class="header-section-number">7.3.5</span> Aufgabe 7-4</h3>
-<p><a href="lösungen-der-übungsaufgaben.html#loesung-7-4">zur Lösung</a></p>
-<p>Eine Stadtverwaltung möchte die Mietpreisentwicklung für Gewerbeimmobilien in der innerstädtischen Einkaufspassage abschätzen. Sie folgt dabei der These: Entscheidend für die Höhe der monatlichen Mietpreise (in Euro pro Quadratmeter) sei die Entfernung zur nächstgelegenen Haltestelle des ÖPNV: Je näher an der Haltestation gelegen, desto höher der Mietpreis.</p>
-<p>Für Aussagen über den angenommenen Zusammenhang stehen die Daten von sechs zufällig ausgewählten Gewerbeimmobilien in der Einkaufspassage zur Verfügung.</p>
-<div style="overflow-y: auto;">
-<table class="table" style="margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:right;border-bottom: 1px solid; ">
-Immobilie
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-Entfernung (m)
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-Quadratmeterpreis (€)
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1141
-</td>
-<td style="text-align:right;">
-30
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-850
-</td>
-<td style="text-align:right;">
-49
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-862
-</td>
-<td style="text-align:right;">
-40
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-1000
-</td>
-<td style="text-align:right;">
-39
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-783
-</td>
-<td style="text-align:right;">
-51
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-890
-</td>
-<td style="text-align:right;">
-42
-</td>
-</tr>
-</tbody>
-</table>
+<div class="rtip_content">
+In R wird mit dem Befehl <code>summary()</code> unter anderem der Determinationskoeffizient eines linearen Regressionsmodells ausgegeben.
 </div>
-<p>Die (gerundeten) arithmetischen Mittel betragen <span class="math inline">\(\bar{x} = 921{,}00\)</span> Meter und <span class="math inline">\(\bar{y} \approx 41{,}83\)</span> Euro, und die (gerundeten) Standardabweichungen liegen bei <span class="math inline">\(s_x = 128{,}97\)</span> Meter und <span class="math inline">\(s_y = 7{,}57\)</span> Euro.</p>
-<p>Wie groß ist der Zusammenhang zwischen der Entfernung zur nächstgelegenen Haltestelle und dem gemessenen Mietpreis pro Quadratmeter? Berechnen Sie den Korrelationskoeffizienten und interpretieren Sie das Ergebnis.</p>
+<div id="beispiel-28" class="section level3" number="8.4.1">
+<h3><span class="header-section-number">8.4.1</span> Beispiel</h3>
+<p>Mit den Methoden aus <a href="korrelation.html#korrelationskoeffizient">Sitzung 7</a> können wir den Korrelationskoeffizienten für unser Beispiel errechnen:</p>
+<p><span class="math display">\[
+\begin{aligned}
+r&amp;=\frac{s_{xy}}{s_x\cdot s_y}\\
+&amp;\approx\frac{1062{,}50}{96{,}65\cdot13,68}\\
+&amp;\approx0{,}804
+\end{aligned}
+\]</span></p>
+<p>Der Determinationskoeffizient ergibt sich dann mit Gleichung <a href="lineare-regression.html#eq:rsq">(8.6)</a>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+R^2&amp;=r^2\\
+&amp;\approx 0{,}804^2\\
+&amp;\approx 0{,}646
+\end{aligned}
+\]</span></p>
 </div>
-<div id="aufgabe-7-5" class="section level3" number="7.3.6">
-<h3><span class="header-section-number">7.3.6</span> Aufgabe 7-5</h3>
-<p><a href="lösungen-der-übungsaufgaben.html#loesung-7-5">zur Lösung</a></p>
-<p><em>(weiterführend, nicht klausurrelevant)</em></p>
-<ol style="list-style-type: lower-alpha">
-<li>Zeigen Sie, dass der Korrelationskoeffizent <span class="math inline">\(r\)</span> ein standardisierter Wert ist, indem Sie ihn in <span class="math inline">\(z\)</span>-Werten ausdrücken.</li>
-<li>Überprüfen Sie die Formel anhand Aufgabe 1 a).</li>
-<li>Angenommen, Sie wollen <span class="math inline">\(r\)</span> angeben, ohne die Koviarianz berechnet zu haben. Wie lassen sich die Rechenschritte dann vereinfachen?</li>
-<li>Überprüfen Sie den Rechenweg anhand Aufgabe 2.</li>
-</ol>
+</div>
+<div id="tipps-zur-vertiefung-7" class="section level2 unnumbered">
+<h2>Tipps zur Vertiefung</h2>
+<ul>
+<li>Kapitel 11 in <span class="citation"><a href="#ref-bortz" role="doc-biblioref">Bortz und Schuster</a> (<a href="#ref-bortz" role="doc-biblioref">2010</a>)</span></li>
+<li>Kapitel 4.5.1 – 4.5.6 in <span class="citation"><a href="#ref-delange" role="doc-biblioref">Lange und Nipper</a> (<a href="#ref-delange" role="doc-biblioref">2018</a>)</span></li>
+<li>Kapitel 6.2 in <span class="citation"><a href="#ref-bahrenberg" role="doc-biblioref">Bahrenberg, Giese und Nipper</a> (<a href="#ref-bahrenberg" role="doc-biblioref">2010</a>)</span></li>
+<li>Kapitel 17 in <span class="citation"><a href="#ref-klemm" role="doc-biblioref">Klemm</a> (<a href="#ref-klemm" role="doc-biblioref">2002</a>)</span></li>
+<li><em>Englisch:</em> Kapitel 13.1 – 13.4 in <span class="citation"><a href="#ref-burt" role="doc-biblioref">Burt und Barber</a> (<a href="#ref-burt" role="doc-biblioref">1996</a>)</span></li>
+</ul>
 
-</div>
 </div>
 </div>
 <h3>Quellenverzeichnis</h3>
@@ -1799,8 +1051,8 @@ Lange, Norbert de und Josef Nipper. 2018. <em>Quantitative Methodik in der Geogr
           </div>
         </div>
       </div>
-<a href="testverfahren-mit-zwei-stichproben.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="lineare-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="korrelation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="formeln.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
