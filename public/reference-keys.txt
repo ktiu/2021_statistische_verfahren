@@ -321,6 +321,11 @@ kovarianz
 beispiel-24
 korrelationskoeffizient
 beispiel-25
+aufgabe-7-1
+aufgabe-7-2
+aufgabe-7-3
+aufgabe-7-4
+aufgabe-7-5
 loesung-1-1
 loesung-1-2
 loesung-1-3
@@ -410,3 +415,13 @@ loesung-6-4
 loesung-6-5
 loesung-6-6
 loesung-6-7
+loesung-7-1
+loesung-7-2
+loesung-7-3
+berechnung-mittelwerte
+tabelle
+berechnung
+loesung-7-4
+tabelle-1
+berechnung-1
+loesung-7-5

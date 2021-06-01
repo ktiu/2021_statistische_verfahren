@@ -106,7 +106,7 @@ rnorm(5, 10, sqrt(5.2)) %>%
   round(2) -> preise
 mittel <- get_mean(preise)
 sigma <- get_sd(pop = T, variance = 5.2)
-z <- get_z1(preise, mu = 11.8, sigma = sigma$raw, mode = "abwärts")
+z <- get_z_test(preise, mu = 11.8, sigma = sigma$raw, mode = "abwärts")
 
 tribble(
   ~Schritt, ~Lösung,
@@ -137,11 +137,11 @@ mu0 <- 69
 barx <- get_mean(data)
 var <- get_var(data)
 s <- get_sd(data)
-t <- get_t1(barx = barx$raw,
-            s = s$raw,
-            n = 6,
-            mu = mu0,
-            mode = "ungerichtet")
+t <- get_t1_test(barx = barx$raw,
+                 s = s$raw,
+                 n = 6,
+                 mu = mu0,
+                 mode = "ungerichtet")
 tribble(
   ~Schritt,                            ~Lösung,
   "Test wählen",                       t$wählen,

@@ -142,14 +142,14 @@ counter <- list(sitzung = 0, aufgabe = 0)
 
 # Terminüberblick {-}
 
-*Alle Sitzungen finden von 14 bis 16h c.t. statt*
+*Alle Sitzungen finden von 14 bis 16h c. t. statt, die Klausuren s. t.*
 
 Datum                 | Sitzung | Inhalt
 --------------------: | ------: | :-----------------------------------
 13. April 2021        |         | [Vorbesprechung]
 20. April 2021        | 1       | [Datenerhebung und Häufigkeiten]
 27. April 2021        | 2       | [Maßzahlen]
-4. Mai 2021           | 3       | [z-Werte und Normalverteilung]
+4. Mai 2021           | 3       | [$z$-Werte und Normalverteilung](#z-werte-und-normalverteilung)
 11. Mai 2021          | 4       | [Schätzstatistik]
 18. Mai 2021          | 5       | [Grundlagen der Teststatistik]
 25. Mai 2021          | 6       | [Testverfahren mit zwei Stichproben]
@@ -159,4 +159,5 @@ Datum                 | Sitzung | Inhalt
 22. Juni 2021         | 10      | [$\chi^2$-Tests]
 29. Juni 2021         |         | Klausurvorbereitung
 6. Juli 2021          |         | Klausurvorbereitung
-13. Juli 2021         |         | Klausur
+13. Juli 2021         |         | Klausur (14h s. t.)
+12. Oktober 2021      |         | Nachklausur (14h s. t.)
