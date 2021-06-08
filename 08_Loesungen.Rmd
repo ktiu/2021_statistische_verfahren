@@ -37,7 +37,7 @@ a) Schritt 1: Steigung $b$
     \[\begin{aligned}
     b&=\frac{s_{xy}}{s^2_x}\\
      &=\frac{869{,}83}{1080{,}94}\\
-     &\approx0{,}81
+     &\approx0{,}805
     \end{aligned}\]
 
     Schritt 2: Achsenabschnitt $a$

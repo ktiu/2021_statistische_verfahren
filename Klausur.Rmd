@@ -12,7 +12,7 @@ Die Klausur wird am 13. Juli 2021 um 14:00 Uhr freigeschaltet. Die Abgabe ist 
 ### Zugelassene Hilfsmittel {-}
 
 - Ausgedruckte Klausur und/oder leere Zettel
-- Ggf. vorbereitete Eigenständigkeitserklärung 
+- Ggf. vorbereitete [Eigenständigkeitserklärung](docs/Eigenständigkeitserklärung.pdf)
 - Nicht-programmierbarer Taschenrechner (wie Abitur in Hessen)
 - Ihre Unterlagen
 
