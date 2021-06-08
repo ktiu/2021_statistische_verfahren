@@ -345,6 +345,11 @@ residuen
 beispiel-27
 determinationskoeffizient
 beispiel-28
+aufgabe-8-1
+aufgabe-8-2
+aufgabe-8-3
+aufgabe-8-4
+aufgabe-8-5
 loesung-1-1
 loesung-1-2
 loesung-1-3
@@ -444,3 +449,8 @@ loesung-7-4
 tabelle-1
 berechnung-1
 loesung-7-5
+loesung-8-1
+loesung-8-2
+loesung-8-3
+loesung-8-4
+loesung-8-5
