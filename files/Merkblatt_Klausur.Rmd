@@ -1,3 +1,10 @@
+---
+title: "Merkblatt Klausur"
+subtitle: "Statistische Verfahren in der Geographie"
+date: Sommersemester 2021
+output: publishR::pdf
+---
+
 # Informationen zur Klausur {-}
 
 ### Termin {-}
@@ -17,7 +24,7 @@ Folgende Hilfsmittel sind zur Klausur zugelassen:
 
 - die ausgedruckte Klausur (aber nicht zwingend notwendig)
 - leere DIN-A4-Zettel
-- eine vorbereitete [Eigenständigkeitserklärung](files/Eigenständigkeitserklärung.pdf)
+- eine vorbereitete Eigenständigkeitserklärung.
 - ein nicht-programmierbarer Taschenrechner (Regeln wie für Abitur in Hessen)
 - Ihre Unterlagen
 
@@ -36,7 +43,7 @@ Meine dringende Empfehlung: Schauen Sie sich zur Vorbereitung auf OLAT die "Klau
 Ich empfehle, die Klausur auszudrucken. Das ist aber nicht zwingend nötig. Wenn Sie die Klausur nicht drucken, sollten Sie
 
 - leere DIN-A4-Papierbögen zur hand haben, und
-- eine Eigenständigkeitserklärung vorbereiten. [Zum Vordruck](files/Eigenständigkeitserklärung.pdf)
+- eine Eigenständigkeitserklärung vorbereiten (Vordruck auf OLAT).
 
 ### Abgabe {-}
 

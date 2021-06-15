@@ -87,7 +87,7 @@ b) Teilwerte $\chi^2$:
     \end{aligned}
     $$
 
-c) Es gibt eine schwache Korrelation der beiden Antworten ($\phi\approx0{,}186$). Die Bejahung beider Fragen liegt unter dem Erwartungswert und korreliert also leicht negativ.
+c) Es gibt eine schwache Korrelation der beiden Antworten ($\phi\approx0{,}186$). Die Bejahung bzw. Verneinung beider Fragen liegt unter dem Erwartungswert. Die Antworten auf beide Ja-Nein-Fragen korrelieren also leicht negativ.
 
 `r naechste("lösung") #3`
 

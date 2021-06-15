@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Sitzung 9 Kreuztabellen | Statistische Verfahren in der Geographie</title>
-  <meta name="description" content="Sitzung 9 Kreuztabellen | Statistische Verfahren in der Geographie" />
+  <title>Sitzung 10 𝜒²-Tests | Statistische Verfahren in der Geographie</title>
+  <meta name="description" content="Sitzung 10 𝜒²-Tests | Statistische Verfahren in der Geographie" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Sitzung 9 Kreuztabellen | Statistische Verfahren in der Geographie" />
+  <meta property="og:title" content="Sitzung 10 𝜒²-Tests | Statistische Verfahren in der Geographie" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Sitzung 9 Kreuztabellen | Statistische Verfahren in der Geographie" />
+  <meta name="twitter:title" content="Sitzung 10 𝜒²-Tests | Statistische Verfahren in der Geographie" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="lineare-regression.html"/>
-<link rel="next" href="chi-quadrat-tests.html"/>
+<link rel="prev" href="kreuztabellen.html"/>
+<link rel="next" href="formeln.html"/>
 <script src="assets/header-attrs-2.8/header-attrs.js"></script>
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -587,536 +587,200 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="kreuztabellen" class="section level1" number="9">
-<h1><span class="header-section-number">Sitzung 9</span> Kreuztabellen</h1>
-<div id="lernziele-dieser-sitzung-8" class="section level3 unnumbered">
+<div id="chi-quadrat-tests" class="section level1" number="10">
+<h1><span class="header-section-number">Sitzung 10</span> 𝜒²-Tests</h1>
+<div id="lernziele-dieser-sitzung-9" class="section level3 unnumbered">
 <h3>Lernziele dieser Sitzung</h3>
 <p>Sie können…</p>
 <ul>
-<li>eine Kreuztabelle erstellen und interpretieren.</li>
-<li>den Kontingenzkoeffizienten <span class="math inline">\(\chi^2\)</span> errechnen.</li>
-<li>die Maßzahlen <span class="math inline">\(\phi\)</span> bzw. <span class="math inline">\(\mathit{CI}\)</span> errechnen und interpretieren.</li>
+<li>einen <span class="math inline">\(\chi^2\)</span>-Unabhängigkeitstest durchführen.</li>
+<li>einen <span class="math inline">\(\chi^2\)</span>-Anpassungstest durchführen.</li>
 </ul>
 </div>
-<div id="lehrvideos-sommersemester-2020-5" class="section level3 unnumbered">
-<h3>Lehrvideos (Sommersemester 2020)</h3>
+<div id="lernvideos-sommersemester-2020-1" class="section level3 unnumbered">
+<h3>Lernvideos (Sommersemester 2020)</h3>
 <ul>
-<li><a href="https://video01.uni-frankfurt.de/Mediasite/Play/24a54089cd474c5f936a2dfeecfc43281d">9a) Kreuztabellen</a></li>
-<li><a href="https://video01.uni-frankfurt.de/Mediasite/Play/007a5399d62a4e27a09e1e31e9b04e461d">9b) Kontingenzkoeffizenten</a></li>
+<li><a href="https://video01.uni-frankfurt.de/Mediasite/Play/201d31a1bd8448a8a22dd61396f3126c1d">10a) <span class="math inline">\(\chi^2\)</span>-Unabhängigkeitstest</a></li>
+<li><a href="https://video01.uni-frankfurt.de/Mediasite/Play/587c77b97ba84bb696efec95b25591d61d">10a) <span class="math inline">\(\chi^2\)</span>-Anpassungstest</a>
+<ul>
+<li>Der Hinweis am Ende auf die Vorbereitungssitzung ist natürlich nicht mehr aktuell. Wir treffen uns am 29. Juni und am 6. Juli 2021 zur Klausurvorbereitung.</li>
+</ul></li>
 </ul>
 </div>
-<div id="bivariate-verteilungen-mit-nominalen-variablen" class="section level2" number="9.1">
-<h2><span class="header-section-number">9.1</span> Bivariate Verteilungen mit nominalen Variablen</h2>
-<p>In der bivariaten Statistik (<a href="korrelation.html#korrelation">Sitzung 7</a> und <a href="lineare-regression.html#lineare-regression">Sitzung 8</a>) ging es bisher um Zusammenhänge zwischen zwei metrischen Variablen. In dieser Sitzung geht es um statistische Verfahren der bivariaten Statistik, bei denen für beide Variablen nur das Nominalskalenniveau vorausgesetzt ist. (Für Skalenniveaus s. <a href="datenerhebung-und-häufigkeiten.html#skalenniveaus">Sitzung 1</a>.)</p>
-<p>Mit den Werten von nominalskalierten Variablen lassen sich die in <a href="korrelation.html#korrelation">Sitzung 7</a> und <a href="lineare-regression.html#lineare-regression">Sitzung 8</a> besprochenen Parameter (z. B. Kovarianz) nicht errechnen, weil wir mit ihnen nicht die notwendigen Rechenoperationen (Addition, Subtraktion) durchführen können. Stattdessen sind die beobachteten Häufigkeiten Ausgangslage für die im Folgenden besprochenen Verfahren.</p>
-<div id="beispiel-29" class="section level3" number="9.1.1">
-<h3><span class="header-section-number">9.1.1</span> Beispiel</h3>
-<p>Wir fragen uns, ob es einen Zusammenhang zwischen dem Studienfach von Studierenden an einer Universität und ihrem präferierten Transportmittel für den Pendelweg zum Campus gibt. Insbesondere interessiert uns, ob ein Zusammenhang zwischen dem Studium der Geistes- und Sozialwissenschaften und der Fahrradnutzung besteht.</p>
-<p>Beide Variablen sind nur nominalskaliert: Die erhobenen Werte können in Kategorien eingeordnet werden, die aber keine inhärente Hierarchie aufweisen (Studienfach: Geographie, Politikwissenschaft, BWL, …; Transportmittel: Bus, Fahrrad, zu Fuß, …).</p>
-<p>Um die Variablen im Sinne unserer Fragestellung zu vereinfachen, wandeln wir beide Variablen in <em>dichotome</em> Variablen um (die dann nur zwei Werte annehmen können). Wir beschränken uns auf die Erhebung von <q>Fahrrad</q> oder <q>anderes Transportmittel</q> einerseits und <q>Geistes-/Sozialwissenschaft</q> oder <q>anderes Studienfach</q> andererseits. Die (verkürzte) Tabelle der Rohdaten einer Zufallsstichprobe der Größe <span class="math inline">\(n=90\)</span> könnte dann so aussehen wie <a href="kreuztabellen.html#tab:roh">9.1</a>.</p>
-<div style="overflow-y: auto;">
-<table class="table" style="margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:roh">Tabelle 9.1: </span>Ungeordnete Rohdaten der Erhebung
-</caption>
-<thead>
-<tr>
-<th style="text-align:right;border-bottom: 1px solid; ">
-<span class="math inline">\(i\)</span>
-</th>
-<th style="text-align:left;border-bottom: 1px solid; ">
-Studienfach
-</th>
-<th style="text-align:left;border-bottom: 1px solid; ">
-Transportmittel
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-Geistes-/Sozialwissenschaft
-</td>
-<td style="text-align:left;">
-anderes Transportmittel
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:left;">
-anderes Studienfach
-</td>
-<td style="text-align:left;">
-anderes Transportmittel
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:left;">
-anderes Studienfach
-</td>
-<td style="text-align:left;">
-anderes Transportmittel
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:left;">
-anderes Studienfach
-</td>
-<td style="text-align:left;">
-Fahrrad
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:left;">
-Geistes-/Sozialwissenschaft
-</td>
-<td style="text-align:left;">
-anderes Transportmittel
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:left;">
-anderes Studienfach
-</td>
-<td style="text-align:left;">
-anderes Transportmittel
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-…
-</td>
-<td style="text-align:left;">
-…
-</td>
-<td style="text-align:left;">
-…
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-85
-</td>
-<td style="text-align:left;">
-Geistes-/Sozialwissenschaft
-</td>
-<td style="text-align:left;">
-anderes Transportmittel
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-86
-</td>
-<td style="text-align:left;">
-anderes Studienfach
-</td>
-<td style="text-align:left;">
-anderes Transportmittel
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-87
-</td>
-<td style="text-align:left;">
-anderes Studienfach
-</td>
-<td style="text-align:left;">
-Fahrrad
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-88
-</td>
-<td style="text-align:left;">
-anderes Studienfach
-</td>
-<td style="text-align:left;">
-anderes Transportmittel
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-89
-</td>
-<td style="text-align:left;">
-Geistes-/Sozialwissenschaft
-</td>
-<td style="text-align:left;">
-anderes Transportmittel
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-90
-</td>
-<td style="text-align:left;">
-Geistes-/Sozialwissenschaft
-</td>
-<td style="text-align:left;">
-anderes Transportmittel
-</td>
-</tr>
-</tbody>
-</table>
+<div id="anwendungsbereich" class="section level2 unnumbered">
+<h2>Anwendungsbereich</h2>
+<p>In <a href="kreuztabellen.html#bivariate-verteilungen-mit-nominalen-variablen">Sitzung 9</a> haben wir gelernt, wie für bivariate Verteilungen Korrelationen beschrieben werden können, wenn beide Variablen nominalskaliert sind. Grundlage dafür waren die Häufigkeiten von Wertekombinationen in der Kreuztabelle.</p>
+<p>Auch für <span class="math inline">\(\chi^2\)</span>-Tests sind beobachtete Häufigkeiten in einer Kreuztabelle unser Ausgangspunkt. Wir fragen jedoch nicht nach einem Kennwert für die Stärke der Korrelation, sondern wollen wissen, ob es einen statistisch signifikanten Zusammenhang zwischen den beiden Variablen gibt – also einen Zusammenhang, der höchstens mit einer Wahrscheinlichkeit <span class="math inline">\(\alpha\)</span> (Signifikanzniveau) zufällig zustande gekommen sein kann.</p>
+<p>Um den Unterschied zu verdeutlichen: Bei sehr großen Fallzahlen kann auch eine leichte Korrelation statistisch signifikant sein, bei kleinen Fallzahlen wird es es selbst für starke Korrelationen schwierig, eine statistische Signifikanz nachzuweisen.</p>
+<p>Mit dem <span class="math inline">\(\chi^2\)</span>-Unabhängigkeitstest und dem <span class="math inline">\(\chi^2\)</span>-Anpassungstest lernen wir im Folgenden zwei unterschiedliche Varianten des <span class="math inline">\(\chi^2\)</span>-Tests kennen. Beide sollen direkt an Beispielen ausgeführt werden.</p>
 </div>
-</div>
-</div>
-<div id="kreuztabelle" class="section level2" number="9.2">
-<h2><span class="header-section-number">9.2</span> Kreuztabelle</h2>
-<p>Die Kreuztabelle (auch Kontingenztabelle, Kontingenztafel, engl. <em>contingency table</em>) ist eine übersichtliche Zusammenfassung der Rohdaten. Sie spannt die beiden Variablen in Spalten- und Zeilenrichtung auf, so dass in jeder Zelle die Häufigkeit einer bestimmten Wertekombination steht.</p>
-<p>Bei zwei dichotomen Variablen ergeben sich zwei Spalten und zwei Zeilen, also vier Tabellenfelder. Wir sprechen in diesem Fall auch von einer <span class="math inline">\(2\times2\)</span>-Tabelle.</p>
-<div id="beispiel-30" class="section level3" number="9.2.1">
-<h3><span class="header-section-number">9.2.1</span> Beispiel</h3>
-<p>Die Kreuztabelle für unser Beispiel ist in <a href="kreuztabellen.html#tab:crossrad">9.2</a> dargestellt. Die Spaltenüberschriften sind die beiden Werte der dichotomen Variable <q>Transportmittel</q>, und die Zeilennamen sind die beiden Werte für <q>Studienfach</q>. In den Zellen stehen die Häufigkeiten. Es lässt sich also z. B. ablesen, dass die Kombination <q>Fahrrad</q> und <q>anderes Studienfach</q> neun mal vorkommt.</p>
+<div id="𝜒²-unabhängigkeitstest" class="section level2" number="10.1">
+<h2><span class="header-section-number">10.1</span> 𝜒²-Unabhängigkeitstest</h2>
+<p>Grundlage sind bivariate Häufigkeiten, die in einer Kreuztabelle dargestellt werden können (s. Tabelle <a href="chi-quadrat-tests.html#tab:zivi1">10.1</a>). Wie Kreuztabellen erstellt werden, haben wir bereits in <a href="kreuztabellen.html#kreuztabelle">Sitzung 9</a> behandelt.</p>
 <div style="overflow-y: auto;">
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:crossrad">Tabelle 9.2: </span>Kreuztabelle für die Beispielerhebung
+<span id="tab:zivi1">Tabelle 10.1: </span>Kreuztabelle der Beispieldaten
 </caption>
 <thead>
 <tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="2">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+→ Dienst
+</div>
+</th>
+</tr>
+<tr>
 <th style="text-align:right;border-bottom: 1px solid; ">
+Wohnort ↓
 </th>
 <th style="text-align:right;border-bottom: 1px solid; ">
-Fahrrad
+Grundwehrdienst
 </th>
 <th style="text-align:right;border-bottom: 1px solid; ">
-anderes Transportmittel
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
+Zivildienst
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:right;font-weight: bold;border-right:1px solid;">
-Geistes-/Sozialwissenschaft
+Land
+</td>
+<td style="text-align:right;">
+18
 </td>
 <td style="text-align:right;">
 11
 </td>
-<td style="text-align:right;border-right:1px solid;">
-28
-</td>
-<td style="text-align:right;font-weight: bold;">
-39
-</td>
 </tr>
-<tr>
-<td style="text-align:right;border-bottom: 1px solid; font-weight: bold;border-right:1px solid;">
-anderes Studienfach
-</td>
-<td style="text-align:right;border-bottom: 1px solid; ">
-9
-</td>
-<td style="text-align:right;border-bottom: 1px solid; border-right:1px solid;">
-42
-</td>
-<td style="text-align:right;border-bottom: 1px solid; font-weight: bold;">
-51
-</td>
-</tr>
-<tr>
-<td style="text-align:right;font-weight: bold;font-weight: bold;border-right:1px solid;">
-</td>
-<td style="text-align:right;font-weight: bold;">
-20
-</td>
-<td style="text-align:right;font-weight: bold;border-right:1px solid;">
-70
-</td>
-<td style="text-align:right;font-weight: bold;font-weight: bold;">
-90
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Am rechten Rand der Tabelle stehen die Summen für die Zeilen, am unteren Rand die Summen der Spalten. Ganz unten rechts steht die Gesamtsumme (Größe der Stichprobe).</p>
-<div class="rtip">
-Softwarehinweis
-</div>
-<div class="rtip_content">
-In R kann eine einfache Kreuztabelle mit dem Befehl <code>table()</code> ausgegeben werden.
-</div>
-</div>
-<div id="verallgemeinerung" class="section level3" number="9.2.2">
-<h3><span class="header-section-number">9.2.2</span> Verallgemeinerung</h3>
-<p>In Tabelle <a href="kreuztabellen.html#tab:crossalg">9.3</a> ist das allgemeingültige Format für Kreuztabellen festgehalten. Dabei sind folgende Besonderheiten zu beachten:</p>
-<ul>
-<li>Das Symbol <span class="math inline">\(k\)</span> steht für die Anzahl der Zeilen, <span class="math inline">\(\ell\)</span> für die Anzahl der Spalten.</li>
-<li>Die Häufigkeiten für Merkmalskombinationen in den Tabellenfeldern werden durch <span class="math inline">\(n_{ij}\)</span> symbolisiert, wobei <span class="math inline">\(i\)</span> für die laufende Nummer der Zeile steht, und <span class="math inline">\(j\)</span> für die laufende Nummer der Spalte.</li>
-<li>Die Teilsummen an den Rändern werden mit Punktnotation bezeichnet. Dabei steht die Zeilensumme <span class="math inline">\(n_{i\cdot}\)</span> für die Summe <em>aller</em> Felder in Zeile <span class="math inline">\(i\)</span> (Zeilensumme) und <span class="math inline">\(n_{\cdot j}\)</span> für die Summe <em>aller</em> Felder in Spalte <span class="math inline">\(j\)</span> (Spaltensumme).</li>
-<li>Die Gesamtsumme unten rechts wird hier mit <span class="math inline">\(n\)</span> gekennzeichnet und steht wie gewohnt für die Gesamtgröße der Stichprobe.</li>
-</ul>
-<div style="overflow-y: auto;">
-<table class="table" style="margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:crossalg">Tabelle 9.3: </span>Allgemeine Bezeichnungen in der Kreuztabelle
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;border-bottom: 1px solid; ">
-</th>
-<th style="text-align:left;border-bottom: 1px solid; ">
-Spalte 1
-</th>
-<th style="text-align:left;border-bottom: 1px solid; ">
-Spalte 2
-</th>
-<th style="text-align:left;border-bottom: 1px solid; ">
-…
-</th>
-<th style="text-align:left;border-bottom: 1px solid; ">
-Spalte <span class="math inline">\(\ell\)</span>
-</th>
-<th style="text-align:left;border-bottom: 1px solid; ">
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;font-weight: bold;border-right:1px solid;">
-Zeile 1
-</td>
-<td style="text-align:left;">
-<span class="math inline">\(n_{11}\)</span>
-</td>
-<td style="text-align:left;">
-<span class="math inline">\(n_{12}\)</span>
-</td>
-<td style="text-align:left;">
-…
-</td>
-<td style="text-align:left;border-right:1px solid;">
-<span class="math inline">\(n_{1\ell}\)</span>
-</td>
-<td style="text-align:left;font-weight: bold;">
-<span class="math inline">\(n_{1\cdot}\)</span>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;font-weight: bold;border-right:1px solid;">
-Zeile 2
-</td>
-<td style="text-align:left;">
-<span class="math inline">\(n_{21}\)</span>
-</td>
-<td style="text-align:left;">
-<span class="math inline">\(n_{22}\)</span>
-</td>
-<td style="text-align:left;">
-…
-</td>
-<td style="text-align:left;border-right:1px solid;">
-<span class="math inline">\(n_{2\ell}\)</span>
-</td>
-<td style="text-align:left;font-weight: bold;">
-<span class="math inline">\(n_{2\cdot}\)</span>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;font-weight: bold;border-right:1px solid;">
-…
-</td>
-<td style="text-align:left;">
-…
-</td>
-<td style="text-align:left;">
-…
-</td>
-<td style="text-align:left;">
-…
-</td>
-<td style="text-align:left;border-right:1px solid;">
-…
-</td>
-<td style="text-align:left;font-weight: bold;">
-…
-</td>
-</tr>
-<tr>
-<td style="text-align:left;border-bottom: 1px solid; font-weight: bold;border-right:1px solid;">
-Zeile <span class="math inline">\(k\)</span>
-</td>
-<td style="text-align:left;border-bottom: 1px solid; ">
-<span class="math inline">\(n_{k1}\)</span>
-</td>
-<td style="text-align:left;border-bottom: 1px solid; ">
-<span class="math inline">\(n_{k2}\)</span>
-</td>
-<td style="text-align:left;border-bottom: 1px solid; ">
-…
-</td>
-<td style="text-align:left;border-bottom: 1px solid; border-right:1px solid;">
-<span class="math inline">\(n_{k\ell}\)</span>
-</td>
-<td style="text-align:left;border-bottom: 1px solid; font-weight: bold;">
-<span class="math inline">\(n_{k\cdot}\)</span>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;font-weight: bold;font-weight: bold;border-right:1px solid;">
-</td>
-<td style="text-align:left;font-weight: bold;">
-<span class="math inline">\(n_{\cdot1}\)</span>
-</td>
-<td style="text-align:left;font-weight: bold;">
-<span class="math inline">\(n_{\cdot2}\)</span>
-</td>
-<td style="text-align:left;font-weight: bold;">
-…
-</td>
-<td style="text-align:left;font-weight: bold;border-right:1px solid;">
-<span class="math inline">\(n_{\cdot\ell}\)</span>
-</td>
-<td style="text-align:left;font-weight: bold;font-weight: bold;">
-<span class="math inline">\(n\)</span>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<div id="erwartungswerte" class="section level2" number="9.3">
-<h2><span class="header-section-number">9.3</span> Erwartungswerte</h2>
-<p>Bestünde <em>kein</em> Zusammenhang zwischen den Variablen, dann wäre zu erwarten, dass sich die Kombinationen gleichmäßig auf die Tabellenfelder aufteilen, und zwar ausgehend von den Teilsummen für die Zeilen und Spalten.</p>
-<p>Der Erwartungswert für ein Tabellenfeld (also der <q>durchschnittliche</q> Wert, wenn es keinen Zusammenhang zwischen den beiden Variablen gibt) berechnet sich durch die Formel:</p>
-<p><span class="math display" id="eq:m">\[
-m_{ij}=\frac{n_{i\cdot}\cdot n_{\cdot j}}{n}
-\tag{9.1}
-\]</span></p>
-<p>Es wird also das Produkt der Zeilen- und der Spaltensumme geteilt durch die Gesamtsumme.</p>
-<div id="beispiel-31" class="section level3" number="9.3.1">
-<h3><span class="header-section-number">9.3.1</span> Beispiel</h3>
-<p>Die beobachtete Häufigkeit für die Kombination <q>Geistes-/Sozialwissenschaft</q> (Zeile 1) und <q>anderes Transportmittel</q> (Spalte 2) ist 28. Aber was wäre der Erwartungswert bei den gegebenen Summen? Wir setzen einfach die entsprechenden Werte in Gleichung <a href="kreuztabellen.html#eq:m">(9.1)</a> ein:</p>
-<p><span class="math display">\[
-\begin{aligned}
-m_{12}&amp;=\frac{n_{1\cdot}\cdot n_{\cdot 2}}{n}\\[5pt]
-&amp;=\frac{39\cdot 70}{90}\\[4pt]
-&amp;\approx 30{,}33
-\end{aligned}
-\]</span></p>
-<p>Diese Rechnung lässt sich für alle Tabellenfelder durchführen. Die Kreuztabelle kann dann um diese erwarteten Werte in Klammern ergänzt werden (s. Tabelle <a href="kreuztabellen.html#tab:expected">9.4</a>).</p>
-<div style="overflow-y: auto;">
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:expected">Tabelle 9.4: </span>Kreuztabelle der Beispieldaten mit Erwartungswerten
-</caption>
-<thead>
-<tr>
-<th style="text-align:right;border-bottom: 1px solid; ">
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-Fahrrad
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-anderes Transportmittel
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-</th>
-</tr>
-</thead>
-<tbody>
 <tr>
 <td style="text-align:right;font-weight: bold;border-right:1px solid;">
-Geistes-/Sozialwissenschaft
+Stadt
 </td>
 <td style="text-align:right;">
-11<br>(8,67)
+10
 </td>
-<td style="text-align:right;border-right:1px solid;">
-28<br>(30,33)
-</td>
-<td style="text-align:right;font-weight: bold;">
-39
-</td>
-</tr>
-<tr>
-<td style="text-align:right;border-bottom: 1px solid; font-weight: bold;border-right:1px solid;">
-anderes Studienfach
-</td>
-<td style="text-align:right;border-bottom: 1px solid; ">
-9<br>(11,33)
-</td>
-<td style="text-align:right;border-bottom: 1px solid; border-right:1px solid;">
-42<br>(39,67)
-</td>
-<td style="text-align:right;border-bottom: 1px solid; font-weight: bold;">
-51
-</td>
-</tr>
-<tr>
-<td style="text-align:right;font-weight: bold;font-weight: bold;border-right:1px solid;">
-</td>
-<td style="text-align:right;font-weight: bold;">
-20
-</td>
-<td style="text-align:right;font-weight: bold;border-right:1px solid;">
-70
-</td>
-<td style="text-align:right;font-weight: bold;font-weight: bold;">
-90
+<td style="text-align:right;">
+23
 </td>
 </tr>
 </tbody>
 </table>
 </div>
+<p>Unser Beispieldatensatz beschäftigt sich mit Kriegsdienstverweigerern. Zwischen 1956 und 2011 galt in der BRD die Wehrpflicht, d. h. alle vom Staat als <q>männlich</q> erfassten und als <q>tauglich</q> gemusterte jungen Menschen mussten Dienst an der Waffe leisten – es sei denn, sie verweigerten den Kriegsdienst und leisteten stattdessen Zivildienst (z. B. in sozialen Einrichtungen).</p>
+<p>Zusätzlich zur Frage der Kriegsdienstverweigerung sei in einer Zufallsstichprobe von als tauglich gemusterten erhoben, ob der Wohnort eine Gemeinde mit über oder unter 20 000 Einwohner*innen (<q>Stadt</q> oder <q>Land</q>) ist.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> Die Ergebnisse sind in Tabelle <a href="chi-quadrat-tests.html#tab:zivi1">10.1</a> zusammengefasst.</p>
+<p>Wir interessieren uns für den statistischen Zusammenhang dieser beiden Variablen, und zwar möchten wir die Hypothese prüfen, dass Menschen aus der Stadt eher den Kriegsdienst verweigerten als Menschen vom Land. Der Test wird entlang der <a href="grundlagen-der-teststatistik.html#statistische-tests">bekannten sechs Schritte</a> ausgeführt.</p>
+<div id="test-wählen-und-voraussetzungen-prüfen-4" class="section level3" number="10.1.1">
+<h3><span class="header-section-number">10.1.1</span> Test wählen und Voraussetzungen prüfen</h3>
+<p>Für den <span class="math inline">\(\chi^2\)</span>-Unabhängigkeitstest müssen folgende Voraussetzungen erfüllt sein:</p>
+<ul>
+<li>Ziel ist die Überprüfung einer bivariaten Verteilung auf einen statistisch signifikanten Zusammenhang zwischen zwei nominalskalierten Variablen.</li>
+<li>Grundlage sind beobachtete Häufigkeiten aus einer einfachen, unabhängigen Zufallsstichprobe.</li>
+<li>Alle Tabellenfelder enthalten beobachtete Häufigkeiten <span class="math inline">\((n_{ij}\geq 5)\)</span>.</li>
+</ul>
+<p>Für unsere Beispieldaten sind diese Voraussetzungen gegeben.</p>
+</div>
+<div id="hypothesen-formulieren-4" class="section level3" number="10.1.2">
+<h3><span class="header-section-number">10.1.2</span> Hypothesen formulieren</h3>
+<p>Wir haben wieder zwei Möglichkeiten: die gerichtete und die ungerichtete Alternativhypothese.</p>
+<div id="ungerichtete-alternativhypothese-2" class="section level4" number="10.1.2.1">
+<h4><span class="header-section-number">10.1.2.1</span> Ungerichtete Alternativhypothese</h4>
+<p>Wir verzichten an dieser Stelle auf mathematische Notationen und würden bei ungerichteter Alternativhypothese im Klartext schreiben:</p>
+<p><span class="math display">\[
+\begin{aligned}
+H_0 &amp;: \textrm{Es gibt keinen Zusammenhang zwischen Wohnort und Verweigerungsentscheidung.}\\
+H_1 &amp;: \textrm{Es gibt einen Zusammenhang zwischen Wohnort und Verweigerungsentscheidung.}
+\end{aligned}
+\]</span></p>
+</div>
+<div id="gerichtete-alternativhypothese-2" class="section level4" number="10.1.2.2">
+<h4><span class="header-section-number">10.1.2.2</span> Gerichtete Alternativhypothese</h4>
+<p>Im Falle einer gerichteten Alternativhypothese bleibt die Nullhypothese bestehen, aber die Alternativhypothese gibt eine bestimmte Richtung des Zusammenhangs vor.</p>
+<p><span class="math display">\[
+\begin{aligned}
+H_0 &amp;: \textrm{Es gibt keinen Zusammenhang zwischen Wohnort und Verweigerungsentscheidung.}\\
+H_1 &amp;: \textrm{Es gibt einen positiven Zusammenhang zwischen Wohnort in der Stadt} \\
+&amp;\quad\textrm{und Kriegsdienstverweigerung.}
+\end{aligned}
+\]</span></p>
+<p>Gerichtete Alternativhypothesen sind im <span class="math inline">\(\chi^2\)</span>-Unabhängigkeitstest <em>nur</em> für <span class="math inline">\(2\times2\)</span>-Tabellen möglich.</p>
+<p>Im Beispiel entscheiden wir uns für die gerichtete Alternativhypothese, denn wir vermuten einen Zusammenhang in diese bestimmte Richtung.</p>
 </div>
 </div>
-<div id="kontingenzkoeffizent-𝜒²" class="section level2" number="9.4">
-<h2><span class="header-section-number">9.4</span> Kontingenzkoeffizent 𝜒²</h2>
-<p>Sind für alle Tabellenfelder die Beobachtungs- und Erwartungswerte gegeben, lässt sich für jedes Tabellenfeld ein Wert berechnen, der diese Werte in Relation setzt. Die Summe dieser Werte über die gesamte Tabelle hinweg wird Kontingenzkoeffizient genannt und mit <span class="math inline">\(\chi^2\)</span> (<q>Chi-Quadrat</q>) abgekürzt.</p>
+<div id="signifikanzniveau-entscheiden-4" class="section level3" number="10.1.3">
+<h3><span class="header-section-number">10.1.3</span> Signifikanzniveau entscheiden</h3>
+<p>Wie in anderen Tests ist ein Signifikanzniveau von <span class="math inline">\(\alpha=0{,}05\)</span> üblich, wofür wir uns auch im Beispiel entscheiden.</p>
+</div>
+<div id="kritischen-wert-bestimmen" class="section level3" number="10.1.4">
+<h3><span class="header-section-number">10.1.4</span> Kritischen Wert bestimmen</h3>
+<p>Bei <span class="math inline">\(\chi^2\)</span>-Tests gibt es immer nur einen kritischen Wert. Zunächst müssen beim <span class="math inline">\(\chi^2\)</span>-Unabhängigkeitstest die Freiheitsgrade bestimmt werden mit der Formel:</p>
+<p><span class="math display" id="eq:dfu">\[
+\mathit{df} = (k - 1) \cdot (\ell - 1)
+\tag{10.1}
+\]</span></p>
+<p>wobei auch hier wieder <span class="math inline">\(k\)</span> für die Zeilenanzahl und <span class="math inline">\(\ell\)</span> für die Spaltenanzahl steht.</p>
+<p>Im Beispiel also:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathit{df} &amp;= (k - 1) \cdot (\ell - 1)\\
+&amp;=(2-1)\cdot (2 - 1) = 1
+\end{aligned}
+\]</span></p>
+<p>Damit lässt sich der kritische Wert aus der <a href="formeln.html#tabelle-chisq">Tabelle für <span class="math inline">\(\chi^2\)</span>-Verteilungen</a> ablesen, die allerdings für <em>ungerichtete</em> Alternativhypothesen ausgelegt ist.</p>
+<p>Hätten wir eine ungerichtete Alternativhypothese gewählt, würde der Ablehnungsbereich also definiert durch:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\chi^2 &amp;\geq \chi^2_{df;(1-\alpha)}\\
+\chi^2 &amp;\geq \chi^2_{1;95\%}\\
+\chi^2 &amp;\geq 3{,}841
+\end{aligned}
+ \]</span></p>
+<p>Für unsere <em>gerichtete</em> Alternativhypothese <q>dürfen</q> wir den Ablehnungsbereich jedoch verdoppeln (müssen aber einem späteren Schritt unbedingt auch prüfen, ob die Richtung stimmt):</p>
+<p><span class="math display">\[
+\begin{aligned}
+\chi^2 &amp;\geq \chi^2_{df;(1-2\cdot\alpha)}\\
+\chi^2 &amp;\geq \chi^2_{1;90\%}\\
+\chi^2 &amp;\geq 2{,}706
+\end{aligned}
+\]</span></p>
+</div>
+<div id="prüfgröße-berechnen-4" class="section level3" number="10.1.5">
+<h3><span class="header-section-number">10.1.5</span> Prüfgröße berechnen</h3>
+<p>Wie in <a href="#berechnung-des-kontingenzkoeffizenten-chi2">Sitzung 9</a> besprochen, wird die Prüfgröße <span class="math inline">\(\chi^2\)</span> anhand der Formel</p>
 <p><span class="math display" id="eq:chisq">\[
 \chi^2= \sum_{i=1}^{k}\sum_{j=1}^{\ell}\frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}
 \tag{9.2}
 \]</span></p>
-<p>Bei der Formel steht <span class="math inline">\(k\)</span> wieder für die Anzahl der Zeilen (und <span class="math inline">\(i\)</span> für ihre laufende Nummer) und <span class="math inline">\(\ell\)</span> für die Anzahl der Spalten (und <span class="math inline">\(j\)</span> für ihre laufende Nummer).</p>
-<p>Das doppelte Summenzeichen mag etwas verwirrend sein, bedeutet aber nur, dass die Zeilen spaltenweise summiert werden, und dann die Summe dieser Zeilensumme genommen wird – d.h. dass einfach alle Tabellenfelder aufsummiert werden.</p>
-<p>Der <span class="math inline">\(\chi^2\)</span>-Wert kann (ähnlich wie der <span class="math inline">\(F\)</span>-Wert aus <a href="testverfahren-mit-zwei-stichproben.html#die-f-verteilung">Sitzung 6</a>) nur positive Werte annehmen. Er bildet die Grundlage für die im Folgenden besprochenen Kennwerte <span class="math inline">\(\phi\)</span> und <span class="math inline">\(\mathit{CI}\)</span> sowie für den in <a href="chi-quadrat-tests.html">Sitzung 10</a> zu besprechenden <span class="math inline">\(\chi^2\)</span>-Test.</p>
-<div id="beispiel-32" class="section level3" number="9.4.1">
-<h3><span class="header-section-number">9.4.1</span> Beispiel</h3>
-<p>Ein möglicher Zwischenschritt ist es, diese Teilwerte von <span class="math inline">\(\chi^2\)</span> für die einzelnen Tabellenfelder auszurechnen und in der Kreuztabelle zu notieren. Die Teilwerte werden dann für jedes Tabellenfeld mit der Formel</p>
-<p><span class="math display" id="eq:contrib">\[
-\frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}
-\tag{9.3}
-\]</span></p>
-<p>berechnet und sind in Tabelle <a href="kreuztabellen.html#tab:radchisq">9.5</a> in blau dargestellt.</p>
+<p>errechnet. Dabei ist die Ermittlung der Randsummen und Erwartungswerte <span class="math inline">\(m_{ij}\)</span> ein notwendiger Schritt, und auch die Teilwerte für <span class="math inline">\(\chi^2\)</span> können wieder direkt in die Kreuztabelle eingetragen werden.</p>
 <div style="overflow-y: auto;">
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:radchisq">Tabelle 9.5: </span>Kreuztabelle der Beispieldaten mit Teilwerten für <span class="math inline">\(\chi^2\)</span>
+<span id="tab:zivi2">Tabelle 10.2: </span>Kreuztabelle mit Erwartungswerten und Teilwerten für <span class="math inline">\(\chi^2\)</span>
 </caption>
 <thead>
 <tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="2">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+→ Dienst
+</div>
+</th>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
+</th>
+</tr>
+<tr>
 <th style="text-align:right;border-bottom: 1px solid; ">
+Wohnort ↓
 </th>
 <th style="text-align:right;border-bottom: 1px solid; ">
-Fahrrad
+Grundwehrdienst
 </th>
 <th style="text-align:right;border-bottom: 1px solid; ">
-anderes Transportmittel
+Zivildienst
 </th>
 <th style="text-align:right;border-bottom: 1px solid; ">
 </th>
@@ -1125,452 +789,356 @@ anderes Transportmittel
 <tbody>
 <tr>
 <td style="text-align:right;font-weight: bold;border-right:1px solid;">
-Geistes-/Sozialwissenschaft
+Land
 </td>
 <td style="text-align:right;">
-11<br>(8,67)<br><span class="blue-text">0,626</span>
+18<br>(13,1)<br><span class="blue-text">1,833</span>
 </td>
 <td style="text-align:right;border-right:1px solid;">
-28<br>(30,33)<br><span class="blue-text">0,179</span>
+11<br>(15,9)<br><span class="blue-text">1,51</span>
 </td>
 <td style="text-align:right;font-weight: bold;">
-39
+29
 </td>
 </tr>
 <tr>
 <td style="text-align:right;border-bottom: 1px solid; font-weight: bold;border-right:1px solid;">
-anderes Studienfach
+Stadt
 </td>
 <td style="text-align:right;border-bottom: 1px solid; ">
-9<br>(11,33)<br><span class="blue-text">0,479</span>
+10<br>(14,9)<br><span class="blue-text">1,611</span>
 </td>
 <td style="text-align:right;border-bottom: 1px solid; border-right:1px solid;">
-42<br>(39,67)<br><span class="blue-text">0,137</span>
+23<br>(18,1)<br><span class="blue-text">1,327</span>
 </td>
 <td style="text-align:right;border-bottom: 1px solid; font-weight: bold;">
-51
+33
 </td>
 </tr>
 <tr>
 <td style="text-align:right;font-weight: bold;font-weight: bold;border-right:1px solid;">
 </td>
 <td style="text-align:right;font-weight: bold;">
-20
-</td>
-<td style="text-align:right;font-weight: bold;border-right:1px solid;">
-70
-</td>
-<td style="text-align:right;font-weight: bold;font-weight: bold;">
-90
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Zum Beispiel ergibt sich der Teilwert für <span class="math inline">\(\chi^2\)</span> für die Kombination <q>anderes Studienfach</q> – <q>Fahrrad</q> durch Einsetzen in Gleichung <a href="kreuztabellen.html#eq:contrib">(9.3)</a>:</p>
-<p><span class="math display">\[
-\begin{aligned}
-\frac{(n_{21}-m_{21})^{2}}{m_{21}} &amp;\approx \frac{(9-11{,}33)^2}{11{,}33}\\
-&amp;=\frac{-2{,}33^2}{11{,}33}\\
-&amp;\approx\frac{5{,}43}{11{,}33}\\
-&amp;\approx0{,}479
-\end{aligned}
-\]</span></p>
-<p>Der <span class="math inline">\(\chi^2\)</span>-Wert lässt sich nun bestimmen, indem diese Teilwerte aufsummiert werden:</p>
-<p><span class="math display">\[
-\begin{aligned}
-\chi^2&amp;= \sum_{i=1}^{k}\sum_{j=1}^{\ell}\frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}\\[4pt]
-&amp;\approx 0{,}626 + 0{,}179 + 0{,}479 + 0{,}137\\
-&amp; =1{,}421
-\end{aligned}
-\]</span></p>
-<p>Mit diesem Wert <span class="math inline">\(\chi^2\approx1{,}421\)</span> können wir noch nicht so viel anfangen – wir wissen aber, dass er ein Maß dafür ist, wie sehr unsere beobachtete Verteilung von einer zu erwarteten Verteilung (vorausgesetzt, es gibt keinen Zusammenhang) abweicht.</p>
-</div>
-</div>
-<div id="𝜙-koeffizient" class="section level2" number="9.5">
-<h2><span class="header-section-number">9.5</span> 𝜙-Koeffizient</h2>
-<p>Der <span class="math inline">\(\phi\)</span>-Koeffizient ist der Korrelationskoeffizient für zwei dichotome Variablen (wobei er in der hier besprochenen Version nur positive Werte annehmen kann). Er ist jedoch <em>nicht</em> ohne weiteres mit dem Korrelationskoeffizienten <span class="math inline">\(r\)</span> (aus <a href="korrelation.html#korrelationskoeffizient">Sitzung 7</a>) vergleichbar.</p>
-<p>Der Wert für <span class="math inline">\(\phi\)</span> kann aus <span class="math inline">\(\chi^2\)</span> berechnet werden mit:</p>
-<p><span class="math display" id="eq:phi">\[
-\phi=\sqrt{\frac{\chi^2}{n}}
-\tag{9.4}
-\]</span></p>
-<div id="beispiel-33" class="section level3" number="9.5.1">
-<h3><span class="header-section-number">9.5.1</span> Beispiel</h3>
-<p>In unserem Beispiel ergibt sich also für <span class="math inline">\(\phi\)</span> durch Einsetzung in Gleichung <a href="kreuztabellen.html#eq:phi">(9.4)</a>:</p>
-<p><span class="math display">\[
-\begin{aligned}
-\phi&amp;=\sqrt{\frac{\chi^2}{n}}\\[6pt]
-    &amp;\approx\sqrt{\frac{1{,}421}{90}}\\[4pt]
-    &amp;\approx0{,}126
-\end{aligned}
-\]</span></p>
-<p>Es wird ersichtlich, dass es eine leichte Korrelation der Variablen gibt. Aber in welche Richtung? Dafür müssen wir auf die Kreuztabelle <a href="kreuztabellen.html#tab:radchisq">9.5</a> blicken: Der beobachtete Wert für die Wertekombination <q>Fahrrad</q> und <q>Geistes-/Sozialwissenschaft</q> beträgt <span class="math inline">\(n_{11}=11\)</span> und liegt über dem Erwartungswert <span class="math inline">\(m_{11}=8{,}67\)</span>. Damit ist klar: Das Studium von Geistes- und Sozialwissenschaften korreliert <em>positiv</em> mit der Fahrradnutzung für den Pendelweg.</p>
-<p>Ob diese Korrelation auch statistisch relevant ist, kann mit dem <span class="math inline">\(\chi^2\)</span>-Test (<a href="chi-quadrat-tests.html">Sitzung 10</a>) überprüft werden.</p>
-</div>
-</div>
-<div id="cramér-index" class="section level2" number="9.6">
-<h2><span class="header-section-number">9.6</span> Cramér-Index</h2>
-<p>Bisher wurden in dieser Sitzung nur Verteilungen von zwei dichotomen Variablen besprochen. Nun gibt es aber auch nominalskalierte bivariate Verteilungen, in denen die Merkmale mehr als zwei Werte annehmen können (also nicht dichotom sind). In diesem Fall ist der Cramér-Index (auch Cramérs <span class="math inline">\(v\)</span>, engl. <em>Cramér index</em>) ein geeigneter Kennwert für die Abhängigkeit der Variablen.</p>
-<p>Die Formel für den Cramér-Index lautet</p>
-<p><span class="math display" id="eq:ci">\[
-\mathit{CI}=\sqrt{\frac{\chi^2}{n\cdot (\mathrm{min}(k, \ell)-1)}}
-\tag{9.5}
-\]</span></p>
-<p>wobei der Ausdruck <span class="math inline">\(\mathrm{min}(k,\ell)\)</span> für den <em>kleineren</em> Wert aus Zeilenanzahl <span class="math inline">\(k\)</span> und Spaltenanzahl <span class="math inline">\(\ell\)</span> steht.</p>
-<p>In einer <span class="math inline">\(2\times2\)</span>-Tabelle ist dieser Wert identisch mit dem <span class="math inline">\(\phi\)</span>-Koeffizienten.</p>
-<div id="beispiel-34" class="section level3" number="9.6.1">
-<h3><span class="header-section-number">9.6.1</span> Beispiel</h3>
-<p>Hätten wir im Beispiel die Erhebung nicht auf dichotome Variablen reduziert, sondern die Wissenschaftsdisziplinen und Verkehrsmittel direkt erhoben, so würde sich die Kreuztabelle vielleicht wie in Tabelle <a href="kreuztabellen.html#tab:ci">9.6</a> darstellen.</p>
-<p>Dabei werden die Erwartungswerte wie gehabt mit Gleichung <a href="kreuztabellen.html#eq:m">(9.1)</a> und die Teilwerte für <span class="math inline">\(\chi^2\)</span> mit Gleichung <a href="kreuztabellen.html#eq:contrib">(9.3)</a> errechnet.</p>
-<div style="overflow-y: auto;">
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:ci">Tabelle 9.6: </span>Kreuztabelle des Beispiels ohne Dichotomisierung
-</caption>
-<thead>
-<tr>
-<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
-</th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="3">
-<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
-→ Transportmittel
-</div>
-</th>
-<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
-</th>
-</tr>
-<tr>
-<th style="text-align:right;border-bottom: 1px solid; ">
-Studienfach ↓
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-Fahrrad
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-Auto
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-Öffentliche
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right;font-weight: bold;border-right:1px solid;">
-Geisteswissenschaft
-</td>
-<td style="text-align:right;">
-5<br>(4,22)<br><span class="blue-text">0,144</span>
-</td>
-<td style="text-align:right;">
-5<br>(8,02)<br><span class="blue-text">1,137</span>
-</td>
-<td style="text-align:right;border-right:1px solid;">
-9<br>(6,76)<br><span class="blue-text">0,742</span>
-</td>
-<td style="text-align:right;font-weight: bold;">
-19
-</td>
-</tr>
-<tr>
-<td style="text-align:right;font-weight: bold;border-right:1px solid;">
-Sozialwissenschaft
-</td>
-<td style="text-align:right;">
-6<br>(4,44)<br><span class="blue-text">0,548</span>
-</td>
-<td style="text-align:right;">
-6<br>(8,44)<br><span class="blue-text">0,705</span>
-</td>
-<td style="text-align:right;border-right:1px solid;">
-8<br>(7,11)<br><span class="blue-text">0,111</span>
-</td>
-<td style="text-align:right;font-weight: bold;">
-20
-</td>
-</tr>
-<tr>
-<td style="text-align:right;font-weight: bold;border-right:1px solid;">
-Naturwissenschaft
-</td>
-<td style="text-align:right;">
-5<br>(5,11)<br><span class="blue-text">0,002</span>
-</td>
-<td style="text-align:right;">
-9<br>(9,71)<br><span class="blue-text">0,052</span>
-</td>
-<td style="text-align:right;border-right:1px solid;">
-9<br>(8,18)<br><span class="blue-text">0,082</span>
-</td>
-<td style="text-align:right;font-weight: bold;">
-23
-</td>
-</tr>
-<tr>
-<td style="text-align:right;border-bottom: 1px solid; font-weight: bold;border-right:1px solid;">
-Ingenieurswissenschaft
-</td>
-<td style="text-align:right;border-bottom: 1px solid; ">
-4<br>(6,22)<br><span class="blue-text">0,792</span>
-</td>
-<td style="text-align:right;border-bottom: 1px solid; ">
-18<br>(11,82)<br><span class="blue-text">3,231</span>
-</td>
-<td style="text-align:right;border-bottom: 1px solid; border-right:1px solid;">
-6<br>(9,96)<br><span class="blue-text">1,574</span>
-</td>
-<td style="text-align:right;border-bottom: 1px solid; font-weight: bold;">
 28
 </td>
-</tr>
-<tr>
-<td style="text-align:right;font-weight: bold;font-weight: bold;border-right:1px solid;">
-</td>
-<td style="text-align:right;font-weight: bold;">
-20
-</td>
-<td style="text-align:right;font-weight: bold;">
-38
-</td>
 <td style="text-align:right;font-weight: bold;border-right:1px solid;">
-32
+34
 </td>
 <td style="text-align:right;font-weight: bold;font-weight: bold;">
-90
+62
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>Der <span class="math inline">\(\chi^2\)</span>-Wert ergibt sich wieder aus der Summe (s. Gleichung <a href="kreuztabellen.html#eq:chisq">(9.2)</a>):</p>
+<p>Für unser Beispiel erfolgt die Berechnung anhand Tabelle <a href="chi-quadrat-tests.html#tab:zivi2">10.2</a>.</p>
+<p>Zunächst muss dabei geprüft werden, ob die Richtung unserer Alternativhypothese stimmt. Die beobachtete Häufigkeit der Zivildienstleistenden in der Stadt <span class="math inline">\(n_{22}=23\)</span> ist größer als der Erwartungswert <span class="math inline">\(m_{22}=18{,}1\)</span>. Wenn eine Signifikanz nachgewiesen werden kann, dann also für den <em>positiven</em> Zusammenhang zwischen Wohnort in der Stadt und Kriegsdienstverweigerung (wie in unserer Alternativhypothese spezifiziert).</p>
+<p>Für <span class="math inline">\(\chi^2\)</span> ergibt sich im Beispiel:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\chi^2&amp;= \sum_{i=1}^{k}\sum_{j=1}^{\ell}\frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}\\[4pt]
-&amp;\approx 0{,}144+1{,}137+0{,}742+0{,}548+0{,}705+0{,}111\\&amp;\quad+0{,}002+0{,}052+0{,}082+0{,}792+3{,}231+1{,}574 \\
-&amp; =9{,}120
+\chi^2 &amp;= \sum_{i=1}^{k}\sum_{j=1}^{\ell}\frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}\\[4pt]
+&amp;=1{,}833+1{,}51+1{,}611+1{,}327\\
+&amp;=6{,}281
 \end{aligned}
 \]</span></p>
-<p>Mit diesem Wert kann der Cramér-Index anhand von Gleichung <a href="kreuztabellen.html#eq:ci">(9.5)</a> berechnet werden.</p>
-<p>Die Zeilenanzahl ist <span class="math inline">\(k=4\)</span> und die Spaltenanzahl <span class="math inline">\(\ell=3\)</span>. Der Ausdruck <span class="math inline">\(\mathrm{min}(k,\ell)\)</span> ergibt den kleineren dieser Werte, also 3:</p>
+</div>
+<div id="ergebnis-interpretieren-2" class="section level3" number="10.1.6">
+<h3><span class="header-section-number">10.1.6</span> Ergebnis interpretieren</h3>
+<p>Der Wert der Prüfgröße <span class="math inline">\(\chi^2=6{,}281\)</span> liegt deutlich im Ablehnungsbereich <span class="math inline">\(\chi^2\geq 2{,}706\)</span>. Die Nullhypothese kann abgelehnt werden. Es wurde ein statistisch signifikanter positiver Zusammenhang zwischen Wohnort in Gemeinden mit über 20 000 Einwohner*innen und Kriegsdienstverweigerung festgestellt (<span class="math inline">\(\alpha=0{,}05\)</span>).</p>
+<div class="rtip">
+Softwarehinweis
+</div>
+<div class="rtip_content">
+In R lässt sich ein <span class="math inline">\(\chi^2\)</span>-Unabhängigkeitstest mit dem Befehl <code>chisq.test()</code> durchführen.
+</div>
+</div>
+</div>
+<div id="𝜒²-anpassungstest" class="section level2" number="10.2">
+<h2><span class="header-section-number">10.2</span> 𝜒²-Anpassungstest</h2>
+<p>Beim <span class="math inline">\(\chi^2\)</span>-Anpassungstest geht es um die Häufigkeiten <em>eines</em> nominalskalierten Merkmals – er ist deshalb der univariaten Teststatistik zuzuordnen. Der Test überprüft, ob das Merkmal entlang einer vorgegebenen Verteilung (im Normalfall gleichmäßig) verteilt ist, oder ob es signifikante Abweichungen von dieser erwarteten Verteilung gibt.</p>
+<p>Ein Beispiel: Für größere Verspätungen (<span class="math inline">\(\geq\)</span> 10 Minuten) beim ÖPNV einer Großstadt wird festgehalten, an welchen Wochentagen sie auftreten. Wir ignorieren Wochenenden und Feiertage und fragen uns, ob sich die Verzögerungen gleichmäßig auf Werktage verteilen, oder ob es signifikante Abweichungen in Bezug auf den Wochentag gibt. Die Werte in Tabelle <a href="chi-quadrat-tests.html#tab:late">10.3</a> seien über drei Monate hinweg erhoben worden.</p>
+<div style="overflow-y: auto;">
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:late">Tabelle 10.3: </span>Beispielwerte für Verspätungen nach Wochentagen
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;border-bottom: 1px solid; ">
+Montag
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+Dienstag
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+Mittwoch
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+Donnerstag
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+Freitag
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+459
+</td>
+<td style="text-align:right;">
+409
+</td>
+<td style="text-align:right;">
+414
+</td>
+<td style="text-align:right;">
+387
+</td>
+<td style="text-align:right;">
+437
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Wir befolgen wieder die <a href="grundlagen-der-teststatistik.html#statistische-tests">sechs Schritte für statistische Testverfahren</a>.</p>
+<div id="test-wählen-und-voraussetzungen-prüfen-5" class="section level3" number="10.2.1">
+<h3><span class="header-section-number">10.2.1</span> Test wählen und Voraussetzungen prüfen</h3>
+<p>Für den <span class="math inline">\(\chi^2\)</span>-Anpassungstest müssen folgende Voraussetzungen erfüllt sein:</p>
+<ul>
+<li>Ziel ist die Überprüfung <em>einer</em> nominalskalierten Variable auf eine statistisch signifikante Abweichung von einer vorgegebenen Verteilung.</li>
+<li>Grundlage sind beobachtete Häufigkeiten aus einer einfachen, unabhängigen Zufallsstichprobe.</li>
+<li>Alle Tabellenfelder enthalten beobachtete Häufigkeiten <span class="math inline">\((n_{i}\geq 5)\)</span>.</li>
+</ul>
+<p>In unserem Beispiel sind diese Voraussetzungen gegeben.</p>
+</div>
+<div id="hypothesen-formulieren-5" class="section level3" number="10.2.2">
+<h3><span class="header-section-number">10.2.2</span> Hypothesen formulieren</h3>
+<p><span class="math display">\[\begin{aligned}
+H_0 &amp;: \textrm{Starke Verspätungen sind an allen Werktagen gleich wahrscheinlich.}\\
+H_1 &amp;: \textrm{Starke Verspätungen sind an manchen Werktagen wahrscheinlicher als an anderen.}
+\end{aligned}\]</span></p>
+<p>Gerichtete Hypothesen dürften hier wieder nur bei dichotomen Variablen formuliert werden (also bei genau zwei Tabellenfeldern) – denn sonst können wir die Richtung der Vermutung nicht genau genug formulieren.</p>
+</div>
+<div id="signifikanzniveau-entscheiden-5" class="section level3" number="10.2.3">
+<h3><span class="header-section-number">10.2.3</span> Signifikanzniveau entscheiden</h3>
+<p>Wie gewohnt: <span class="math inline">\(\alpha=0{,}05\)</span></p>
+</div>
+<div id="kritischen-wert-bestimmen-1" class="section level3" number="10.2.4">
+<h3><span class="header-section-number">10.2.4</span> Kritischen Wert bestimmen</h3>
+<p>Die Freiheitsgrade bestimmen sich aus</p>
+<p><span class="math display" id="eq:dfe">\[
+\mathit{df}=k-1
+\tag{10.2}
+\]</span></p>
+<p>wobei <span class="math inline">\(k\)</span> hier einfach die Anzahl der Katorien ist.</p>
+<p>In unserem Beispiel (bei fünf Werktagen) also:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\mathit{CI}&amp;=\sqrt{\frac{\chi^2}{n\cdot (\mathrm{min}(k, \ell)-1)}}\\[6pt]
-&amp;\approx\sqrt{\frac{9{,}122}{90\cdot(3-1)}}\\[4pt]
-&amp;\approx0{,}225
+\mathit{df}&amp;=k-1\\
+&amp;=5-1=4
 \end{aligned}
 \]</span></p>
-<p>Dieser Wert ist größer als der oben berechnete <span class="math inline">\(\phi\)</span>-Koeffizient. Das ist nicht besonders überraschend: Eine detailliertere Erfassung der Variablen führt zu einem deutlicheren Zusammenhang.</p>
+<p>Der kritische Wert für den Ablehnungsbereich ist der <a href="formeln.html#tabelle-chisq">Tabelle für <span class="math inline">\(\chi^2\)</span>-Verteilungen</a> zu entnehmen.</p>
+<p><span class="math display">\[
+\begin{aligned}
+\chi^2 &amp;\geq \chi^2_{\mathit{df};(1-\alpha)}\\
+\chi^2 &amp;\geq \chi^2_{4;95\%}\\
+\chi^2 &amp;\geq 9{,}488
+\end{aligned}
+\]</span></p>
+<p>Auch hier dürften wir bei einer gerichteten Hypothese den Ablehnungsbereich verdoppeln, d. h. der kritische Wert <span class="math inline">\(\chi^2_{\mathit{df};(1-2\cdot \alpha)}\)</span> wäre anzuwenden – dies ist allerdings wie bereits erwähnt nur für dichotome Variablen möglich.</p>
+</div>
+<div id="prüfgröße-berechnen-5" class="section level3" number="10.2.5">
+<h3><span class="header-section-number">10.2.5</span> Prüfgröße berechnen</h3>
+<p>Die Prüfgröße <span class="math inline">\(\chi^2\)</span> berechnet sich analog zu vorherigen Beispielen. Einzige Besonderheit: Die Erwartungswerte werden direkt anhand der zu erwartenden (im unserem Fall: gleichmäßigen) Verteilung bestimmt.</p>
+<p>Im Beispiel ergibt sich in den fünf Kategorien jeweils ein Erwartungswert von</p>
+<p><span class="math display">\[\frac{n}{k}=\frac{2106}{5}=421{,}2\]</span></p>
+<div style="overflow-y: auto;">
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:xtlate">Tabelle 10.4: </span>Tabelle für den <span class="math inline">\(\chi^2\)</span>-Anpassungstest
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;border-bottom: 1px solid; ">
+Montag
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+Dienstag
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+Mittwoch
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+Donnerstag
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+Freitag
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+459<br>(421,2)<br><span class="blue-text">3,392</span>
+</td>
+<td style="text-align:right;">
+409<br>(421,2)<br><span class="blue-text">0,353</span>
+</td>
+<td style="text-align:right;">
+414<br>(421,2)<br><span class="blue-text">0,123</span>
+</td>
+<td style="text-align:right;">
+387<br>(421,2)<br><span class="blue-text">2,777</span>
+</td>
+<td style="text-align:right;border-right:1px solid;">
+437<br>(421,2)<br><span class="blue-text">0,593</span>
+</td>
+<td style="text-align:right;font-weight: bold;">
+2106
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Dann nehmen wir wieder eine Tabelle zu Hilfe um die Prüfgröße <span class="math inline">\(\chi^2\)</span> zu berechnen (s. Tabelle <a href="chi-quadrat-tests.html#tab:xtlate">10.4</a>). Wie gehabt werden einfach die Teilwerte zusammengezählt:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\chi^2 &amp;= \sum_{i=1}^{k}\frac{(n_{i}-m_{i})^{2}}{m_{i}}\\[4pt]
+&amp;\approx 3{,}392 + 0{,}353 + 0{,}123 + 2{,}777 + 0{,}593\\
+&amp;=7{,}238
+\end{aligned}
+\]</span></p>
+</div>
+<div id="ergebnis-interpretieren-3" class="section level3" number="10.2.6">
+<h3><span class="header-section-number">10.2.6</span> Ergebnis interpretieren</h3>
+<p>Der Ablehnungsbereich <span class="math inline">\(\chi^2 \geq 9{,}488\)</span> wurde nicht erreicht. Die Nullhypothese muss beibehalten werden. Eine statistisch signifikante Abweichung von einer gleichmäßigen Verteilung konnte nicht nachgewiesen werden (<span class="math inline">\(\alpha=0{,}05\)</span>).</p>
+<div class="rtip">
+Softwarehinweis
+</div>
+<div class="rtip_content">
+Mit einer univariaten Verteilung als Eingabe führt der Befehl <code>chisq.test()</code> einen <span class="math inline">\(\chi^2\)</span>-Anpassungstest durch.
 </div>
 </div>
-<div id="tipps-zur-vertiefung-8" class="section level2 unnumbered">
+<div id="andere-verteilungen" class="section level3" number="10.2.7">
+<h3><span class="header-section-number">10.2.7</span> Andere Verteilungen</h3>
+<p>Die theoretische Verteilung, von der eine signifikante Abweichung festgestellt werden soll, ist im obigen Beispiel uniform, d. h. die Erwartungswerte sind gleichmäßig über die Wochentage verteilt.
+Allerdings kann beim Anpassungstest auch von anderen Verteilungen ausgegangen werden – so könnte eine (begründete) Nullhypothese auch lauten, dass Kategorie A doppelt so viele Fallzahlen aufweist wie Kategorie B und C.</p>
+<p>In der Praxis wird der <span class="math inline">\(\chi^2\)</span>-Anpassungstest oft verwendet, um nachzuweisen, dass <em>keine</em> signifikante Abweichung von der Normalverteilung zu beobachten ist – nur dann dürfen nämlich viele statistische Verfahren durchgeführt werden.</p>
+</div>
+</div>
+<div id="tipps-zur-vertiefung-9" class="section level2 unnumbered">
 <h2>Tipps zur Vertiefung</h2>
 <ul>
-<li>Kapitel 9.1, 10.3.4 und 10.3.7 in <span class="citation"><a href="#ref-bortz" role="doc-biblioref">Bortz und Schuster</a> (<a href="#ref-bortz" role="doc-biblioref">2010</a>)</span></li>
-<li>Kapitel 4.2.2 – 4.2.3 in <span class="citation"><a href="#ref-delange" role="doc-biblioref">Lange und Nipper</a> (<a href="#ref-delange" role="doc-biblioref">2018</a>)</span></li>
-<li>Kapitel 6.7.2 in <span class="citation"><a href="#ref-bahrenberg" role="doc-biblioref">Bahrenberg, Giese und Nipper</a> (<a href="#ref-bahrenberg" role="doc-biblioref">2010</a>)</span></li>
-<li>Kapitel 2.3 in <span class="citation"><a href="#ref-klemm" role="doc-biblioref">Klemm</a> (<a href="#ref-klemm" role="doc-biblioref">2002</a>)</span></li>
-<li><em>Englisch:</em> Kapitel 12.2 in <span class="citation"><a href="#ref-burt" role="doc-biblioref">Burt und Barber</a> (<a href="#ref-burt" role="doc-biblioref">1996</a>)</span></li>
+<li>Kapitel 9 in <span class="citation"><a href="#ref-bortz" role="doc-biblioref">Bortz und Schuster</a> (<a href="#ref-bortz" role="doc-biblioref">2010</a>)</span></li>
+<li>Kapitel 8.2.7 in <span class="citation"><a href="#ref-delange" role="doc-biblioref">Lange und Nipper</a> (<a href="#ref-delange" role="doc-biblioref">2018</a>)</span> (<span class="math inline">\(\chi^2\)</span>-Anpassungstest)</li>
+<li>Kapitel 5.3.4 in <span class="citation"><a href="#ref-bahrenberg" role="doc-biblioref">Bahrenberg, Giese und Nipper</a> (<a href="#ref-bahrenberg" role="doc-biblioref">2010</a>)</span></li>
+<li>Kapitel 13 in <span class="citation"><a href="#ref-klemm" role="doc-biblioref">Klemm</a> (<a href="#ref-klemm" role="doc-biblioref">2002</a>)</span></li>
+<li><em>Englisch:</em> Kapitel 11.3 in <span class="citation"><a href="#ref-burt" role="doc-biblioref">Burt und Barber</a> (<a href="#ref-burt" role="doc-biblioref">1996</a>)</span></li>
 </ul>
 
 </div>
-<div id="übungsaufgaben-8" class="section level2 unnumbered">
+<div id="übungsaufgaben-9" class="section level2 unnumbered">
 <h2>Übungsaufgaben</h2>
-<div id="aufgabe-9-1" class="section level3" number="9.6.2">
-<h3><span class="header-section-number">9.6.2</span> Aufgabe 9-1</h3>
-<p><a href="lösungen-der-übungsaufgaben.html#loesung-9-1">zur Lösung</a></p>
-<p>Sie fragen sich, wie die Wohnumgebung einer Person (Stadt oder Land) damit zusammenhängt, ob die Person ein eigenes Auto besitzt. Sie erheben die folgende Messreihe:</p>
+<div id="aufgabe-10-1" class="section level3" number="10.2.8">
+<h3><span class="header-section-number">10.2.8</span> Aufgabe 10-1</h3>
+<p><a href="lösungen-der-übungsaufgaben.html#loesung-10-1">zur Lösung</a></p>
+<p>Bestimmen Sie die folgenden Werte:</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(\chi^2_{80;99{,}95\%}\)</span></li>
+<li><span class="math inline">\(\chi^2_{3;70\%}\)</span></li>
+<li><span class="math inline">\(\chi^2_{19;60\%}\)</span></li>
+<li><span class="math inline">\(\chi^2_{400;85\%}\)</span></li>
+<li><span class="math inline">\(\chi^2_{90;99{,}9\%}\)</span></li>
+<li><span class="math inline">\(\chi^2_{15;99{,}5\%}\)</span></li>
+<li><span class="math inline">\(\chi^2_{110;97{,}5\%}\)</span></li>
+<li><span class="math inline">\(\chi^2_{14;80\%}\)</span></li>
+</ol>
+</div>
+<div id="aufgabe-10-2" class="section level3" number="10.2.9">
+<h3><span class="header-section-number">10.2.9</span> Aufgabe 10-2</h3>
+<p><a href="lösungen-der-übungsaufgaben.html#loesung-10-2">zur Lösung</a></p>
+<p>Sie sollen untersuchen, ob in einem Unternehmen der Tätigkeitsbereich mit dem Geschlecht der Angestellten zusammenhängt.</p>
+<p>In den Personalakten sind Angestellte als <q>weiblich</q> oder <q>männlich</q> erfasst und ihre Tätigkeitsfelder in <q>Leitende Tätigkeit</q>, <q>Administration</q> und <q>Fertigung</q> unterteilt.</p>
+<p>Folgende Häufigkeiten sind erfasst:</p>
 <div style="overflow-y: auto;">
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
-<th style="text-align:left;border-bottom: 1px solid; ">
-Wohnort
+<th style="text-align:right;border-bottom: 1px solid; ">
 </th>
-<th style="text-align:left;border-bottom: 1px solid; ">
-Autobesitz
+<th style="text-align:right;border-bottom: 1px solid; ">
+Leitende Tätigkeit
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+Administration
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+Fertigung
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
-Stadt
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+weiblich
 </td>
-<td style="text-align:left;">
-Nein
+<td style="text-align:right;">
+38
 </td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Land
+<td style="text-align:right;">
+185
 </td>
-<td style="text-align:left;">
-Ja
+<td style="text-align:right;">
+397
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-Stadt
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+männlich
 </td>
-<td style="text-align:left;">
-Nein
+<td style="text-align:right;">
+102
 </td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Land
+<td style="text-align:right;">
+290
 </td>
-<td style="text-align:left;">
-Ja
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Stadt
-</td>
-<td style="text-align:left;">
-Nein
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Land
-</td>
-<td style="text-align:left;">
-Ja
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Land
-</td>
-<td style="text-align:left;">
-Ja
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Land
-</td>
-<td style="text-align:left;">
-Nein
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Stadt
-</td>
-<td style="text-align:left;">
-Nein
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Stadt
-</td>
-<td style="text-align:left;">
-Nein
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Land
-</td>
-<td style="text-align:left;">
-Ja
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Land
-</td>
-<td style="text-align:left;">
-Nein
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Land
-</td>
-<td style="text-align:left;">
-Ja
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Stadt
-</td>
-<td style="text-align:left;">
-Ja
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Land
-</td>
-<td style="text-align:left;">
-Ja
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Land
-</td>
-<td style="text-align:left;">
-Ja
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Stadt
-</td>
-<td style="text-align:left;">
-Nein
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Stadt
-</td>
-<td style="text-align:left;">
-Ja
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Stadt
-</td>
-<td style="text-align:left;">
-Nein
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Land
-</td>
-<td style="text-align:left;">
-Ja
+<td style="text-align:right;">
+888
 </td>
 </tr>
 </tbody>
 </table>
 </div>
 <ol style="list-style-type: lower-alpha">
-<li><p>Überführen Sie die Daten in eine Kreuztabelle.</p></li>
-<li><p>Berechnen Sie die Erwartungswerte für jedes Tabellenfeld.</p></li>
-<li><p>Berechnen Sie <span class="math inline">\(\chi^2\)</span>.</p></li>
-<li><p>Berechnen Sie den <span class="math inline">\(\phi\)</span>-Koeffizienten.</p></li>
-<li><p>Besteht eine Korrelation? In welche Richtung?</p></li>
+<li><p>Welchen Test führen Sie durch?</p></li>
+<li><p>Formulieren Sie die Hypothesen.</p></li>
+<li><p>Das Thema wird in der Unternehmensleitung bereits kontrovers diskutiert, weshalb Sie einen Fehler 1. Art zu 99% ausschließen möchten. Wie lautet das Signifikanzniveau?</p></li>
+<li><p>Bestimmen Sie die Freiheitsgrade und den kritischen Wert.</p></li>
+<li><p>Berechnen Sie die Prüfgröße.</p></li>
+<li><p>Wie interpretieren Sie das Ergebnis?</p></li>
+<li><p>Der Aufsichtsratsvorsitzende kritisiert die Studie in einem Interview:</p>
+<blockquote>
+<p><q>Dass im Betrieb nur etwa die Hälfte der Führungskräfte Frauen sind, ist nicht weiter verwunderlich. Schließlich arbeiten insgesamt doppelt so viele Männer wie Frauen bei uns. Dafür hätte ich keine wissenschaftliche Untersuchung gebraucht.</q></p>
+</blockquote>
+<p>Wie antworten Sie (aus methodischer Perspektive) auf die Kritik am Testverfahren?</p></li>
 </ol>
 </div>
-<div id="aufgabe-9-2" class="section level3" number="9.6.3">
-<h3><span class="header-section-number">9.6.3</span> Aufgabe 9-2</h3>
-<p><a href="lösungen-der-übungsaufgaben.html#loesung-9-2">zur Lösung</a></p>
-<p>Sie interessieren sich dafür, ob zwei <q>Ja/Nein</q>-Fragen auf einem Fragebogen korrelieren.</p>
-<p>Sie ermitteln folgende Häufigkeiten:</p>
+<div id="aufgabe-10-3" class="section level3" number="10.2.10">
+<h3><span class="header-section-number">10.2.10</span> Aufgabe 10-3</h3>
+<p><a href="lösungen-der-übungsaufgaben.html#loesung-10-3">zur Lösung</a></p>
+<p>Eine Ihrer Bekannten behauptet, dass beim Elfmeterschießen – <q>statistisch gesehen</q> – das Team häufiger gewinnt, das den ersten Elfmeter ausführt.</p>
+<p>Sie möchten das empirisch überprüfen und schauen sich Archivmaterial von siebzig Fußballpartien an, die durch Elfmeterschießen entschieden wurden. Tatsächlich stellen Sie fest, dass in genau 60% der Fälle das zuerst ausführende Team gewann.</p>
+<p>Prüfen Sie, ob diese Beobachtung auch statistisch relevant ist. Wählen Sie 5% als Signifikanzniveau.</p>
+</div>
+<div id="aufgabe-10-4" class="section level3" number="10.2.11">
+<h3><span class="header-section-number">10.2.11</span> Aufgabe 10-4</h3>
+<p><a href="lösungen-der-übungsaufgaben.html#loesung-10-4">zur Lösung</a></p>
+<p>Sie führen eine Untersuchung zum Konsumverhalten von Studierenden mit und ohne Nebenjob in Hinblick auf Bio-Produkte durch. Eine Umfrage ergibt folgendes Ergebnis:</p>
 <div style="overflow-y: auto;">
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -1579,215 +1147,61 @@ Ja
 </th>
 <th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="2">
 <div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
-→ Frage 2
+→ Tätigkeit
 </div>
 </th>
 </tr>
 <tr>
 <th style="text-align:right;border-bottom: 1px solid; ">
-Frage 1 ↓
+Bio-Kaufverhalten ↓
 </th>
 <th style="text-align:right;border-bottom: 1px solid; ">
-Ja
+mit Nebenjob
 </th>
 <th style="text-align:right;border-bottom: 1px solid; ">
-Nein
+ohne Nebenjob
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:right;font-weight: bold;border-right:1px solid;">
-Ja
+regelmäßiger Kauf
 </td>
 <td style="text-align:right;">
-5
+141
 </td>
 <td style="text-align:right;">
-28
+70
 </td>
 </tr>
 <tr>
 <td style="text-align:right;font-weight: bold;border-right:1px solid;">
-Nein
+kein regelmäßiger Kauf
 </td>
 <td style="text-align:right;">
-40
+253
 </td>
 <td style="text-align:right;">
-72
+149
 </td>
 </tr>
 </tbody>
 </table>
 </div>
 <ol style="list-style-type: lower-alpha">
-<li><p>Vervollständigen Sie die Kreuztabelle um ihre Summen und die Erwartungswerte.</p></li>
-<li><p>Berechnen Sie <span class="math inline">\(\chi^2\)</span> und den <span class="math inline">\(\phi\)</span>-Koeffizienten.</p></li>
-<li><p>Wie würden Sie den Zusammenhang beschreiben?</p></li>
+<li><p>Überprüfen Sie anhand dieser Daten, ob ein signifikanter positiver Zusammenhang zwischen der Ausübung eines Nebenjobs und dem regelmäßigen Konsum von Bio-Produkten besteht. Wählen Sie 0,05 als Signifikanzniveau.</p></li>
+<li><p>Berechnen Sie eine Kennzahl, die aussagt, wie stark der Zusammenhang ausfällt.</p></li>
 </ol>
 </div>
-<div id="aufgabe-9-3" class="section level3" number="9.6.4">
-<h3><span class="header-section-number">9.6.4</span> Aufgabe 9-3</h3>
-<p><a href="lösungen-der-übungsaufgaben.html#loesung-9-3">zur Lösung</a></p>
-<p>Sie möchten überprüfen, ob auf dem Arbeitsmarkt anhand von Namen diskriminiert wird, die auf einen Migrationshintergrund schließen lassen. Sie antworten als fiktive Bewerber*innen mit vergleichbaren Qualifikationen auf zufällige Stellenanzeigen und halten fest, ob die jeweilige Bewerbung in einer Einladung zum Vorstellungsgespräch resultiert.</p>
-<p>Sie erheben diese Daten:<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
-<div style="overflow-y: auto;">
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
-</th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="2">
-<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
-→ Ergebnis
-</div>
-</th>
-</tr>
-<tr>
-<th style="text-align:right;border-bottom: 1px solid; ">
-Herkunft des Namens ↓
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-eingeladen
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-nicht eingeladen
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right;font-weight: bold;border-right:1px solid;">
-deutsch
-</td>
-<td style="text-align:right;">
-36
-</td>
-<td style="text-align:right;">
-64
-</td>
-</tr>
-<tr>
-<td style="text-align:right;font-weight: bold;border-right:1px solid;">
-italienisch
-</td>
-<td style="text-align:right;">
-23
-</td>
-<td style="text-align:right;">
-77
-</td>
-</tr>
-<tr>
-<td style="text-align:right;font-weight: bold;border-right:1px solid;">
-slawisch
-</td>
-<td style="text-align:right;">
-9
-</td>
-<td style="text-align:right;">
-91
-</td>
-</tr>
-<tr>
-<td style="text-align:right;font-weight: bold;border-right:1px solid;">
-türkisch
-</td>
-<td style="text-align:right;">
-11
-</td>
-<td style="text-align:right;">
-89
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Können Sie einen Zusammenhang zwischen Namensherkunft und Erfolg der Bewerbung feststellen? Begründen Sie Ihre Antwort.</p>
-</div>
-<div id="aufgabe-9-4" class="section level3" number="9.6.5">
-<h3><span class="header-section-number">9.6.5</span> Aufgabe 9-4</h3>
-<p><a href="lösungen-der-übungsaufgaben.html#loesung-9-4">zur Lösung</a></p>
-<p>In einer breit angelegten Befragung von Haushalten wird erhoben,</p>
-<ol style="list-style-type: decimal">
-<li>ob die Proband*innen zur Miete wohnen und</li>
-<li>welchen Internetanschluss sie nutzen.</li>
-</ol>
-<p>Sie fassen die Ergebnisse in einer Kreuztabelle zusammen:</p>
-<div style="overflow-y: auto;">
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
-</th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="2">
-<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
-→ Wohnverhältnis
-</div>
-</th>
-</tr>
-<tr>
-<th style="text-align:right;border-bottom: 1px solid; ">
-Internetanschluss ↓
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-Miete
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-Eigentum
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right;font-weight: bold;border-right:1px solid;">
-Glasfaser
-</td>
-<td style="text-align:right;">
-1926
-</td>
-<td style="text-align:right;">
-1567
-</td>
-</tr>
-<tr>
-<td style="text-align:right;font-weight: bold;border-right:1px solid;">
-DSL
-</td>
-<td style="text-align:right;">
-2758
-</td>
-<td style="text-align:right;">
-3686
-</td>
-</tr>
-<tr>
-<td style="text-align:right;font-weight: bold;border-right:1px solid;">
-Koaxialkabel
-</td>
-<td style="text-align:right;">
-3002
-</td>
-<td style="text-align:right;">
-1903
-</td>
-</tr>
-<tr>
-<td style="text-align:right;font-weight: bold;border-right:1px solid;">
-Kein fester Anschluss
-</td>
-<td style="text-align:right;">
-1277
-</td>
-<td style="text-align:right;">
-167
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Berechnen Sie den Cramér-Index und interpretieren Sie das Ergebnis.</p>
+<div id="aufgabe-10-5" class="section level3" number="10.2.12">
+<h3><span class="header-section-number">10.2.12</span> Aufgabe 10-5</h3>
+<p><a href="lösungen-der-übungsaufgaben.html#loesung-10-5">zur Lösung</a></p>
+<p>Das <em>Global Volcanism Program</em> des <span class="citation"><a href="#ref-smithsonian" role="doc-biblioref">Smithsonian Institute</a> (<a href="#ref-smithsonian" role="doc-biblioref">2021</a>)</span> stellt eine Datenbank für Vulkanaktivitäten zur Verfügung.
+In Indonesien wurden für die Jahre 1919 bis inklusive 2018 insgesamt 643 Ausbrüche aufgezeichnet, für die der Monat erfasst ist, in dem die Aktivität begann.
+Die Verteilung aller Ausbrüche auf Monate ist in der folgenden Grafik festgehalten:</p>
+<p><img src="Skript_Statistik_2021_files/figure-html/unnamed-chunk-60-1.svg" width="450px" style="display: block; margin: auto;" /></p>
+<p>Prüfen Sie, ob bei einem Signifikanzniveau von 1% ein systematischer Zusammenhang zwischen Monat und Zahl der Ausbrüche vorliegt.</p>
 
 </div>
 </div>
@@ -1809,14 +1223,14 @@ Klemm, Elmar. 2002. <em>Einführung in die Statistik. Für die Sozialwissenschaf
 <div id="ref-delange" class="csl-entry">
 Lange, Norbert de und Josef Nipper. 2018. <em>Quantitative Methodik in der Geographie</em>. <span>UTB</span> Geographie, Methoden, Statistische Verfahren 4933. Paderborn: Ferdinand Schöningh.
 </div>
-<div id="ref-ringeisen" class="csl-entry">
-Veit, Susanne. 2020. Feldexperimentelle <span>Forschung</span> zu ethnischer <span>Diskriminierung</span> auf dem <span>Arbeitsmarkt</span>: „<span>Alle</span> sind gleich, aber manche sind gleicher“. In: <em>Handbuch <span>Stress</span> und <span>Kultur</span></em>, hg. von Tobias Ringeisen, Petia Genkova, und Frederick T. L. Leong, 1–22. Wiesbaden: Springer Fachmedien Wiesbaden. doi:<a href="https://doi.org/10.1007/978-3-658-27825-0_25-1">10.1007/978-3-658-27825-0_25-1</a>, <a href="http://link.springer.com/10.1007/978-3-658-27825-0_25-1">http://link.springer.com/10.1007/978-3-658-27825-0_25-1</a> (zugegriffen: 10. Mai 2021).
+<div id="ref-smithsonian" class="csl-entry">
+Smithsonian Institute. 2021. Global Volcanism Program. <a href="https://volcano.si.edu/">https://volcano.si.edu/</a>.
 </div>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="4">
-<li id="fn4"><p>Diese Zahlen sind fiktiv. Echte Ergebnisse sogenannter Korrenspondenztests zu ähnlichen Fragestellungen sind bei <span class="citation"><a href="#ref-ringeisen" role="doc-biblioref">Veit</a> (<a href="#ref-ringeisen" role="doc-biblioref">2020</a>)</span> zusammengefasst.<a href="kreuztabellen.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<ol start="5">
+<li id="fn5"><p>Hier wird also eine verhältnisskalierte Variable (Bevölkerungszahl der Gemeinde) in eine nominalskalierte Variable transformiert. In Fällen wie diesen, wo die Variable nach der Transformation nur zwei Werte annehmen kann, sprechen wir auch von der <q>Dichotomisierung</q> einer Variable.<a href="chi-quadrat-tests.html#fnref5" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -1824,8 +1238,8 @@ Veit, Susanne. 2020. Feldexperimentelle <span>Forschung</span> zu ethnischer <sp
           </div>
         </div>
       </div>
-<a href="lineare-regression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="chi-quadrat-tests.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="kreuztabellen.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="formeln.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
