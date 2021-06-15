@@ -403,11 +403,6 @@ kritischen-wert-bestimmen-1
 prüfgröße-berechnen-5
 ergebnis-interpretieren-3
 andere-verteilungen
-aufgabe-10-1
-aufgabe-10-2
-aufgabe-10-3
-aufgabe-10-4
-aufgabe-10-5
 loesung-1-1
 loesung-1-2
 loesung-1-3
@@ -516,8 +511,3 @@ loesung-9-1
 loesung-9-2
 loesung-9-3
 loesung-9-4
-loesung-10-1
-loesung-10-2
-loesung-10-3
-loesung-10-4
-loesung-10-5
