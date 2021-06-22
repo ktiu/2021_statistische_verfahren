@@ -156,7 +156,7 @@ Datum                 | Sitzung | Inhalt
 1. Juni 2021          | 7       | [Korrelation]
 8. Juni 2021          | 8       | [Lineare Regression]
 15. Juni 2021         | 9       | [Kreuztabellen]
-22. Juni 2021         | 10      | [$\chi^2$-Tests]
+22. Juni 2021         | 10      | [$\chi^2$-Tests](#chi-quadrat-tests)
 29. Juni 2021         |         | Klausurvorbereitung
 6. Juli 2021          |         | Klausurvorbereitung
 13. Juli 2021         |         | Klausur (14h s. t.)
