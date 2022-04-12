@@ -8,7 +8,7 @@ author:
     affiliation: |
       | Institut für Humangeographie
       | Goethe-Universität Frankfurt
-date: Sommersemester 2021
+date: Sommersemester 2022
 site: bookdown::bookdown_site
 lang: de
 documentclass: report
@@ -144,20 +144,20 @@ counter <- list(sitzung = 0, aufgabe = 0)
 
 *Alle Sitzungen finden von 14 bis 16h c. t. statt, die Klausuren s. t.*
 
-Datum                 | Sitzung | Inhalt
---------------------: | ------: | :-----------------------------------
-13. April 2021        |         | [Vorbesprechung]
-20. April 2021        | 1       | [Datenerhebung und Häufigkeiten]
-27. April 2021        | 2       | [Maßzahlen]
-4. Mai 2021           | 3       | [$z$-Werte und Normalverteilung](#z-werte-und-normalverteilung)
-11. Mai 2021          | 4       | [Schätzstatistik]
-18. Mai 2021          | 5       | [Grundlagen der Teststatistik]
-25. Mai 2021          | 6       | [Testverfahren mit zwei Stichproben]
-1. Juni 2021          | 7       | [Korrelation]
-8. Juni 2021          | 8       | [Lineare Regression]
-15. Juni 2021         | 9       | [Kreuztabellen]
-22. Juni 2021         | 10      | [$\chi^2$-Tests](#chi-quadrat-tests)
-29. Juni 2021         |         | Klausurvorbereitung
-6. Juli 2021          |         | Klausurvorbereitung
-13. Juli 2021         |         | Klausur (14h s. t.)
-12. Oktober 2021      |         | Nachklausur (14h s. t.)
+Datum                 | Sitzung | Inhalt                                                                   | Ort
+--------------------: | -----:  | :-----------------------------------                                     | :-----
+12. April 2022        |         | [Vorbesprechung]                                                         | Zoom
+19. April 2022        | 1       | [Datenerhebung und Häufigkeiten]                                         | Zoom
+26. April 2022        | 2       | [Maßzahlen]                                                              | HZ10
+3. Mai 2022           | 3       | [$z$-Werte und Normalverteilung] <!--(#z-werte-und-normalverteilung) --> | HZ10
+10. Mai 2022          | 4       | [Schätzstatistik]                                                        | HZ10
+17. Mai 2022          | 5       | [Grundlagen der Teststatistik]                                           | HZ10
+24. Mai 2022          | 6       | [Testverfahren mit zwei Stichproben]                                     | HZ10
+31. Mai 2022          | 7       | [Korrelation]                                                            | HZ10
+7. Juni 2022          |         | *entfällt*
+14. Juni 2022         | 8       | [Lineare Regression]                                                     | HZ10
+21. Juni 2022         | 9       | [Kreuztabellen]                                                          | HZ10
+28. Juni 2022         | 10      | [$\chi^2$-Tests] <!-- (#chi-quadrat-tests) -->                           | HZ10
+5. Juli 2022          |         | Klausurvorbereitung                                                      | HZ10
+12. Juli 2022         |         | Klausur (14h s. t.)                                                      | HZ10
+11. Oktober 2022      |         | Nachklausur (14h s. t.)                                                  | HZ10

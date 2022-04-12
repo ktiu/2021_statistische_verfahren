@@ -1,0 +1,262 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+  ngerman,
+  a4paper,
+]{report}
+\usepackage{amsmath,amssymb}
+\usepackage[default]{sourcesanspro}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Statistische Verfahren in der Geographie},
+  pdflang={de},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=2.5cm,top=3.5cm,bottom=3cm]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{tcolorbox}
+\usepackage{gensymb}
+\usepackage{makecell}
+\usepackage{tabularx}
+\usepackage{arydshln}
+\usepackage{caption}
+\usepackage{bbding}
+\usepackage{icomma}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage{iflang}
+\usepackage{colortbl}
+
+\definecolor{goethe_blue}{HTML}{00618F}
+\definecolor{light_gray}{HTML}{f8f6f5}
+\definecolor{sand_gray}{HTML}{e4e3dd}
+\definecolor{dark_gray}{HTML}{4d4b46}
+\definecolor{purple}{HTML}{860047}
+\definecolor{emo_red}{HTML}{b3062c}
+\definecolor{mustard_yellow}{HTML}{e3ba0f}
+\definecolor{green}{HTML}{737c45}
+\definecolor{magenta}{HTML}{ad3b76}
+\definecolor{orange}{HTML}{c96215}
+\definecolor{sun_yellow}{HTML}{f7d926}
+\definecolor{light_green}{HTML}{a5ab52}
+\definecolor{light_blue}{HTML}{48a9da}
+
+\hypersetup{unicode=true,
+            colorlinks=true,
+            linkcolor=goethe_blue,
+            citecolor=goethe_blue,
+            urlcolor=goethe_blue,
+            breaklinks=true}
+
+\newenvironment{rtip}{
+  \medskip
+  \begin{tcolorbox}[colframe=purple,colback=light_gray,title=Softwarehinweis]
+}{
+  \end{tcolorbox}
+  \medskip
+}
+
+\newcommand{\divider}{
+  \medskip
+  \begin{center}
+  {\color{orange}\SparkleBold}
+  \end{center}
+  \medskip
+}
+
+\ifXeTeX
+  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
+  \usepackage{polyglossia}
+  \setmainlanguage[]{}
+\else
+  \usepackage[main=ngerman]{babel}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%
+%  start drop-in  %
+%%%%%%%%%%%%%%%%%%%
+
+\IfLanguageName{ngerman}{%
+  \newcommand{\lastupdate}{Stand: }%
+  \newcommand{\pagestring}{Seite }%
+}{%
+  \newcommand{\lastupdate}{Last updated }%
+  \newcommand{\pagestring}{Page }%
+}
+
+\addto\captionsenglish{\renewcommand{\chaptername}{Lecture}}
+\addto\captionsngerman{\renewcommand{\chaptername}{Sitzung}}
+
+
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\fancyhf{}
+\usepackage{xpatch}
+\xpretocmd\headrule{\color{dark_gray}}{}{\PatchFailed}
+\lhead{\color{dark_gray}\footnotesize Statistische Verfahren in der
+Geographie}
+\chead{\color{dark_gray}\footnotesize }
+% \rhead{\color{dark_gray}\footnotesize Skript für den Theorieteil}
+\rhead{\color{dark_gray}\footnotesize\chaptername~\thechapter:~\leftmark}
+  \lfoot{\color{dark_gray}\footnotesize\lastupdate\today}
+\rfoot{\color{dark_gray}\footnotesize\pagestring\thepage/\begin{NoHyper}\pageref{LastPage}\end{NoHyper}}
+\fancypagestyle{plain}{ %
+  \fancyhf{} % remove everything
+  \renewcommand{\headrulewidth}{0pt} % remove lines as well
+  \renewcommand{\footrulewidth}{0pt}
+      \lfoot{\color{dark_gray}\footnotesize\lastupdate\today}
+    \rfoot{\color{dark_gray}\footnotesize\pagestring\thepage/\begin{NoHyper}\pageref{LastPage}\end{NoHyper}}
+}
+
+
+\renewcommand{\maketitle}{
+  \begin{titlepage}
+  \topskip5cm
+  \begingroup
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{12pt}
+    {\fontseries{b}\selectfont\Huge\center{Statistische Verfahren in der
+Geographie}\par}
+    {\fontseries{l}\huge\center{Skript für den Theorieteil}\par}
+    \vspace*{\fill}
+    \begin{tabularx}{\textwidth}{@{}X  r}
+                  {\centering
+        Till Straube
+        \newline \href{mailto:straube@geo.uni-frankfurt.de}{\nolinkurl{straube@geo.uni-frankfurt.de}}
+                  \medskip\newline
+          {\renewcommand\\{\newline}Institut für Humangeographie\\
+Goethe-Universität Frankfurt}
+              } &          Sommersemester 2022 
+    \end{tabularx}
+    \vspace{4cm}
+  \endgroup
+  \end{titlepage}
+  \thispagestyle{plain}% suppress the running head
+}
+
+\newcommand{\makenotation}{
+  \begin{center}
+    \fontseries{l}\selectfont
+    \huge  
+  \end{center}
+  \bigskip
+}
+
+%%%%%%%%%%%%%%%%%
+%  end drop-in  %
+%%%%%%%%%%%%%%%%%
+
+
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{csquotes}
+
+\title{Statistische Verfahren in der Geographie}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Skript für den Theorieteil}
+\author{true}
+\date{Sommersemester 2022}
+
+\begin{document}
+\maketitle
+
+\hypertarget{terminuxfcberblick}{%
+\chapter*{Terminüberblick}\label{terminuxfcberblick}}
+\addcontentsline{toc}{chapter}{Terminüberblick}
+
+\emph{Alle Sitzungen finden von 14 bis 16h c.~t. statt, die Klausuren
+s.~t.}
+
+\begin{longtable}[]{@{}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3043}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.0870}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.5217}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.0870}}@{}}
+\toprule
+\begin{minipage}[b]{\linewidth}\raggedleft
+Datum
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Sitzung
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Inhalt
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Ort
+\end{minipage} \\
+\midrule
+\endhead
+12. April 2022 & & {[}Vorbesprechung{]} & Zoom \\
+19. April 2022 & 1 & {[}Datenerhebung und Häufigkeiten{]} & Zoom \\
+26. April 2022 & 2 & {[}Maßzahlen{]} & HZ10 \\
+3. Mai 2022 & 3 & {[}\(z\)-Werte und Normalverteilung{]} & HZ10 \\
+10. Mai 2022 & 4 & {[}Schätzstatistik{]} & HZ10 \\
+17. Mai 2022 & 5 & {[}Grundlagen der Teststatistik{]} & HZ10 \\
+24. Mai 2022 & 6 & {[}Testverfahren mit zwei Stichproben{]} & HZ10 \\
+31. Mai 2022 & 7 & {[}Korrelation{]} & HZ10 \\
+7. Juni 2022 & & \emph{entfällt} & \\
+14. Juni 2022 & 8 & {[}Lineare Regression{]} & HZ10 \\
+21. Juni 2022 & 9 & {[}Kreuztabellen{]} & HZ10 \\
+28. Juni 2022 & 10 & {[}\(\chi^2\)-Tests{]} & HZ10 \\
+5. Juli 2022 & & Klausurvorbereitung & HZ10 \\
+12. Juli 2022 & & Klausur (14h s.~t.) & HZ10 \\
+11. Oktober 2022 & & Nachklausur (14h s.~t.) & HZ10 \\
+\bottomrule
+\end{longtable}
+
+\end{document}
