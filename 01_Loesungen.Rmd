@@ -40,7 +40,7 @@ tribble(
   "Pegelstand", "Intervallskala", "stetig", "willkürlicher Nullpunkt",
   "Staatsangehörigkeit", "Nominalskala", "qualitativ", "",
   "Interesse an Statistik (gering bis hoch)", "Ordinalskala", "qualitativ", "",
-  "Klausurnote", "Ordinalskala", "qualitativ",
+  "Klausurnote", "Ordinalskala (Intervall- auch vertretbar)", "qualitativ",
     "wird jedoch oft metrisch verwendet",
   "Bodentyp", "Nominalskala", "qualitativ", "",
   "Entfernung zum Stadtzentrum in km", "Verhältnisskala", "stetig", "",
