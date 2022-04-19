@@ -12,7 +12,7 @@ rmd_files:
   - Vorbesprechung.Rmd
   # - Klausur.Rmd
   - 01_Datenerhebung_und_Haeufigkeiten.Rmd
-  # - 01_Aufgaben.Rmd
+  - 01_Aufgaben.Rmd
   # - 02_Maßzahlen.Rmd
   # - 02_Aufgaben.Rmd
   # - 03_z-Werte_und_Normalverteilung.Rmd
@@ -32,7 +32,7 @@ rmd_files:
   # - 10_Chi-Quadrat-Tests.Rmd
   # - 10_Aufgaben.Rmd
   # - Formelsammlung.Rmd
-  # - 01_Loesungen.Rmd
+  - 01_Loesungen.Rmd
   # - 02_Loesungen.Rmd
   # - 03_Loesungen.Rmd
   # - 04_Loesungen.Rmd
