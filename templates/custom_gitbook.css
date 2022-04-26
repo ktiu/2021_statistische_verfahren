@@ -107,7 +107,7 @@ h1.title {
   background: var(--sand_gray);
 }
 
-nav ul.summary ul ul b {
+.book .book-summary ul.summary ul ul li a span {
   display: none;
 }
 
