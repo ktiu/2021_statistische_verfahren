@@ -15,7 +15,7 @@ rmd_files:
   - 01_Aufgaben.Rmd
   - 02_Maßzahlen.Rmd
   - 02_Aufgaben.Rmd
-  # - 03_z-Werte_und_Normalverteilung.Rmd
+  - 03_z-Werte_und_Normalverteilung.Rmd
   # - 03_Aufgaben.Rmd
   # - 04_Schaetzstatistik.Rmd
   # - 04_Aufgaben.Rmd
