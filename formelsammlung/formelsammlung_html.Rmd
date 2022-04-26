@@ -1,5 +1,3 @@
-Die Formelsammlung mit Wertetabellen liegt als PDF vor. So (oder ähnlich) formatiert würden Ihnen diese Informationen auch in einer Präsenzklausur zur Verfügung stehen. 
-
 ### Hinweise {-}
 
 - Die hier dargestellten Informationen werden Ihnen so oder ähnlich auch in der Klausur zur Verfügung stehen.
