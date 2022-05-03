@@ -14,7 +14,7 @@ lang: de
 documentclass: report
 tables: true
 bibliography: ["statistik.bib"]
-csl: /Users/till/.csl/chicago-author-date-de.csl
+csl: /home/till/.csl/chicago-author-date-de.csl
 link-citations: yes
 
 papersize: a4
@@ -149,7 +149,7 @@ Datum                 | Sitzung | Inhalt                                        
 12. April 2022        |         | [Vorbesprechung]                                                         | Zoom
 19. April 2022        | 1       | [Datenerhebung und Häufigkeiten]                                         | Zoom
 26. April 2022        | 2       | [Maßzahlen]                                                              | HZ10
-3. Mai 2022           | 3       | [$z$-Werte und Normalverteilung](#z-werte-und-normalverteilung)          | HZ10
+3. Mai 2022           | 3       | [$z$-Werte und Normalverteilung](#z-werte-und-normalverteilung)          | Zoom
 10. Mai 2022          | 4       | [Schätzstatistik]                                                        | HZ10
 17. Mai 2022          | 5       | [Grundlagen der Teststatistik]                                           | HZ10
 24. Mai 2022          | 6       | [Testverfahren mit zwei Stichproben]                                     | HZ10
