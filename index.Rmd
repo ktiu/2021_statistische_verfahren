@@ -159,5 +159,5 @@ Datum                 | Sitzung | Inhalt                                        
 21. Juni 2022         | 9       | [Kreuztabellen]                                                          | HZ10
 28. Juni 2022         | 10      | [$\chi^2$-Tests] <!-- (#chi-quadrat-tests) -->                           | HZ10
 5. Juli 2022          |         | Klausurvorbereitung                                                      | HZ10
-12. Juli 2022         |         | Klausur (14h s. t.)                                                      | 
-11. Oktober 2022      |         | Nachklausur (14h s. t.)                                                  | 
+12. Juli 2022         |         | Klausur (14h s. t.)                                                      | H IV
+11. Oktober 2022      |         | Nachklausur (14h s. t.)                                                  |

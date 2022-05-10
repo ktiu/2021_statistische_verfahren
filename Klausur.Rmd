@@ -2,85 +2,49 @@
 
 ### Termin {-}
 
-Die Klausur wird am 13. Juli 2021 um 14:00 Uhr freigeschaltet. Die Abgabe ist bis 15:30 Uhr möglich.
+- Der Klausurtermin ist am 12. Juli 2022 um 14:00 Uhr s. t. -- also nicht Viertel nach!
+- Die Klausur findet in Hörsaal IV (Bockenheim) statt -- also nicht im regulären HZ10!
 
 ### Anmeldung {-}
 
-Die administrative An- und Abmeldung für die Klausur ist bis einschließlich 6. Juli 2021 auf OLAT möglich. "Administrativ" bedeutet hier,
+- Die administrative An- und Abmeldung für die Klausur ist bis einschließlich 5. Juli 2022 auf OLAT möglich.
+- "Administrativ" bedeutet hier,
+  - dass sie notwendig ist um die Klausur zu schreiben,
+  - dass sie zusätzlich zu etwaigen Anmeldungen gegenüber dem Prüfungsamt stattfinden muss, und
+  - dass ich nicht überprüfe, ob Sie zur Prüfung zugelassen sind. (Fragen dazu kann Ihnen nur Ihr Prüfungsamt beantworten.)
 
-- dass sie notwendig ist um die Klausur zu schreiben, und
-- dass sie zusätzlich zu etwaigen Anmeldungen gegenüber dem Prüfungsamt stattfinden muss.
+### Zur Klausur mitbringen {-}
 
-### Zugelassene Hilfsmittel {-}
+- Ein nicht-programmierbarer Taschenrechner ist das einzige zugelassene Hilfsmittel.
+- Bringen Sie außerdem Ihren Studienausweis mit und legen Sie ihn sichtbar an den Platz.
+- Sonst dürfen Sie nur eine Trinkflasche auf dem Tisch haben.
+- Alles andere bleibt bitte in einer verschlossenen Tasche.
 
-Folgende Hilfsmittel sind zur Klausur zugelassen:
+### Bearbeitung {-}
 
-- die ausgedruckte Klausur (aber nicht zwingend notwendig)
-- leere DIN-A4-Zettel
-- eine vorbereitete [Eigenständigkeitserklärung](files/Eigenständigkeitserklärung.pdf)
-- ein nicht-programmierbarer Taschenrechner (Regeln wie für Abitur in Hessen)
-- Ihre Unterlagen
-
-### Sandbox {-}
-
-Meine dringende Empfehlung: Schauen Sie sich zur Vorbereitung auf OLAT die "Klausur-Sandbox" an, in der sie die Klausur von Herunterladen bis Hochladen durchspielen können. Üben Sie besonders das **Hochladen von Fotos über das Mobiltelefon**, falls Sie auf diese Art und Weise Ihre Klausur abgeben wollen!
-
-### Zugang {-}
-
-- Die Klausur wird online geschrieben.
-- Das Klausur-Modul wird um Punkt 14 h auf OLAT freigeschaltet.
-- Ihre Klausur können Sie dann herunterladen, ausdrucken und handschriftlich bearbeiten.
-
-### Klausur ohne Drucker {-}
-
-Ich empfehle, die Klausur auszudrucken. Das ist aber nicht zwingend nötig. Wenn Sie die Klausur nicht drucken, sollten Sie
-
-- leere DIN-A4-Papierbögen zur hand haben, und
-- eine Eigenständigkeitserklärung vorbereiten. [Zum Vordruck](files/Eigenständigkeitserklärung.pdf)
-
-### Abgabe {-}
-
-Am Ende digitalisieren Sie die Klausur (durch scannen oder abfotografieren) und laden sie bei OLAT hoch.
-
-- Die Bearbeitungsdauer beträgt 60 Minuten.
-- Für die technische Abwicklung werden 30 Minuten zusätzlich gewährt.
-- Die Abgabe bis 15h30 ist fix und nicht verhandelbar.
-- Sollte die Abgabe auf OLAT nicht funktionieren, ist eine Abgabe auch per E-Mail möglich, an: straube@geo.uni-frankfurt.de
-- Keinesfalls werden jedoch Abgaben nach 15h30 berücksichtigt -- auch nicht per E-Mail! Es zählt dann der "Eingangsstempel" des Uni-Servers.
-
-**Sie sind selbst dafür verantwortlich, dass Sie rechtzeitig mit der Bearbeitung aufhören und mit der Abgabe anfangen.**
+- Die Bearbeitungsdauer beträgt genau 60 Minuten:
+  - Alle fangen gleichzeitig an zu lesen.
+  - Alle hören gleichzeitig auf zu schreiben.
+- Nicht-Muttersprachler\*innen können sich während der Klausur mit sprachlichen Verständnisfragen an mich wenden.
+- Sonst beantworte ich definitiv keine Fragen.
+- Es werden verschiedene Klausuren geschrieben.
 
 ### Tipps zur Bearbeitung {-}
 
-- Nutzen Sie Ihren Taschenrechner schlau um Zeit zu sparen!
+- Machen Sie sich mit Ihrem Taschenrechner vertraut um Zeit zu sparen.
 - Zeigen Sie Ihre Zwischenschritte für die volle Punktzahl:
-  - Formel hinschreiben
-  - Werte einsetzen (Summen dürfen zusammengefasst werden)
-  - Antwortsatz formulieren
+  - Formel hinschreiben,
+  - Werte einsetzen (Summen dürfen zusammengefasst werden) und
+  - Antwortsatz formulieren.
 - Runden Sie stets auf mindestens zwei relevante Kommastellen.
-- Warten Sie mit dem Hochladen nicht bis zur letzten Minute!
-
-### Bei Problemen während der Klausur {-}
-
-- Ruhe bewahren (Sie haben 30 Minuten extra!)
-- Für absolute Notfälle stehe ich während der Klausur auf Zoom zur Verfügung
-- Aber keinesfalls für inhaltliche Fragen
-- Nicht-Muttersprachler\*innen können sich auch mit sprachlichen Verständnisfragen an mich wenden
+  - 1048,602 -> 1048,60
+  - 0,005879 -> 0,0059
 
 ### Nachklausur {-}
 
-- Termin: 12. Oktober 2021, 14 h s. t.
+- Termin: 11. Oktober 2022, 14 h s. t.
 - Gleiches Schema wie die reguläre Klausur (mit anderen Aufgaben)
 - Nicht einfacher als die reguläre Klausur
-- Zur Nachklausur ist zugelassen, wer
-  - zum regulären Klausurtermin mit ärztlichem Attest entschuldigt ist,
+- Zur Nachklausur ist administrativ angemeldet, wer
   - die reguläre Klausur mitschreibt aber nicht besteht oder
-  - bereits Fehlversuche hat und die Teilnahme mit dem Prüfungsamt und mit mir abgesprochen hat.
-
-### Materialien auf OLAT {-}
-
-- Der Ordner "Klausur" im OLAT-Kurs (Theorie) enthält
-  - ein "Merkblatt Klausur" mit diesen Infos,
-  - eine Vorlage für die Eigenständigkeitserklärung,
-  - eine "Sandbox" mit einigen Probeklausuren und
-  - die Aufgabenmodule für die Klausuren (sichtbar, aber noch kein Zugang).
+  - die Teilnahme mit dem Prüfungsamt abspricht und mir das mitteilt (etwa bei Attest oder bei 3. Versuch)
