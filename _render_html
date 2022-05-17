@@ -1,3 +1,4 @@
 #!/usr/bin/env Rscript
 
-bookdown::render_book("index.Rmd", "bookdown::gitbook")
+x <- bookdown::render_book("index.Rmd", "bookdown::gitbook")
+sprintf("file://%s", x)
