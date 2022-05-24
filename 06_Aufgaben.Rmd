@@ -45,7 +45,7 @@ b) Welche Schlüsse ziehen Sie aus der Untersuchung?
 
 Sie interessieren sich für das Kommunikationsverhalten von Jugendlichen über WhatsApp. Sie vermuten, dass Nutzer\*innen, die die [„Gelesen-Benachrichtigung“](https://faq.whatsapp.com/en/android/28000015/?lang=de) deaktiviert haben, im Durchschnitt langsamer antworten als diejenigen, die die Benachrichtigung aktiviert lassen.
 
-Sie finden je Einstellung sechs freiwillige Schüler\*innen, die Sie ihre WhatsApp-Protokolle auf die Durchschnittliche Antwortzeit auswerten lassen (natürlich unter Einwilligung der Eltern).
+Sie finden je Einstellung sechs freiwillige Schüler\*innen, die Sie ihre WhatsApp-Protokolle auf die Durchschnittliche Antwortzeit (in Minuten) auswerten lassen (natürlich unter Einwilligung der Eltern).
 
 a) Welchen Test wollen Sie durchführen? Prüfen Sie die Voraussetzungen. Was könnte hier problematisch sein?
 a) Formulieren Sie die Hypothesen.

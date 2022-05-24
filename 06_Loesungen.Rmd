@@ -49,6 +49,8 @@ a) Die Varianzen lauten:
     &\approx15{,}992
     \end{aligned}\]
 
+    (Dieser Wert kann durch Rundungsfehler stark abweichen -- das wäre in der Klausur aber kein Problem.)
+
 b) Der kritische Wert wurde deutlich übertroffen. Ein Unterschied in der Streuung der Wassertemperaturen konnte nachgewiesen werden ($\alpha=0{,}1$).
 
 `r naechste("lösung") #4`

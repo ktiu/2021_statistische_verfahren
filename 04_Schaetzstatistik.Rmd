@@ -359,7 +359,7 @@ Dies lässt sich umformen in:
 \nopagebreak
 
 $$
-1-\alpha\approx P(z_{\mu}<1{,}08) - P(z_{\mu}<-1{,}08) 
+1-\alpha\approx P(z_{\mu}<1{,}30) - P(z_{\mu}<-1{,}30) 
 $$
 
 Die jeweiligen Wahrscheinlichkeiten lassen sich in der [Tabelle für $p$-Werte der Normalverteilung](#tabelle-z) nachschauen (bzw. für den negativen $z$-Wert errechnen):
