@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Sitzung 1 Datenerhebung und Häufigkeiten | Statistische Verfahren in der Geographie</title>
-  <meta name="description" content="Sitzung 1 Datenerhebung und Häufigkeiten | Statistische Verfahren in der Geographie" />
+  <title>Sitzung 8 Lineare Regression | Statistische Verfahren in der Geographie</title>
+  <meta name="description" content="Sitzung 8 Lineare Regression | Statistische Verfahren in der Geographie" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Sitzung 1 Datenerhebung und Häufigkeiten | Statistische Verfahren in der Geographie" />
+  <meta property="og:title" content="Sitzung 8 Lineare Regression | Statistische Verfahren in der Geographie" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Sitzung 1 Datenerhebung und Häufigkeiten | Statistische Verfahren in der Geographie" />
+  <meta name="twitter:title" content="Sitzung 8 Lineare Regression | Statistische Verfahren in der Geographie" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="informationen-zur-klausur.html"/>
-<link rel="next" href="maßzahlen.html"/>
+<link rel="prev" href="korrelation.html"/>
+<link rel="next" href="formeln.html"/>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -478,1058 +478,559 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="datenerhebung-und-häufigkeiten" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Sitzung 1</span> Datenerhebung und Häufigkeiten<a href="datenerhebung-und-häufigkeiten.html#datenerhebung-und-häufigkeiten" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="lernziele-dieser-sitzung" class="section level3 unnumbered hasAnchor">
-<h3>Lernziele dieser Sitzung<a href="datenerhebung-und-häufigkeiten.html#lernziele-dieser-sitzung" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="lineare-regression" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Sitzung 8</span> Lineare Regression<a href="lineare-regression.html#lineare-regression" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="lernziele-dieser-sitzung-7" class="section level3 unnumbered hasAnchor">
+<h3>Lernziele dieser Sitzung<a href="lineare-regression.html#lernziele-dieser-sitzung-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Sie können…</p>
 <ul>
-<li>einige Grundbegriffe der Statistik definieren.</li>
-<li>Typen von Stichproben unterscheiden.</li>
-<li>Skalenniveaus von Variablen bestimmen.</li>
-<li>Häufigkeitsverteilungen beschreiben.</li>
+<li>eine Regressionsgerade berechnen.</li>
+<li>Werte aus der Regressionsgerade ableiten.</li>
+<li>Residuen errechnen.</li>
+<li>den Determinationskoeffizienten <span class="math inline">\(R^2\)</span> berechnen und interpretieren.</li>
 </ul>
 </div>
-<div id="lehrvideos-sommersemester-2020" class="section level3 unnumbered hasAnchor">
-<h3>Lehrvideos (Sommersemester 2020)<a href="datenerhebung-und-häufigkeiten.html#lehrvideos-sommersemester-2020" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="lehrvideos-sommersemester-2020-4" class="section level3 unnumbered hasAnchor">
+<h3>Lehrvideos (Sommersemester 2020)<a href="lineare-regression.html#lehrvideos-sommersemester-2020-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li><a href="https://video01.uni-frankfurt.de/Mediasite/Play/36dca452df154bd3b7be2e069174e8991d">1a) Grundbegriffe</a></li>
-<li><a href="https://video01.uni-frankfurt.de/Mediasite/Play/5a397035f7a6468fa2cecf802ca8d52a1d">1b) Skalenniveaus</a></li>
-<li><a href="https://video01.uni-frankfurt.de/Mediasite/Play/5fce0458009b4da283b14fdc30e3a0ea1d">1c) Grundbegriffe</a></li>
-</ul>
-</div>
-<div id="statistische-praxis" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Statistische Praxis<a href="datenerhebung-und-häufigkeiten.html#statistische-praxis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Was ist Statistik? Je nach Perspektive kann Statistik vieles sein: ein Teilgebiet der Mathematik, ein Untersuchungsobjekt kritischer Forschung oder ein unbeliebtes Studienfach.</p>
-<p>Im Rahmen dieser Veranstaltung soll Statistik als eine Zusammenstellung von Praktiken in der quantitativen Forschung verstanden werden, wobei ihre Anwendung stets im Mittelpunkt steht. Eine hilfreiche Definition findet sich bei <span class="citation">Haseloff u. a. (<a href="#ref-haseloff" role="doc-biblioref">1968</a>)</span>:</p>
-<blockquote>
-<p><q>Allgemein kann gesagt werden: Die Statistik hat es mit Zahlen zu tun, die entweder aus Abzählvorgängen oder aus Messungen gewonnen wurden. Ihre Aufgabe ist es, ein solches Zahlenmaterial in eine optimal übersichtliche und informationsreiche Form zu bringen, aus ihnen methodische Schlußfolgerungen zu ziehen und gegebenfalls auch die Ursachen der analysierten Zahlenverhältnisse mit sachlichen Methoden aufzudecken.</q> <span class="citation">(<a href="#ref-haseloff" role="doc-biblioref">Haseloff u. a. 1968</a>: 27)</span></p>
-</blockquote>
-<div id="grundbegriffe-der-statistik" class="section level3 hasAnchor" number="1.1.1">
-<h3><span class="header-section-number">1.1.1</span> Grundbegriffe der Statistik<a href="datenerhebung-und-häufigkeiten.html#grundbegriffe-der-statistik" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="untersuchungselement" class="section level4 hasAnchor" number="1.1.1.1">
-<h4><span class="header-section-number">1.1.1.1</span> Untersuchungselement<a href="datenerhebung-und-häufigkeiten.html#untersuchungselement" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Untersuchungselemente (auch Untersuchungseinheiten, Merkmalsträger, bei Personen: Proband*innen, engl. <em>sampling unit</em>) sind die individuellen Gegenstände empirischer Untersuchungen. Bei einer Hochrechnung zur Bundestagswahl ist dies z.B. eine befragte Wählerin.</p>
-</div>
-<div id="stichprobe" class="section level4 hasAnchor" number="1.1.1.2">
-<h4><span class="header-section-number">1.1.1.2</span> Stichprobe<a href="datenerhebung-und-häufigkeiten.html#stichprobe" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Eine Stichprobe (engl. <em>sample</em>) ist die Menge aller Untersuchungselemente, deren Daten direkt erhoben werden. Die Anzahl der Untersuchungselemente in der Stichprobe wird in Formeln mit <span class="math inline">\(n\)</span> bezeichnet. Bei einer Hochrechnung z.B. bilden alle tatsächlich befragten Wähler*innen die Stichprobe.</p>
-</div>
-<div id="grundgesamtheit" class="section level4 hasAnchor" number="1.1.1.3">
-<h4><span class="header-section-number">1.1.1.3</span> Grundgesamtheit<a href="datenerhebung-und-häufigkeiten.html#grundgesamtheit" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Die Grundgesamtheit (auch Population, engl. <em>population</em>) ist die Menge aller potentiell untersuchbaren Elemente, über die Aussagen getroffen werden sollen. Die Stichprobe ist eine Teilmenge der Grundgesamtheit. Die Anzahl der Elemente in der Grundgesamtheit wird in Formeln mit <span class="math inline">\(N\)</span> bezeichnet. Bei einer Hochrechnung zur Bundestagswahl sind dies z.B. alle Wähler*innen (bzw. alle Wahlberechtigten, wenn Wahlbeteiligung von Interesse ist).</p>
-</div>
-<div id="variable" class="section level4 hasAnchor" number="1.1.1.4">
-<h4><span class="header-section-number">1.1.1.4</span> Variable<a href="datenerhebung-und-häufigkeiten.html#variable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Variablen (auch Merkmale, engl. <em>variable</em>) sind Informationen über die Untersuchungselemente, die in einer Untersuchung von Interesse sind. Typischerweise unterscheiden sie sich von Untersuchungselement zu Untersuchungseelement, sind also variabel. Bei einer Hochrechnung ist dies die Antwort auf die Frage: <q>Welche Partei haben Sie gerade gewählt?</q></p>
-</div>
-<div id="wert" class="section level4 hasAnchor" number="1.1.1.5">
-<h4><span class="header-section-number">1.1.1.5</span> Wert<a href="datenerhebung-und-häufigkeiten.html#wert" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Ein Wert (auch Merkmalsausprägung, engl. <em>observation</em>) ist die erfasste Ausprägung einer Variable bei einem Untersuchungselement. In Formeln werden Werte mit <span class="math inline">\(x_1, x_2, x_3, ..., x_n\)</span> durchnummeriert. Bei einer Hochrechnung kann die Variable <q>gewählte Partei</q> für ein Untersuchungselement z.B. den Wert <q>CDU</q> annehmen.</p>
-</div>
-<div id="kennwert" class="section level4 hasAnchor" number="1.1.1.6">
-<h4><span class="header-section-number">1.1.1.6</span> Kennwert<a href="datenerhebung-und-häufigkeiten.html#kennwert" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Kennwerte (auch Maßzahlen, Kennzahlen, engl. <em>summary statistics</em>) sind Zahlen, die aus den beobachteten Werten errechnet werden. Sie können beispielsweise Aufschluss über Mittelwerte und Verteilung einer Variable oder den Zusammenhang mehrerer Variablen geben. Bei einer Hochrechnung sind z.B. die relativen Häufigkeiten (in Prozent) der Variable <q>gewählte Partei</q> von besonderem Interesse.</p>
-</div>
-</div>
-<div id="taxonomien-statistischer-verfahren" class="section level3 hasAnchor" number="1.1.2">
-<h3><span class="header-section-number">1.1.2</span> Taxonomien statistischer Verfahren<a href="datenerhebung-und-häufigkeiten.html#taxonomien-statistischer-verfahren" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Statistische Verfahren werden in mehrerlei Hinsicht unterschieden, wie im Folgenden beschrieben. Dabei schließen sich verschiedene Kategorien nicht unbedingt aus, es gibt also durchaus statistische Verfahren, die z.B. als univariat <em>und</em> deskriptiv bezeichnet werden.</p>
-<div id="uni--bi--und-multivariate-statistik" class="section level4 hasAnchor" number="1.1.2.1">
-<h4><span class="header-section-number">1.1.2.1</span> Uni-, bi- und multivariate Statistik<a href="datenerhebung-und-häufigkeiten.html#uni--bi--und-multivariate-statistik" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Bei diesen Bezeichnungen ist entscheidend, wie viele Variablen bei den jeweiligen Verfahren zum Einsatz kommen. Im Allgemeinen spricht man bei einer Variable von univariater Statistik, bei zwei Variablen von bivariater Statistik und bei mehr als zwei Variablen von multivariater Statistik. (Manchmal werden allerdings auch Verfahren mit nur zwei Variablen als multivariat bezeichnet.)</p>
-<p>In dieser Veranstaltung beschäftigen wir uns zunächst mit univariaten, dann mit bivariaten Verfahren. Verfahren mit mehr als zwei Variablen werden nicht behandelt.</p>
-</div>
-<div id="deskriptive-und-schließende-statistik" class="section level4 hasAnchor" number="1.1.2.2">
-<h4><span class="header-section-number">1.1.2.2</span> Deskriptive und schließende Statistik<a href="datenerhebung-und-häufigkeiten.html#deskriptive-und-schließende-statistik" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Unabhängig von der Anzahl der Variablen unterscheidet man auch nach der Art und Weise des Vorgehens:</p>
-<div id="deskriptive-statistik" class="section level5 hasAnchor" number="1.1.2.2.1">
-<h5><span class="header-section-number">1.1.2.2.1</span> Deskriptive Statistik<a href="datenerhebung-und-häufigkeiten.html#deskriptive-statistik" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<p>Die deskriptive Statistik (auch: beschreibende Statistik) dient der Beschreibung der Verteilung von Merkmalen, indem sie z. B. Durchschnittswerte bildet, Häufigkeiten bestimmt oder etwas über die Streuung eines Merkmals aussagt. Sie kann so große Datenmengen übersichtlicher machen, indem sie diese ordnet, gruppiert oder verdichtet. Sie erleichtert es also, das Charakteristische, Wichtige zu erkennen.</p>
-</div>
-<div id="schließende-statistik" class="section level5 hasAnchor" number="1.1.2.2.2">
-<h5><span class="header-section-number">1.1.2.2.2</span> Schließende Statistik<a href="datenerhebung-und-häufigkeiten.html#schließende-statistik" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<p>Die schließende Statistik (auch: analytische, operative Statistik, Inferenzstatistik, Prüfstatistik) verhilft dazu, von Eigenschaften einer Stichprobe auf Eigenschaften der Grundgesamtheit verallgemeinern bzw. schließen zu können (deshalb eben auch: schließende Statistik) und diese Einschätzung überprüfen zu können.</p>
-<p>Die schließende Statistik wird weiter unterteilt in Schätz- und Teststatistik:</p>
-<div id="schätzende-statistik" class="section level6 hasAnchor" number="1.1.2.2.2.1">
-<h6><span class="header-section-number">1.1.2.2.2.1</span> Schätzende Statistik<a href="datenerhebung-und-häufigkeiten.html#schätzende-statistik" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<p>Die Schätzstatistik schätzt Kennwerte der Grundgesamtheit aus den Kennwerten einer Stichprobe.</p>
-</div>
-<div id="testende-statistik" class="section level6 hasAnchor" number="1.1.2.2.2.2">
-<h6><span class="header-section-number">1.1.2.2.2.2</span> Testende Statistik<a href="datenerhebung-und-häufigkeiten.html#testende-statistik" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<p>Die Teststatistik überprüft, als wie wahrscheinlich oder unwahrscheinlich gemachte Schätzungen bzw. Hypothesen gelten können.</p>
-</div>
-</div>
-</div>
-</div>
-<div id="ablauf-einer-statistischen-untersuchung" class="section level3 hasAnchor" number="1.1.3">
-<h3><span class="header-section-number">1.1.3</span> Ablauf einer statistischen Untersuchung<a href="datenerhebung-und-häufigkeiten.html#ablauf-einer-statistischen-untersuchung" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Eine typische Anwendung statistischer Verfahren in der Forschung folgt diesem Schema:</p>
-<div id="datenerhebung" class="section level4 hasAnchor" number="1.1.3.1">
-<h4><span class="header-section-number">1.1.3.1</span> Datenerhebung<a href="datenerhebung-und-häufigkeiten.html#datenerhebung" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<li><a href="https://video01.uni-frankfurt.de/Mediasite/Play/420909b80f8b467eb43ec85108200d2a1d">8a) Regressionsgerade</a></li>
+<li><a href="https://video01.uni-frankfurt.de/Mediasite/Play/d6a9160c2ba0402fa64395cbdf5d25531d">8b) Residuen und Determinationskoeffizient</a>
 <ul>
-<li>Eigene Erhebung z.B. durch Zählen, Messen, Befragung (primärstatistische Daten)
-<ul>
-<li>Auswahl von Untersuchungseinheiten</li>
-<li>Wahl der Datenniveaus</li>
+<li>Beim Teil <q>Klausur-Update</q> gilt der <strong>Ablauf</strong> und die <strong>Struktur</strong> der Klausur auch dieses Semester.</li>
+<li>Die administrative Anmeldung für die diesjährige Theorieklausur ist bis einschließlich 6. Juli auf OLAT möglich.</li>
+<li>Zur formalen Anmeldung und zur Versuchsregelung kann ich dieses Jahr keine Angaben machen. (Fragen Sie im Zweifel Ihr Prüfungsamt!)</li>
 </ul></li>
-<li>Rückgriff auf vorhandenes Datenmaterial (sekundärstatistische Daten)</li>
 </ul>
 </div>
-<div id="datenaufbereitung" class="section level4 hasAnchor" number="1.1.3.2">
-<h4><span class="header-section-number">1.1.3.2</span> Datenaufbereitung<a href="datenerhebung-und-häufigkeiten.html#datenaufbereitung" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<ul>
-<li>Verdichtung des gewonnenen Datenmaterials und Digitalisierung in Form einer Datenmatrix</li>
-<li>Verschneidung von mehreren Datensätzen</li>
-<li>Vereinheitlichung und Säuberung der Daten</li>
-<li>Überblick verschaffen durch einfache Beschreibung von Häufigkeiten und Maßzahlen (deskriptive Statistik)</li>
-</ul>
-</div>
-<div id="datenauswertung" class="section level4 hasAnchor" number="1.1.3.3">
-<h4><span class="header-section-number">1.1.3.3</span> Datenauswertung<a href="datenerhebung-und-häufigkeiten.html#datenauswertung" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<ul>
-<li>Verdichtete Beschreibung von Verteilungsmustern einer Variable (univariate deskriptive Statistik)</li>
-<li>Verdichtete Beschreibung der Beziehung zwischen zwei Variablen (bivariate deskriptive Statistik)</li>
-<li>Schluss von Stichprobe auf Grundgesamtheit (Schätzstatistik)</li>
-<li>Testen von Hypothesen über die Grundgesamtheit (Teststatistik)</li>
-</ul>
-</div>
-</div>
-</div>
-<div id="grundlagen-der-datenerhebung" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Grundlagen der Datenerhebung<a href="datenerhebung-und-häufigkeiten.html#grundlagen-der-datenerhebung" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="typen-von-stichproben" class="section level3 hasAnchor" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> Typen von Stichproben<a href="datenerhebung-und-häufigkeiten.html#typen-von-stichproben" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="reine-zufallsstichprobe" class="section level4 hasAnchor" number="1.2.1.1">
-<h4><span class="header-section-number">1.2.1.1</span> Reine Zufallsstichprobe<a href="datenerhebung-und-häufigkeiten.html#reine-zufallsstichprobe" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Bei endlichen Grundgesamtheiten können Lotterieverfahren angewendet werden. Dabei wird allen Elementen der Grundgesamtheit eine Zahl zwischen 1 und <span class="math inline">\(N\)</span> zugeordnet. Anschließend werden Zufallszahlen ausgewählt und die entsprechenden Elemente in die Stichprobe übernommen.</p>
-</div>
-<div id="systematische-zufallsstichprobe" class="section level4 hasAnchor" number="1.2.1.2">
-<h4><span class="header-section-number">1.2.1.2</span> Systematische Zufallsstichprobe<a href="datenerhebung-und-häufigkeiten.html#systematische-zufallsstichprobe" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Die Elemente einer endlichen Grundgesamtheit werden in eine Rangordnung gebracht (Nummerierung 1 bis <span class="math inline">\(N\)</span>). Anschließend wählt man jedes <span class="math inline">\((N/n)\)</span>-te Element aus. So entsteht eine Stichprobe der Größe <span class="math inline">\(n\)</span>.</p>
-</div>
-<div id="geschichtete-zufallsstichprobe" class="section level4 hasAnchor" number="1.2.1.3">
-<h4><span class="header-section-number">1.2.1.3</span> Geschichtete Zufallsstichprobe<a href="datenerhebung-und-häufigkeiten.html#geschichtete-zufallsstichprobe" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Die Elemente einer endlichen Grundgesamtheit werden in Schichten (Klassen) zusammengefasst. Anschließend zieht man eine Zufallsstichprobe aus jeder Schicht. Geschichtete Stichproben setzen die Kenntnis einiger Parameter der Grundgesamtheit voraus. Zur Aufteilung des Stichprobenumfangs auf die einzelnen Schichten wird in der Regel die proportionale Aufteilung gewählt.</p>
-</div>
-<div id="klumpenstichprobe" class="section level4 hasAnchor" number="1.2.1.4">
-<h4><span class="header-section-number">1.2.1.4</span> Klumpenstichprobe<a href="datenerhebung-und-häufigkeiten.html#klumpenstichprobe" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Hier ist die Grundgesamtheit schon in <q>natürliche</q> Gruppen aufgeteilt (z.B. Schulklassen) und es werden mehrere dieser Gruppen (Klumpen, engl. <em>cluster</em>) nach einem Zufallsverfahren als Stichprobe gewählt.</p>
+<div id="regresssionsanalyse" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Regresssionsanalyse<a href="lineare-regression.html#regresssionsanalyse" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <blockquote>
-<p><q>Man beachte, dass ein einzelner Klumpen (…) keine Klumpenstichprobe darstellt, sondern eine Ad-hoc-Stichprobe, bei der zufällige Auswahlkriterien praktisch keine Rolle spielen. Die Bezeichnung „Klumpenstichprobe“ ist nur zu rechtfertigen, wenn mehrere zufällig ausgewählte Klumpen vollständig untersucht werden.</q> <span class="citation">(<a href="#ref-bortz" role="doc-biblioref">Bortz und Schuster 2010</a>: 81)</span></p>
+<p>Sind zwei stochastisch abhängige Variablen <span class="math inline">\(x\)</span> und <span class="math inline">\(y\)</span> durch eine Regressionsgleichung miteinander verknüpft, kann die eine Variable zur Vorhersage der anderen eingesetzt werden. <span class="citation">(<a href="#ref-bortz" role="doc-biblioref">Bortz und Schuster 2010</a>: 183)</span></p>
 </blockquote>
+<p>Es gibt viele Möglichkeiten, Regressionen zu modellieren. Im Rahmen dieser Veranstaltung wird nur die lineare Regression (engl. <em>linear regression</em>) behandelt. Lineare Regressionsmodelle werden immer durch eine lineare Gleichung des Formats</p>
+<p><span class="math display" id="eq:lin">\[
+y=a+b\cdot x
+\tag{8.1}
+\]</span></p>
+<p>ausgedrückt, wobei <span class="math inline">\(a\)</span> der Achsenabschnitt ist und <span class="math inline">\(b\)</span> die Steigung. Ist die Gleichung bekannt, so können wir für jeden Wert <span class="math inline">\(x\)</span> einen entsprechenden Wert <span class="math inline">\(y\)</span> <q>vorhersagen</q>.</p>
+<p>Abbildung <a href="lineare-regression.html#fig:lin">8.1</a> zeigt ein solches lineares Regressionsmodell als Gerade durch ein Streudiagramm.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:lin"></span>
+<img src="Skript_Statistik_2021_files/figure-html/lin-1.svg" alt="Regressionslinie durch ein Streudiagramm" width="450px" />
+<p class="caption">
+Abbildung 8.1: Regressionslinie durch ein Streudiagramm
+</p>
 </div>
+<p>Der Achsenabschnitt <span class="math inline">\(a\approx2,2\)</span> bedeutet, dass die Regressionsgerade die <span class="math inline">\(y\)</span>-Achse etwa auf der Höhe 2,2 schneidet (bei <span class="math inline">\(x=0\)</span>). Die Steigung <span class="math inline">\(b\approx1,7\)</span> heißt, dass für jede zusätzliche Einheit der Variable <span class="math inline">\(x\)</span> ca. 1,7 zusätzliche Einheiten der Variable <span class="math inline">\(y\)</span> erwartet werden können.</p>
+<p>Wenn die Regressionsgleichung bekannt ist, kann für jedes gültige (grundsätzlich: jedes beliebige) <span class="math inline">\(x\)</span> ein erwarteter Wert <span class="math inline">\(\hat{y}\)</span> berechnet werden. So könnte uns bei der Beispielregression interessieren, welchen Wert <span class="math inline">\(\hat{y}_i\)</span> im Modell annimmt, wenn <span class="math inline">\(x_i=20\)</span> beträgt:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\hat{y}_i&amp;=a+b\cdot x_i\\
+   &amp;\approx2{,}2+1{,}7\cdot20\\
+   &amp;=36{,}2
+\end{aligned}
+\]</span></p>
+<p>Bei solchen Schätzungen <em>außerhalb</em> des bekannten Wertebereichs spricht man auch vom <q>Extrapolieren</q>, sonst – für fehlende Werte innerhalb des bekannten Wertebereich – vom <q>Interpolieren</q>.</p>
+<p>Umgekehrt könnte die Frage lauten: Wie groß muss ein <span class="math inline">\(x_i\)</span> sein, damit (im Modell) <span class="math inline">\(\hat{y}_i=12\)</span> beträgt? Dies lässt sich durch eine einfache Umformung der Gleichung <a href="lineare-regression.html#eq:lin">(8.1)</a> berechnen:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\hat{y}_i&amp;=a+b\cdot x_i\\[5pt]
+x_i&amp;=\frac{\hat{y}_i-a}{b}\\[5pt]
+&amp;=\frac{12-2{,}2}{1{,}7}\\
+   &amp;\approx5{,}8
+\end{aligned}
+\]</span></p>
+<p>Bei der Regressionsanalyse wird ein gerichtetes Abhängigkeitsverhältnis der Variablen impliziert: <span class="math inline">\(y\)</span> hängt hier von <span class="math inline">\(x\)</span> ab. Daher wird <span class="math inline">\(x\)</span> auch die <q>Prädiktorvariable</q> und <span class="math inline">\(y\)</span> die <q>Kriteriumsvariable</q> genannt.</p>
+<div class="rtip">
+Softwarehinweis
 </div>
-<div id="variablentypen" class="section level3 hasAnchor" number="1.2.2">
-<h3><span class="header-section-number">1.2.2</span> Variablentypen<a href="datenerhebung-und-häufigkeiten.html#variablentypen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="qualitative-variablen" class="section level4 hasAnchor" number="1.2.2.1">
-<h4><span class="header-section-number">1.2.2.1</span> Qualitative Variablen<a href="datenerhebung-und-häufigkeiten.html#qualitative-variablen" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Qualitative Variablen können nicht der Größe nach, sondern nur im Hinblick auf ihre Eigenschaft/Art (<q>Qualität</q>) unterschieden werden (z.B. Parteizugehörigkeit, Telefonnummer, Automarke).</p>
-<p>Qualitative Variablen, die nur zwei mögliche Werte annehmen können, nennt man <q>dichotome</q> Variablen (etwa Antworten auf Ja-Nein-Fragen).</p>
+<div class="rtip_content">
+Wenn in R ein lineares Modell (eine Regressionsgerade) vorliegt, können Werte mit <code>predict()</code> geschätzt werden.
 </div>
-<div id="quantitative-variablen" class="section level4 hasAnchor" number="1.2.2.2">
-<h4><span class="header-section-number">1.2.2.2</span> Quantitative Variablen<a href="datenerhebung-und-häufigkeiten.html#quantitative-variablen" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Quantitative Variablen können der Größe nach unterschieden werden (Bsp. Geburtenzahl, Arbeitslosenzahl).</p>
-<p>Quantitative Variablen können diskret oder stetig sein:</p>
-<div id="diskrete-variablen" class="section level5 hasAnchor" number="1.2.2.2.1">
-<h5><span class="header-section-number">1.2.2.2.1</span> Diskrete Variablen<a href="datenerhebung-und-häufigkeiten.html#diskrete-variablen" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<p>Diskrete Variablen (auch diskontinuierliche Variablen) können nur endlich viele, ganzzahlige Werte annehmen. Zwischen zwei Ausprägungen befindet sich eine abzählbare Menge anderer Ausprägungen (z.B. Anzahl eigener Kinder, Haushaltsgröße in Personen).</p>
+<p>Es ist also für derartige Fragestellungen nötig, die Gleichung der Regressionsgeraden zu kennen. Im Folgenden wird gezeigt, wie diese anhand einer bivariaten Verteilung bestimmt werden kann.</p>
 </div>
-<div id="stetige-variablen" class="section level5 hasAnchor" number="1.2.2.2.2">
-<h5><span class="header-section-number">1.2.2.2.2</span> Stetige Variablen<a href="datenerhebung-und-häufigkeiten.html#stetige-variablen" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<p>Stetige Variablen (auch: kontinuierliche Variablen) können in einem bestimmten Bereich jede beliebige Ausprägung annehmen. Der Ausdehnungsbereich kennt keine Lücken, sondern ist als ein fortlaufendes Kontinuum vorstellbar: Bei stetigen Variablen können zwischen zwei Werten oder Ausprägungen unendlich viele weitere Ausprägungen oder Werte liegen (z.B. Körpergröße, Längengrad in Dezimalform).</p>
+<div id="bestimmung-der-regressionsgeraden" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Bestimmung der Regressionsgeraden<a href="lineare-regression.html#bestimmung-der-regressionsgeraden" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Der Koeffizient <span class="math inline">\(b\)</span> (also die Steigung der Regressionsgeraden) lässt sich berechnen, indem man die Kovarianz <span class="math inline">\(s_{xy}\)</span> durch die Varianz von <span class="math inline">\(x\)</span> dividiert:</p>
+<p><span class="math display" id="eq:b">\[
+b=\frac{s_{xy}}{s^2_x}
+\tag{8.2}
+\]</span></p>
+<p>Der Koeffizient <span class="math inline">\(a\)</span> (also der Achsenabschnitt) ergibt sich wiederum aus <span class="math inline">\(b\)</span> und den Mittelwerten <span class="math inline">\(\bar{x}\)</span> und <span class="math inline">\(\bar{y}\)</span>:</p>
+<p><span class="math display" id="eq:a">\[
+a=\bar{y}-b\cdot\bar{x}
+\tag{8.3}
+\]</span></p>
+<div class="rtip">
+Softwarehinweis
 </div>
+<div class="rtip_content">
+In R lässt sich ein lineares Regressionsmodell mit dem Befehl <code>lm()</code> erstellen.
 </div>
-</div>
-<div id="skalenniveaus" class="section level3 hasAnchor" number="1.2.3">
-<h3><span class="header-section-number">1.2.3</span> Skalenniveaus<a href="datenerhebung-und-häufigkeiten.html#skalenniveaus" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Eine Variable lässt sich aufgrund ihrer Eigenschaften einem Skalenniveau (auch Skalentyp, Messniveau, Datenniveau, engl. <em>level of measurement</em>) zuordnen. Bestimmte Rechenoperationen und statistische Verfahren setzen bestimmte Skalenniveaus voraus. Deshalb ist es wichtig zu wissen, welchem Skalenniveau eine Variable zuzuordnen ist.</p>
-<p>Variablen lassen sich immer auch einem niedrigeren Skalenniveau zuordnen. Dies geht allerdings mit Informationsverlust einher.</p>
-<p>Die im Folgenden beschriebenen Skalenniveaus sind nicht deckungsgleich mit den o.g. Variablentypen. Intervall- und Verhältnisskalen können z.B. jeweils diskret oder stetig sein.</p>
-<p>In Tabelle <a href="datenerhebung-und-häufigkeiten.html#tab:skalen">1.1</a> sind die wichtigsten Skalenniveaus im Überblick aufgeführt. <q>Gültige Lagemaße</q> sind dabei als Zusatzinformation aufgelistet und werden erst in der <a href="maßzahlen.html#lagemaße">nächsten Sitzung</a> behandelt.</p>
+<p>Die Bestimmung der Regressionsgeraden soll nun mit einem Beispiel illustriert werden.</p>
+<div id="beispiel-26" class="section level3 hasAnchor" number="8.2.1">
+<h3><span class="header-section-number">8.2.1</span> Beispiel<a href="lineare-regression.html#beispiel-26" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Wir fragen uns, wie die Aufenthaltszeit von Passagieren am Frankfurter Flughafen mit dem Betrag zusammenhängt, den sie in den dortigen Geschäften ausgeben. Eine Zufallserhebung habe die Werte in Tabelle <a href="lineare-regression.html#tab:duty1">8.1</a> ergeben.</p>
 <div style="overflow-y: auto;">
-<table class="table" style="margin-left: auto; margin-right: auto;">
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:skalen">Tabelle 1.1: </span>Die vier wichtigsten Skalenniveaus
+<span id="tab:duty1">Tabelle 8.1: </span>Messwerte am Frankfurter Flughafen
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;border-bottom: 1px solid; ">
-Skalenart
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="1">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Aufenthaltszeit (min)
+</div>
 </th>
-<th style="text-align:left;border-bottom: 1px solid; ">
-Beispiel
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="1">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Ausgaben (€)
+</div>
 </th>
-<th style="text-align:left;border-bottom: 1px solid; ">
-mögliche Aussagen
+</tr>
+<tr>
+<th style="text-align:right;border-bottom: 1px solid; ">
+<span class="math inline">\(x_i\)</span>
 </th>
-<th style="text-align:left;border-bottom: 1px solid; ">
-gültige Lagemaße
+<th style="text-align:right;border-bottom: 1px solid; ">
+<span class="math inline">\(y_i\)</span>
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
-Nominalskala
+<td style="text-align:right;">
+121
 </td>
-<td style="text-align:left;">
-Postleitzahl
-</td>
-<td style="text-align:left;">
-Gleichheit, Verschiedenheit
-</td>
-<td style="text-align:left;">
-Modus
+<td style="text-align:right;">
+17,94
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-Ordinalskala
+<td style="text-align:right;">
+125
 </td>
-<td style="text-align:left;">
-Militärischer Rang
-</td>
-<td style="text-align:left;">
-<span class="math inline">\(+\)</span> Größer-kleiner-Relationen
-</td>
-<td style="text-align:left;">
-<span class="math inline">\(+\)</span> Median
+<td style="text-align:right;">
+23,15
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-Intervallskala
+<td style="text-align:right;">
+293
 </td>
-<td style="text-align:left;">
-Temperatur in °C
-</td>
-<td style="text-align:left;">
-<span class="math inline">\(+\)</span> Gleichheit von Differenzen
-</td>
-<td style="text-align:left;">
-<span class="math inline">\(+\)</span> arithmetisches Mittel
+<td style="text-align:right;">
+44,31
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-Verhältnisskala
+<td style="text-align:right;">
+370
 </td>
-<td style="text-align:left;">
-Körpergröße
+<td style="text-align:right;">
+42,46
 </td>
-<td style="text-align:left;">
-<span class="math inline">\(+\)</span> Gleichheit von Verhältnissen
+</tr>
+<tr>
+<td style="text-align:right;">
+246
 </td>
-<td style="text-align:left;">
-<span class="math inline">\(+\)</span> geometrisches Mittel
+<td style="text-align:right;">
+35,51
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+281
+</td>
+<td style="text-align:right;">
+28,46
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+169
+</td>
+<td style="text-align:right;">
+18,47
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+328
+</td>
+<td style="text-align:right;">
+56,77
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+388
+</td>
+<td style="text-align:right;">
+40,11
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+131
+</td>
+<td style="text-align:right;">
+12,64
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+299
+</td>
+<td style="text-align:right;">
+24,54
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+324
+</td>
+<td style="text-align:right;">
+46,37
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="nominalskala" class="section level4 hasAnchor" number="1.2.3.1">
-<h4><span class="header-section-number">1.2.3.1</span> Nominalskala<a href="datenerhebung-und-häufigkeiten.html#nominalskala" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Die Merkmalsausprägungen einer Variable stehen je <q>für sich</q>; sie lassen sich nicht sinnvoll in eine Rangordnung bringen oder gar miteinander verrechnen.</p>
-<p>Die einzige Aussage, die sich über zwei Werte in einer Nominalskala treffen lässt, ist dass sie gleich oder nicht gleich sind.</p>
-<p>Beispiele: Postleitzahlen, Telefonnummern, Staatsangehörigkeit, Krankheitsklassifikationen</p>
+<p>Mit den Methoden aus <a href="maßzahlen.html#einleitende-bemerkungen">Sitzung 2</a> und <a href="korrelation.html#kovarianz">7</a> können wir folgende Werte für die Mittelwerte <span class="math inline">\(\bar{x}\)</span> und <span class="math inline">\(\bar{y}\)</span>, die Varianz <span class="math inline">\(s^2_x\)</span> sowie die Kovarianz <span class="math inline">\(s_{xy}\)</span> berechnen:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\bar{x}&amp;=256{,}25\\
+\bar{y}&amp;\approx 32{,}56\\
+s^2_{x}&amp;\approx9340{,}93\\
+s_{xy}&amp;\approx 1062{,}50
+\end{aligned}
+\]</span></p>
+<p>Für die Steigung der Regressionsgeraden <span class="math inline">\(b\)</span> setzen wir die entsprechenden Werte in Gleichung <a href="lineare-regression.html#eq:b">(8.2)</a> ein:</p>
+<p><span class="math display">\[
+\begin{aligned}
+b&amp;=\frac{s_{xy}}{s^2_x}\\
+&amp;\approx\frac{1062{,}50}{9340{,}93}\\
+&amp;\approx0{,}114
+\end{aligned}
+\]</span></p>
+<p>Die Steigung von 0,114 bedeutet, dass – im linearen Regressionsmodell – Passagiere in jeder zusätzlichen Minute, die sie am Flughafen verbringen, in etwa 11,4 zusätzliche Cent ausgeben.</p>
+<p>Der Achsenabschnitt <span class="math inline">\(a\)</span> berechnet sich dann gemäß Gleichung <a href="lineare-regression.html#eq:a">(8.3)</a>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+a&amp;=\bar{y}-b\cdot\bar{x}\\
+&amp;\approx 32{,}56-0{,}114\cdot256{,}25\\
+&amp;\approx 3{,}35
+\end{aligned}
+\]</span></p>
+<p>Dieser Wert ergibt nur einen abstrakt-mathematischen Sinn – es dürfte in der Praxis wohl kaum Passagiere geben, die 0 Minuten am Flughafen verbringen und € 3,35 ausgeben.</p>
+<p>Mit dem Achsenabschnitt <span class="math inline">\(a\)</span> und der Steigung <span class="math inline">\(b\)</span> lässt sich folgende Gleichung für die Regressionsgerade aufstellen (s. Gleichung <a href="lineare-regression.html#eq:lin">(8.1)</a>):</p>
+<p><span class="math display">\[
+\begin{aligned}
+y&amp;=a+b\cdot x\\
+y&amp;\approx3{,}35 + 0{,}114 \cdot x
+\end{aligned}
+\]</span></p>
+<p>Graphisch ist diese lineare Regression in Abbildung <a href="lineare-regression.html#fig:duty2">8.2</a> dargestellt.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:duty2"></span>
+<img src="Skript_Statistik_2021_files/figure-html/duty2-1.svg" alt="Regressionslinie durch ein Streudiagramm" width="450px" />
+<p class="caption">
+Abbildung 8.2: Regressionslinie durch ein Streudiagramm
+</p>
 </div>
-<div id="ordinalskala" class="section level4 hasAnchor" number="1.2.3.2">
-<h4><span class="header-section-number">1.2.3.2</span> Ordinalskala<a href="datenerhebung-und-häufigkeiten.html#ordinalskala" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Die Merkmalsausprägungen einer Variablen lassen sich sinnvoll in eine Rangordnung bringen, die Abstände zwischen den Merkmalsausprägungen aber lassen sich nicht sinnvoll quantifizieren.</p>
-<p>Über zwei Werte in einer Ordinalskala lässt sich nicht nur sagen, ob sie gleich oder verschieden sind (wie in der Nominalskala), sondern darüber hinaus, welcher Wert bei Verschiedenheit größer ist.</p>
-<p>Beispiele: Militärische Ränge, Windstärken, pauschale Häufigkeitsangaben (sehr oft … nie), Zufriedenheitsangaben (sehr zufrieden … unzufrieden)</p>
-</div>
-<div id="metrische-skalen-oder-kardinalskalen" class="section level4 hasAnchor" number="1.2.3.3">
-<h4><span class="header-section-number">1.2.3.3</span> Metrische Skalen (oder Kardinalskalen)<a href="datenerhebung-und-häufigkeiten.html#metrische-skalen-oder-kardinalskalen" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Abstände zwischen den Merkmalsausprägungen lassen sich exakt angeben.</p>
-<p>Zusätzlich zu den Möglichkeiten der Ordinalskala können auf einer metrischen Skala Rechenoperationen auch sinnvoll auf die Differenzen zwischen den Merkmalsausprägungen angewendet werden.</p>
-<p>Metrische Skalen werden unterteilt in Intervall- und Verhältnisskalen:</p>
-<div id="intervallskala" class="section level5 hasAnchor" number="1.2.3.3.1">
-<h5><span class="header-section-number">1.2.3.3.1</span> Intervallskala<a href="datenerhebung-und-häufigkeiten.html#intervallskala" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<p>Maßeinheit und Wahl des Nullpunktes sind willkürlich gewählt.</p>
-<p>Beispiele: Grad Celsius, Geburtsjahr als Jahreszahl (<q>1961</q>), in der Praxis häufig: subjektive Bewertung auf einer Skala von 1 bis 10.</p>
-</div>
-<div id="verhältnisskala-auch-ratioskala" class="section level5 hasAnchor" number="1.2.3.3.2">
-<h5><span class="header-section-number">1.2.3.3.2</span> Verhältnisskala (auch Ratioskala)<a href="datenerhebung-und-häufigkeiten.html#verhältnisskala-auch-ratioskala" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<p>Es gibt einen invarianten (absoluten, natürlichen) Nullpunkt.</p>
-<p>In einer Verhältnisskala lassen sich über alle o.a. Möglichkeiten hinaus auch Aussagen über Verhältnisse zwischen Werten treffen (z.B. <q><span class="math inline">\(x_1\)</span> ist doppelt so groß wie <span class="math inline">\(x_2\)</span></q>).</p>
-<p>Beispiele: Lebensalter in Jahren, Haushaltsgröße, Köpergröße,
-Körpergewicht</p>
 </div>
 </div>
-</div>
-</div>
-<div id="häufigkeitsverteilungen" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> Häufigkeitsverteilungen<a href="datenerhebung-und-häufigkeiten.html#häufigkeitsverteilungen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="urliste" class="section level3 hasAnchor" number="1.3.1">
-<h3><span class="header-section-number">1.3.1</span> Urliste<a href="datenerhebung-und-häufigkeiten.html#urliste" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Die Urliste ist eine ungeordnete Liste aller erfassten Werte.</p>
-<p>Für die statistische Erhebung <q>Anfangsbuchstaben der Vornamen von Teilnehmenden an einer Statistikvorlesung</q> könnte die Urliste z.B. so aussehen:</p>
-<p><code>T J D T E N D F F M A J V T T V A L V P J K P M F M A J N A C I T P B A P H T L N S P C K J K L J R E Y M K H M N L A A L L M L J G P L B F L J J V M P C J M J S A M M M P A A L L O C J L P L V F J R M A V K S B B B N C A A T J P C F L E B L C A K A L T V Y P F L J S T T N R J A S E L M L T A E B M N M V D P P L N L B A A J M L N N S H M</code></p>
-</div>
-<div id="geordnete-liste" class="section level3 hasAnchor" number="1.3.2">
-<h3><span class="header-section-number">1.3.2</span> Geordnete Liste<a href="datenerhebung-und-häufigkeiten.html#geordnete-liste" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Die geordnete Liste bringt die Werte der Urliste in eine geeignete Reihenfolge, so dass die unterschiedlichen Werte leicht gezählt werden können:</p>
-<p><code>A A A A A A A A A A A A A A A A A A A B B B B B B B B C C C C C C C D D D E E E E E F F F F F F F G H H H I J J J J J J J J J J J J J J J J J K K K K K K L L L L L L L L L L L L L L L L L L L L L L M M M M M M M M M M M M M M M M M N N N N N N N N N N O P P P P P P P P P P P P P R R R S S S S S S T T T T T T T T T T T V V V V V V V V Y Y</code></p>
-</div>
-<div id="häufigkeiten" class="section level3 hasAnchor" number="1.3.3">
-<h3><span class="header-section-number">1.3.3</span> Häufigkeiten<a href="datenerhebung-und-häufigkeiten.html#häufigkeiten" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Die absoluten Häufigkeiten erhält man durch einfaches Abzählen der jeweiligen Werte. Für die relativen Häufigkeiten teilt man diese Zahl durch <span class="math inline">\(n\)</span>. Kumulierte Häufigkeiten zählen die bisherigen Summen bzw. Anteile zusammen (s. Tabelle <a href="datenerhebung-und-häufigkeiten.html#tab:haeufkum">1.2</a>).</p>
+<div id="residuen" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Residuen<a href="lineare-regression.html#residuen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Residuen (engl. <em>residuals</em>) werden mit <span class="math inline">\(e\)</span> bezeichnet und sind die Differenzen zwischen den tatsächlichen <span class="math inline">\(y\)</span>-Werten und den im Modell erwarteten <span class="math inline">\(\hat{y}\)</span>-Werten für die jeweiligen <span class="math inline">\(x\)</span>-Werte:</p>
+<p><span class="math display" id="eq:res">\[
+e_i=y_i-\hat{y}_i
+\tag{8.4}
+\]</span></p>
+<p>Residuen sind also – auch dem Wortstamm nach – das, was nach der Vorhersage durch das Modell <q>übrig bleibt</q> von den tatsächlich beobachteten Werten (also der Teil des Werts, der <em>nicht</em> durch das Regressionsmodell erklärt wird).</p>
 <div class="rtip">
 Softwarehinweis
 </div>
 <div class="rtip_content">
-In R lässt sich mit dem Befehl <code>table()</code> eine einfache Häufigkeitstabelle aus Rohdaten erstellen.
+Residuen lassen sich in R durch den Befehl <code>resid()</code> errechnen.
+</div>
+<div id="beispiel-27" class="section level3 hasAnchor" number="8.3.1">
+<h3><span class="header-section-number">8.3.1</span> Beispiel<a href="lineare-regression.html#beispiel-27" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Graphisch sind die Residuen für unser Beispiel in Abbildung <a href="lineare-regression.html#fig:res1">8.3</a> dargestellt (positive Werte in grün, negative Werte in rot), tabellarisch in Tabelle <a href="lineare-regression.html#tab:res2">8.2</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:res1"></span>
+<img src="Skript_Statistik_2021_files/figure-html/res1-1.svg" alt="Graphische Darstellung der Residuen" width="450px" />
+<p class="caption">
+Abbildung 8.3: Graphische Darstellung der Residuen
+</p>
 </div>
 <div style="overflow-y: auto;">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:haeufkum">Tabelle 1.2: </span>Tabelle mit kumulierten Häufigkeiten
+<span id="tab:res2">Tabelle 8.2: </span>Residuen der Beispielwerte
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;border-bottom: 1px solid; ">
-Buchstabe
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="1">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Aufenthaltszeit (min)
+</div>
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="1">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Ausgaben (€)
+</div>
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="1">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Erwartete Ausgaben (€)
+</div>
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="1">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Residuen (€)
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:right;border-bottom: 1px solid; ">
+<span class="math inline">\(x_i\)</span>
 </th>
 <th style="text-align:right;border-bottom: 1px solid; ">
-Absolute Häufigkeit <span class="math inline">\(f\)</span>
+<span class="math inline">\(y_i\)</span>
 </th>
 <th style="text-align:right;border-bottom: 1px solid; ">
-<span class="math inline">\(f_{kum}\)</span>
+<span class="math inline">\(\hat{y}_i\approx3{,}35+0{,}114\cdot x_i\)</span>
 </th>
 <th style="text-align:right;border-bottom: 1px solid; ">
-Relative Häufigkeit
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-<span class="math inline">\(\%_{kum}\)</span>
+<span class="math inline">\(e_i=y_i-\hat{y}_i\)</span>
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
-A
+<td style="text-align:right;">
+121
 </td>
 <td style="text-align:right;">
-19
+17,94
 </td>
 <td style="text-align:right;">
-19
+17,144
 </td>
 <td style="text-align:right;">
-11,2%
-</td>
-<td style="text-align:right;">
-11,2%
+0,796
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-B
+<td style="text-align:right;">
+125
 </td>
 <td style="text-align:right;">
-8
+23,15
 </td>
 <td style="text-align:right;">
-27
+17,600
 </td>
 <td style="text-align:right;">
-4,7%
-</td>
-<td style="text-align:right;">
-15,9%
+5,550
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-C
+<td style="text-align:right;">
+293
 </td>
 <td style="text-align:right;">
-7
+44,31
 </td>
 <td style="text-align:right;">
-34
+36,752
 </td>
 <td style="text-align:right;">
-4,1%
-</td>
-<td style="text-align:right;">
-20%
+7,558
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-D
+<td style="text-align:right;">
+370
 </td>
 <td style="text-align:right;">
-3
+42,46
 </td>
 <td style="text-align:right;">
-37
+45,530
 </td>
 <td style="text-align:right;">
-1,8%
-</td>
-<td style="text-align:right;">
-21,8%
+-3,070
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-E
+<td style="text-align:right;">
+246
 </td>
 <td style="text-align:right;">
-5
+35,51
 </td>
 <td style="text-align:right;">
-42
+31,394
 </td>
 <td style="text-align:right;">
-2,9%
-</td>
-<td style="text-align:right;">
-24,7%
+4,116
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-F
+<td style="text-align:right;">
+281
 </td>
 <td style="text-align:right;">
-7
+28,46
 </td>
 <td style="text-align:right;">
-49
+35,384
 </td>
 <td style="text-align:right;">
-4,1%
-</td>
-<td style="text-align:right;">
-28,8%
+-6,924
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-G
+<td style="text-align:right;">
+169
 </td>
 <td style="text-align:right;">
-1
+18,47
 </td>
 <td style="text-align:right;">
-50
+22,616
 </td>
 <td style="text-align:right;">
-0,6%
-</td>
-<td style="text-align:right;">
-29,4%
+-4,146
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-H
+<td style="text-align:right;">
+328
 </td>
 <td style="text-align:right;">
-3
+56,77
 </td>
 <td style="text-align:right;">
-53
+40,742
 </td>
 <td style="text-align:right;">
-1,8%
-</td>
-<td style="text-align:right;">
-31,2%
+16,028
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-I
+<td style="text-align:right;">
+388
 </td>
 <td style="text-align:right;">
-1
+40,11
 </td>
 <td style="text-align:right;">
-54
+47,582
 </td>
 <td style="text-align:right;">
-0,6%
-</td>
-<td style="text-align:right;">
-31,8%
+-7,472
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-J
+<td style="text-align:right;">
+131
 </td>
 <td style="text-align:right;">
-17
+12,64
 </td>
 <td style="text-align:right;">
-71
+18,284
 </td>
 <td style="text-align:right;">
-10%
-</td>
-<td style="text-align:right;">
-41,8%
+-5,644
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-K
+<td style="text-align:right;">
+299
 </td>
 <td style="text-align:right;">
-6
+24,54
 </td>
 <td style="text-align:right;">
-77
+37,436
 </td>
 <td style="text-align:right;">
-3,5%
-</td>
-<td style="text-align:right;">
-45,3%
+-12,896
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-L
+<td style="text-align:right;">
+324
 </td>
 <td style="text-align:right;">
-22
+46,37
 </td>
 <td style="text-align:right;">
-99
+40,286
 </td>
 <td style="text-align:right;">
-12,9%
-</td>
-<td style="text-align:right;">
-58,2%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-M
-</td>
-<td style="text-align:right;">
-17
-</td>
-<td style="text-align:right;">
-116
-</td>
-<td style="text-align:right;">
-10%
-</td>
-<td style="text-align:right;">
-68,2%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-N
-</td>
-<td style="text-align:right;">
-10
-</td>
-<td style="text-align:right;">
-126
-</td>
-<td style="text-align:right;">
-5,9%
-</td>
-<td style="text-align:right;">
-74,1%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-O
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-127
-</td>
-<td style="text-align:right;">
-0,6%
-</td>
-<td style="text-align:right;">
-74,7%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-P
-</td>
-<td style="text-align:right;">
-13
-</td>
-<td style="text-align:right;">
-140
-</td>
-<td style="text-align:right;">
-7,6%
-</td>
-<td style="text-align:right;">
-82,4%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-R
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-143
-</td>
-<td style="text-align:right;">
-1,8%
-</td>
-<td style="text-align:right;">
-84,1%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-S
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-149
-</td>
-<td style="text-align:right;">
-3,5%
-</td>
-<td style="text-align:right;">
-87,6%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-T
-</td>
-<td style="text-align:right;">
-11
-</td>
-<td style="text-align:right;">
-160
-</td>
-<td style="text-align:right;">
-6,5%
-</td>
-<td style="text-align:right;">
-94,1%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-V
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-168
-</td>
-<td style="text-align:right;">
-4,7%
-</td>
-<td style="text-align:right;">
-98,8%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Y
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-170
-</td>
-<td style="text-align:right;">
-1,2%
-</td>
-<td style="text-align:right;">
-100%
+6,084
 </td>
 </tr>
 </tbody>
 </table>
 </div>
+<p>Residuen spielen in vielen statistischen Verfahren eine Rolle, z.B. in der Residuenanalyse. Diese Verfahren werden im Rahmen dieser Veranstaltung jedoch nicht behandelt.</p>
 </div>
-<div id="stabdiagramme" class="section level3 hasAnchor" number="1.3.4">
-<h3><span class="header-section-number">1.3.4</span> Stabdiagramme<a href="datenerhebung-und-häufigkeiten.html#stabdiagramme" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Die so ermittelten Häufigkeiten lassen sich als Stabdiagramm (auch Säulen-, Streifen-, Balkendiagramm, engl. <em>bar chart</em>) darstellen (s. Abbildung <a href="datenerhebung-und-häufigkeiten.html#fig:stabdiagramm">1.1</a>).</p>
+</div>
+<div id="determinationskoeffizient" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Determinationskoeffizient 𝑅²<a href="lineare-regression.html#determinationskoeffizient" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Der Determinationskoeffizient <span class="math inline">\(R^2\)</span> (engl. <em>coefficient of determination</em>) ist formal definiert als das Verhältnis der Varianz der vorhergesagten <span class="math inline">\(\hat{y}\)</span>-Werte zur Varianz der tatsächlich beobachteten <span class="math inline">\(y\)</span>-Werte (wobei sich der Term <span class="math inline">\([n-1]\)</span> auskürzt):</p>
+<p><span class="math display" id="eq:rsqformal">\[
+R^2=\frac{\sum\limits^n_{i=1}(\hat{y}_i-\bar{y})^2}{\sum\limits^n_{i=1}(y_i-\bar{y})^2}
+\tag{8.5}
+\]</span></p>
+<p>Da Zähler und Nenner als Quadratsummen stets positiv sind und die Varianz der <span class="math inline">\(\hat{y}\)</span>-Werte immer <em>kleiner oder gleich</em> der Varianz der <span class="math inline">\(y\)</span>-Werte ist, nimmt der Determinationskoeffizient immer einen Wert zwischen 0 und 1 an.</p>
+<p>Je größer <span class="math inline">\(R^2\)</span>, desto besser erklärt das lineare Regressionsmodell die tatsächlich beobachteten Werte. <span class="math inline">\(R^2=1\)</span> bedeutet, dass das Modell die Werte perfekt erklärt.</p>
+<p>Für lineare Regressionsmodelle (also für die einzige Regression, die im Rahmen dieser Veranstaltung behandelt wird) lässt sich <span class="math inline">\(R^2\)</span> auch berechnen, indem wir den Korrelationskoeffizienten <span class="math inline">\(r\)</span> quadrieren:</p>
+<p><span class="math display" id="eq:rsq">\[
+R^2=r^2
+\tag{8.6}
+\]</span></p>
 <div class="rtip">
 Softwarehinweis
 </div>
 <div class="rtip_content">
-In R lautet der Standardbefehl zur Erstellung eines Stabdiagramms <code>barplot()</code>.
+In R wird mit dem Befehl <code>summary()</code> unter anderem der Determinationskoeffizient eines linearen Regressionsmodells ausgegeben.
 </div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:stabdiagramm"></span>
-<img src="Skript_Statistik_2021_files/figure-html/stabdiagramm-1.svg" alt="Stabdiagramm" width="450px" />
-<p class="caption">
-Abbildung 1.1: Stabdiagramm
-</p>
+<div id="beispiel-28" class="section level3 hasAnchor" number="8.4.1">
+<h3><span class="header-section-number">8.4.1</span> Beispiel<a href="lineare-regression.html#beispiel-28" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Mit den Methoden aus <a href="korrelation.html#korrelationskoeffizient">Sitzung 7</a> können wir den Korrelationskoeffizienten für unser Beispiel errechnen:</p>
+<p><span class="math display">\[
+\begin{aligned}
+r&amp;=\frac{s_{xy}}{s_x\cdot s_y}\\
+&amp;\approx\frac{1062{,}50}{96{,}65\cdot13,68}\\
+&amp;\approx0{,}804
+\end{aligned}
+\]</span></p>
+<p>Der Determinationskoeffizient ergibt sich dann mit Gleichung <a href="lineare-regression.html#eq:rsq">(8.6)</a>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+R^2&amp;=r^2\\
+&amp;\approx 0{,}804^2\\
+&amp;\approx 0{,}646
+\end{aligned}
+\]</span></p>
 </div>
 </div>
-<div id="quantitative-variablen-1" class="section level3 hasAnchor" number="1.3.5">
-<h3><span class="header-section-number">1.3.5</span> Quantitative Variablen<a href="datenerhebung-und-häufigkeiten.html#quantitative-variablen-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Das oben beschriebene Verfahren funktioniert gut für qualitative Variablen (und diskrete Variablen mit wenigen unterschiedlichen Werten). Für quantitative Variablen wird ein anderes Verfahren empfohlen.</p>
-<p>Zur Veranschaulichung soll diese geordnete Liste von Messwerten des Stammdurchmessers von Schwarzkirschen <span class="citation">(Beispieldatensatz <code>trees</code> aus <a href="#ref-r" role="doc-biblioref">R Core Team 2018</a>)</span> dienen:</p>
-<p><code>8,3  8,6  8,8 10,5 10,7 10,8 11,0 11,0 11,1 11,2 11,3 11,4 11,4 11,7 12,0 12,9 12,9 13,3 13,7 13,8 14,0 14,2 14,5 16,0 16,3 17,3 17,5 17,9 18,0 18,0 20,6</code></p>
-<p>Für solche Verteilungen müssen zuerst Klassen (engl. <em>bins</em>) gebildet werden, in denen die Werte dann zusammengefasst werden (s. Tabelle <a href="datenerhebung-und-häufigkeiten.html#tab:haeufklass">1.3</a>).</p>
-<div style="overflow-y: auto;">
-<table class="table" style="margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:haeufklass">Tabelle 1.3: </span>Häufigkeitstabelle mit klassierten Werten
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;border-bottom: 1px solid; ">
-Durchmesser
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-Absolute Häufigkeit <span class="math inline">\(f\)</span>
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-<span class="math inline">\(f_{kum}\)</span>
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-Relative Häufigkeit
-</th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-<span class="math inline">\(\%_{kum}\)</span>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-über 8 bis 10 Zoll
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-9,7%
-</td>
-<td style="text-align:right;">
-9,7%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-über 10 bis 12 Zoll
-</td>
-<td style="text-align:right;">
-12
-</td>
-<td style="text-align:right;">
-15
-</td>
-<td style="text-align:right;">
-38,7%
-</td>
-<td style="text-align:right;">
-48,4%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-über 12 bis 14 Zoll
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-21
-</td>
-<td style="text-align:right;">
-19,4%
-</td>
-<td style="text-align:right;">
-67,7%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-über 14 bis 16 Zoll
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-24
-</td>
-<td style="text-align:right;">
-9,7%
-</td>
-<td style="text-align:right;">
-77,4%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-über 16 bis 18 Zoll
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-30
-</td>
-<td style="text-align:right;">
-19,4%
-</td>
-<td style="text-align:right;">
-96,8%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-über 18 bis 20 Zoll
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-30
-</td>
-<td style="text-align:right;">
-0%
-</td>
-<td style="text-align:right;">
-96,8%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-über 20 bis 22 Zoll
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-31
-</td>
-<td style="text-align:right;">
-3,2%
-</td>
-<td style="text-align:right;">
-100%
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Für die Wahl der Klassengrenzen gibt es zwei feste Regeln:</p>
+<div id="tipps-zur-vertiefung-7" class="section level2 unnumbered hasAnchor">
+<h2>Tipps zur Vertiefung<a href="lineare-regression.html#tipps-zur-vertiefung-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>Alle Werte müssen abgedeckt sein.</li>
-<li>Die Klassen dürfen sich nicht überlappen.</li>
-</ul>
-<p>Zusätzlich sollten die folgenden Konventionen nach Möglichkeit befolgt werden:</p>
-<ul>
-<li>Klassen sollten gleich große Wertebereiche abdecken.</li>
-<li>Alle Klassen sollten besetzt sein.</li>
-<li>Klassengrenzen sollten möglichst glatte Zahlen sein.</li>
-<li>Aus Gründen der Übersichtlichkeit sollten nicht mehr als 20 Klassen gewählt werden.</li>
-<li>Klassengrenzen sollten <q>Klumpen</q> mit ähnlichen Werten nicht trennen.</li>
-</ul>
-<p>Die Darstellung erfolgt in so genannten Histogrammen (engl. <em>histogram</em>). Abbildung <a href="datenerhebung-und-häufigkeiten.html#fig:histogramm">1.2</a> enthält ein Beispiel für ein Histogramm.</p>
-<div class="rtip">
-Softwarehinweis
-</div>
-<div class="rtip_content">
-In R können Histogramme mit <code>hist()</code> erstellt werden.
-</div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:histogramm"></span>
-<img src="Skript_Statistik_2021_files/figure-html/histogramm-1.svg" alt="Histogramm" width="450px" />
-<p class="caption">
-Abbildung 1.2: Histogramm
-</p>
-</div>
-</div>
-<div id="polygone" class="section level3 hasAnchor" number="1.3.6">
-<h3><span class="header-section-number">1.3.6</span> Polygone<a href="datenerhebung-und-häufigkeiten.html#polygone" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Statt ausgefüllten Flächen wie im Histogramm lassen sich für die Häufigkeiten auch Punkte setzen, die dann mit Linien verbunden werden. So entsteht ein Häufigkeitspolygon (s. Abbildung <a href="datenerhebung-und-häufigkeiten.html#fig:poly">1.3</a>).</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:poly"></span>
-<img src="Skript_Statistik_2021_files/figure-html/poly-1.svg" alt="Polygonzug" width="450px" />
-<p class="caption">
-Abbildung 1.3: Polygonzug
-</p>
-</div>
-</div>
-<div id="eigenschaften-von-häufigkeitsverteilungen" class="section level3 hasAnchor" number="1.3.7">
-<h3><span class="header-section-number">1.3.7</span> Eigenschaften von Häufigkeitsverteilungen<a href="datenerhebung-und-häufigkeiten.html#eigenschaften-von-häufigkeitsverteilungen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Polygone von Häufigkeitsverteilungen (insbesondere in geglätteter Form) ergeben Annäherungen an so gennannte Dichtefunktionen (engl. <em>density functions</em>). Diese lassen sich mit Attributen (uni-/bimodal, schmal-/breitgipflig, etc.) beschreiben, wie in Abbildung <a href="datenerhebung-und-häufigkeiten.html#fig:shapes">1.4</a> veranschaulicht.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:shapes"></span>
-<img src="img/shapes.png" alt="Merkmale von Verteilungen [aus: @bortz: 42]" width="450px" />
-<p class="caption">
-Abbildung 1.4: Merkmale von Verteilungen <span class="citation">(aus: <a href="#ref-bortz" role="doc-biblioref">Bortz und Schuster 2010</a>: 42)</span>
-</p>
-</div>
-</div>
-</div>
-<div id="tipps-zur-vertiefung" class="section level2 unnumbered hasAnchor">
-<h2>Tipps zur Vertiefung<a href="datenerhebung-und-häufigkeiten.html#tipps-zur-vertiefung" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="grundbegriffe" class="section level3 hasAnchor" number="1.3.8">
-<h3><span class="header-section-number">1.3.8</span> Grundbegriffe<a href="datenerhebung-und-häufigkeiten.html#grundbegriffe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>YouTube-Kanal <q>Kurzes Tutorium Statistik</q>: <a href="https://www.youtube.com/watch?v=bJsBcLjke3Q">Statistische Grundbegriffe</a></li>
-<li>Kapitel 1.1 in <span class="citation">Bortz und Schuster (<a href="#ref-bortz" role="doc-biblioref">2010</a>)</span></li>
-<li>Kapitel 1.1 in <span class="citation">Benninghaus (<a href="#ref-benninghaus" role="doc-biblioref">2007</a>)</span></li>
-<li>Kapitel 2.1 in <span class="citation">Bahrenberg, Giese und Nipper (<a href="#ref-bahrenberg" role="doc-biblioref">2010</a>)</span></li>
-<li><em>Englisch:</em> Kapitel 1 in <span class="citation">Burt und Barber (<a href="#ref-burt" role="doc-biblioref">1996</a>)</span></li>
-</ul>
-</div>
-<div id="stichproben" class="section level3 hasAnchor" number="1.3.9">
-<h3><span class="header-section-number">1.3.9</span> Stichproben<a href="datenerhebung-und-häufigkeiten.html#stichproben" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>Kapitel 6.1 in <span class="citation">Bortz und Schuster (<a href="#ref-bortz" role="doc-biblioref">2010</a>)</span></li>
-<li>Kapitel 2.5 in <span class="citation">Lange und Nipper (<a href="#ref-delange" role="doc-biblioref">2018</a>)</span></li>
-<li>Kapitel 2.3 in <span class="citation">Bahrenberg, Giese und Nipper (<a href="#ref-bahrenberg" role="doc-biblioref">2010</a>)</span></li>
-<li><em>Englisch:</em> Kapitel 1 in <span class="citation">Burt und Barber (<a href="#ref-burt" role="doc-biblioref">1996</a>)</span></li>
-</ul>
-</div>
-<div id="skalenniveaus-1" class="section level3 hasAnchor" number="1.3.10">
-<h3><span class="header-section-number">1.3.10</span> Skalenniveaus<a href="datenerhebung-und-häufigkeiten.html#skalenniveaus-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>Kapitel 1.2 in <span class="citation">Bortz und Schuster (<a href="#ref-bortz" role="doc-biblioref">2010</a>)</span></li>
-<li>Kapitel 2.5 in <span class="citation">Lange und Nipper (<a href="#ref-delange" role="doc-biblioref">2018</a>)</span></li>
-<li>Kapitel 2.1 in <span class="citation">Benninghaus (<a href="#ref-benninghaus" role="doc-biblioref">2007</a>)</span></li>
-<li>Kapitel 2.2 in <span class="citation">Bahrenberg, Giese und Nipper (<a href="#ref-bahrenberg" role="doc-biblioref">2010</a>)</span></li>
-<li>YouTube-Kanal <q>Kurzes Tutorium Statistik</q>: <a href="https://www.youtube.com/watch?v=TV4tTtW4UBU">Skalenniveaus</a></li>
-<li><em>Englisch:</em> Kapitel 1.3 in <span class="citation">Burt und Barber (<a href="#ref-burt" role="doc-biblioref">1996</a>)</span></li>
-</ul>
-</div>
-<div id="häufigkeiten-und-diagramme" class="section level3 hasAnchor" number="1.3.11">
-<h3><span class="header-section-number">1.3.11</span> Häufigkeiten und Diagramme<a href="datenerhebung-und-häufigkeiten.html#häufigkeiten-und-diagramme" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>YouTube-Kanal <q>Kurzes Tutorium Statistik</q>: <a href="https://www.youtube.com/watch?v=LkOBRWXnTRQ">Stabdiagramme und Histogramme</a></li>
-<li>Kapitel 3.1 und 3.2 in <span class="citation">Bortz und Schuster (<a href="#ref-bortz" role="doc-biblioref">2010</a>)</span></li>
-<li>Kapitel 2.5 in <span class="citation">Lange und Nipper (<a href="#ref-delange" role="doc-biblioref">2018</a>)</span></li>
-<li>Kapitel 1.2 in <span class="citation">Benninghaus (<a href="#ref-benninghaus" role="doc-biblioref">2007</a>)</span></li>
-<li>Kapitel 4.1 in <span class="citation">Bahrenberg, Giese und Nipper (<a href="#ref-bahrenberg" role="doc-biblioref">2010</a>)</span></li>
-<li><em>Englisch:</em> Kapitel 2.1 in <span class="citation">Burt und Barber (<a href="#ref-burt" role="doc-biblioref">1996</a>)</span></li>
+<li>Kapitel 11 in <span class="citation">Bortz und Schuster (<a href="#ref-bortz" role="doc-biblioref">2010</a>)</span></li>
+<li>Kapitel 4.5.1 – 4.5.6 in <span class="citation">Lange und Nipper (<a href="#ref-delange" role="doc-biblioref">2018</a>)</span></li>
+<li>Kapitel 6.2 in <span class="citation">Bahrenberg, Giese und Nipper (<a href="#ref-bahrenberg" role="doc-biblioref">2010</a>)</span></li>
+<li>Kapitel 17 in <span class="citation">Klemm (<a href="#ref-klemm" role="doc-biblioref">2002</a>)</span></li>
+<li><em>Englisch:</em> Kapitel 13.1 – 13.4 in <span class="citation">Burt und Barber (<a href="#ref-burt" role="doc-biblioref">1996</a>)</span></li>
 </ul>
 
-</div>
-</div>
-<div id="übungsaufgaben" class="section level2 unnumbered hasAnchor">
-<h2>Übungsaufgaben<a href="datenerhebung-und-häufigkeiten.html#übungsaufgaben" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="aufgabe-1-1" class="section level3 hasAnchor" number="1.3.12">
-<h3><span class="header-section-number">1.3.12</span> Aufgabe 1-1<a href="datenerhebung-und-häufigkeiten.html#aufgabe-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><a href="lösungen-der-übungsaufgaben.html#loesung-1-1">zur Lösung</a></p>
-<p>Teilen Sie in Ihrer Kleingruppe folgende Begriffe untereinander auf:</p>
-<ul>
-<li>Variable</li>
-<li>Kennwert</li>
-<li>Wert</li>
-<li>Grundgesamtheit</li>
-<li>Stichprobe</li>
-<li>Untersuchungselement</li>
-</ul>
-<p>Gehen Sie nun für jeden Begriff wie folgt vor:</p>
-<ol style="list-style-type: decimal">
-<li>Erklären Sie der Reihe nach <q>Ihren</q> Begriff den anderen Gruppenmitgliedern, gerne auch mit Beispielen.</li>
-<li>Die anderen Gruppenmitglieder nehmen die Rolle von unwissenden Dritten ein und stellen bei Bedarf Nachfragen.</li>
-<li>Die anderen Gruppenmitglieder geben direkt danach Feedback auf die Erklärung:
-<ul>
-<li>Was fanden Sie gut erklärt?</li>
-<li>Was fanden Sie unverständlich?</li>
-<li>Was hat Ihnen gefehlt?</li>
-</ul></li>
-</ol>
-</div>
-<div id="aufgabe-1-2" class="section level3 hasAnchor" number="1.3.13">
-<h3><span class="header-section-number">1.3.13</span> Aufgabe 1-2<a href="datenerhebung-und-häufigkeiten.html#aufgabe-1-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><a href="lösungen-der-übungsaufgaben.html#loesung-1-2">zur Lösung</a></p>
-<p>Finden Sie als Gruppe jeweils zwei Beispiele für:</p>
-<ul>
-<li>systematische Zufallsstichproben</li>
-<li>geschichtete Zufallsstichproben</li>
-<li>Klumpenstichproben</li>
-</ul>
-</div>
-<div id="aufgabe-1-3" class="section level3 hasAnchor" number="1.3.14">
-<h3><span class="header-section-number">1.3.14</span> Aufgabe 1-3<a href="datenerhebung-und-häufigkeiten.html#aufgabe-1-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><a href="lösungen-der-übungsaufgaben.html#loesung-1-3">zur Lösung</a></p>
-<p>Bestimmen Sie das Skalenniveau der folgenden Variablen. Kennzeichnen Sie darüber hinaus, ob die Variable qualitativ, diskret oder stetig ist.</p>
-<ol style="list-style-type: lower-alpha">
-<li>Lebensalter in Jahren</li>
-<li>Regenmenge in mm</li>
-<li>Güteklasse</li>
-<li>Passagieraufkommen</li>
-<li>Baujahr</li>
-<li>Geschwindigkeit in km/h</li>
-<li>Sozialstatus (Unter-, Mittel und Oberschicht)</li>
-<li>Temperatur in °F</li>
-<li>Fläche eines Bundeslands in km²</li>
-<li>Temperatur in K</li>
-<li>Einwohnerzahl</li>
-<li>Pegelstand</li>
-<li>Staatsangehörigkeit</li>
-<li>Interesse an Statistik (gering bis hoch)</li>
-<li>Klausurnote</li>
-<li>Bodentyp</li>
-<li>Entfernung zum Stadtzentrum in km</li>
-<li>Körpergröße</li>
-<li>Kleidergröße (S bis XXL)</li>
-<li>Monatliches Nettoeinkommen</li>
-</ol>
-</div>
-<div id="aufgabe-1-4" class="section level3 hasAnchor" number="1.3.15">
-<h3><span class="header-section-number">1.3.15</span> Aufgabe 1-4<a href="datenerhebung-und-häufigkeiten.html#aufgabe-1-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><a href="lösungen-der-übungsaufgaben.html#loesung-1-4">zur Lösung</a></p>
-<p>Folgende Werte seien erfasst über die Lebensdauer von Klimaanlagen in Stunden <span class="citation">(Beispieldatensatz <code>aircondit7</code> aus <a href="#ref-r" role="doc-biblioref">R Core Team 2018</a>)</span>:</p>
-<pre><code>14 23 15 139 13 39 188 22 50 3 36 46 30 5 102 5 88 22 197 72 210 97 79 44</code></pre>
-<ol style="list-style-type: lower-alpha">
-<li>Erstellen Sie eine Häufigkeitstabelle. Welche Klassen wählen Sie und warum?</li>
-<li>Zeichnen Sie ein Histogramm.</li>
-<li>Beschreiben Sie die Verteilung.</li>
-</ol>
-</div>
-<div id="aufgabe-1-5" class="section level3 hasAnchor" number="1.3.16">
-<h3><span class="header-section-number">1.3.16</span> Aufgabe 1-5<a href="datenerhebung-und-häufigkeiten.html#aufgabe-1-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><a href="lösungen-der-übungsaufgaben.html#loesung-1-5">zur Lösung</a></p>
-<p>Sind die folgenden Aussagen wahr oder unwahr?</p>
-<ol style="list-style-type: lower-alpha">
-<li>Die Auswahl z. B. jedes 100. Merkmalsträgers nennt man „systematische Stichprobe“.</li>
-<li>Eine Stichprobe kann eine Grundgesamtheit niemals völlig richtig repräsentieren, es gibt immer einen Zufallsfehler.</li>
-<li>Die Größe der Stichprobe wird auch mit <span class="math inline">\(N\)</span> bezeichnet.</li>
-<li>Klassengrenzen müssen so gewählt werden, dass alle Werte abgedeckt sind.</li>
-<li>Je stärker die Werte der Variablen streuen, desto kleiner sollte die Stichprobe sein.</li>
-<li>Variablen auf der Verhältnisskala sind immer metrisch und stetig.</li>
-<li>Verhältnisskala und Intervallskala unterscheiden sich durch den natürlichen Nullpunkt.</li>
-<li>Intervallskalierte Daten können immer auf die Nominalskala transformiert werden.</li>
-<li>Ordinalskalierte Daten können immer auf die Intervallskala transformiert werden.</li>
-<li>Eine stetige Variable ist nicht zwingend auch metrisch.</li>
-<li>Im Gegensatz zu nominalskalierten Variablen lassen sich Werte von ordinalskalierten Variablen in eine sinnvolle Reihenfolge bringen.</li>
-<li>Die relative Häufigkeit eines Werts ist nie größer als 100%.</li>
-<li>Verfahren der deskriptiven Statistik sind immer auch univariat.</li>
-<li>Klassengrenzen dürfen sich in Ausnahmefällen überlappen.</li>
-<li><span class="math inline">\(x_3\)</span> ist immer kleiner als <span class="math inline">\(x_4\)</span>.</li>
-<li>Variablen auf der Verhältnisskala haben einen natürlichen Nullpunkt.</li>
-<li>Die absolute Häufigkeit eines Werts ist immer eine positive ganze Zahl.</li>
-<li>Wenn man die Urliste ordnet, erhält man die geordnete Liste.</li>
-</ol>
-
-</div>
 </div>
 </div>
 <h3>Quellenverzeichnis<a href="quellenverzeichnis.html#quellenverzeichnis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1537,23 +1038,17 @@ Abbildung 1.4: Merkmale von Verteilungen <span class="citation">(aus: <a href="#
 <div id="ref-bahrenberg" class="csl-entry">
 Bahrenberg, Gerhard, Ernst Giese und Josef Nipper. 2010. <em>Statistische Methoden in der Geographie</em>. Bd. 1. Univariate und bivariate Statistik. Stuttgart: Bornträger.
 </div>
-<div id="ref-benninghaus" class="csl-entry">
-Benninghaus, Hans. 2007. <em>Deskriptive Statistik. Eine Einführung für Sozialwissenschaftler</em>. Wiesbaden: VS Verlag.
-</div>
 <div id="ref-bortz" class="csl-entry">
 Bortz, Jürgen und Christof Schuster. 2010. <em>Statistik für Human- und Sozialwissenschaftler</em>. Berlin: Springer.
 </div>
 <div id="ref-burt" class="csl-entry">
 Burt, James E. und Gerald M. Barber. 1996. <em>Elementary statistics for geographers</em>. 2nd ed. New York: Guilford Press.
 </div>
-<div id="ref-haseloff" class="csl-entry">
-Haseloff, Otto W., Hans-Joachim Hoffmann, John H. Maindonald und W. John Braun. 1968. <em>Kleines Lehrbuch der Statistik DAAG. Data Analysis and Graphics Data and Functions</em>. Berlin: de Gruyter.
+<div id="ref-klemm" class="csl-entry">
+Klemm, Elmar. 2002. <em>Einführung in die Statistik. Für die Sozialwissenschaften</em>. Wiesbaden: Westdeutscher Verlag.
 </div>
 <div id="ref-delange" class="csl-entry">
 Lange, Norbert de und Josef Nipper. 2018. <em>Quantitative Methodik in der Geographie</em>. <span>UTB</span> Geographie, Methoden, Statistische Verfahren 4933. Paderborn: Ferdinand Schöningh.
-</div>
-<div id="ref-r" class="csl-entry">
-R Core Team. 2018. R: A Language and Environment for Statistical Computing. Wien: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a> (zugegriffen: 9. April 2021).
 </div>
 </div>
             </section>
@@ -1561,8 +1056,8 @@ R Core Team. 2018. R: A Language and Environment for Statistical Computing. Wien
           </div>
         </div>
       </div>
-<a href="informationen-zur-klausur.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="maßzahlen.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="korrelation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="formeln.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
