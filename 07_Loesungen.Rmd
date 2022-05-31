@@ -55,7 +55,8 @@ b) Streudiagramm:
     ggplot(exa, aes(x, y)) +
       geom_point(color = goethe_blue) +
       xlab("x") +
-      ylab("y")
+      ylab("y") +
+      theme_goethe()
     ```
 
     Berechnungstabelle:
@@ -145,7 +146,7 @@ cov   <- get_cov(ex_7_3$qm, ex_7_3$eur)
 sdx   <- get_sd(variance = varx$raw)
 sdy   <- get_sd(variance = vary$raw, alt = T, symbol = "y")
 corr  <- get_corr(cov = cov$raw, sdx = sdx$raw, sdy = sdy$raw)
-````
+```
 
 ### Berechnung Mittelwerte
 
@@ -159,7 +160,7 @@ tribble(
   "Arithm. Mittel y: Ergebnis",    meany$ergebnis
 ) %>%
   tabelle(hold = T)
-````
+```
 
 #### Tabelle
 

@@ -1,5 +1,19 @@
 # Informationen zur Klausur {-}
 
+### Probeklausuren {-}
+
+Aufgaben | Lösungen
+-------- |---------
+[Probeklausur I](probeklausuren/Probeklausur_I.pdf) | [Probeklausur I (Schlüssel)](probeklausuren/Probeklausur_I_Schluessel.pdf)
+[Probeklausur II](probeklausuren/Probeklausur_II.pdf) | [Probeklausur II (Schlüssel)](probeklausuren/Probeklausur_II_Schluessel.pdf)
+[Probeklausur III](probeklausuren/Probeklausur_III.pdf) | [Probeklausur III](probeklausuren/Probeklausur_III_Schluessel.pdf)
+[Probeklausur IV](probeklausuren/Probeklausur_IV.pdf) | [Probeklausur IV (Schlüssel)](probeklausuren/Probeklausur_IV_Schluessel.pdf)
+[Klausur 2018](probeklausuren/2018_Klausur.pdf) | [Klausur 2018 (Schlüssel)](probeklausuren/2018_Klausur_Schluessel.pdf)
+[Nachklausur 2018](probeklausuren/2018_Nachklausur.pdf) | [Nachklausur 2018 (Schlüssel)](probeklausuren/2018_Nachklausur_Schluessel.pdf)
+[Klausur 2019 (A)](probeklausuren/2019_Klausur_A.pdf) | [Klausur 2019 (A) (Schlüssel)](probeklausuren/2019_Klausur_A_Schluessel.pdf)
+[Klausur 2019 (B)](probeklausuren/2019_Klausur_B.pdf) | [Klausur 2019 (B) (Schlüssel)](probeklausuren/2019_Klausur_B_Schluessel.pdf)
+[Nachklausur 2019](probeklausuren/2019_Nachklausur.pdf) | [Nachklausur 2019 (Schlüssel)](probeklausuren/2019_Nachklausur_Schluessel.pdf)
+
 ### Termin {-}
 
 - Der Klausurtermin ist am 12. Juli 2022 um 14:00 Uhr s. t. -- also nicht Viertel nach!
