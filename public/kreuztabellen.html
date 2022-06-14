@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Sitzung 4 Schätzstatistik | Statistische Verfahren in der Geographie</title>
-  <meta name="description" content="Sitzung 4 Schätzstatistik | Statistische Verfahren in der Geographie" />
+  <title>Sitzung 9 Kreuztabellen | Statistische Verfahren in der Geographie</title>
+  <meta name="description" content="Sitzung 9 Kreuztabellen | Statistische Verfahren in der Geographie" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Sitzung 4 Schätzstatistik | Statistische Verfahren in der Geographie" />
+  <meta property="og:title" content="Sitzung 9 Kreuztabellen | Statistische Verfahren in der Geographie" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Sitzung 4 Schätzstatistik | Statistische Verfahren in der Geographie" />
+  <meta name="twitter:title" content="Sitzung 9 Kreuztabellen | Statistische Verfahren in der Geographie" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="z-werte-und-normalverteilung.html"/>
-<link rel="next" href="grundlagen-der-teststatistik.html"/>
+<link rel="prev" href="lineare-regression.html"/>
+<link rel="next" href="formeln.html"/>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -526,470 +526,794 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="schätzstatistik" class="section level1 hasAnchor" number="4">
-<h1><span class="header-section-number">Sitzung 4</span> Schätzstatistik<a href="schätzstatistik.html#schätzstatistik" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="lernziele-dieser-sitzung-3" class="section level3 unnumbered hasAnchor">
-<h3>Lernziele dieser Sitzung<a href="schätzstatistik.html#lernziele-dieser-sitzung-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="kreuztabellen" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Sitzung 9</span> Kreuztabellen<a href="kreuztabellen.html#kreuztabellen" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="lernziele-dieser-sitzung-8" class="section level3 unnumbered hasAnchor">
+<h3>Lernziele dieser Sitzung<a href="kreuztabellen.html#lernziele-dieser-sitzung-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Sie können…</p>
 <ul>
-<li>eine Punktschätzung für <span class="math inline">\(\mu\)</span> und <span class="math inline">\(\sigma\)</span> durchführen.</li>
-<li>den Standardfehler der Stichprobenverteilung von <span class="math inline">\(\bar{x}\)</span> bestimmen.</li>
-<li>eine Intervallschätzung für <span class="math inline">\(\mu\)</span> durchführen.</li>
+<li>eine Kreuztabelle erstellen und interpretieren.</li>
+<li>den Kontingenzkoeffizienten <span class="math inline">\(\chi^2\)</span> errechnen.</li>
+<li>die Maßzahlen <span class="math inline">\(\phi\)</span> bzw. <span class="math inline">\(\mathit{CI}\)</span> errechnen und interpretieren.</li>
 </ul>
 </div>
-<div id="lehrvideos-sommersester-2020" class="section level3 unnumbered hasAnchor">
-<h3>Lehrvideos (Sommersester 2020)<a href="schätzstatistik.html#lehrvideos-sommersester-2020" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="lehrvideos-sommersemester-2020-5" class="section level3 unnumbered hasAnchor">
+<h3>Lehrvideos (Sommersemester 2020)<a href="kreuztabellen.html#lehrvideos-sommersemester-2020-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li><a href="https://video01.uni-frankfurt.de/Mediasite/Play/7f5b3002871a4b18859db90d937e5f8a1d">4a) Alphafehler</a>
-<ul>
-<li>In diesem Video gibt es einen Fehler: In Schritt c) der Übungsaufgabe setze ich den falschen Wert für <span class="math inline">\(\mu\)</span> ein. Die Werte müssten stattdessen <span class="math inline">\(x_{(1-\alpha/2)}=27{,}84\)</span> und <span class="math inline">\(x_{\alpha/2}=20{,}16\)</span> betragen.</li>
-</ul></li>
-<li><a href="https://video01.uni-frankfurt.de/Mediasite/Play/393be1f574c643f9a045a6b4cc60a4511d">4b) Stichprobenverteilung</a></li>
-<li><a href="https://video01.uni-frankfurt.de/Mediasite/Play/ace60129a0c94894a66349f56e0b24a31d">4c) Schätzungen</a></li>
+<li><a href="https://video01.uni-frankfurt.de/Mediasite/Play/24a54089cd474c5f936a2dfeecfc43281d">9a) Kreuztabellen</a></li>
+<li><a href="https://video01.uni-frankfurt.de/Mediasite/Play/007a5399d62a4e27a09e1e31e9b04e461d">9b) Kontingenzkoeffizenten</a></li>
 </ul>
 </div>
-<div id="stichprobenverteilung" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> Stichprobenverteilung<a href="schätzstatistik.html#stichprobenverteilung" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<blockquote>
-<p>Die Stichprobenverteilung ist eine theoretische Verteilung, welche die möglichen Ausprägungen eines statistischen Kennwertes (z. B. <span class="math inline">\(\bar{x}\)</span>) sowie deren Auftretenswahrscheinlichkeit beim Ziehen von Zufallsstichproben des Umfanges <span class="math inline">\(n\)</span> beschreibt. <span class="citation">(<a href="#ref-bortz" role="doc-biblioref">Bortz und Schuster 2010</a>: 83)</span></p>
-</blockquote>
-<p>Hier ist zunächst die theoretische Verteilung des Mittelwerts einer Stichprobe relevant. Insbesondere interessiert uns, wie sich die theoretische Verteilung des Mittelwerts abhängig von der Stichprobengröße verhält.</p>
-<div id="szenario-1-normalverteilte-grundgesamtheit" class="section level3 hasAnchor" number="4.1.1">
-<h3><span class="header-section-number">4.1.1</span> Szenario 1: Normalverteilte Grundgesamtheit<a href="schätzstatistik.html#szenario-1-normalverteilte-grundgesamtheit" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Die Grundgesamtheit (Population) einer Variable <span class="math inline">\(x\)</span> sei normalverteilt mit <span class="math inline">\(\mu=50\)</span> und <span class="math inline">\(\sigma^2=25\)</span>. Wir können also schreiben:</p>
-<p><span class="math display">\[ x \sim N(50, \enspace 25) \]</span></p>
-<p>Die Standardabweichung der Population beträgt entsprechend:</p>
-<p><span class="math display">\[\begin{aligned}
-\sigma&amp;=\sqrt{\sigma^2}\\[4pt]
-&amp;=\sqrt{25}=5\end{aligned}\]</span></p>
-<p>Graphisch ist die Dichtefunktion der Verteilung in Abbildung <a href="schätzstatistik.html#fig:pop">4.1</a> veranschaulicht.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:pop"></span>
-<img src="Skript_Statistik_2021_files/figure-html/pop-1.svg" alt="Dichtefunktion der Grundgesamtheit" width="450px" />
-<p class="caption">
-Abbildung 4.1: Dichtefunktion der Grundgesamtheit
-</p>
-</div>
-<p>Wenn eine einzelne Stichprobe der Größe <span class="math inline">\(n=3\)</span> aus dieser Verteilung gezogen würde, hätte sie drei konkrete Werte (<span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span> und <span class="math inline">\(x_3\)</span>) sowie ein konkretes arithmetisches Mittel (<span class="math inline">\(\bar{x}\)</span>).</p>
-<p>Es lässt sich jedoch auch eine Wahrscheinlichkeitsdichtefunktion der Mittelwerte <em>aller theoretisch möglichen Stichproben</em> der Größe <span class="math inline">\(n=3\)</span> (und zusätzlich der Größe <span class="math inline">\(n=6\)</span>) zeichnen (s. Abbildung <a href="schätzstatistik.html#fig:stich">4.2</a>).</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:stich"></span>
-<img src="Skript_Statistik_2021_files/figure-html/stich-1.svg" alt="Dichtefunktionen der Stichprobenverteilungen" width="450px" />
-<p class="caption">
-Abbildung 4.2: Dichtefunktionen der Stichprobenverteilungen
-</p>
-</div>
-<div id="erwartungswert" class="section level4 hasAnchor" number="4.1.1.1">
-<h4><span class="header-section-number">4.1.1.1</span> Erwartungswert<a href="schätzstatistik.html#erwartungswert" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Es fällt auf, dass die Stichprobenverteilungen für <span class="math inline">\(\bar{x}\)</span> normalverteilt sind und um das arithmetische Mittel der Grundgesamtheit (<span class="math inline">\(\mu\)</span>) symmetrisch sind.</p>
-<p>Das arithmetische Mittel der Stichprobenverteilung <span class="math inline">\(\mu_{\bar{x}}\)</span> wird auch als <strong>Erwartungswert</strong> (engl. <em>expected value</em>) von <span class="math inline">\(\bar{x}\)</span> bezeichnet. Es gilt:</p>
-<p><span class="math display" id="eq:mean">\[
-\mu_{\bar{x}} = \mu
-\tag{4.1}
-\]</span></p>
-<p>Wir können auch sagen: <span class="math inline">\(\bar{x}\)</span> ist ein <q>erwartungstreuer</q> Schätzparameter für <span class="math inline">\(\mu\)</span>; nicht weil er in der Empirie zwangsläufig identisch mit <span class="math inline">\(\mu\)</span> wäre, sondern weil er mit zunehmender Stichprobengröße immer stärker zu <span class="math inline">\(\mu\)</span> tendiert.</p>
-</div>
-<div id="standardfehler" class="section level4 hasAnchor" number="4.1.1.2">
-<h4><span class="header-section-number">4.1.1.2</span> Standardfehler<a href="schätzstatistik.html#standardfehler" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Zusätzlich fällt in Abbildung <a href="schätzstatistik.html#fig:stich">4.2</a> auf: Je größer die Stichprobe, desto gestauchter die Dichtekurve der Stichprobenverteilung: Die theoretische Verteilung von <span class="math inline">\(\bar{x}\)</span> bei <span class="math inline">\(n=6\)</span> weist eine kleinere Varianz auf als bei <span class="math inline">\(n=3\)</span>. Das ist einigermaßen intuitiv, denn wir können uns vorstellen, dass das arithmetische Mittel <span class="math inline">\(\bar{x}\)</span> bei steigender Stichprobengröße ein immer präziserer Schätzwert für <span class="math inline">\(\mu\)</span> wird.</p>
-<p>Die Varianz der Stichprobenverteilung für <span class="math inline">\(\bar{x}\)</span> bezeichnen wir mit <span class="math inline">\(\sigma^2_{\bar{x}}\)</span>. Sie hängt von der Varianz der Population ab und ist invers proportional zur Stichprobengröße. Es gilt:</p>
-<p><span class="math display" id="eq:4var">\[
-\sigma^2_{\bar{x}} = \frac{\sigma^2}{n}
-\tag{4.2}
-\]</span></p>
-<p>Die Standardabweichung der Stichprobenverteilung (<span class="math inline">\(\sigma_{\bar{x}}\)</span>) wird auch Standardfehler (engl. <em>standard error</em>) genannt. Durch Wurzelziehen ergibt sich:</p>
-<p><span class="math display" id="eq:4sd">\[
-\sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}} \tag{4.3}
-\]</span></p>
-<p>Zusammenfassend lässt sich sagen:</p>
-<p><span class="math display" id="eq:4norm">\[
-\begin{aligned}
-\bar{x} \sim N(\mu, {\textstyle \frac{\sigma^2}{n}}) \quad \textrm{für} \quad x\sim N(\mu, \sigma^2)
-\end{aligned}
-\tag{4.4}
-\]</span></p>
-</div>
-</div>
-<div id="szenario-2-nicht-normalverteilte-grundgesamtheit" class="section level3 hasAnchor" number="4.1.2">
-<h3><span class="header-section-number">4.1.2</span> Szenario 2: Nicht normalverteilte Grundgesamtheit<a href="schätzstatistik.html#szenario-2-nicht-normalverteilte-grundgesamtheit" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Die Gleichungen <a href="schätzstatistik.html#eq:mean">(4.1)</a>, <a href="schätzstatistik.html#eq:4var">(4.2)</a> und <a href="schätzstatistik.html#eq:4sd">(4.3)</a> gelten uneingeschränkt auch für die Stichprobenverteilungen von nicht normalverteilten Populationen. Nur die Normalverteilung der Stichprobenverteilung (Gleichung <a href="schätzstatistik.html#eq:4norm">(4.4)</a>) ist bei nicht normalverteilten Grundgesamtheiten nicht automatisch gegeben.</p>
-<p>Das zentrale Grenzwerttheorem (engl. <em>central limit theorem</em>) besagt jedoch:</p>
-<blockquote>
-<p>Die Verteilung von Mittelwerten aus Stichproben des Umfangs <span class="math inline">\(n\)</span>, die derselben Grundgesamtheit entnommen wurden, geht mit wachsendem Stichprobenumfang in eine Normalverteilung über. <span class="citation">(<a href="#ref-bortz" role="doc-biblioref">Bortz und Schuster 2010</a>: 86)</span></p>
-</blockquote>
-<p>Abbildung <a href="schätzstatistik.html#fig:beta">4.3</a> veranschaulicht diesen Effekt für eine nicht normalverteilte Grundgesamtheit.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:beta"></span>
-<img src="Skript_Statistik_2021_files/figure-html/beta-1.svg" alt="Stichprobenverteilung bei nicht normalverteilter Population" width="450px" />
-<p class="caption">
-Abbildung 4.3: Stichprobenverteilung bei nicht normalverteilter Population
-</p>
-</div>
-<p>In der Praxis gilt die Faustregel: Ab einer Stichprobengröße von <span class="math inline">\(n=30\)</span> können wir statistische Verfahren anwenden, die von einer theoretischen Normalverteilung von <span class="math inline">\(\bar{x}\)</span> ausgehen – und zwar <em>unabhängig</em> von der Verteilung der Grundgesamtheit.</p>
-</div>
-</div>
-<div id="punktschätzung" class="section level2 hasAnchor" number="4.2">
-<h2><span class="header-section-number">4.2</span> Punktschätzung<a href="schätzstatistik.html#punktschätzung" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Bei statistischen Untersuchungen geht es oft darum, ausgehend von der empirischen Verteilung einer Stichprobe auf Parameter der Grundgesamtheit zu schließen.</p>
-<p>Die Punktschätzung (engl. <em>point estimation</em>) ist dabei eine vergleichsweise einfache und intuitive Vorgehensweise.</p>
-<div id="punktschätzung-des-arithmetischen-mittels" class="section level3 hasAnchor" number="4.2.1">
-<h3><span class="header-section-number">4.2.1</span> Punktschätzung des arithmetischen Mittels<a href="schätzstatistik.html#punktschätzung-des-arithmetischen-mittels" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Wenn eine Stichprobe vorliegt, dann ist ihr arithmetisches Mittel (<span class="math inline">\(\bar{x}\)</span>) als erwartungstreuer Punktschätzer der wahrscheinlichste Wert für das arithmetische Mittel der Grundgesamtheit (<span class="math inline">\(\mu\)</span>). Es gilt</p>
-<p><span class="math display" id="eq:muhat">\[
-\hat{\mu} = \bar{x}
-\tag{4.5}
-\]</span></p>
-<p>wobei das <q>Dach</q> auf dem <span class="math inline">\(\mu\)</span> dafür steht, dass es sich nur um eine Schätzung handelt.</p>
-<p>Beispiel:</p>
-<ul>
-<li>Zehn Studierende der Humangeographie werden zufällig ausgewählt, um ihre Pendelzeit zum IG-Farben-Campus zu erfassen.</li>
-<li>Die Angaben in Minuten lauten:
-<code>22 26 12 23 48 31 15 71 17 35</code></li>
-<li>Das arithmetische Mittel der Messreihe lässt sich – wie in <a href="maßzahlen.html#arithmetisches-mittel">Sitzung 2</a> ausführlich besprochen – berechnen: <span class="math inline">\(\bar{x}=30\)</span></li>
-<li>Da es sich um eine erwartungstreue Schätzgröße (und eine valide Zufallsstichprobe) handelt, kann die durchschnittliche Pendelzeit <em>aller</em> Studierenden der Humangeographie gemäß Gleichung <a href="schätzstatistik.html#eq:muhat">(4.5)</a> auf <span class="math inline">\(\hat{\mu}=\bar{x}=30\)</span> Minuten geschätzt werden.</li>
-</ul>
-<p>Gleichzeitig wissen wir jedoch, dass diese Punktschätzung des arithmetischen Mittels vermutlich nicht ganz präzise ist, sondern einem Standardfehler (<span class="math inline">\(\sigma_{\bar{x}}\)</span>) unterliegt. Woher wissen wir, wie groß dieser Standardfehler ist (und wie unpräzise damit unsere Schätzung)?</p>
-</div>
-<div id="punktschätzung-der-varianz-und-der-standardabweichung" class="section level3 hasAnchor" number="4.2.2">
-<h3><span class="header-section-number">4.2.2</span> Punktschätzung der Varianz und der Standardabweichung<a href="schätzstatistik.html#punktschätzung-der-varianz-und-der-standardabweichung" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Bei der Varianz einer Stichprobe <span class="math inline">\(s^2\)</span> handelt es sich ebenfalls um einen erwartungstreuen Punktschätzer für die Varianz der Grundgesamtheit <span class="math inline">\(\sigma^2\)</span>.</p>
-<p>Es gilt also</p>
-<p><span class="math display" id="eq:varhat">\[
-\hat{\sigma^2} = s^2 \tag{4.6}
-\]</span></p>
-<p>und damit natürlich auch</p>
-<p><span class="math display" id="eq:sigmahat">\[
-\hat{\sigma} = s \tag{4.7}
-\]</span></p>
-</div>
-<div id="schätzung-des-standardfehlers" class="section level3 hasAnchor" number="4.2.3">
-<h3><span class="header-section-number">4.2.3</span> Schätzung des Standardfehlers<a href="schätzstatistik.html#schätzung-des-standardfehlers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Wir führen das obige Beispiel fort:</p>
-<ul>
-<li>Die Varianz der Stichprobe können wir berechnen: <span class="math inline">\(s^2\approx319{,}78\)</span> (s.<a href="maßzahlen.html#varianz">Sitzung 2</a>).</li>
-<li>Die Varianz der Grundgesamtheit kann also mit Gleichung <a href="schätzstatistik.html#eq:muhat">(4.5)</a> auch auf <span class="math inline">\(\hat{\sigma^2}=s^2\approx319{,}78\)</span> geschätzt werden.</li>
-<li>Analog können wir die Standardabweichung der Population auf <span class="math inline">\(\hat{\sigma}=s\approx17{,}88\)</span> schätzen.</li>
-<li>Den Standardfehler können wir mit diesem Schätzwert anhand Gleichung <a href="schätzstatistik.html#eq:4sd">(4.3)</a> berechnen. Allerdings benutzen wir statt <span class="math inline">\(\sigma_{\bar{x}}\)</span> das Symbol <span class="math inline">\(s_{\bar{x}}\)</span>, da es sich um einen Schätzwert handelt:</li>
-</ul>
-<p><span class="math display">\[
-\begin{aligned}
-s_{\bar{x}} &amp;= \frac{s}{\sqrt{n}}\\[4pt]
-&amp;\approx \frac{17{,}88}{\sqrt{10}}\approx5{,}65
-\end{aligned}
-\]</span></p>
-<p>Je größer die Stichprobe, desto genauer lassen sich also Parameter der Population schätzen. Die statistische Antwort auf die Frage, wie groß die Stichprobe denn sein müsse, lautet demnach zunächst immer: Möglichst groß!</p>
-<p>Bemerkenswert ist jedoch, dass dabei die Größe der Grundgesamtheit (<span class="math inline">\(N\)</span>, im Beispiel die Anzahl aller Studierenden der Humangeographie) bei diesen Überlegungen überhaupt keine Rolle spielt.</p>
-</div>
-</div>
-<div id="intervallschätzung" class="section level2 hasAnchor" number="4.3">
-<h2><span class="header-section-number">4.3</span> Intervallschätzung<a href="schätzstatistik.html#intervallschätzung" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Um eine Intervallschätzung durchführen zu können, muss:</p>
-<ul>
-<li>die Standardabweichung der Grundgesamtheit <span class="math inline">\(\sigma\)</span> bekannt und</li>
-<li>die theoretische Verteilung von <span class="math inline">\(\bar{x}\)</span> normalverteilt sein. Das bedeutet:
-<ul>
-<li><em>Entweder</em> es ist bekannt, dass die Grundgesamtheit normalverteilt ist</li>
-<li><em>Und/oder</em> die Stichprobengröße ist <span class="math inline">\(n\geq30\)</span></li>
-</ul></li>
-</ul>
-<p>Für das obige Beispiel der Pendelzeiten wissen wir nicht, wie die Verteilung der Grundgesamtheit aussieht, und die Stichprobengröße (<span class="math inline">\(n=10\)</span>) ist kleiner als 30. Eine Intervallschätzung können wir hier also nicht durchführen!</p>
-<p>Auch bei der Intervallschätzung (engl. <em>interval estimation</em>) geht es darum, das arithmetische Mittel der Population (<span class="math inline">\(\mu\)</span>) zu schätzen. Allerdings geben wir nicht einfach nur den wahrscheinlichsten Wert an, sondern einen Bereich (ein <em>Intervall</em>), in dem <span class="math inline">\(\mu\)</span> mit einer bestimmten Wahrscheinlichkeit liegt.</p>
-<p>Die Grundüberlegung ist dabei folgende:</p>
-<ul>
-<li>Wir haben eine <em>empirische</em> Stichprobe vorliegen (und können ihren Mittelwert <span class="math inline">\(\bar{x}\)</span> und ihre Standardabweichung <span class="math inline">\(s\)</span> berechnen).</li>
-<li>Wir wissen dass die <em>theoretische</em> Verteilung aller möglichen Stichproben normalverteilt ist, und um den gesuchten Wert <span class="math inline">\(\mu\)</span> symmetrisch ist.</li>
-<li>Den Mittelwert unserer empirischen Stichprobe <span class="math inline">\(\bar{x}\)</span> können wir uns als zufälligen Wert der theoretischen Stichprobenverteilung von <span class="math inline">\(\bar{x}\)</span> vorstellen.</li>
-<li>Wo genau in dieser theoretischen Verteilung wir mit unserem empirischen Wert <q>gelandet</q> sind, wissen wir nicht.</li>
-<li>Wenn wir den Wert <span class="math inline">\(\mu\)</span> kennen würden, könnten wir (mit den Methoden aus <a href="z-werte-und-normalverteilung.html#wahrscheinlichkeitsrechnung-mit-standardnormalverteilung">Sitzung 3</a>) die Wahrscheinlichkeit für einen beliebeigen Bereich angeben, in den ein zufälliges <span class="math inline">\(\bar{x}\)</span> fällt.</li>
-<li>Der entscheidende Trick: Weil die Normalverteilung symmetrisch ist, sind diese Wahrscheinlichkeiten analog anzuwenden auf die Bereiche einer konstruierten Verteilung mit gleichem <span class="math inline">\(\sigma_{\bar{x}}\)</span> um unser <span class="math inline">\(\bar{x}\)</span>, in die der wirkliche Wert <span class="math inline">\(\mu\)</span> fällt. (s. Abbildung <a href="schätzstatistik.html#fig:double">4.4</a>).</li>
-</ul>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:double"></span>
-<img src="Skript_Statistik_2021_files/figure-html/double-1.svg" alt="Konstruierte Verteilung um $\bar{x}$" width="450px" />
-<p class="caption">
-Abbildung 4.4: Konstruierte Verteilung um <span class="math inline">\(\bar{x}\)</span>
-</p>
-</div>
-<p>Dabei heißt der Bereich Konfidenzintervall (engl. <em>confidence interval</em>), und seine Breite wird mit <span class="math inline">\(\textrm{KIB}\)</span> abgekürzt. Die Wahrscheinlichkeit, dass wir mit unserer Schätzung <em>außerhalb</em> des Konfidenzintervalls liegen wird mit <span class="math inline">\(\alpha\)</span> gekennzeichnet. Ein 95%-Konfidenzintervall hat also ein <span class="math inline">\(\alpha\)</span> von 0,05 (s. Abbildung <a href="schätzstatistik.html#fig:konf">4.5</a>).</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:konf"></span>
-<img src="Skript_Statistik_2021_files/figure-html/konf-1.svg" alt="Konfidenzintervall" width="450px" />
-<p class="caption">
-Abbildung 4.5: Konfidenzintervall
-</p>
-</div>
+<div id="bivariate-verteilungen-mit-nominalen-variablen" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Bivariate Verteilungen mit nominalen Variablen<a href="kreuztabellen.html#bivariate-verteilungen-mit-nominalen-variablen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In der bivariaten Statistik (<a href="korrelation.html#korrelation">Sitzung 7</a> und <a href="lineare-regression.html#lineare-regression">Sitzung 8</a>) ging es bisher um Zusammenhänge zwischen zwei metrischen Variablen. In dieser Sitzung geht es um statistische Verfahren der bivariaten Statistik, bei denen für beide Variablen nur das Nominalskalenniveau vorausgesetzt ist. (Für Skalenniveaus s. <a href="datenerhebung-und-häufigkeiten.html#skalenniveaus">Sitzung 1</a>.)</p>
+<p>Mit den Werten von nominalskalierten Variablen lassen sich die in <a href="korrelation.html#korrelation">Sitzung 7</a> und <a href="lineare-regression.html#lineare-regression">Sitzung 8</a> besprochenen Parameter (z. B. Kovarianz) nicht errechnen, weil wir mit ihnen nicht die notwendigen Rechenoperationen (Addition, Subtraktion) durchführen können. Stattdessen sind die beobachteten Häufigkeiten Ausgangslage für die im Folgenden besprochenen Verfahren.</p>
+<div id="beispiel-29" class="section level3 hasAnchor" number="9.1.1">
+<h3><span class="header-section-number">9.1.1</span> Beispiel<a href="kreuztabellen.html#beispiel-29" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Wir fragen uns, ob es einen Zusammenhang zwischen dem Studienfach von Studierenden an einer Universität und ihrem präferierten Transportmittel für den Pendelweg zum Campus gibt. Insbesondere interessiert uns, ob ein Zusammenhang zwischen dem Studium der Geistes- und Sozialwissenschaften und der Fahrradnutzung besteht.</p>
+<p>Beide Variablen sind nur nominalskaliert: Die erhobenen Werte können in Kategorien eingeordnet werden, die aber keine inhärente Hierarchie aufweisen (Studienfach: Geographie, Politikwissenschaft, BWL, …; Transportmittel: Bus, Fahrrad, zu Fuß, …).</p>
+<p>Um die Variablen im Sinne unserer Fragestellung zu vereinfachen, wandeln wir beide Variablen in <em>dichotome</em> Variablen um (die dann nur zwei Werte annehmen können). Wir beschränken uns auf die Erhebung von <q>Fahrrad</q> oder <q>anderes Transportmittel</q> einerseits und <q>Geistes-/Sozialwissenschaft</q> oder <q>anderes Studienfach</q> andererseits. Die (verkürzte) Tabelle der Rohdaten einer Zufallsstichprobe der Größe <span class="math inline">\(n=90\)</span> könnte dann so aussehen wie <a href="kreuztabellen.html#tab:roh">9.1</a>.</p>
 <div style="overflow-y: auto;">
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:tab">Tabelle 4.1: </span>Jahresniederschlag in Hessen
+<span id="tab:roh">Tabelle 9.1: </span>Ungeordnete Rohdaten der Erhebung
 </caption>
 <thead>
 <tr>
 <th style="text-align:right;border-bottom: 1px solid; ">
-Jahr
+<span class="math inline">\(i\)</span>
 </th>
-<th style="text-align:right;border-bottom: 1px solid; ">
-Niederschlag (l/m²)
+<th style="text-align:left;border-bottom: 1px solid; ">
+Studienfach
+</th>
+<th style="text-align:left;border-bottom: 1px solid; ">
+Transportmittel
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:right;">
-2011
+1
 </td>
-<td style="text-align:right;">
-855,3
+<td style="text-align:left;">
+Geistes-/Sozialwissenschaft
 </td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2012
-</td>
-<td style="text-align:right;">
-839,5
+<td style="text-align:left;">
+anderes Transportmittel
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-2013
+2
 </td>
-<td style="text-align:right;">
-850,6
+<td style="text-align:left;">
+anderes Studienfach
 </td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2014
-</td>
-<td style="text-align:right;">
-873,1
+<td style="text-align:left;">
+anderes Transportmittel
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-2015
+3
 </td>
-<td style="text-align:right;">
-858,3
+<td style="text-align:left;">
+anderes Studienfach
 </td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2016
-</td>
-<td style="text-align:right;">
-857,1
+<td style="text-align:left;">
+anderes Transportmittel
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-2017
+4
 </td>
+<td style="text-align:left;">
+anderes Studienfach
+</td>
+<td style="text-align:left;">
+Fahrrad
+</td>
+</tr>
+<tr>
 <td style="text-align:right;">
-861,4
+5
+</td>
+<td style="text-align:left;">
+Geistes-/Sozialwissenschaft
+</td>
+<td style="text-align:left;">
+anderes Transportmittel
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+anderes Studienfach
+</td>
+<td style="text-align:left;">
+anderes Transportmittel
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+…
+</td>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:left;">
+…
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+85
+</td>
+<td style="text-align:left;">
+Geistes-/Sozialwissenschaft
+</td>
+<td style="text-align:left;">
+anderes Transportmittel
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+86
+</td>
+<td style="text-align:left;">
+anderes Studienfach
+</td>
+<td style="text-align:left;">
+anderes Transportmittel
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+87
+</td>
+<td style="text-align:left;">
+anderes Studienfach
+</td>
+<td style="text-align:left;">
+Fahrrad
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+88
+</td>
+<td style="text-align:left;">
+anderes Studienfach
+</td>
+<td style="text-align:left;">
+anderes Transportmittel
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+89
+</td>
+<td style="text-align:left;">
+Geistes-/Sozialwissenschaft
+</td>
+<td style="text-align:left;">
+anderes Transportmittel
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+90
+</td>
+<td style="text-align:left;">
+Geistes-/Sozialwissenschaft
+</td>
+<td style="text-align:left;">
+anderes Transportmittel
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>Ein Beispiel soll dies verdeutlichen: Wir wissen, dass die jährliche Niederschlagsmenge in Hessen normalverteilt ist mit <span class="math inline">\(\sigma=10{,}23\)</span>. Wir haben die Messwerte in Tabelle 1 erhoben und möchten den Mittelwert (<span class="math inline">\(\mu\)</span>) per Intervallschätzung angeben.</p>
-<p>Zunächst errechnen wir den Mittelwert unserer empirischen Stichprobe:</p>
-<p><span class="math display">\[
-\begin{aligned}
-  \bar{x}&amp;\approx856{,}47
-\end{aligned}
-\]</span></p>
-<p>Dann errechnen wir anhand Gleichung <a href="schätzstatistik.html#eq:4sd">(4.3)</a> den Standardfehler der theoretischen Verteilung von <span class="math inline">\(\bar{x}\)</span>:</p>
-<p><span class="math display">\[\begin{aligned}
-\sigma_{\bar{x}}&amp;=\frac{\sigma}{\sqrt{n}}\\[4pt]
-           &amp;\approx\frac{10{,}23}{\sqrt{7}}\approx3,86
-\end{aligned}\]</span></p>
-<div id="gesuchtes-alpha" class="section level3 hasAnchor" number="4.3.1">
-<h3><span class="header-section-number">4.3.1</span> Gesuchtes <span class="math inline">\(\alpha\)</span><a href="schätzstatistik.html#gesuchtes-alpha" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Nun könnte eine Fragerichtung lauten: Wie groß ist die Wahrscheinlichkeit, dass der Mittelwert der Population <span class="math inline">\(\mu\)</span> in einem Korridor von ± 5 l/m² um <span class="math inline">\(\bar{x}\)</span> liegt? <a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
-<p>Gesucht ist bei einer Konfidenzintervallbreite von <span class="math inline">\(\textit{KIB}=10\)</span> also die Wahrscheinlichkeit:</p>
-<p><span class="math display">\[1-\alpha\approx P(851{,}47 &lt; \mu &lt; 861{,}47)\]</span></p>
-<p>Generalisierend lässt sich schreiben:</p>
-<p><span class="math display">\[
-1-\alpha=P(x_{\alpha/2} &lt; \mu &lt; x_{(1-\alpha/2)})
-\]</span></p>
-<p>…wobei <span class="math inline">\(x_{\alpha/2}\)</span> die Untergrenze darstellt und <span class="math inline">\(x_{(1-\alpha/2)}\)</span> die Obergrenze.</p>
-<p>In <span class="math inline">\(z\)</span>-Werten ausgedrückt:</p>
-<p><span class="math display" id="eq:konf">\[
-1-\alpha=P(z_{\alpha/2} &lt; z_{\mu} &lt; z_{(1-\alpha/2)})
-\tag{4.8}
-\]</span></p>
-<p>In <a href="z-werte-und-normalverteilung.html#wahrscheinlichkeitsrechnung-mit-standardnormalverteilung">Sitzung 3</a> haben wir bereits gelernt, wie diese Wahrscheinlichkeit berechnet werden kann. Im Folgenden wird der Rechenweg noch einmal am Beispiel dargelegt.</p>
-<div id="die-umständliche-variante" class="section level4 hasAnchor" number="4.3.1.1">
-<h4><span class="header-section-number">4.3.1.1</span> Die umständliche Variante<a href="schätzstatistik.html#die-umständliche-variante" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Zunächst müssen wir die Intervallgrenzen in<span class="math inline">\(z\)</span>-Werte umwandeln, um die Unter- bzw. Überschreitungswahrscheinlichkeiten ermitteln zu können. Die <span class="math inline">\(z\)</span>-Transformation muss hier jedoch anhand des Standardfehlers <span class="math inline">\(\sigma_{\bar{x}}\)</span> geschehen, da wir ja an der Stichprobenverteilung interessiert sind. Durch <span class="math inline">\(z\)</span>-Transformation mit <span class="math inline">\(\bar{x}\)</span> und dem Standardfehler <span class="math inline">\(\sigma_{\bar{x}}\)</span> erhalten wir die standardisierten Intervallgrenzen.</p>
-<p>Untergrenze:</p>
-<p><span class="math display">\[\begin{aligned}
-z_{\alpha/2} &amp;= \frac{x_{\alpha/2}-\bar{x}}{\sigma_{\bar{x}}}\\[4pt]
-&amp;\approx\frac{851{,}47-856,47}{3,86}\approx-1,30
-\end{aligned}\]</span></p>
-<p>Obergrenze:</p>
-<p><span class="math display">\[\begin{aligned}
-z_{(1-\alpha/2)} &amp;= \frac{x_{(1-\alpha/2)}-\bar{x}}{\sigma_{\bar{x}}}\\[4pt]
-&amp;\approx\frac{861{,}47-856,47}{3,86}\approx1,30
-\end{aligned}\]</span></p>
-<p>Es ist wenig überraschend, dass die <span class="math inline">\(z\)</span>-transformierten Werte symmetrisch sind. Wir setzen in Gleichung <a href="schätzstatistik.html#eq:konf">(4.8)</a> ein:</p>
-<p><span class="math display">\[1-\alpha\approx P(-1{,}30 &lt;z_{\mu} &lt; 1{,}30)\]</span></p>
-<p>Dies lässt sich umformen in:</p>
-<p><span class="math display">\[
-1-\alpha\approx P(z_{\mu}&lt;1{,}30) - P(z_{\mu}&lt;-1{,}30)
-\]</span></p>
-<p>Die jeweiligen Wahrscheinlichkeiten lassen sich in der <a href="formeln.html#tabelle-z">Tabelle für <span class="math inline">\(p\)</span>-Werte der Normalverteilung</a> nachschauen (bzw. für den negativen <span class="math inline">\(z\)</span>-Wert errechnen):</p>
-<p><span class="math display">\[
-\begin{aligned}
-1-\alpha&amp;\approx 0,9032 - 0,0968\\
-&amp;=0,8064
-\end{aligned}
-\]</span></p>
-<p>Die Wahrscheinlichkeit, dass <span class="math inline">\(\mu\)</span> im Konfidenzintervall 856,47 ± 5 l/m² liegt, beträgt also 80,64%.</p>
-</div>
-<div id="die-schnelle-variante" class="section level4 hasAnchor" number="4.3.1.2">
-<h4><span class="header-section-number">4.3.1.2</span> Die schnelle Variante<a href="schätzstatistik.html#die-schnelle-variante" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Wir können den <span class="math inline">\(z\)</span>-Wert für die Obergrenze des Konfidenzintervalls ganz einfach ausrechnen, weil wir wissen, dass die Obergrenze um 5 größer ist als <span class="math inline">\(\bar{x}\)</span> und dass <span class="math inline">\(z_{\bar{x}}=0\)</span>:</p>
-<p><span class="math display">\[\begin{aligned}
-z_{(1-\alpha/2)}&amp;=\frac{5}{\sigma_{\bar{x}}}\\
-&amp;\approx\frac{5}{3,86}\\
-&amp;\approx1{,}30
-\end{aligned}\]</span></p>
-<p>Oberhalb dieses Werts liegt bekanntermaßen der Anteil <span class="math inline">\(\frac{\alpha}{2}\)</span>, woraus sich mit Blick auf die Tabelle ergibt:</p>
-<p><span class="math display">\[\begin{aligned}
-\frac{\alpha}{2}&amp;=1-0,9032\\[4pt]
-\alpha&amp;=0,1936
-\end{aligned}\]</span></p>
 </div>
 </div>
-<div id="gesuchtes-konfidenzintervall" class="section level3 hasAnchor" number="4.3.2">
-<h3><span class="header-section-number">4.3.2</span> Gesuchtes Konfidenzintervall<a href="schätzstatistik.html#gesuchtes-konfidenzintervall" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Eine weitere Möglichkeit der Fragestellung lautet: In welchem Bereich liegt das arithmetische Mittel <span class="math inline">\(\mu\)</span> mit einer Wahscheinlichkeit von 90%?</p>
-<p>Vorgegeben ist also <span class="math inline">\(\alpha=0{,}1\)</span>, und gesucht sind die Unter- und die Obergrenze des Konfidenzintervalls.</p>
-<p>Wir setzen ein:</p>
-<p><span class="math display">\[\begin{aligned}
-1-\alpha&amp;=P(z_{\alpha/2} &lt; z_{\mu} &lt; z_{(1-\alpha/2)})\\[4pt]
-0{,}9 &amp;= P(z_{5\%} &lt; z_{\mu} &lt; z_{95\%})
-\end{aligned}\]</span></p>
-<p>Die entsprechenden <span class="math inline">\(z\)</span>-Werte der Intervallgrenzen lassen sich (in umgekehrter Suchrichtung) aus der Tabelle ablesen:</p>
-<p><span class="math display">\[\begin{aligned}
-z_{5\%}&amp;\approx-1{,}64\\[4pt]
-z_{95\%}&amp;\approx 1{,}64
-\end{aligned}\]</span></p>
-<p>Durch umgekehrte z-Transformation – auch hier weider mit <span class="math inline">\(\bar{x}\)</span> und <span class="math inline">\(\sigma_{\bar{x}}\)</span> – ergeben sich die Intervallgrenzen.</p>
-<p>Untergrenze:</p>
-<p><span class="math display">\[\begin{aligned}
-x_{5\%} &amp;= z_{5\%} \cdot \sigma_{\bar{x}} + \bar{x}\\[4pt]
-&amp;\approx -1{,}64 \cdot 3,86 + 856{,}47\\[4pt]
-&amp;\approx 850,14\\[6pt]
-\end{aligned}\]</span></p>
-<p>Obergrenze:</p>
-<p><span class="math display">\[
-\begin{aligned}
-x_{95\%}&amp;= z_{95\%} \cdot \sigma_{\bar{x}} + \bar{x}\\[4pt]
-&amp;\approx 1{,}64 \cdot 3,86 + 856{,}47\\[4pt]
-&amp;\approx 862,80
-\end{aligned}\]</span></p>
-<p>Auch hier gibt es wieder eine kleine Abkürzung: Aufgrund der Symmetrie unserer theoretischen Verteilung gilt für die Konfidenzintervallbreite generell:</p>
-<p><span class="math display" id="eq:kib">\[
-\frac{\mathit{KIB}}{2} = z_{(1-\alpha/2)} \cdot \sigma_{\bar{x}}
-\tag{4.9}
-\]</span></p>
-<p>Wir setzen einfach unsere Werte ein:</p>
-<p><span class="math display">\[\begin{aligned}
-\frac{\mathit{KIB}}{2} &amp;= z_{95\%} \cdot s_{\bar{x}}\\[4pt]
-&amp;\approx1{,}64 \cdot 3,86\\[4pt]
-&amp;\approx 6,33
-\end{aligned}\]</span></p>
-<p>Die Intervallgrenzen ergeben sich dann trivial aus <span class="math inline">\(\bar{x} \pm \frac{\mathit{KIB}}{2}\)</span>.</p>
+<div id="kreuztabelle" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Kreuztabelle<a href="kreuztabellen.html#kreuztabelle" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Die Kreuztabelle (auch Kontingenztabelle, Kontingenztafel, engl. <em>contingency table</em>) ist eine übersichtliche Zusammenfassung der Rohdaten. Sie spannt die beiden Variablen in Spalten- und Zeilenrichtung auf, so dass in jeder Zelle die Häufigkeit einer bestimmten Wertekombination steht.</p>
+<p>Bei zwei dichotomen Variablen ergeben sich zwei Spalten und zwei Zeilen, also vier Tabellenfelder. Wir sprechen in diesem Fall auch von einer <span class="math inline">\(2\times2\)</span>-Tabelle.</p>
+<div id="beispiel-30" class="section level3 hasAnchor" number="9.2.1">
+<h3><span class="header-section-number">9.2.1</span> Beispiel<a href="kreuztabellen.html#beispiel-30" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Die Kreuztabelle für unser Beispiel ist in <a href="kreuztabellen.html#tab:crossrad">9.2</a> dargestellt. Die Spaltenüberschriften sind die beiden Werte der dichotomen Variable <q>Transportmittel</q>, und die Zeilennamen sind die beiden Werte für <q>Studienfach</q>. In den Zellen stehen die Häufigkeiten. Es lässt sich also z. B. ablesen, dass die Kombination <q>Fahrrad</q> und <q>anderes Studienfach</q> neun mal vorkommt.</p>
+<div style="overflow-y: auto;">
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:crossrad">Tabelle 9.2: </span>Kreuztabelle für die Beispielerhebung
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;border-bottom: 1px solid; ">
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+Fahrrad
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+anderes Transportmittel
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Geistes-/Sozialwissenschaft
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;border-right:1px solid;">
+28
+</td>
+<td style="text-align:right;font-weight: bold;">
+39
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-bottom: 1px solid; font-weight: bold;border-right:1px solid;">
+anderes Studienfach
+</td>
+<td style="text-align:right;border-bottom: 1px solid; ">
+9
+</td>
+<td style="text-align:right;border-bottom: 1px solid; border-right:1px solid;">
+42
+</td>
+<td style="text-align:right;border-bottom: 1px solid; font-weight: bold;">
+51
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;font-weight: bold;border-right:1px solid;">
+</td>
+<td style="text-align:right;font-weight: bold;">
+20
+</td>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+70
+</td>
+<td style="text-align:right;font-weight: bold;font-weight: bold;">
+90
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="gesuchtes-n" class="section level3 hasAnchor" number="4.3.3">
-<h3><span class="header-section-number">4.3.3</span> Gesuchtes <span class="math inline">\(n\)</span><a href="schätzstatistik.html#gesuchtes-n" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Eine letzte Fragerichtung lautet: Wie viele Messwerte müssten vorliegen, um den durchschnittlichen Niederschlag mit einem Konfidenzniveau von 99% und einer Genauigkeit von ± 5 l/m² schätzen zu können?</p>
-<p>Gegeben sind also das Konfidenzintervall und <span class="math inline">\(\alpha=0{,}01\)</span>, gesucht wird <span class="math inline">\(n\)</span>. Wir wissen, dass die Stichprobengröße <span class="math inline">\(n\)</span> den Standardfehler <span class="math inline">\(\sigma_{\bar{x}}\)</span> bestimmt. Also benutzen wir zunächst Gleichung <a href="schätzstatistik.html#eq:kib">(4.9)</a> und formen um:</p>
-<p><span class="math display">\[\begin{aligned}
-\frac{\mathit{KIB}}{2} &amp;= z_{(1-\alpha/2)} \cdot \sigma_{\bar{x}}\\[4pt]
-\sigma_{\bar{x}} &amp;= \frac{\mathit{KIB}}{2\cdot z_{(1-\alpha/2)}}
-\end{aligned}\]</span></p>
-<p>Durch Einsetzen und mit Blick auf die Tabelle erhalten wir:</p>
-<p><span class="math display">\[\begin{aligned}
-\sigma_{\bar{x}} &amp;= \frac{10}{2\cdot z_{99{,}5\%}}\\[4pt]
-&amp;\approx \frac{10}{2\cdot 2{,}58}\\[4pt]
-&amp;\approx 1{,}94
-\end{aligned}\]</span></p>
-<p>Dieser Standardfehler <span class="math inline">\(\sigma_{\bar{x}}\approx1{,}94\)</span> würde unseren Anforderungen genügen. Welches <span class="math inline">\(n\)</span> ist nötig, um diesen Standardfehler zu erreichen? Wir formen Gleichung <a href="schätzstatistik.html#eq:4sd">(4.3)</a> um…</p>
-<p><span class="math display">\[\begin{aligned}
-\sigma_{\bar{x}} &amp;= \frac{\sigma}{\sqrt{n}}\\[4pt]
-               n &amp;= \Big(\frac{\sigma}{\sigma_{\bar{x}}}\Big)^2
-\end{aligned}\]</span></p>
-<p>…und setzen den angestrebten Standardfehler sowie die Standardabweichung der Population (<span class="math inline">\(\sigma=10{,}23\)</span>) ein:</p>
-<p><span class="math display">\[
-\begin{aligned}
-n&amp;=\Big(\frac{\sigma}{\sigma_{\bar{x}}}\Big)^2\\[4pt]
-n&amp;\approx\bigg(\frac{10{,}23}{1{,}94}\bigg)^2\\[4pt]
-&amp;\approx27{,}80
-\end{aligned}
-\]</span></p>
-<p>Wir müssten also 28 Stichproben vorliegen haben.</p>
+<p>Am rechten Rand der Tabelle stehen die Summen für die Zeilen, am unteren Rand die Summen der Spalten. Ganz unten rechts steht die Gesamtsumme (Größe der Stichprobe).</p>
+<div class="rtip">
+Softwarehinweis
+</div>
+<div class="rtip_content">
+In R kann eine einfache Kreuztabelle mit dem Befehl <code>table()</code> ausgegeben werden.
 </div>
 </div>
-<div id="tipps-zur-vertiefung-3" class="section level2 unnumbered hasAnchor">
-<h2>Tipps zur Vertiefung<a href="schätzstatistik.html#tipps-zur-vertiefung-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="verallgemeinerung" class="section level3 hasAnchor" number="9.2.2">
+<h3><span class="header-section-number">9.2.2</span> Verallgemeinerung<a href="kreuztabellen.html#verallgemeinerung" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In Tabelle <a href="kreuztabellen.html#tab:crossalg">9.3</a> ist das allgemeingültige Format für Kreuztabellen festgehalten. Dabei sind folgende Besonderheiten zu beachten:</p>
 <ul>
-<li>YouTube-Kanal <q>Kurzes Tutorium Statistik</q>: <a href="https://www.youtube.com/watch?v=DdwTa28W4Os">Intervallschätzungen - Konfidenzintervalle</a></li>
-<li>Kapitel 6.2–6.4 in <span class="citation">Bortz und Schuster (<a href="#ref-bortz" role="doc-biblioref">2010</a>)</span></li>
-<li>Kapitel 8.1.1 – 8.1.4 in <span class="citation">Lange und Nipper (<a href="#ref-delange" role="doc-biblioref">2018</a>)</span></li>
-<li>Kapitel 8 in <span class="citation">Klemm (<a href="#ref-klemm" role="doc-biblioref">2002</a>)</span></li>
-<li>Kapitel 5.3.1 in <span class="citation">Bahrenberg, Giese und Nipper (<a href="#ref-bahrenberg" role="doc-biblioref">2010</a>)</span></li>
-<li><em>English:</em> Kapitel 8 in <span class="citation">Burt und Barber (<a href="#ref-burt" role="doc-biblioref">1996</a>)</span></li>
+<li>Das Symbol <span class="math inline">\(k\)</span> steht für die Anzahl der Zeilen, <span class="math inline">\(\ell\)</span> für die Anzahl der Spalten.</li>
+<li>Die Häufigkeiten für Merkmalskombinationen in den Tabellenfeldern werden durch <span class="math inline">\(n_{ij}\)</span> symbolisiert, wobei <span class="math inline">\(i\)</span> für die laufende Nummer der Zeile steht, und <span class="math inline">\(j\)</span> für die laufende Nummer der Spalte.</li>
+<li>Die Teilsummen an den Rändern werden mit Punktnotation bezeichnet. Dabei steht die Zeilensumme <span class="math inline">\(n_{i\cdot}\)</span> für die Summe <em>aller</em> Felder in Zeile <span class="math inline">\(i\)</span> (Zeilensumme) und <span class="math inline">\(n_{\cdot j}\)</span> für die Summe <em>aller</em> Felder in Spalte <span class="math inline">\(j\)</span> (Spaltensumme).</li>
+<li>Die Gesamtsumme unten rechts wird hier mit <span class="math inline">\(n\)</span> gekennzeichnet und steht wie gewohnt für die Gesamtgröße der Stichprobe.</li>
+</ul>
+<div style="overflow-y: auto;">
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:crossalg">Tabelle 9.3: </span>Allgemeine Bezeichnungen in der Kreuztabelle
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;border-bottom: 1px solid; ">
+</th>
+<th style="text-align:left;border-bottom: 1px solid; ">
+Spalte 1
+</th>
+<th style="text-align:left;border-bottom: 1px solid; ">
+Spalte 2
+</th>
+<th style="text-align:left;border-bottom: 1px solid; ">
+…
+</th>
+<th style="text-align:left;border-bottom: 1px solid; ">
+Spalte <span class="math inline">\(\ell\)</span>
+</th>
+<th style="text-align:left;border-bottom: 1px solid; ">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;border-right:1px solid;">
+Zeile 1
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(n_{11}\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(n_{12}\)</span>
+</td>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<span class="math inline">\(n_{1\ell}\)</span>
+</td>
+<td style="text-align:left;font-weight: bold;">
+<span class="math inline">\(n_{1\cdot}\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;border-right:1px solid;">
+Zeile 2
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(n_{21}\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(n_{22}\)</span>
+</td>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:left;border-right:1px solid;">
+<span class="math inline">\(n_{2\ell}\)</span>
+</td>
+<td style="text-align:left;font-weight: bold;">
+<span class="math inline">\(n_{2\cdot}\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;border-right:1px solid;">
+…
+</td>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:left;border-right:1px solid;">
+…
+</td>
+<td style="text-align:left;font-weight: bold;">
+…
+</td>
+</tr>
+<tr>
+<td style="text-align:left;border-bottom: 1px solid; font-weight: bold;border-right:1px solid;">
+Zeile <span class="math inline">\(k\)</span>
+</td>
+<td style="text-align:left;border-bottom: 1px solid; ">
+<span class="math inline">\(n_{k1}\)</span>
+</td>
+<td style="text-align:left;border-bottom: 1px solid; ">
+<span class="math inline">\(n_{k2}\)</span>
+</td>
+<td style="text-align:left;border-bottom: 1px solid; ">
+…
+</td>
+<td style="text-align:left;border-bottom: 1px solid; border-right:1px solid;">
+<span class="math inline">\(n_{k\ell}\)</span>
+</td>
+<td style="text-align:left;border-bottom: 1px solid; font-weight: bold;">
+<span class="math inline">\(n_{k\cdot}\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;font-weight: bold;border-right:1px solid;">
+</td>
+<td style="text-align:left;font-weight: bold;">
+<span class="math inline">\(n_{\cdot1}\)</span>
+</td>
+<td style="text-align:left;font-weight: bold;">
+<span class="math inline">\(n_{\cdot2}\)</span>
+</td>
+<td style="text-align:left;font-weight: bold;">
+…
+</td>
+<td style="text-align:left;font-weight: bold;border-right:1px solid;">
+<span class="math inline">\(n_{\cdot\ell}\)</span>
+</td>
+<td style="text-align:left;font-weight: bold;font-weight: bold;">
+<span class="math inline">\(n\)</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="erwartungswerte" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> Erwartungswerte<a href="kreuztabellen.html#erwartungswerte" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Bestünde <em>kein</em> Zusammenhang zwischen den Variablen, dann wäre zu erwarten, dass sich die Kombinationen gleichmäßig auf die Tabellenfelder aufteilen, und zwar ausgehend von den Teilsummen für die Zeilen und Spalten.</p>
+<p>Der Erwartungswert für ein Tabellenfeld (also der <q>durchschnittliche</q> Wert, wenn es keinen Zusammenhang zwischen den beiden Variablen gibt) berechnet sich durch die Formel:</p>
+<p><span class="math display" id="eq:m">\[
+m_{ij}=\frac{n_{i\cdot}\cdot n_{\cdot j}}{n}
+\tag{9.1}
+\]</span></p>
+<p>Es wird also das Produkt der Zeilen- und der Spaltensumme geteilt durch die Gesamtsumme.</p>
+<div id="beispiel-31" class="section level3 hasAnchor" number="9.3.1">
+<h3><span class="header-section-number">9.3.1</span> Beispiel<a href="kreuztabellen.html#beispiel-31" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Die beobachtete Häufigkeit für die Kombination <q>Geistes-/Sozialwissenschaft</q> (Zeile 1) und <q>anderes Transportmittel</q> (Spalte 2) ist 28. Aber was wäre der Erwartungswert bei den gegebenen Summen? Wir setzen einfach die entsprechenden Werte in Gleichung <a href="kreuztabellen.html#eq:m">(9.1)</a> ein:</p>
+<p><span class="math display">\[
+\begin{aligned}
+m_{12}&amp;=\frac{n_{1\cdot}\cdot n_{\cdot 2}}{n}\\[5pt]
+&amp;=\frac{39\cdot 70}{90}\\[4pt]
+&amp;\approx 30{,}33
+\end{aligned}
+\]</span></p>
+<p>Diese Rechnung lässt sich für alle Tabellenfelder durchführen. Die Kreuztabelle kann dann um diese erwarteten Werte in Klammern ergänzt werden (s. Tabelle <a href="kreuztabellen.html#tab:expected">9.4</a>).</p>
+<div style="overflow-y: auto;">
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:expected">Tabelle 9.4: </span>Kreuztabelle der Beispieldaten mit Erwartungswerten
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;border-bottom: 1px solid; ">
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+Fahrrad
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+anderes Transportmittel
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Geistes-/Sozialwissenschaft
+</td>
+<td style="text-align:right;">
+11<br>(8,67)
+</td>
+<td style="text-align:right;border-right:1px solid;">
+28<br>(30,33)
+</td>
+<td style="text-align:right;font-weight: bold;">
+39
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-bottom: 1px solid; font-weight: bold;border-right:1px solid;">
+anderes Studienfach
+</td>
+<td style="text-align:right;border-bottom: 1px solid; ">
+9<br>(11,33)
+</td>
+<td style="text-align:right;border-bottom: 1px solid; border-right:1px solid;">
+42<br>(39,67)
+</td>
+<td style="text-align:right;border-bottom: 1px solid; font-weight: bold;">
+51
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;font-weight: bold;border-right:1px solid;">
+</td>
+<td style="text-align:right;font-weight: bold;">
+20
+</td>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+70
+</td>
+<td style="text-align:right;font-weight: bold;font-weight: bold;">
+90
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="kontingenzkoeffizent-𝜒²" class="section level2 hasAnchor" number="9.4">
+<h2><span class="header-section-number">9.4</span> Kontingenzkoeffizent 𝜒²<a href="kreuztabellen.html#kontingenzkoeffizent-𝜒²" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Sind für alle Tabellenfelder die Beobachtungs- und Erwartungswerte gegeben, lässt sich für jedes Tabellenfeld ein Wert berechnen, der diese Werte in Relation setzt. Die Summe dieser Werte über die gesamte Tabelle hinweg wird Kontingenzkoeffizient genannt und mit <span class="math inline">\(\chi^2\)</span> (<q>Chi-Quadrat</q>) abgekürzt.</p>
+<p><span class="math display" id="eq:chisq">\[
+\chi^2= \sum_{i=1}^{k}\sum_{j=1}^{\ell}\frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}
+\tag{9.2}
+\]</span></p>
+<p>Bei der Formel steht <span class="math inline">\(k\)</span> wieder für die Anzahl der Zeilen (und <span class="math inline">\(i\)</span> für ihre laufende Nummer) und <span class="math inline">\(\ell\)</span> für die Anzahl der Spalten (und <span class="math inline">\(j\)</span> für ihre laufende Nummer).</p>
+<p>Das doppelte Summenzeichen mag etwas verwirrend sein, bedeutet aber nur, dass die Zeilen spaltenweise summiert werden, und dann die Summe dieser Zeilensumme genommen wird – d.h. dass einfach alle Tabellenfelder aufsummiert werden.</p>
+<p>Der <span class="math inline">\(\chi^2\)</span>-Wert kann (ähnlich wie der <span class="math inline">\(F\)</span>-Wert aus <a href="testverfahren-mit-zwei-stichproben.html#die-f-verteilung">Sitzung 6</a>) nur positive Werte annehmen. Er bildet die Grundlage für die im Folgenden besprochenen Kennwerte <span class="math inline">\(\phi\)</span> und <span class="math inline">\(\mathit{CI}\)</span> sowie für den in <a href="chi-quadrat-tests.html">Sitzung 10</a> zu besprechenden <span class="math inline">\(\chi^2\)</span>-Test.</p>
+<div id="beispiel-32" class="section level3 hasAnchor" number="9.4.1">
+<h3><span class="header-section-number">9.4.1</span> Beispiel<a href="kreuztabellen.html#beispiel-32" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ein möglicher Zwischenschritt ist es, diese Teilwerte von <span class="math inline">\(\chi^2\)</span> für die einzelnen Tabellenfelder auszurechnen und in der Kreuztabelle zu notieren. Die Teilwerte werden dann für jedes Tabellenfeld mit der Formel</p>
+<p><span class="math display" id="eq:contrib">\[
+\frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}
+\tag{9.3}
+\]</span></p>
+<p>berechnet und sind in Tabelle <a href="kreuztabellen.html#tab:radchisq">9.5</a> in blau dargestellt.</p>
+<div style="overflow-y: auto;">
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:radchisq">Tabelle 9.5: </span>Kreuztabelle der Beispieldaten mit Teilwerten für <span class="math inline">\(\chi^2\)</span>
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;border-bottom: 1px solid; ">
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+Fahrrad
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+anderes Transportmittel
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Geistes-/Sozialwissenschaft
+</td>
+<td style="text-align:right;">
+11<br>(8,67)<br><span class="blue-text">0,626</span>
+</td>
+<td style="text-align:right;border-right:1px solid;">
+28<br>(30,33)<br><span class="blue-text">0,179</span>
+</td>
+<td style="text-align:right;font-weight: bold;">
+39
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-bottom: 1px solid; font-weight: bold;border-right:1px solid;">
+anderes Studienfach
+</td>
+<td style="text-align:right;border-bottom: 1px solid; ">
+9<br>(11,33)<br><span class="blue-text">0,479</span>
+</td>
+<td style="text-align:right;border-bottom: 1px solid; border-right:1px solid;">
+42<br>(39,67)<br><span class="blue-text">0,137</span>
+</td>
+<td style="text-align:right;border-bottom: 1px solid; font-weight: bold;">
+51
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;font-weight: bold;border-right:1px solid;">
+</td>
+<td style="text-align:right;font-weight: bold;">
+20
+</td>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+70
+</td>
+<td style="text-align:right;font-weight: bold;font-weight: bold;">
+90
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Zum Beispiel ergibt sich der Teilwert für <span class="math inline">\(\chi^2\)</span> für die Kombination <q>anderes Studienfach</q> – <q>Fahrrad</q> durch Einsetzen in Gleichung <a href="kreuztabellen.html#eq:contrib">(9.3)</a>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{(n_{21}-m_{21})^{2}}{m_{21}} &amp;\approx \frac{(9-11{,}33)^2}{11{,}33}\\
+&amp;=\frac{-2{,}33^2}{11{,}33}\\
+&amp;\approx\frac{5{,}43}{11{,}33}\\
+&amp;\approx0{,}479
+\end{aligned}
+\]</span></p>
+<p>Der <span class="math inline">\(\chi^2\)</span>-Wert lässt sich nun bestimmen, indem diese Teilwerte aufsummiert werden:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\chi^2&amp;= \sum_{i=1}^{k}\sum_{j=1}^{\ell}\frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}\\[4pt]
+&amp;\approx 0{,}626 + 0{,}179 + 0{,}479 + 0{,}137\\
+&amp; =1{,}421
+\end{aligned}
+\]</span></p>
+<p>Mit diesem Wert <span class="math inline">\(\chi^2\approx1{,}421\)</span> können wir noch nicht so viel anfangen – wir wissen aber, dass er ein Maß dafür ist, wie sehr unsere beobachtete Verteilung von einer zu erwarteten Verteilung (vorausgesetzt, es gibt keinen Zusammenhang) abweicht.</p>
+</div>
+</div>
+<div id="𝜙-koeffizient" class="section level2 hasAnchor" number="9.5">
+<h2><span class="header-section-number">9.5</span> 𝜙-Koeffizient<a href="kreuztabellen.html#𝜙-koeffizient" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Der <span class="math inline">\(\phi\)</span>-Koeffizient ist der Korrelationskoeffizient für zwei dichotome Variablen (wobei er in der hier besprochenen Version nur positive Werte annehmen kann). Er ist jedoch <em>nicht</em> ohne weiteres mit dem Korrelationskoeffizienten <span class="math inline">\(r\)</span> (aus <a href="korrelation.html#korrelationskoeffizient">Sitzung 7</a>) vergleichbar.</p>
+<p>Der Wert für <span class="math inline">\(\phi\)</span> kann aus <span class="math inline">\(\chi^2\)</span> berechnet werden mit:</p>
+<p><span class="math display" id="eq:phi">\[
+\phi=\sqrt{\frac{\chi^2}{n}}
+\tag{9.4}
+\]</span></p>
+<div id="beispiel-33" class="section level3 hasAnchor" number="9.5.1">
+<h3><span class="header-section-number">9.5.1</span> Beispiel<a href="kreuztabellen.html#beispiel-33" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In unserem Beispiel ergibt sich also für <span class="math inline">\(\phi\)</span> durch Einsetzung in Gleichung <a href="kreuztabellen.html#eq:phi">(9.4)</a>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\phi&amp;=\sqrt{\frac{\chi^2}{n}}\\[6pt]
+    &amp;\approx\sqrt{\frac{1{,}421}{90}}\\[4pt]
+    &amp;\approx0{,}126
+\end{aligned}
+\]</span></p>
+<p>Es wird ersichtlich, dass es eine leichte Korrelation der Variablen gibt. Aber in welche Richtung? Dafür müssen wir auf die Kreuztabelle <a href="kreuztabellen.html#tab:radchisq">9.5</a> blicken: Der beobachtete Wert für die Wertekombination <q>Fahrrad</q> und <q>Geistes-/Sozialwissenschaft</q> beträgt <span class="math inline">\(n_{11}=11\)</span> und liegt über dem Erwartungswert <span class="math inline">\(m_{11}=8{,}67\)</span>. Damit ist klar: Das Studium von Geistes- und Sozialwissenschaften korreliert <em>positiv</em> mit der Fahrradnutzung für den Pendelweg.</p>
+<p>Ob diese Korrelation auch statistisch relevant ist, kann mit dem <span class="math inline">\(\chi^2\)</span>-Test (<a href="chi-quadrat-tests.html">Sitzung 10</a>) überprüft werden.</p>
+</div>
+</div>
+<div id="cramér-index" class="section level2 hasAnchor" number="9.6">
+<h2><span class="header-section-number">9.6</span> Cramér-Index<a href="kreuztabellen.html#cramér-index" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Bisher wurden in dieser Sitzung nur Verteilungen von zwei dichotomen Variablen besprochen. Nun gibt es aber auch nominalskalierte bivariate Verteilungen, in denen die Merkmale mehr als zwei Werte annehmen können (also nicht dichotom sind). In diesem Fall ist der Cramér-Index (auch Cramérs <span class="math inline">\(v\)</span>, engl. <em>Cramér index</em>) ein geeigneter Kennwert für die Abhängigkeit der Variablen.</p>
+<p>Die Formel für den Cramér-Index lautet</p>
+<p><span class="math display" id="eq:ci">\[
+\mathit{CI}=\sqrt{\frac{\chi^2}{n\cdot (\mathrm{min}(k, \ell)-1)}}
+\tag{9.5}
+\]</span></p>
+<p>wobei der Ausdruck <span class="math inline">\(\mathrm{min}(k,\ell)\)</span> für den <em>kleineren</em> Wert aus Zeilenanzahl <span class="math inline">\(k\)</span> und Spaltenanzahl <span class="math inline">\(\ell\)</span> steht.</p>
+<p>In einer <span class="math inline">\(2\times2\)</span>-Tabelle ist dieser Wert identisch mit dem <span class="math inline">\(\phi\)</span>-Koeffizienten.</p>
+<div id="beispiel-34" class="section level3 hasAnchor" number="9.6.1">
+<h3><span class="header-section-number">9.6.1</span> Beispiel<a href="kreuztabellen.html#beispiel-34" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Hätten wir im Beispiel die Erhebung nicht auf dichotome Variablen reduziert, sondern die Wissenschaftsdisziplinen und Verkehrsmittel direkt erhoben, so würde sich die Kreuztabelle vielleicht wie in Tabelle <a href="kreuztabellen.html#tab:ci">9.6</a> darstellen.</p>
+<p>Dabei werden die Erwartungswerte wie gehabt mit Gleichung <a href="kreuztabellen.html#eq:m">(9.1)</a> und die Teilwerte für <span class="math inline">\(\chi^2\)</span> mit Gleichung <a href="kreuztabellen.html#eq:contrib">(9.3)</a> errechnet.</p>
+<div style="overflow-y: auto;">
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:ci">Tabelle 9.6: </span>Kreuztabelle des Beispiels ohne Dichotomisierung
+</caption>
+<thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="3">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+→ Transportmittel
+</div>
+</th>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
+</th>
+</tr>
+<tr>
+<th style="text-align:right;border-bottom: 1px solid; ">
+Studienfach ↓
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+Fahrrad
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+Auto
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+Öffentliche
+</th>
+<th style="text-align:right;border-bottom: 1px solid; ">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Geisteswissenschaft
+</td>
+<td style="text-align:right;">
+5<br>(4,22)<br><span class="blue-text">0,144</span>
+</td>
+<td style="text-align:right;">
+5<br>(8,02)<br><span class="blue-text">1,137</span>
+</td>
+<td style="text-align:right;border-right:1px solid;">
+9<br>(6,76)<br><span class="blue-text">0,742</span>
+</td>
+<td style="text-align:right;font-weight: bold;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Sozialwissenschaft
+</td>
+<td style="text-align:right;">
+6<br>(4,44)<br><span class="blue-text">0,548</span>
+</td>
+<td style="text-align:right;">
+6<br>(8,44)<br><span class="blue-text">0,705</span>
+</td>
+<td style="text-align:right;border-right:1px solid;">
+8<br>(7,11)<br><span class="blue-text">0,111</span>
+</td>
+<td style="text-align:right;font-weight: bold;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Naturwissenschaft
+</td>
+<td style="text-align:right;">
+5<br>(5,11)<br><span class="blue-text">0,002</span>
+</td>
+<td style="text-align:right;">
+9<br>(9,71)<br><span class="blue-text">0,052</span>
+</td>
+<td style="text-align:right;border-right:1px solid;">
+9<br>(8,18)<br><span class="blue-text">0,082</span>
+</td>
+<td style="text-align:right;font-weight: bold;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-bottom: 1px solid; font-weight: bold;border-right:1px solid;">
+Ingenieurswissenschaft
+</td>
+<td style="text-align:right;border-bottom: 1px solid; ">
+4<br>(6,22)<br><span class="blue-text">0,792</span>
+</td>
+<td style="text-align:right;border-bottom: 1px solid; ">
+18<br>(11,82)<br><span class="blue-text">3,231</span>
+</td>
+<td style="text-align:right;border-bottom: 1px solid; border-right:1px solid;">
+6<br>(9,96)<br><span class="blue-text">1,574</span>
+</td>
+<td style="text-align:right;border-bottom: 1px solid; font-weight: bold;">
+28
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;font-weight: bold;border-right:1px solid;">
+</td>
+<td style="text-align:right;font-weight: bold;">
+20
+</td>
+<td style="text-align:right;font-weight: bold;">
+38
+</td>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+32
+</td>
+<td style="text-align:right;font-weight: bold;font-weight: bold;">
+90
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Der <span class="math inline">\(\chi^2\)</span>-Wert ergibt sich wieder aus der Summe (s. Gleichung <a href="kreuztabellen.html#eq:chisq">(9.2)</a>):</p>
+<p><span class="math display">\[
+\begin{aligned}
+\chi^2&amp;= \sum_{i=1}^{k}\sum_{j=1}^{\ell}\frac{(n_{ij}-m_{ij})^{2}}{m_{ij}}\\[4pt]
+&amp;\approx 0{,}144+1{,}137+0{,}742+0{,}548+0{,}705+0{,}111\\&amp;\quad+0{,}002+0{,}052+0{,}082+0{,}792+3{,}231+1{,}574 \\
+&amp; =9{,}120
+\end{aligned}
+\]</span></p>
+<p>Mit diesem Wert kann der Cramér-Index anhand von Gleichung <a href="kreuztabellen.html#eq:ci">(9.5)</a> berechnet werden.</p>
+<p>Die Zeilenanzahl ist <span class="math inline">\(k=4\)</span> und die Spaltenanzahl <span class="math inline">\(\ell=3\)</span>. Der Ausdruck <span class="math inline">\(\mathrm{min}(k,\ell)\)</span> ergibt den kleineren dieser Werte, also 3:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathit{CI}&amp;=\sqrt{\frac{\chi^2}{n\cdot (\mathrm{min}(k, \ell)-1)}}\\[6pt]
+&amp;\approx\sqrt{\frac{9{,}122}{90\cdot(3-1)}}\\[4pt]
+&amp;\approx0{,}225
+\end{aligned}
+\]</span></p>
+<p>Dieser Wert ist größer als der oben berechnete <span class="math inline">\(\phi\)</span>-Koeffizient. Das ist nicht besonders überraschend: Eine detailliertere Erfassung der Variablen führt zu einem deutlicheren Zusammenhang.</p>
+</div>
+</div>
+<div id="tipps-zur-vertiefung-8" class="section level2 unnumbered hasAnchor">
+<h2>Tipps zur Vertiefung<a href="kreuztabellen.html#tipps-zur-vertiefung-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Kapitel 9.1, 10.3.4 und 10.3.7 in <span class="citation">Bortz und Schuster (<a href="#ref-bortz" role="doc-biblioref">2010</a>)</span></li>
+<li>Kapitel 4.2.2 – 4.2.3 in <span class="citation">Lange und Nipper (<a href="#ref-delange" role="doc-biblioref">2018</a>)</span></li>
+<li>Kapitel 6.7.2 in <span class="citation">Bahrenberg, Giese und Nipper (<a href="#ref-bahrenberg" role="doc-biblioref">2010</a>)</span></li>
+<li>Kapitel 2.3 in <span class="citation">Klemm (<a href="#ref-klemm" role="doc-biblioref">2002</a>)</span></li>
+<li><em>Englisch:</em> Kapitel 12.2 in <span class="citation">Burt und Barber (<a href="#ref-burt" role="doc-biblioref">1996</a>)</span></li>
 </ul>
 
-</div>
-<div id="übungsaufgaben-3" class="section level2 unnumbered hasAnchor">
-<h2>Übungsaufgaben<a href="schätzstatistik.html#übungsaufgaben-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Die folgenden Aufgaben sind zur eigenständigen Überprüfung Ihrer Lernleistung gedacht (als Vor- oder Nachbereitung der Vorlesung, oder als Klausurübung) und nicht etwa als Hausaufgabe.</p>
-<div id="aufgabe-4-1" class="section level3 hasAnchor" number="4.3.4">
-<h3><span class="header-section-number">4.3.4</span> Aufgabe 4-1<a href="schätzstatistik.html#aufgabe-4-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><a href="lösungen-der-übungsaufgaben.html#loesung-4-1">zur Lösung</a></p>
-<p>Eine Messreihe habe die Werte:</p>
-<pre><code>165  173  155  179  158  142</code></pre>
-<ol style="list-style-type: lower-alpha">
-<li>Führen Sie eine Punktschätzung für <span class="math inline">\(\mu\)</span> und <span class="math inline">\(\sigma\)</span> der Grundgesamtheit durch.</li>
-<li>Welcher Standardfehler für <span class="math inline">\(\bar{x}\)</span> ist zu erwarten?</li>
-</ol>
-</div>
-<div id="aufgabe-4-2" class="section level3 hasAnchor" number="4.3.5">
-<h3><span class="header-section-number">4.3.5</span> Aufgabe 4-2<a href="schätzstatistik.html#aufgabe-4-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><a href="lösungen-der-übungsaufgaben.html#loesung-4-2">zur Lösung</a></p>
-<p>Die Sonnenstunden auf einer Ferieninsel (pro Tag, im Jahresdurschnitt) sind annähernd normalverteilt mit einer Standardabweichung von vier Minuten. Der Mittelwert <span class="math inline">\(\mu\)</span> ist unbekannt, es liegen neun Messwerte vor.</p>
-<ol style="list-style-type: lower-alpha">
-<li>Welcher Standardfehler für <span class="math inline">\(\bar{x}\)</span> ist zu erwarten?</li>
-<li>Welche Konfidenzintervallbreite korrespondiert mit einem Konfidenzniveau von 95%?</li>
-<li>Mit welchem Konfidenzniveau lässt sich <span class="math inline">\(\mu\)</span> <q>auf die Minute genau</q> (± 30 Sekunden) schätzen?</li>
-<li>Welche Stichprobengröße ist nötig um den Mittelwert mit einer Konfidenzintervallbreite von zwei Minuten und -niveau von 90% zu schätzen?</li>
-</ol>
-</div>
-<div id="aufgabe-4-3" class="section level3 hasAnchor" number="4.3.6">
-<h3><span class="header-section-number">4.3.6</span> Aufgabe 4-3<a href="schätzstatistik.html#aufgabe-4-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><a href="lösungen-der-übungsaufgaben.html#loesung-4-3">zur Lösung</a></p>
-<p>Sie intressieren sich für das Durchschnittseinkommen (in EUR) der Haushalte eines Stadtteils. Die Varianz ist mit <span class="math inline">\(\sigma^2=4096\)</span> bekannt. Eine Zufallsstichprobe von 40 befragten Haushalten weist einen Mittelwert von <span class="math inline">\(\bar{x}=2650\)</span> auf.</p>
-<ol style="list-style-type: lower-alpha">
-<li>Wie lautet das 90%-Konfidenzintervall?</li>
-<li>Mit welcher Wahrscheinlichkeit liegt das Durchschnittseinkommen zwischen 2640 und 2660 EUR?</li>
-</ol>
-</div>
-<div id="aufgabe-4-4" class="section level3 hasAnchor" number="4.3.7">
-<h3><span class="header-section-number">4.3.7</span> Aufgabe 4-4<a href="schätzstatistik.html#aufgabe-4-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><a href="lösungen-der-übungsaufgaben.html#loesung-4-4">zur Lösung</a></p>
-<p>Es sei bekannt, dass die Lieferzeit eines Bauteils aus Übersee annähernd normalverteilt ist mit einer Standardabweichung von 11,5 Tagen.</p>
-<p>Bei sieben Bestellvorgängen werden folgende Lieferzeiten festgestellt (in Tagen):</p>
-<p><span class="math display">\[116{,}5\quad 94{,}5\quad101{,}5\quad109{,}0\quad125{,}0\quad112{,}5\quad100{,}5\]</span></p>
-<p>Sie interessieren sich für die tatsächliche durchschnittliche Lieferzeit, von der Sie auch in Zukunft ausgehen können.</p>
-<ol style="list-style-type: lower-alpha">
-<li>Berechnen Sie das arithmetische Mittel der beobachteten Werte für die Lieferzeit.</li>
-<li>Was ist der Standardfehler für die Stichprobenverteilung von <span class="math inline">\(\bar{x}\)</span>?</li>
-<li>Zwischen welchen Werten liegt die tatsächliche durchschnittliche Lieferzeit mit 95% Wahrscheinlichkeit?</li>
-<li>Wie viele zusätzliche Messungen müssten Sie vornehmen, um den tatsächlichen Mittelwert im selben Wertebereich zu 99% verorten zu können?</li>
-</ol>
-
-</div>
 </div>
 </div>
 <h3>Quellenverzeichnis<a href="quellenverzeichnis.html#quellenverzeichnis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1010,19 +1334,13 @@ Klemm, Elmar. 2002. <em>Einführung in die Statistik. Für die Sozialwissenschaf
 Lange, Norbert de und Josef Nipper. 2018. <em>Quantitative Methodik in der Geographie</em>. <span>UTB</span> Geographie, Methoden, Statistische Verfahren 4933. Paderborn: Ferdinand Schöningh.
 </div>
 </div>
-<div class="footnotes">
-<hr />
-<ol start="3">
-<li id="fn3"><p>Genau genommen ist das nicht ganz korrekt, <q>denn tatsächlich kann der Parameter nur innerhalb oder außerhalb des gefundenen Bereichs liegen. Die Wahrscheinlichkeit, dass ein Parameter in einen bestimmten Bereich fällt, ist damit entweder 0 oder 1.</q> <span class="citation">(<a href="#ref-bortz" role="doc-biblioref">Bortz und Schuster 2010</a>: 93)</span>. Mathematisch korrekt müsste es heißen: <q>Die Wahrscheinlichkeit, dass <span class="math inline">\(\bar{x}\)</span> zu einer Population gehört, deren Parameter <span class="math inline">\(\mu\)</span> in diesem Bereich liegt…</q><a href="schätzstatistik.html#fnref3" class="footnote-back">↩︎</a></p></li>
-</ol>
-</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="z-werte-und-normalverteilung.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="grundlagen-der-teststatistik.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="lineare-regression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="formeln.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

@@ -26,8 +26,8 @@ rmd_files:
   - 07_Korrelation.Rmd
   - 07_Aufgaben.Rmd
   - 08_Lineare_Regression.Rmd
-  # - 08_Aufgaben.Rmd
-  # - 09_Kreuztabellen.Rmd
+  - 08_Aufgaben.Rmd
+  - 09_Kreuztabellen.Rmd
   # - 09_Aufgaben.Rmd
   # - 10_Chi-Quadrat-Tests.Rmd
   # - 10_Aufgaben.Rmd
@@ -39,7 +39,7 @@ rmd_files:
   - 05_Loesungen.Rmd
   - 06_Loesungen.Rmd
   - 07_Loesungen.Rmd
-  # - 08_Loesungen.Rmd
+  - 08_Loesungen.Rmd
   # - 09_Loesungen.Rmd
   # - 10_Loesungen.Rmd
   - Quellen.Rmd
