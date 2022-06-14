@@ -160,7 +160,7 @@ b)
       "Formel", pred$formel,
       "Einsetzen", pred$einsetzen,
       "Ergenbis", pred$ergebnis,
-      "Antwortsatz", sprintf("Der Quadradmeterpreis für die Immoblie beträgt laut Modell %s.", pred$raw)
+      "Antwortsatz", sprintf("Der Quadradmeterpreis für die Immoblie beträgt laut Modell %s €.", pred$raw)
     ) %>%
       tabelle(hold = T)
     ```
