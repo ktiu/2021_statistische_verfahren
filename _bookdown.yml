@@ -30,7 +30,7 @@ rmd_files:
   - 09_Kreuztabellen.Rmd
   - 09_Aufgaben.Rmd
   - 10_Chi-Quadrat-Tests.Rmd
-  # - 10_Aufgaben.Rmd
+  - 10_Aufgaben.Rmd
   - Formelsammlung.Rmd
   - 01_Loesungen.Rmd
   - 02_Loesungen.Rmd
@@ -41,5 +41,5 @@ rmd_files:
   - 07_Loesungen.Rmd
   - 08_Loesungen.Rmd
   - 09_Loesungen.Rmd
-  # - 10_Loesungen.Rmd
+  - 10_Loesungen.Rmd
   - Quellen.Rmd
