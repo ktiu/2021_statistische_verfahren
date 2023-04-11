@@ -1,7 +1,5 @@
 # Vorbesprechung {-}
 
-<!-- [Aufzeichung der Vorbesprechung am 12. April](https://video01.uni-frankfurt.de/Mediasite/Play/c5c5115e37f948d0bfeb9610d18427661d) -->
-
 ### Lernziele der Veranstaltung {-}
 
 Sie können...
@@ -16,6 +14,7 @@ Sie können...
 
 - Die gesamte Veranstaltung dient als Klausurvorbereitung
 - Die selbständige Anwendung der Verfahren steht im Vordergrund
+- Veranstaltung folgt dem [Flipped-Classroom-Konzept](https://de.wikipedia.org/wiki/Umgedrehter_Unterricht)
 
 ### Sitzungsvorbereitung {-}
 
@@ -27,20 +26,17 @@ Sie können...
 
 ### Sitzungsablauf {-}
 
-- Dienstags, 14 h c.&nbsp;t..
-  - Sitzung 1 auf Zoom (Link in OLAT)
-  - Folgende Sitzungen in HZ10
+- Dienstags, 14 h c. t. in HZ10
 - Übungsaufgaben (und Lösungen) werden online bereit gestellt
-- Teilnehmer\*innen bearbeiten die Aufgaben in Break-Out-Sessions bzw. Kleingruppen
+- Teilnehmer\*innen bearbeiten die Aufgaben in Kleingruppen
 - Bei Problemen fragen Sie sich erst mal gegenseitig
-- Sonst bin ich ansprechbar (Melden oder Zoom-Funktion: Um Hilfe bitten)
+- Sonst bin ich immer ansprechbar
 
 ### Empfehlungen {-}
 
 - Lassen Sie sich auf den wöchentlichen Rhythmus ein
 - Bereiten Sie die Sitzungen vor und nach
 - Bilden Sie Lerngruppen
-<!-- - Melden Sie mir gerne Break-Out-Wünsche per E-Mail -->
 - Gleichen Sie in Lerngruppen Ihre Ziele ab
 - Machen Sie sich mit Ihrem Taschenrechner vertraut
 

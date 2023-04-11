@@ -8,7 +8,7 @@ author:
     affiliation: |
       | Institut für Humangeographie
       | Goethe-Universität Frankfurt
-date: Sommersemester 2022
+date: Sommersemester 2023
 site: bookdown::bookdown_site
 lang: de
 documentclass: report
@@ -146,18 +146,17 @@ counter <- list(sitzung = 0, aufgabe = 0)
 
 Datum                 | Sitzung | Inhalt                                                                   | Ort
 --------------------: | -----:  | :-----------------------------------                                     | :-----
-12. April 2022        |         | [Vorbesprechung]                                                         | Zoom
-19. April 2022        | 1       | [Datenerhebung und Häufigkeiten]                                         | Zoom
-26. April 2022        | 2       | [Maßzahlen]                                                              | HZ10
-3. Mai 2022           | 3       | [$z$-Werte und Normalverteilung](#z-werte-und-normalverteilung)          | Zoom
-10. Mai 2022          | 4       | [Schätzstatistik]                                                        | HZ10
-17. Mai 2022          | 5       | [Grundlagen der Teststatistik]                                           | HZ10
-24. Mai 2022          | 6       | [Testverfahren mit zwei Stichproben]                                     | HZ10
-31. Mai 2022          | 7       | [Korrelation]                                                            | HZ10
-7. Juni 2022          |         | *entfällt*
-14. Juni 2022         | 8       | [Lineare Regression]                                                     | HZ10
-21. Juni 2022         | 9       | [Kreuztabellen]                                                          | HZ10
-28. Juni 2022         | 10      | [$\chi^2$-Tests](#chi-quadrat-tests)                                     | HZ10
-5. Juli 2022          |         | Klausurvorbereitung                                                      | HZ10
-12. Juli 2022         |         | Klausur (14h s. t.)                                                      | H IV
-11. Oktober 2022      |         | Nachklausur (14h s. t.)                                                  | 1.G191
+11. April 2023        |         | [Vorbesprechung]                                                         | HZ10
+18. April 2023        | 1       | [Datenerhebung und Häufigkeiten]                                         | HZ10
+25. April 2023        | 2       | [Maßzahlen]                                                              | HZ10
+2. Mai 2023           | 3       | [$z$-Werte und Normalverteilung]<!--(#z-werte-und-normalverteilung)-->   | HZ10
+9. Mai 2023           | 4       | [Schätzstatistik]                                                        | HZ10
+16. Mai 2023          | 5       | [Grundlagen der Teststatistik]                                           | HZ10
+23. Mai 2023          | 6       | [Testverfahren mit zwei Stichproben]                                     | HZ10
+30. Mai 2023          | 7       | [Korrelation]                                                            | HZ10
+6. Juni 2023          | 8       | [Lineare Regression]                                                     | HZ10
+13. Juni 2023         | 9       | [Kreuztabellen]                                                          | HZ10
+20. Juni 2023         | 10      | [$\chi^2$-Tests]<!--(#chi-quadrat-tests)-->                              | HZ10
+27. Juni 2023         |         | Klausurvorbereitung                                                      | HZ10
+4. Juli 2023          |         | Klausur (14h s. t.)                                                      | TBA
+10. Oktober 2023      |         | Nachklausur (14h s. t.)                                                  | TBA
