@@ -158,5 +158,5 @@ Datum                 | Sitzung | Inhalt                                        
 13. Juni 2023         | 9       | [Kreuztabellen]                                                          | HZ10
 20. Juni 2023         | 10      | [$\chi^2$-Tests]<!--(#chi-quadrat-tests)-->                              | HZ10
 27. Juni 2023         |         | Klausurvorbereitung                                                      | HZ10
-4. Juli 2023          |         | Klausur (14h s. t.)                                                      | TBA
+4. Juli 2023          |         | Klausur (14h s. t.)                                                      | H IV
 10. Oktober 2023      |         | Nachklausur (14h s. t.)                                                  | TBA
