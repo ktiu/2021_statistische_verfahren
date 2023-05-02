@@ -28,7 +28,7 @@ Im Rahmen dieser Veranstaltung soll Statistik als eine Zusammenstellung von Prak
 
 #### Untersuchungselement
 
-Untersuchungselemente (auch Untersuchungseinheiten, Merkmalsträger, bei Personen: Proband\*innen, engl. *sampling unit*) sind die individuellen Gegenstände empirischer Untersuchungen. Bei einer Hochrechnung zur Bundestagswahl ist dies z.B. eine befragte Wählerin.
+Untersuchungselemente (auch Untersuchungseinheiten, Merkmalsträger, bei Personen: Proband\*innen, engl. *sampling unit*) sind die individuellen Gegenstände empirischer Untersuchungen. Bei einer Hochrechnung zur Bundestagswahl ist dies z. B. eine befragte Wählerin.
 
 #### Stichprobe
 

@@ -132,6 +132,13 @@ variationskoeffizient-1
 z-transformation-1
 normalverteilung-1
 wahrscheinlichkeitsdichtefunktion
+aufgabe-3-1
+aufgabe-3-2
+aufgabe-3-3
+aufgabe-3-4
+aufgabe-3-5
+aufgabe-3-6
+aufgabe-3-7
 loesung-1-1
 loesung-1-2
 loesung-1-3
