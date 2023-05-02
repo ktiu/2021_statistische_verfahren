@@ -149,7 +149,7 @@ Datum                 | Sitzung | Inhalt                                        
 11. April 2023        |         | [Vorbesprechung]                                                         | HZ10
 18. April 2023        | 1       | [Datenerhebung und Häufigkeiten]                                         | HZ10
 25. April 2023        | 2       | [Maßzahlen]                                                              | HZ10
-2. Mai 2023           | 3       | [$z$-Werte und Normalverteilung]<!--(#z-werte-und-normalverteilung)-->   | HZ10
+2. Mai 2023           | 3       | [$z$-Werte und Normalverteilung](#z-werte-und-normalverteilung)          | HZ10
 9. Mai 2023           | 4       | [Schätzstatistik]                                                        | HZ10
 16. Mai 2023          | 5       | [Grundlagen der Teststatistik]                                           | HZ10
 23. Mai 2023          | 6       | [Testverfahren mit zwei Stichproben]                                     | HZ10

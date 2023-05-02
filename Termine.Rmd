@@ -7,7 +7,7 @@ Datum                 | Sitzung | Inhalt
 13. April 2021        |         | [Vorbesprechung]
 20. April 2021        | 1       | [Datenerhebung und Häufigkeiten]
 27. April 2021        | 2       | [Maßzahlen]
-4. Mai 2021           | 3       | [z-Werte und Normalverteilung]
+4. Mai 2021           | 3       | [$z$-Werte und Normalverteilung](#z-werte-und-normalverteilung)
 11. Mai 2021          | 4       | [Schätzstatistik]
 18. Mai 2021          | 5       | [Grundlagen der Teststatistik]
 25. Mai 2021          | 6       | [Testverfahren mit zwei Stichproben]

@@ -31,7 +31,7 @@ rmd_files:
   # - 09_Aufgaben.Rmd
   # - 10_Chi-Quadrat-Tests.Rmd
   # - 10_Aufgaben.Rmd
-  # - Formelsammlung.Rmd
+  - Formelsammlung.Rmd
   - 01_Loesungen.Rmd
   - 02_Loesungen.Rmd
   # - 03_Loesungen.Rmd
