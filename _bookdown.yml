@@ -36,7 +36,7 @@ rmd_files:
   - 02_Loesungen.Rmd
   - 03_Loesungen.Rmd
   - 04_Loesungen.Rmd
-  # - 05_Loesungen.Rmd
+  - 05_Loesungen.Rmd
   # - 06_Loesungen.Rmd
   # - 07_Loesungen.Rmd
   # - 08_Loesungen.Rmd
