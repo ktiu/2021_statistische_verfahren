@@ -300,6 +300,13 @@ beispiel-22
 fehlerarten
 fehler-1.-art
 fehler-2.-art
+aufgabe-6-1
+aufgabe-6-2
+aufgabe-6-3
+aufgabe-6-4
+aufgabe-6-5
+aufgabe-6-6
+aufgabe-6-7
 loesung-1-1
 loesung-1-2
 loesung-1-3
