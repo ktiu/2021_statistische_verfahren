@@ -23,7 +23,7 @@ rmd_files:
   - 05_Aufgaben.Rmd
   - 06_Testverfahren_mit_zwei_Stichproben.Rmd
   - 06_Aufgaben.Rmd
-  # - 07_Korrelation.Rmd
+  - 07_Korrelation.Rmd
   # - 07_Aufgaben.Rmd
   # - 08_Lineare_Regression.Rmd
   # - 08_Aufgaben.Rmd
@@ -37,7 +37,7 @@ rmd_files:
   - 03_Loesungen.Rmd
   - 04_Loesungen.Rmd
   - 05_Loesungen.Rmd
-  # - 06_Loesungen.Rmd
+  - 06_Loesungen.Rmd
   # - 07_Loesungen.Rmd
   # - 08_Loesungen.Rmd
   # - 09_Loesungen.Rmd
