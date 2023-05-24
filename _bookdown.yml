@@ -24,7 +24,7 @@ rmd_files:
   - 06_Testverfahren_mit_zwei_Stichproben.Rmd
   - 06_Aufgaben.Rmd
   - 07_Korrelation.Rmd
-  # - 07_Aufgaben.Rmd
+  - 07_Aufgaben.Rmd
   # - 08_Lineare_Regression.Rmd
   # - 08_Aufgaben.Rmd
   # - 09_Kreuztabellen.Rmd
