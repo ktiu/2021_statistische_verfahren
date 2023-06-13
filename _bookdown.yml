@@ -10,7 +10,7 @@ language:
 rmd_files:
   - index.Rmd
   - Vorbesprechung.Rmd
-  # - Klausur.Rmd
+  - Klausur.Rmd
   - 01_Datenerhebung_und_Haeufigkeiten.Rmd
   - 01_Aufgaben.Rmd
   - 02_Maßzahlen.Rmd
@@ -29,8 +29,8 @@ rmd_files:
   - 08_Aufgaben.Rmd
   - 09_Kreuztabellen.Rmd
   - 09_Aufgaben.Rmd
-  # - 10_Chi-Quadrat-Tests.Rmd
-  # - 10_Aufgaben.Rmd
+  - 10_Chi-Quadrat-Tests.Rmd
+  - 10_Aufgaben.Rmd
   - Formelsammlung.Rmd
   - 01_Loesungen.Rmd
   - 02_Loesungen.Rmd
