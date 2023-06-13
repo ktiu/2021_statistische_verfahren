@@ -483,3 +483,7 @@ loesung-8-2
 loesung-8-3
 loesung-8-4
 loesung-8-5
+loesung-9-1
+loesung-9-2
+loesung-9-3
+loesung-9-4

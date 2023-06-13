@@ -16,12 +16,12 @@ Aufgaben | Lösungen
 
 ### Termin {-}
 
-- Der Klausurtermin ist am 12. Juli 2022 um 14:00 Uhr s. t. -- also nicht Viertel nach!
+- Der Klausurtermin ist am 4. Juli 2023 um 14:00 Uhr s. t. -- also nicht Viertel nach!
 - Die Klausur findet in Hörsaal IV (Bockenheim) statt -- also nicht im regulären HZ10!
 
 ### Anmeldung {-}
 
-- Die administrative An- und Abmeldung für die Klausur ist bis einschließlich 5. Juli 2022 auf OLAT möglich.
+- Die administrative An- und Abmeldung für die Klausur ist bis einschließlich 27. Juni 2023 auf OLAT möglich.
 - "Administrativ" bedeutet hier,
   - dass sie notwendig ist um die Klausur zu schreiben,
   - dass sie zusätzlich zu etwaigen Anmeldungen gegenüber dem Prüfungsamt stattfinden muss, und
@@ -56,7 +56,7 @@ Aufgaben | Lösungen
 
 ### Nachklausur {-}
 
-- Termin: 11. Oktober 2022, 14 h s. t.
+- Termin: 10. Oktober 2022, 14 h s. t.
 - Gleiches Schema wie die reguläre Klausur (mit anderen Aufgaben)
 - Nicht einfacher als die reguläre Klausur
 - Zur Nachklausur ist administrativ angemeldet, wer

@@ -40,6 +40,6 @@ rmd_files:
   - 06_Loesungen.Rmd
   - 07_Loesungen.Rmd
   - 08_Loesungen.Rmd
-  # - 09_Loesungen.Rmd
+  - 09_Loesungen.Rmd
   # - 10_Loesungen.Rmd
   - Quellen.Rmd
