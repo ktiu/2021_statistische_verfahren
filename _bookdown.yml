@@ -1,4 +1,4 @@
-book_filename:      "Skript_Statistik_2021"
+book_filename:      "Skript_Statistik_2023"
 output_dir:         public
 delete_merged_file: true
 language:
@@ -41,5 +41,5 @@ rmd_files:
   - 07_Loesungen.Rmd
   - 08_Loesungen.Rmd
   - 09_Loesungen.Rmd
-  # - 10_Loesungen.Rmd
+  - 10_Loesungen.Rmd
   - Quellen.Rmd

@@ -109,9 +109,9 @@ library(extrafont)
 theme_goethe <- function() {
   target <- knitr::opts_knit$get("rmarkdown.pandoc.to")
   text <- ggplot2::element_text(size = 10)
-  if ((! is.null(target)) && target != "latex") {
-    text <- ggplot2::element_text(family = "Source Sans Pro", size = 10)
-  }
+  # if ((! is.null(target)) && target != "latex") {
+  #   text <- ggplot2::element_text(family = "Source Sans Pro", size = 10)
+  # }
   theme_classic() %+replace%
     theme(
       text = text,

@@ -516,3 +516,8 @@ loesung-9-1
 loesung-9-2
 loesung-9-3
 loesung-9-4
+loesung-10-1
+loesung-10-2
+loesung-10-3
+loesung-10-4
+loesung-10-5
