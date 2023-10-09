@@ -67,7 +67,7 @@ tribble(
   "Varianz: Ergebnis", var_a$ergebnis,
   "Standardabweichung: Formel", sd_a$formel,
   "Standardabweichung: Einsetzen", sd_a$einsetzen,
-  "Varianz: Ergebnis", sd_a$ergebnis
+  "Standardabweichung: Ergebnis", sd_a$ergebnis
 ) %>% tabelle(hold = T)
 ```
 
@@ -88,7 +88,7 @@ tribble(
   "Varianz: Ergebnis", var_b$ergebnis,
   "Standardabweichung: Formel", sd_b$formel,
   "Standardabweichung: Einsetzen", sd_b$einsetzen,
-  "Varianz: Ergebnis", sd_b$ergebnis
+  "Standardabweichung: Ergebnis", sd_b$ergebnis
 ) %>% tabelle(hold = T)
 ```
 
@@ -108,7 +108,7 @@ tribble(
   "Varianz: Ergebnis", var_c$ergebnis,
   "Standardabweichung: Formel", sd_c$formel,
   "Standardabweichung: Einsetzen", sd_c$einsetzen,
-  "Varianz: Ergebnis", sd_c$ergebnis
+  "Standardabweichung: Ergebnis", sd_c$ergebnis
 ) %>% tabelle(hold = T)
 ```
 
